@@ -393,4 +393,7 @@
     <string name="preferred_lte">"Enable 4G data only"</string>
     <string name="preferred_lte_summary">"When enable 4G data only, voice and SMS will not work"</string>
 
+    <!-- Permission for notification-bar network toggle -->
+    <string name="perm_change_mobile_network">change network mode (2G/3G)</string>
+    <string name="perm_change_mobile_network_desc">Allows the app to change between 2G data and 3G data at any time. 3G is faster, but consumes more battery and may cause additional cost.</string>
 </resources>
