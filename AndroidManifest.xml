@@ -648,6 +648,13 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".PhoneToggler" android:permission="com.android.phone.CHANGE_NETWORK_MODE">
+            <intent-filter>
+                <action android:name="com.android.internal.telephony.REQUEST_NETWORK_MODE" />
+                <action android:name="com.android.internal.telephony.MODIFY_NETWORK_MODE" />
+            </intent-filter>
+        </receiver>
+
         <!-- service to dump telephony information -->
         <service android:name="HfaService" android:exported="false"/>
 
@@ -755,4 +762,9 @@
           android:windowSoftInputMode="stateVisible|adjustResize">
           </activity>
     </application>
+
+    <permission android:name="com.android.phone.CHANGE_NETWORK_MODE"
+        android:label="@string/perm_change_mobile_network"
+        android:description="@string/perm_change_mobile_network_desc"
+        android:protectionLevel="signature|privileged" />
 </manifest>
