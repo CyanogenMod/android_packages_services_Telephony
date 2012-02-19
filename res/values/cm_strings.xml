@@ -71,4 +71,8 @@
     <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
     <string name="mwi_notification_title">Message wait indicator</string>
     <string name="mwi_notification_summary">Show message wait indicator voicemail notifications</string>
+
+    <!-- Permission for notification-bar network toggle -->
+    <string name="perm_change_mobile_network">change network mode (2G/3G)</string>
+    <string name="perm_change_mobile_network_desc">Allows the app to change between 2G data and 3G data at any time. 3G is faster, but consumes more battery and may cause additional cost.</string>
 </resources>
