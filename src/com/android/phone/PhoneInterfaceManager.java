@@ -2277,4 +2277,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     public boolean isImsRegistered() {
         return mPhone.isImsRegistered();
     }
+
+    public int getLteOnGsmMode() {
+        return mPhone.getLteOnGsmMode();
+    }
 }
