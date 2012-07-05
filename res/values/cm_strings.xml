@@ -353,6 +353,10 @@
 
     <string name="msim_mobile_network_settings_title">SIM %d mobile network settings</string>
 
+    <!-- Noise suppression -->
+    <string name="noise_suppression_title">Noise suppression</string>
+    <string name="noise_suppression_summary">Enable noise suppression for calls</string>
+
     <!-- Call recording format -->
     <string name="call_recording_format">Call recording format</string>
     <string name="wb_amr_format" translatable="false">AMR-WB</string>

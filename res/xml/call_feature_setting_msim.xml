@@ -71,4 +71,10 @@
         android:summary="@string/dtmf_tones_summary"
         android:entries="@array/dtmf_tone_entries"
         android:entryValues="@array/dtmf_tone_values"/>
+
+    <SwitchPreference
+        android:key="button_noise_suppression_key"
+        android:title="@string/noise_suppression_title"
+        android:summary="@string/noise_suppression_summary"
+        android:defaultValue="1"/>
 </PreferenceScreen>
