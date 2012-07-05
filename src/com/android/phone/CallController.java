@@ -274,6 +274,9 @@ public class CallController extends Handler {
         // in-call UI.  Or if there was an error, the InCallScreen will
         // notice the InCallUiState pending call status code flag and display an
         // error indication instead.)
+
+        // enable noise suppression
+        PhoneUtils.turnOnNoiseSuppression(mApp.getApplicationContext(), true);
     }
 
     /**
