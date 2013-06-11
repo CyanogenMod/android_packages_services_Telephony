@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
+ * Not a Contribution.
+ *
  * Copyright (C) 2006 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -764,7 +767,8 @@ public class CallNotifier extends Handler
         }
 
         if ((fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_GSM)
-                || (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_SIP)) {
+                || (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_SIP)
+                || (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_IMS)) {
             Call.State callState = mCM.getActiveFgCallState();
             if (!callState.isDialing()) {
                 // If call get activated or disconnected before the ringback
@@ -1275,7 +1279,8 @@ public class CallNotifier extends Handler
                         toneVolume = TONE_RELATIVE_VOLUME_LOPRI;
                         toneLengthMillis = 1000;
                     } else if ((phoneType == PhoneConstants.PHONE_TYPE_GSM)
-                            || (phoneType == PhoneConstants.PHONE_TYPE_SIP)) {
+                            || (phoneType == PhoneConstants.PHONE_TYPE_SIP)
+                            || (phoneType == PhoneConstants.PHONE_TYPE_IMS)) {
                         toneType = ToneGenerator.TONE_SUP_BUSY;
                         toneVolume = TONE_RELATIVE_VOLUME_HIPRI;
                         toneLengthMillis = 4000;

@@ -90,10 +90,6 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnDismi
                 "EcmExitDialogWaitThread");
         waitForConnectionCompleteThread.start();
 
-        // Register ECM timer reset notfication
-        mPhone = PhoneGlobals.getPhone();
-        mPhone.registerForEcmTimerReset(mTimerResetHandler, ECM_TIMER_RESET, null);
-
         // Register receiver for intent closing the dialog
         IntentFilter filter = new IntentFilter();
         filter.addAction(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
@@ -105,7 +101,7 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnDismi
         super.onDestroy();
         unregisterReceiver(mEcmExitReceiver);
         // Unregister ECM timer reset notification
-        mPhone.unregisterForEcmTimerReset(mHandler);
+        mPhone.unregisterForEcmTimerReset(mTimerResetHandler);
     }
 
     @Override
@@ -127,6 +123,7 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnDismi
         public void run() {
             Looper.prepare();
 
+            boolean isImsEcbm = false;
             // Bind to the remote service
             bindService(new Intent(EmergencyCallbackModeExitDialog.this,
                     EmergencyCallbackModeService.class), mConnection, Context.BIND_AUTO_CREATE);
@@ -148,7 +145,16 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnDismi
             if (mService != null) {
                 mEcmTimeout = mService.getEmergencyCallbackModeTimeout();
                 mInEmergencyCall = mService.getEmergencyCallbackModeCallState();
+                isImsEcbm = mService.isEcbmOnIms();
             }
+
+            if (isImsEcbm) {
+                mPhone = PhoneUtils.getImsPhone(PhoneGlobals.getInstance().mCM);
+            } else {
+                mPhone = PhoneGlobals.getInstance().getPhone();
+            }
+            // Register ECM timer reset notfication
+            mPhone.registerForEcmTimerReset(mTimerResetHandler, ECM_TIMER_RESET, null);
 
             // Unbind from remote service
             unbindService(mConnection);

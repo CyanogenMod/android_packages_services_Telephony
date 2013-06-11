@@ -16,6 +16,8 @@
 
 package com.android.phone;
 
+import java.util.Map;
+
 import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
@@ -24,6 +26,7 @@ import com.android.phone.CallGatewayManager.RawGatewayInfo;
 import com.android.phone.Constants.CallStatusCode;
 import com.android.phone.ErrorDialogActivity;
 import com.android.phone.OtaUtils.CdmaOtaScreenState;
+import com.google.android.collect.Maps;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -298,6 +301,9 @@ public class CallController extends Handler {
         final Uri uri = intent.getData();
         final String scheme = (uri != null) ? uri.getScheme() : null;
         String number;
+        int callType;
+        boolean isConferenceUri = false;
+        String[] extras = null;
         Phone phone = null;
 
         // Check the current ServiceState to make sure it's OK
@@ -315,7 +321,16 @@ public class CallController extends Handler {
         try {
             number = PhoneUtils.getInitialNumber(intent);
             if (VDBG) log("- actual number to dial: '" + number + "'");
-
+            callType = intent.getIntExtra(OutgoingCallBroadcaster.EXTRA_CALL_TYPE,
+                    Phone.CALL_TYPE_VOICE);
+            isConferenceUri = intent.getBooleanExtra(
+                    OutgoingCallBroadcaster.EXTRA_DIAL_CONFERENCE_URI, false);
+            if (isConferenceUri) {
+                final Map<String, String> extrasMap = Maps.newHashMap();
+                extrasMap.put(Phone.EXTRAS_IS_CONFERENCE_URI,
+                        Boolean.toString(isConferenceUri));
+                extras = PhoneUtils.getExtrasFromMap(extrasMap);
+            }
             // find the phone first
             // TODO Need a way to determine which phone to place the call
             // It could be determined by SIP setting, i.e. always,
@@ -448,7 +463,9 @@ public class CallController extends Handler {
                                               contactUri,
                                               (isEmergencyNumber || isEmergencyIntent),
                                               rawGatewayInfo,
-                                              mCallGatewayManager);
+                                              mCallGatewayManager,
+                                              callType,
+                                              extras);
 
         switch (callStatus) {
             case PhoneUtils.CALL_STATUS_DIALED:

@@ -58,6 +58,7 @@ public class EmergencyCallbackModeService extends Service {
     private long mTimeLeft = 0;
     private Phone mPhone = null;
     private boolean mInEmergencyCall = false;
+    private boolean mIsImsPhone = false;
 
     private static final int ECM_TIMER_RESET = 1;
 
@@ -73,8 +74,27 @@ public class EmergencyCallbackModeService extends Service {
 
     @Override
     public void onCreate() {
-        // Check if it is CDMA phone
-        if (PhoneFactory.getDefaultPhone().getPhoneType() != PhoneConstants.PHONE_TYPE_CDMA) {
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        PhoneGlobals app = PhoneGlobals.getInstance();
+
+        if (intent != null) {
+            mIsImsPhone = intent.getBooleanExtra(PhoneGlobals.EXTRA_IMS_PHONE, false);
+        } else {
+            Log.e(LOG_TAG, "onStartCommand: intent null");
+        }
+
+        if (mIsImsPhone) {
+            mPhone = PhoneUtils.getImsPhone(PhoneGlobals.getInstance().mCM);
+        } else {
+            mPhone = app.getPhone();
+        }
+
+        // Check if it is GSM phone, as GSM phone does not support ECBM
+        if (mPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_GSM) {
             Log.e(LOG_TAG, "Error! Emergency Callback Mode not supported for " +
                     PhoneFactory.getDefaultPhone().getPhoneName() + " phones");
             stopSelf();
@@ -93,6 +113,7 @@ public class EmergencyCallbackModeService extends Service {
         mPhone.registerForEcmTimerReset(mHandler, ECM_TIMER_RESET, null);
 
         startTimerNotification();
+        return START_STICKY;
     }
 
     @Override
@@ -168,10 +189,12 @@ public class EmergencyCallbackModeService extends Service {
                 R.drawable.picture_emergency25x25,
                 getText(R.string.phone_entered_ecm_text), 0);
 
+        Intent intent = new Intent(EmergencyCallbackModeExitDialog.ACTION_SHOW_ECM_EXIT_DIALOG);
+        intent.putExtra(PhoneGlobals.EXTRA_IMS_PHONE, mIsImsPhone);
+
         // PendingIntent to launch Emergency Callback Mode Exit activity if the user selects
         // this notification
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-                new Intent(EmergencyCallbackModeExitDialog.ACTION_SHOW_ECM_EXIT_DIALOG), 0);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         // Format notification string
         String text = null;
@@ -238,5 +261,12 @@ public class EmergencyCallbackModeService extends Service {
      */
     public boolean getEmergencyCallbackModeCallState() {
         return mInEmergencyCall;
+    }
+
+    /**
+     * Returns true if ECBM is on IMS phone
+     */
+    public boolean isEcbmOnIms() {
+        return mIsImsPhone;
     }
 }

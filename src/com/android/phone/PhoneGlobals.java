@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2011-2013, The Linux Foundation. All rights reserved.
+ * Not a Contribution
+ *
  * Copyright (C) 2006 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -73,6 +76,7 @@ import com.android.phone.WiredHeadsetManager.WiredHeadsetListener;
 import com.android.server.sip.SipService;
 import com.android.services.telephony.common.AudioMode;
 
+import org.codeaurora.ims.IImsService;
 /**
  * Global state for the telephony subsystem when running in the primary
  * phone process.
@@ -155,10 +159,16 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     public static final String ACTION_SEND_SMS_FROM_NOTIFICATION =
             "com.android.phone.ACTION_SEND_SMS_FROM_NOTIFICATION";
 
+    /**
+     * Intent extra used for emergency calls on IMS.
+     */
+    public static final String EXTRA_IMS_PHONE = "ims_phone";
+
     private static PhoneGlobals sMe;
 
     // A few important fields we expose to the rest of the package
     // directly (rather than thru set/get methods) for efficiency.
+    Phone mImsPhone;
     CallController callController;
     CallManager mCM;
     ManagedRoaming mManagedRoam;
@@ -182,6 +192,8 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
 
     static int mDockState = Intent.EXTRA_DOCK_STATE_UNDOCKED;
     static boolean sVoiceCapable = true;
+
+    public static IImsService mImsService;
 
     // Internal PhoneApp Call state tracker
     CdmaPhoneCallState cdmaPhoneCallState;
@@ -401,6 +413,8 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             mCM = CallManager.getInstance();
             mCM.registerPhone(phone);
 
+            createImsService();
+
             // Create the NotificationMgr singleton, which is used to display
             // status bar icons and control other status bar behavior.
             notificationMgr = NotificationMgr.init(this);
@@ -601,6 +615,31 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
                                       CallFeaturesSetting.HAC_VAL_OFF);
         }
    }
+
+    public void createImsService() {
+        if (PhoneUtils.isCallOnImsEnabled()) {
+            try {
+                // send intent to start ims service n get phone from ims service
+                boolean bound = bindService(new Intent("org.codeaurora.ims.IImsService"),
+                        ImsServiceConnection, Context.BIND_AUTO_CREATE);
+                Log.d(LOG_TAG, "IMSService bound request : " + bound);
+            } catch (NoClassDefFoundError e) {
+                Log.w(LOG_TAG, "Ignoring IMS class not found exception " + e);
+            }
+        }
+    }
+
+    private static ServiceConnection ImsServiceConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            //Get handle to IImsService.Stub.asInterface(service);
+            mImsService = IImsService.Stub.asInterface(service);
+            Log.d(LOG_TAG,"Ims Service Connected" + mImsService);
+        }
+
+        public void onServiceDisconnected(ComponentName arg0) {
+            Log.w(LOG_TAG,"Ims Service onServiceDisconnected");
+        }
+    };
 
     /**
      * Returns the singleton instance of the PhoneApp.
@@ -887,7 +926,8 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         //
         boolean isRinging = (state == PhoneConstants.State.RINGING);
         boolean isDialing = (phone.getForegroundCall().getState() == Call.State.DIALING);
-        boolean keepScreenOn = isRinging || isDialing;
+        boolean isVideoCallActive = PhoneUtils.isImsVideoCallActive(mCM.getActiveFgCall());
+        boolean keepScreenOn = isRinging || isDialing || isVideoCallActive;
         // keepScreenOn == true means we'll hold a full wake lock:
         requestWakeState(keepScreenOn ? WakeState.FULL : WakeState.SLEEP);
     }
@@ -1053,12 +1093,19 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             } else if (action.equals(TelephonyIntents.ACTION_SERVICE_STATE_CHANGED)) {
                 handleServiceStateChanged(intent);
             } else if (action.equals(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED)) {
-                if (TelephonyCapabilities.supportsEcm(phone)) {
+                boolean isImsPhone = intent.getBooleanExtra(EXTRA_IMS_PHONE, false);
+
+                if (isImsPhone) {
+                    mImsPhone = PhoneUtils.getImsPhone(PhoneGlobals.getInstance().mCM);
+                }
+                if (TelephonyCapabilities.supportsEcm(phone) ||
+                        TelephonyCapabilities.supportsEcm(mImsPhone)) {
                     Log.d(LOG_TAG, "Emergency Callback Mode arrived in PhoneApp.");
                     // Start Emergency Callback Mode service
-                    if (intent.getBooleanExtra("phoneinECMState", false)) {
+                    if (intent.getBooleanExtra(PhoneConstants.PHONE_IN_ECM_STATE, false)) {
                         context.startService(new Intent(context,
-                                EmergencyCallbackModeService.class));
+                                    EmergencyCallbackModeService.class).putExtra(
+                                            EXTRA_IMS_PHONE, isImsPhone));
                     }
                 } else {
                     // It doesn't make sense to get ACTION_EMERGENCY_CALLBACK_MODE_CHANGED

@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
+ * Not a Contribution.
+ *
  * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -77,6 +80,8 @@ public class OutgoingCallBroadcaster extends Activity
     public static final String EXTRA_SIP_PHONE_URI = "android.phone.extra.SIP_PHONE_URI";
     public static final String EXTRA_ACTUAL_NUMBER_TO_DIAL =
             "android.phone.extra.ACTUAL_NUMBER_TO_DIAL";
+    public static final String EXTRA_CALL_TYPE = "android.phone.extra.CALL_TYPE";
+    public static final String EXTRA_CALL_DOMAIN = "android.phone.extra.CALL_DOMAIN";
 
     /**
      * Identifier for intent extra for sending an empty Flash message for
@@ -90,6 +95,9 @@ public class OutgoingCallBroadcaster extends Activity
      */
     public static final String EXTRA_SEND_EMPTY_FLASH =
             "com.android.phone.extra.SEND_EMPTY_FLASH";
+
+    public static final String EXTRA_DIAL_CONFERENCE_URI =
+            "com.android.phone.extra.DIAL_CONFERENCE_URI";
 
     // Dialog IDs
     private static final int DIALOG_NOT_VOICE_CAPABLE = 1;
@@ -167,6 +175,7 @@ public class OutgoingCallBroadcaster extends Activity
             boolean alreadyCalled;
             String number;
             String originalUri;
+            boolean isConferenceUri = intent.getBooleanExtra(EXTRA_DIAL_CONFERENCE_URI, false);
 
             alreadyCalled = intent.getBooleanExtra(
                     OutgoingCallBroadcaster.EXTRA_ALREADY_CALLED, false);
@@ -256,8 +265,10 @@ public class OutgoingCallBroadcaster extends Activity
             // NEW_OUTGOING_CALL broadcast.  But we need to do it again here
             // too, since the number might have been modified/rewritten during
             // the broadcast (and may now contain letters or separators again.)
-            number = PhoneNumberUtils.convertKeypadLettersToDigits(number);
-            number = PhoneNumberUtils.stripSeparators(number);
+            if (!isConferenceUri) {
+                number = PhoneNumberUtils.convertKeypadLettersToDigits(number);
+                number = PhoneNumberUtils.stripSeparators(number);
+            }
 
             if (DBG) Log.v(TAG, "doReceive: proceeding with call...");
             if (VDBG) Log.v(TAG, "- uri: " + uri);
@@ -316,6 +327,7 @@ public class OutgoingCallBroadcaster extends Activity
         Intent newIntent = new Intent(Intent.ACTION_CALL, uri);
         newIntent.putExtra(EXTRA_ACTUAL_NUMBER_TO_DIAL, number);
         CallGatewayManager.checkAndCopyPhoneProviderExtras(intent, newIntent);
+        PhoneUtils.copyImsExtras(intent, newIntent);
 
         // Finally, launch the SipCallOptionHandler, with the copy of the
         // original CALL intent stashed away in the EXTRA_NEW_CALL_INTENT
@@ -436,10 +448,11 @@ public class OutgoingCallBroadcaster extends Activity
 
         String action = intent.getAction();
         String number = PhoneNumberUtils.getNumberFromIntent(intent, this);
+        boolean isConferenceUri = intent.getBooleanExtra(EXTRA_DIAL_CONFERENCE_URI, false);
         // Check the number, don't convert for sip uri
         // TODO put uriNumber under PhoneNumberUtils
         if (number != null) {
-            if (!PhoneNumberUtils.isUriNumber(number)) {
+            if (!PhoneNumberUtils.isUriNumber(number) && !isConferenceUri) {
                 number = PhoneNumberUtils.convertKeypadLettersToDigits(number);
                 number = PhoneNumberUtils.stripSeparators(number);
             }
@@ -472,6 +485,10 @@ public class OutgoingCallBroadcaster extends Activity
         // to intercept or affect in any way.  (In that case, we start the call
         // immediately rather than going through the NEW_OUTGOING_CALL sequence.)
         boolean callNow;
+
+        // If true, then emergency call has been initiated on IMS.
+        // Use this flag to avoid call being processed as Sip.
+        boolean emergencyOnIms = false;
 
         if (getClass().getName().equals(intent.getComponent().getClassName())) {
             // If we were launched directly from the OutgoingCallBroadcaster,
@@ -604,6 +621,17 @@ public class OutgoingCallBroadcaster extends Activity
 
             Log.i(TAG, "onCreate(): callNow case! Calling placeCall(): " + intent);
 
+            /*
+             * Convert the emergency call intent to the IMS intent if IMS is enabled
+             * emergency calls should go in auto domain not PS domain
+             * TODO: Pass Calltype from UI for OEMs that support video emergency calls
+             */
+            if (PhoneUtils.isCallOnImsEnabled()) {
+                Log.d(TAG, "IMS is enabled , place IMS emergency call");
+                PhoneUtils.convertCallToIms(intent, Phone.CALL_TYPE_VOICE);
+                emergencyOnIms = true;
+            }
+
             // Initiate the outgoing call, and simultaneously launch the
             // InCallScreen to display the in-call UI:
             PhoneGlobals.getInstance().callController.placeCall(intent);
@@ -628,7 +656,8 @@ public class OutgoingCallBroadcaster extends Activity
         // a plain address, whether it could be a tel: URI, etc.)
         Uri uri = intent.getData();
         String scheme = uri.getScheme();
-        if (Constants.SCHEME_SIP.equals(scheme) || PhoneNumberUtils.isUriNumber(number)) {
+        if ((Constants.SCHEME_SIP.equals(scheme) || PhoneNumberUtils.isUriNumber(number)) &&
+                !emergencyOnIms) {
             Log.i(TAG, "The requested number was detected as SIP call.");
             startSipCallOptionHandler(this, intent, uri, number);
             finish();
@@ -646,6 +675,9 @@ public class OutgoingCallBroadcaster extends Activity
         CallGatewayManager.checkAndCopyPhoneProviderExtras(intent, broadcastIntent);
         broadcastIntent.putExtra(EXTRA_ALREADY_CALLED, callNow);
         broadcastIntent.putExtra(EXTRA_ORIGINAL_URI, uri.toString());
+        broadcastIntent.putExtra(EXTRA_DIAL_CONFERENCE_URI,
+                intent.getBooleanExtra((EXTRA_DIAL_CONFERENCE_URI), false));
+
         // Need to raise foreground in-call UI as soon as possible while allowing 3rd party app
         // to intercept the outgoing call.
         broadcastIntent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
