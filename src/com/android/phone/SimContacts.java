@@ -66,7 +66,7 @@ public class SimContacts extends ADNList {
     private static final String UP_ACTIVITY_PACKAGE = "com.android.contacts";
     private static final String UP_ACTIVITY_CLASS =
             "com.android.contacts.activities.PeopleActivity";
-
+    protected boolean mIsForeground = false;
     static final ContentValues sEmptyContentValues = new ContentValues();
 
     protected static final int MENU_IMPORT_ONE = 1;
@@ -129,7 +129,9 @@ public class SimContacts extends ADNList {
                 mProgressDialog.incrementProgressBy(1);
             }
 
-            mProgressDialog.dismiss();
+            if (mIsForeground) {
+                mProgressDialog.dismiss();
+            }
             finish();
         }
 
@@ -248,6 +250,18 @@ public class SimContacts extends ADNList {
             // android.R.id.home will be triggered in onOptionsItemSelected()
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    @Override
+    protected void onResume() {
+         super.onResume();
+         mIsForeground = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mIsForeground = false;
     }
 
     @Override

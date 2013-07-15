@@ -39,6 +39,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.ContactsContract;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 import android.view.Window;
@@ -60,8 +61,14 @@ public class ExportContactsToSim extends Activity {
     private int mResult = SUCCESS;
     protected boolean mIsForeground = false;
     private boolean mSimContactsLoaded = false;
+    private static final String SIM_INDEX = "sim_index";
 
     private static final int CONTACTS_EXPORTED = 1;
+    private static final String[] COLUMN_NAMES = new String[] {
+            "name",
+            "number",
+            "emails"
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -197,6 +204,21 @@ public class ExportContactsToSim extends Activity {
     };
 
     private Uri getUri() {
-        return Uri.parse("content://icc/adn");
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            int subscription  = extras.getInt(SIM_INDEX);
+            String[] adnString = {"adn", "adn_sub2", "adn_sub3"};
+            Log.d("ExportContactsToSim"," subscription : " + subscription);
+
+            if (subscription < MSimTelephonyManager.getDefault().getPhoneCount()) {
+                return Uri.parse("content://iccmsim/" + adnString[subscription]);
+            } else {
+                Log.e(TAG, "Invalid subcription:" + subscription);
+                return null;
+            }
+        } else {
+            return Uri.parse("content://icc/adn");
+        }
     }
 }
