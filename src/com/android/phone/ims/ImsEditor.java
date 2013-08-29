@@ -19,14 +19,28 @@
 
 package com.android.phone.ims;
 
+import java.util.HashSet;
+
 import com.android.internal.telephony.Phone;
 import com.android.phone.R;
+import org.codeaurora.ims.IImsService;
+import org.codeaurora.ims.IImsServiceListener;
 
 import android.app.ActionBar;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.AsyncResult;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
+import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
@@ -46,9 +60,12 @@ public class ImsEditor extends PreferenceActivity
     private static final int MENU_SAVE = Menu.FIRST;
     private static final int MENU_DISCARD = Menu.FIRST + 1;
     private static final int MENU_REMOVE = Menu.FIRST + 2;
+    private static final int EVENT_QUERY_SERVICE_STATUS = 1;
+    private static final int EVENT_SET_SERVICE_STATUS = 2;
 
     private static final String IMS_CALL_TYPE_VOICE = "Voice";
     private static final String IMS_CALL_TYPE_VIDEO = "Video";
+    private static final String IMS_CALL_TYPE_CS = "CSVoice";
 
     private static final String TAG = ImsEditor.class.getSimpleName();
 
@@ -57,11 +74,13 @@ public class ImsEditor extends PreferenceActivity
 
     private ImsSharedPreferences mSharedPreferences;
     private Button mRemoveButton;
-    private CheckBoxPreference mCheckbox;
+    private MultiSelectListPreference mUseAlwaysPref;
+    private ListPreference mCallTypePref;
+    private IImsService mImsService = null;
+    private boolean mIsImsListenerRegistered = false;
 
     enum PreferenceKey {
-        DomainAddress(R.string.domain_address, 0, R.string.default_preference_summary),
-        CallType(R.string.call_type, R.string.default_ims_call_type,
+        CALLTYPE(R.string.call_type, R.string.default_call_type,
                 R.string.default_preference_summary);
 
         final int text;
@@ -82,25 +101,23 @@ public class ImsEditor extends PreferenceActivity
         }
 
         String getValue() {
-            if (preference instanceof EditTextPreference) {
-                return ((EditTextPreference) preference).getText();
-            } else if (preference instanceof ListPreference) {
+            if (preference instanceof ListPreference) {
                 return ((ListPreference) preference).getValue();
             }
             throw new RuntimeException("getValue() for the preference " + this);
         }
 
         void setValue(String value) {
-            if (preference instanceof EditTextPreference) {
-                ((EditTextPreference) preference).setText(value);
-            } else if (preference instanceof ListPreference) {
+            if (preference instanceof ListPreference) {
                 ((ListPreference) preference).setValue(value);
             }
 
-            if (TextUtils.isEmpty(value)) {
-                preference.setSummary(defaultSummary);
-            } else {
-                preference.setSummary(value);
+            if (preference != null) {
+                if (TextUtils.isEmpty(value)) {
+                    preference.setSummary(defaultSummary);
+                } else {
+                    preference.setSummary(value);
+                }
             }
             String oldValue = getValue();
             if (DBG) Log.v(TAG, this + ": setValue() " + value + ": " + oldValue
@@ -129,11 +146,12 @@ public class ImsEditor extends PreferenceActivity
         for (int i = 0, n = screen.getPreferenceCount(); i < n; i++) {
             setupPreference(screen.getPreference(i));
         }
-        mCheckbox = (CheckBoxPreference) getPreferenceScreen()
-                .findPreference(getString(R.string.use_ims_default));
-
+        mUseAlwaysPref = (MultiSelectListPreference) getPreferenceScreen()
+                .findPreference(getString(R.string.ims_call_type_control));
+        mCallTypePref = (ListPreference) getPreferenceScreen().findPreference(
+                getString(R.string.call_type));
         screen.setTitle(R.string.ims_edit_title);
-
+        bindImsService();
         loadPreferences();
 
         ActionBar actionBar = getActionBar();
@@ -143,6 +161,107 @@ public class ImsEditor extends PreferenceActivity
         }
     }
 
+    /**
+     * Method to enable or disable Selectable and Enabled for a preference
+     */
+    private void enablePref(Preference pref, boolean enable) {
+        if (pref != null) {
+            pref.setSelectable(enable);
+            pref.setEnabled(enable);
+        }
+    }
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch(msg.what) {
+                case EVENT_QUERY_SERVICE_STATUS:/* Intentional fall through */
+                case EVENT_SET_SERVICE_STATUS:
+                    AsyncResult ar = (AsyncResult) msg.obj;
+                    if (ar != null && ar.exception != null) {
+                        Log.e(TAG, msg.what + " failed " + ar.exception.toString());
+                        Toast toast = Toast.makeText(getApplicationContext(),
+                                "Querying/Setting IMS Service Failed", Toast.LENGTH_LONG);
+                        toast.show();
+                        enablePref(mUseAlwaysPref, true);
+                    } else {
+                        enablePref(mUseAlwaysPref, false);
+                    }
+                    break;
+                default:
+                    Log.e(TAG, "Unhandled message " + msg.what);
+                    break;
+            }
+        }
+    };
+
+    private void bindImsService() {
+        try {
+            // send intent to start ims service n get phone from ims service
+            boolean bound = bindService(new Intent(
+                    "org.codeaurora.ims.IImsService"), ImsServiceConnection,
+                    Context.BIND_AUTO_CREATE);
+            Log.v(TAG, "ImsEditor IMSService bound request" + bound);
+        } catch (NoClassDefFoundError e) {
+            Log.v(TAG, "Ignoring IMS class not found exception " + e);
+        }
+    }
+
+    private Messenger createMessenger() {
+        Messenger msg = new Messenger(mHandler);
+        return msg;
+    }
+
+    private ServiceConnection ImsServiceConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Log.v(TAG, "ImsEditor Ims Service Connected");
+            mImsService = IImsService.Stub.asInterface(service);
+            if (mImsService != null && !mIsImsListenerRegistered) {
+                try {
+                    int result = mImsService.registerCallback(imsServListener);
+                    if (result == 0) {
+                        mIsImsListenerRegistered = true;
+                    }
+                } catch (Exception e) {
+                    Log.e(TAG, "Exception in mImsService.registerCallback");
+                }
+                try {
+                    mImsService.queryImsServiceStatus(
+                            EVENT_QUERY_SERVICE_STATUS, createMessenger());
+                    enablePref(mUseAlwaysPref, false);
+                }
+                catch (Exception e) {
+                    Log.e(TAG, "Exception = " + e);
+                }
+            }
+        }
+
+        public void onServiceDisconnected(ComponentName arg0) {
+            Log.v(TAG, "Ims Service onServiceDisconnected");
+            mImsService = null;
+        }
+    };
+
+    /**
+     * private Handler mHandler = new Handler() {
+     *
+     * @Override public void handleMessage(Message msg) { switch (msg.what) {
+     *           default: super.handleMessage(msg); } } };
+     */
+    IImsServiceListener imsServListener = new IImsServiceListener.Stub() {
+        public void imsUpdateServiceStatus(int service, int status) {
+            Log.v(TAG, "imsUpdateServiceStatus response service " + service + "status = " + status);
+            mSharedPreferences.setImsSrvStatus(service, status);
+            loadPreferences();
+        }
+
+        public void imsRegStateChanged(int imsRegState) {
+        }
+
+        public void imsRegStateChangeReqFailed() {
+        }
+    };
+
     @Override
     public void onPause() {
         if (DBG) Log.v(TAG, "ImsEditor onPause(): finishing? " + isFinishing());
@@ -150,6 +269,23 @@ public class ImsEditor extends PreferenceActivity
             validateAndSetResult();
         }
         super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mIsImsListenerRegistered == true) {
+            try {
+                mImsService.deregisterCallback(imsServListener);
+                mIsImsListenerRegistered = false;
+            } catch (Exception e) {
+                Log.e(TAG, "Exception " + e);
+            }
+        }
+        if (mImsService != null) {
+            unbindService(ImsServiceConnection);
+            mImsService = null;
+        }
     }
 
     @Override
@@ -195,42 +331,98 @@ public class ImsEditor extends PreferenceActivity
         return super.onKeyDown(keyCode, event);
     }
 
+    private String convertCallTypeToStr(int callType) {
+        String callTypeStr = IMS_CALL_TYPE_CS;
+        switch (callType) {
+            case Phone.CALL_TYPE_VOICE:
+                callTypeStr = IMS_CALL_TYPE_VOICE;
+                break;
+            case Phone.CALL_TYPE_VT:
+                callTypeStr = IMS_CALL_TYPE_VIDEO;
+                break;
+        }
+        return callTypeStr;
+    }
+
+    private int convertCallTypeToInt(String callType) {
+        int callTypeInt = Phone.CALL_TYPE_UNKNOWN;
+        if (IMS_CALL_TYPE_VOICE.equalsIgnoreCase(callType)) {
+            callTypeInt = Phone.CALL_TYPE_VOICE;
+        } else if (IMS_CALL_TYPE_VIDEO.equalsIgnoreCase(callType)) {
+            callTypeInt = Phone.CALL_TYPE_VT;
+        }
+        return callTypeInt;
+    }
+
     private void loadPreferences() {
-        String serverAddress = null;
-        int imsCallType;
-        boolean isImsDefault;
+        HashSet<String> callTypeSet = new HashSet<String>();
+        boolean voiceSupp = mSharedPreferences.isImsSrvAllowed(Phone.CALL_TYPE_VOICE);
+        boolean vtSupp = mSharedPreferences.isImsSrvAllowed(Phone.CALL_TYPE_VT);
 
-        // Get IMS server address
-        serverAddress = mSharedPreferences.getServerAddress();
-        PreferenceKey.DomainAddress.setValue((serverAddress == null) ? "" : serverAddress);
-
-        // Get IMS call type
-        imsCallType = mSharedPreferences.getCallType();
-        if (imsCallType == Phone.CALL_TYPE_VOICE) {
-            PreferenceKey.CallType.setValue(IMS_CALL_TYPE_VOICE);
+        /* Update the Multi Select List Preference for Capabilities */
+        if (voiceSupp) {
+            callTypeSet.add(IMS_CALL_TYPE_VOICE);
+        }
+        if (vtSupp) {
+            callTypeSet.add(IMS_CALL_TYPE_VIDEO);
+        }
+        mUseAlwaysPref.setValues(callTypeSet);
+        if (callTypeSet.isEmpty()) {
+            mUseAlwaysPref.setSummary(R.string.ims_service_capability);
         } else {
-            PreferenceKey.CallType.setValue(IMS_CALL_TYPE_VIDEO);
+            mUseAlwaysPref.setSummary(callTypeSet.toString());
+        }
+        mSharedPreferences.setIsImsCapEnabled(Phone.CALL_TYPE_VOICE, voiceSupp);
+        mSharedPreferences.setIsImsCapEnabled(Phone.CALL_TYPE_VT, vtSupp);
+
+        /* Update List Preference for MO Call Type */
+        if (voiceSupp && vtSupp) {
+            mCallTypePref.setEntries(R.array.ims_call_types);
+            mCallTypePref.setEntryValues(R.array.ims_call_types);
+            mSharedPreferences.setCallTypeSelectable(true);
+        } else if (voiceSupp) {
+            mCallTypePref.setEntries(R.array.ims_voice_cs_call_types);
+            mCallTypePref.setEntryValues(R.array.ims_voice_cs_call_types);
+            if (mSharedPreferences.getCallType() == Phone.CALL_TYPE_VT) {
+                mSharedPreferences.setCallType(Phone.CALL_TYPE_VOICE);
+            }
+            mSharedPreferences.setCallTypeSelectable(true);
+        } else if (vtSupp) {
+            mCallTypePref.setEntries(R.array.ims_video_cs_call_types);
+            mCallTypePref.setEntryValues(R.array.ims_video_cs_call_types);
+            if (mSharedPreferences.getCallType() == Phone.CALL_TYPE_VOICE) {
+                mSharedPreferences.setCallType(Phone.CALL_TYPE_UNKNOWN);
+            }
+            mSharedPreferences.setCallTypeSelectable(true);
+        } else {
+            mCallTypePref.setEntries(R.array.cs_call_type);
+            mCallTypePref.setEntryValues(R.array.cs_call_type);
+            if (mSharedPreferences.getCallType() == Phone.CALL_TYPE_VOICE
+                    || mSharedPreferences.getCallType() == Phone.CALL_TYPE_VT) {
+                mSharedPreferences.setCallType(Phone.CALL_TYPE_UNKNOWN);
+            }
+            mSharedPreferences.setCallTypeSelectable(false);
         }
 
-        // Get Use IMS by default
-        isImsDefault = mSharedPreferences.getisImsDefault();
-        mCheckbox.setChecked(isImsDefault);
+        if (voiceSupp | vtSupp) {
+            enablePref(mUseAlwaysPref, true);
+        } else {
+            enablePref(mUseAlwaysPref, false);
+        }
+        PreferenceKey.CALLTYPE.setValue(convertCallTypeToStr(mSharedPreferences.getCallType()));
+        PreferenceKey.CALLTYPE.preference.setSelectable(mSharedPreferences.isCallTypeSelectable());
     }
 
     private void validateAndSetResult() {
-        // Set server address
-        mSharedPreferences.setServerAddress(PreferenceKey.DomainAddress.getValue());
+        Log.v(TAG, "validateAndSetResult");
+        mSharedPreferences.setCallType(convertCallTypeToInt(PreferenceKey.CALLTYPE.getValue()));
 
-        // Set call type
-        if (IMS_CALL_TYPE_VIDEO.equalsIgnoreCase(PreferenceKey.CallType.getValue())) {
-            mSharedPreferences.setCallType(Phone.CALL_TYPE_VT);
-        } else {
-            mSharedPreferences.setCallType(Phone.CALL_TYPE_VOICE);
+        if (mUseAlwaysPref.getSummary().toString().contains(IMS_CALL_TYPE_VOICE)) {
+            mSharedPreferences.setIsImsCapEnabled(Phone.CALL_TYPE_VOICE, true);
         }
-
-        // Set is IMS default value
-        mSharedPreferences.setIsImsDefault(mCheckbox.isChecked());
-
+        if (mUseAlwaysPref.getSummary().toString().contains(IMS_CALL_TYPE_VIDEO)) {
+            mSharedPreferences.setIsImsCapEnabled(Phone.CALL_TYPE_VT, true);
+        }
         setResult(RESULT_OK);
         Toast.makeText(this, R.string.saving_account, Toast.LENGTH_SHORT)
                 .show();
@@ -238,23 +430,52 @@ public class ImsEditor extends PreferenceActivity
     }
 
     private void removePreferencesAndFinish() {
-        mSharedPreferences.setServerAddress(null);
-        mSharedPreferences.setCallType(Phone.CALL_TYPE_VOICE);
-        mSharedPreferences.setIsImsDefault(false);
-
+        Log.v(TAG, "removePreferencesAndFinish");
+        mSharedPreferences.setCallType(Phone.CALL_TYPE_UNKNOWN);
+        mSharedPreferences.setIsImsCapEnabled(Phone.CALL_TYPE_VOICE, false);
+        mSharedPreferences.setIsImsCapEnabled(Phone.CALL_TYPE_VT, false);
         setResult(RESULT_OK);
         finish();
     }
 
-    public boolean onPreferenceChange(Preference pref, Object newValue) {
-        if (pref instanceof CheckBoxPreference) return true;
-        String value = (newValue == null) ? "" : newValue.toString();
-        if (TextUtils.isEmpty(value)) {
-            pref.setSummary(getPreferenceKey(pref).defaultSummary);
-        } else {
-            pref.setSummary(value);
+    private void handleCallDefaultPrefChange(Preference pref, Object newValue) {
+        boolean hasVoice = pref.getSummary().toString().contains(IMS_CALL_TYPE_VOICE);
+        boolean hasVT = pref.getSummary().toString().contains(IMS_CALL_TYPE_VIDEO);
+        try {
+            if (!(hasVoice && mSharedPreferences.getisImsCapEnabled(Phone.CALL_TYPE_VOICE))) {
+                Log.d(TAG, "Voice Pref Changed - sending SET Request");
+                mImsService.setServiceStatus(Phone.CALL_TYPE_VOICE, -1,
+                        mSharedPreferences.getisImsCapEnabled(Phone.CALL_TYPE_VOICE) ? 0 : 1,
+                        0, EVENT_SET_SERVICE_STATUS, createMessenger());
+            }
+            if (!(hasVT && mSharedPreferences.getisImsCapEnabled(Phone.CALL_TYPE_VT))) {
+                Log.d(TAG, "Video Pref Changed - sending SET Request");
+                mImsService.setServiceStatus(Phone.CALL_TYPE_VT, -1,
+                        mSharedPreferences.getisImsCapEnabled(Phone.CALL_TYPE_VT) ? 0 : 1,
+                        0, EVENT_SET_SERVICE_STATUS, createMessenger());
+            }
+            enablePref(mUseAlwaysPref, false);
+        } catch (Exception e) {
+            Log.e(TAG, "Exception " + e);
         }
+    }
 
+    public boolean onPreferenceChange(Preference pref, Object newValue) {
+        String value = (newValue == null) ? "" : newValue.toString();
+        String summary = null;
+        if (pref.equals(mUseAlwaysPref) && ((HashSet) newValue).isEmpty()) {
+            summary = getString(R.string.ims_service_capability);
+        } else {
+            summary = value;
+        }
+        if (TextUtils.isEmpty(value) && summary == null) {
+            pref.setSummary(getPreferenceKey(pref).defaultSummary);
+        } else if (summary != null) {
+            pref.setSummary(summary);
+        }
+        if (pref.equals(mUseAlwaysPref)) {
+            handleCallDefaultPrefChange(pref, newValue);
+        }
         return true;
     }
 

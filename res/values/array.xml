@@ -25,9 +25,34 @@
         <item>TCP</item>
     </string-array>
 
+    <!-- Array resource of different call type capability on IMS -->
+    <string-array translatable="false" name="ims_call_cap_types">
+        <item>Voice</item>
+        <item>Video</item>
+    </string-array>
+
+    <!-- Array resource of all call types i.e Voice, Video on IMS and Voice on CS -->
     <string-array translatable="false" name="ims_call_types">
         <item>Voice</item>
         <item>Video</item>
+        <item>CSVoice</item>
+    </string-array>
+
+    <!-- Array resource of call types IMS Video and CS Voice -->
+    <string-array translatable="false" name="ims_video_cs_call_types">
+        <item>Video</item>
+        <item>CSVoice</item>
+    </string-array>
+
+    <!-- Array resource of call types IMS Voice and CS Voice -->
+    <string-array translatable="false" name="ims_voice_cs_call_types">
+        <item>Voice</item>
+        <item>CSVoice</item>
+    </string-array>
+
+    <!-- Array resource of call type CS Voice -->
+    <string-array translatable="false" name="cs_call_type">
+        <item>CSVoice</item>
     </string-array>
 
     <string-array translatable="true" name="sip_call_options_entries">

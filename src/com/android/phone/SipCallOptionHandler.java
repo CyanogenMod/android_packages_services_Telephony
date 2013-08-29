@@ -97,8 +97,6 @@ public class SipCallOptionHandler extends Activity implements
     private TextView mUnsetPriamryHint;
     private boolean mUseSipPhone = false;
     private boolean mMakePrimary = false;
-    private boolean mIsImsDefault = false;
-    private String mImsServerAddress;
     private int mImsCallType;
 
     /**
@@ -182,12 +180,10 @@ public class SipCallOptionHandler extends Activity implements
         if (DBG) Log.v(TAG, "Call option: " + mCallOption);
 
         mImsSharedPreferences = new ImsSharedPreferences(this);
-        mIsImsDefault = mImsSharedPreferences.getisImsDefault();
-        mImsServerAddress = mImsSharedPreferences.getServerAddress();
         mImsCallType = mImsSharedPreferences.getCallType();
-        if (IMS_DBG) Log.v(TAG, "IMS Server: " + mImsServerAddress +
-                " IMS call type: " + mImsCallType +
-                " is IMS default: " + mIsImsDefault);
+        if (IMS_DBG) {
+            Log.v(TAG, " IMS call type: " + mImsCallType);
+        }
 
         Uri uri = mIntent.getData();
         String scheme = uri.getScheme();
@@ -435,8 +431,7 @@ public class SipCallOptionHandler extends Activity implements
 
     private boolean useImsPhone() {
         boolean useIms = false;
-        // mIsImsDefault is UI preference to use ims call
-        if (!mUseSipPhone && mIsImsDefault && PhoneUtils.isCallOnImsEnabled()) {
+        if (!mUseSipPhone && mImsCallType != Phone.CALL_TYPE_UNKNOWN) {
             CallManager cm = PhoneGlobals.getInstance().mCM;
             // If a 1x call exists, place current call on CDMA even though IMS is available
             // If airplane mode is on then use default phone for call

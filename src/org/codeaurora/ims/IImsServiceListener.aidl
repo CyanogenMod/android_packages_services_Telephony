@@ -42,4 +42,9 @@ interface IImsServiceListener {
      * IMS registration state change request failure callback
      */
     void imsRegStateChangeReqFailed();
+
+    /**
+     * Service Status Update from ImsService
+     */
+    void imsUpdateServiceStatus(int service, int status);
 }
