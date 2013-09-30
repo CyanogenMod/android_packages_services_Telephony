@@ -431,6 +431,7 @@ public class PhoneGlobals extends ContextWrapper {
             intentFilter.addAction(TelephonyIntents.ACTION_RADIO_TECHNOLOGY_CHANGED);
             intentFilter.addAction(TelephonyIntents.ACTION_SERVICE_STATE_CHANGED);
             intentFilter.addAction(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
+            intentFilter.addAction(TelephonyIntents.ACTION_MANAGED_ROAMING_IND);
             registerReceiver(mReceiver, intentFilter);
 
             //set the default values for the preferences in the phone.
@@ -864,6 +865,14 @@ public class PhoneGlobals extends ContextWrapper {
                         Intent.EXTRA_DOCK_STATE_UNDOCKED);
                 if (VDBG) Log.d(LOG_TAG, "ACTION_DOCK_EVENT -> mDockState = " + mDockState);
                 mHandler.sendMessage(mHandler.obtainMessage(EVENT_DOCK_STATE_CHANGED, 0));
+            } else if (action.equals(TelephonyIntents.ACTION_MANAGED_ROAMING_IND)) {
+                long subscription = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                        SubscriptionManager.getDefaultSubId());
+                Intent createIntent = new Intent();
+                createIntent.setClass(context, ManagedRoaming.class);
+                createIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                createIntent.putExtra(PhoneConstants.SUBSCRIPTION_KEY, subscription);
+                context.startActivity(createIntent);
             }
         }
     }
