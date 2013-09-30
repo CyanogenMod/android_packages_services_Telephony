@@ -161,6 +161,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     // directly (rather than thru set/get methods) for efficiency.
     CallController callController;
     CallManager mCM;
+    ManagedRoaming mManagedRoam;
     CallNotifier notifier;
     CallerInfoCache callerInfoCache;
     NotificationMgr notificationMgr;
@@ -497,6 +498,10 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             // in.)
             notifier = CallNotifier.init(this, phone, ringer, callLogger, callStateMonitor,
                     bluetoothManager, callModeler);
+
+            // Create the Managed Roaming singleton class, used to show popup
+            // to user for initiating network search when location update is rejected
+            mManagedRoam = ManagedRoaming.init(this);
 
             // register for ICC status
             IccCard sim = phone.getIccCard();
