@@ -421,6 +421,11 @@ public class BluetoothManager implements CallModeler.Listener {
         // no-op
     }
 
+    @Override
+    public void onActiveSubChanged(int activeSub) {
+        // no-op
+    }
+
     private void log(String msg) {
         Log.d(LOG_TAG, msg);
     }

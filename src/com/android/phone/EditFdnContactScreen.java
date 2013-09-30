@@ -49,6 +49,7 @@ import android.widget.Toast;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
+import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
 /**
  * Activity to let the user add or edit an FDN contact.
@@ -61,16 +62,16 @@ public class EditFdnContactScreen extends Activity {
     private static final int MENU_IMPORT = 1;
     private static final int MENU_DELETE = 2;
 
-    private static final String INTENT_EXTRA_NAME = "name";
-    private static final String INTENT_EXTRA_NUMBER = "number";
+    protected static final String INTENT_EXTRA_NAME = "name";
+    protected static final String INTENT_EXTRA_NUMBER = "number";
 
     private static final int PIN2_REQUEST_CODE = 100;
 
-    private String mName;
-    private String mNumber;
-    private String mPin2;
-    private boolean mAddContact;
-    private QueryHandler mQueryHandler;
+    protected String mName;
+    protected String mNumber;
+    protected String mPin2;
+    protected boolean mAddContact;
+    protected QueryHandler mQueryHandler;
 
     private EditText mNameField;
     private EditText mNumberField;
@@ -209,7 +210,7 @@ public class EditFdnContactScreen extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void resolveIntent() {
+    protected void resolveIntent() {
         Intent intent = getIntent();
 
         mName =  intent.getStringExtra(INTENT_EXTRA_NAME);
@@ -256,15 +257,15 @@ public class EditFdnContactScreen extends Activity {
 
     }
 
-    private String getNameFromTextField() {
+    protected String getNameFromTextField() {
         return mNameField.getText().toString();
     }
 
-    private String getNumberFromTextField() {
+    protected String getNumberFromTextField() {
         return mNumberField.getText().toString();
     }
 
-    private Uri getContentURI() {
+    protected Uri getContentURI() {
         return Uri.parse("content://icc/fdn");
     }
 
@@ -274,12 +275,12 @@ public class EditFdnContactScreen extends Activity {
       *
       * TODO: Fix this logic.
       */
-     private boolean isValidNumber(String number) {
+     protected boolean isValidNumber(String number) {
          return (number.length() <= 20);
      }
 
 
-    private void addContact() {
+    protected void addContact() {
         if (DBG) log("addContact");
 
         final String number = PhoneNumberUtils.convertAndStrip(getNumberFromTextField());
@@ -302,7 +303,7 @@ public class EditFdnContactScreen extends Activity {
         showStatus(getResources().getText(R.string.adding_fdn_contact));
     }
 
-    private void updateContact() {
+    protected void updateContact() {
         if (DBG) log("updateContact");
 
         final String name = getNameFromTextField();
@@ -330,7 +331,7 @@ public class EditFdnContactScreen extends Activity {
     /**
      * Handle the delete command, based upon the state of the Activity.
      */
-    private void deleteSelected() {
+    protected void deleteSelected() {
         // delete ONLY if this is NOT a new contact.
         if (!mAddContact) {
             Intent intent = new Intent();
@@ -348,7 +349,7 @@ public class EditFdnContactScreen extends Activity {
         startActivityForResult(intent, PIN2_REQUEST_CODE);
     }
 
-    private void displayProgress(boolean flag) {
+    protected void displayProgress(boolean flag) {
         // indicate we are busy.
         mDataBusy = flag;
         getWindow().setFeatureInt(
@@ -363,14 +364,14 @@ public class EditFdnContactScreen extends Activity {
      * Removed the status field, with preference to displaying a toast
      * to match the rest of settings UI.
      */
-    private void showStatus(CharSequence statusMsg) {
+    protected void showStatus(CharSequence statusMsg) {
         if (statusMsg != null) {
             Toast.makeText(this, statusMsg, Toast.LENGTH_LONG)
                     .show();
         }
     }
 
-    private void handleResult(boolean success, boolean invalidNumber) {
+    protected void handleResult(boolean success, boolean invalidNumber) {
         if (success) {
             if (DBG) log("handleResult: success!");
             showStatus(getResources().getText(mAddContact ?
@@ -433,7 +434,7 @@ public class EditFdnContactScreen extends Activity {
         }
     };
 
-    private class QueryHandler extends AsyncQueryHandler {
+    protected class QueryHandler extends AsyncQueryHandler {
         public QueryHandler(ContentResolver cr) {
             super(cr);
         }
@@ -461,7 +462,7 @@ public class EditFdnContactScreen extends Activity {
         }
     }
 
-    private void log(String msg) {
+    protected void log(String msg) {
         Log.d(LOG_TAG, "[EditFdnContact] " + msg);
     }
 }

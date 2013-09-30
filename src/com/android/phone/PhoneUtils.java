@@ -40,6 +40,7 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.provider.Settings;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.ServiceState;
 import android.text.TextUtils;
@@ -58,6 +59,7 @@ import com.android.internal.telephony.CallerInfo;
 import com.android.internal.telephony.CallerInfoAsyncQuery;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.MmiCode;
+import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyCapabilities;
@@ -289,6 +291,8 @@ public class PhoneUtils {
                 app.mCM.acceptCall(ringingCall);
                 answered = true;
 
+                handleWaitingCallOnLchSub(phone.getSubscription(), true);
+
                 // Always reset to "unmuted" for a freshly-answered call
                 setMute(false);
 
@@ -420,6 +424,7 @@ public class PhoneUtils {
                 notifier.sendCdmaCallWaitingReject();
                 return true;
             } else {
+                handleWaitingCallOnLchSub(ringing.getPhone().getSubscription(), false);
                 // Otherwise, the regular hangup() API works for
                 // call-waiting calls too.
                 log("hangupRingingCall(): call-waiting call: hangup()");
@@ -509,6 +514,10 @@ public class PhoneUtils {
     static void hangup(Connection c) {
         try {
             if (c != null) {
+                if (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA &&
+                        c.getCall().getState() == Call.State.WAITING) {
+                    handleWaitingCallOnLchSub(c.getCall().getPhone().getSubscription(), false);
+                }
                 c.hangup();
             }
         } catch (CallStateException ex) {
@@ -707,7 +716,14 @@ public class PhoneUtils {
 
         // Remember if the phone state was in IDLE state before this call.
         // After calling CallManager#dial(), getState() will return different state.
-        final boolean initiallyIdle = app.mCM.getState() == PhoneConstants.State.IDLE;
+        boolean initiallyIdle = false;
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            for (int i = 0; i < MSimTelephonyManager.getDefault().getPhoneCount(); i++) {
+                initiallyIdle = initiallyIdle || (app.mCM.getState(i) == PhoneConstants.State.IDLE);
+            }
+        } else {
+            initiallyIdle = app.mCM.getState() == PhoneConstants.State.IDLE;
+        }
 
         try {
             connection = app.mCM.dial(phone, numberToDial, callType, extras);
@@ -740,6 +756,10 @@ public class PhoneUtils {
                 status = CALL_STATUS_FAILED;
             }
         } else {
+            // The phone on whilch dial request for voice call is initiated
+            // set it as active subscription
+            setActiveSubscription(phone.getSubscription());
+
             if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
                 updateCdmaCallStateOnNewOutgoingCall(app, connection);
             }
@@ -2295,7 +2315,7 @@ public class PhoneUtils {
      * state of the Phone.
      */
     /* package */ static boolean okToSwapCalls(CallManager cm) {
-        int phoneType = cm.getDefaultPhone().getPhoneType();
+        int phoneType = cm.getFgPhone().getPhoneType();
         if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
             // CDMA: "Swap" is enabled only when the phone reaches a *generic*.
             // state by either accepting a Call Waiting or by merging two calls
@@ -2610,12 +2630,13 @@ public class PhoneUtils {
      * @param number the phone number, or SIP address.
      */
     public static Phone pickPhoneBasedOnNumber(CallManager cm,
-            String scheme, String number, String primarySipUri) {
+            String scheme, String number, String primarySipUri, int subscription) {
         if (DBG) {
             log("pickPhoneBasedOnNumber: scheme " + scheme
                     + ", number " + toLogSafePhoneNumber(number)
                     + ", sipUri "
-                    + (primarySipUri != null ? Uri.parse(primarySipUri).toSafeString() : "null"));
+                    + (primarySipUri != null ? Uri.parse(primarySipUri).toSafeString() : "null")
+                    + ", subscription" + subscription);
         }
 
         if (primarySipUri != null) {
@@ -2630,7 +2651,7 @@ public class PhoneUtils {
             if (phone != null) return phone;
         }
 
-        return cm.getDefaultPhone();
+        return PhoneGlobals.getInstance().getPhone(subscription);
     }
 
     public static Phone getSipPhoneFromUri(CallManager cm, String target) {
@@ -2665,7 +2686,8 @@ public class PhoneUtils {
      * meaning the call is the first real incoming call the phone is having.
      */
     public static boolean isRealIncomingCall(Call.State state) {
-        return (state == Call.State.INCOMING && !PhoneGlobals.getInstance().mCM.hasActiveFgCall());
+        return (state == Call.State.INCOMING &&
+                !PhoneGlobals.getInstance().mCM.hasActiveFgCallAnyPhone());
     }
 
     private static boolean sVoipSupported = false;
@@ -2980,4 +3002,121 @@ public class PhoneUtils {
         return extras;
     }
 
+    /**
+     * Set the given subscription as current active subscription i.e currently on
+     * which voice call is active(with state OFFHOOK/RINGING) and which needs to be
+     * visible to user.
+     *
+     * @param subscription the sub id which needs to be active one.
+     */
+    public static void setActiveSubscription(int subscription) {
+        CallManager cm = PhoneGlobals.getInstance().mCM;
+        int activeSub = getActiveSubscription();
+
+        if (activeSub != subscription) {
+            if ((cm.getState(subscription) == PhoneConstants.State.OFFHOOK) &&
+                    (cm.getState(activeSub) == PhoneConstants.State.OFFHOOK)) {
+                // If there is a change in active subscription while both the
+                // subscriptions are in active state, need to siwtch the
+                // playing of LCH/SCH tone to new LCH subscription.
+                final MSimCallNotifier notifier =
+                        (MSimCallNotifier)PhoneGlobals.getInstance().notifier;
+                notifier.manageMSimInCallTones(true);
+            }
+            cm.setActiveSubscription(subscription);
+        }
+    }
+
+    /**
+     * Returns the current active subscription id on which voice call is
+     * active and visible to user.
+     */
+    public static int getActiveSubscription() {
+        return PhoneGlobals.getInstance().mCM.getActiveSubscription();
+    }
+
+    /**
+     * This method checks whether any other subscription currently has active
+     * voice call(with state OFFHOOK/RINGING) other than provided subscription,
+     * if yes it returns true.
+     */
+    public static boolean isAnyOtherSubActive(int subscription) {
+        return (getOtherActiveSub(subscription) !=
+                MSimConstants.INVALID_SUBSCRIPTION) ? true : false;
+    }
+
+    /**
+     * This method checks whether any other subscription currently has active voice
+     * call(with state OFFHOOK/RINGING) other than provided subscription, if yes
+     * it makes that other subscription as active subscription i.e user visible subscription.
+     *
+     * @param subscription is the current active subscription.
+     */
+    public static void switchToOtherActiveSub(int subscription) {
+        int count = MSimTelephonyManager.getDefault().getPhoneCount();
+        CallManager cm = MSimPhoneGlobals.getInstance().mCM;
+
+        Log.d(LOG_TAG, "switchToOtherActiveSub: sub = " + subscription +  " count = "+ count);
+        for (int i = 0; i < count; i++) {
+            if ((i != subscription) && (cm.getState(i) != PhoneConstants.State.IDLE)) {
+                setActiveSubscription(i);
+                // Since active subscription got changed, call setAudioMode
+                // which informs LCH state to RIL and updates audio state of subs.
+                // This required to update the call audio states when switch sub
+                // triggered from UI.
+                cm.setAudioMode();
+                Log.d(LOG_TAG, "Switching to other active sub  = " + i );
+                break;
+            }
+        }
+    }
+
+    /**
+     * Check whether any other sub is in active state other than
+     * provided subscription, if yes return the other active sub.
+     * @return subscription which is active, if no other sub is in
+     * active state return -1.
+     */
+    public static int getOtherActiveSub(int subscription) {
+        int otherSub = MSimConstants.INVALID_SUBSCRIPTION;
+        int count = MSimTelephonyManager.getDefault().getPhoneCount();
+        CallManager cm = MSimPhoneGlobals.getInstance().mCM;
+
+        if (DBG) Log.d(LOG_TAG, "getOtherActiveSub: sub = " + subscription + " count = " + count);
+        for (int i = 0; i < count; i++) {
+            if ((i != subscription) && (cm.getState(i) != PhoneConstants.State.IDLE)) {
+                Log.d(LOG_TAG, "getOtherActiveSub: active sub  = " + i );
+                otherSub = i;
+                break;
+            }
+        }
+        return otherSub;
+    }
+
+    public static void handleWaitingCallOnLchSub(int activeSub, boolean isAccepted) {
+        CallManager cm = PhoneGlobals.getInstance().mCM;
+        boolean lchStatus = cm.getLocalCallHoldStatus(activeSub);
+        int otherActiveSub = getOtherActiveSub(activeSub);
+
+        if ((lchStatus == true) && (activeSub == getActiveSubscription()) &&
+                (otherActiveSub != MSimConstants.INVALID_SUBSCRIPTION) &&
+                (cm.getState(otherActiveSub) != PhoneConstants.State.IDLE)) {
+            if (isAccepted) {
+                Log.i(LOG_TAG, " re-start playing SCH tone, sub = " + otherActiveSub);
+                // While two subscriptions have active voice calls and if user
+                // accepts new waiting call call on LCH subscription, then
+                // stop playing of LCH/SCH tone in that subscription. When call
+                // is connected the tones will switch to new LCH subscription.
+                final MSimCallNotifier msimNotifier =
+                        (MSimCallNotifier)PhoneGlobals.getInstance().notifier;
+                msimNotifier.stopMSimInCallTones();
+            } else {
+                Log.i(LOG_TAG, " Switching back to active sub = " + otherActiveSub);
+                // While two subscriptions have active voice calls and if user
+                // rejects new waiting call on LCH subscription, bring back the
+                // subscription to foreground on which user currently speaking.
+                setActiveSubscription(otherActiveSub);
+            }
+        }
+    }
 }

@@ -24,7 +24,7 @@ import com.android.services.telephony.common.Call;
  * TODO: Move this out of opt/telephony and into opt/call or similar. This interface
  *       makes sense even without the telephony layer (think VOIP).
  */
-oneway interface ICallCommandService {
+interface ICallCommandService {
 
     /**
      * Answer a ringing call.
@@ -106,4 +106,14 @@ oneway interface ICallCommandService {
      * device has soft navigation buttons.
      */
     void setSystemBarNavigationEnabled(boolean enable);
+
+    /**
+     * Get the current active subscription.
+     */
+    int getActiveSubscription();
+
+    /**
+     * Sets the subscriptionId as new active subscription.
+     */
+    void setActiveSubscription(int subscriptionId);
 }

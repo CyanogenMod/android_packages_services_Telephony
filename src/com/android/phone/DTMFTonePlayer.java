@@ -146,6 +146,11 @@ public class DTMFTonePlayer implements CallModeler.Listener {
         }
     }
 
+    @Override
+    public void onActiveSubChanged(int activeSub) {
+        // no-op
+    }
+
     /**
      * Allocates some resources we keep around during a "dialer session".
      *

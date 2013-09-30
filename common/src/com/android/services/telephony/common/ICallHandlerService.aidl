@@ -70,4 +70,9 @@ oneway interface ICallHandlerService {
     void bringToForeground(boolean showDialpad);
 
     void onPostDialWait(int callId, String remainingChars);
+
+    /**
+     * Called when the active subscription changes.
+     */
+    void onActiveSubChanged(in int activeSub);
 }

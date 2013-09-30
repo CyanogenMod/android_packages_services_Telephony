@@ -43,6 +43,8 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 
+import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
+
 /**
  * Displays dialog that enables users to exit Emergency Callback Mode
  *
@@ -151,7 +153,9 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnDismi
             if (isImsEcbm) {
                 mPhone = PhoneUtils.getImsPhone(PhoneGlobals.getInstance().mCM);
             } else {
-                mPhone = PhoneGlobals.getInstance().getPhone();
+                int subscription = getIntent().getIntExtra(SUBSCRIPTION_KEY,
+                        PhoneGlobals.getInstance().getDefaultSubscription());
+                mPhone = PhoneGlobals.getInstance().getPhone(subscription);
             }
             // Register ECM timer reset notfication
             mPhone.registerForEcmTimerReset(mTimerResetHandler, ECM_TIMER_RESET, null);

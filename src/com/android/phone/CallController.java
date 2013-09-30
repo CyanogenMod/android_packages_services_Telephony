@@ -35,11 +35,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
 import android.provider.CallLog.Calls;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.ServiceState;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
+
+import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
 /**
  * Phone app module in charge of "call control".
@@ -339,7 +342,8 @@ public class CallController extends Handler {
             // or any of combinations
             String sipPhoneUri = intent.getStringExtra(
                     OutgoingCallBroadcaster.EXTRA_SIP_PHONE_URI);
-            phone = PhoneUtils.pickPhoneBasedOnNumber(mCM, scheme, number, sipPhoneUri);
+            int sub = intent.getIntExtra(SUBSCRIPTION_KEY, mApp.getVoiceSubscription());
+            phone = PhoneUtils.pickPhoneBasedOnNumber(mCM, scheme, number, sipPhoneUri, sub);
             if (VDBG) log("- got Phone instance: " + phone + ", class = " + phone.getClass());
 
             // update okToCallStatus based on new phone
@@ -399,6 +403,13 @@ public class CallController extends Handler {
             && ((okToCallStatus == CallStatusCode.EMERGENCY_ONLY)
                 || (okToCallStatus == CallStatusCode.OUT_OF_SERVICE))) {
             if (DBG) log("placeCall: Emergency number detected with status = " + okToCallStatus);
+            // Avoid updating phone in IMS case as it gets picked
+            // above by PhoneUtils.pickPhoneBasedOnNumber()
+            if ((MSimTelephonyManager.getDefault().isMultiSimEnabled()) &&
+                    (phone.getPhoneType() != PhoneConstants.PHONE_TYPE_IMS)) {
+                int sub = mApp.getVoiceSubscriptionInService();
+                phone = mApp.getPhone(sub);
+            }
             okToCallStatus = CallStatusCode.SUCCESS;
             if (DBG) log("==> UPDATING status to: " + okToCallStatus);
         }

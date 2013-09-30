@@ -132,6 +132,9 @@ public class CallModeler extends Handler {
                             (SuppServiceNotification)(((AsyncResult) msg.obj).result);
                 }
                 break;
+            case CallStateMonitor.PHONE_ACTIVE_SUBSCRIPTION_CHANGE:
+                onActiveSubChanged((AsyncResult) msg.obj);
+                break;
             default:
                 break;
         }
@@ -763,6 +766,19 @@ public class CallModeler extends Handler {
         return retval;
     }
 
+
+    /**
+     * Called when the active subscription changes.
+     */
+    private void onActiveSubChanged(AsyncResult r) {
+        int activeSub = (Integer) r.result;
+        Log.i(TAG, "onActiveSubChanged: " + activeSub);
+
+        for (int i = 0; i < mListeners.size(); ++i) {
+            mListeners.get(i).onActiveSubChanged(activeSub);
+        }
+    }
+
     private final ImmutableMap<Connection.DisconnectCause, Call.DisconnectCause> CAUSE_MAP =
             ImmutableMap.<Connection.DisconnectCause, Call.DisconnectCause>builder()
                 .put(Connection.DisconnectCause.BUSY, Call.DisconnectCause.BUSY)
@@ -903,6 +919,7 @@ public class CallModeler extends Handler {
         void onUpdate(List<Call> calls);
         void onPostDialAction(Connection.PostDialState state, int callId, String remainingChars,
                 char c);
+        void onActiveSubChanged(int activeSub);
     }
 
     /**
