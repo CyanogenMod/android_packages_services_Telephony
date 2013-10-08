@@ -807,6 +807,12 @@ public class CallModeler extends Handler {
                 .put(Connection.DisconnectCause.TIMED_OUT, Call.DisconnectCause.TIMED_OUT)
                 .put(Connection.DisconnectCause.UNOBTAINABLE_NUMBER,
                         Call.DisconnectCause.UNOBTAINABLE_NUMBER)
+                .put(Connection.DisconnectCause.DIAL_MODIFIED_TO_USSD,
+                        Call.DisconnectCause.DIAL_MODIFIED_TO_USSD)
+                .put(Connection.DisconnectCause.DIAL_MODIFIED_TO_SS,
+                        Call.DisconnectCause.DIAL_MODIFIED_TO_SS)
+                .put(Connection.DisconnectCause.DIAL_MODIFIED_TO_DIAL,
+                        Call.DisconnectCause.DIAL_MODIFIED_TO_DIAL)
                 .build();
 
     private Call.DisconnectCause translateDisconnectCauseFromTelephony(

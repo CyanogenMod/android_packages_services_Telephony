@@ -138,6 +138,9 @@ public final class Call implements Parcelable {
         CDMA_PREEMPTED,
         CDMA_NOT_EMERGENCY,              /* not an emergency call */
         CDMA_ACCESS_BLOCKED,            /* Access Blocked by CDMA network */
+        DIAL_MODIFIED_TO_USSD,          /* DIAL request modified to USSD */
+        DIAL_MODIFIED_TO_SS,            /* DIAL request modified to SS */
+        DIAL_MODIFIED_TO_DIAL,          /* DIAL request modified to DIAL with diferent data */
         ERROR_UNSPECIFIED,
 
         UNKNOWN                         /* Disconnect cause doesn't map to any above */
