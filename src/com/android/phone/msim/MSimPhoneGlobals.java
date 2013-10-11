@@ -262,6 +262,8 @@ public class MSimPhoneGlobals extends PhoneGlobals {
             notifier = MSimCallNotifier.init(this, phone, ringer, callLogger, callStateMonitor,
                     bluetoothManager, callModeler);
 
+            XDivertUtility.init(this, phone, (MSimCallNotifier)notifier, this);
+
             // register for ICC status
             for (int i = 0; i < MSimTelephonyManager.getDefault().getPhoneCount(); i++) {
                 IccCard sim = getPhone(i).getIccCard();
