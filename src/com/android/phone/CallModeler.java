@@ -33,6 +33,7 @@ import com.android.internal.telephony.cdma.CdmaCallWaitingNotification;
 import com.android.internal.telephony.gsm.SuppServiceNotification;
 import com.android.phone.CallGatewayManager.RawGatewayInfo;
 import com.android.services.telephony.common.Call;
+import com.android.services.telephony.common.CallDetails;
 import com.android.services.telephony.common.Call.Capabilities;
 import com.android.services.telephony.common.Call.State;
 
@@ -42,6 +43,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Lists;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -517,6 +519,30 @@ public class CallModeler extends Handler {
         call.setState(newState);
     }
 
+    private void mapCallDetails(Call call, Connection connection) {
+        copyDetails(connection.getCallDetails(), call.getCallDetails(), connection.errorInfo);
+
+        if (connection.getCallModify() != null) {
+            copyDetails(connection.getCallModify().call_details, call.getCallModifyDetails(),
+                    connection.errorInfo);
+        }
+
+        if (connection.getCall().getConfUriList() != null) {
+            String[] confList = connection.getCall().getConfUriList();
+            call.getCallDetails().setConfUriList(confList);
+        }
+
+        call.getCallDetails().setMpty(connection.getCall().isMultiparty());
+    }
+
+    private void copyDetails(com.android.internal.telephony.CallDetails src,
+            com.android.services.telephony.common.CallDetails dest, String errorInfo) {
+        dest.setCallType(src.call_type);
+        dest.setCallDomain(src.call_domain);
+        dest.setExtras(src.extras);
+        dest.setErrorInfo(errorInfo);
+    }
+
     /**
      * Updates the Call properties to match the state of the connection object
      * that it represents.
@@ -535,6 +561,8 @@ public class CallModeler extends Handler {
             setNewState(call, newState, connection);
             changed = true;
         }
+
+        mapCallDetails(call, connection);
 
         final Call.DisconnectCause newDisconnectCause =
                 translateDisconnectCauseFromTelephony(connection.getDisconnectCause());
@@ -627,6 +655,7 @@ public class CallModeler extends Handler {
         boolean canSwapCall = false;
         boolean canRespondViaText = false;
         boolean canMute = false;
+        boolean canAddParticipant = false;
 
         final boolean supportHold = PhoneUtils.okToSupportHold(mCallManager);
         final boolean canHold = (supportHold ? PhoneUtils.okToHoldCall(mCallManager) : false);
@@ -640,6 +669,7 @@ public class CallModeler extends Handler {
         }
 
         canAddCall = PhoneUtils.okToAddCall(mCallManager);
+        canAddParticipant = PhoneUtils.isCallOnImsEnabled() && canAddCall;
 
         // "Mute": only enabled when the foreground call is ACTIVE.
         // (It's meaningless while on hold, or while DIALING/ALERTING.)
@@ -688,6 +718,9 @@ public class CallModeler extends Handler {
         if (canMute) {
             retval |= Capabilities.MUTE;
         }
+        if (canAddParticipant) {
+            retval |= Capabilities.ADD_PARTICIPANT;
+        }
         if (genericConf) {
             retval |= Capabilities.GENERIC_CONFERENCE;
         }
@@ -701,21 +734,27 @@ public class CallModeler extends Handler {
      * checking to see if more than one of it's children is alive.
      */
     private boolean isPartOfLiveConferenceCall(Connection connection) {
+        boolean ret = false;
         if (connection.getCall() != null && connection.getCall().isMultiparty()) {
             int count = 0;
-            for (Connection currConn : connection.getCall().getConnections()) {
-
-                // Only count connections which are alive and never cound the special
-                // "dialing" 3way call for CDMA calls.
-                if (currConn.isAlive() && currConn != mCdmaOutgoingConnection) {
-                    count++;
-                    if (count >= 2) {
-                        return true;
+            if (connection.getCallDetails().call_domain
+                    == com.android.services.telephony.common.CallDetails.CALL_DOMAIN_PS) {
+                ret = true;
+            } else {
+                for (Connection currConn : connection.getCall().getConnections()) {
+                    // Only count connections which are alive and never cound
+                    // the special
+                    // "dialing" 3way call for CDMA calls.
+                    if (currConn.isAlive() && currConn != mCdmaOutgoingConnection) {
+                        count++;
+                        if (count >= 2) {
+                            return true;
+                        }
                     }
                 }
             }
         }
-        return false;
+        return ret;
     }
 
     private int translateStateFromTelephony(Connection connection, boolean isForConference) {
