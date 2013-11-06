@@ -119,13 +119,26 @@
     <bool name="config_apn_expand" translatable="false">true</bool>
     <bool name="config_operator_selection_expand" translatable="false">true</bool>
     <bool name="config_prefer_2g" translatable="false">true</bool>
+    <!-- Show enabled lte option for lte device -->
+    <bool name="config_enabled_lte" translatable="false">false</bool>
+    <!-- Show cdma auto network mode in (glabal) roaming -->
+    <bool name="config_show_cdma" translatable="false">false</bool>
 
-    <!-- Package name for the default in-call UI Service [DO NOT TRANSLATE] -->
-    <string name="incall_ui_default_package" translatable="false">com.android.dialer</string>
+    <!-- Package name for the default in-call UI and dialer [DO NOT TRANSLATE] -->
+    <string name="ui_default_package" translatable="false">com.android.dialer</string>
 
     <!-- Class name for the default in-call UI Service [DO NOT TRANSLATE] -->
-    <string name="incall_ui_default_class" translatable="false">com.android.incallui.CallHandlerService</string>
+    <string name="incall_default_class" translatable="false">com.android.incallui.CallHandlerService</string>
+
+    <!-- Class name for the default main Dialer activity [DO NOT TRANSLATE] -->
+    <string name="dialer_default_class" translatable="false">com.android.dialer.DialtactsActivity</string>
 
     <!-- CDMA activation goes through HFA [DO NOT TRANSLATE] -->
     <bool name="config_use_hfa_for_provisioning" translatable="false">false</bool>
+
+    <!-- Display carrier settings menu if true -->
+    <bool name="config_carrier_settings_enable">false</bool>
+    <!-- carrier settings menu -->
+    <string name="carrier_settings" translatable="false"></string>
+    <string name="carrier_settings_menu" translatable="false"></string>
 </resources>

@@ -32,6 +32,7 @@ import android.os.SystemProperties;
 import android.util.Log;
 
 import com.android.internal.telephony.CallManager;
+import com.android.internal.telephony.Connection;
 import com.android.services.telephony.common.Call;
 
 import java.util.List;
@@ -71,7 +72,6 @@ public class BluetoothManager implements CallModeler.Listener {
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         init(mContext);
-        // TODO(klp): Listen for changes to the call list/state.
     }
 
     /* package */ boolean isBluetoothHeadsetAudioOn() {
@@ -417,7 +417,7 @@ public class BluetoothManager implements CallModeler.Listener {
     }
 
     @Override
-    public void onPostDialWait(int callId, String chars) {
+    public void onPostDialAction(Connection.PostDialState state, int callId, String chars, char c) {
         // no-op
     }
 

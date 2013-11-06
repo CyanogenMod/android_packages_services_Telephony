@@ -54,7 +54,7 @@
     <string name="unlock_success" msgid="6770085622238180152">"ການປົດລັອກເຄືອຂ່າຍບໍ່ສຳເລັດ."</string>
     <string name="labelGSMMore" msgid="5930842194056092106">"ການຕັ້ງຄ່າການໂທ GSM"</string>
     <string name="labelCDMAMore" msgid="1630676740428229339">"ການຕັ້ງຄ່າໂທ CDMA"</string>
-    <string name="apn_settings" msgid="9043423184895642077">"ຊື່ຂອງຈຸດການເຂົ້າເຖິງ"</string>
+    <string name="apn_settings" msgid="9043423184895642077">"ຊື່ຂອງຈຸດການເຂົ້າເຖິງ (APN)"</string>
     <string name="settings_label" msgid="3876743539816984008">"ການຕັ້ງຄ່າເຄືອຂ່າຍ"</string>
     <string name="voicemail" msgid="8693759337917898954">"ຂໍ້ຄວາມສຽງ"</string>
     <string name="voicemail_abbreviated" msgid="2215592488517217448">"VM​:"</string>
@@ -168,7 +168,7 @@
     <item msgid="1524224863879435516">"GSM ເທົ່ານັ້ນ"</item>
     <item msgid="3817924849415716259">"ຕ້ອງການ GSM/WCDMA"</item>
   </string-array>
-    <string name="data_enabled" msgid="5972538663568715366">"ເປີດໃຊ້ຂໍ້ມູນແລ້ວ"</string>
+    <string name="data_enabled" msgid="5972538663568715366">"ເປີດໃຊ້ເດຕາ"</string>
     <string name="data_enable_summary" msgid="5022018967714633874">"ເປີດໃຊ້ການເຂົ້າເຖິງຂໍ້ມູນຜ່ານເຄືອຂ່າຍມືຖື"</string>
     <string name="roaming" msgid="8871412572928323707">"ການໂຣມມິງຂໍ້ມູນ"</string>
     <string name="roaming_enable" msgid="7331106985174381987">"ເຊື່ອມຕໍ່ບໍລິການຂໍ້ມູນເມື່ອໂຣມມິງ"</string>
@@ -275,8 +275,6 @@
     <string name="enable_disable_multi_category" msgid="626771003122899280">"ຫຼາຍໝວດໝູ່"</string>
     <string name="multi_category_enable" msgid="1179299804641721768">"ເປີດການນຳໃຊ້ຫຼາຍໝວດໝູ່ແລ້ວ"</string>
     <string name="multi_category_disable" msgid="880104702904139505">"ປິດການນຳໃຊ້ຫຼາຍໝວດໝູ່ແລ້ວ"</string>
-    <string name="prefer_2g" msgid="8442550937280449639">"ໃຊ້ເຄືອຂ່າຍ 2G ເທົ່ານັ້ນ"</string>
-    <string name="prefer_2g_summary" msgid="1976491403210690759">"ປະຢັດແບັດເຕີຣີ"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"ການເລືອກລະບົບ"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"ປ່ຽນຮູບແບບການໂຣມມິງ CDMA"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"ການເລືອກລະບົບ"</string>
@@ -297,6 +295,8 @@
   </string-array>
     <string name="cdma_activate_device" msgid="3793805892364814518">"ເປີດນຳໃຊ້ອຸປະກອນ"</string>
     <string name="cdma_lte_data_service" msgid="4255018217292548962">"ຕັ້ງຄ່າບໍລິການຂໍ້ມູນ"</string>
+    <!-- no translation found for carrier_settings_title (9028166176523012300) -->
+    <skip />
     <string name="fdn" msgid="7878832555095183202">"ໝາຍເລກຈຳກັດການໂທອອກ"</string>
     <string name="manage_fdn_list" msgid="8777755791892122369">"ລາຍ​ຊື່ FDN"</string>
     <string name="fdn_activation" msgid="2156479741307463576">"ການເປີດໃຊ້ FDN"</string>
@@ -450,10 +450,8 @@
     <string name="network_message" msgid="4483886461245213802">"ຂໍ້ຄວາມເຄືອຂ່າຍ"</string>
     <string name="ota_title_activate" msgid="8616918561356194398">"ເປີດນຳໃຊ້ໂທລະສັບຂອງທ່ານ"</string>
     <string name="ota_touch_activate" msgid="6553212803262586244">"ຕ້ອງໃຊ້ການໂທພິເສດ ເພື່ອເປີດນຳໃຊ້ບໍລິການໂທລະສັບຂອງທ່ານ. \n\nຫຼັງຈາກກົດປຸ່ມ “ເປີດນຳໃຊ້” ແລ້ວ, ໃຫ້ຟັງຄຳແນະນຳທີ່ລະບຸເພື່ອເປີດນຳໃຊ້ໂທລະສັບຂອງທ່ານ."</string>
-    <!-- no translation found for ota_hfa_activation_title (2234246934160473981) -->
-    <skip />
-    <!-- no translation found for ota_hfa_activation_dialog_message (8092479227918463415) -->
-    <skip />
+    <string name="ota_hfa_activation_title" msgid="2234246934160473981">"ກຳລັງເປີດນຳໃຊ້..."</string>
+    <string name="ota_hfa_activation_dialog_message" msgid="8092479227918463415">"ໂທລະສັບກຳລັງເປີດນຳໃຊ້ບໍລິການຂໍ້ມູນມືຖືຂອງທ່ານ.\n\nຂັ້ນຕອນນີ້ອາດໃຊ້ເວລາເຖິງ 5 ນາທີ."</string>
     <string name="ota_skip_activation_dialog_title" msgid="2943366608272261306">"ຂ້າມການເປີດນຳໃຊ້?"</string>
     <string name="ota_skip_activation_dialog_message" msgid="2440770373498870550">"ຫາກທ່ານຂ້າມການເປີດນຳໃຊ້, ທ່ານຈະບໍ່ສາມາດໂທອອກ ຫຼືເຊື່ອມຕໍ່ເຄືອຂ່າຍຂໍ້ມູນມືຖືໄດ້ (ເຖິງແມ່ນວ່າ ທ່ານຈະສາມາດເຊື່ອມຕໍ່ຫາເຄືອຂ່າຍ Wi-Fi). ທ່ານຈະຖືກຖາມໃຫ້ເປີດນຳໃຊ້ທຸກຄັ້ງທີ່ທ່ານເປີດເຄື່ອງ, ຈົນກວ່າທ່ານຈະສຳເລັດຂັ້ນຕອນ ການເປີດນຳໃຊ້ໂທລະສັບຂອງທ່ານ."</string>
     <string name="ota_skip_activation_dialog_skip_label" msgid="3458532775091563208">"ຂ້າມ"</string>
@@ -581,8 +579,7 @@
     <string name="respond_via_sms_setting_title_2" msgid="6104662227299493906">"ແກ້ໄຂຂໍ້ຄວາມຕອບກັບດ່ວນ"</string>
     <string name="respond_via_sms_setting_summary" msgid="9150281183930613065"></string>
     <string name="respond_via_sms_edittext_dialog_title" msgid="20379890418289778">"ຕອບກັບດ່ວນ"</string>
-    <!-- no translation found for respond_via_sms_menu_reset_default_activity (4029277930090150223) -->
-    <skip />
+    <string name="respond_via_sms_menu_reset_default_activity" msgid="4029277930090150223">"ຄືນໄປຄ່າເລີ່ມຕົ້ນ"</string>
     <string name="respond_via_sms_confirmation_format" msgid="7229149977515784269">"ສົ່ງຂໍ້ຄວາມຫາ <xliff:g id="PHONE_NUMBER">%s</xliff:g> ແລ້ວ."</string>
     <string name="description_image_button_one" msgid="5502718871331943463">"ນຶ່ງ"</string>
     <string name="description_image_button_two" msgid="4903738528222924522">"ສອງ"</string>

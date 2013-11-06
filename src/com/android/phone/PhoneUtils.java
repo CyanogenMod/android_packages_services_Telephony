@@ -326,6 +326,28 @@ public class PhoneUtils {
     }
 
     /**
+     * Hangs up all active calls.
+     */
+    static void hangupAllCalls(CallManager cm) {
+        final Call ringing = cm.getFirstActiveRingingCall();
+        final Call fg = cm.getActiveFgCall();
+        final Call bg = cm.getFirstActiveBgCall();
+
+        // We go in reverse order, BG->FG->RINGING because hanging up a ringing call or an active
+        // call can move a bg call to a fg call which would force us to loop over each call
+        // several times.  This ordering works best to ensure we dont have any more calls.
+        if (bg != null && !bg.isIdle()) {
+            hangup(bg);
+        }
+        if (fg != null && !fg.isIdle()) {
+            hangup(fg);
+        }
+        if (ringing != null && !ringing.isIdle()) {
+            hangupRingingCall(fg);
+        }
+    }
+
+    /**
      * Smart "hang up" helper method which hangs up exactly one connection,
      * based on the current Phone state, as follows:
      * <ul>
@@ -548,7 +570,8 @@ public class PhoneUtils {
      * </pre>
      * @param app The phone instance.
      */
-    private static void updateCdmaCallStateOnNewOutgoingCall(PhoneGlobals app) {
+    private static void updateCdmaCallStateOnNewOutgoingCall(PhoneGlobals app,
+            Connection connection) {
         if (app.cdmaPhoneCallState.getCurrentCallState() ==
             CdmaPhoneCallState.PhoneCallState.IDLE) {
             // This is the first outgoing call. Set the Phone Call State to ACTIVE
@@ -558,6 +581,8 @@ public class PhoneUtils {
             // This is the second outgoing call. Set the Phone Call State to 3WAY
             app.cdmaPhoneCallState.setCurrentCallState(
                 CdmaPhoneCallState.PhoneCallState.THRWAY_ACTIVE);
+
+            app.getCallModeler().setCdmaOutgoing3WayCall(connection);
         }
     }
 
@@ -671,16 +696,8 @@ public class PhoneUtils {
             }
         } else {
             if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
-                updateCdmaCallStateOnNewOutgoingCall(app);
+                updateCdmaCallStateOnNewOutgoingCall(app, connection);
             }
-
-            // Clean up the number to be displayed.
-            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
-                number = CdmaConnection.formatDialString(number);
-            }
-            number = PhoneNumberUtils.extractNetworkPortion(number);
-            number = PhoneNumberUtils.convertKeypadLettersToDigits(number);
-            number = PhoneNumberUtils.formatNumber(number);
 
             if (gatewayUri == null) {
                 // phone.dial() succeeded: we're now in a normal phone call.
@@ -705,25 +722,15 @@ public class PhoneUtils {
                         }
                     }
                 }
-            } else {
-                // Get the caller info synchronously because we need the final
-                // CallerInfo object to update the dialed number with the one
-                // requested by the user (and not the provider's gateway number).
-                CallerInfo info = null;
-                String content = phone.getContext().getContentResolver().SCHEME_CONTENT;
-                if ((contactRef != null) && (contactRef.getScheme().equals(content))) {
-                    info = CallerInfo.getCallerInfo(context, contactRef);
-                }
-
-                // Fallback, lookup contact using the phone number if the
-                // contact's URI scheme was not content:// or if is was but
-                // the lookup failed.
-                if (null == info) {
-                    info = CallerInfo.getCallerInfo(context, number);
-                }
-                info.phoneNumber = number;
-                connection.setUserData(info);
             }
+
+            startGetCallerInfo(context, connection, null, null, gatewayInfo);
+
+            // Always set mute to off when we are dialing an emergency number
+            if (isEmergencyCall) {
+                setMute(false);
+            }
+
             setAudioMode();
 
             if (DBG) log("about to activate speaker");
@@ -1391,12 +1398,18 @@ public class PhoneUtils {
         return startGetCallerInfo(context, conn, listener, cookie);
     }
 
+    static CallerInfoToken startGetCallerInfo(Context context, Connection c,
+            CallerInfoAsyncQuery.OnQueryCompleteListener listener, Object cookie) {
+        return startGetCallerInfo(context, c, listener, cookie, null);
+    }
+
     /**
      * place a temporary callerinfo object in the hands of the caller and notify
      * caller when the actual query is done.
      */
     static CallerInfoToken startGetCallerInfo(Context context, Connection c,
-            CallerInfoAsyncQuery.OnQueryCompleteListener listener, Object cookie) {
+            CallerInfoAsyncQuery.OnQueryCompleteListener listener, Object cookie,
+            RawGatewayInfo info) {
         CallerInfoToken cit;
 
         if (c == null) {
@@ -1461,6 +1474,12 @@ public class PhoneUtils {
             // No URI, or Existing CallerInfo, so we'll have to make do with
             // querying a new CallerInfo using the connection's phone number.
             String number = c.getAddress();
+
+            if (info != null && info != CallGatewayManager.EMPTY_INFO) {
+                // Gateway number, the connection number is actually the gateway number.
+                // need to lookup via dialed number.
+                number = info.trueNumber;
+            }
 
             if (DBG) {
                 log("PhoneUtils.startGetCallerInfo: new query for phone number...");
@@ -1547,6 +1566,13 @@ public class PhoneUtils {
             } else {
                 // handling case where number/name gets updated later on by the network
                 String updatedNumber = c.getAddress();
+
+                if (info != null) {
+                    // Gateway number, the connection number is actually the gateway number.
+                    // need to lookup via dialed number.
+                    updatedNumber = info.trueNumber;
+                }
+
                 if (DBG) {
                     log("startGetCallerInfo: updatedNumber initially = "
                             + toLogSafePhoneNumber(updatedNumber));
@@ -1932,6 +1958,11 @@ public class PhoneUtils {
     static void setMute(boolean muted) {
         CallManager cm = PhoneGlobals.getInstance().mCM;
 
+        // Emergency calls never get muted.
+        if (isInEmergencyCall(cm)) {
+            muted = false;
+        }
+
         // make the call to mute the audio
         setMuteInternal(cm.getFgPhone(), muted);
 
@@ -1943,6 +1974,27 @@ public class PhoneUtils {
             }
             sConnectionMuteTable.put(cn, Boolean.valueOf(muted));
         }
+
+        // update the background connections to match.  This includes
+        // all the connections on conference calls.
+        if (cm.hasActiveBgCall()) {
+            for (Connection cn : cm.getFirstActiveBgCall().getConnections()) {
+                if (sConnectionMuteTable.get(cn) == null) {
+                    if (DBG) log("problem retrieving mute value for this connection.");
+                }
+                sConnectionMuteTable.put(cn, Boolean.valueOf(muted));
+            }
+        }
+    }
+
+    static boolean isInEmergencyCall(CallManager cm) {
+        for (Connection cn : cm.getActiveFgCall().getConnections()) {
+            if (PhoneNumberUtils.isLocalEmergencyNumber(cn.getAddress(),
+                    PhoneGlobals.getInstance())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -2147,6 +2199,50 @@ public class PhoneUtils {
     //
     // Misc UI policy helper functions
     //
+
+    /**
+     * @return true if we're allowed to hold calls, given the current
+     * state of the Phone.
+     */
+    /* package */ static boolean okToHoldCall(CallManager cm) {
+        final Call fgCall = cm.getActiveFgCall();
+        final boolean hasHoldingCall = cm.hasActiveBgCall();
+        final Call.State fgCallState = fgCall.getState();
+
+        // The "Hold" control is disabled entirely if there's
+        // no way to either hold or unhold in the current state.
+        final boolean okToHold = (fgCallState == Call.State.ACTIVE) && !hasHoldingCall;
+        final boolean okToUnhold = cm.hasActiveBgCall() && (fgCallState == Call.State.IDLE);
+        final boolean canHold = okToHold || okToUnhold;
+
+        return canHold;
+    }
+
+    /**
+     * @return true if we support holding calls, given the current
+     * state of the Phone.
+     */
+    /* package */ static boolean okToSupportHold(CallManager cm) {
+        boolean supportsHold = false;
+
+        final Call fgCall = cm.getActiveFgCall();
+        final boolean hasHoldingCall = cm.hasActiveBgCall();
+        final Call.State fgCallState = fgCall.getState();
+
+        if (TelephonyCapabilities.supportsHoldAndUnhold(fgCall.getPhone())) {
+            // This phone has the concept of explicit "Hold" and "Unhold" actions.
+            supportsHold = true;
+        } else if (hasHoldingCall && (fgCallState == Call.State.IDLE)) {
+            // Even when foreground phone device doesn't support hold/unhold, phone devices
+            // for background holding calls may do.
+            final Call bgCall = cm.getFirstActiveBgCall();
+            if (bgCall != null &&
+                    TelephonyCapabilities.supportsHoldAndUnhold(bgCall.getPhone())) {
+                supportsHold = true;
+            }
+        }
+        return supportsHold;
+    }
 
     /**
      * @return true if we're allowed to swap calls, given the current
@@ -2368,7 +2464,7 @@ public class PhoneUtils {
             if (DBG) log("activateSpeakerIfDocked(): In a dock -> may need to turn on speaker.");
             final PhoneGlobals app = PhoneGlobals.getInstance();
 
-            // TODO(klp): This function should move to AudioRouter
+            // TODO: This function should move to AudioRouter
             final BluetoothManager btManager = app.getBluetoothManager();
             final WiredHeadsetManager wiredHeadset = app.getWiredHeadsetManager();
             final AudioRouter audioRouter = app.getAudioRouter();

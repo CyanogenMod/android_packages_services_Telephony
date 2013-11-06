@@ -275,8 +275,6 @@
     <string name="enable_disable_multi_category" msgid="626771003122899280">"მრავალკატეგორიანი"</string>
     <string name="multi_category_enable" msgid="1179299804641721768">"მრავალი კატეგორია ჩართულია"</string>
     <string name="multi_category_disable" msgid="880104702904139505">"მრავალი კატეგორია გამორთულია"</string>
-    <string name="prefer_2g" msgid="8442550937280449639">"მხოლოდ 2G ქსელების გამოყენება"</string>
-    <string name="prefer_2g_summary" msgid="1976491403210690759">"ზოგავს ბატარეას"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"სისტემის არჩევა"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"CDMA როუმინგის რეჟიმის შეცვლა"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"სისტემის არჩევა"</string>
@@ -297,6 +295,8 @@
   </string-array>
     <string name="cdma_activate_device" msgid="3793805892364814518">"მოწყობილობის აქტივაცია"</string>
     <string name="cdma_lte_data_service" msgid="4255018217292548962">"მობილური ინტერნეტის სერვისის დაყენება"</string>
+    <!-- no translation found for carrier_settings_title (9028166176523012300) -->
+    <skip />
     <string name="fdn" msgid="7878832555095183202">"დაშვებული ნომრები"</string>
     <string name="manage_fdn_list" msgid="8777755791892122369">"FDN სია"</string>
     <string name="fdn_activation" msgid="2156479741307463576">"FDN აქტივაცია"</string>
@@ -450,10 +450,8 @@
     <string name="network_message" msgid="4483886461245213802">"ქსელის შეტყობინება"</string>
     <string name="ota_title_activate" msgid="8616918561356194398">"თქვენი ტელეფონის აქტივაცია"</string>
     <string name="ota_touch_activate" msgid="6553212803262586244">"თქვენი ტელეფონის სერვისის გასააქტიურებლად აუცილებელია საგანგებო ზარის განხორციელება. \n\nტექსტზე „აქტივაცია“ დაჭერის შემდეგ, მოუსმინეთ ინსტრუქციებს თქვენი ტელეფონის აქტივაციისათვის."</string>
-    <!-- no translation found for ota_hfa_activation_title (2234246934160473981) -->
-    <skip />
-    <!-- no translation found for ota_hfa_activation_dialog_message (8092479227918463415) -->
-    <skip />
+    <string name="ota_hfa_activation_title" msgid="2234246934160473981">"მიმდინარეობს გააქტიურება..."</string>
+    <string name="ota_hfa_activation_dialog_message" msgid="8092479227918463415">"ტელეფონი თქვენს მობილური ინტერნეტის სერვისს ააქტიურებს.\n\nამას შესაძლოა 5 წუთამდე დაჭირდეს."</string>
     <string name="ota_skip_activation_dialog_title" msgid="2943366608272261306">"გსურთ აქტივაციის გამოტოვება?"</string>
     <string name="ota_skip_activation_dialog_message" msgid="2440770373498870550">"თუ აქტივაციას გამოტოვებთ, ზარების განხორციელებას ან მობილური ინტერნეტის გამოყენებას ვერ შეძლებთ (თუმცა, შესაძლებელია Wi-Fi ქსელებთან დაკავშირება). სანამ ტელეფონს გაააქტიურებდეთ, მოგეთხოვებათ გაააქტიუროთ ის, სანამ ჩართავდეთ."</string>
     <string name="ota_skip_activation_dialog_skip_label" msgid="3458532775091563208">"გამოტოვება"</string>
@@ -581,8 +579,7 @@
     <string name="respond_via_sms_setting_title_2" msgid="6104662227299493906">"სწრაფი პასუხის რედაქტირება"</string>
     <string name="respond_via_sms_setting_summary" msgid="9150281183930613065"></string>
     <string name="respond_via_sms_edittext_dialog_title" msgid="20379890418289778">"სწრაფი პასუხი"</string>
-    <!-- no translation found for respond_via_sms_menu_reset_default_activity (4029277930090150223) -->
-    <skip />
+    <string name="respond_via_sms_menu_reset_default_activity" msgid="4029277930090150223">"ნაგულისხმევი პარამეტრების აღდგენა"</string>
     <string name="respond_via_sms_confirmation_format" msgid="7229149977515784269">"შეტყობინება გაიგზავნა <xliff:g id="PHONE_NUMBER">%s</xliff:g>-თან."</string>
     <string name="description_image_button_one" msgid="5502718871331943463">"ერთ"</string>
     <string name="description_image_button_two" msgid="4903738528222924522">"ორი"</string>

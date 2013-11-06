@@ -20,6 +20,7 @@ import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
+import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -28,18 +29,20 @@ import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyCapabilities;
+import com.android.internal.telephony.cdma.CdmaCallWaitingNotification;
 import com.android.phone.CallGatewayManager.RawGatewayInfo;
 import com.android.services.telephony.common.Call;
 import com.android.services.telephony.common.Call.Capabilities;
 import com.android.services.telephony.common.Call.State;
 
-import com.google.android.collect.Lists;
 import com.google.android.collect.Maps;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
@@ -67,7 +70,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * the telephony layer. We use Connection references as identifiers for a call;
  * new reference = new call.
  *
- * TODO(klp): Create a new Call class to replace the simple call Id ints
+ * TODO: Create a new Call class to replace the simple call Id ints
  * being used currently.
  *
  * The new Call models are parcellable for transfer via the CallHandlerService
@@ -88,14 +91,13 @@ public class CallModeler extends Handler {
     private final HashMap<Connection, Call> mConfCallMap = Maps.newHashMap();
     private final AtomicInteger mNextCallId = new AtomicInteger(CALL_ID_START_VALUE);
     private final ArrayList<Listener> mListeners = new ArrayList<Listener>();
-    private RejectWithTextMessageManager mRejectWithTextMessageManager;
+    private Connection mCdmaIncomingConnection;
+    private Connection mCdmaOutgoingConnection;
 
     public CallModeler(CallStateMonitor callStateMonitor, CallManager callManager,
-            RejectWithTextMessageManager rejectWithTextMessageManager,
             CallGatewayManager callGatewayManager) {
         mCallStateMonitor = callStateMonitor;
         mCallManager = callManager;
-        mRejectWithTextMessageManager = rejectWithTextMessageManager;
         mCallGatewayManager = callGatewayManager;
 
         mCallStateMonitor.addListener(this);
@@ -105,11 +107,15 @@ public class CallModeler extends Handler {
     public void handleMessage(Message msg) {
         switch(msg.what) {
             case CallStateMonitor.PHONE_NEW_RINGING_CONNECTION:
-                onNewRingingConnection((AsyncResult) msg.obj);
+                // We let the CallNotifier handle the new ringing connection first. When the custom
+                // ringtone and send_to_voicemail settings are retrieved, CallNotifier will directly
+                // call CallModeler's onNewRingingConnection.
                 break;
             case CallStateMonitor.PHONE_DISCONNECT:
-                onDisconnect((AsyncResult) msg.obj);
+                onDisconnect((Connection) ((AsyncResult) msg.obj).result);
                 break;
+            case CallStateMonitor.PHONE_UNKNOWN_CONNECTION_APPEARED:
+                // fall through
             case CallStateMonitor.PHONE_STATE_CHANGED:
                 onPhoneStateChanged((AsyncResult) msg.obj);
                 break;
@@ -130,9 +136,11 @@ public class CallModeler extends Handler {
     }
 
     public List<Call> getFullList() {
-        final List<Call> retval = Lists.newArrayList();
-        doUpdate(true, retval);
-        return retval;
+        final List<Call> calls =
+                Lists.newArrayListWithCapacity(mCallMap.size() + mConfCallMap.size());
+        calls.addAll(mCallMap.values());
+        calls.addAll(mConfCallMap.values());
+        return calls;
     }
 
     public CallResult getCallWithId(int callId) {
@@ -145,12 +153,7 @@ public class CallModeler extends Handler {
 
         for (Entry<Connection, Call> entry : mConfCallMap.entrySet()) {
             if (entry.getValue().getCallId() == callId) {
-                if (entry.getValue().getChildCallIds().size() == 0) {
-                    return null;
-                }
-                final CallResult child = getCallWithId(entry.getValue().getChildCallIds().first());
-                return new CallResult(entry.getValue(), child.getActionableCall(),
-                        child.getConnection());
+                return new CallResult(entry.getValue(), entry.getKey());
             }
         }
         return null;
@@ -161,6 +164,57 @@ public class CallModeler extends Handler {
             hasLiveCallInternal(mConfCallMap);
     }
 
+    public void onCdmaCallWaiting(CdmaCallWaitingNotification callWaitingInfo) {
+        // We dont get the traditional onIncomingCall notification for cdma call waiting,
+        // but the Connection does actually exist.  We need to find it in the set of ringing calls
+        // and pass it through our normal incoming logic.
+        final com.android.internal.telephony.Call teleCall =
+            mCallManager.getFirstActiveRingingCall();
+
+        if (teleCall.getState() == com.android.internal.telephony.Call.State.WAITING) {
+            Connection connection = teleCall.getLatestConnection();
+
+            if (connection != null) {
+                String number = connection.getAddress();
+                if (number != null && number.equals(callWaitingInfo.number)) {
+                    Call call = onNewRingingConnection(connection);
+                    mCdmaIncomingConnection = connection;
+                    return;
+                }
+            }
+        }
+
+        Log.e(TAG, "CDMA Call waiting notification without a matching connection.");
+    }
+
+    public void onCdmaCallWaitingReject() {
+        // Cdma call was rejected...
+        if (mCdmaIncomingConnection != null) {
+            onDisconnect(mCdmaIncomingConnection);
+            mCdmaIncomingConnection = null;
+        } else {
+            Log.e(TAG, "CDMA Call waiting rejection without an incoming call.");
+        }
+    }
+
+    /**
+     * CDMA Calls have no sense of "dialing" state. For outgoing calls 3way calls we want to
+     * mimick this state so that the the UI can notify the user that there is a "dialing"
+     * call.
+     */
+    public void setCdmaOutgoing3WayCall(Connection connection) {
+        boolean wasSet = mCdmaOutgoingConnection != null;
+
+        mCdmaOutgoingConnection = connection;
+
+        // If we reset the connection, that mean we can now tell the user that the call is actually
+        // part of the conference call and move it out of the dialing state. To do this, issue a
+        // new update completely.
+        if (wasSet && mCdmaOutgoingConnection == null) {
+            onPhoneStateChanged(null);
+        }
+    }
+
     private boolean hasLiveCallInternal(HashMap<Connection, Call> map) {
         for (Call call : map.values()) {
             final int state = call.getState();
@@ -168,8 +222,10 @@ public class CallModeler extends Handler {
                     state == Call.State.CALL_WAITING ||
                     state == Call.State.CONFERENCED ||
                     state == Call.State.DIALING ||
+                    state == Call.State.REDIALING ||
                     state == Call.State.INCOMING ||
-                    state == Call.State.ONHOLD) {
+                    state == Call.State.ONHOLD ||
+                    state == Call.State.DISCONNECTING) {
                 return true;
             }
         }
@@ -185,8 +241,7 @@ public class CallModeler extends Handler {
             HashMap<Connection, Call> map) {
         for (Call call : map.values()) {
             final int state = call.getState();
-            if (state == Call.State.ACTIVE ||
-                    state == Call.State.DIALING) {
+            if (state == Call.State.ACTIVE || Call.State.isDialing(state)) {
                 return true;
             }
         }
@@ -210,42 +265,46 @@ public class CallModeler extends Handler {
             final Connection.PostDialState state = (Connection.PostDialState) r.userObj;
 
             switch (state) {
-                // TODO(klp): add other post dial related functions
                 case WAIT:
                     final Call call = getCallFromMap(mCallMap, c, false);
                     if (call == null) {
                         Log.i(TAG, "Call no longer exists. Skipping onPostDialWait().");
                     } else {
                         for (Listener mListener : mListeners) {
-                            mListener.onPostDialWait(call.getCallId(),
-                                    c.getRemainingPostDialString());
+                            mListener.onPostDialAction(state, call.getCallId(),
+                                    c.getRemainingPostDialString(), ch);
                         }
                     }
                     break;
-
                 default:
+                    // This is primarily to cause the DTMFTonePlayer to play local tones.
+                    // Other listeners simply perform no-ops.
+                    for (Listener mListener : mListeners) {
+                        mListener.onPostDialAction(state, 0, "", ch);
+                    }
                     break;
             }
         }
     }
 
-    private void onNewRingingConnection(AsyncResult r) {
+    /* package */ Call onNewRingingConnection(Connection conn) {
         Log.i(TAG, "onNewRingingConnection");
-        final Connection conn = (Connection) r.result;
         final Call call = getCallFromMap(mCallMap, conn, true);
 
-        updateCallFromConnection(call, conn, false);
+        if (call != null) {
+            updateCallFromConnection(call, conn, false);
 
-        for (int i = 0; i < mListeners.size(); ++i) {
-            if (call != null) {
-              mListeners.get(i).onIncoming(call);
+            for (int i = 0; i < mListeners.size(); ++i) {
+                mListeners.get(i).onIncoming(call);
             }
         }
+
+        PhoneGlobals.getInstance().updateWakeState();
+        return call;
     }
 
-    private void onDisconnect(AsyncResult r) {
+    private void onDisconnect(Connection conn) {
         Log.i(TAG, "onDisconnect");
-        final Connection conn = (Connection) r.result;
         final Call call = getCallFromMap(mCallMap, conn, false);
 
         if (call != null) {
@@ -266,8 +325,8 @@ public class CallModeler extends Handler {
             mCallMap.remove(conn);
         }
 
-        // TODO(klp): Do a final check to see if there are any active calls.
-        // If there are not, totally cancel all calls
+        mCallManager.clearDisconnected();
+        PhoneGlobals.getInstance().updateWakeState();
     }
 
     /**
@@ -283,6 +342,8 @@ public class CallModeler extends Handler {
                 mListeners.get(i).onUpdate(updatedCalls);
             }
         }
+
+        PhoneGlobals.getInstance().updateWakeState();
     }
 
 
@@ -301,18 +362,32 @@ public class CallModeler extends Handler {
         for (com.android.internal.telephony.Call telephonyCall : telephonyCalls) {
 
             for (Connection connection : telephonyCall.getConnections()) {
+                if (DBG) Log.d(TAG, "connection: " + connection + connection.getState());
+
                 // We only send updates for live calls which are not incoming (ringing).
                 // Disconnected and incoming calls are handled by onDisconnect and
                 // onNewRingingConnection.
-                boolean shouldUpdate = connection.getState().isAlive() &&
+                final boolean shouldUpdate =
+                        connection.getState() !=
+                                com.android.internal.telephony.Call.State.DISCONNECTED &&
+                        connection.getState() !=
+                                com.android.internal.telephony.Call.State.IDLE &&
                         !connection.getState().isRinging();
+
+                final boolean isDisconnecting = connection.getState() ==
+                                com.android.internal.telephony.Call.State.DISCONNECTING;
+
+                // For disconnecting calls, we still need to send the update to the UI but we do
+                // not create a new call if the call did not exist.
+                final boolean shouldCreate = shouldUpdate && !isDisconnecting;
 
                 // New connections return a Call with INVALID state, which does not translate to
                 // a state in the internal.telephony.Call object.  This ensures that staleness
                 // check below fails and we always add the item to the update list if it is new.
-                final Call call = getCallFromMap(mCallMap, connection, shouldUpdate /* create */);
+                final Call call = getCallFromMap(mCallMap, connection, shouldCreate /* create */);
 
                 if (call == null || !shouldUpdate) {
+                    if (DBG) Log.d(TAG, "update skipped");
                     continue;
                 }
 
@@ -345,9 +420,9 @@ public class CallModeler extends Handler {
      */
     private boolean updateForConferenceCalls(Connection connection, List<Call> updatedCalls) {
         // We consider this connection a conference connection if the call it
-        // belongs to is a multiparty call AND it is the first connection.
+        // belongs to is a multiparty call AND it is the first live connection.
         final boolean isConferenceCallConnection = isPartOfLiveConferenceCall(connection) &&
-                connection.getCall().getEarliestConnection() == connection;
+                getEarliestLiveConnection(connection.getCall()) == connection;
 
         boolean changed = false;
 
@@ -384,6 +459,23 @@ public class CallModeler extends Handler {
         return changed;
     }
 
+    private Connection getEarliestLiveConnection(com.android.internal.telephony.Call call) {
+        final List<Connection> connections = call.getConnections();
+        final int size = connections.size();
+        Connection earliestConn = null;
+        long earliestTime = Long.MAX_VALUE;
+        for (int i = 0; i < size; i++) {
+            final Connection connection = connections.get(i);
+            if (!connection.isAlive()) continue;
+            final long time = connection.getCreateTime();
+            if (time < earliestTime) {
+                earliestTime = time;
+                earliestConn = connection;
+            }
+        }
+        return earliestConn;
+    }
+
     /**
      * Sets the new call state onto the call and performs some additional logic
      * associated with setting the state.
@@ -395,7 +487,7 @@ public class CallModeler extends Handler {
         // for the call, if available, and set it.
         final RawGatewayInfo info = mCallGatewayManager.getGatewayInfo(connection);
 
-        if (newState == Call.State.DIALING) {
+        if (Call.State.isDialing(newState)) {
             if (!info.isEmpty()) {
                 call.setGatewayNumber(info.getFormattedGatewayNumber());
                 call.setGatewayPackage(info.packageName);
@@ -496,7 +588,7 @@ public class CallModeler extends Handler {
         /**
          * !!! Uses values from connection and call collected above so this part must be last !!!
          */
-        final int newCapabilities = getCapabilitiesFor(connection, call);
+        final int newCapabilities = getCapabilitiesFor(connection, call, isForConference);
         if (call.getCapabilities() != newCapabilities) {
             call.setCapabilities(newCapabilities);
             changed = true;
@@ -508,21 +600,43 @@ public class CallModeler extends Handler {
     /**
      * Returns a mask of capabilities for the connection such as merge, hold, etc.
      */
-    private int getCapabilitiesFor(Connection connection, Call call) {
+    private int getCapabilitiesFor(Connection connection, Call call, boolean isForConference) {
         final boolean callIsActive = (call.getState() == Call.State.ACTIVE);
         final Phone phone = connection.getCall().getPhone();
 
-        final boolean canHold = TelephonyCapabilities.supportsAnswerAndHold(phone);
         boolean canAddCall = false;
         boolean canMergeCall = false;
         boolean canSwapCall = false;
         boolean canRespondViaText = false;
+        boolean canMute = false;
+
+        final boolean supportHold = PhoneUtils.okToSupportHold(mCallManager);
+        final boolean canHold = (supportHold ? PhoneUtils.okToHoldCall(mCallManager) : false);
+        final boolean genericConf = isForConference &&
+                (connection.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA);
 
         // only applies to active calls
         if (callIsActive) {
-            canAddCall = PhoneUtils.okToAddCall(mCallManager);
             canMergeCall = PhoneUtils.okToMergeCalls(mCallManager);
             canSwapCall = PhoneUtils.okToSwapCalls(mCallManager);
+        }
+
+        canAddCall = PhoneUtils.okToAddCall(mCallManager);
+
+        // "Mute": only enabled when the foreground call is ACTIVE.
+        // (It's meaningless while on hold, or while DIALING/ALERTING.)
+        // It's also explicitly disabled during emergency calls or if
+        // emergency callback mode (ECM) is active.
+        boolean isEmergencyCall = false;
+        if (connection != null) {
+            isEmergencyCall = PhoneNumberUtils.isLocalEmergencyNumber(connection.getAddress(),
+                    phone.getContext());
+        }
+        boolean isECM = PhoneUtils.isPhoneInEcm(phone);
+        if (isEmergencyCall || isECM) {  // disable "Mute" item
+            canMute = false;
+        } else {
+            canMute = callIsActive;
         }
 
         canRespondViaText = RejectWithTextMessageManager.allowRespondViaSmsForCall(call,
@@ -532,14 +646,14 @@ public class CallModeler extends Handler {
         // CDMA always has Add
         if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
             canAddCall = true;
-        } else {
-            // if neither merge nor add is on...then allow add
-            canAddCall |= !(canAddCall || canMergeCall);
         }
 
         int retval = 0x0;
         if (canHold) {
             retval |= Capabilities.HOLD;
+        }
+        if (supportHold) {
+            retval |= Capabilities.SUPPORT_HOLD;
         }
         if (canAddCall) {
             retval |= Capabilities.ADD_CALL;
@@ -550,9 +664,14 @@ public class CallModeler extends Handler {
         if (canSwapCall) {
             retval |= Capabilities.SWAP_CALLS;
         }
-
         if (canRespondViaText) {
             retval |= Capabilities.RESPOND_VIA_TEXT;
+        }
+        if (canMute) {
+            retval |= Capabilities.MUTE;
+        }
+        if (genericConf) {
+            retval |= Capabilities.GENERIC_CONFERENCE;
         }
 
         return retval;
@@ -567,7 +686,10 @@ public class CallModeler extends Handler {
         if (connection.getCall() != null && connection.getCall().isMultiparty()) {
             int count = 0;
             for (Connection currConn : connection.getCall().getConnections()) {
-                if (currConn.isAlive()) {
+
+                // Only count connections which are alive and never cound the special
+                // "dialing" 3way call for CDMA calls.
+                if (currConn.isAlive() && currConn != mCdmaOutgoingConnection) {
                     count++;
                     if (count >= 2) {
                         return true;
@@ -580,8 +702,15 @@ public class CallModeler extends Handler {
 
     private int translateStateFromTelephony(Connection connection, boolean isForConference) {
 
+        com.android.internal.telephony.Call.State connState = connection.getState();
+
+        // For the "fake" outgoing CDMA call, we need to always treat it as an outgoing call.
+        if (mCdmaOutgoingConnection == connection) {
+            connState = com.android.internal.telephony.Call.State.DIALING;
+        }
+
         int retval = State.IDLE;
-        switch (connection.getState()) {
+        switch (connState) {
             case ACTIVE:
                 retval = State.ACTIVE;
                 break;
@@ -590,7 +719,11 @@ public class CallModeler extends Handler {
                 break;
             case DIALING:
             case ALERTING:
-                retval = State.DIALING;
+                if (PhoneGlobals.getInstance().notifier.getIsCdmaRedialCall()) {
+                    retval = State.REDIALING;
+                } else {
+                    retval = State.DIALING;
+                }
                 break;
             case WAITING:
                 retval = State.CALL_WAITING;
@@ -598,8 +731,10 @@ public class CallModeler extends Handler {
             case HOLDING:
                 retval = State.ONHOLD;
                 break;
-            case DISCONNECTED:
             case DISCONNECTING:
+                retval = State.DISCONNECTING;
+                break;
+            case DISCONNECTED:
                 retval = State.DISCONNECTED;
             default:
         }
@@ -607,7 +742,6 @@ public class CallModeler extends Handler {
         // If we are dealing with a potential child call (not the parent conference call),
         // the check to see if we have to set the state to CONFERENCED.
         if (!isForConference) {
-
             // if the connection is part of a multiparty call, and it is live,
             // annotate it with CONFERENCED state instead.
             if (isPartOfLiveConferenceCall(connection) && connection.isAlive()) {
@@ -734,7 +868,8 @@ public class CallModeler extends Handler {
         void onDisconnect(Call call);
         void onIncoming(Call call);
         void onUpdate(List<Call> calls);
-        void onPostDialWait(int callId, String remainingChars);
+        void onPostDialAction(Connection.PostDialState state, int callId, String remainingChars,
+                char c);
     }
 
     /**

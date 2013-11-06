@@ -275,8 +275,6 @@
     <string name="enable_disable_multi_category" msgid="626771003122899280">"다중 카테고리"</string>
     <string name="multi_category_enable" msgid="1179299804641721768">"다중 카테고리 사용"</string>
     <string name="multi_category_disable" msgid="880104702904139505">"다중 카테고리 사용 중지"</string>
-    <string name="prefer_2g" msgid="8442550937280449639">"2G 네트워크만 사용"</string>
-    <string name="prefer_2g_summary" msgid="1976491403210690759">"배터리 절약"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"시스템 선택"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"CDMA 로밍 모드 변경"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"시스템 선택"</string>
@@ -297,6 +295,8 @@
   </string-array>
     <string name="cdma_activate_device" msgid="3793805892364814518">"기기 활성화"</string>
     <string name="cdma_lte_data_service" msgid="4255018217292548962">"데이터 서비스 설정"</string>
+    <!-- no translation found for carrier_settings_title (9028166176523012300) -->
+    <skip />
     <string name="fdn" msgid="7878832555095183202">"발신 허용 번호"</string>
     <string name="manage_fdn_list" msgid="8777755791892122369">"FDN 목록"</string>
     <string name="fdn_activation" msgid="2156479741307463576">"FDN 활성화"</string>
@@ -450,10 +450,8 @@
     <string name="network_message" msgid="4483886461245213802">"네트워크 메시지"</string>
     <string name="ota_title_activate" msgid="8616918561356194398">"전화 활성화"</string>
     <string name="ota_touch_activate" msgid="6553212803262586244">"전화 서비스를 활성화하려면 특수 통화를 해야 합니다. \n\n\'활성화\'를 누른 다음 지시사항을 듣고 전화를 활성화하세요."</string>
-    <!-- no translation found for ota_hfa_activation_title (2234246934160473981) -->
-    <skip />
-    <!-- no translation found for ota_hfa_activation_dialog_message (8092479227918463415) -->
-    <skip />
+    <string name="ota_hfa_activation_title" msgid="2234246934160473981">"활성화 중..."</string>
+    <string name="ota_hfa_activation_dialog_message" msgid="8092479227918463415">"휴대전화에서 모바일 데이터 서비스를 활성화하고 있습니다.\n\n최대 5분 정도 소요될 수 있습니다."</string>
     <string name="ota_skip_activation_dialog_title" msgid="2943366608272261306">"활성화를 건너뛰시겠습니까?"</string>
     <string name="ota_skip_activation_dialog_message" msgid="2440770373498870550">"활성화를 건너뛰면 Wi-Fi 네트워크에는 연결할 수 있지만 전화를 걸거나 모바일 데이터 네트워크에 연결할 수 없습니다. 휴대전화를 활성화할 때까지 휴대전화를 켤 때마다 활성화하라는 메시지가 표시됩니다."</string>
     <string name="ota_skip_activation_dialog_skip_label" msgid="3458532775091563208">"건너뛰기"</string>
@@ -581,8 +579,7 @@
     <string name="respond_via_sms_setting_title_2" msgid="6104662227299493906">"빠른 응답 수정"</string>
     <string name="respond_via_sms_setting_summary" msgid="9150281183930613065"></string>
     <string name="respond_via_sms_edittext_dialog_title" msgid="20379890418289778">"빠른 응답"</string>
-    <!-- no translation found for respond_via_sms_menu_reset_default_activity (4029277930090150223) -->
-    <skip />
+    <string name="respond_via_sms_menu_reset_default_activity" msgid="4029277930090150223">"기본값 복원"</string>
     <string name="respond_via_sms_confirmation_format" msgid="7229149977515784269">"<xliff:g id="PHONE_NUMBER">%s</xliff:g>(으)로 메시지를 보냈습니다."</string>
     <string name="description_image_button_one" msgid="5502718871331943463">"1"</string>
     <string name="description_image_button_two" msgid="4903738528222924522">"2"</string>

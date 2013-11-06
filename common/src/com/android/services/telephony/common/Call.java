@@ -47,9 +47,11 @@ public final class Call implements Parcelable {
         public static final int INCOMING = 3;       /* A normal incoming phone call */
         public static final int CALL_WAITING = 4;   /* Incoming call while another is active */
         public static final int DIALING = 5;        /* An outgoing call during dial phase */
-        public static final int ONHOLD = 6;         /* An active phone call placed on hold */
-        public static final int DISCONNECTED = 7;   /* State after a call disconnects */
-        public static final int CONFERENCED = 8;    /* Call part of a conference call */
+        public static final int REDIALING = 6;      /* Subsequent dialing attempt after a failure */
+        public static final int ONHOLD = 7;         /* An active phone call placed on hold */
+        public static final int DISCONNECTING = 8;  /* A call is being ended. */
+        public static final int DISCONNECTED = 9;   /* State after a call disconnects */
+        public static final int CONFERENCED = 10;   /* Call part of a conference call */
 
         public static boolean isConnected(int state) {
             switch(state) {
@@ -57,6 +59,7 @@ public final class Call implements Parcelable {
                 case INCOMING:
                 case CALL_WAITING:
                 case DIALING:
+                case REDIALING:
                 case ONHOLD:
                 case CONFERENCED:
                     return true;
@@ -64,21 +67,30 @@ public final class Call implements Parcelable {
             }
             return false;
         }
+
+        public static boolean isDialing(int state) {
+            return state == DIALING || state == REDIALING;
+        }
     }
 
     /**
      * Defines a set of capabilities that a call can have as a bit mask.
      * TODO: Should some of these be capabilities of the Phone instead of the call?
+     * TODO: This is starting to be a mix of capabilities and call properties.  Capabilities
+     *       and properties should be separated.
      */
     public static class Capabilities {
-        public static final int HOLD             = 0x00000001; /* has ability to hold the call */
-        public static final int MERGE_CALLS      = 0x00000002; /* has ability to merge calls */
-        public static final int SWAP_CALLS       = 0x00000004; /* swap with a background call */
-        public static final int ADD_CALL         = 0x00000008; /* add another call to this one */
-        public static final int RESPOND_VIA_TEXT = 0x00000010; /* has respond via text option */
+        public static final int HOLD               = 0x00000001; /* has ability to hold the call */
+        public static final int SUPPORT_HOLD       = 0x00000002; /* can show the hold button */
+        public static final int MERGE_CALLS        = 0x00000004; /* has ability to merge calls */
+        public static final int SWAP_CALLS         = 0x00000008; /* swap with a background call */
+        public static final int ADD_CALL           = 0x00000010; /* add another call to this one */
+        public static final int RESPOND_VIA_TEXT   = 0x00000020; /* has respond via text option */
+        public static final int MUTE               = 0x00000040; /* can mute the call */
+        public static final int GENERIC_CONFERENCE = 0x00000080; /* Generic conference mode */
 
-        public static final int ALL = HOLD | MERGE_CALLS | SWAP_CALLS | ADD_CALL
-                | RESPOND_VIA_TEXT;
+        public static final int ALL = HOLD | SUPPORT_HOLD | MERGE_CALLS | SWAP_CALLS | ADD_CALL
+                | RESPOND_VIA_TEXT | MUTE | GENERIC_CONFERENCE;
     }
 
     /**
@@ -135,10 +147,12 @@ public final class Call implements Parcelable {
             .put(Call.State.ACTIVE, "ACTIVE")
             .put(Call.State.CALL_WAITING, "CALL_WAITING")
             .put(Call.State.DIALING, "DIALING")
+            .put(Call.State.REDIALING, "REDIALING")
             .put(Call.State.IDLE, "IDLE")
             .put(Call.State.INCOMING, "INCOMING")
             .put(Call.State.ONHOLD, "ONHOLD")
             .put(Call.State.INVALID, "INVALID")
+            .put(Call.State.DISCONNECTING, "DISCONNECTING")
             .put(Call.State.DISCONNECTED, "DISCONNECTED")
             .put(Call.State.CONFERENCED, "CONFERENCED")
             .build();

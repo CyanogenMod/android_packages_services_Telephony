@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Bundle;
@@ -138,16 +139,29 @@ public class OutgoingCallBroadcaster extends Activity
         @Override
         public void onReceive(Context context, Intent intent) {
             mHandler.removeMessages(EVENT_OUTGOING_CALL_TIMEOUT);
-            doReceive(context, intent);
+            final boolean isAttemptingCall = doReceive(context, intent);
             if (DBG) Log.v(TAG, "OutgoingCallReceiver is going to finish the Activity itself.");
 
             // We cannot finish the activity immediately here because it would cause the temporary
             // black screen of OutgoingBroadcaster to go away and we need it to stay up until the
             // UI (in a different process) has time to come up.
-            startDelayedFinish();
+            // However, if we know we are not attemping a call, we need to finish the activity
+            // immediately so that subsequent CALL intents will retrigger a new
+            // OutgoingCallReceiver. see b/10857203
+            if (isAttemptingCall) {
+                startDelayedFinish();
+            } else {
+                finish();
+            }
         }
 
-        public void doReceive(Context context, Intent intent) {
+
+        /**
+         * Handes receipt of ordered new_outgoing_call intent. Verifies that the return from the
+         * ordered intent is valid.
+         * @return true if the call is being attempted; false if we are canceling the call.
+         */
+        public boolean doReceive(Context context, Intent intent) {
             if (DBG) Log.v(TAG, "doReceive: " + intent);
 
             boolean alreadyCalled;
@@ -158,7 +172,7 @@ public class OutgoingCallBroadcaster extends Activity
                     OutgoingCallBroadcaster.EXTRA_ALREADY_CALLED, false);
             if (alreadyCalled) {
                 if (DBG) Log.v(TAG, "CALL already placed -- returning.");
-                return;
+                return false;
             }
 
             // Once the NEW_OUTGOING_CALL broadcast is finished, the resultData
@@ -203,37 +217,36 @@ public class OutgoingCallBroadcaster extends Activity
                     // to take down any OTASP-related UI first.
                     if (dialogState) app.dismissOtaDialogs();
                     app.clearOtaState();
-                    app.clearInCallScreenMode();
                 } else if (isOtaCallActive) {
                     // The actual OTASP call is active.  Don't allow new
                     // outgoing calls at all from this state.
                     Log.w(TAG, "OTASP call is active: disallowing a new outgoing call.");
-                    return;
+                    return false;
                 }
             }
 
             if (number == null) {
                 if (DBG) Log.v(TAG, "CALL cancelled (null number), returning...");
-                return;
+                return false;
             } else if (TelephonyCapabilities.supportsOtasp(app.phone)
                     && (app.phone.getState() != PhoneConstants.State.IDLE)
                     && (app.phone.isOtaSpNumber(number))) {
                 if (DBG) Log.v(TAG, "Call is active, a 2nd OTA call cancelled -- returning.");
-                return;
+                return false;
             } else if (PhoneNumberUtils.isPotentialLocalEmergencyNumber(number, context)) {
                 // Just like 3rd-party apps aren't allowed to place emergency
                 // calls via the ACTION_CALL intent, we also don't allow 3rd
                 // party apps to use the NEW_OUTGOING_CALL broadcast to rewrite
                 // an outgoing call into an emergency number.
                 Log.w(TAG, "Cannot modify outgoing call to emergency number " + number + ".");
-                return;
+                return false;
             }
 
             originalUri = intent.getStringExtra(
                     OutgoingCallBroadcaster.EXTRA_ORIGINAL_URI);
             if (originalUri == null) {
                 Log.e(TAG, "Intent is missing EXTRA_ORIGINAL_URI -- returning.");
-                return;
+                return false;
             }
 
             Uri uri = Uri.parse(originalUri);
@@ -251,6 +264,8 @@ public class OutgoingCallBroadcaster extends Activity
             if (VDBG) Log.v(TAG, "- actual number to dial: '" + number + "'");
 
             startSipCallOptionHandler(context, intent, uri, number);
+
+            return true;
         }
     }
 
@@ -521,11 +536,12 @@ public class OutgoingCallBroadcaster extends Activity
                 // use the java resolver to find the dialer class (as
                 // opposed to a Context which look up known android
                 // packages only)
-                invokeFrameworkDialer.setClassName("com.android.dialer",
-                                                   "com.android.dialer.DialtactsActivity");
+                final Resources resources = getResources();
+                invokeFrameworkDialer.setClassName(
+                        resources.getString(R.string.ui_default_package),
+                        resources.getString(R.string.dialer_default_class));
                 invokeFrameworkDialer.setAction(Intent.ACTION_DIAL);
                 invokeFrameworkDialer.setData(intent.getData());
-
                 if (DBG) Log.v(TAG, "onCreate(): calling startActivity for Dialer: "
                                + invokeFrameworkDialer);
                 startActivity(invokeFrameworkDialer);
@@ -598,17 +614,6 @@ public class OutgoingCallBroadcaster extends Activity
             // reaches the OutgoingCallReceiver, we'll know not to
             // initiate the call again because of the presence of the
             // EXTRA_ALREADY_CALLED extra.)
-        }
-
-        // Remember the call origin so that users will be able to see an appropriate screen
-        // after the phone call. This should affect both phone calls and SIP calls.
-        final String callOrigin = intent.getStringExtra(PhoneGlobals.EXTRA_CALL_ORIGIN);
-        if (callOrigin != null) {
-            if (DBG) Log.v(TAG, " - Call origin is passed (" + callOrigin + ")");
-            PhoneGlobals.getInstance().setLatestActiveCallOrigin(callOrigin);
-        } else {
-            if (DBG) Log.v(TAG, " - Call origin is not passed. Reset current one.");
-            PhoneGlobals.getInstance().resetLatestActiveCallOrigin();
         }
 
         // For now, SIP calls will be processed directly without a
@@ -687,33 +692,8 @@ public class OutgoingCallBroadcaster extends Activity
     private void handleNonVoiceCapable(Intent intent) {
         if (DBG) Log.v(TAG, "handleNonVoiceCapable: handling " + intent
                        + " on non-voice-capable device...");
-        String action = intent.getAction();
-        Uri uri = intent.getData();
-        String scheme = uri.getScheme();
 
-        // Handle one special case: If this is a regular CALL to a tel: URI,
-        // bring up a UI letting you do something useful with the phone number
-        // (like "Add to contacts" if it isn't a contact yet.)
-        //
-        // This UI is provided by the contacts app in response to a DIAL
-        // intent, so we bring it up here by demoting this CALL to a DIAL and
-        // relaunching.
-        //
-        // TODO: it's strange and unintuitive to manually launch a DIAL intent
-        // to do this; it would be cleaner to have some shared UI component
-        // that we could bring up directly.  (But for now at least, since both
-        // Contacts and Phone are built-in apps, this implementation is fine.)
-
-        if (Intent.ACTION_CALL.equals(action) && (Constants.SCHEME_TEL.equals(scheme))) {
-            Intent newIntent = new Intent(Intent.ACTION_DIAL, uri);
-            if (DBG) Log.v(TAG, "- relaunching as a DIAL intent: " + newIntent);
-            startActivity(newIntent);
-            finish();
-            return;
-        }
-
-        // In all other cases, just show a generic "voice calling not
-        // supported" dialog.
+        // Just show a generic "voice calling not supported" dialog.
         showDialog(DIALOG_NOT_VOICE_CAPABLE);
         // ...and we'll eventually finish() when the user dismisses
         // or cancels the dialog.

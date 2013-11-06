@@ -25,7 +25,7 @@ import android.util.Log;
 import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.phone.CallModeler.CallResult;
-import com.android.services.telephony.common.AudioMode;
+import com.android.phone.NotificationMgr.StatusBarHelper;
 import com.android.services.telephony.common.Call;
 import com.android.services.telephony.common.ICallCommandService;
 
@@ -43,21 +43,18 @@ class CallCommandService extends ICallCommandService.Stub {
     private final CallModeler mCallModeler;
     private final DTMFTonePlayer mDtmfTonePlayer;
     private final AudioRouter mAudioRouter;
-    private final RejectWithTextMessageManager mRejectWithTextMessageManager;
 
     public CallCommandService(Context context, CallManager callManager, CallModeler callModeler,
-            DTMFTonePlayer dtmfTonePlayer, AudioRouter audioRouter,
-            RejectWithTextMessageManager rejectWithTextMessageManager) {
+            DTMFTonePlayer dtmfTonePlayer, AudioRouter audioRouter) {
         mContext = context;
         mCallManager = callManager;
         mCallModeler = callModeler;
         mDtmfTonePlayer = dtmfTonePlayer;
         mAudioRouter = audioRouter;
-        mRejectWithTextMessageManager = rejectWithTextMessageManager;
     }
 
     /**
-     * TODO(klp): Add a confirmation callback parameter.
+     * TODO: Add a confirmation callback parameter.
      */
     @Override
     public void answerCall(int callId) {
@@ -72,22 +69,28 @@ class CallCommandService extends ICallCommandService.Stub {
     }
 
     /**
-     * TODO(klp): Add a confirmation callback parameter.
+     * TODO: Add a confirmation callback parameter.
      */
     @Override
-    public void rejectCall(int callId, boolean rejectWithMessage, String message) {
+    public void rejectCall(Call call, boolean rejectWithMessage, String message) {
         try {
+            int callId = Call.INVALID_CALL_ID;
+            String phoneNumber = "";
+            if (call != null) {
+                callId = call.getCallId();
+                phoneNumber = call.getNumber();
+            }
             CallResult result = mCallModeler.getCallWithId(callId);
+
             if (result != null) {
-                final String number = result.getConnection().getAddress();
+                phoneNumber = result.getConnection().getAddress();
 
                 Log.v(TAG, "Hanging up");
                 PhoneUtils.hangupRingingCall(result.getConnection().getCall());
+            }
 
-                if (rejectWithMessage) {
-                    mRejectWithTextMessageManager.rejectCallWithMessage(
-                            result.getConnection().getCall(), message);
-                }
+            if (rejectWithMessage && !phoneNumber.isEmpty()) {
+                RejectWithTextMessageManager.rejectCallWithMessage(phoneNumber, message);
             }
         } catch (Exception e) {
             Log.e(TAG, "Error during rejectCall().", e);
@@ -204,7 +207,6 @@ class CallCommandService extends ICallCommandService.Stub {
     @Override
     public void speaker(boolean onOff) {
         try {
-            // TODO(klp): add bluetooth logic from InCallScreen.toggleSpeaker()
             PhoneUtils.turnOnSpeaker(mContext, onOff, true);
         } catch (Exception e) {
             Log.e(TAG, "Error during speaker().", e);
@@ -253,4 +255,17 @@ class CallCommandService extends ICallCommandService.Stub {
             result.getConnection().proceedAfterWaitChar();
         }
     }
+
+    @Override
+    public void setSystemBarNavigationEnabled(boolean enable) {
+        try {
+            final StatusBarHelper statusBarHelper = PhoneGlobals.getInstance().notificationMgr.
+                    statusBarHelper;
+            statusBarHelper.enableSystemBarNavigation(enable);
+            statusBarHelper.enableExpandedView(enable);
+        } catch (Exception e) {
+            Log.e(TAG, "Error enabling or disabling system bar navigation", e);
+        }
+    }
+
 }

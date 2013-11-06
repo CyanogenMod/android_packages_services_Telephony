@@ -117,7 +117,7 @@
     <string name="vm_changed" msgid="380744030726254139">"Промењен је број говорне поште."</string>
     <string name="vm_change_failed" msgid="3352934863246208918">"Није могуће променити број говорне поште.\nКонтактирајте мобилног оператера ако се овај проблем настави."</string>
     <string name="fw_change_failed" msgid="5298103228470214665">"Није могуће променити број за преусмеравање.\nКонтактирајте мобилног оператера ако се овај проблем настави."</string>
-    <string name="fw_get_in_vm_failed" msgid="8862896836093833973">"Није било могуће преузети и сачувати тренутна подешавања броја за прослеђивање.\nЖелите ли да ипак пређете на новог добављача?"</string>
+    <string name="fw_get_in_vm_failed" msgid="8862896836093833973">"Није могуће преузети и сачувати тренутна подешавања броја за прослеђивање.\nЖелите ли да ипак пређете на новог добављача?"</string>
     <string name="no_change" msgid="3186040086622435212">"Нису начињене промене."</string>
     <string name="sum_voicemail_choose_provider" msgid="59911196126278922">"Одаберите услугу говорне поште"</string>
     <string name="voicemail_default" msgid="5902099213882352338">" Мој мобилни оператер"</string>
@@ -275,8 +275,6 @@
     <string name="enable_disable_multi_category" msgid="626771003122899280">"Више категорија"</string>
     <string name="multi_category_enable" msgid="1179299804641721768">"Омогућено је више категорија"</string>
     <string name="multi_category_disable" msgid="880104702904139505">"Онемогућено је више категорија"</string>
-    <string name="prefer_2g" msgid="8442550937280449639">"Користи само 2G мреже"</string>
-    <string name="prefer_2g_summary" msgid="1976491403210690759">"Чува батерију"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"Избор система"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"Промена режима CDMA роминга"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"Избор система"</string>
@@ -297,6 +295,8 @@
   </string-array>
     <string name="cdma_activate_device" msgid="3793805892364814518">"Активирање уређаја"</string>
     <string name="cdma_lte_data_service" msgid="4255018217292548962">"Подесите усл. преноса података"</string>
+    <!-- no translation found for carrier_settings_title (9028166176523012300) -->
+    <skip />
     <string name="fdn" msgid="7878832555095183202">"Фиксни бирани бројеви"</string>
     <string name="manage_fdn_list" msgid="8777755791892122369">"Листа бројева за фиксно бирање"</string>
     <string name="fdn_activation" msgid="2156479741307463576">"FDN активација"</string>
@@ -450,10 +450,8 @@
     <string name="network_message" msgid="4483886461245213802">"Мрежна порука"</string>
     <string name="ota_title_activate" msgid="8616918561356194398">"Активирајте телефон"</string>
     <string name="ota_touch_activate" msgid="6553212803262586244">"Потребно је да упутите посебан позив да бисте активирали услугу свој телефона. \n\nНакон што притиснете дугме „Активирај“, слушајте дата упутства да бисте да бисте активирали свој телефон."</string>
-    <!-- no translation found for ota_hfa_activation_title (2234246934160473981) -->
-    <skip />
-    <!-- no translation found for ota_hfa_activation_dialog_message (8092479227918463415) -->
-    <skip />
+    <string name="ota_hfa_activation_title" msgid="2234246934160473981">"Активирање..."</string>
+    <string name="ota_hfa_activation_dialog_message" msgid="8092479227918463415">"Телефон активира услугу мобилног преноса података.\n\nТо може да потраје и до 5 минута."</string>
     <string name="ota_skip_activation_dialog_title" msgid="2943366608272261306">"Желите ли да прескочите активацију?"</string>
     <string name="ota_skip_activation_dialog_message" msgid="2440770373498870550">"Ако прескочите активацију, не можете да упућујете позиве или да се повезујете са мрежама за мобилни пренос података (иако можете да се повежете са Wi-Fi мрежама). Све док не активирате свој телефон, бићете упитани да то учините сваки пут када га укључите."</string>
     <string name="ota_skip_activation_dialog_skip_label" msgid="3458532775091563208">"Прескочи"</string>
@@ -581,8 +579,7 @@
     <string name="respond_via_sms_setting_title_2" msgid="6104662227299493906">"Измена брзих одговора"</string>
     <string name="respond_via_sms_setting_summary" msgid="9150281183930613065"></string>
     <string name="respond_via_sms_edittext_dialog_title" msgid="20379890418289778">"Брзи одговор"</string>
-    <!-- no translation found for respond_via_sms_menu_reset_default_activity (4029277930090150223) -->
-    <skip />
+    <string name="respond_via_sms_menu_reset_default_activity" msgid="4029277930090150223">"Врати на подразумевано"</string>
     <string name="respond_via_sms_confirmation_format" msgid="7229149977515784269">"Порука је послата на број <xliff:g id="PHONE_NUMBER">%s</xliff:g>."</string>
     <string name="description_image_button_one" msgid="5502718871331943463">"један"</string>
     <string name="description_image_button_two" msgid="4903738528222924522">"два"</string>

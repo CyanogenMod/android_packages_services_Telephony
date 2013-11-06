@@ -16,6 +16,8 @@
 
 package com.android.services.telephony.common;
 
+import com.android.services.telephony.common.Call;
+
 /**
  * Service implemented by TelephonyService and used by In-call UI to control
  * phone calls on the device.
@@ -32,7 +34,7 @@ oneway interface ICallCommandService {
     /**
      * Reject a ringing call.
      */
-    void rejectCall(int callId, boolean rejectWithMessage, String message);
+    void rejectCall(in Call call, boolean rejectWithMessage, String message);
 
     /**
      * Disconnect an active call.
@@ -96,4 +98,12 @@ oneway interface ICallCommandService {
     void postDialCancel(int callId);
 
     void postDialWaitContinue(int callId);
+
+    /**
+     * Enables or disables navigation using the system bar, and also prevents the
+     * notification shade from being dragged down.
+     * Hides or shows the home, recent and back buttons in the navigation bar if the
+     * device has soft navigation buttons.
+     */
+    void setSystemBarNavigationEnabled(boolean enable);
 }

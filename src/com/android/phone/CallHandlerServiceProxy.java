@@ -27,11 +27,17 @@ import android.content.pm.ServiceInfo;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.PowerManager;
 import android.os.RemoteException;
+import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.internal.telephony.Connection;
+import com.android.internal.telephony.Connection.PostDialState;
 import com.android.phone.AudioRouter.AudioModeListener;
+import com.android.phone.NotificationMgr.StatusBarHelper;
 import com.android.services.telephony.common.AudioMode;
 import com.android.services.telephony.common.Call;
 import com.android.services.telephony.common.ICallHandlerService;
@@ -57,6 +63,7 @@ public class CallHandlerServiceProxy extends Handler
     private CallCommandService mCallCommandService;
     private CallModeler mCallModeler;
     private Context mContext;
+    private boolean mFullUpdateOnConnect;
 
     private ICallHandlerService mCallHandlerServiceGuarded;  // Guarded by mServiceAndQueueLock
     // Single queue to guarantee ordering
@@ -92,6 +99,8 @@ public class CallHandlerServiceProxy extends Handler
 
     @Override
     public void onDisconnect(Call call) {
+        // Wake up in case the screen was off.
+        wakeUpScreen();
         synchronized (mServiceAndQueueLock) {
             if (mCallHandlerServiceGuarded == null) {
                 if (DBG) {
@@ -103,6 +112,12 @@ public class CallHandlerServiceProxy extends Handler
             }
         }
         processDisconnect(call);
+    }
+
+    private void wakeUpScreen() {
+        Log.d(TAG, "wakeUpScreen()");
+        final PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+        pm.wakeUp(SystemClock.uptimeMillis());
     }
 
     private void processDisconnect(Call call) {
@@ -143,7 +158,7 @@ public class CallHandlerServiceProxy extends Handler
             Log.d(TAG, "onIncoming: " + call);
         }
         try {
-            // TODO(klp): check RespondViaSmsManager.allowRespondViaSmsForCall()
+            // TODO: check RespondViaSmsManager.allowRespondViaSmsForCall()
             // must refactor call method to accept proper call object.
             synchronized (mServiceAndQueueLock) {
                 if (mCallHandlerServiceGuarded != null) {
@@ -196,7 +211,9 @@ public class CallHandlerServiceProxy extends Handler
 
 
     @Override
-    public void onPostDialWait(int callId, String remainingChars) {
+    public void onPostDialAction(Connection.PostDialState state, int callId, String remainingChars,
+            char currentChar) {
+        if (state != PostDialState.WAIT) return;
         try {
             synchronized (mServiceAndQueueLock) {
                 if (mCallHandlerServiceGuarded == null) {
@@ -281,18 +298,18 @@ public class CallHandlerServiceProxy extends Handler
                 // always have an in call ui.
                 unbind();
 
-                // TODO(klp): hang up all calls.
+                reconnectOnRemainingCalls();
             }
         }
     }
 
-    public void bringToForeground() {
+    public void bringToForeground(boolean showDialpad) {
         // only support this call if the service is already connected.
         synchronized (mServiceAndQueueLock) {
             if (mCallHandlerServiceGuarded != null && mCallModeler.hasLiveCall()) {
                 try {
-                    if (DBG) Log.d(TAG, "bringToForeground");
-                    mCallHandlerServiceGuarded.bringToForeground();
+                    if (DBG) Log.d(TAG, "bringToForeground: " + showDialpad);
+                    mCallHandlerServiceGuarded.bringToForeground(showDialpad);
                 } catch (RemoteException e) {
                     Log.e(TAG, "Exception handling bringToForeground", e);
                 }
@@ -303,8 +320,8 @@ public class CallHandlerServiceProxy extends Handler
     private static Intent getInCallServiceIntent(Context context) {
         final Intent serviceIntent = new Intent(ICallHandlerService.class.getName());
         final ComponentName component = new ComponentName(context.getResources().getString(
-                R.string.incall_ui_default_package), context.getResources().getString(
-                R.string.incall_ui_default_class));
+                R.string.ui_default_package), context.getResources().getString(
+                R.string.incall_default_class));
         serviceIntent.setComponent(component);
         return serviceIntent;
     }
@@ -394,6 +411,12 @@ public class CallHandlerServiceProxy extends Handler
 
     private void unbind() {
         synchronized (mServiceAndQueueLock) {
+            // On unbind, reenable the notification shade and navigation bar just in case the
+            // in-call UI crashed on an incoming call.
+            final StatusBarHelper statusBarHelper = PhoneGlobals.getInstance().notificationMgr.
+                    statusBarHelper;
+            statusBarHelper.enableSystemBarNavigation(true);
+            statusBarHelper.enableExpandedView(true);
             if (mCallHandlerServiceGuarded != null) {
                 Log.d(TAG, "Unbinding service.");
                 mCallHandlerServiceGuarded = null;
@@ -415,6 +438,21 @@ public class CallHandlerServiceProxy extends Handler
             makeInitialServiceCalls();
 
             processQueue();
+
+            if (mFullUpdateOnConnect) {
+                mFullUpdateOnConnect = false;
+                onUpdate(mCallModeler.getFullList());
+            }
+        }
+    }
+
+    /**
+     * Checks to see if there are any live calls left, and if so, try reconnecting the UI.
+     */
+    private void reconnectOnRemainingCalls() {
+        if (mCallModeler.hasLiveCall()) {
+            mFullUpdateOnConnect = true;
+            setupServiceConnection();
         }
     }
 

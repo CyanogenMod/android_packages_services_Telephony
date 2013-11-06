@@ -275,8 +275,6 @@
     <string name="enable_disable_multi_category" msgid="626771003122899280">"Олон категори"</string>
     <string name="multi_category_enable" msgid="1179299804641721768">"Олон-категори идэвхжсэн"</string>
     <string name="multi_category_disable" msgid="880104702904139505">"Олон-категори идэвхгүйжсэн"</string>
-    <string name="prefer_2g" msgid="8442550937280449639">"Зөвхөн 2G сүлжээ ашиглах"</string>
-    <string name="prefer_2g_summary" msgid="1976491403210690759">"Зайнд хэмнэлттэй"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"Систем сонгох"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"CDMA роуминг төлвийг өөрчлөх"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"Систем сонгох"</string>
@@ -297,6 +295,8 @@
   </string-array>
     <string name="cdma_activate_device" msgid="3793805892364814518">"Төхөөрөмжийг идэвхжүүлэх"</string>
     <string name="cdma_lte_data_service" msgid="4255018217292548962">"Дата үйлчилгээний тохиргоо"</string>
+    <!-- no translation found for carrier_settings_title (9028166176523012300) -->
+    <skip />
     <string name="fdn" msgid="7878832555095183202">"Тогтвортой Залгах Дугаар"</string>
     <string name="manage_fdn_list" msgid="8777755791892122369">"FDN жагсаалт"</string>
     <string name="fdn_activation" msgid="2156479741307463576">"FDN идэвхжүүлэлт"</string>
@@ -450,10 +450,8 @@
     <string name="network_message" msgid="4483886461245213802">"Сүлжээний зурвас"</string>
     <string name="ota_title_activate" msgid="8616918561356194398">"Утсаа идэвхжүүлнэ үү"</string>
     <string name="ota_touch_activate" msgid="6553212803262586244">"Таны утасны үйлчилгээ идэвхжүүлэхийн тулд тусгай дуудлага хийх шаардлагатай. \n\n“Идэвхжүүлэх” гэснийг дарсны дараа өгч байгаа зааврыг сонсон утсаа идэвхжүүлнэ үү."</string>
-    <!-- no translation found for ota_hfa_activation_title (2234246934160473981) -->
-    <skip />
-    <!-- no translation found for ota_hfa_activation_dialog_message (8092479227918463415) -->
-    <skip />
+    <string name="ota_hfa_activation_title" msgid="2234246934160473981">"Идэвхжүүлж байна..."</string>
+    <string name="ota_hfa_activation_dialog_message" msgid="8092479227918463415">"Утас таны мобайл дата үйлчилгээг идэвхжүүлж байна.\n\nҮүнд 5 хүртэл минут орж болно."</string>
     <string name="ota_skip_activation_dialog_title" msgid="2943366608272261306">"Идэвхжүүлэхийг алгасах уу?"</string>
     <string name="ota_skip_activation_dialog_message" msgid="2440770373498870550">"Хэрэв та идэвхжүүлэхийг алгасвал дуудлага хийх буюу мобайль дата сүлжээнд холбогдох (хэдийгээр Wi-Fi сүлжээнд холбогдож болох ч) боломжгүй болно. Таныг утсаа идэвхжүүлэх хүртэл утсаа асаах бүрт идэвхжүүлэхийг хүсэх болно."</string>
     <string name="ota_skip_activation_dialog_skip_label" msgid="3458532775091563208">"Алгасах"</string>
@@ -581,8 +579,7 @@
     <string name="respond_via_sms_setting_title_2" msgid="6104662227299493906">"Шуурхай хариунуудыг засах"</string>
     <string name="respond_via_sms_setting_summary" msgid="9150281183930613065"></string>
     <string name="respond_via_sms_edittext_dialog_title" msgid="20379890418289778">"Шуурхай хариу"</string>
-    <!-- no translation found for respond_via_sms_menu_reset_default_activity (4029277930090150223) -->
-    <skip />
+    <string name="respond_via_sms_menu_reset_default_activity" msgid="4029277930090150223">"Үндсэн утгыг сэргээх"</string>
     <string name="respond_via_sms_confirmation_format" msgid="7229149977515784269">"Зурвасыг <xliff:g id="PHONE_NUMBER">%s</xliff:g> руу илгээв."</string>
     <string name="description_image_button_one" msgid="5502718871331943463">"нэг"</string>
     <string name="description_image_button_two" msgid="4903738528222924522">"хоёр"</string>

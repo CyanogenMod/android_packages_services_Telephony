@@ -105,7 +105,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     // Message codes; see mHandler below.
     private static final int EVENT_SIM_NETWORK_LOCKED = 3;
     private static final int EVENT_SIM_STATE_CHANGED = 8;
-    private static final int EVENT_UPDATE_INCALL_NOTIFICATION = 9;
     private static final int EVENT_DATA_ROAMING_DISCONNECTED = 10;
     private static final int EVENT_DATA_ROAMING_OK = 11;
     private static final int EVENT_UNSOL_CDMA_INFO_RECORD = 12;
@@ -164,7 +163,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     CallManager mCM;
     CallNotifier notifier;
     CallerInfoCache callerInfoCache;
-    InCallUiState inCallUiState;
     NotificationMgr notificationMgr;
     Phone phone;
     PhoneInterfaceManager phoneMgr;
@@ -177,7 +175,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     private CallModeler callModeler;
     private CallStateMonitor callStateMonitor;
     private DTMFTonePlayer dtmfTonePlayer;
-    private RejectWithTextMessageManager rejectWithTextMessageManager;
     private IBluetoothHeadsetPhone mBluetoothPhone;
     private Ringer ringer;
     private WiredHeadsetManager wiredHeadsetManager;
@@ -187,10 +184,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
 
     // Internal PhoneApp Call state tracker
     CdmaPhoneCallState cdmaPhoneCallState;
-
-    // The InCallScreen instance (or null if the InCallScreen hasn't been
-    // created yet.)
-    private InCallScreen mInCallScreen;
 
     // The currently-active PUK entry activity and progress dialog.
     // Normally, these are the Emergency Dialer and the subsequent
@@ -260,15 +253,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         mShouldRestoreMuteOnInCallResume = mode;
     }
 
-    /**
-     * Get the restore mute state flag.
-     * This is used by the InCallScreen {@link InCallScreen#onResume()} to figure
-     * out if we need to restore the mute state for the current active call.
-     */
-    /*package*/boolean getRestoreMuteOnInCallResume () {
-        return mShouldRestoreMuteOnInCallResume;
-    }
-
     Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -299,16 +283,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
                                 new IccNetworkDepersonalizationPanel(PhoneGlobals.getInstance());
                         ndpPanel.show();
                     }
-                    break;
-
-                case EVENT_UPDATE_INCALL_NOTIFICATION:
-                    // Tell the NotificationMgr to update the "ongoing
-                    // call" icon in the status bar, if necessary.
-                    // Currently, this is triggered by a bluetooth headset
-                    // state change (since the status bar icon needs to
-                    // turn blue when bluetooth is active.)
-                    if (DBG) Log.d (LOG_TAG, "- updating in-call notification from handler...");
-                    notificationMgr.updateInCallNotification();
                     break;
 
                 case EVENT_DATA_ROAMING_DISCONNECTED:
@@ -367,7 +341,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
                         audioRouter.setSpeaker(inDockMode);
 
                         PhoneUtils.turnOnSpeaker(getApplicationContext(), inDockMode, true);
-                        updateInCallScreen();  // Has no effect if the InCallScreen isn't visible
                     }
                     break;
 
@@ -481,10 +454,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             // (like making outgoing calls.)
             callController = CallController.init(this, callLogger, callGatewayManager);
 
-            // ...and also the InCallUiState instance, used by the CallController to
-            // keep track of some "persistent state" of the in-call UI.
-            inCallUiState = InCallUiState.init(this);
-
             // Create the CallerInfoCache singleton, which remembers custom ring tone and
             // send-to-voicemail settings.
             //
@@ -494,12 +463,8 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             // Monitors call activity from the telephony layer
             callStateMonitor = new CallStateMonitor(mCM);
 
-            // Rejects calls with TextMessages
-            rejectWithTextMessageManager = new RejectWithTextMessageManager();
-
             // Creates call models for use with CallHandlerService.
-            callModeler = new CallModeler(callStateMonitor, mCM, rejectWithTextMessageManager,
-                    callGatewayManager);
+            callModeler = new CallModeler(callStateMonitor, mCM, callGatewayManager);
 
             // Plays DTMF Tones
             dtmfTonePlayer = new DTMFTonePlayer(mCM, callModeler);
@@ -518,7 +483,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
 
             // Service used by in-call UI to control calls
             callCommandService = new CallCommandService(this, mCM, callModeler, dtmfTonePlayer,
-                    audioRouter, rejectWithTextMessageManager);
+                    audioRouter);
 
             // Sends call state to the UI
             callHandlerServiceProxy = new CallHandlerServiceProxy(this, callModeler,
@@ -531,7 +496,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             // launching the incoming-call UI when an incoming call comes
             // in.)
             notifier = CallNotifier.init(this, phone, ringer, callLogger, callStateMonitor,
-                    bluetoothManager);
+                    bluetoothManager, callModeler);
 
             // register for ICC status
             IccCard sim = phone.getIccCard();
@@ -677,6 +642,14 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         return audioRouter;
     }
 
+    /* package */ CallModeler getCallModeler() {
+        return callModeler;
+    }
+
+    /* package */ CallManager getCallManager() {
+        return mCM;
+    }
+
     /**
      * Returns an Intent that can be used to go to the "Call log"
      * UI (aka CallLogActivity) in the Contacts app.
@@ -696,32 +669,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         final TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(context);
         taskStackBuilder.addNextIntent(callLogIntent);
         return taskStackBuilder.getPendingIntent(0, 0);
-    }
-
-    /**
-     * Return an Intent that can be used to bring up the in-call screen.
-     *
-     * This intent can only be used from within the Phone app, since the
-     * InCallScreen is not exported from our AndroidManifest.
-     */
-    /* package */ static Intent createInCallIntent() {
-        Intent intent = new Intent(Intent.ACTION_MAIN, null);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
-                | Intent.FLAG_ACTIVITY_NO_USER_ACTION);
-        intent.setClassName("com.android.phone", getCallScreenClassName());
-        return intent;
-    }
-
-    /**
-     * Variation of createInCallIntent() that also specifies whether the
-     * DTMF dialpad should be initially visible when the InCallScreen
-     * comes up.
-     */
-    /* package */ static Intent createInCallIntent(boolean showDialpad) {
-        Intent intent = createInCallIntent();
-        intent.putExtra(InCallScreen.SHOW_DIALPAD_EXTRA, showDialpad);
-        return intent;
     }
 
     /**
@@ -749,37 +696,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         return PendingIntent.getBroadcast(context, 0, intent, 0);
     }
 
-    private static String getCallScreenClassName() {
-        //InCallScreen.class.getName();
-        return "blah";
-    }
-
-    /**
-     * Starts the InCallScreen Activity.
-     */
-    /* package */ void displayCallScreen() {
-        if (VDBG) Log.d(LOG_TAG, "displayCallScreen()...");
-
-        // On non-voice-capable devices we shouldn't ever be trying to
-        // bring up the InCallScreen in the first place.
-        if (!sVoiceCapable) {
-            Log.w(LOG_TAG, "displayCallScreen() not allowed: non-voice-capable device",
-                  new Throwable("stack dump"));  // Include a stack trace since this warning
-                                                 // indicates a bug in our caller
-            return;
-        }
-
-        try {
-            //startActivity(createInCallIntent());
-        } catch (ActivityNotFoundException e) {
-            // It's possible that the in-call UI might not exist (like on
-            // non-voice-capable devices), so don't crash if someone
-            // accidentally tries to bring it up...
-            Log.w(LOG_TAG, "displayCallScreen: transition to InCallScreen failed: " + e);
-        }
-        Profiler.callScreenRequested();
-    }
-
     boolean isSimPinEnabled() {
         return mIsSimPinEnabled;
     }
@@ -790,59 +706,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
 
     void setCachedSimPin(String pin) {
         mCachedSimPin = pin;
-    }
-
-    void setInCallScreenInstance(InCallScreen inCallScreen) {
-        mInCallScreen = inCallScreen;
-    }
-
-    /**
-     * @return true if the in-call UI is running as the foreground
-     * activity.  (In other words, from the perspective of the
-     * InCallScreen activity, return true between onResume() and
-     * onPause().)
-     *
-     * Note this method will return false if the screen is currently off,
-     * even if the InCallScreen *was* in the foreground just before the
-     * screen turned off.  (This is because the foreground activity is
-     * always "paused" while the screen is off.)
-     */
-    boolean isShowingCallScreen() {
-        if (mInCallScreen == null) return false;
-        return mInCallScreen.isForegroundActivity();
-    }
-
-    /**
-     * Dismisses the in-call UI.
-     *
-     * This also ensures that you won't be able to get back to the in-call
-     * UI via the BACK button (since this call removes the InCallScreen
-     * from the activity history.)
-     * For OTA Call, it call InCallScreen api to handle OTA Call End scenario
-     * to display OTA Call End screen.
-     */
-    /* package */ void dismissCallScreen() {
-        if (mInCallScreen != null) {
-            if ((TelephonyCapabilities.supportsOtasp(phone)) &&
-                    (mInCallScreen.isOtaCallInActiveState()
-                    || mInCallScreen.isOtaCallInEndState()
-                    || ((cdmaOtaScreenState != null)
-                    && (cdmaOtaScreenState.otaScreenState
-                            != CdmaOtaScreenState.OtaScreenState.OTA_STATUS_UNDEFINED)))) {
-                // TODO: During OTA Call, display should not become dark to
-                // allow user to see OTA UI update. Phone app needs to hold
-                // a SCREEN_DIM_WAKE_LOCK wake lock during the entire OTA call.
-                wakeUpScreen();
-                // If InCallScreen is not in foreground we resume it to show the OTA call end screen
-                // Fire off the InCallScreen intent
-                displayCallScreen();
-
-                mInCallScreen.handleOtaCallEnd();
-                return;
-            } else {
-                mInCallScreen.finish();
-            }
-        }
     }
 
     /**
@@ -992,16 +855,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     /* package */ void updateWakeState() {
         PhoneConstants.State state = mCM.getState();
 
-        // True if the in-call UI is the foreground activity.
-        // (Note this will be false if the screen is currently off,
-        // since in that case *no* activity is in the foreground.)
-        boolean isShowingCallScreen = isShowingCallScreen();
-
-        // True if the InCallScreen's DTMF dialer is currently opened.
-        // (Note this does NOT imply whether or not the InCallScreen
-        // itself is visible.)
-        boolean isDialerOpened = (mInCallScreen != null) && mInCallScreen.isDialerOpened();
-
         // True if the speakerphone is in use.  (If so, we *always* use
         // the default timeout.  Since the user is obviously not holding
         // the phone up to his/her face, we don't need to worry about
@@ -1018,11 +871,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         // user to put the phone straight into a pocket, in which case the
         // timeout should probably still be short.)
 
-        if (DBG) Log.d(LOG_TAG, "updateWakeState: callscreen " + isShowingCallScreen
-                       + ", dialer " + isDialerOpened
-                       + ", speaker " + isSpeakerInUse + "...");
-
-        //
         // Decide whether to force the screen on or not.
         //
         // Force the screen to be on if the phone is ringing or dialing,
@@ -1034,13 +882,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         //
         boolean isRinging = (state == PhoneConstants.State.RINGING);
         boolean isDialing = (phone.getForegroundCall().getState() == Call.State.DIALING);
-        boolean showingDisconnectedConnection =
-                PhoneUtils.hasDisconnectedConnections(phone) && isShowingCallScreen;
-        boolean keepScreenOn = isRinging || isDialing || showingDisconnectedConnection;
-        if (DBG) Log.d(LOG_TAG, "updateWakeState: keepScreenOn = " + keepScreenOn
-                       + " (isRinging " + isRinging
-                       + ", isDialing " + isDialing
-                       + ", showingDisc " + showingDisconnectedConnection + ")");
+        boolean keepScreenOn = isRinging || isDialing;
         // keepScreenOn == true means we'll hold a full wake lock:
         requestWakeState(keepScreenOn ? WakeState.FULL : WakeState.SLEEP);
     }
@@ -1079,35 +921,15 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
                     mUpdateLock.acquire();
                 }
             } else {
-                if (!isShowingCallScreen()) {
-                    if (!mUpdateLock.isHeld()) {
-                        mUpdateLock.release();
-                    }
-                } else {
-                    // For this case InCallScreen will take care of the release() call.
+                if (mUpdateLock.isHeld()) {
+                    mUpdateLock.release();
                 }
-            }
-
-            // While we are in call, the in-call screen should dismiss the keyguard.
-            // This allows the user to press Home to go directly home without going through
-            // an insecure lock screen.
-            // But we do not want to do this if there is no active call so we do not
-            // bypass the keyguard if the call is not answered or declined.
-            if (mInCallScreen != null) {
-                mInCallScreen.updateKeyguardPolicy(state == PhoneConstants.State.OFFHOOK);
             }
         }
     }
 
     /* package */ PhoneConstants.State getPhoneState() {
         return mLastPhoneState;
-    }
-
-    /**
-     * Returns UpdateLock object.
-     */
-    /* package */ UpdateLock getUpdateLock() {
-        return mUpdateLock;
     }
 
     KeyguardManager getKeyguardManager() {
@@ -1157,9 +979,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             } catch (RemoteException e) {
                 Log.e(LOG_TAG, Log.getStackTraceString(new Throwable()));
             }
-        }
-        if (mInCallScreen != null) {
-            mInCallScreen.updateAfterRadioTechnologyChange();
         }
 
         // Update registration for ICC status after radio technology change
@@ -1284,10 +1103,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
                 boolean consumed = PhoneUtils.handleHeadsetHook(phone, event);
                 if (VDBG) Log.d(LOG_TAG, "==> handleHeadsetHook(): consumed = " + consumed);
                 if (consumed) {
-                    // If a headset is attached and the press is consumed, also update
-                    // any UI items (such as an InCallScreen mute button) that may need to
-                    // be updated if their state changed.
-                    updateInCallScreen();  // Has no effect if the InCallScreen isn't visible
                     abortBroadcast();
                 }
             } else {
@@ -1373,18 +1188,12 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
 
     public boolean isOtaCallInActiveState() {
         boolean otaCallActive = false;
-        if (mInCallScreen != null) {
-            otaCallActive = mInCallScreen.isOtaCallInActiveState();
-        }
         if (VDBG) Log.d(LOG_TAG, "- isOtaCallInActiveState " + otaCallActive);
         return otaCallActive;
     }
 
     public boolean isOtaCallInEndState() {
         boolean otaCallEnded = false;
-        if (mInCallScreen != null) {
-            otaCallEnded = mInCallScreen.isOtaCallInEndState();
-        }
         if (VDBG) Log.d(LOG_TAG, "- isOtaCallInEndState " + otaCallEnded);
         return otaCallEnded;
     }
@@ -1392,8 +1201,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     // it is safe to call clearOtaState() even if the InCallScreen isn't active
     public void clearOtaState() {
         if (DBG) Log.d(LOG_TAG, "- clearOtaState ...");
-        if ((mInCallScreen != null)
-                && (otaUtils != null)) {
+        if (otaUtils != null) {
             otaUtils.cleanOtaScreen(true);
             if (DBG) Log.d(LOG_TAG, "  - clearOtaState clears OTA screen");
         }
@@ -1402,42 +1210,9 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     // it is safe to call dismissOtaDialogs() even if the InCallScreen isn't active
     public void dismissOtaDialogs() {
         if (DBG) Log.d(LOG_TAG, "- dismissOtaDialogs ...");
-        if ((mInCallScreen != null)
-                && (otaUtils != null)) {
+        if (otaUtils != null) {
             otaUtils.dismissAllOtaDialogs();
             if (DBG) Log.d(LOG_TAG, "  - dismissOtaDialogs clears OTA dialogs");
-        }
-    }
-
-    // it is safe to call clearInCallScreenMode() even if the InCallScreen isn't active
-    public void clearInCallScreenMode() {
-        if (DBG) Log.d(LOG_TAG, "- clearInCallScreenMode ...");
-        if (mInCallScreen != null) {
-            mInCallScreen.resetInCallScreenMode();
-        }
-    }
-
-    /**
-     * Force the in-call UI to refresh itself, if it's currently visible.
-     *
-     * This method can be used any time there's a state change anywhere in
-     * the phone app that needs to be reflected in the onscreen UI.
-     *
-     * Note that it's *not* necessary to manually refresh the in-call UI
-     * (via this method) for regular telephony state changes like
-     * DIALING -> ALERTING -> ACTIVE, since the InCallScreen already
-     * listens for those state changes itself.
-     *
-     * This method does *not* force the in-call UI to come up if it's not
-     * already visible.  To do that, use displayCallScreen().
-     */
-    /* package */ void updateInCallScreen() {
-        if (DBG) Log.d(LOG_TAG, "- updateInCallScreen()...");
-        if (mInCallScreen != null) {
-            // Post an updateScreen() request.  Note that the
-            // updateScreen() call will end up being a no-op if the
-            // InCallScreen isn't the foreground activity.
-            mInCallScreen.requestUpdateScreen();
         }
     }
 
@@ -1505,73 +1280,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
      * Used to determine if the preserved call origin is fresh enough.
      */
     private static final long CALL_ORIGIN_EXPIRATION_MILLIS = 30 * 1000;
-
-    public void setLatestActiveCallOrigin(String callOrigin) {
-        inCallUiState.latestActiveCallOrigin = callOrigin;
-        if (callOrigin != null) {
-            inCallUiState.latestActiveCallOriginTimeStamp = SystemClock.elapsedRealtime();
-        } else {
-            inCallUiState.latestActiveCallOriginTimeStamp = 0;
-        }
-    }
-
-    /**
-     * Reset call origin depending on its timestamp.
-     *
-     * See if the current call origin preserved by the app is fresh enough or not. If it is,
-     * previous call origin will be used as is. If not, call origin will be reset.
-     *
-     * This will be effective especially for 3rd party apps which want to bypass phone calls with
-     * their own telephone lines. In that case Phone app may finish the phone call once and make
-     * another for the external apps, which will drop call origin information in Intent.
-     * Even in that case we are sure the second phone call should be initiated just after the first
-     * phone call, so here we restore it from the previous information iff the second call is done
-     * fairly soon.
-     */
-    public void resetLatestActiveCallOrigin() {
-        final long callOriginTimestamp = inCallUiState.latestActiveCallOriginTimeStamp;
-        final long currentTimestamp = SystemClock.elapsedRealtime();
-        if (VDBG) {
-            Log.d(LOG_TAG, "currentTimeMillis: " + currentTimestamp
-                    + ", saved timestamp for call origin: " + callOriginTimestamp);
-        }
-        if (inCallUiState.latestActiveCallOriginTimeStamp > 0
-                && (currentTimestamp - callOriginTimestamp < CALL_ORIGIN_EXPIRATION_MILLIS)) {
-            if (VDBG) {
-                Log.d(LOG_TAG, "Resume previous call origin (" +
-                        inCallUiState.latestActiveCallOrigin + ")");
-            }
-            // Do nothing toward call origin itself but update the timestamp just in case.
-            inCallUiState.latestActiveCallOriginTimeStamp = currentTimestamp;
-        } else {
-            if (VDBG) Log.d(LOG_TAG, "Drop previous call origin and set the current one to null");
-            setLatestActiveCallOrigin(null);
-        }
-    }
-
-    /**
-     * @return Intent which will be used when in-call UI is shown and the phone call is hang up.
-     * By default CallLog screen will be introduced, but the destination may change depending on
-     * its latest call origin state.
-     */
-    public Intent createPhoneEndIntentUsingCallOrigin() {
-        if (TextUtils.equals(inCallUiState.latestActiveCallOrigin, ALLOWED_EXTRA_CALL_ORIGIN)) {
-            if (VDBG) Log.d(LOG_TAG, "Valid latestActiveCallOrigin("
-                    + inCallUiState.latestActiveCallOrigin + ") was found. "
-                    + "Go back to the previous screen.");
-            // Right now we just launch the Activity which launched in-call UI. Note that we're
-            // assuming the origin is from "com.android.dialer", which may be incorrect in the
-            // future.
-            final Intent intent = new Intent();
-            intent.setClassName(DEFAULT_CALL_ORIGIN_PACKAGE, inCallUiState.latestActiveCallOrigin);
-            return intent;
-        } else {
-            if (VDBG) Log.d(LOG_TAG, "Current latestActiveCallOrigin ("
-                    + inCallUiState.latestActiveCallOrigin + ") is not valid. "
-                    + "Just use CallLog as a default destination.");
-            return PhoneGlobals.createCallLogIntent();
-        }
-    }
 
     /** Service connection */
     private final ServiceConnection mBluetoothPhoneConnection = new ServiceConnection() {
