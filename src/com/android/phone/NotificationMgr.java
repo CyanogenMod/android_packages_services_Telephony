@@ -100,6 +100,10 @@ public class NotificationMgr {
     static final int SELECTED_OPERATOR_FAIL_NOTIFICATION = 8;
     static final int BLACKLISTED_CALL_NOTIFICATION = 9;
 
+    // notification light default constants
+    public static final int DEFAULT_COLOR = 0xFFFFFF; //White
+    public static final int DEFAULT_TIME = 1000; // 1 second
+
     /** The singleton NotificationMgr instance. */
     protected static NotificationMgr sInstance;
 
@@ -478,13 +482,44 @@ public class NotificationMgr {
     }
 
     /**
-     * Configures a Notification to emit the blinky green message-waiting/
+     * Configures a Notification to emit the blinky message-waiting/
      * missed-call signal.
      */
-    protected static void configureLedNotification(Notification note) {
+    protected static void configureLedNotification(Context context,
+            int notificationType, Notification note) {
+        ContentResolver resolver = context.getContentResolver();
+
+        boolean lightEnabled = Settings.System.getInt(resolver,
+                Settings.System.NOTIFICATION_LIGHT_PULSE, 0) == 1;
+        if (!lightEnabled) {
+            return;
+        }
+
         note.flags |= Notification.FLAG_SHOW_LIGHTS;
-        note.defaults |= Notification.DEFAULT_LIGHTS;
-    }
+
+        // Get Missed call and Voice mail values if they are to be used
+        boolean customEnabled = Settings.System.getInt(resolver,
+                Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE, 0) == 1;
+        if (!customEnabled) {
+            note.defaults |= Notification.DEFAULT_LIGHTS;
+            return;
+        }
+
+        String timeOnKey, timeOffKey, colorKey;
+        if (notificationType == VOICEMAIL_NOTIFICATION) {
+            colorKey = Settings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR;
+            timeOnKey = Settings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON;
+            timeOffKey = Settings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF;
+        } else { // MISSED_CALL_NOTIFICATION
+            colorKey = Settings.System.NOTIFICATION_LIGHT_PULSE_CALL_COLOR;
+            timeOnKey = Settings.System.NOTIFICATION_LIGHT_PULSE_CALL_LED_ON;
+            timeOffKey = Settings.System.NOTIFICATION_LIGHT_PULSE_CALL_LED_OFF;
+        }
+
+        note.ledARGB = Settings.System.getInt(resolver, colorKey, DEFAULT_COLOR);
+        note.ledOnMS = Settings.System.getInt(resolver, timeOnKey, DEFAULT_TIME);
+        note.ledOffMS = Settings.System.getInt(resolver, timeOffKey, DEFAULT_TIME);
+     }
 
     /**
      * Displays a notification about a missed call.
@@ -610,7 +645,7 @@ public class NotificationMgr {
         }
 
         Notification notification = builder.getNotification();
-        configureLedNotification(notification);
+        configureLedNotification(mContext, MISSED_CALL_NOTIFICATION, notification);
         mNotificationManager.notify(MISSED_CALL_NOTIFICATION, notification);
     }
 
@@ -972,7 +1007,7 @@ public class NotificationMgr {
                 notification.defaults |= Notification.DEFAULT_VIBRATE;
             }
             notification.flags |= Notification.FLAG_NO_CLEAR;
-            configureLedNotification(notification);
+            configureLedNotification(mContext, VOICEMAIL_NOTIFICATION, notification);
             mNotificationManager.notify(VOICEMAIL_NOTIFICATION, notification);
         } else {
             mNotificationManager.cancel(VOICEMAIL_NOTIFICATION);

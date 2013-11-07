@@ -217,7 +217,7 @@ public class MSimNotificationMgr extends NotificationMgr {
             }
 
             notification.flags |= Notification.FLAG_NO_CLEAR;
-            configureLedNotification(notification);
+            configureLedNotification(mContext, VOICEMAIL_NOTIFICATION, notification);
             mNotificationManager.notify(VOICEMAIL_NOTIFICATION, notification);
         } else {
             mNotificationManager.cancel(VOICEMAIL_NOTIFICATION);
