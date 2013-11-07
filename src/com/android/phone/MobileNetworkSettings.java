@@ -425,6 +425,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                     case Phone.NT_MODE_GSM_ONLY:
                     case Phone.NT_MODE_LTE_GSM_WCDMA:
                     case Phone.NT_MODE_LTE_CMDA_EVDO_GSM_WCDMA:
+                    case Phone.NT_MODE_GLOBAL:
                     case Phone.NT_MODE_CDMA:
                     case Phone.NT_MODE_CDMA_NO_EVDO:
                     case Phone.NT_MODE_LTE_CDMA_AND_EVDO:
@@ -656,10 +657,10 @@ public class MobileNetworkSettings extends PreferenceActivity
                 mButtonEnabledNetworks.setSummary(show4GForLTE);
                 break;
             case Phone.NT_MODE_LTE_CDMA_AND_EVDO:
+            case Phone.NT_MODE_GLOBAL:
                 mButtonEnabledNetworks.setSummary("LTE");
                 break;
             case Phone.NT_MODE_CDMA:
-            case Phone.NT_MODE_GLOBAL:
                 mButtonEnabledNetworks.setSummary("3G");
                 break;
             case Phone.NT_MODE_CDMA_NO_EVDO:
