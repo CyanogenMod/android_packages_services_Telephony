@@ -36,6 +36,15 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
+  <PreferenceScreen
+      android:key="button_blacklist"
+      android:title="@string/blacklist_title"
+      android:persistent="false">
+      <intent android:action="android.intent.action.MAIN"
+          android:targetPackage="com.android.settings"
+          android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
+  </PreferenceScreen>
+
   <PreferenceCategory
       android:key="button_misc_category_key"
       android:title="@string/other_settings"
