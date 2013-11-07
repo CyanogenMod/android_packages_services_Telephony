@@ -46,6 +46,18 @@
   </PreferenceScreen>
 
   <PreferenceCategory
+      android:key="pref_advanced_settings"
+      android:title="@string/advanced_setting">
+
+      <CheckBoxPreference
+          android:key="button_show_ssn_key"
+          android:title="@string/show_ssn_label"
+          android:defaultValue="false"
+          android:summary="@string/show_ssn_summary" />
+
+  </PreferenceCategory>
+
+  <PreferenceCategory
       android:key="button_misc_category_key"
       android:title="@string/other_settings"
       android:persistent="false" />
