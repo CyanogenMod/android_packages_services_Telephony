@@ -130,6 +130,7 @@ public class CallNotifier extends Handler
     private static final int CALLWAITING_ADDCALL_DISABLE_TIMEOUT = 23;
     private static final int DISPLAYINFO_NOTIFICATION_DONE = 24;
     private static final int CDMA_CALL_WAITING_REJECT = 26;
+    private static final int VIBRATE_45_SEC = 28;
     private static final int UPDATE_IN_CALL_NOTIFICATION = 27;
 
     // Emergency call related defines:
@@ -166,8 +167,9 @@ public class CallNotifier extends Handler
     // Call waiting tone player
     private InCallTonePlayer mCallWaitingTonePlayer;
 
-    // Cached AudioManager
+    // Cached system services
     private AudioManager mAudioManager;
+    private Vibrator mVibrator;
 
     private final BluetoothManager mBluetoothManager;
 
@@ -203,6 +205,7 @@ public class CallNotifier extends Handler
         mCallModeler = callModeler;
 
         mAudioManager = (AudioManager) mApplication.getSystemService(Context.AUDIO_SERVICE);
+        mVibrator = (Vibrator) mApplication.getSystemService(Context.VIBRATOR_SERVICE);
 
         callStateMonitor.addListener(this);
 
@@ -355,6 +358,11 @@ public class CallNotifier extends Handler
 
             case CallStateMonitor.PHONE_RESEND_MUTE:
                 onResendMute();
+                break;
+
+            case VIBRATE_45_SEC:
+                vibrate(70, 0, 0);
+                sendEmptyMessageDelayed(VIBRATE_45_SEC, 60000);
                 break;
 
             default:
@@ -684,6 +692,9 @@ public class CallNotifier extends Handler
         if (PhoneUtils.isRealIncomingCall(c.getState())) {
             mRinger.ring();
         } else {
+            if (PhoneUtils.PhoneSettings.vibCallWaiting(mApplication)) {
+                vibrate(200, 300, 500);
+            }
             if (VDBG) log("- starting call waiting tone...");
             if (mCallWaitingTonePlayer == null) {
                 mCallWaitingTonePlayer = new InCallTonePlayer(InCallTonePlayer.TONE_CALL_WAITING);
@@ -712,6 +723,9 @@ public class CallNotifier extends Handler
                 .enableNotificationAlerts(state == PhoneConstants.State.IDLE);
 
         Phone fgPhone = mCM.getFgPhone();
+        Call call = PhoneUtils.getCurrentCall(fgPhone);
+        Connection c;
+
         if (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
             if ((fgPhone.getForegroundCall().getState() == Call.State.ACTIVE)
                     && ((mPreviousCdmaCallState == Call.State.DIALING)
@@ -724,6 +738,9 @@ public class CallNotifier extends Handler
                 stopSignalInfoTone();
             }
             mPreviousCdmaCallState = fgPhone.getForegroundCall().getState();
+            c = call.getLatestConnection();
+        } else {
+            c = call.getEarliestConnection();
         }
 
         // Have the PhoneApp recompute its mShowBluetoothIndication
@@ -747,6 +764,21 @@ public class CallNotifier extends Handler
             }
 
             if (VDBG) log("onPhoneStateChanged: OFF HOOK");
+
+            if (!c.isIncoming()) {
+                long callDurationMsec = c.getDurationMillis();
+                if (VDBG) Log.v(LOG_TAG, "duration is " + callDurationMsec);
+                boolean vibOut = PhoneUtils.PhoneSettings.vibOutgoing(mApplication);
+                if (vibOut && callDurationMsec < 200) {
+                    vibrate(100, 0, 0);
+                }
+                boolean vib45 = PhoneUtils.PhoneSettings.vibOn45Secs(mApplication);
+                if (vib45) {
+                    callDurationMsec = callDurationMsec % 60000;
+                    start45SecondVibration(callDurationMsec);
+                }
+            }
+
             // make sure audio is in in-call mode now
             PhoneUtils.setAudioMode(mCM);
 
@@ -761,7 +793,6 @@ public class CallNotifier extends Handler
         }
 
         if (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
-            Connection c = fgPhone.getForegroundCall().getLatestConnection();
             if ((c != null) && (PhoneNumberUtils.isLocalEmergencyNumber(c.getAddress(),
                                                                         mApplication))) {
                 if (VDBG) log("onPhoneStateChanged: it is an emergency call.");
@@ -936,6 +967,10 @@ public class CallNotifier extends Handler
         boolean disconnectedDueToBlacklist = false;
         if (c != null) {
             disconnectedDueToBlacklist = BLACKLIST.equals(c.getUserData());
+            boolean vibHangup = PhoneUtils.PhoneSettings.vibHangup(mApplication);
+            if (!disconnectedDueToBlacklist && vibHangup && c.getDurationMillis() > 0) {
+                vibrate(50, 100, 50);
+            }
         }
 
         int autoretrySetting = 0;
@@ -946,6 +981,9 @@ public class CallNotifier extends Handler
 
         // Stop any signalInfo tone being played when a call gets ended
         stopSignalInfoTone();
+
+        // Stop 45-second vibration
+        removeMessages(VIBRATE_45_SEC);
 
         if ((c != null) && (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA)) {
             // Resetting the CdmaPhoneCallState members
@@ -1142,6 +1180,30 @@ public class CallNotifier extends Handler
                 }
             }
         }
+    }
+
+    private void start45SecondVibration(long callDurationMsec) {
+        if (VDBG) Log.v(LOG_TAG, "vibrate start @" + callDurationMsec);
+
+        removeMessages(VIBRATE_45_SEC);
+
+        long timer;
+        if (callDurationMsec > 45000) {
+            // Schedule the alarm at the next minute + 45 secs
+            timer = 45000 + 60000 - callDurationMsec;
+        } else {
+            // Schedule the alarm at the first 45 second mark
+            timer = 45000 - callDurationMsec;
+        }
+
+        sendEmptyMessageDelayed(VIBRATE_45_SEC, timer);
+    }
+
+    public void vibrate(int v1, int p1, int v2) {
+        long[] pattern = new long[] {
+            0, v1, p1, v2
+        };
+        mVibrator.vibrate(pattern, -1);
     }
 
     /**
