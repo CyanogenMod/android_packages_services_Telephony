@@ -2753,6 +2753,20 @@ public class PhoneUtils {
     }
 
     static class PhoneSettings {
+        /* vibration preferences */
+        static boolean vibOn45Secs(Context context) {
+            return getPrefs(context).getBoolean("button_vibrate_45", false);
+        }
+        static boolean vibHangup(Context context) {
+            return getPrefs(context).getBoolean("button_vibrate_hangup", false);
+        }
+        static boolean vibOutgoing(Context context) {
+            return getPrefs(context).getBoolean("button_vibrate_outgoing", false);
+        }
+        static boolean vibCallWaiting(Context context) {
+            return getPrefs(context).getBoolean("button_vibrate_call_waiting", false);
+        }
+
         /* misc. UI and behaviour preferences */
         static boolean showInCallEvents(Context context) {
             return getPrefs(context).getBoolean("button_show_ssn_key", false);

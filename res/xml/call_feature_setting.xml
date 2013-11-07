@@ -50,6 +50,27 @@
       android:title="@string/advanced_setting">
 
       <CheckBoxPreference
+          android:key="button_vibrate_outgoing"
+          android:title="@string/vibrate_outgoing"
+          android:persistent="true" />
+
+      <CheckBoxPreference
+          android:key="button_vibrate_call_waiting"
+          android:title="@string/vibrate_call_waiting"
+          android:persistent="true" />
+
+      <CheckBoxPreference
+          android:key="button_vibrate_hangup"
+          android:title="@string/vibrate_hangup"
+          android:persistent="true" />
+
+      <CheckBoxPreference
+          android:key="button_vibrate_45"
+          android:title="@string/vibrate_45"
+          android:persistent="true"
+          android:summary="@string/vibrate_45_sum" />
+
+      <CheckBoxPreference
           android:key="button_show_ssn_key"
           android:title="@string/show_ssn_label"
           android:defaultValue="false"
