@@ -43,8 +43,11 @@ import android.provider.Settings;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.ServiceState;
 import android.text.BidiFormatter;
+import android.text.SpannableStringBuilder;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
+import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -57,6 +60,9 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyCapabilities;
+import com.android.internal.telephony.util.BlacklistUtils;
+
+import java.util.ArrayList;
 
 /**
  * NotificationManager-related utility code for the Phone app.
@@ -92,6 +98,7 @@ public class NotificationMgr {
     static final int CALL_FORWARD_NOTIFICATION = 6;
     static final int DATA_DISCONNECTED_ROAMING_NOTIFICATION = 7;
     static final int SELECTED_OPERATOR_FAIL_NOTIFICATION = 8;
+    static final int BLACKLISTED_CALL_NOTIFICATION = 9;
 
     /** The singleton NotificationMgr instance. */
     private static NotificationMgr sInstance;
@@ -111,6 +118,22 @@ public class NotificationMgr {
 
     // used to track the missed call counter, default to 0.
     private int mNumberMissedCalls = 0;
+
+    // used to track blacklisted calls
+    private static class BlacklistedCallInfo {
+        String number;
+        long date;
+        int matchType;
+
+        BlacklistedCallInfo(String number, long date, int matchType) {
+            this.number = number;
+            this.date = date;
+            this.matchType = matchType;
+        }
+    };
+    private ArrayList<BlacklistedCallInfo> mBlacklistedCalls =
+            new ArrayList<BlacklistedCallInfo>();
+
 
     // used to track the notification of selected network unavailable
     private boolean mSelectedUnavailableNotify = false;
@@ -570,6 +593,25 @@ public class NotificationMgr {
         mNotificationManager.notify(MISSED_CALL_NOTIFICATION, notification);
     }
 
+    private static final RelativeSizeSpan TIME_SPAN = new RelativeSizeSpan(0.7f);
+
+    private CharSequence formatSingleCallLine(String caller, long date) {
+        int flags = DateUtils.FORMAT_SHOW_TIME;
+        if (!DateUtils.isToday(date)) {
+            flags |= DateUtils.FORMAT_SHOW_WEEKDAY;
+        }
+
+        SpannableStringBuilder lineBuilder = new SpannableStringBuilder();
+        lineBuilder.append(caller);
+        lineBuilder.append("  ");
+
+        int timeIndex = lineBuilder.length();
+        lineBuilder.append(DateUtils.formatDateTime(mContext, date, flags));
+        lineBuilder.setSpan(TIME_SPAN, timeIndex, lineBuilder.length(), 0);
+
+        return lineBuilder;
+    }
+
     /** Returns an intent to be invoked when the missed call notification is cleared. */
     private PendingIntent createClearMissedCallsIntent() {
         Intent intent = new Intent(mContext, ClearMissedCallsService.class);
@@ -586,6 +628,102 @@ public class NotificationMgr {
         // reset the number of missed calls to 0.
         mNumberMissedCalls = 0;
         mNotificationManager.cancel(MISSED_CALL_NOTIFICATION);
+    }
+
+    /* package */ void notifyBlacklistedCall(String number, long date, int matchType) {
+        if (!BlacklistUtils.isBlacklistNotifyEnabled(mContext)) {
+            return;
+        }
+
+        if (VDBG) {
+            log("notifyBlacklistedCall(). number: " + number
+                + ", match type: " + matchType + ", date: " + date);
+        }
+
+        // Keep track of the call, keeping list sorted from newest to oldest
+        mBlacklistedCalls.add(0, new BlacklistedCallInfo(number, date, matchType));
+
+        // Get the intent to open Blacklist settings if user taps on content ready
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setClassName("com.android.settings", "com.android.settings.Settings$BlacklistSettingsActivity");
+        PendingIntent blSettingsIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
+
+        // Start building the notification
+        Notification.Builder builder = new Notification.Builder(mContext);
+        builder.setSmallIcon(R.drawable.ic_block_contact_holo_dark)
+                .setContentIntent(blSettingsIntent)
+                .setContentTitle(mContext.getString(R.string.blacklist_title))
+                .setWhen(date)
+                .setDeleteIntent(createClearMissedCallsIntent());
+
+        // Add the 'Remove block' notification action only for MATCH_LIST items since
+        // MATCH_REGEX and MATCH_PRIVATE items does not have an associated specific number
+        // to unblock, and MATCH_UNKNOWN unblock for a single number does not make sense.
+        boolean addUnblockAction = true;
+
+        if (mBlacklistedCalls.size() == 1) {
+            String message;
+            switch (matchType) {
+                case BlacklistUtils.MATCH_PRIVATE:
+                    message = mContext.getString(R.string.blacklist_notification_private_number);
+                    break;
+                case BlacklistUtils.MATCH_UNKNOWN:
+                    message = mContext.getString(R.string.blacklist_notification_unknown_number, number);
+                    break;
+                default:
+                    message = mContext.getString(R.string.blacklist_notification, number);
+            }
+            builder.setContentText(message);
+
+            if (matchType != BlacklistUtils.MATCH_LIST) {
+                addUnblockAction = false;
+            }
+        } else {
+            String message = mContext.getString(R.string.blacklist_notification_multiple,
+                    mBlacklistedCalls.size());
+
+            builder.setContentText(message)
+                    .setNumber(mBlacklistedCalls.size());
+
+            Notification.InboxStyle style = new Notification.InboxStyle(builder);
+
+            for (BlacklistedCallInfo info : mBlacklistedCalls) {
+                // Takes care of displaying "Private" instead of an empty string
+                String numberString = TextUtils.isEmpty(info.number)
+                        ? mContext.getString(R.string.blacklist_notification_list_private)
+                        : info.number;
+                style.addLine(formatSingleCallLine(numberString, info.date));
+
+                if (!TextUtils.equals(number, info.number)) {
+                    addUnblockAction = false;
+                } else if (info.matchType != BlacklistUtils.MATCH_LIST) {
+                    addUnblockAction = false;
+                }
+            }
+            style.setBigContentTitle(message);
+            style.setSummaryText(" ");
+            builder.setStyle(style);
+        }
+
+        if (addUnblockAction) {
+            CharSequence action = mContext.getText(R.string.unblock_number);
+            builder.addAction(R.drawable.ic_unblock_contact_holo_dark,
+                    mContext.getString(R.string.unblock_number),
+                    PhoneGlobals.getUnblockNumberFromNotificationPendingIntent(mContext, number));
+        }
+
+        mNotificationManager.notify(BLACKLISTED_CALL_NOTIFICATION, builder.getNotification());
+    }
+
+    private PendingIntent createClearBlacklistedCallsIntent() {
+        Intent intent = new Intent(mContext, ClearMissedCallsService.class);
+        intent.setAction(ClearMissedCallsService.ACTION_CLEAR_BLACKLISTED_CALLS);
+        return PendingIntent.getService(mContext, 0, intent, 0);
+    }
+
+    void cancelBlacklistedCallNotification() {
+        mBlacklistedCalls.clear();
+        mNotificationManager.cancel(BLACKLISTED_CALL_NOTIFICATION);
     }
 
     private void notifySpeakerphone() {
