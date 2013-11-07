@@ -21,6 +21,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.StatusBarManager;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -87,6 +88,10 @@ public class NotificationMgr {
 
     static final int NOTIFICATION_ID_OFFSET = 50;
 
+    // notification light default constants
+    public static final int DEFAULT_COLOR = 0xFFFFFF; //White
+    public static final int DEFAULT_TIME = 1000; // 1 second
+
     /** The singleton NotificationMgr instance. */
     private static NotificationMgr sInstance;
 
@@ -147,6 +152,37 @@ public class NotificationMgr {
             return sInstance;
         }
     }
+
+    /**
+     * Configures a Notification to emit the blinky Voice mail
+     * signal.
+     */
+    private static void configureLedNotification(Context context, Notification notification) {
+        ContentResolver resolver = context.getContentResolver();
+
+        boolean lightEnabled = Settings.System.getInt(resolver,
+                Settings.System.NOTIFICATION_LIGHT_PULSE, 0) == 1;
+        if (!lightEnabled) {
+            return;
+        }
+
+        notification.flags |= Notification.FLAG_SHOW_LIGHTS;
+
+        // Get Voice mail values if they are to be used
+        boolean customEnabled = Settings.System.getInt(resolver,
+                Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE, 0) == 1;
+        if (!customEnabled) {
+            notification.defaults |= Notification.DEFAULT_LIGHTS;
+            return;
+        }
+
+        notification.ledARGB = Settings.System.getInt(resolver,
+            Settings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR, DEFAULT_COLOR);
+        notification.ledOnMS = Settings.System.getInt(resolver,
+            Settings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON, DEFAULT_TIME);
+        notification.ledOffMS = Settings.System.getInt(resolver,
+            Settings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF, DEFAULT_TIME);
+     }
 
     /**
      * Helper class that's a wrapper around the framework's
@@ -432,6 +468,7 @@ public class NotificationMgr {
                 if (!mUserManager.hasUserRestriction(
                         UserManager.DISALLOW_OUTGOING_CALLS, userHandle)
                         && !user.isManagedProfile()) {
+                    configureLedNotification(mContext, notification);
                     mNotificationManager.notifyAsUser(
                             Integer.toString(subId) /* tag */,
                             notificationId,
