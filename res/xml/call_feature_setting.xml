@@ -66,6 +66,12 @@
       android:key="pref_advanced_settings"
       android:title="@string/advanced_setting">
 
+      <CheckBoxPreference
+          android:key="button_show_ssn_key"
+          android:title="@string/show_ssn_label"
+          android:defaultValue="false"
+          android:summary="@string/show_ssn_summary" />
+
       <PreferenceScreen
           android:key="button_blacklist"
           android:title="@string/blacklist_title"
