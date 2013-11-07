@@ -12,7 +12,8 @@ res_dirs := res $(phone_common_dir)/res sip/res
 LOCAL_JAVA_LIBRARIES := telephony-common voip-common ims-common telephony-ext
 LOCAL_STATIC_JAVA_LIBRARIES := \
         guava \
-        ims-ext-common
+        ims-ext-common \
+        org.cyanogenmod.platform.sdk
 
 LOCAL_SRC_FILES := $(call all-java-files-under, $(src_dirs))
 LOCAL_SRC_FILES += \
