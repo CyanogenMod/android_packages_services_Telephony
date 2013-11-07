@@ -2523,6 +2523,15 @@ public class PhoneUtils {
         return cm.getDefaultPhone();
     }
 
+    public static Phone getGsmPhone(CallManager cm) {
+        for (Phone phone: cm.getAllPhones()) {
+            if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_GSM) {
+                return phone;
+            }
+        }
+        return null;
+    }
+
     public static Phone getSipPhoneFromUri(CallManager cm, String target) {
         for (Phone phone : cm.getAllPhones()) {
             if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_SIP) {
@@ -2756,6 +2765,11 @@ public class PhoneUtils {
         }
         static boolean vibCallWaiting(Context context) {
             return getPrefs(context).getBoolean("button_vibrate_call_waiting", false);
+        }
+
+        /* misc. UI and behaviour preferences */
+        static boolean showInCallEvents(Context context) {
+            return getPrefs(context).getBoolean("button_show_ssn_key", false);
         }
 
         private static SharedPreferences getPrefs(Context context) {
