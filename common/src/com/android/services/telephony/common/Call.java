@@ -193,6 +193,12 @@ public final class Call implements Parcelable {
     // Gateway service package name
     private String mGatewayPackage;
 
+    // Whether the call was forwarded from another party (GSM only)
+    private boolean mForwarded;
+
+    // Whether the call is held remotely
+    private boolean mHeldRemotely;
+
     public Call(int callId) {
         mCallId = callId;
         mIdentification = new CallIdentification(mCallId);
@@ -208,6 +214,8 @@ public final class Call implements Parcelable {
         mChildCallIds = new TreeSet<Integer>(call.mChildCallIds);
         mGatewayNumber = call.mGatewayNumber;
         mGatewayPackage = call.mGatewayPackage;
+        mForwarded = call.mForwarded;
+        mHeldRemotely = call.mHeldRemotely;
     }
 
     public int getCallId() {
@@ -294,6 +302,14 @@ public final class Call implements Parcelable {
         return mConnectTime;
     }
 
+    public boolean isForwarded() {
+        return mForwarded;
+    }
+
+    public boolean isHeldRemotely() {
+        return mHeldRemotely;
+    }
+
     public void removeChildId(int id) {
         mChildCallIds.remove(id);
     }
@@ -330,6 +346,14 @@ public final class Call implements Parcelable {
         mGatewayPackage = packageName;
     }
 
+    public void setForwarded(boolean forwarded) {
+        mForwarded = forwarded;
+    }
+
+    public void setHeldRemotely(boolean heldRemotely) {
+        mHeldRemotely = heldRemotely;
+    }
+
     /**
      * Parcelable implementation
      */
@@ -345,6 +369,8 @@ public final class Call implements Parcelable {
         dest.writeString(getGatewayNumber());
         dest.writeString(getGatewayPackage());
         dest.writeParcelable(mIdentification, 0);
+        dest.writeInt(mForwarded ? 1 : 0);
+        dest.writeInt(mHeldRemotely ? 1 : 0);
     }
 
     /**
@@ -360,6 +386,8 @@ public final class Call implements Parcelable {
         mGatewayNumber = in.readString();
         mGatewayPackage = in.readString();
         mIdentification = in.readParcelable(CallIdentification.class.getClassLoader());
+        mForwarded = in.readInt() != 0;
+        mHeldRemotely = in.readInt() != 0;
     }
 
     @Override
@@ -396,6 +424,8 @@ public final class Call implements Parcelable {
                 .add("mGatewayNumber", MoreStrings.toSafeString(mGatewayNumber))
                 .add("mGatewayPackage", mGatewayPackage)
                 .add("mIdentification", mIdentification)
+                .add("mForwarded", mForwarded)
+                .add("mHeldRemotely", mHeldRemotely)
                 .toString();
     }
 }
