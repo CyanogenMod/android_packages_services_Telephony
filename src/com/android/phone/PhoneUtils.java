@@ -24,6 +24,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -36,6 +37,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.SystemProperties;
+import android.preference.PreferenceManager;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
@@ -2536,6 +2538,22 @@ public class PhoneUtils {
         return null;
     }
 
+    static Call getCurrentCall(Phone phone) {
+        Call ringing = phone.getRingingCall();
+        Call fg = phone.getForegroundCall();
+        Call bg = phone.getBackgroundCall();
+        if (!ringing.isIdle()) {
+            return ringing;
+        }
+        if (!fg.isIdle()) {
+            return fg;
+        }
+        if (!bg.isIdle()) {
+            return bg;
+        }
+        return fg;
+    }
+
     /**
      * Returns true when the given call is in INCOMING state and there's no foreground phone call,
      * meaning the call is the first real incoming call the phone is having.
@@ -2723,5 +2741,25 @@ public class PhoneUtils {
     public static boolean isLandscape(Context context) {
         return context.getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
+    }
+
+    static class PhoneSettings {
+        /* vibration preferences */
+        static boolean vibOn45Secs(Context context) {
+            return getPrefs(context).getBoolean("button_vibrate_45", false);
+        }
+        static boolean vibHangup(Context context) {
+            return getPrefs(context).getBoolean("button_vibrate_hangup", false);
+        }
+        static boolean vibOutgoing(Context context) {
+            return getPrefs(context).getBoolean("button_vibrate_outgoing", false);
+        }
+        static boolean vibCallWaiting(Context context) {
+            return getPrefs(context).getBoolean("button_vibrate_call_waiting", false);
+        }
+
+        private static SharedPreferences getPrefs(Context context) {
+            return PreferenceManager.getDefaultSharedPreferences(context);
+        }
     }
 }
