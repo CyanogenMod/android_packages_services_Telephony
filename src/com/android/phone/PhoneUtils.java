@@ -2547,22 +2547,6 @@ public class PhoneUtils {
         return null;
     }
 
-    static Call getCurrentCall(Phone phone) {
-        Call ringing = phone.getRingingCall();
-        Call fg = phone.getForegroundCall();
-        Call bg = phone.getBackgroundCall();
-        if (!ringing.isIdle()) {
-            return ringing;
-        }
-        if (!fg.isIdle()) {
-            return fg;
-        }
-        if (!bg.isIdle()) {
-            return bg;
-        }
-        return fg;
-    }
-
     /**
      * Returns true when the given call is in INCOMING state and there's no foreground phone call,
      * meaning the call is the first real incoming call the phone is having.
