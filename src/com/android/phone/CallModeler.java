@@ -30,7 +30,6 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.cdma.CdmaCallWaitingNotification;
-import com.android.internal.telephony.gsm.SuppServiceNotification;
 import com.android.phone.CallGatewayManager.RawGatewayInfo;
 import com.android.services.telephony.common.Call;
 import com.android.services.telephony.common.Call.Capabilities;
@@ -94,7 +93,6 @@ public class CallModeler extends Handler {
     private final ArrayList<Listener> mListeners = new ArrayList<Listener>();
     private Connection mCdmaIncomingConnection;
     private Connection mCdmaOutgoingConnection;
-    private SuppServiceNotification mSuppSvcNotification;
 
     public CallModeler(CallStateMonitor callStateMonitor, CallManager callManager,
             CallGatewayManager callGatewayManager) {
@@ -123,14 +121,6 @@ public class CallModeler extends Handler {
                 break;
             case CallStateMonitor.PHONE_ON_DIAL_CHARS:
                 onPostDialChars((AsyncResult) msg.obj, (char) msg.arg1);
-                break;
-            case CallStateMonitor.PHONE_SUPP_SERVICE_NOTIFY:
-                if (DBG) Log.d(TAG, "Received Supplementary Notification");
-
-                if (msg.obj != null && ((AsyncResult) msg.obj).result != null) {
-                    mSuppSvcNotification =
-                            (SuppServiceNotification)(((AsyncResult) msg.obj).result);
-                }
                 break;
             case CallStateMonitor.PHONE_ACTIVE_SUBSCRIPTION_CHANGE:
                 onActiveSubChanged((AsyncResult) msg.obj);
@@ -324,7 +314,6 @@ public class CallModeler extends Handler {
             final boolean wasConferenced = call.getState() == State.CONFERENCED;
 
             updateCallFromConnection(call, conn, false);
-            updateSsNotificationData(call);
 
             for (int i = 0; i < mListeners.size(); ++i) {
                 mListeners.get(i).onDisconnect(call);
@@ -892,22 +881,6 @@ public class CallModeler extends Handler {
         } while (!mNextCallId.compareAndSet(callId, newNextCallId));
 
         return new Call(callId);
-    }
-
-    /**
-     * Updates Call object with last received SuppServNotification.
-     */
-    private void updateSsNotificationData(Call call) {
-        if (call != null && mSuppSvcNotification != null) {
-            Call.SsNotification ssNotification = new Call.SsNotification();
-            ssNotification.notificationType = mSuppSvcNotification.notificationType;
-            ssNotification.code = mSuppSvcNotification.code;
-            ssNotification.index = mSuppSvcNotification.index;
-            ssNotification.type = mSuppSvcNotification.type;
-            ssNotification.number = mSuppSvcNotification.number;
-            call.setSuppServNotification(ssNotification);
-            mSuppSvcNotification = null;
-        }
     }
 
     /**
