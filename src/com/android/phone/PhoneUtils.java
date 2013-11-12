@@ -552,7 +552,8 @@ public class PhoneUtils {
      */
     /* package */ static boolean answerAndEndActive(CallManager cm, Call ringing) {
         if (DBG) log("answerAndEndActive()...");
-
+        Phone ringingPhone = ringing.getPhone();
+        Phone activePhone = cm.getActiveFgCall().getPhone();
         // Unlike the answerCall() method, we *don't* need to stop the
         // ringer or change audio modes here since the user is already
         // in-call, which means that the audio mode is already set
@@ -570,8 +571,10 @@ public class PhoneUtils {
         // since hangupActiveCall() also accepts the ringing call
         // check if the ringing call was already answered or not
         // only answer it when the call still is ringing
-        if (ringing.isRinging()) {
-            return answerCall(ringing);
+        if (ringingPhone != activePhone) {
+            if (ringing.isRinging()) {
+                return answerCall(ringing);
+            }
         }
 
         return true;
