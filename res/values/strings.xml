@@ -1558,13 +1558,14 @@
     <string name="ims_domain_address_title">IMS Server</string>
     <!-- Text of the transport type preference. [CHAR LIMIT=NONE] -->
     <string translatable="false" name="call_type">CallType</string>
-    <string name="call_type_title">IMS Call type</string>
-    <!-- Default IMS call type. -->
-    <string translatable="false" name="default_ims_call_type">Voice</string>
-    <!-- Default to IMS call. -->
-    <string translatable="false" name="use_ims_default">UseImsDefault</string>
+    <string name="mo_call_type_title">MO Call Type</string>
+    <string name="ims_service_capability">Enable/Disable Service Capability</string>
+    <!-- Default MO call type. -->
+    <string translatable="false" name="default_call_type">CSVoice</string>
+    <!-- Ims Call Type Capability Control -->
+    <string translatable="false" name="ims_call_type_control">ImsCallTypeCapabilityControl</string>
     <!-- Text of the use IMS default preference. [CHAR LIMIT=NONE] -->
-    <string name="use_ims_default_title">Use IMS Always</string>
+    <string name="ims_service_capability_title">Enable/Disable IMS Service Capability</string>
     <!-- Default to IMS call summary. -->
     <string name="use_ims_default_summary">Use IMS for all voice calls</string>
     <!-- Menu item when the menu button is pressed in the IMS account editor. [CHAR LIMIT=NONE] -->

@@ -28,6 +28,7 @@
 package org.codeaurora.ims;
 
 import org.codeaurora.ims.IImsServiceListener;
+import android.os.Messenger;
 
 /**
  * Interface used to interact with IMS phone.
@@ -109,6 +110,26 @@ interface IImsService {
      * Get the Service State for VT service
      */
     boolean isVtModifyAllowed();
+
+    /**
+     * Query the Service State for all IMS services
+     * @param event - Handle to track the response for query operation
+     * @param msgr - Messenger object used as a handle for response
+     */
+    void queryImsServiceStatus(int event, in Messenger msgr);
+
+    /**
+     * Set the Service State for a services
+     * @param service - Type of IMS Service - voice, video etc
+     * @param networkType - Network Type on which the set op is applicable ex: LTE only
+     * @param enabled - Service should be enabled or not
+     * @param restrictCause - Restriction Cause for the service disable, ex: if Video is
+     *                        disabled, give a cause why so
+     * @param event - Handle to track the response for set operation
+     * @param msgr - Messenger object used as a handle for response
+     */
+    void setServiceStatus(int service, int networkType, int enabled, int restrictCause,
+            int event, in Messenger msgr);
 
     /**
      * The system notifies about the failure (e.g. timeout) of the previous request to

@@ -621,15 +621,13 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
    }
 
     public void createImsService() {
-        if (PhoneUtils.isCallOnImsEnabled()) {
-            try {
-                // send intent to start ims service n get phone from ims service
-                boolean bound = bindService(new Intent("org.codeaurora.ims.IImsService"),
-                        ImsServiceConnection, Context.BIND_AUTO_CREATE);
-                Log.d(LOG_TAG, "IMSService bound request : " + bound);
-            } catch (NoClassDefFoundError e) {
-                Log.w(LOG_TAG, "Ignoring IMS class not found exception " + e);
-            }
+        try {
+            // send intent to start ims service n get phone from ims service
+            boolean bound = bindService(new Intent("org.codeaurora.ims.IImsService"),
+                    ImsServiceConnection, Context.BIND_AUTO_CREATE);
+            Log.d(LOG_TAG, "IMSService bound request : " + bound);
+        } catch (NoClassDefFoundError e) {
+            Log.w(LOG_TAG, "Ignoring IMS class not found exception " + e);
         }
     }
 
