@@ -63,27 +63,6 @@
   </PreferenceCategory>
 
   <PreferenceCategory
-      android:key="pref_advanced_settings"
-      android:title="@string/advanced_setting">
-
-      <CheckBoxPreference
-          android:key="button_show_ssn_key"
-          android:title="@string/show_ssn_label"
-          android:defaultValue="false"
-          android:summary="@string/show_ssn_summary" />
-
-      <PreferenceScreen
-          android:key="button_blacklist"
-          android:title="@string/blacklist_title"
-          android:persistent="false">
-          <intent android:action="android.intent.action.MAIN"
-              android:targetPackage="com.android.settings"
-              android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
-      </PreferenceScreen>
-
-  </PreferenceCategory>
-
-  <PreferenceCategory
       android:key="button_misc_category_key"
       android:title="@string/other_settings"
       android:persistent="false" />
@@ -133,6 +112,15 @@
           android:title="@string/voicemail_notification_vibrate_when_title"
           android:persistent="true"
           />
+  </PreferenceScreen>
+
+  <PreferenceScreen
+      android:key="button_blacklist"
+      android:title="@string/blacklist_title"
+      android:persistent="false">
+      <intent android:action="android.intent.action.MAIN"
+          android:targetPackage="com.android.settings"
+          android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
   </PreferenceScreen>
 
   <CheckBoxPreference

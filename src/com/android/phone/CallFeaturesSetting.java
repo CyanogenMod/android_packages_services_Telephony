@@ -1530,6 +1530,8 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButtonHAC = (CheckBoxPreference) findPreference(BUTTON_HAC_KEY);
         mButtonTTY = (ListPreference) findPreference(BUTTON_TTY_KEY);
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
+        mButtonBlacklist = (PreferenceScreen) findPreference(BUTTON_BLACKLIST);
+
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
             mVoicemailSettings = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
@@ -1658,9 +1660,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                 }
             }
         };
-
-        // Blacklist screen - Needed for setting summary
-        mButtonBlacklist = (PreferenceScreen) prefSet.findPreference(BUTTON_BLACKLIST);
 
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {

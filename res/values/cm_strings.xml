@@ -46,7 +46,6 @@
     <string name="call_notif_callconnectedect">Call connected through explicit call transfer</string>
 
     <!-- Advanced Settings -->
-    <string name="advanced_setting">Advanced Settings</string>
     <string name="incall_vibration">In-call vibration</string>
     <string name="vibrate_outgoing">Vibrate on answer</string>
     <string name="vibrate_call_waiting">Vibrate on call waiting</string>
