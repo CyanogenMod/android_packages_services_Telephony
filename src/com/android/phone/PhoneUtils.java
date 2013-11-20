@@ -243,7 +243,20 @@ public class PhoneUtils {
      * @see #answerAndEndActive(CallManager, Call)
      */
     /* package */ static boolean answerCall(Call ringingCall) {
-        log("answerCall(" + ringingCall + ")...");
+        return answerCall(ringingCall, Phone.CALL_TYPE_UNKNOWN);
+    }
+
+    /**
+     * Answer the currently-ringing call.
+     *
+     * @return true if we answered the call, or false if there wasn't
+     *         actually a ringing incoming call, or some other error occurred.
+     *
+     * @see #answerAndEndHolding(CallManager, Call)
+     * @see #answerAndEndActive(CallManager, Call)
+     */
+    /* package */ static boolean answerCall(Call ringingCall, int answerCallType) {
+        log("answerCall(" + ringingCall + ")..." + "calltype:" + answerCallType);
         final PhoneGlobals app = PhoneGlobals.getInstance();
         final CallNotifier notifier = app.notifier;
 
@@ -300,7 +313,7 @@ public class PhoneUtils {
                 final boolean isRealIncomingCall = isRealIncomingCall(ringingCall.getState());
 
                 //if (DBG) log("sPhone.acceptCall");
-                app.mCM.acceptCall(ringingCall);
+                app.mCM.acceptCall(ringingCall, answerCallType);
                 answered = true;
 
                 handleWaitingCallOnLchSub(phone.getSubscription(), true);
