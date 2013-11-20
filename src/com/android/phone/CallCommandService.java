@@ -28,6 +28,7 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.phone.CallModeler.CallResult;
 import com.android.phone.NotificationMgr.StatusBarHelper;
 import com.android.services.telephony.common.Call;
+import com.android.services.telephony.common.CallDetails;
 import com.android.services.telephony.common.ICallCommandService;
 
 /**
@@ -62,8 +63,21 @@ class CallCommandService extends ICallCommandService.Stub {
         try {
             CallResult result = mCallModeler.getCallWithId(callId);
             if (result != null) {
-                PhoneUtils.answerCall(result.getConnection().getCall());
+                answerCallWithCallType(callId, CallDetails.CALL_TYPE_UNKNOWN);
             }
+        } catch (Exception e) {
+            Log.e(TAG, "Error during answerCall().", e);
+        }
+    }
+
+    public void answerCallWithCallType(int callId, int callType) {
+        Log.v(TAG, "answerCallWithCallType" + callId + " calltype" + callType);
+        try {
+            CallResult result = mCallModeler.getCallWithId(callId);
+            if (result != null && callType != CallDetails.CALL_TYPE_UNKNOWN) {
+                result.mCall.getCallDetails().setCallType(callType);
+            }
+            PhoneUtils.answerCall(result.getConnection().getCall());
         } catch (Exception e) {
             Log.e(TAG, "Error during answerCall().", e);
         }
@@ -254,6 +268,16 @@ class CallCommandService extends ICallCommandService.Stub {
         final CallResult result = mCallModeler.getCallWithId(callId);
         if (result != null) {
             result.getConnection().proceedAfterWaitChar();
+        }
+    }
+
+    public void hangupWithReason(int callId, String userUri, boolean mpty, int failCause,
+            String errorInfo) {
+        try {
+            Log.d(TAG, "hangupWithReason");
+            PhoneUtils.hangupWithReason(callId, userUri, mpty, failCause, errorInfo);
+        } catch (Exception e) {
+            Log.e(TAG, "Error hangupWithReason", e);
         }
     }
 

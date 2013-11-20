@@ -2947,6 +2947,33 @@ public class PhoneUtils {
         return;
     }
 
+    public static void addParticipant(String dialString, int clir, int callType, String[] extras) {
+        final PhoneGlobals app = PhoneGlobals.getInstance();
+        Phone phone = getImsPhone(app.getCallManager());
+        if (phone != null) {
+            Log.d(LOG_TAG, "addParticipant");
+            try {
+                phone.addParticipant(dialString, clir, callType, extras);
+            } catch (CallStateException e) {
+                Log.e("PhoneUtils", "Exception in addParticipant" + e);
+            }
+        }
+    }
+
+    public static void hangupWithReason(int callId, String userUri,
+            boolean mpty, int failCause, String errorInfo) {
+        final PhoneGlobals app = PhoneGlobals.getInstance();
+        Phone phone = getImsPhone(app.getCallManager());
+        if (phone != null) {
+            Log.d(LOG_TAG, "hangupWithReason");
+            try {
+                phone.hangupWithReason(callId, userUri, mpty, failCause, errorInfo);
+            } catch (CallStateException e) {
+                Log.e("PhoneUtils", "Exception in hangupWithReason" + e);
+            }
+        }
+    }
+
     private static void log(String msg) {
         Log.d(LOG_TAG, msg);
     }
