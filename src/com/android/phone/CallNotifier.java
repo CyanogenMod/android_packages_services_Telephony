@@ -774,20 +774,6 @@ public class CallNotifier extends Handler
 
             if (VDBG) log("onPhoneStateChanged: OFF HOOK");
 
-            if (!c.isIncoming()) {
-                long callDurationMsec = c.getDurationMillis();
-                if (VDBG) Log.v(LOG_TAG, "duration is " + callDurationMsec);
-                boolean vibOut = PhoneUtils.PhoneSettings.vibOutgoing(mApplication);
-                if (vibOut && callDurationMsec < 200) {
-                    vibrate(100, 0, 0);
-                }
-                boolean vib45 = PhoneUtils.PhoneSettings.vibOn45Secs(mApplication);
-                if (vib45) {
-                    callDurationMsec = callDurationMsec % 60000;
-                    start45SecondVibration(callDurationMsec);
-                }
-            }
-
             // make sure audio is in in-call mode now
             PhoneUtils.setAudioMode(mCM);
 
@@ -799,6 +785,20 @@ public class CallNotifier extends Handler
             // remove it!
             if (DBG) log("stopRing()... (OFFHOOK state)");
             mRinger.stopRing();
+        }
+
+        if (c != null && !c.isIncoming() && c.getState() == Call.State.ACTIVE) {
+            long callDurationMsec = c.getDurationMillis();
+            if (VDBG) Log.v(LOG_TAG, "duration is " + callDurationMsec);
+            boolean vibOut = PhoneUtils.PhoneSettings.vibOutgoing(mApplication);
+            if (vibOut && callDurationMsec < 200) {
+                vibrate(100, 0, 0);
+            }
+            boolean vib45 = PhoneUtils.PhoneSettings.vibOn45Secs(mApplication);
+            if (vib45) {
+                callDurationMsec = callDurationMsec % 60000;
+                start45SecondVibration(callDurationMsec);
+            }
         }
 
         if (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
