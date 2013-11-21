@@ -36,6 +36,10 @@ interface ICallCommandService {
      */
     void answerCallWithCallType(int callId, int callType);
 
+    void modifyCallInitiate(int callId);
+
+    void modifyCallConfirm(boolean responseType, int callId);
+
     /**
      * Reject a ringing call.
      */

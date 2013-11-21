@@ -71,6 +71,11 @@ oneway interface ICallHandlerService {
 
     void onPostDialWait(int callId, String remainingChars);
 
+    /*
+    * Called when there is a unsol response on CallModify
+    */
+    void onModifyCall(in Call call);
+
     /**
      * Called when the active subscription changes.
      */
