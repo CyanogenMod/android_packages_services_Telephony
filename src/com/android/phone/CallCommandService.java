@@ -77,7 +77,7 @@ class CallCommandService extends ICallCommandService.Stub {
             if (result != null && callType != CallDetails.CALL_TYPE_UNKNOWN) {
                 result.mCall.getCallDetails().setCallType(callType);
             }
-            PhoneUtils.answerCall(result.getConnection().getCall());
+            PhoneUtils.answerCall(result.getConnection().getCall(), callType);
         } catch (Exception e) {
             Log.e(TAG, "Error during answerCall().", e);
         }
