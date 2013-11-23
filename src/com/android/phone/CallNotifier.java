@@ -21,6 +21,7 @@ package com.android.phone;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallManager;
+import com.android.internal.telephony.CallModify;
 import com.android.internal.telephony.CallerInfo;
 import com.android.internal.telephony.CallerInfoAsyncQuery;
 import com.android.internal.telephony.Connection;
@@ -359,6 +360,9 @@ public class CallNotifier extends Handler
                 onResendMute();
                 break;
 
+            case CallStateMonitor.PHONE_CALL_MODIFY: // onUnsolCallModify
+                onUnsolCallModify((AsyncResult) msg.obj);
+                break;
             case CallStateMonitor.PHONE_SUPP_SERVICE_NOTIFY:
                 if (DBG) log("Received Supplementary Notification");
 
@@ -1892,6 +1896,17 @@ public class CallNotifier extends Handler
         PhoneUtils.setMute(muteState);
     }
 
+    private void onUnsolCallModify(AsyncResult r) {
+        if (VDBG) {
+            Log.v(LOG_TAG, " handleMessage (EVENT_CALL_MODIFY)");
+        }
+        if (r != null && r.result != null && r.exception == null) {
+            Connection conn = (Connection) r.result;
+            mCallModeler.onUnsolCallModify(conn);
+        } else {
+            Log.e(LOG_TAG, "Error EVENT_MODIFY_CALL AsyncResult ar= " + r);
+        }
+    }
     private String getMoSsNotificationText(int code) {
         String callForwardTxt = "";
         switch (code) {

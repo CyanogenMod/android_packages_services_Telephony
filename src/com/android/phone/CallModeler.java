@@ -318,6 +318,15 @@ public class CallModeler extends Handler {
         return call;
     }
 
+    /* package */void onUnsolCallModify(Connection conn) {
+        final Call call = getCallFromMap(mCallMap, conn, false);
+        copyDetails(conn.getCallModify().call_details, call.getCallModifyDetails(),
+                conn.getCallModify().error + "");
+        for (int i = 0; i < mListeners.size(); i++) {
+            mListeners.get(i).onModifyCall(call);
+        }
+    }
+
     private void onDisconnect(Connection conn) {
         Log.i(TAG, "onDisconnect");
         final Call call = getCallFromMap(mCallMap, conn, false);
@@ -535,12 +544,28 @@ public class CallModeler extends Handler {
         call.getCallDetails().setMpty(connection.getCall().isMultiparty());
     }
 
+    /**
+     * copy CallDetails of connection to CallDetails of Call
+     * @param src
+     * @param dest
+     * @param errorInfo
+     */
     private void copyDetails(com.android.internal.telephony.CallDetails src,
             com.android.services.telephony.common.CallDetails dest, String errorInfo) {
         dest.setCallType(src.call_type);
         dest.setCallDomain(src.call_domain);
         dest.setExtras(src.extras);
         dest.setErrorInfo(errorInfo);
+    }
+
+    /**
+     * To copy calldetails of callmodify object from Connection to
+     * ModifyCallDetails of Call object
+     * @param callDetails
+     * @param conn
+     */
+    public void copyDetails(CallDetails callDetails, Connection conn) {
+        conn.getCallModify().call_details.call_type = callDetails.getCallType();
     }
 
     /**
@@ -656,6 +681,7 @@ public class CallModeler extends Handler {
         boolean canRespondViaText = false;
         boolean canMute = false;
         boolean canAddParticipant = false;
+        boolean canModifyCall = false;
 
         final boolean supportHold = PhoneUtils.okToSupportHold(mCallManager);
         final boolean canHold = (supportHold ? PhoneUtils.okToHoldCall(mCallManager) : false);
@@ -666,6 +692,7 @@ public class CallModeler extends Handler {
         if (callIsActive) {
             canMergeCall = PhoneUtils.okToMergeCalls(mCallManager);
             canSwapCall = PhoneUtils.okToSwapCalls(mCallManager);
+            canModifyCall = PhoneUtils.isVTModifyAllowed(connection);
         }
 
         canAddCall = PhoneUtils.okToAddCall(mCallManager);
@@ -724,7 +751,9 @@ public class CallModeler extends Handler {
         if (genericConf) {
             retval |= Capabilities.GENERIC_CONFERENCE;
         }
-
+        if (canModifyCall) {
+            retval |= Capabilities.MODIFY_CALL;
+        }
         return retval;
     }
 
@@ -1001,6 +1030,7 @@ public class CallModeler extends Handler {
         void onPostDialAction(Connection.PostDialState state, int callId, String remainingChars,
                 char c);
         void onActiveSubChanged(int activeSub);
+        void onModifyCall(Call call);
     }
 
     /**
