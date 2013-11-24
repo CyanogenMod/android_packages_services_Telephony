@@ -83,16 +83,12 @@ class CallCommandService extends ICallCommandService.Stub {
         }
     }
 
-    public void modifyCallInitiate(int callId) {
-        Log.v(TAG, "modifyCallInitiate" + callId);
-        CallDetails callModify;
+    public void modifyCallInitiate(int callId, int callType) {
+        Log.v(TAG, "modifyCallInitiate: callId=" + callId + "callType=" + callType);
         try {
             CallResult result = mCallModeler.getCallWithId(callId);
             if (result != null) {
-                callModify = result.mCall.getCallModifyDetails();
-                mCallModeler.copyDetails(callModify, result.getConnection());
-                PhoneUtils.modifyCallInitiate(result.getConnection(), callModify.getCallType(),
-                        callModify.getExtras());
+                PhoneUtils.modifyCallInitiate(result.getConnection(), callType, null);
             }
         } catch (Exception e) {
             Log.e(TAG, "Error during modifyCallInitiate().", e);

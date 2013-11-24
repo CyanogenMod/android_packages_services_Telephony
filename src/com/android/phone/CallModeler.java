@@ -559,16 +559,6 @@ public class CallModeler extends Handler {
     }
 
     /**
-     * To copy calldetails of callmodify object from Connection to
-     * ModifyCallDetails of Call object
-     * @param callDetails
-     * @param conn
-     */
-    public void copyDetails(CallDetails callDetails, Connection conn) {
-        conn.getCallModify().call_details.call_type = callDetails.getCallType();
-    }
-
-    /**
      * Updates the Call properties to match the state of the connection object
      * that it represents.
      * @param call The call object to update.
