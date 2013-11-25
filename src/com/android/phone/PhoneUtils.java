@@ -3187,4 +3187,12 @@ public class PhoneUtils {
             }
         }
     }
+
+    public static int getNextSubscriptionId(int curSub) {
+        int nextSub =  curSub + 1;
+        if (nextSub >= MSimTelephonyManager.getDefault().getPhoneCount()) {
+            nextSub = MSimConstants.SUB1;
+        }
+        return nextSub;
+    }
 }
