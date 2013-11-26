@@ -21,27 +21,22 @@
         android:title="@string/ims_edit_title"
         android:persistent="false">
 
-    <EditTextPreference
-        android:key="@string/domain_address"
-        android:title="@string/ims_domain_address_title"
-        android:dialogTitle="@string/ims_domain_address_title"
-        android:summary="@string/default_preference_summary"
+    <MultiSelectListPreference
+        android:key="@string/ims_call_type_control"
+        android:title="@string/ims_service_capability_title"
+        android:entries="@array/ims_call_cap_types"
+        android:entryValues="@array/ims_call_cap_types"
+        android:summary="@string/ims_service_capability"
         android:persistent="false"
-        android:singleLine="true"/>
+        android:dialogTitle="@string/ims_service_capability"/>
 
     <ListPreference
         android:key="@string/call_type"
-        android:title="@string/call_type_title"
+        android:title="@string/mo_call_type_title"
         android:entries="@array/ims_call_types"
         android:entryValues="@array/ims_call_types"
-        android:summary="@string/default_ims_call_type"
+        android:summary="@string/default_call_type"
         android:persistent="false"
-        android:dialogTitle="@string/call_type_title"/>
-
-    <CheckBoxPreference
-        android:key="@string/use_ims_default"
-        android:title="@string/use_ims_default_title"
-        android:summary="@string/use_ims_default_summary"
-        android:persistent="false"/>
+        android:dialogTitle="@string/mo_call_type_title"/>
 
 </PreferenceScreen>

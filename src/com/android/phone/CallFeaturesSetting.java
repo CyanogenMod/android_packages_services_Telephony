@@ -1741,9 +1741,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private void createImsSettings() {
-        if (PhoneUtils.isCallOnImsEnabled()) {
-            addPreferencesFromResource(R.xml.ims_settings_category);
-        }
+        addPreferencesFromResource(R.xml.ims_settings_category);
     }
 
     // Gets the call options for SIP depending on whether SIP is allowed only

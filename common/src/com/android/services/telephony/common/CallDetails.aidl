@@ -1,19 +1,20 @@
-/*
- * Copyright (c) 2013, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012, The Linux Foundation. All rights reserved.
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
  * met:
  *  * Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+ *       notice, this list of conditions and the following disclaimer.
  *  * Redistributions in binary form must reproduce the above
- *    copyright notice, this list of conditions and the following
- *    disclaimer in the documentation and/or other materials provided
- *    with the distribution.
+ *       copyright notice, this list of conditions and the following
+ *       disclaimer in the documentation and/or other materials provided
+ *       with the distribution.
  *  * Neither the name of The Linux Foundation nor the names of its
- *    contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
-
+ *       contributors may be used to endorse or promote products derived
+ *       from this software without specific prior written permission.
+ *
  * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES O
  * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
  * ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
  * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
@@ -23,28 +24,9 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+*/
 
+package com.android.services.telephony.common;
 
-package org.codeaurora.ims;
+parcelable CallDetails;
 
-/**
- * Interface used for registering callbacks with IMS Service. {@hide}
- */
-interface IImsServiceListener {
-
-    /**
-     * Get the changed ims registration state
-     */
-    void imsRegStateChanged(int regstate);
-
-    /**
-     * IMS registration state change request failure callback
-     */
-    void imsRegStateChangeReqFailed();
-
-    /**
-     * Service Status Update from ImsService
-     */
-    void imsUpdateServiceStatus(int service, int status);
-}
