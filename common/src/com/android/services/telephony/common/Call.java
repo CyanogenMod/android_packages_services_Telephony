@@ -21,6 +21,7 @@ import android.os.Parcelable;
 import android.telephony.PhoneNumberUtils;
 
 import com.android.internal.telephony.PhoneConstants;
+import com.android.internal.telephony.MSimConstants;
 import com.google.android.collect.Sets;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
@@ -257,6 +258,9 @@ public final class Call implements Parcelable {
     // Supplementary Service notification for GSM calls
     private SsNotification mSsNotification;
 
+    // Holds the subscription id, to which this call belongs to.
+    private int mSubscription = MSimConstants.INVALID_SUBSCRIPTION;
+
     public Call(int callId) {
         mCallId = callId;
         mIdentification = new CallIdentification(mCallId);
@@ -278,6 +282,7 @@ public final class Call implements Parcelable {
         mCallModifyDetails = new CallDetails();
         copyDetails(call.mCallDetails, mCallDetails);
         copyDetails(call.mCallModifyDetails, mCallModifyDetails);
+        mSubscription = call.mSubscription;
     }
 
     private void copyDetails(CallDetails src, CallDetails dest) {
@@ -433,6 +438,14 @@ public final class Call implements Parcelable {
         mSsNotification = notification;
     }
 
+    public int getSubscription() {
+        return mSubscription;
+    }
+
+    public void setSubscription(int subscription) {
+        mSubscription = subscription;
+    }
+
     /**
      * Parcelable implementation
      */
@@ -460,6 +473,7 @@ public final class Call implements Parcelable {
         }
         dest.writeParcelable(mCallDetails, 1);
         dest.writeParcelable(mCallModifyDetails, 2);
+        dest.writeInt(mSubscription);
     }
 
     /**
@@ -486,6 +500,7 @@ public final class Call implements Parcelable {
         }
         mCallDetails = in.readParcelable(CallDetails.class.getClassLoader());
         mCallModifyDetails = in.readParcelable(CallDetails.class.getClassLoader());
+        mSubscription = in.readInt();
     }
 
     @Override
@@ -525,6 +540,7 @@ public final class Call implements Parcelable {
                 .add("mSsNotification", mSsNotification)
                 .add("mCallDetails", mCallDetails)
                 .add("mCallModifyDetails", mCallModifyDetails)
+                .add("mSubscription", mSubscription)
                 .toString();
     }
 }

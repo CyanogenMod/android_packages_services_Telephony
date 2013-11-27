@@ -2359,6 +2359,21 @@ public class PhoneUtils {
         return canHold;
     }
 
+    static boolean okToHoldCall(CallManager cm, int subscription) {
+        final Call fgCall = cm.getActiveFgCall(subscription);
+        final boolean hasHoldingCall = cm.hasActiveBgCall(subscription);
+        final Call.State fgCallState = fgCall.getState();
+
+        // The "Hold" control is disabled entirely if there's
+        // no way to either hold or unhold in the current state.
+        final boolean okToHold = (fgCallState == Call.State.ACTIVE) && !hasHoldingCall;
+        final boolean okToUnhold = cm.hasActiveBgCall(subscription) &&
+                (fgCallState == Call.State.IDLE);
+        final boolean canHold = okToHold || okToUnhold;
+
+        return canHold;
+    }
+
     /**
      * @return true if we support holding calls, given the current
      * state of the Phone.
@@ -2377,6 +2392,28 @@ public class PhoneUtils {
             // Even when foreground phone device doesn't support hold/unhold, phone devices
             // for background holding calls may do.
             final Call bgCall = cm.getFirstActiveBgCall();
+            if (bgCall != null &&
+                    TelephonyCapabilities.supportsHoldAndUnhold(bgCall.getPhone())) {
+                supportsHold = true;
+            }
+        }
+        return supportsHold;
+    }
+
+    static boolean okToSupportHold(CallManager cm, int subscription) {
+        boolean supportsHold = false;
+
+        final Call fgCall = cm.getActiveFgCall(subscription);
+        final boolean hasHoldingCall = cm.hasActiveBgCall(subscription);
+        final Call.State fgCallState = fgCall.getState();
+
+        if (TelephonyCapabilities.supportsHoldAndUnhold(fgCall.getPhone())) {
+            // This phone has the concept of explicit "Hold" and "Unhold" actions.
+            supportsHold = true;
+        } else if (hasHoldingCall && (fgCallState == Call.State.IDLE)) {
+            // Even when foreground phone device doesn't support hold/unhold, phone devices
+            // for background holding calls may do.
+            final Call bgCall = cm.getFirstActiveBgCall(subscription);
             if (bgCall != null &&
                     TelephonyCapabilities.supportsHoldAndUnhold(bgCall.getPhone())) {
                 supportsHold = true;
@@ -2413,6 +2450,30 @@ public class PhoneUtils {
         }
     }
 
+    static boolean okToSwapCalls(CallManager cm, int subscription) {
+        int phoneType = cm.getFgPhone(subscription).getPhoneType();
+        if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+            // CDMA: "Swap" is enabled only when the phone reaches a *generic*.
+            // state by either accepting a Call Waiting or by merging two calls
+            PhoneGlobals app = PhoneGlobals.getInstance();
+            return (app.cdmaPhoneCallState.getCurrentCallState()
+                    == CdmaPhoneCallState.PhoneCallState.CONF_CALL);
+        } else if ((phoneType == PhoneConstants.PHONE_TYPE_GSM)
+                || (phoneType == PhoneConstants.PHONE_TYPE_SIP)
+                || (phoneType == PhoneConstants.PHONE_TYPE_IMS)) {
+            // GSM: "Swap" is available if both lines are in use and there's no
+            // incoming call.  (Actually we need to verify that the active
+            // call really is in the ACTIVE state and the holding call really
+            // is in the HOLDING state, since you *can't* actually swap calls
+            // when the foreground call is DIALING or ALERTING.)
+            return !cm.hasActiveRingingCall(subscription)
+                    && (cm.getActiveFgCall(subscription).getState() == Call.State.ACTIVE)
+                    && (cm.getFirstActiveBgCall(subscription).getState() == Call.State.HOLDING);
+        } else {
+            throw new IllegalStateException("Unexpected phone type: " + phoneType);
+        }
+    }
+
     /**
      * @return true if we're allowed to merge calls, given the current
      * state of the Phone.
@@ -2440,6 +2501,32 @@ public class PhoneUtils {
             return !cm.hasActiveRingingCall() && cm.hasActiveFgCall()
                     && cm.hasActiveBgCall()
                     && cm.canConference(cm.getFirstActiveBgCall());
+        }
+    }
+
+    static boolean okToMergeCalls(CallManager cm, int subscription) {
+        int phoneType = cm.getFgPhone(subscription).getPhoneType();
+        int bgPhoneType = cm.getBgPhone(subscription).getPhoneType();
+
+        if (phoneType != bgPhoneType) {
+            // Merging calls on different technologies is not supported
+            return false;
+        }
+
+        if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+            // CDMA: "Merge" is enabled only when the user is in a 3Way call.
+            PhoneGlobals app = PhoneGlobals.getInstance();
+            return ((app.cdmaPhoneCallState.getCurrentCallState()
+                    == CdmaPhoneCallState.PhoneCallState.THRWAY_ACTIVE)
+                    && !app.cdmaPhoneCallState.IsThreeWayCallOrigStateDialing());
+        } else {
+            // GSM: "Merge" is available if both lines are in use and there's no
+            // incoming call, *and* the current conference isn't already
+            // "full".
+            // TODO: shall move all okToMerge logic to CallManager
+            return !cm.hasActiveRingingCall(subscription) && cm.hasActiveFgCall(subscription)
+                    && cm.hasActiveBgCall(subscription)
+                    && cm.canConference(cm.getFirstActiveBgCall(subscription), subscription);
         }
     }
 
@@ -2475,6 +2562,49 @@ public class PhoneUtils {
                 final boolean hasRingingCall = cm.hasActiveRingingCall();
                 final boolean hasActiveCall = cm.hasActiveFgCall();
                 final boolean hasHoldingCall = cm.hasActiveBgCall();
+                final boolean allLinesTaken = hasActiveCall && hasHoldingCall;
+
+                return !hasRingingCall
+                        && !allLinesTaken
+                        && ((fgCallState == Call.State.ACTIVE)
+                            || (fgCallState == Call.State.IDLE)
+                            || (fgCallState == Call.State.DISCONNECTED));
+            } else {
+                throw new IllegalStateException("Unexpected phone type: " + phoneType);
+            }
+        } else {
+            return okToAddCallForIms(cm);
+        }
+    }
+
+    static boolean okToAddCall(CallManager cm, int subscription) {
+        if (!isCallOnImsEnabled()) {
+            Phone phone = cm.getActiveFgCall(subscription).getPhone();
+
+            // "Add call" is never allowed in emergency callback mode (ECM).
+            if (isPhoneInEcm(phone)) {
+                return false;
+            }
+
+            int phoneType = phone.getPhoneType();
+            final Call.State fgCallState = cm.getActiveFgCall(subscription).getState();
+            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+               // CDMA: "Add call" button is only enabled when:
+               // - ForegroundCall is in ACTIVE state
+               // - After 30 seconds of user Ignoring/Missing a Call Waiting call.
+                PhoneGlobals app = PhoneGlobals.getInstance();
+                return ((fgCallState == Call.State.ACTIVE)
+                        && (app.cdmaPhoneCallState.getAddCallMenuStateAfterCallWaiting()));
+            } else if ((phoneType == PhoneConstants.PHONE_TYPE_GSM)
+                    || (phoneType == PhoneConstants.PHONE_TYPE_SIP)) {
+                // GSM: "Add call" is available only if ALL of the following are true:
+                // - There's no incoming ringing call
+                // - There's < 2 lines in use
+                // - The foreground call is ACTIVE or IDLE or DISCONNECTED.
+                //   (We mainly need to make sure it *isn't* DIALING or ALERTING.)
+                final boolean hasRingingCall = cm.hasActiveRingingCall(subscription);
+                final boolean hasActiveCall = cm.hasActiveFgCall(subscription);
+                final boolean hasHoldingCall = cm.hasActiveBgCall(subscription);
                 final boolean allLinesTaken = hasActiveCall && hasHoldingCall;
 
                 return !hasRingingCall
@@ -3246,5 +3376,13 @@ public class PhoneUtils {
                 setActiveSubscription(otherActiveSub);
             }
         }
+    }
+
+    public static int getNextSubscriptionId(int curSub) {
+        int nextSub =  curSub + 1;
+        if (nextSub >= MSimTelephonyManager.getDefault().getPhoneCount()) {
+            nextSub = MSimConstants.SUB1;
+        }
+        return nextSub;
     }
 }
