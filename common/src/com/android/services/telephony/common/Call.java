@@ -26,6 +26,7 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.primitives.Ints;
+import com.android.services.telephony.common.CallDetails;
 
 import java.util.Map;
 import java.util.SortedSet;
@@ -89,9 +90,13 @@ public final class Call implements Parcelable {
         public static final int RESPOND_VIA_TEXT   = 0x00000020; /* has respond via text option */
         public static final int MUTE               = 0x00000040; /* can mute the call */
         public static final int GENERIC_CONFERENCE = 0x00000080; /* Generic conference mode */
+        public static final int MODIFY_CALL        = 0x00000100; /* Upgrade or downgrade or
+                                                                    callModify option*/
+        public static final int ADD_PARTICIPANT    = 0x00000200; /* Add participant from and active
+                                                                    or conference call option*/
 
         public static final int ALL = HOLD | SUPPORT_HOLD | MERGE_CALLS | SWAP_CALLS | ADD_CALL
-                | RESPOND_VIA_TEXT | MUTE | GENERIC_CONFERENCE;
+                | RESPOND_VIA_TEXT | MUTE | GENERIC_CONFERENCE | MODIFY_CALL | ADD_PARTICIPANT;
     }
 
     /**
@@ -192,8 +197,8 @@ public final class Call implements Parcelable {
         DIAL_MODIFIED_TO_SS,            /* DIAL request modified to SS */
         DIAL_MODIFIED_TO_DIAL,          /* DIAL request modified to DIAL with diferent data */
         ERROR_UNSPECIFIED,
-
-        UNKNOWN                         /* Disconnect cause doesn't map to any above */
+        UNKNOWN,                        /* Disconnect cause not known */
+        CALL_FAIL_MISC                  /* miscellaneous error not covered in above errors */
     }
 
     private static final Map<Integer, String> STATE_MAP = ImmutableMap.<Integer, String>builder()
@@ -219,6 +224,9 @@ public final class Call implements Parcelable {
     public static int PRESENTATION_UNKNOWN = PhoneConstants.PRESENTATION_UNKNOWN;
     // show pay phone info
     public static int PRESENTATION_PAYPHONE = PhoneConstants.PRESENTATION_PAYPHONE;
+
+    private CallDetails mCallDetails;
+    private CallDetails mCallModifyDetails;
 
     // Unique identifier for the call
     private int mCallId;
@@ -252,6 +260,8 @@ public final class Call implements Parcelable {
     public Call(int callId) {
         mCallId = callId;
         mIdentification = new CallIdentification(mCallId);
+        mCallDetails = new CallDetails();
+        mCallModifyDetails = new CallDetails();
     }
 
     public Call(Call call) {
@@ -264,6 +274,19 @@ public final class Call implements Parcelable {
         mChildCallIds = new TreeSet<Integer>(call.mChildCallIds);
         mGatewayNumber = call.mGatewayNumber;
         mGatewayPackage = call.mGatewayPackage;
+        mCallDetails = new CallDetails();
+        mCallModifyDetails = new CallDetails();
+        copyDetails(call.mCallDetails, mCallDetails);
+        copyDetails(call.mCallModifyDetails, mCallModifyDetails);
+    }
+
+    private void copyDetails(CallDetails src, CallDetails dest) {
+        dest.setCallType(src.getCallType());
+        dest.setCallDomain(src.getCallDomain());
+        dest.setExtras(src.getExtras());
+        dest.setErrorInfo(src.getErrorInfo());
+        dest.setConfUriList(src.getConfParticipantList());
+        dest.setMpty(src.isMpty());
     }
 
     public int getCallId() {
@@ -288,6 +311,22 @@ public final class Call implements Parcelable {
 
     public void setState(int state) {
         mState = state;
+    }
+
+    public CallDetails getCallDetails() {
+        return mCallDetails;
+    }
+
+    public void setCallDetails(CallDetails calldetails) {
+        mCallDetails = calldetails;
+    }
+
+    public CallDetails getCallModifyDetails() {
+        return mCallModifyDetails;
+    }
+
+    public void setCallModifyDetails(CallDetails calldetails) {
+        mCallModifyDetails = calldetails;
     }
 
     public int getNumberPresentation() {
@@ -367,7 +406,7 @@ public final class Call implements Parcelable {
     }
 
     public boolean isConferenceCall() {
-        return mChildCallIds.size() >= 2;
+        return mChildCallIds.size() >= 2 || mCallDetails.isMpty();
     }
 
     public String getGatewayNumber() {
@@ -419,6 +458,8 @@ public final class Call implements Parcelable {
             dest.writeInt(mSsNotification.type);
             dest.writeString(mSsNotification.number);
         }
+        dest.writeParcelable(mCallDetails, 1);
+        dest.writeParcelable(mCallModifyDetails, 2);
     }
 
     /**
@@ -443,6 +484,8 @@ public final class Call implements Parcelable {
             mSsNotification.type = in.readInt();
             mSsNotification.number = in.readString();
         }
+        mCallDetails = in.readParcelable(CallDetails.class.getClassLoader());
+        mCallModifyDetails = in.readParcelable(CallDetails.class.getClassLoader());
     }
 
     @Override
@@ -480,6 +523,8 @@ public final class Call implements Parcelable {
                 .add("mGatewayPackage", mGatewayPackage)
                 .add("mIdentification", mIdentification)
                 .add("mSsNotification", mSsNotification)
+                .add("mCallDetails", mCallDetails)
+                .add("mCallModifyDetails", mCallModifyDetails)
                 .toString();
     }
 }

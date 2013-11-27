@@ -32,6 +32,15 @@ interface ICallCommandService {
     void answerCall(int callId);
 
     /**
+     * Answer a ringing call.
+     */
+    void answerCallWithCallType(int callId, int callType);
+
+    void modifyCallInitiate(int callId);
+
+    void modifyCallConfirm(boolean responseType, int callId);
+
+    /**
      * Reject a ringing call.
      */
     void rejectCall(in Call call, boolean rejectWithMessage, String message);
@@ -106,6 +115,12 @@ interface ICallCommandService {
      * device has soft navigation buttons.
      */
     void setSystemBarNavigationEnabled(boolean enable);
+
+    /**
+    *   Hangup call with error message / hangup reason
+    */
+    void hangupWithReason(int callId, String userUri,
+           boolean mpty, int failCause, String errorInfo);
 
     /**
      * Get the current active subscription.
