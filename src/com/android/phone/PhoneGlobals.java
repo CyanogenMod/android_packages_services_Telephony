@@ -1040,7 +1040,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             if (DBG) Log.d(LOG_TAG, "Update registration for ICC status...");
 
             //Register all events new to the new active phone
-            sim.registerForPersoLocked(mHandler, EVENT_PERSO_LOCKED, null);
         }
     }
 
