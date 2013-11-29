@@ -20,12 +20,14 @@ import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.Connection;
+import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyCapabilities;
@@ -559,16 +561,6 @@ public class CallModeler extends Handler {
     }
 
     /**
-     * To copy calldetails of callmodify object from Connection to
-     * ModifyCallDetails of Call object
-     * @param callDetails
-     * @param conn
-     */
-    public void copyDetails(CallDetails callDetails, Connection conn) {
-        conn.getCallModify().call_details.call_type = callDetails.getCallType();
-    }
-
-    /**
      * Updates the Call properties to match the state of the connection object
      * that it represents.
      * @param call The call object to update.
@@ -656,6 +648,11 @@ public class CallModeler extends Handler {
             changed |= !oldSet.equals(call.getChildCallIds());
         }
 
+        //Subscription id, this shall be done when Call object created.
+        if (call.getSubscription() == MSimConstants.INVALID_SUBSCRIPTION) {
+            call.setSubscription(connection.getCall().getPhone().getSubscription());
+        }
+
         /**
          * !!! Uses values from connection and call collected above so this part must be last !!!
          */
@@ -682,20 +679,36 @@ public class CallModeler extends Handler {
         boolean canMute = false;
         boolean canAddParticipant = false;
         boolean canModifyCall = false;
+        final boolean supportHold;
+        final boolean canHold;
 
-        final boolean supportHold = PhoneUtils.okToSupportHold(mCallManager);
-        final boolean canHold = (supportHold ? PhoneUtils.okToHoldCall(mCallManager) : false);
         final boolean genericConf = isForConference &&
                 (connection.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA);
+        if (!MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            supportHold = PhoneUtils.okToSupportHold(mCallManager);
+            canHold = (supportHold ? PhoneUtils.okToHoldCall(mCallManager) : false);
 
-        // only applies to active calls
+            // only applies to active calls
+            if (callIsActive) {
+                canMergeCall = PhoneUtils.okToMergeCalls(mCallManager);
+                canSwapCall = PhoneUtils.okToSwapCalls(mCallManager);
+            }
+            canAddCall = PhoneUtils.okToAddCall(mCallManager);
+        } else {
+            final int subscription = call.getSubscription();
+            supportHold = PhoneUtils.okToSupportHold(mCallManager, subscription);
+            canHold = (supportHold ? PhoneUtils.okToHoldCall(mCallManager, subscription) : false);
+
+            // only applies to active calls
+            if (callIsActive) {
+                canMergeCall = PhoneUtils.okToMergeCalls(mCallManager, subscription);
+                canSwapCall = PhoneUtils.okToSwapCalls(mCallManager, subscription);
+            }
+            canAddCall = PhoneUtils.okToAddCall(mCallManager, subscription);
+        }
         if (callIsActive) {
-            canMergeCall = PhoneUtils.okToMergeCalls(mCallManager);
-            canSwapCall = PhoneUtils.okToSwapCalls(mCallManager);
             canModifyCall = PhoneUtils.isVTModifyAllowed(connection);
         }
-
-        canAddCall = PhoneUtils.okToAddCall(mCallManager);
         canAddParticipant = PhoneUtils.isCallOnImsEnabled() && canAddCall;
 
         // "Mute": only enabled when the foreground call is ACTIVE.

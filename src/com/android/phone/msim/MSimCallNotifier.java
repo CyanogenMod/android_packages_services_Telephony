@@ -577,6 +577,25 @@ public class MSimCallNotifier extends CallNotifier {
 
         manageLocalCallWaitingTone();
 
+        if (c != null) {
+            final String number = c.getAddress();
+            final Phone phone = c.getCall().getPhone();
+            final Connection.DisconnectCause cause = c.getDisconnectCause();
+            final boolean isEmergencyNumber =
+                    PhoneNumberUtils.isLocalEmergencyNumber(number, mApplication);
+            // For DSDA, if emergency call failure is received with cause codes
+            // EMERGENCY_TEMP_FAILURE & EMERGENCY_PERM_FAILURE, then redial on other sub.
+            if ((MSimTelephonyManager.getDefault().getMultiSimConfiguration() ==
+                    MSimTelephonyManager.MultiSimVariants.DSDA) && isEmergencyNumber &&
+                    (cause == Connection.DisconnectCause.EMERGENCY_TEMP_FAILURE
+                    || cause == Connection.DisconnectCause.EMERGENCY_PERM_FAILURE)) {
+                int subToCall = PhoneUtils.getNextSubscriptionId(phone.getSubscription());
+                log("Redial emergency call on subscription " + subToCall);
+                PhoneUtils.placeCall(mApplication,
+                        mApplication.getPhone(subToCall), number, null, false);
+                return;
+            }
+        }
         // If this is the end of an OTASP call, pass it on to the PhoneApp.
         if (c != null && TelephonyCapabilities.supportsOtasp(c.getCall().getPhone())) {
             final String number = c.getAddress();
