@@ -79,6 +79,7 @@ import com.android.services.telephony.common.AudioMode;
 
 import org.codeaurora.ims.IImsService;
 import static com.android.internal.telephony.MSimConstants.DEFAULT_SUBSCRIPTION;
+import org.codeaurora.ims.csvt.ICsvtService;
 
 /**
  * Global state for the telephony subsystem when running in the primary
@@ -198,6 +199,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     static boolean sVoiceCapable = true;
 
     public static IImsService mImsService;
+    public static ICsvtService mCsvtService;
 
     // Internal PhoneApp Call state tracker
     CdmaPhoneCallState cdmaPhoneCallState;
@@ -419,6 +421,8 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             mCM.registerPhone(phone);
 
             createImsService();
+
+            createCsvtService();
 
             // Create the NotificationMgr singleton, which is used to display
             // status bar icons and control other status bar behavior.
@@ -643,6 +647,34 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             Log.w(LOG_TAG,"Ims Service onServiceDisconnected");
         }
     };
+
+    public void createCsvtService() {
+        if (PhoneUtils.isCallOnCsvtEnabled()) {
+            try {
+                Intent intent = new Intent("org.codeaurora.ims.csvt.ICsvtService");
+                boolean bound = bindService(intent,
+                        mCsvtServiceConnection, Context.BIND_AUTO_CREATE);
+                Log.d(LOG_TAG, "ICsvtService bound request : " + bound);
+            } catch (NoClassDefFoundError e) {
+                //csvt is not supported so ignore creating csvt service.
+                Log.w(LOG_TAG, "Ignoring ICsvtService class not found exception "
+                        + e);
+            }
+        }
+    }
+
+    private static ServiceConnection mCsvtServiceConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mCsvtService = ICsvtService.Stub.asInterface(service);
+            Log.d(LOG_TAG,"Csvt Service Connected: " + mCsvtService);
+        }
+
+        public void onServiceDisconnected(ComponentName arg0) {
+            Log.w(LOG_TAG,"Csvt Service onServiceDisconnected");
+            mCsvtService = null;
+        }
+    };
+
 
     /**
      * Returns the singleton instance of the PhoneApp.
