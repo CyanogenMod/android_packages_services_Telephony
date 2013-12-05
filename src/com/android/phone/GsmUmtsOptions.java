@@ -76,8 +76,7 @@ public class GsmUmtsOptions {
 
     public void enableScreen() {
         if (mPhone.getPhoneType() != PhoneConstants.PHONE_TYPE_GSM) {
-            log("Not a GSM phone, disabling GSM preferences (apn, select operator)");
-            mButtonAPNExpand.setEnabled(false);
+            log("Not a GSM phone, disabling GSM preferences (select operator)");
             mButtonOperatorSelectionExpand.setEnabled(false);
         } else {
             log("Not a CDMA phone");
