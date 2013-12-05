@@ -160,4 +160,7 @@
 
     <!-- Use TD-SDCMA 3G/4G technologies on this device -->
     <bool name="config_enabled_tdscdma" translatable="false">false</bool>
+
+    <!-- Consolidate the unanswered and unreachable call forward -->
+    <bool name="join_call_forward">false</bool>
 </resources>
