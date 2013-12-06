@@ -109,7 +109,7 @@ public class OutgoingCallBroadcaster extends Activity
             "com.android.phone.extra.SEND_EMPTY_FLASH";
 
     public static final String EXTRA_DIAL_CONFERENCE_URI =
-            "com.android.phone.extra.DIAL_CONFERENCE_URI";
+            "org.codeaurora.extra.DIAL_CONFERENCE_URI";
 
     public static final String ADD_PARTICIPANT_KEY = "add_participant";
     // Dialog IDs
