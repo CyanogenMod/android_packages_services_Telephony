@@ -136,9 +136,9 @@
     <string name="select_automatically" msgid="5628402124471810174">"በራስ ሰር ምረጥ"</string>
     <string name="sum_select_automatically" msgid="5614890115123292400">"ተመራጭ አውታረ መረብን በራስ ሰር ምረጥ"</string>
     <string name="register_automatically" msgid="6017849844573519637">"ራስ ሰር ምዝገባ...."</string>
-    <string name="preferred_network_mode_title" msgid="8873246565334559308">"የአውታረ መረብ ሁነታ"</string>
+    <string name="preferred_network_mode_title" msgid="2336624679902659306">"የሚመረጠው የአውታረ መረብ አይነት"</string>
     <string name="preferred_network_mode_summary" msgid="1434820673166126609">"የአውታረመረቡንመከወኛ ሁነታ ለውጥ"</string>
-    <string name="preferred_network_mode_dialogtitle" msgid="8176355237105593793">"ተመራጭ  የአውታረ መረብ ሁነታ"</string>
+    <string name="preferred_network_mode_dialogtitle" msgid="4048082093347807230">"የሚመረጠው የአውታረ መረብ አይነት"</string>
     <string name="preferred_network_mode_wcdma_perf_summary" msgid="8521677230113533809">"ተመራጭ የአውታረመረብ ፡WCDMA ሁነታ ተመራጭ"</string>
     <string name="preferred_network_mode_gsm_only_summary" msgid="3352445413437453511">"ተመራጭ የአውታረመረብ ፡GSM ሁነታ ብቻ"</string>
     <string name="preferred_network_mode_wcdma_only_summary" msgid="2836897236221063413">"ተመራጭ የአውታረመረብ ፡WCDMA ሁነታ ብቻ"</string>
@@ -275,6 +275,9 @@
     <string name="enable_disable_multi_category" msgid="626771003122899280">"ብዙ ምድብ"</string>
     <string name="multi_category_enable" msgid="1179299804641721768">"ብዙ ምድብ ነቅቷል"</string>
     <string name="multi_category_disable" msgid="880104702904139505">"ብዙ-ምድብ አልነቃም"</string>
+    <string name="network_lte" msgid="7702681952521375754">"LTE (የሚመከር)"</string>
+    <string name="network_4G" msgid="2723512640529983138">"4G (የሚመከር)"</string>
+    <string name="network_global" msgid="1323190488685355309">"አለምአቀፍ"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"የሥርዓት ምርጫ"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"የCDMA በእንቅስቃሴ ላይ ሁኔታ ለውጥ"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"የሥርዓት ምርጫ"</string>
@@ -295,8 +298,7 @@
   </string-array>
     <string name="cdma_activate_device" msgid="3793805892364814518">"መሣሪያ አግብር"</string>
     <string name="cdma_lte_data_service" msgid="4255018217292548962">"የውሂብ አግልግሎት አዋቅር"</string>
-    <!-- no translation found for carrier_settings_title (9028166176523012300) -->
-    <skip />
+    <string name="carrier_settings_title" msgid="9028166176523012300">"የድምጸ ተያያዥ ሞደም ቅንብሮች"</string>
     <string name="fdn" msgid="7878832555095183202">"በቋሚነት የሚደወልባቸው  ቁጥሮች"</string>
     <string name="manage_fdn_list" msgid="8777755791892122369">"FDN ዝርዝር"</string>
     <string name="fdn_activation" msgid="2156479741307463576">"የFDN አግብር"</string>
@@ -335,6 +337,7 @@
     <string name="pin2_invalid" msgid="5470854099230755944">"የተሳሳተ ፒን ስላስገባህ FDN አልዘመነም፡፡"</string>
     <string name="fdn_invalid_number" msgid="1494755047900009147">"ቁጥሩ ከ20 አሀዞች በላይ መብለጥ ስለማይችል FDN አልዘመነም፡፡"</string>
     <string name="pin2_or_fdn_invalid" msgid="6025144083384701197">"FDN አልዘመነም። ፒን2 ትክክል አልነበረም፣ ወይም የስልክ ቁጥሩ ተቀባይነት አላገኘም።"</string>
+    <string name="fdn_failed" msgid="540018079008319747">"FDN ክወና አልተሳካም!"</string>
     <string name="simContacts_emptyLoading" msgid="2203331234764498011">"ከSIM ካርድ ላይ በማንበብ ላይ..."</string>
     <string name="simContacts_empty" msgid="5270660846489561932">"በ SIM ካርድዎ ላይ ዕውቂያዎች የሉም።"</string>
     <string name="simContacts_title" msgid="1861472842524839921">"ለማስገባት ዕውቂያዎች ምረጥ"</string>
@@ -355,7 +358,7 @@
     <string name="disable_pin_ok" msgid="5596999379593924850">"SIM ፒን  ቦዝኗል"</string>
     <string name="pin_failed" msgid="2298841192582192277">"የተየብከው PIN የተሳሳተ ነበር።"</string>
     <string name="pin_changed" msgid="4365538014588501049">"SIM PIN በተሳካ ተለውጧል"</string>
-    <string name="puk_requested" msgid="3898394204193202803">"የተሳሳተይለፍ ቃል፣SIM ተቆልፏል! PUK2 ይጠየቃል።"</string>
+    <string name="puk_requested" msgid="1796577128488773946">"የይለፍ ቃሉ የተሳሳተ ነው፣ ን ታግዷል! PUK ያስፈልጋል።"</string>
     <string name="enter_pin2_text" msgid="8339444124477720345">"PIN2"</string>
     <string name="oldPin2Label" msgid="8559146795026261502">"የድሮ PIN2"</string>
     <string name="newPin2Label" msgid="4573956902204349054">"አዲስPIN2"</string>
@@ -367,8 +370,11 @@
     <string name="invalidPuk2" msgid="1290977391033057871">"8 ቁጥሮች የሆኑ PUK2  ተይብ።"</string>
     <string name="pin2_changed" msgid="1639666438836544393">"PIN2 በተሳካ ተለውጧል"</string>
     <string name="label_puk2_code" msgid="302845876240219560">"የPUK2 ኮድ ተይብ"</string>
-    <string name="fdn_enable_puk2_requested" msgid="4262894949634885773">"የተሳሳተ የይለፍ ቃል፣ ፒን2 ለውጥ እና ድጋሚ ሞክር!"</string>
+    <string name="fdn_enable_puk2_requested" msgid="3674058967950559397">"የይለፍ ቃል ትክክል አይደለም፣ ፒን2 ታግዷል። እባክዎ ፒን2ን ይቀይሩ እና እንደገና ይሞክሩ።"</string>
     <string name="puk2_requested" msgid="8909278021238716877">"የተሳሳተ ይለፍ ቃል፣ SIM ተቆልፏል! PUK2 ይጠየቃል።"</string>
+    <string name="puk2_blocked" msgid="3150263853077280049">"ፒን2 በቋሚነት ታግዷል።"</string>
+    <string name="pin2_attempts" msgid="7937503107162525324">\n" <xliff:g id="NUMBER">%d</xliff:g> ቀሪ ሙከራዎች አሉ።"</string>
+    <string name="pin2_unblocked" msgid="2903147240919055381">"ፒን2 እገዳው ተነስቷል!"</string>
     <string name="doneButton" msgid="2859593360997984240">"ተከናውኗል"</string>
     <string name="caller_manage_header" msgid="3231519674734638786">"የስብሰባ ጥሪ<xliff:g id="CONF_CALL_TIME">%s</xliff:g>"</string>
     <string name="voicemail_settings_number_label" msgid="8524164258691887790">"የድምፅ መልዕክት ቁጥር"</string>

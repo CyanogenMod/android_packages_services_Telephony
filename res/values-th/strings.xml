@@ -136,9 +136,9 @@
     <string name="select_automatically" msgid="5628402124471810174">"เลือกโดยอัตโนมัติ"</string>
     <string name="sum_select_automatically" msgid="5614890115123292400">"เลือกเครือข่ายที่ต้องการอัตโนมัติ"</string>
     <string name="register_automatically" msgid="6017849844573519637">"การลงทะเบียนอัตโนมัติ..."</string>
-    <string name="preferred_network_mode_title" msgid="8873246565334559308">"โหมดเครือข่าย"</string>
+    <string name="preferred_network_mode_title" msgid="2336624679902659306">"ประเภทเครือข่ายที่ต้องการ"</string>
     <string name="preferred_network_mode_summary" msgid="1434820673166126609">"เปลี่ยนโหมดปฏิบัติการของเครือข่าย"</string>
-    <string name="preferred_network_mode_dialogtitle" msgid="8176355237105593793">"โหมดเครือข่ายที่ต้องการ"</string>
+    <string name="preferred_network_mode_dialogtitle" msgid="4048082093347807230">"ประเภทเครือข่ายที่ต้องการ"</string>
     <string name="preferred_network_mode_wcdma_perf_summary" msgid="8521677230113533809">"โหมดเครือข่ายที่ต้องการ: ต้องการ WCDMA"</string>
     <string name="preferred_network_mode_gsm_only_summary" msgid="3352445413437453511">"โหมดเครือข่ายที่ต้องการ: GSM เท่านั้น"</string>
     <string name="preferred_network_mode_wcdma_only_summary" msgid="2836897236221063413">"โหมดเครือข่ายที่ต้องการ: WCDMA เท่านั้น"</string>
@@ -275,6 +275,9 @@
     <string name="enable_disable_multi_category" msgid="626771003122899280">"หลายหมวดหมู่"</string>
     <string name="multi_category_enable" msgid="1179299804641721768">"เปิดใช้งานหลายหมวดหมู่แล้ว"</string>
     <string name="multi_category_disable" msgid="880104702904139505">"ปิดใช้งานหลายหมวดหมู่"</string>
+    <string name="network_lte" msgid="7702681952521375754">"LTE (แนะนำ)"</string>
+    <string name="network_4G" msgid="2723512640529983138">"4G (แนะนำ)"</string>
+    <string name="network_global" msgid="1323190488685355309">"ทั่วโลก"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"การเลือกระบบ"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"เปลี่ยนโหมดการเชื่อมต่อกับเครือข่าย CDMA อื่น"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"การเลือกระบบ"</string>
@@ -295,8 +298,7 @@
   </string-array>
     <string name="cdma_activate_device" msgid="3793805892364814518">"เปิดใช้งานอุปกรณ์"</string>
     <string name="cdma_lte_data_service" msgid="4255018217292548962">"ตั้งค่าบริการข้อมูล"</string>
-    <!-- no translation found for carrier_settings_title (9028166176523012300) -->
-    <skip />
+    <string name="carrier_settings_title" msgid="9028166176523012300">"การตั้งค่าของผู้ให้บริการ"</string>
     <string name="fdn" msgid="7878832555095183202">"การจำกัดหมายเลขโทรออก"</string>
     <string name="manage_fdn_list" msgid="8777755791892122369">"รายการ FDN"</string>
     <string name="fdn_activation" msgid="2156479741307463576">"การเปิดใช้งาน FDN"</string>
@@ -335,6 +337,7 @@
     <string name="pin2_invalid" msgid="5470854099230755944">"FDN ไม่อัปเดตเพราะคุณป้อน PIN ไม่ถูกต้อง"</string>
     <string name="fdn_invalid_number" msgid="1494755047900009147">"FDN ไม่อัปเดตเพราะหมายเลขจะมีจำนวนเกิน 20 หลักไม่ได้"</string>
     <string name="pin2_or_fdn_invalid" msgid="6025144083384701197">"ไม่ได้อัปเดต FDN เพราะ PIN2 ไม่ถูกต้องหรือหมายเลขโทรศัพท์ถูกปฏิเสธ"</string>
+    <string name="fdn_failed" msgid="540018079008319747">"การปลดล็อกด้วย FDN ล้มเหลว"</string>
     <string name="simContacts_emptyLoading" msgid="2203331234764498011">"กำลังอ่านจากซิมการ์ด…"</string>
     <string name="simContacts_empty" msgid="5270660846489561932">"ไม่มีที่อยู่ติดต่อบนซิมการ์ดของคุณ"</string>
     <string name="simContacts_title" msgid="1861472842524839921">"เลือกสมุดโทรศัพท์ที่จะนำเข้า"</string>
@@ -355,7 +358,7 @@
     <string name="disable_pin_ok" msgid="5596999379593924850">"ปิดใช้งาน PIN ของซิมแล้ว"</string>
     <string name="pin_failed" msgid="2298841192582192277">"PIN ที่คุณพิมพ์ไม่ถูกต้อง"</string>
     <string name="pin_changed" msgid="4365538014588501049">"เปลี่ยน PIN ของซิมสำเร็จแล้ว"</string>
-    <string name="puk_requested" msgid="3898394204193202803">"รหัสผ่านไม่ถูกต้อง ซิมถูกล็อก! ขอ PUK2"</string>
+    <string name="puk_requested" msgid="1796577128488773946">"รหัสผ่านไม่ถูกต้อง PIN ถูกบล็อก! ส่งคำขอ PUK แล้ว"</string>
     <string name="enter_pin2_text" msgid="8339444124477720345">"PIN2"</string>
     <string name="oldPin2Label" msgid="8559146795026261502">"PIN2 เก่า"</string>
     <string name="newPin2Label" msgid="4573956902204349054">"PIN2 ใหม่"</string>
@@ -367,8 +370,11 @@
     <string name="invalidPuk2" msgid="1290977391033057871">"พิมพ์ PUK2 ซึ่งเป็นเลข 8 หลัก"</string>
     <string name="pin2_changed" msgid="1639666438836544393">"เปลี่ยน PIN2 เรียบร้อยแล้ว"</string>
     <string name="label_puk2_code" msgid="302845876240219560">"พิมพ์รหัส PUK2"</string>
-    <string name="fdn_enable_puk2_requested" msgid="4262894949634885773">"รหัสผ่านไม่ถูกต้อง เปลี่ยน PIN2 แล้วลองอีกครั้ง"</string>
+    <string name="fdn_enable_puk2_requested" msgid="3674058967950559397">"รหัสผ่านไม่ถูกต้อง PIN2 ถูกบล็อก โปรดเปลี่ยน PIN2 แล้วลองอีกครั้ง!"</string>
     <string name="puk2_requested" msgid="8909278021238716877">"รหัสผ่านไม่ถูกต้อง ซิมถูกล็อก ขอ PUK2"</string>
+    <string name="puk2_blocked" msgid="3150263853077280049">"PUK2 ถูกบล็อกอย่างถาวร"</string>
+    <string name="pin2_attempts" msgid="7937503107162525324">\n"พยายามได้อีก <xliff:g id="NUMBER">%d</xliff:g> ครั้ง"</string>
+    <string name="pin2_unblocked" msgid="2903147240919055381">"เลิกบล็อก PIN2 แล้ว!"</string>
     <string name="doneButton" msgid="2859593360997984240">"เสร็จสิ้น"</string>
     <string name="caller_manage_header" msgid="3231519674734638786">"การประชุมสาย <xliff:g id="CONF_CALL_TIME">%s</xliff:g>"</string>
     <string name="voicemail_settings_number_label" msgid="8524164258691887790">"หมายเลขข้อความเสียง"</string>
