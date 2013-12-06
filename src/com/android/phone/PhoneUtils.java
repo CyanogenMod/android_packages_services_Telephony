@@ -2612,6 +2612,9 @@ public class PhoneUtils {
                         && ((fgCallState == Call.State.ACTIVE)
                             || (fgCallState == Call.State.IDLE)
                             || (fgCallState == Call.State.DISCONNECTED));
+            } else if (phoneType == PhoneConstants.PHONE_TYPE_IMS){
+                Log.e(LOG_TAG, "Unexpected IMS phone type add call not allowed");
+                return false;
             } else {
                 throw new IllegalStateException("Unexpected phone type: " + phoneType);
             }
