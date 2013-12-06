@@ -25,10 +25,8 @@ import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.phone.CallGatewayManager.RawGatewayInfo;
 import com.android.phone.Constants.CallStatusCode;
 import com.android.phone.ErrorDialogActivity;
-import com.android.phone.OtaUtils.CdmaOtaScreenState;
 import com.google.android.collect.Maps;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
@@ -38,9 +36,7 @@ import android.provider.CallLog.Calls;
 import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.ServiceState;
-import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
 
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
@@ -690,12 +686,11 @@ public class CallController extends Handler {
                 // TODO: Rather than launching a toast from here, it would
                 // be cleaner to just set a pending call status code here,
                 // and then let the InCallScreen display the toast...
-                if (mCM.getState() == PhoneConstants.State.OFFHOOK) {
-                    Toast.makeText(mApp, R.string.incall_status_dialed_mmi, Toast.LENGTH_SHORT)
-                            .show();
-                }
+                final Intent mmiIntent = new Intent(mApp, MMIDialogActivity.class);
+                mmiIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                        Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                mApp.startActivity(mmiIntent);
                 return;
-
             default:
                 Log.wtf(TAG, "handleOutgoingCallError: unexpected status code " + status);
                 // Show a generic "call failed" error.
