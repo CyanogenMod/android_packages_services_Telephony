@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="call_notif_unconditionalCF">启用无条件的来电转接</string>
+    <string name="call_notif_conditionalCF">启用有条件的来电转接</string>
+    <string name="call_notif_MOcall_forwarding">呼出电话已被转接</string>
+    <string name="call_notif_cugcall">在封闭用户组内通话</string>
+    <string name="call_notif_outgoing_barred">呼出电话被禁止</string>
+    <string name="call_notif_incoming_barred">来电被对方禁止</string>
+    <string name="call_notif_clir_suppression_rejected">自我号码抑制被网络拒绝</string>
+    <string name="call_notif_call_deflected">呼叫被对方转接</string>
+    <string name="call_notif_MTcall_forwarding">来电是被转接的</string>
+    <string name="call_notif_multipartycall">多方电话</string>
+    <string name="call_notif_callonhold_released">呼叫被对方释放</string>
+    <string name="call_notif_forwardcheckreceived">呼叫被转接</string>
+    <string name="call_notif_callconnectingect">呼叫正在通过显式呼叫转移进行连接</string>
+    <string name="call_notif_callconnectedect">呼叫已通过显式呼叫转移连接</string>
+    <string name="incall_vibration">来电震动</string>
+    <string name="vibrate_outgoing">对方接听时震动</string>
+    <string name="vibrate_call_waiting">呼叫等待时震动</string>
+    <string name="vibrate_hangup">通话结束时震动</string>
+    <string name="vibrate_45">每分钟震动</string>
+    <string name="vibrate_45_sum">呼出通话达到每分钟的 45 秒时震动</string>
+    <string name="show_ssn_label">事件提醒</string>
+    <string name="show_ssn_summary">为通话处理相关的各种网络事件显示一个通知</string>
+    <string name="blacklist_title">黑名单</string>
+    <string name="blacklist_summary_disabled">禁用</string>
+    <string name="blacklist_summary">阻挡黑名单中电话号码的来电</string>
+    <string name="blacklist_notification">阻挡了 %s 的来电</string>
+    <string name="blacklist_notification_private_number">阻挡了一个私人号码的来电</string>
+    <string name="blacklist_notification_list_private">私人号码</string>
+    <string name="blacklist_notification_unknown_number">阻挡了未知号码 %s</string>
+    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> 个来电被阻挡</string>
+    <string name="unblock_number">不阻挡号码</string>
+    <string name="mwi_notification_title">信息等待指示器</string>
+    <string name="mwi_notification_summary">显示信息等待指示器语音信箱提醒</string>
+    <string name="perm_change_mobile_network">改变网络制式（2G/3G）</string>
+    <string name="perm_change_mobile_network_desc">任何时候都允许应用在 2G 和 3G 数据之间切换。3G 更快，但消耗更多电量以及可能引起额外的花费。</string>
+</resources>
