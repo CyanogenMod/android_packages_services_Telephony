@@ -47,7 +47,7 @@
                 android:autoText="false"
                 android:capitalize="none"
                 android:password="true"
-                android:imeOptions="actionDone" />
+                android:imeOptions="flagNoFullscreen" />
 
             <Button
                 android:id="@+id/ok"
