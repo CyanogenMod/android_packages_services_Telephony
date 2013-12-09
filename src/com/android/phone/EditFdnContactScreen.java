@@ -320,7 +320,9 @@ public class EditFdnContactScreen extends Activity {
       * TODO: Fix this logic.
       */
      protected boolean isValidNumber(String number) {
-         return (number.length() <= 20);
+         // Although number is not empty(checked in method onClick), add null
+         // pointer check to ensure the robustness of the code
+         return (null != number) && (number.length() <= 20);
      }
 
 
@@ -458,6 +460,15 @@ public class EditFdnContactScreen extends Activity {
             } else if (v == mNumberField) {
                 mButton.requestFocus();
             } else if (v == mButton) {
+                // If number is empty, the fdn record is meaningless.
+                // But if name is empty and number isn't, name named number,
+                // it is can be saved.
+                if (TextUtils.isEmpty(mNumberField.getText())) {
+                    showStatus(getResources().getText(R.string.fdn_empty_number));
+                    return;
+                } else if (TextUtils.isEmpty(mNameField.getText())) {
+                    mNameField.setText(getNumberFromTextField());
+                }
                 // Authenticate the pin AFTER the contact information
                 // is entered, and if we're not busy.
                 if (!mDataBusy) {
