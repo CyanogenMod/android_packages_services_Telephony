@@ -150,4 +150,8 @@
     <string name="incoming_call_style_classic">Classic</string>
     <string name="incoming_call_style_fullscreen_photo">Fullscreen caller photo</string>
 
+    <!-- airplane mode prompt dialog -->
+    <string name="title_sim_prompt_dlg">Airplane mode</string>
+    <string name="msg_sim_prompt_dlg">Airplane mode enabled. Disable?</string>
+    <string name="msg_wait_prodlg">Disabling airplane mode\u2026</string>
 </resources>
