@@ -472,6 +472,7 @@ public class NetworkSetting extends PreferenceActivity
                 for (OperatorInfo ni : result) {
                     Preference carrier = new Preference(this, null);
                     carrier.setTitle(getNetworkTitle(ni));
+                    carrier.setEnabled(ni.getState() != OperatorInfo.State.FORBIDDEN);
                     carrier.setPersistent(false);
                     mNetworkList.addPreference(carrier);
                     mNetworkMap.put(carrier, ni);
@@ -506,6 +507,9 @@ public class NetworkSetting extends PreferenceActivity
         }
         if (!ni.getRadioTech().equals(""))
             title += " " + mRatMap.get(ni.getRadioTech());
+
+        if (ni.getState() == OperatorInfo.State.FORBIDDEN)
+            title += getString(R.string.network_forbidden);
 
         return title;
     }
