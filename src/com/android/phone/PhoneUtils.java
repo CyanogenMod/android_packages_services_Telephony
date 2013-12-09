@@ -3141,6 +3141,13 @@ public class PhoneUtils {
     }
 
     /**
+     * Returns true if Android supports Csvt calls
+     */
+    public static boolean isCallOnCsvtEnabled() {
+        return CallManager.isCallOnCsvtEnabled();
+    }
+
+    /**
      * If the intent is not  already the IMS intent, conert the intent to the
      * IMS intent
      */
@@ -3391,6 +3398,17 @@ public class PhoneUtils {
             }
         }
         return otherSub;
+    }
+
+    public static boolean isCsvtCallActive() {
+        boolean isActive = false;
+        try {
+            isActive =  PhoneGlobals.mCsvtService != null &&
+                      ! PhoneGlobals.mCsvtService.isIdle();
+        } catch (RemoteException e) {
+            Log.e(LOG_TAG, "Failed to retrieve Csvt call state. " + e);
+        }
+        return isActive;
     }
 
     public static void handleWaitingCallOnLchSub(int activeSub, boolean isAccepted) {
