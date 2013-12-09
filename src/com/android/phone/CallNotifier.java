@@ -33,6 +33,7 @@ import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaSignalInfo
 import com.android.internal.telephony.cdma.SignalToneUtil;
 import com.android.internal.telephony.gsm.SuppServiceNotification;
 import com.android.internal.telephony.util.BlacklistUtils;
+import com.android.internal.util.cm.QuietHoursUtils;
 import com.android.phone.CallFeaturesSetting;
 
 import android.app.ActivityManagerNative;
@@ -40,6 +41,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
+import android.database.Cursor;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.net.Uri;
@@ -50,6 +52,7 @@ import android.os.SystemProperties;
 import android.os.SystemVibrator;
 import android.os.Vibrator;
 import android.provider.CallLog.Calls;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
@@ -442,6 +445,16 @@ public class CallNotifier extends Handler
             return;
         }
 
+        // Quiet Hours Handling
+        if (QuietHoursUtils.inQuietHours(mApplication, Settings.System.QUIET_HOURS_RINGER)) {
+            // Determine what type of Quiet Hours we are in and act accordingly
+            int muteType = Settings.System.getInt(mApplication.getContentResolver(),
+                    Settings.System.QUIET_HOURS_RINGER, 0);
+            if ((muteType == 1 && !isStarredCaller(mApplication, number)) || muteType == 2) {
+                silenceRinger();
+            }
+        }
+
         // Stop any signalInfo tone being played on receiving a Call
         stopSignalInfoTone();
 
@@ -496,6 +509,28 @@ public class CallNotifier extends Handler
         // when the caller-id query completes or times out.
 
         if (VDBG) log("- onNewRingingConnection() done.");
+    }
+
+    /**
+     * Helper function used to determine if calling number is a 'Starred' caller
+     */
+    public static boolean isStarredCaller(Context context, String number) {
+        final String[] projection = new String[] {ContactsContract.PhoneLookup.STARRED};
+        Uri lookupUri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+                Uri.encode(number));
+        Cursor cursor = context.getContentResolver().query(lookupUri, projection,
+                       ContactsContract.PhoneLookup.NUMBER + "=?", new String[] { number}, null);
+
+        // Iterate through the starred numbers and see if we have a match
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                if (cursor.getInt(cursor.getColumnIndex(ContactsContract.PhoneLookup.STARRED)) == 1) {
+                    return true;
+                }
+                cursor.moveToNext();
+            }
+        }
+        return false;
     }
 
     /**

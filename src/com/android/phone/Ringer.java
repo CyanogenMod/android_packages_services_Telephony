@@ -18,6 +18,7 @@ package com.android.phone;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
 import android.media.AudioManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -32,10 +33,16 @@ import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.SystemVibrator;
 import android.os.Vibrator;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.util.Log;
 
+import com.android.internal.util.cm.QuietHoursUtils;
+import com.android.internal.telephony.Call;
+import com.android.internal.telephony.CallerInfo;
+import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneConstants;
 /**
  * Ringer manager for the Phone app.
  */
