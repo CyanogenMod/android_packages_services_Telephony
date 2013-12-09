@@ -20,6 +20,7 @@
 package com.android.phone;
 
 import android.app.ActivityManagerNative;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncResult;
@@ -234,6 +235,8 @@ public class MSimCallNotifier extends CallNotifier {
                 " subscription = " + subscription);
         Call ringing = c.getCall();
         Phone phone = ringing.getPhone();
+
+        hideUssdResponseDialog();
 
         // Check for a few cases where we totally ignore incoming calls.
         if (ignoreAllIncomingCalls(phone)) {
@@ -514,6 +517,8 @@ public class MSimCallNotifier extends CallNotifier {
     @Override
     protected void onDisconnect(AsyncResult r) {
         if (VDBG) log("onDisconnect()...  CallManager state: " + mCM.getState());
+
+        showUssdResponseDialog();
 
         mVoicePrivacyState = false;
         Connection c = (Connection) r.result;

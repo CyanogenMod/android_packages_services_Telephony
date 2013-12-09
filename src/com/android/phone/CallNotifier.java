@@ -41,6 +41,7 @@ import com.android.internal.util.cm.QuietHoursUtils;
 import com.android.phone.CallFeaturesSetting;
 
 import android.app.ActivityManagerNative;
+import android.app.Dialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothProfile;
@@ -415,6 +416,8 @@ public class CallNotifier extends Handler
         Call ringing = c.getCall();
         Phone phone = ringing.getPhone();
 
+        hideUssdResponseDialog();
+
         // Check for a few cases where we totally ignore incoming calls.
         if (ignoreAllIncomingCalls(phone)) {
             // Immediately reject the call, without even indicating to the user
@@ -601,6 +604,19 @@ public class CallNotifier extends Handler
 
         if (DBG) log("A match for the number wasn't found");
         return false;
+    }
+
+    protected void hideUssdResponseDialog() {
+        Dialog ussdRespDialog = mApplication.getUSSDResponseDialog();
+
+        // If a new ringing connection comes, and ussd dialog is showing,
+        // need to hide the ussd dialog.
+        if (mCM.getState() == PhoneConstants.State.RINGING) {
+            if ((ussdRespDialog != null) && ussdRespDialog.isShowing()) {
+                if (VDBG) log("hide ussd dialog...");
+                ussdRespDialog.hide();
+            }
+        }
     }
 
     /**
@@ -1070,6 +1086,8 @@ public class CallNotifier extends Handler
     protected void onDisconnect(AsyncResult r) {
         if (VDBG) log("onDisconnect()...  CallManager state: " + mCM.getState());
 
+        showUssdResponseDialog();
+
         mVoicePrivacyState = false;
         Connection c = (Connection) r.result;
         if (c != null) {
@@ -1328,6 +1346,18 @@ public class CallNotifier extends Handler
             0, v1, p1, v2
         };
         mVibrator.vibrate(pattern, -1);
+    }
+
+    protected void showUssdResponseDialog() {
+        Dialog ussdRespDialog = mApplication.getUSSDResponseDialog();
+        // If the connection disconnect, and ussd dialog is not null,
+        // need to show the ussd dialog.
+        if (mCM.getState() == PhoneConstants.State.IDLE) {
+            if (ussdRespDialog != null) {
+                if (VDBG) log("show ussd dialog...");
+                ussdRespDialog.show();
+            }
+        }
     }
 
     /**
