@@ -185,6 +185,10 @@ public class SipSettings extends PreferenceActivity {
     protected void onActivityResult(final int requestCode, final int resultCode,
             final Intent intent) {
         if (resultCode != RESULT_OK && resultCode != RESULT_FIRST_USER) return;
+        if (mSipProfileList == null) {
+            Log.v(TAG, "mSipProfileList is null");
+            return;
+        }
         new Thread() {
             @Override
             public void run() {
