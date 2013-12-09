@@ -190,7 +190,6 @@ public class SipEditor extends PreferenceActivity
         Log.v(TAG, "SipEditor onPause(): finishing? " + isFinishing());
         if (!isFinishing()) {
             mHomeButtonClicked = true;
-            validateAndSetResult();
         }
         super.onPause();
     }
