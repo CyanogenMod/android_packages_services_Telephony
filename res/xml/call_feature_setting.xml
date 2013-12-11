@@ -80,12 +80,18 @@
             android:targetClass="com.qualcomm.qti.ims.ImsSettings"/>
     </PreferenceScreen>
 
-     <PreferenceScreen
-         android:key="button_blacklist"
-         android:title="@string/blacklist_title"
-         android:persistent="false">
-         <intent android:action="android.intent.action.MAIN"
-             android:targetPackage="com.android.settings"
-             android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
-     </PreferenceScreen>
+    <PreferenceScreen
+        android:key="button_blacklist"
+        android:title="@string/blacklist_title"
+        android:persistent="false">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
+    </PreferenceScreen>
+
+    <SwitchPreference
+        android:key="button_proximity_key"
+        android:title="@string/proximity_mode_title"
+        android:persistent="false"
+        android:summary="@string/proximity_on_summary" />
 </PreferenceScreen>
