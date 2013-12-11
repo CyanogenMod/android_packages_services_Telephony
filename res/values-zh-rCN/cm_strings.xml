@@ -97,4 +97,9 @@
   <string name="proximity_mode_title">"打开距离传感器"</string>
   <string name="proximity_on_summary">"接听电话时，屏幕会关闭，从而节省电量"</string>
   <string name="proximity_off_summary">"接听电话时，屏幕保持开启状态"</string>
+  <string name="title_dialog_duration">通话时长</string>
+  <string name="duration_format"><xliff:g id="MINUTES">%s</xliff:g> 分 <xliff:g id="SECONDS">%s</xliff:g> 秒</string>
+  <string name="preferred_duration_title">挂机显示通话时长</string>
+  <string name="duration_enable_summary">挂机显示通话时长已开启</string>
+  <string name="duration_disable_summary">挂机显示通话时长已关闭</string>
 </resources>

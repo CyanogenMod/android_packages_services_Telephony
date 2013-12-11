@@ -165,4 +165,11 @@
     <string name="proximity_mode_title">Enable proximity sensor</string>
     <string name="proximity_on_summary">When in call, use proximity sensor to turn off screen.</string>
     <string name="proximity_off_summary">When in call, the screen will remain on.</string>
+
+    <!-- Call duration -->
+    <string name="title_dialog_duration">Duration</string>
+    <string name="duration_format"><xliff:g id="minutes" example="42">%s</xliff:g> mins<xliff:g id="seconds" example="28">%s</xliff:g> secs</string>
+    <string name="preferred_duration_title">Display duration</string>
+    <string name="duration_enable_summary">Duration display enabled</string>
+    <string name="duration_disable_summary">Duration display disabled</string>
 </resources>
