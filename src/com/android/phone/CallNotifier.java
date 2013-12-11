@@ -188,6 +188,8 @@ public class CallNotifier extends Handler
     // Blacklist handling
     private static final String BLACKLIST = "Blacklist";
 
+    protected PhoneConstants.State mLastPhoneState = PhoneConstants.State.IDLE;
+
     /**
      * Initialize the singleton CallNotifier instance.
      * This is only done once, at startup, from PhoneApp.onCreate().
@@ -829,6 +831,7 @@ public class CallNotifier extends Handler
      */
     protected void onPhoneStateChanged(AsyncResult r) {
         PhoneConstants.State state = mCM.getState();
+        mLastPhoneState = state;
         if (VDBG) log("onPhoneStateChanged: state = " + state);
 
         // Turn status bar notifications on or off depending upon the state
@@ -1067,6 +1070,15 @@ public class CallNotifier extends Handler
         onCustomRingQueryComplete(c);
     }
 
+    protected void showCallDuration(Connection connection) {
+        int showCallDurationSetting = Settings.System.getInt(mApplication.getContentResolver(),
+                Constants.SETTINGS_SHOW_CALL_DURATION, 1);
+        if (mLastPhoneState == PhoneConstants.State.OFFHOOK && connection != null
+                && showCallDurationSetting == 1) {
+            mApplication.showCallDuration(connection.getDurationMillis());
+        }
+    }
+
     protected void onDisconnect(AsyncResult r) {
         if (VDBG) log("onDisconnect()...  CallManager state: " + mCM.getState());
 
@@ -1093,6 +1105,8 @@ public class CallNotifier extends Handler
                 vibrate(50, 100, 50);
             }
         }
+
+        showCallDuration(c);
 
         int autoretrySetting = 0;
         if ((c != null) && (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA)) {
