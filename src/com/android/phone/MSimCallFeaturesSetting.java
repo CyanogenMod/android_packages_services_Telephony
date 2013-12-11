@@ -88,6 +88,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_HAC_KEY         = "button_hac_key";
     private static final String BUTTON_SELECT_SUB_KEY  = "button_call_independent_serv";
     private static final String BUTTON_XDIVERT_KEY     = "button_xdivert";
+    private static final String SHOW_DURATION_KEY      = "duration_enable_key";
 
     private static final String BUTTON_SIP_CALL_OPTIONS =
             "sip_call_options_key";
@@ -118,6 +119,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
     private ListPreference mButtonTTY;
     private ListPreference mButtonSipCallOptions;
     private SipSharedPreferences mSipSharedPreferences;
+    private CheckBoxPreference mShowDurationCheckBox;
 
     private PreferenceScreen mButtonXDivert;
     private int mNumPhones;
@@ -181,6 +183,12 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
                     Constants.SETTINGS_PROXIMITY_SENSOR, checked ? 1 : 0);
             mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
                     : R.string.proximity_off_summary);
+        } else if (preference == mShowDurationCheckBox) {
+            boolean checked = (Boolean) objValue;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Constants.SETTINGS_SHOW_CALL_DURATION, checked ? 1 : 0);
+            mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
+                    : R.string.duration_disable_summary);
         } else if (preference == mButtonSipCallOptions) {
             handleSipCallOptionsChange(objValue);
         }
@@ -214,11 +222,16 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
         mButtonTTY = (ListPreference) findPreference(BUTTON_TTY_KEY);
         mButtonXDivert = (PreferenceScreen) findPreference(BUTTON_XDIVERT_KEY);
         mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
+        mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
 
         final ContentResolver contentResolver = getContentResolver();
 
         if (mButtonProximity != null) {
             mButtonProximity.setOnPreferenceChangeListener(this);
+        }
+
+        if (mShowDurationCheckBox != null) {
+            mShowDurationCheckBox.setOnPreferenceChangeListener(this);
         }
 
         if (mPlayDtmfTone != null) {
@@ -452,6 +465,14 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
             mButtonProximity.setChecked(checked);
             mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
                     : R.string.proximity_off_summary);
+        }
+
+        if (mShowDurationCheckBox != null) {
+            boolean checked = Settings.System.getInt(getContentResolver(),
+                    Constants.SETTINGS_SHOW_CALL_DURATION, 1) == 1;
+            mShowDurationCheckBox.setChecked(checked);
+            mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
+                    : R.string.duration_disable_summary);
         }
     }
 

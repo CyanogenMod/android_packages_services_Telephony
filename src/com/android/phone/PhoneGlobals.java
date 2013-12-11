@@ -20,6 +20,8 @@
 package com.android.phone;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
@@ -60,6 +62,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Slog;
 import android.view.KeyEvent;
+import android.view.WindowManager;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallManager;
@@ -215,6 +218,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     // the foreground.
     protected Activity mPUKEntryActivity;
     private ProgressDialog mPUKEntryProgressDialog;
+    private Dialog mCallDurationDialog;
 
     private boolean mIsSimPinEnabled;
     private String mCachedSimPin;
@@ -1520,5 +1524,39 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
      */
     public int getDefaultDataSubscription() {
         return DEFAULT_SUBSCRIPTION;
+    }
+
+    public void showCallDuration(long durationMillis) {
+        if (mCallDurationDialog != null) {
+            // Safe even if it is already dismissed
+            mCallDurationDialog.dismiss();
+            mCallDurationDialog = null;
+        }
+
+        long duration = durationMillis / 1000;
+        long minutes = 0;
+        long seconds = 0;
+
+        if (duration >= 60) {
+            minutes = duration / 60;
+            duration -= minutes * 60;
+        }
+        seconds = duration;
+
+        mCallDurationDialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.title_dialog_duration)
+                .setMessage(getString(R.string.duration_format, minutes, seconds))
+                .create();
+        mCallDurationDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG);
+
+        mCallDurationDialog.show();
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                if (mCallDurationDialog != null) {
+                    mCallDurationDialog.dismiss();
+                    mCallDurationDialog = null;
+                }
+            }
+        }, 1000);
     }
 }
