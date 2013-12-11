@@ -195,6 +195,8 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private static final String BUTTON_INCOMING_CALL_STYLE = "button_incoming_call_style";
 
+    private static final String BUTTON_PROXIMITY_KEY   = "button_proximity_key";
+
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
 
@@ -338,6 +340,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private ListPreference mChoosePeopleLookupProvider;
     private ListPreference mChooseReverseLookupProvider;
     private ListPreference mT9SearchInputLocale;
+    private CheckBoxPreference mButtonProximity;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -635,6 +638,12 @@ public class CallFeaturesSetting extends PreferenceActivity
                     Settings.System.INCOMING_CALL_STYLE, index);
         } else if (preference == mButtonTTY) {
             handleTTYChange(preference, objValue);
+        } else if (preference == mButtonProximity) {
+            boolean checked = (Boolean) objValue;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Constants.SETTINGS_PROXIMITY_SENSOR, checked ? 1 : 0);
+            mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
+                    : R.string.proximity_off_summary);
         } else if (preference == mVoicemailProviders) {
             final String newProviderKey = (String) objValue;
             if (DBG) {
@@ -1643,6 +1652,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButtonBlacklist = (PreferenceScreen) findPreference(BUTTON_BLACKLIST);
         mT9SearchInputLocale = (ListPreference) findPreference(BUTTON_T9_SEARCH_INPUT_LOCALE);
         mIncomingCallStyle = (ListPreference) findPreference(BUTTON_INCOMING_CALL_STYLE);
+        mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1682,6 +1692,10 @@ public class CallFeaturesSetting extends PreferenceActivity
                 prefSet.removePreference(mButtonDTMF);
                 mButtonDTMF = null;
             }
+        }
+
+        if (mButtonProximity != null) {
+            mButtonProximity.setOnPreferenceChangeListener(this);
         }
 
         if (mButtonAutoRetry != null) {
@@ -2002,6 +2016,13 @@ public class CallFeaturesSetting extends PreferenceActivity
                     BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, false));
         }
 
+        if (mButtonProximity != null) {
+            boolean checked = Settings.System.getInt(getContentResolver(),
+                    Constants.SETTINGS_PROXIMITY_SENSOR, 1) == 1;
+            mButtonProximity.setChecked(checked);
+            mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
+                    : R.string.proximity_off_summary);
+        }
         lookupRingtoneName();
         updateBlacklistSummary();
 
