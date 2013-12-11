@@ -33,7 +33,6 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.cdma.CdmaCallWaitingNotification;
 import com.android.internal.telephony.gsm.SuppServiceNotification;
-import com.android.internal.util.Objects;
 import com.android.phone.CallGatewayManager.RawGatewayInfo;
 import com.android.services.telephony.common.Call;
 import com.android.services.telephony.common.CallDetails;
@@ -427,10 +426,6 @@ public class CallModeler extends Handler {
                 // not create a new call if the call did not exist.
                 final boolean shouldCreate = shouldUpdate && !isDisconnecting;
 
-                if (shouldCreate) {
-                    cleanupDuplicateCalls(mCallMap, connection, out);
-                }
-
                 // New connections return a Call with INVALID state, which does not translate to
                 // a state in the internal.telephony.Call object.  This ensures that staleness
                 // check below fails and we always add the item to the update list if it is new.
@@ -452,7 +447,6 @@ public class CallModeler extends Handler {
             // loop to ensure all child calls are up to date before we start updating the parent
             // conference calls.
             for (Connection connection : telephonyCall.getConnections()) {
-                cleanupDuplicateCalls(mConfCallMap, connection, out);
                 updateForConferenceCalls(connection, out);
             }
         }
@@ -1039,21 +1033,6 @@ public class CallModeler extends Handler {
     }
 
 
-    private void cleanupDuplicateCalls(HashMap<Connection, Call> callMap,
-            final Connection newConn, List<Call> out) {
-        for (Connection conn: callMap.keySet()) {
-            if(Objects.equal(newConn.getAddress(), conn.getAddress())) {
-                Call call = getCallFromMap(callMap, conn, false);
-                if (call != null) {
-                    Log.i(TAG, "Cleaning up a duplicate call: " + call);
-                    callMap.remove(conn);
-                    call.setState(State.IDLE);
-                    if (out != null) out.add(call);
-                    break;
-                }
-            }
-        }
-    }
     /**
      * Sometimes (like in case of radio tech change during emergency call)
      * Connection objects below CallManager, gets disposed and recreated
