@@ -45,6 +45,8 @@ import android.view.MenuItem;
 import com.android.internal.telephony.cdma.TtyIntent;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
+import com.android.phone.Constants;
+import com.android.phone.R;
 import com.android.phone.sip.SipSharedPreferences;
 import com.codeaurora.telephony.msim.SubscriptionManager;
 
@@ -81,6 +83,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_PLAY_DTMF_TONE  = "button_play_dtmf_tone";
     private static final String BUTTON_DTMF_KEY        = "button_dtmf_settings";
     private static final String BUTTON_RETRY_KEY       = "button_auto_retry_key";
+    private static final String BUTTON_PROXIMITY_KEY   = "button_proximity_key";
     private static final String BUTTON_TTY_KEY         = "button_tty_mode_key";
     private static final String BUTTON_HAC_KEY         = "button_hac_key";
     private static final String BUTTON_SELECT_SUB_KEY  = "button_call_independent_serv";
@@ -110,6 +113,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
     private CheckBoxPreference mPlayDtmfTone;
     private CheckBoxPreference mButtonAutoRetry;
     private CheckBoxPreference mButtonHAC;
+    private CheckBoxPreference mButtonProximity;
     private ListPreference mButtonDTMF;
     private ListPreference mButtonTTY;
     private ListPreference mButtonSipCallOptions;
@@ -171,6 +175,12 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
                     Settings.System.DTMF_TONE_TYPE_WHEN_DIALING, index);
         } else if (preference == mButtonTTY) {
             handleTTYChange(preference, objValue);
+        } else if (preference == mButtonProximity) {
+            boolean checked = (Boolean) objValue;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Constants.SETTINGS_PROXIMITY_SENSOR, checked ? 1 : 0);
+            mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
+                    : R.string.proximity_off_summary);
         } else if (preference == mButtonSipCallOptions) {
             handleSipCallOptionsChange(objValue);
         }
@@ -203,8 +213,13 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
         mButtonHAC = (CheckBoxPreference) findPreference(BUTTON_HAC_KEY);
         mButtonTTY = (ListPreference) findPreference(BUTTON_TTY_KEY);
         mButtonXDivert = (PreferenceScreen) findPreference(BUTTON_XDIVERT_KEY);
+        mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
 
         final ContentResolver contentResolver = getContentResolver();
+
+        if (mButtonProximity != null) {
+            mButtonProximity.setOnPreferenceChangeListener(this);
+        }
 
         if (mPlayDtmfTone != null) {
             mPlayDtmfTone.setChecked(Settings.System.getInt(contentResolver,
@@ -429,6 +444,14 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
 
         if (mButtonXDivert != null) {
             if (!isAllSubActive()) mButtonXDivert.setEnabled(false);
+        }
+
+        if (mButtonProximity != null) {
+            boolean checked = Settings.System.getInt(getContentResolver(),
+                    Constants.SETTINGS_PROXIMITY_SENSOR, 1) == 1;
+            mButtonProximity.setChecked(checked);
+            mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
+                    : R.string.proximity_off_summary);
         }
     }
 
