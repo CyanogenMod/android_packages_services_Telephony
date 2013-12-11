@@ -143,4 +143,19 @@ public class Constants {
     // Dtmf tone type setting value for CDMA phone
     public static final int DTMF_TONE_TYPE_NORMAL = 0;
     public static final int DTMF_TONE_TYPE_LONG   = 1;
+
+    /**
+     * enable proximity sensor or not. 0 = Off 1 = On
+     */
+    public static final String SETTINGS_PROXIMITY_SENSOR = "proximity_sensor";
+
+    /**
+     * display duration info after end call. 0 = Off 1 = On
+     */
+    public static final String SETTINGS_SHOW_CALL_DURATION = "show_call_duration";
+
+    /**
+     * vibrate when the call accepted or not. 0 = Off 1 = On
+     */
+    public static final String SETTINGS_VIBRATE_WHEN_ACCEPTED = "vibrate_when_accepted";
 }
