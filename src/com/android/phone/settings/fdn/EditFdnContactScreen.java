@@ -21,9 +21,12 @@ import static android.view.Window.PROGRESS_VISIBILITY_ON;
 
 import android.app.Activity;
 import android.content.AsyncQueryHandler;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
@@ -32,6 +35,7 @@ import android.os.Handler;
 import android.provider.Contacts.PeopleColumns;
 import android.provider.Contacts.PhonesColumns;
 import android.provider.ContactsContract.CommonDataKinds;
+import android.provider.Settings;
 import android.telephony.PhoneNumberUtils;
 import android.text.Selection;
 import android.text.Spannable;
@@ -51,7 +55,9 @@ import android.widget.Toast;
 import com.android.phone.PhoneGlobals;
 import com.android.phone.R;
 import com.android.phone.SubscriptionInfoHelper;
+import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.android.internal.telephony.TelephonyIntents;
 
 /**
  * Activity to let the user add or edit an FDN contact.
@@ -100,6 +106,31 @@ public class EditFdnContactScreen extends Activity {
     }
     /** flag to track saving state */
     private boolean mDataBusy;
+
+    private BroadcastReceiver mSimStateChangedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent != null && intent.getAction().equals(
+                    TelephonyIntents.ACTION_SIM_STATE_CHANGED)) {
+                String stateExtra = intent.getStringExtra(IccCardConstants.INTENT_KEY_ICC_STATE);
+                SubscriptionInfoHelper subInfoHelper = new SubscriptionInfoHelper(context, intent);
+                int subId = subInfoHelper.getSubId();
+                if (IccCardConstants.INTENT_VALUE_ICC_ABSENT.equals(stateExtra) &&
+                        subId == mSubscriptionInfoHelper.getSubId()) {
+                    handleSimAbsentIntent(context, intent);
+                }
+            }
+        }
+    };
+
+    protected void handleSimAbsentIntent(Context context, Intent intent) {
+        String absentReason = intent
+                .getStringExtra(IccCardConstants.INTENT_KEY_LOCKED_REASON);
+        if (!IccCardConstants.INTENT_VALUE_ABSENT_ON_PERM_DISABLED.equals(absentReason)) {
+            Toast.makeText(context, R.string.fdn_service_unavailable,
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle icicle) {
@@ -167,6 +198,20 @@ public class EditFdnContactScreen extends Activity {
                 }
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter filter = new IntentFilter(
+                TelephonyIntents.ACTION_SIM_STATE_CHANGED);
+        registerReceiver(mSimStateChangedReceiver, filter);
+    }
+
+    @Override
+    protected void onPause() {
+        unregisterReceiver(mSimStateChangedReceiver);
+        super.onPause();
     }
 
     /**
@@ -288,6 +333,12 @@ public class EditFdnContactScreen extends Activity {
     private void addContact() {
         if (DBG) log("addContact");
 
+        if (Settings.Global.getInt(this.getContentResolver(),
+                Settings.Global.AIRPLANE_MODE_ON, 0) > 0) {
+            showStatus(getResources().getText(R.string.fdn_service_unavailable));
+            return;
+        }
+
         final String number = PhoneNumberUtils.convertAndStrip(getNumberFromTextField());
 
         if (!isValidNumber(number)) {
@@ -310,6 +361,12 @@ public class EditFdnContactScreen extends Activity {
 
     private void updateContact() {
         if (DBG) log("updateContact");
+
+        if (Settings.Global.getInt(this.getContentResolver(),
+                Settings.Global.AIRPLANE_MODE_ON, 0) > 0) {
+            showStatus(getResources().getText(R.string.fdn_service_unavailable));
+            return;
+        }
 
         final String name = getNameFromTextField();
         final String number = PhoneNumberUtils.convertAndStrip(getNumberFromTextField());
