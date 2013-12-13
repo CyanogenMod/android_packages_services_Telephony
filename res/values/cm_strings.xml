@@ -165,4 +165,42 @@
     <string name="proximity_mode_title">Enable proximity sensor</string>
     <string name="proximity_on_summary">When in call, use proximity sensor to turn off screen.</string>
     <string name="proximity_off_summary">When in call, the screen will remain on.</string>
+
+    <!-- Call blocking -->
+    <string name="call_barring">Call Blocking</string>
+    <string name="call_barring_outgoing">Outgoing Call Blocking</string>
+    <string-array name="call_barring_outgoing_display_values">
+        <item>Off</item>
+        <item>International roaming call</item>
+        <item>International call</item>
+        <item>Outgoing call</item>
+    </string-array>
+    <string-array name="call_barring_outgoing_values">
+        <item><xliff:g>-1</xliff:g></item>
+        <item><xliff:g>2</xliff:g></item>
+        <item><xliff:g>1</xliff:g></item>
+        <item><xliff:g>0</xliff:g></item>
+    </string-array>
+    <string-array name="call_barring_incoming_display_values">
+        <item>Off</item>
+        <item>Roaming</item>
+        <item>All</item>
+    </string-array>
+    <string name="call_barring_incoming">Incoming Call Blocking</string>
+    <string-array name="call_barring_incoming_values">
+        <item><xliff:g>-2</xliff:g></item>
+        <item><xliff:g>4</xliff:g></item>
+        <item><xliff:g>3</xliff:g></item>
+    </string-array>
+    <string name="count_down_timer">Seconds:</string>
+    <string name="input_password">Input password</string>
+    <string name="labelCbCancelAll">Cancel all call blocking</string>
+    <string name="psw_enter_old">Old password</string>
+    <string name="labelCbChangePassword">Change password</string>
+    <string name="psw_enter_new">New password</string>
+    <string name="invalidPsw">Input your password (4 - 8 number)</string>
+    <string name="psw_reenter_new">Reenter your password</string>
+    <string name="no_call_barring">No call blocking</string>
+    <string name="cb_psw_dont_match">Passwords do not match</string>
+    <string name="operation_successfully">Operation completed successfully!</string>
 </resources>

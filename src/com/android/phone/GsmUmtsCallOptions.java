@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011-2012 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2011-2013 The Linux Foundation. All rights reserved.
  * Not a Contribution.
  *
  * Copyright (C) 2006 The Android Open Source Project
@@ -37,6 +37,7 @@ public class GsmUmtsCallOptions extends PreferenceActivity {
 
     private static final String BUTTON_CF_EXPAND_KEY = "button_cf_expand_key";
     private static final String BUTTON_MORE_EXPAND_KEY = "button_more_expand_key";
+    private static final String BUTTON_CB_EXPAND_KEY = "button_callbarring_expand_key";
 
     private PreferenceScreen subscriptionPrefCFE;
 
@@ -61,6 +62,11 @@ public class GsmUmtsCallOptions extends PreferenceActivity {
         subscriptionPrefAdditionSettings.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
 
         Log.d(LOG_TAG, "Getting GsmUmtsCallOptions subscription =" + mSubscription);
+
+        // setting selected subscription for CallBarring.java
+        PreferenceScreen subscriptionPrefCBSettings =
+                (PreferenceScreen) findPreference(BUTTON_CB_EXPAND_KEY);
+        subscriptionPrefCBSettings.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
 
         mPhone = PhoneGlobals.getInstance().getPhone(mSubscription);
 
