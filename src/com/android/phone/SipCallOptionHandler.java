@@ -83,7 +83,8 @@ public class SipCallOptionHandler extends Activity implements
     static final int DIALOG_NO_INTERNET_ERROR = 3;
     static final int DIALOG_NO_VOIP = 4;
     static final int DIALOG_NO_VOLTE = 5;
-    static final int DIALOG_SIZE = 6;
+    static final int DIALOG_NO_VT = 6;
+    static final int DIALOG_SIZE = 7;
 
     private Intent mIntent;
     private List<SipProfile> mProfileList;
@@ -330,6 +331,14 @@ public class SipCallOptionHandler extends Activity implements
                     .setOnCancelListener(this)
                     .create();
             break;
+        case DIALOG_NO_VT:
+            dialog = new AlertDialog.Builder(this)
+                    .setTitle(R.string.no_vt_allowed)
+                    .setIconAttribute(android.R.attr.alertDialogIcon)
+                    .setPositiveButton(android.R.string.ok, this)
+                    .setOnCancelListener(this)
+                    .create();
+            break;
         default:
             dialog = null;
         }
@@ -382,6 +391,7 @@ public class SipCallOptionHandler extends Activity implements
             mOutgoingSipProfile = mProfileList.get(id);
         } else if ((dialog == mDialogs[DIALOG_NO_INTERNET_ERROR])
                 || (dialog == mDialogs[DIALOG_NO_VOIP])
+                || (dialog == mDialogs[DIALOG_NO_VT])
                 || (dialog == mDialogs[DIALOG_NO_VOLTE])) {
             finish();
             return;
@@ -482,6 +492,12 @@ public class SipCallOptionHandler extends Activity implements
                         if (phone != null &&
                                 phone.getServiceState().getState()
                                     == ServiceState.STATE_IN_SERVICE) {
+                            // Ims VT Call cannot be placed
+                            if (PhoneUtils.isImsVtCallNotAllowed(mImsCallType)) {
+                                // show UI error
+                                showDialog(DIALOG_NO_VT);
+                                return;
+                            }
                             PhoneUtils.convertCallToIms(mIntent, mImsCallType);
                         } else {
                             // Ims Call cannot be placed
