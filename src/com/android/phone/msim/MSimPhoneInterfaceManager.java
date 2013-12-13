@@ -42,6 +42,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.internal.telephony.CallManager;
+import com.android.internal.telephony.CommandException;
 import com.android.internal.telephony.DefaultPhoneNotifier;
 import com.android.internal.telephony.IccCard;
 import com.android.internal.telephony.Phone;
@@ -479,13 +480,21 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
     }
 
     public boolean supplyPin(String pin, int subscription) {
+        int [] resultArray = supplyPinReportResult(pin, subscription);
+        return (resultArray[0] == PhoneConstants.PIN_RESULT_SUCCESS) ? true : false;
+    }
+    public boolean supplyPuk(String puk, String pin, int subscription) {
+        int [] resultArray = supplyPukReportResult(puk, pin, subscription);
+        return (resultArray[0] == PhoneConstants.PIN_RESULT_SUCCESS) ? true : false;
+    }
+    public int[] supplyPinReportResult(String pin, int subscription) {
         enforceModifyPermission();
         final UnlockSim checkSimPin = new UnlockSim(getPhone(subscription).getIccCard());
         checkSimPin.start();
         return checkSimPin.unlockSim(null, pin);
     }
 
-    public boolean supplyPuk(String puk, String pin, int subscription) {
+    public int[] supplyPukReportResult(String puk, String pin, int subscription) {
         enforceModifyPermission();
         final UnlockSim checkSimPuk = new UnlockSim(getPhone(subscription).getIccCard());
         checkSimPuk.start();
@@ -505,7 +514,8 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
         private final IccCard mSimCard;
 
         private boolean mDone = false;
-        private boolean mResult = false;
+        private int mResult = PhoneConstants.PIN_GENERAL_FAILURE;
+        private int mRetryCount = -1;
 
         // For replies from SimCard interface
         private Handler mHandler;
@@ -529,7 +539,18 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
                             case SUPPLY_PIN_COMPLETE:
                                 Log.d(LOG_TAG, "SUPPLY_PIN_COMPLETE");
                                 synchronized (UnlockSim.this) {
-                                    mResult = (ar.exception == null);
+                                    mRetryCount = msg.arg1;
+                                    if (ar.exception != null) {
+                                        if (ar.exception instanceof CommandException &&
+                                                ((CommandException)(ar.exception)).getCommandError()
+                                                == CommandException.Error.PASSWORD_INCORRECT) {
+                                            mResult = PhoneConstants.PIN_PASSWORD_INCORRECT;
+                                        } else {
+                                            mResult = PhoneConstants.PIN_GENERAL_FAILURE;
+                                        }
+                                    } else {
+                                        mResult = PhoneConstants.PIN_RESULT_SUCCESS;
+                                    }
                                     mDone = true;
                                     UnlockSim.this.notifyAll();
                                 }
@@ -549,7 +570,7 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
          *
          * If PUK is not null, unlock SIM card with PUK and set PIN code
          */
-        synchronized boolean unlockSim(String puk, String pin) {
+        synchronized int[] unlockSim(String puk, String pin) {
 
             while (mHandler == null) {
                 try {
@@ -576,7 +597,10 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
                 }
             }
             Log.d(LOG_TAG, "done");
-            return mResult;
+            int[] resultArray = new int[2];
+            resultArray[0] = mResult;
+            resultArray[1] = mRetryCount;
+            return resultArray;
         }
     }
 

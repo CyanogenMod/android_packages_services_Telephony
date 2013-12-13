@@ -67,6 +67,9 @@ public class MSimCallNotifier extends CallNotifier {
     private InCallTonePlayer mSupervisoryCallHoldTonePlayer = null;
     private InCallTonePlayer mLocalCallWaitingTonePlayer = null;
 
+    private static final boolean sLocalCallHoldToneEnabled =
+            SystemProperties.getBoolean("persist.radio.lch_inband_tone", false);
+
     /**
      * Initialize the singleton CallNotifier instance.
      * This is only done once, at startup, from PhoneApp.onCreate().
@@ -853,11 +856,15 @@ public class MSimCallNotifier extends CallNotifier {
             mLocalCallReminderTonePlayer = new InCallTonePlayer(InCallTonePlayer.TONE_HOLD_RECALL);
             mLocalCallReminderTonePlayer.start();
         }
-        if (mSupervisoryCallHoldTonePlayer == null) {
-            log(" startMSimInCallTones: Supervisory call hold tone ");
-            mSupervisoryCallHoldTonePlayer =
-                    new InCallTonePlayer(InCallTonePlayer.TONE_SUPERVISORY_CH);
-            mSupervisoryCallHoldTonePlayer.start();
+        if (sLocalCallHoldToneEnabled) {
+            // Only play Supervisory call hold tone when
+            // "persist.radio.lch_inband_tone" is set to true.
+            if (mSupervisoryCallHoldTonePlayer == null) {
+                log(" startMSimInCallTones: Supervisory call hold tone ");
+                mSupervisoryCallHoldTonePlayer =
+                        new InCallTonePlayer(InCallTonePlayer.TONE_SUPERVISORY_CH);
+                mSupervisoryCallHoldTonePlayer.start();
+            }
         }
     }
 
