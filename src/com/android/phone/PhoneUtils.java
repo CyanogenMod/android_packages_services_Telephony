@@ -3445,4 +3445,20 @@ public class PhoneUtils {
         }
         return nextSub;
     }
+
+    /**
+     * Check whether any VT is present.
+     * @return If present, return true. If not, return false.
+     */
+    public static boolean isImsVtCallPresent() {
+        boolean isVideoCallActive = false;
+        Phone phone = getImsPhone(PhoneGlobals.getInstance().mCM);
+        if (phone != null) {
+            isVideoCallActive = isImsVideoCall(phone.getForegroundCall()) ||
+                    isImsVideoCall(phone.getBackgroundCall()) ||
+                    isImsVideoCall(phone.getRingingCall());
+        }
+        if (DBG) log("isImsVtCallPresent: " + isVideoCallActive);
+        return isVideoCallActive;
+    }
 }
