@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+   
+    <!-- Advanced Settings -->
+    <string name="incall_vibration">通话振动提示</string>
+    <string name="vibrate_outgoing">接通振动</string>
+    <string name="vibrate_call_waiting">通话等待振动提示</string>
+    <string name="vibrate_hangup">挂断振动提示</string>
+    <string name="vibrate_45">每分钟提示</string>
+    <string name="vibrate_45_sum">通话中，每到40秒时，振动提示</string>
+    <string name="show_ssn_label">事件通知</string>
+    <string name="show_ssn_summary">通知提示各种和通话相关的网络事件</string>
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">黑名单</string>
+    <string name="blacklist_summary_disabled">关闭</string>
+    <string name="blacklist_summary">添加到黑名单的号码，来电会被拦截</string>
+
+    <!-- Blacklist notifications -->
+    <string name="blacklist_notification">%s来电被拦截</string>
+    <string name="blacklist_notification_private_number">拦截了一个隐私号码</string>
+    <string name="blacklist_notification_list_private">隐私</string>
+    <string name="blacklist_notification_unknown_number">拦截未知号码 %s</string>
+    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> 个号码已被拦截</string>
+    <string name="unblock_number">不拦截</string>
+</resources>
