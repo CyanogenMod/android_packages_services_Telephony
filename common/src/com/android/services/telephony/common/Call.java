@@ -199,6 +199,7 @@ public final class Call implements Parcelable {
         DIAL_MODIFIED_TO_DIAL,          /* DIAL request modified to DIAL with diferent data */
         ERROR_UNSPECIFIED,
         UNKNOWN,                        /* Disconnect cause not known */
+        SRVCC_CALL_DROP,                /* Call dropped because of SRVCC*/
         CALL_FAIL_MISC                  /* miscellaneous error not covered in above errors */
     }
 
