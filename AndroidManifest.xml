@@ -119,6 +119,7 @@
             <provider android:name="MSimIccProvider"
                       android:authorities="iccmsim"
                       android:multiprocess="true"
+                      android:exported="true"
                       android:readPermission="android.permission.READ_CONTACTS"
                       android:writePermission="android.permission.WRITE_CONTACTS" />
 
