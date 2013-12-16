@@ -962,6 +962,10 @@ public class CallModeler extends Handler {
                         Call.DisconnectCause.DIAL_MODIFIED_TO_SS)
                 .put(Connection.DisconnectCause.DIAL_MODIFIED_TO_DIAL,
                         Call.DisconnectCause.DIAL_MODIFIED_TO_DIAL)
+                .put(Connection.DisconnectCause.SRVCC_CALL_DROP,
+                        Call.DisconnectCause.SRVCC_CALL_DROP)
+                .put(Connection.DisconnectCause.CALL_FAIL_MISC,
+                        Call.DisconnectCause.CALL_FAIL_MISC)
                 .build();
 
     private Call.DisconnectCause translateDisconnectCauseFromTelephony(

@@ -3445,4 +3445,38 @@ public class PhoneUtils {
         }
         return nextSub;
     }
+
+    /**
+     * Check whether any VT is present.
+     * @return If present, return true. If not, return false.
+     */
+    public static boolean isImsVtCallPresent() {
+        boolean isVideoCallActive = false;
+        Phone phone = getImsPhone(PhoneGlobals.getInstance().mCM);
+        if (phone != null) {
+            isVideoCallActive = isImsVideoCall(phone.getForegroundCall()) ||
+                    isImsVideoCall(phone.getBackgroundCall()) ||
+                    isImsVideoCall(phone.getRingingCall());
+        }
+        if (DBG) log("isImsVtCallPresent: " + isVideoCallActive);
+        return isVideoCallActive;
+    }
+
+    /**
+     * Check whether a VT is allowed or not.
+     * @return If not allowed true, If allowed, return false.
+     */
+    public static boolean isImsVtCallNotAllowed(int callType) {
+        boolean isNotAllowed = false;
+        if (callType == Phone.CALL_TYPE_VT || callType == Phone.CALL_TYPE_VT_RX
+                || callType == Phone.CALL_TYPE_VT_TX) {
+            Phone phone = getImsPhone(PhoneGlobals.getInstance().mCM);
+            isNotAllowed = android.provider.Settings.Secure.getInt(
+                    phone.getContext().getContentResolver(),
+                    android.provider.Settings.Secure.PREFERRED_TTY_MODE,
+                    Phone.TTY_MODE_OFF) != Phone.TTY_MODE_OFF;
+        }
+        if (DBG) log("isImsVtCallNotAllowed: " + isNotAllowed);
+        return isNotAllowed;
+    }
 }

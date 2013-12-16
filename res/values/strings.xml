@@ -828,6 +828,8 @@
     <string name="tty_mode_option_summary">Set TTY mode</string>
     <string name="auto_retry_mode_title">Auto-retry</string>
     <string name="auto_retry_mode_summary">Enable Auto-retry mode</string>
+    <!-- TTY Mode change is NOT allowed during a VT call -->
+    <string name="tty_mode_not_allowed_vt_call">TTY Mode change is not allowed during a VT call</string>
 
     <!-- FDN list screen: menu item label -->
     <string name="menu_add">Add contact</string>
@@ -1534,6 +1536,8 @@
 
     <!-- Title of the alert dialog to notify user that there is no IMS connectivity. [CHAR LIMIT=40] -->
     <string name="no_volte">Unable to make IMS call</string>
+    <!-- Title of the alert dialog to notify user that there is VT is not allowed when TTY mode is ON. [CHAR LIMIT=40] -->
+    <string name="no_vt_allowed">To place a video call, turn off the TTY mode</string>
 
     <!-- Option for whether the SIP service should send keepalive messages. [CHAR LIMIT=40] -->
     <string translatable="true" name="sip_system_decide">Automatic</string>
