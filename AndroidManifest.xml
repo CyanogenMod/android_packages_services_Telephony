@@ -752,6 +752,15 @@
             <action android:name="android.intent.action.MAIN" />
         </intent-filter>
     </activity>
+
+
+        <activity android:name="EmergencyCallList"
+                android:label="@string/emergency_call_list_title">
+           <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
     <permission android:name="com.android.phone.CHANGE_NETWORK_MODE"
