@@ -121,4 +121,11 @@
   <string name="no_call_barring">没有设置呼叫限制</string>
   <string name="cb_psw_dont_match">密码不匹配！</string>
   <string name="operation_successfully">操作成功！</string>
+  <string name="emergency_call_list_title">紧急电话</string>
+  <string name="emergency_call">拨打紧急电话</string>
+  <string name="new_emergency_number">添加紧急电话</string>
+  <string name="delete_emergency_number">删除紧急电话</string>
+  <string name="emergency_call_number">紧急电话号码</string>
+  <string name="emergency_number_exist">紧急电话已存在!</string>
+  <string name="emergency_number_save_error">紧急电话号码太长!</string>
 </resources>

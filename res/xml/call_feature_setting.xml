@@ -17,6 +17,16 @@
     xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
     android:title="@string/call_settings">
 
+    <PreferenceScreen
+        android:key="emergency_call_list"
+        android:title="@string/emergency_call_list_title"
+        android:persistent="false">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.EmergencyCallList" />
+    </PreferenceScreen>
+
     <PreferenceCategory
         android:key="button_ringtone_category_key"
         android:title="@string/preference_category_ringtone"

@@ -203,4 +203,13 @@
     <string name="no_call_barring">No call blocking</string>
     <string name="cb_psw_dont_match">Passwords do not match</string>
     <string name="operation_successfully">Operation completed successfully!</string>
+
+    <!-- Emergency call number settings -->
+    <string name="emergency_call_list_title">Emergency Call List</string>
+    <string name="emergency_call">Call</string>
+    <string name="new_emergency_number">New Emergency Number</string>
+    <string name="delete_emergency_number">Delete Emergency Number</string>
+    <string name="emergency_call_number">Emergency Call Number</string>
+    <string name="emergency_number_exist">Emergency number already existed!</string>
+    <string name="emergency_number_save_error">Emergency number too long!</string>
 </resources>
