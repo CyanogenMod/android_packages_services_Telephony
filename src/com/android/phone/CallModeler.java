@@ -746,7 +746,7 @@ public class CallModeler extends Handler {
         if (callIsActive) {
             canModifyCall = PhoneUtils.isVTModifyAllowed(connection);
         }
-        canAddParticipant = PhoneUtils.isCallOnImsEnabled() && canAddCall;
+        canAddParticipant = PhoneUtils.canAddParticipant(mCallManager) && canAddCall;
 
         // "Mute": only enabled when the foreground call is ACTIVE.
         // (It's meaningless while on hold, or while DIALING/ALERTING.)
