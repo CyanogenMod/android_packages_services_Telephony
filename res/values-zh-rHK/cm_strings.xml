@@ -82,4 +82,6 @@
   <string name="sub_no_sim">沒有 SIM 卡</string>
   <string name="msim_call_selector_title">通話 <xliff:g id="number">%s</xliff:g> 透過</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
+  <string name="headset_plugin_view_text">耳機已插入到手機</string>
+  <string name="headset_plugin_view_title">耳機插入</string>
 </resources>
