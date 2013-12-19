@@ -306,9 +306,9 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         int preferredNetworkMode = RILConstants.PREFERRED_NETWORK_MODE;
         if (TelephonyManager.getLteOnCdmaModeStatic() == PhoneConstants.LTE_ON_CDMA_TRUE) {
             preferredNetworkMode = Phone.NT_MODE_GLOBAL;
-	}
+        }
         int network = Settings.Global.getInt(mPhone.getContext().getContentResolver(),
-            Settings.Global.PREFERRED_NETWORK_MODE, preferredNetworkMode);
+                Settings.Global.PREFERRED_NETWORK_MODE, preferredNetworkMode);
         return network;
     }
 
@@ -334,7 +334,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                 network = Phone.NT_MODE_LTE_GSM_WCDMA;
                 break;
 	    case Phone.NT_MODE_LTE_GSM_WCDMA:
-                network = NT_MODE_WCDMA_PREF;
+                network = Phone.NT_MODE_WCDMA_PREF;
                 break;
 	    case Phone.NT_MODE_GSM_UMTS:
                 network = Phone.NT_MODE_GLOBAL;
