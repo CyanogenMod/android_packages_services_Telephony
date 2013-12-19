@@ -140,4 +140,6 @@
   <string name="ipcall_sub_summery">修改IP电话前缀</string>
   <string name="ipcall_dialog_title">IP电话设置</string>
   <string name="ipcall_dialog_edit_hint">请输入IP电话前缀</string>
+  <string name="headset_plugin_view_text">耳机已插入到手机。</string>
+  <string name="headset_plugin_view_title">耳机插入</string>
 </resources>

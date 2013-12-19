@@ -32,4 +32,6 @@
   <string name="enable_reverse_lookup_summary">為未知來電號碼查詢聯絡人或地點資料</string>
   <string name="sub_no_sim">沒有 SIM 卡</string>
   <string name="fdn_empty_number">"FDN 未更新：號碼不能為空。"</string>
+  <string name="headset_plugin_view_text">耳機已插入到手機</string>
+  <string name="headset_plugin_view_title">耳機插入</string>
 </resources>
