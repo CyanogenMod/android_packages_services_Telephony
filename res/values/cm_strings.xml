@@ -230,4 +230,8 @@
     <string name="ipcall_sub_summery">Edit IP call prefix</string>
     <string name="ipcall_dialog_title">IP call settings</string>
     <string name="ipcall_dialog_edit_hint">IP prefix</string>
+
+    <!-- Headset notification -->
+    <string name="headset_plugin_view_text">Headset inserted.</string>
+    <string name="headset_plugin_view_title">Headset</string>
 </resources>

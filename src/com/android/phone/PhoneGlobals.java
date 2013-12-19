@@ -1186,6 +1186,12 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         if (mTtyEnabled) {
             mHandler.sendMessage(mHandler.obtainMessage(EVENT_TTY_PREFERRED_MODE_CHANGED, 0));
         }
+
+        if (pluggedIn) {
+            notificationMgr.showHeadSetPlugin();
+        } else {
+            notificationMgr.cancelHeadSetPlugin();
+        }
     }
 
     /**
