@@ -20,6 +20,7 @@
 package com.android.phone;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -29,6 +30,8 @@ import android.util.Log;
 import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
+
+import com.android.internal.telephony.MSimConstants;
 
 import com.codeaurora.telephony.msim.MSimPhoneFactory;
 
@@ -42,6 +45,15 @@ public class MSimEditFdnContactScreen extends EditFdnContactScreen {
     private static final boolean DBG = false;
 
     private static int mSubscription = 0;
+
+    @Override
+    protected void handleSimAbsentIntent(Context context, Intent intent) {
+        int sub = intent.getIntExtra(MSimConstants.SUBSCRIPTION_KEY,
+                MSimConstants.DEFAULT_SUBSCRIPTION);
+        //Check if this intent is for this subscripton
+        if (sub != mSubscription) return;
+        super.handleSimAbsentIntent(context, intent);
+    }
 
     private Handler mHandler = new Handler();
 
