@@ -331,6 +331,12 @@ public class MobileNetworkSettings extends PreferenceActivity
             Preference pref = prefSet.findPreference(BUTTON_CARRIER_SETTINGS_KEY);
             if (pref != null) {
                 prefSet.removePreference(pref);
+                // Some times carrier settings added multiple times(ex: for world mode)
+                // so, remove carrier settings if there a second one exists.
+                pref = prefSet.findPreference(BUTTON_CARRIER_SETTINGS_KEY);
+                if (pref != null) {
+                    prefSet.removePreference(pref);
+                }
             }
         }
 
