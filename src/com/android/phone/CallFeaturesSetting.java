@@ -197,6 +197,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private static final String BUTTON_PROXIMITY_KEY   = "button_proximity_key";
     private static final String SHOW_DURATION_KEY      = "duration_enable_key";
+    private static final String BUTTON_VIBRATE_CONNECTED_KEY = "button_vibrate_after_connected";
 
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
@@ -343,6 +344,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private ListPreference mT9SearchInputLocale;
     private CheckBoxPreference mButtonProximity;
     private CheckBoxPreference mShowDurationCheckBox;
+    private CheckBoxPreference mVibrateAfterConnected;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -652,6 +654,10 @@ public class CallFeaturesSetting extends PreferenceActivity
                     Constants.SETTINGS_PROXIMITY_SENSOR, checked ? 1 : 0);
             mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
                     : R.string.proximity_off_summary);
+        } else if (preference == mVibrateAfterConnected) {
+            boolean doVibrate = (Boolean) objValue;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, doVibrate ? 1 : 0);
         } else if (preference == mVoicemailProviders) {
             final String newProviderKey = (String) objValue;
             if (DBG) {
@@ -1662,6 +1668,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mIncomingCallStyle = (ListPreference) findPreference(BUTTON_INCOMING_CALL_STYLE);
         mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
         mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
+        mVibrateAfterConnected = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1709,6 +1716,10 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         if (mShowDurationCheckBox != null) {
             mShowDurationCheckBox.setOnPreferenceChangeListener(this);
+        }
+
+        if (mVibrateAfterConnected != null) {
+            mVibrateAfterConnected.setOnPreferenceChangeListener(this);
         }
 
         if (mButtonAutoRetry != null) {
@@ -2045,6 +2056,11 @@ public class CallFeaturesSetting extends PreferenceActivity
                     : R.string.duration_disable_summary);
         }
 
+        if (mVibrateAfterConnected != null) {
+            boolean checked = Settings.System.getInt(getContentResolver(),
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, 1) == 1;
+            mVibrateAfterConnected.setChecked(checked);
+        }
         lookupRingtoneName();
         updateBlacklistSummary();
 

@@ -157,5 +157,5 @@ public class Constants {
     /**
      * vibrate when the call accepted or not. 0 = Off 1 = On
      */
-    public static final String SETTINGS_VIBRATE_WHEN_ACCEPTED = "vibrate_when_accepted";
+    public static final String SETTINGS_VIBRATE_WHEN_ACCEPTED = "vibrate_on_accepted";
 }
