@@ -89,6 +89,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_SELECT_SUB_KEY  = "button_call_independent_serv";
     private static final String BUTTON_XDIVERT_KEY     = "button_xdivert";
     private static final String SHOW_DURATION_KEY      = "duration_enable_key";
+    private static final String BUTTON_VIBRATE_CONNECTED_KEY = "button_vibrate_after_connected";
 
     private static final String BUTTON_SIP_CALL_OPTIONS =
             "sip_call_options_key";
@@ -120,6 +121,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
     private ListPreference mButtonSipCallOptions;
     private SipSharedPreferences mSipSharedPreferences;
     private CheckBoxPreference mShowDurationCheckBox;
+    private CheckBoxPreference mVibrateAfterConnected;
 
     private PreferenceScreen mButtonXDivert;
     private int mNumPhones;
@@ -189,6 +191,10 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
                     Constants.SETTINGS_SHOW_CALL_DURATION, checked ? 1 : 0);
             mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
                     : R.string.duration_disable_summary);
+        } else if (preference == mVibrateAfterConnected) {
+            boolean doVibrate = (Boolean) objValue;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, doVibrate ? 1 : 0);
         } else if (preference == mButtonSipCallOptions) {
             handleSipCallOptionsChange(objValue);
         }
@@ -223,6 +229,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
         mButtonXDivert = (PreferenceScreen) findPreference(BUTTON_XDIVERT_KEY);
         mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
         mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
+        mVibrateAfterConnected = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
 
         final ContentResolver contentResolver = getContentResolver();
 
@@ -232,6 +239,10 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
 
         if (mShowDurationCheckBox != null) {
             mShowDurationCheckBox.setOnPreferenceChangeListener(this);
+        }
+
+        if (mVibrateAfterConnected != null) {
+            mVibrateAfterConnected.setOnPreferenceChangeListener(this);
         }
 
         if (mPlayDtmfTone != null) {
@@ -473,6 +484,12 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
             mShowDurationCheckBox.setChecked(checked);
             mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
                     : R.string.duration_disable_summary);
+        }
+
+        if (mVibrateAfterConnected != null) {
+            boolean checked = Settings.System.getInt(getContentResolver(),
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, 1) == 1;
+            mVibrateAfterConnected.setChecked(checked);
         }
     }
 

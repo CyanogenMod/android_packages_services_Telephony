@@ -172,4 +172,8 @@
     <string name="preferred_duration_title">Display duration</string>
     <string name="duration_enable_summary">Duration display enabled</string>
     <string name="duration_disable_summary">Duration display disabled</string>
+
+    <!-- Setting option name to enable or disable vibration after connected -->
+    <string name="vibrate_after_connected_title">Vibrate on connect</string>
+    <string name="vibrate_after_connected_summary">Vibrate when call accepted</string>
 </resources>
