@@ -468,17 +468,13 @@ public class CallModeler extends Handler {
             }
 
             if (mConfCallMap.containsKey(orphanedConnection)) {
-                final Call call = mCallMap.get(orphanedConnection);
+                final Call call = mConfCallMap.get(orphanedConnection);
                 call.setState(Call.State.IDLE);
                 out.add(call);
 
                 mConfCallMap.remove(orphanedConnection);
             }
         }
-
-        //Cleanup local connections/Calls which are not present in CallManager.
-        cleanupOrphanCalls(mCallMap, telephonyCalls, out);
-        cleanupOrphanCalls(mConfCallMap, telephonyCalls, out);
     }
 
     /**
@@ -1038,44 +1034,6 @@ public class CallModeler extends Handler {
             ssNotification.number = mSuppSvcNotification.number;
             call.setSuppServNotification(ssNotification);
             mSuppSvcNotification = null;
-        }
-    }
-
-
-    /**
-     * Sometimes (like in case of radio tech change during emergency call)
-     * Connection objects below CallManager, gets disposed and recreated
-     * without a DISCONNECT event reaching CallManager and upper layers.
-     * CallManager retrieves the current calls/connections from active phones
-     * after radio tech change.
-     * Cleanup local connections/Calls in TeleService which are not present
-     * in CallManager.
-     */
-    private void cleanupOrphanCalls(HashMap<Connection, Call> callMap,
-            final List<com.android.internal.telephony.Call> telephonyCalls,
-            List<Call> out) {
-        List<Connection> orphanConns = new ArrayList<Connection>();
-        for (Connection conn: callMap.keySet()) {
-            boolean found = false;
-            for (com.android.internal.telephony.Call telephonyCall : telephonyCalls) {
-                if (telephonyCall.hasConnection(conn)) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                orphanConns.add(conn);
-            }
-        }
-
-        for (Connection conn: orphanConns) {
-            Call call = getCallFromMap(callMap, conn, false);
-            if (call != null) {
-                Log.i(TAG, "Cleaning up an orphan call: " + call);
-                callMap.remove(conn);
-                call.setState(State.IDLE);
-                if (out != null) out.add(call);
-            }
         }
     }
 
