@@ -2616,6 +2616,22 @@ public class PhoneUtils {
         }
     }
 
+    /**
+     * returns true , If Call is on IMS and its service is enabled other case
+     * return false
+     * @param cm
+     * @return
+     */
+    static boolean canAddParticipant(CallManager cm) {
+        boolean ret = false;
+        Phone phone = cm.getActiveFgCall().getPhone();
+        int phoneType = phone.getPhoneType();
+        if (phoneType == PhoneConstants.PHONE_TYPE_IMS) {
+            ret = true;
+        }
+        return ret;
+    }
+
     static boolean okToAddCall(CallManager cm, int subscription) {
         if (!isCallOnImsEnabled()) {
             Phone phone = cm.getActiveFgCall(subscription).getPhone();
