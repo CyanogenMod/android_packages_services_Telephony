@@ -135,7 +135,12 @@ public class CallModeler extends Handler {
 
                 if (msg.obj != null && ((AsyncResult) msg.obj).result != null) {
                     mSuppSvcNotification =
-                            (SuppServiceNotification)(((AsyncResult) msg.obj).result);
+                            (SuppServiceNotification) (((AsyncResult) msg.obj).result);
+                    if (mSuppSvcNotification.code == SuppServiceNotification.MT_CODE_CALL_ON_HOLD
+                            || mSuppSvcNotification.code
+                            == SuppServiceNotification.MT_CODE_CALL_RETRIEVED) {
+                        onPhoneStateChanged(null);
+                    }
                 }
                 break;
             case CallStateMonitor.PHONE_ACTIVE_SUBSCRIPTION_CHANGE:
@@ -746,7 +751,7 @@ public class CallModeler extends Handler {
         if (callIsActive) {
             canModifyCall = PhoneUtils.isVTModifyAllowed(connection);
         }
-        canAddParticipant = PhoneUtils.isCallOnImsEnabled() && canAddCall;
+        canAddParticipant = PhoneUtils.canAddParticipant(mCallManager) && canAddCall;
 
         // "Mute": only enabled when the foreground call is ACTIVE.
         // (It's meaningless while on hold, or while DIALING/ALERTING.)
