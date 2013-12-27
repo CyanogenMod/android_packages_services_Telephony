@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="call_notif_unconditionalCF">Desvío incondicional de llamada activo</string>
+    <string name="call_notif_conditionalCF">Desvío condicional de llamada activo</string>
+    <string name="call_notif_MOcall_forwarding">Reenvío de llamada saliente</string>
+    <string name="call_notif_cugcall">Llamada de grupo cerrado</string>
+    <string name="call_notif_outgoing_barred">Excluidas llamadas salientes</string>
+    <string name="call_notif_incoming_barred">Excluidas llamadas entrantes</string>
+    <string name="call_notif_clir_suppression_rejected">Rechazadas llamadas ocultas</string>
+    <string name="call_notif_call_deflected">Llamada desviada</string>
+    <string name="call_notif_MTcall_forwarding">Llamada entrante desviada</string>
+    <string name="call_notif_multipartycall">Llamada múltiple</string>
+    <string name="call_notif_callonhold_released">Llamada recuperada</string>
+    <string name="call_notif_forwardcheckreceived">Llamada enviada</string>
+    <string name="call_notif_callconnectingect">Llamada conectándose por centralita</string>
+    <string name="call_notif_callconnectedect">Llamada conectada por centralita</string>
+    <string name="incall_vibration">Vibración en llamada</string>
+    <string name="vibrate_outgoing">Vibrar al contestar</string>
+    <string name="vibrate_call_waiting">Vibrar en llamada en espera</string>
+    <string name="vibrate_hangup">Vibrar al colgar</string>
+    <string name="vibrate_45">Vibrar cada minuto</string>
+    <string name="vibrate_45_sum">Vibrar en el segundo 45 de cada minuto de una llamada saliente</string>
+    <string name="show_ssn_label">Notificación de eventos</string>
+    <string name="show_ssn_summary">Mostrar la notificación de eventos de red relacionados con la gestión de llamadas</string>
+    <string name="blacklist_title">Lista negra</string>
+    <string name="blacklist_summary_disabled">Deshabilitada</string>
+    <string name="blacklist_summary">Las llamadas entrantes de los números en la lista negra serán bloqueadas</string>
+    <string name="blacklist_notification">Llamada de %s, bloqueada</string>
+    <string name="blacklist_notification_private_number">Llamada de número privado, bloqueada</string>
+    <string name="blacklist_notification_list_private">Privado</string>
+    <string name="blacklist_notification_unknown_number">Número desconocido %s, bloqueado</string>
+    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> llamadas fueron bloqueadas</string>
+    <string name="unblock_number">Desbloquear</string>
+    <string name="mwi_notification_title">Notificación buzón de voz</string>
+    <string name="mwi_notification_summary">Mostrar una notificación para los mensajes en espera del buzón de voz</string>
+    <string name="perm_change_mobile_network">Cambiar red (2G/3G)</string>
+    <string name="perm_change_mobile_network_desc">Las aplicaciones con este permiso pueden, en cualquier momento, cambiar entre datos 2G y 3G. Es más rápido 3G, pero consume más batería y puede costar más dinero.</string>
+
+    <!-- AOSP -->
+    <string name="throttle_status_subtext">Máx de <xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) del período <xliff:g id="used">%3$s</xliff:g>\nPróx período en <xliff:g id="used">%4$d</xliff:g> días (<xliff:g id="used">%5$s</xliff:g>)</string>
+    <string name="throttle_data_usage_subtext">Máx de <xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) del período <xliff:g id="used">%3$s</xliff:g></string>
+</resources>
