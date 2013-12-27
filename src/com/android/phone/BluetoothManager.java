@@ -120,13 +120,14 @@ public class BluetoothManager implements CallModeler.Listener {
             List<BluetoothDevice> deviceList = mBluetoothHeadset.getConnectedDevices();
 
             if (deviceList.size() > 0) {
-                BluetoothDevice device = deviceList.get(0);
                 isConnected = true;
-
-                if (VDBG) log("  - headset state = " +
-                              mBluetoothHeadset.getConnectionState(device));
-                if (VDBG) log("  - headset address: " + device);
-                if (VDBG) log("  - isConnected: " + isConnected);
+                if (VDBG) {
+                    for (int i = 0; i < deviceList.size(); i++) {
+                        BluetoothDevice device = deviceList.get(i);
+                        log("state = " + mBluetoothHeadset.getConnectionState(device)
+                                + "for headset: " + device);
+                    }
+                }
             }
         }
 
@@ -147,10 +148,17 @@ public class BluetoothManager implements CallModeler.Listener {
         if (deviceList.isEmpty()) {
             return false;
         }
-        BluetoothDevice device = deviceList.get(0);
-        boolean isAudioOn = mBluetoothHeadset.isAudioConnected(device);
-        if (VDBG) log("isBluetoothAudioConnected: ==> isAudioOn = " + isAudioOn);
-        return isAudioOn;
+
+        for (int i = 0; i < deviceList.size(); i++) {
+            BluetoothDevice device = deviceList.get(i);
+            boolean isAudioOn = mBluetoothHeadset.isAudioConnected(device);
+            if (VDBG) log("isBluetoothAudioConnected: ==> isAudioOn = " + isAudioOn
+                    + "for headset: " + device);
+            if (isAudioOn) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
