@@ -14,6 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="call_notif_unconditionalCF">Besąlygiškas skambučių peradresavimas aktyvus</string>
     <string name="call_notif_conditionalCF">Sąlygiškas skambučių peradresavimas aktyvus</string>
     <string name="call_notif_MOcall_forwarding">Išeinantys skambučiai yra peradresuojami</string>
