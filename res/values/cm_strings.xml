@@ -47,4 +47,8 @@
     <string name="blacklist_summary_disabled">Disabled</string>
     <string name="blacklist_summary">You will not receive incoming calls or messages from phone numbers on the blocked caller list</string>
 
+    <!-- My Phone Number -->
+    <string name="phone_number_label">My phone number</string>
+    <string name="phone_number_summary">Set the phone number for this device</string>
+    <string name="msisdn_alpha_tag" translatable="false">Voice Line 1</string>
 </resources>
