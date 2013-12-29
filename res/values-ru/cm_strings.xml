@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="call_notif_unconditionalCF">Включена безусловная переадресация вызова</string>
+    <string name="call_notif_conditionalCF">Включена условная переадресация вызова</string>
+    <string name="call_notif_MOcall_forwarding">Исходящий вызов переадресован</string>
+    <string name="call_notif_cugcall">Вызов в частную группу</string>
+    <string name="call_notif_outgoing_barred">Исходящий вызов запрещён</string>
+    <string name="call_notif_incoming_barred">Входящий вызов удалённо запрещён</string>
+    <string name="call_notif_clir_suppression_rejected">Анти-АОН во время этого вызова отключен сетью</string>
+    <string name="call_notif_call_deflected">Вызов удалённо переадресован</string>
+    <string name="call_notif_MTcall_forwarding">Входящий вызов переадресован</string>
+    <string name="call_notif_multipartycall">Входящая конференц-связь</string>
+    <string name="call_notif_callonhold_released">Вызов удалённо отменён</string>
+    <string name="call_notif_forwardcheckreceived">Вызов был переадресован</string>
+    <string name="call_notif_callconnectingect">Вызов соединяется через явную передачу вызова</string>
+    <string name="call_notif_callconnectedect">Вызов соединен через явную передачу вызова</string>
+
+    <string name="incall_vibration">Вибросигнал</string>
+    <string name="vibrate_outgoing">Вибрировать при ответе</string>
+    <string name="vibrate_call_waiting">Вибрировать при ожидании</string>
+    <string name="vibrate_hangup">Вибрировать при отбое</string>
+    <string name="vibrate_45">Вибрировать каждую минуту</string>
+    <string name="vibrate_45_sum">Вибрировать на 45 секунде каждой минуты во время исходящих вызовов</string>
+    <string name="show_ssn_label">Уведомления о событиях</string>
+    <string name="show_ssn_summary">Показывать уведомления о разных событиях сети, связанных с вызовом</string>
+
+    <string name="blacklist_title">Чёрный список</string>
+    <string name="blacklist_summary_disabled">Выключен</string>
+    <string name="blacklist_summary">Автоматически отклонять звонки и сообщения от указанных абонентов</string>
+
+    <string name="blacklist_notification">Вызов от %s отклонён</string>
+    <string name="blacklist_notification_private_number">Вызов со скрытого номера отклонён</string>
+    <string name="blacklist_notification_list_private">Скрытый номер</string>
+    <string name="blacklist_notification_unknown_number">Вызов с неизвестного номера (%s) отклонён</string>
+    <string name="blacklist_notification_multiple">Отклонено вызовов: <xliff:g id="count">%d</xliff:g></string>
+    <string name="unblock_number">Разблокировать</string>
+
+    <string name="mwi_notification_title">Индикатор ожидания сообщения</string>
+    <string name="mwi_notification_summary">Показывать индикатор ожидания сообщения уведомлений голосовой почты</string>
+
+    <string name="perm_change_mobile_network">Изменение режима сети (2G/3G)</string>
+    <string name="perm_change_mobile_network_desc">Позволяет приложению в любое время изменять режим сети между 2G и 3G. 3G быстрее, но потребляет больше заряда аккумулятора и может повлечь дополнительные расходы.</string>
+</resources>
