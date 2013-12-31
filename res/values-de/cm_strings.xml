@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="call_notif_unconditionalCF">Dauerhafte Anrufweiterleitung ist aktiviert</string>
+    <string name="call_notif_conditionalCF">Bedingte Anrufweiterleitung ist aktiviert</string>
+    <string name="call_notif_MOcall_forwarding">Anruf wird weitergeleitet</string>
+    <string name="call_notif_cugcall">Anruf in geschlossener Benutzergruppe</string>
+    <string name="call_notif_outgoing_barred">Ausgehende Anrufe sind gesperrt</string>
+    <string name="call_notif_incoming_barred">Eingehende Anrufe sind bei der Gegenseite gesperrt</string>
+    <string name="call_notif_clir_suppression_rejected">Unterdrückung der ausgehenden Rufnummer wurde abgewiesen</string>
+    <string name="call_notif_call_deflected">Anruf wird von der Gegenseite weitergeleitet</string>
+    <string name="call_notif_MTcall_forwarding">Eingehender Anruf wird weitergeleitet</string>
+    <string name="call_notif_multipartycall">Telefonkonferenz</string>
+    <string name="call_notif_callonhold_released">Gehaltener Anruf wurde beendet</string>
+    <string name="call_notif_forwardcheckreceived">Anruf wurde weitergeleitet</string>
+    <string name="call_notif_callconnectingect">Anruf wird in Vermittlungsstelle verbunden</string>
+    <string name="call_notif_callconnectedect">Anruf wurde in Vermittlungsstelle verbunden</string>
+    <string name="incall_vibration">Vibrationseinstellungen</string>
+    <string name="vibrate_outgoing">Bei Annahme vibrieren</string>
+    <string name="vibrate_call_waiting">Beim Anklopfen vibrieren</string>
+    <string name="vibrate_hangup">Beim Auflegen vibrieren</string>
+    <string name="vibrate_45">Jede Minute vibrieren</string>
+    <string name="vibrate_45_sum">Während ausgehender Anrufe 15 Sekunden vor dem Ende jeder vollen Minute vibrieren</string>
+    <string name="show_ssn_label">Ereignis-Benachrichtigung</string>
+    <string name="show_ssn_summary">Benachrichtigungen für verschiedene Anrufereignisse anzeigen</string>
+    <string name="blacklist_title">Sperrliste</string>
+    <string name="blacklist_summary_disabled">Deaktiviert</string>
+    <string name="blacklist_summary">Eingehende Anrufe von Nummern, die sich in der Sperrliste befinden, werden abgewiesen</string>
+    <string name="blacklist_notification">Ein Anruf von %s wurde abgewiesen</string>
+    <string name="blacklist_notification_private_number">Ein Anruf mit unterdrückter Nummer wurde abgewiesen</string>
+    <string name="blacklist_notification_unknown_number">Ein Anruf von %s wurde abgewiesen</string>
+    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> abgewiesene Anrufe</string>
+    <string name="blacklist_notification_list_private">Unterdrückte Nummer</string>
+    <string name="unblock_number">Sperre aufheben</string>
+    <string name="mwi_notification_title">Indikator anzeigen</string>
+    <string name="mwi_notification_summary">Einen Indikator für wartende Anrufbenachrichtigungen anzeigen</string>
+    <string name="perm_change_mobile_network">Netzmodus wechseln (2G/3G)</string>
+    <string name="perm_change_mobile_network_desc">Ermöglicht der App, jederzeit zwischen 2G- und 3G-Netz zu wechseln</string>
+</resources>
