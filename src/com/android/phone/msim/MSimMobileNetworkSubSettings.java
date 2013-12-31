@@ -73,6 +73,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
     private static final String BUTTON_DATA_ENABLED_KEY = "button_data_enabled_key";
     private static final String BUTTON_ROAMING_KEY = "button_roaming_key";
     private static final String BUTTON_PREFERED_NETWORK_MODE = "preferred_network_mode_key";
+    private static final String BUTTON_CARRIER_SETTINGS_KEY = "carrier_settings_key";
 
     static final int preferredNetworkMode = Phone.PREFERRED_NT_MODE;
 
@@ -237,6 +238,23 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 throw new IllegalStateException("Unexpected phone type: " + phoneType);
             }
         }
+
+        // Read platform settings for carrier settings
+        final boolean isCarrierSettingsEnabled = getResources().getBoolean(
+                R.bool.config_carrier_settings_enable);
+        if (!isCarrierSettingsEnabled) {
+            Preference pref = prefSet.findPreference(BUTTON_CARRIER_SETTINGS_KEY);
+            if (pref != null) {
+                prefSet.removePreference(pref);
+                // Some times carrier settings added multiple times(ex: for world mode)
+                // so, remove carrier settings if there a second one exists.
+                pref = prefSet.findPreference(BUTTON_CARRIER_SETTINGS_KEY);
+                if (pref != null) {
+                    prefSet.removePreference(pref);
+                }
+            }
+        }
+
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
             // android.R.id.home will be triggered in onOptionsItemSelected()
