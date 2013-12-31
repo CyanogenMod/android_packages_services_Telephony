@@ -472,8 +472,6 @@ public class MSimCallNotifier extends CallNotifier {
     @Override
     protected void onCustomRingQueryComplete(Connection c) {
         boolean isQueryExecutionTimeExpired = false;
-        boolean stateRinging = false;
-        int subscription = 0;
         synchronized (mCallerInfoQueryStateGuard) {
             if (mCallerInfoQueryState == CALLERINFO_QUERYING) {
                 mCallerInfoQueryState = CALLERINFO_QUERY_READY;
@@ -487,23 +485,17 @@ public class MSimCallNotifier extends CallNotifier {
             EventLog.writeEvent(EventLogTags.PHONE_UI_RINGER_QUERY_ELAPSED);
         }
 
+        Call ringingCall;
         for (int i = 0; i < MSimTelephonyManager.getDefault().getPhoneCount(); i++) {
             if (mCM.getState(i) == PhoneConstants.State.RINGING) {
-                stateRinging = true;
-                subscription = i;
-                break;
+                // If the ringing call still does not have any connection anymore, do not send the
+                // notification to the CallModeler.
+                ringingCall = mCM.getFirstActiveRingingCall(i);
+                if (ringingCall != null && ringingCall.getLatestConnection() == c) {
+                    ringAndNotifyOfIncomingCall(c);
+                    break;
+                }
             }
-        }
-
-        if (stateRinging) {
-            // If the ringing call still does not have any connection anymore, do not send the
-            // notification to the CallModeler.
-            final Call ringingCall = mCM.getFirstActiveRingingCall(subscription);
-            if (ringingCall != null && ringingCall.getLatestConnection() == c) {
-                ringAndNotifyOfIncomingCall(c);
-            }
-        } else {
-            return;
         }
     }
 
@@ -826,7 +818,8 @@ public class MSimCallNotifier extends CallNotifier {
         int otherSub = PhoneUtils.getOtherActiveSub(activeSub);
 
         // If there is no background active subscription available, stop playing the tones.
-        if (otherSub != MSimConstants.INVALID_SUBSCRIPTION) {
+        if ((otherSub != MSimConstants.INVALID_SUBSCRIPTION) &&
+                (mCM.getState(activeSub) != PhoneConstants.State.IDLE)) {
             // Do not start/stop LCH/SCH tones when phone is in RINGING state.
             if ((mCM.getState(activeSub) != PhoneConstants.State.RINGING) &&
                     (mCM.getState(otherSub) != PhoneConstants.State.RINGING)) {
