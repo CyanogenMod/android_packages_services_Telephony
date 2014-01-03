@@ -163,4 +163,7 @@
 
     <!-- Consolidate the unanswered and unreachable call forward -->
     <bool name="join_call_forward">false</bool>
+
+    <!-- Disable SUB0 APN in DSDS mode-->
+    <bool name="disable_data_sub2">false</bool>
 </resources>

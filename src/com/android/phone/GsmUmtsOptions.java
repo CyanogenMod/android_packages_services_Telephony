@@ -23,10 +23,13 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.content.res.Resources;
+import android.telephony.MSimTelephonyManager;
 
+import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.codeaurora.telephony.msim.SubscriptionManager;
 
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
@@ -63,7 +66,14 @@ public class GsmUmtsOptions {
     protected void create() {
         mPrefActivity.addPreferencesFromResource(R.xml.gsm_umts_options);
         mButtonAPNExpand = (PreferenceScreen) mPrefScreen.findPreference(BUTTON_APN_EXPAND_KEY);
-        mButtonAPNExpand.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
+
+        if (needDisableSub2Apn(mSubscription)) {
+            log("disable sub2 apn");
+            mPrefScreen.removePreference(mButtonAPNExpand);
+        } else {
+            mButtonAPNExpand.getIntent().putExtra(SUBSCRIPTION_KEY,
+                    mSubscription);
+        }
         mButtonOperatorSelectionExpand =
                 (PreferenceScreen) mPrefScreen.findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY);
         mButtonOperatorSelectionExpand.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
@@ -130,5 +140,16 @@ public class GsmUmtsOptions {
 
     protected void log(String s) {
         android.util.Log.d(LOG_TAG, s);
+    }
+
+    protected boolean needDisableSub2Apn(int sub) {
+        if (mPrefActivity.getResources().getBoolean(R.bool.disable_data_sub2)) {
+            //when current SUB is SUB2 , in DSDS mode, all 2 subscriptions are active , we need disable current apn option.
+            return MSimConstants.SUB2 == sub
+                    && MSimTelephonyManager.getDefault().getMultiSimConfiguration()
+                            .equals(MSimTelephonyManager.MultiSimVariants.DSDS)
+                    && 2 == SubscriptionManager.getInstance().getActiveSubscriptionsCount();
+        }
+        return false;
     }
 }
