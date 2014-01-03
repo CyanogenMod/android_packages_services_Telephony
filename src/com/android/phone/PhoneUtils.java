@@ -65,6 +65,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.TelephonyProperties;
+import com.android.internal.util.Objects;
 import com.android.internal.telephony.cdma.CdmaConnection;
 import com.android.internal.telephony.sip.SipPhone;
 import com.android.phone.CallGatewayManager.RawGatewayInfo;
@@ -237,6 +238,25 @@ public class PhoneUtils {
                         cn = cnlist.next();
                         if (!fgConnections.contains(cn) && !bgConnections.contains(cn)) {
                             if (DBG) log("connection '" + cn + "' not accounted for, removing.");
+                            for (Connection fgcn : fgConnections) {
+                                if (Objects.equal(cn.getAddress(), fgcn.getAddress())) {
+                                    Boolean bMute = sConnectionMuteTable.get(cn);
+                                    log("updating fg conn '" + fgcn +"' wth mute value: " + bMute +
+                                            " address: " + fgcn.getAddress());
+                                    sConnectionMuteTable.put(fgcn, bMute);
+                                    break;
+                                }
+                            }
+
+                            for (Connection bgcn : bgConnections) {
+                                if (Objects.equal(cn.getAddress(), bgcn.getAddress())) {
+                                    Boolean bMute = sConnectionMuteTable.get(cn);
+                                    log("updating bg conn '" + bgcn + "' wth mute value: " + bMute +
+                                            " address: " + bgcn.getAddress());
+                                    sConnectionMuteTable.put(bgcn, bMute);
+                                    break;
+                                }
+                            }
                             cnlist.remove();
                         }
                     }
