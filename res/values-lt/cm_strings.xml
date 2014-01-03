@@ -50,4 +50,6 @@
     <string name="mwi_notification_summary">Rodyti gaunamus balso pašto pranešimus</string>
     <string name="perm_change_mobile_network">Pakeisti tinklą (2G/3G)</string>
     <string name="perm_change_mobile_network_desc">Leisti programai keisti tarp 2G ir 3G duomenų bet kuriuo metu. 3G yra greitesnis bet sunaudoja daugiau baterijos, taip pat tai jums gali kainuoti daugiau pinigų.</string>
+    <string name="phone_number_label">Mano telefono numeris</string>
+    <string name="phone_number_summary">Įveskite prietaisui mobilųjį telefono numerį</string>
 </resources>
