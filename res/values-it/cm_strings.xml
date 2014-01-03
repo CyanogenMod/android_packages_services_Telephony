@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="call_notif_unconditionalCF">Deviazione incondizionata attiva</string>
+    <string name="call_notif_conditionalCF">Deviazione condizionata attiva</string>
+    <string name="call_notif_MOcall_forwarding">Chiamata in uscita deviata</string>
+    <string name="call_notif_cugcall">Chiamata in gruppo chiuso di utenti (CUG)</string>
+    <string name="call_notif_outgoing_barred">Blocco chiamate in uscita</string>
+    <string name="call_notif_incoming_barred">Blocco chiamate in ingresso al destinatario</string>
+    <string name="call_notif_clir_suppression_rejected">Soppressione ID chiamante per proprio numero rifiutata dalla rete</string>
+    <string name="call_notif_call_deflected">Chiamata inoltrata dal destinatario</string>
+    <string name="call_notif_MTcall_forwarding">Chiamata in ingresso inoltrata</string>
+    <string name="call_notif_multipartycall">Chiamata multipla</string>
+    <string name="call_notif_callonhold_released">Chiamata abbandonata dal destinatario</string>
+    <string name="call_notif_forwardcheckreceived">La chiamata è stata inoltrata</string>
+    <string name="call_notif_callconnectingect">Chiamata in connessione con trasferimento di chiamata</string>
+    <string name="call_notif_callconnectedect">Chiamata connessa con trasferimento di chiamata</string>
+    <string name="incall_vibration">Vibrazioni in chiamata</string>
+    <string name="vibrate_outgoing">Vibra alla risposta</string>
+    <string name="vibrate_call_waiting">Vibra su messa in attesa</string>
+    <string name="vibrate_hangup">Vibra al termine chiamata</string>
+    <string name="vibrate_45">Vibra ogni minuto</string>
+    <string name="vibrate_45_sum">Vibra al 45esimo secondo di ogni minuto durante le chiamate in uscita</string>
+    <string name="show_ssn_label">Notifiche eventi</string>
+    <string name="show_ssn_summary">Mostra una notifica per vari eventi di rete relativi alla gestione delle chiamate</string>
+    <string name="blacklist_title">Blacklist</string>
+    <string name="blacklist_summary_disabled">Disattivata</string>
+    <string name="blacklist_summary">Le chiamate in entrata provenienti da numeri di telefono presenti nella blacklist verranno bloccate</string>
+    <string name="blacklist_notification">Bloccata una chiamata dal %s</string>
+    <string name="blacklist_notification_private_number">Bloccata una chiamata da un numero privato</string>
+    <string name="blacklist_notification_list_private">Privato</string>
+    <string name="blacklist_notification_unknown_number">Numero sconosciuto: %s</string>
+    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> chiamate sono state bloccate</string>
+    <string name="unblock_number">Sblocca</string>
+    <string name="mwi_notification_title">Indicatore di messaggio in attesa</string>
+    <string name="mwi_notification_summary">Mostra le notifiche per i messaggi in attesa in segreteria</string>
+    <string name="perm_change_mobile_network">cambia rete (2G/3G)</string>
+    <string name="perm_change_mobile_network_desc">Consente all\'applicazione di passare da 2G a 3G e viceversa in qualsiasi momento. Il 3G è più veloce, consuma più batteria e può anche farti spendere di più.</string>
+    <string name="phone_number_label">Numero di telefono</string>
+    <string name="phone_number_summary">Imposta il numero di telefono di questo dispositivo</string>
+</resources>
