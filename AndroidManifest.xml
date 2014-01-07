@@ -709,5 +709,14 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="ManagedRoaming"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
