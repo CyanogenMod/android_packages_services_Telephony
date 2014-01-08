@@ -79,6 +79,7 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
     private SubscriptionData mUserSelSub;
     private SubscriptionManager mSubscriptionManager;
     private CardSubscriptionManager mCardSubscriptionManager;
+    private AirplaneModeBroadcastReceiver mReceiver;
     //mIsForeground is added to track if activity is in foreground
     private boolean mIsForeground = false;
 
@@ -146,7 +147,8 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
         }
         IntentFilter intentFilter =
                 new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-        registerReceiver(new AirplaneModeBroadcastReceiver(), intentFilter);
+        mReceiver = new AirplaneModeBroadcastReceiver();
+        registerReceiver(mReceiver, intentFilter);
     }
 
     /**
@@ -181,6 +183,7 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
         super.onDestroy();
         mCardSubscriptionManager.unRegisterForSimStateChanged(mHandler);
         mSubscriptionManager.unRegisterForSetSubscriptionCompleted(mHandler);
+        unregisterReceiver(mReceiver);
     }
 
     private boolean isAirplaneModeOn() {
@@ -628,11 +631,7 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
     // This is a method implemented for DialogInterface.OnClickListener.
     // Used to dismiss the dialogs when they come up.
     public void onClick(DialogInterface dialog, int which) {
-        // If the setSubscription failed for any of the sub, then don'd dismiss the
-        // set subscription screen.
-        if(!subErr) {
-            finish();
-        }
+        dialog.dismiss();
         updateCheckBoxes();
     }
 
