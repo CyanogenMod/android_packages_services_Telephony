@@ -50,4 +50,6 @@
     <string name="mwi_notification_summary">Einen Indikator für wartende Anrufbenachrichtigungen anzeigen</string>
     <string name="perm_change_mobile_network">Netzmodus wechseln (2G/3G)</string>
     <string name="perm_change_mobile_network_desc">Ermöglicht der App, jederzeit zwischen 2G- und 3G-Netz zu wechseln</string>
+    <string name="phone_number_label">Eigene Rufnummer</string>
+    <string name="phone_number_summary">Auf der SIM-Karte gespeicherte eigene Rufnummer setzen</string>
 </resources>
