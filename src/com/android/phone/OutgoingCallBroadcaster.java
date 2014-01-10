@@ -100,6 +100,7 @@ public class OutgoingCallBroadcaster extends Activity
     /** the key used to specify subscription to be used for emergency calls */
     private static final String BLUETOOTH = "Bluetooth";
 
+    private boolean mIPCall;
     /**
      * Identifier for intent extra for sending an empty Flash message for
      * CDMA networks. This message is used by the network to simulate a
@@ -346,6 +347,7 @@ public class OutgoingCallBroadcaster extends Activity
         Intent newIntent = new Intent(Intent.ACTION_CALL, uri);
         newIntent.putExtra(EXTRA_ACTUAL_NUMBER_TO_DIAL, number);
         newIntent.putExtra(SUBSCRIPTION_KEY, mSubscription);
+        newIntent.putExtra(PhoneConstants.IP_CALL, mIPCall);
         CallGatewayManager.checkAndCopyPhoneProviderExtras(intent, newIntent);
         PhoneUtils.copyImsExtras(intent, newIntent);
 
@@ -466,6 +468,7 @@ public class OutgoingCallBroadcaster extends Activity
             return;
         }
 
+        mIPCall = intent.getBooleanExtra(PhoneConstants.IP_CALL, false);
         boolean promptEnabled = MSimPhoneFactory.isPromptEnabled();
         String number = PhoneNumberUtils.getNumberFromIntent(intent, this);
         boolean isEmergency = PhoneNumberUtils.isEmergencyNumber(number);
@@ -488,6 +491,7 @@ public class OutgoingCallBroadcaster extends Activity
 
     private void processMSimIntent(Intent intent) {
         String action = intent.getAction();
+        intent.putExtra(PhoneConstants.IP_CALL, mIPCall);
         String number = PhoneNumberUtils.getNumberFromIntent(intent, this);
         boolean isConferenceUri = intent.getBooleanExtra(EXTRA_DIAL_CONFERENCE_URI, false);
         Log.d(TAG, "outGoingcallBroadCaster action is "+ action + " number = " + number);

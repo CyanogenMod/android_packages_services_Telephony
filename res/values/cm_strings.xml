@@ -223,4 +223,11 @@
     <string name="emergency_call_number">Emergency Call Number</string>
     <string name="emergency_number_exist">Emergency number already existed!</string>
     <string name="emergency_number_save_error">Emergency number too long!</string>
+
+    <!-- IP call settings -->
+    <string name="ipcall">IP call settings</string>
+    <string name="ipcall_sub_title">IP call settings</string>
+    <string name="ipcall_sub_summery">Edit IP call prefix</string>
+    <string name="ipcall_dialog_title">IP call settings</string>
+    <string name="ipcall_dialog_edit_hint">IP prefix</string>
 </resources>
