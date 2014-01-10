@@ -46,6 +46,13 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
+    <PreferenceScreen
+        android:key="button_ipprefix_key"
+        android:title="@string/ipcall_sub_title"
+        android:summary="@string/ipcall_sub_summery"
+        android:persistent="false">
+    </PreferenceScreen>
+
   <PreferenceCategory
       android:title="@string/incall_vibration">
 

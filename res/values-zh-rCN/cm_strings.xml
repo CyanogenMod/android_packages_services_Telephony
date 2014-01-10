@@ -128,4 +128,9 @@
   <string name="emergency_call_number">紧急电话号码</string>
   <string name="emergency_number_exist">紧急电话已存在!</string>
   <string name="emergency_number_save_error">紧急电话号码太长!</string>
+  <string name="ipcall">IP电话设置</string>
+  <string name="ipcall_sub_title">IP电话设置</string>
+  <string name="ipcall_sub_summery">修改IP电话前缀</string>
+  <string name="ipcall_dialog_title">IP电话设置</string>
+  <string name="ipcall_dialog_edit_hint">请输入IP电话前缀</string>
 </resources>
