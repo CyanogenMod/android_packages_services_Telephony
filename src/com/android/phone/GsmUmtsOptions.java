@@ -22,6 +22,7 @@ package com.android.phone;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.telephony.MSimTelephonyManager;
 
@@ -80,6 +81,15 @@ public class GsmUmtsOptions {
         enableScreen();
     }
 
+    private void enablePlmnIncSearch() {
+        if (mButtonOperatorSelectionExpand != null) {
+            // set the target intent
+            Intent intent = new Intent("org.codeaurora.settings.NETWORK_OPERATOR_SETTINGS_ASYNC");
+            intent.putExtra(SUBSCRIPTION_KEY, mSubscription);
+            mButtonOperatorSelectionExpand.setIntent(intent);
+        }
+    }
+
     public void onResume() {
         updateOperatorSelectionVisibility();
     }
@@ -116,6 +126,8 @@ public class GsmUmtsOptions {
             android.util.Log.e(LOG_TAG, "mButtonOperatorSelectionExpand is null");
             return;
         }
+
+        enablePlmnIncSearch();
         if (!mPhone.isManualNetSelAllowed()) {
             log("Manual network selection not allowed.Disabling Operator Selection menu.");
             mButtonOperatorSelectionExpand.setEnabled(false);
