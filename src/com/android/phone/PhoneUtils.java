@@ -70,7 +70,6 @@ import com.android.internal.telephony.cdma.CdmaConnection;
 import com.android.internal.telephony.sip.SipPhone;
 import com.android.phone.CallGatewayManager.RawGatewayInfo;
 import com.google.android.collect.Maps;
-import com.android.phone.ims.ImsSharedPreferences;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -2628,6 +2627,9 @@ public class PhoneUtils {
                         && ((fgCallState == Call.State.ACTIVE)
                             || (fgCallState == Call.State.IDLE)
                             || (fgCallState == Call.State.DISCONNECTED));
+            } else if (phoneType == PhoneConstants.PHONE_TYPE_IMS){
+                Log.e(LOG_TAG, "Unexpected IMS phone type add call not allowed");
+                return false;
             } else {
                 throw new IllegalStateException("Unexpected phone type: " + phoneType);
             }
@@ -3156,11 +3158,10 @@ public class PhoneUtils {
      * returns true only when atleast one of voice or video is supported.
      */
     public static boolean isCallOnImsEnabled(int callType) {
-        ImsSharedPreferences pref = new ImsSharedPreferences(PhoneGlobals.getInstance());
         boolean isEnabled = false;
-        boolean isVoiceSupported = pref.getImsSrvStatus(Phone.CALL_TYPE_VOICE) !=
+        boolean isVoiceSupported = PhoneGlobals.getImsServiceStatus(Phone.CALL_TYPE_VOICE) !=
                 IMS_SRV_STATUS_NOT_SUPPORTED;
-        boolean isVideoSupported = pref.getImsSrvStatus(Phone.CALL_TYPE_VT) !=
+        boolean isVideoSupported = PhoneGlobals.getImsServiceStatus(Phone.CALL_TYPE_VT) !=
                 IMS_SRV_STATUS_NOT_SUPPORTED;
         switch (callType) {
             case Phone.CALL_TYPE_UNKNOWN:
