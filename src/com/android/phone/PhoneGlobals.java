@@ -44,6 +44,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.IPowerManager;
 import android.os.Message;
+import android.os.Messenger;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -78,6 +79,8 @@ import com.android.server.sip.SipService;
 import com.android.services.telephony.common.AudioMode;
 
 import org.codeaurora.ims.IImsService;
+import org.codeaurora.ims.IImsServiceListener;
+
 import static com.android.internal.telephony.MSimConstants.DEFAULT_SUBSCRIPTION;
 import org.codeaurora.ims.csvt.ICsvtService;
 
@@ -122,6 +125,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     private static final int EVENT_TTY_MODE_GET = 15;
     private static final int EVENT_TTY_MODE_SET = 16;
     protected static final int EVENT_START_SIP_SERVICE = 17;
+    protected static final int EVENT_QUERY_SERVICE_STATUS = 18;
 
     // The MMI codes are also used by the InCallScreen.
     public static final int MMI_INITIATE = 51;
@@ -200,7 +204,8 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
 
     public static IImsService mImsService;
     public static ICsvtService mCsvtService;
-
+    private static int sImsVoiceSrvStatus = PhoneUtils.IMS_SRV_STATUS_NOT_SUPPORTED;
+    private static int sImsVideoSrvStatus = PhoneUtils.IMS_SRV_STATUS_NOT_SUPPORTED;
     // Internal PhoneApp Call state tracker
     CdmaPhoneCallState cdmaPhoneCallState;
 
@@ -381,6 +386,13 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
 
                 case EVENT_TTY_MODE_SET:
                     handleSetTTYModeResponse(msg);
+                    break;
+
+                case EVENT_QUERY_SERVICE_STATUS:
+                    AsyncResult ar = (AsyncResult) msg.obj;
+                    if (ar != null && ar.exception != null) {
+                        Log.e(LOG_TAG, msg.what + " failed " + ar.exception.toString());
+                    }
                     break;
             }
         }
@@ -636,15 +648,64 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         }
     }
 
-    private static ServiceConnection ImsServiceConnection = new ServiceConnection() {
+    private ServiceConnection ImsServiceConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName name, IBinder service) {
             //Get handle to IImsService.Stub.asInterface(service);
             mImsService = IImsService.Stub.asInterface(service);
             Log.d(LOG_TAG,"Ims Service Connected" + mImsService);
+            if (mImsService != null) {
+                try {
+                    int result = mImsService.registerCallback(imsServListener);
+                    if (result == 0) {
+                        Log.d(LOG_TAG, "Callback registered successfully");
+                        mImsService.queryImsServiceStatus(
+                                EVENT_QUERY_SERVICE_STATUS, new Messenger(mHandler));
+                    }
+                } catch (RemoteException e) {
+                    Log.e(LOG_TAG, "Remote Exception in mImsService.registerCallback");
+                }
+            }
         }
 
         public void onServiceDisconnected(ComponentName arg0) {
             Log.w(LOG_TAG,"Ims Service onServiceDisconnected");
+            sImsVoiceSrvStatus = PhoneUtils.IMS_SRV_STATUS_NOT_SUPPORTED;
+            sImsVideoSrvStatus = PhoneUtils.IMS_SRV_STATUS_NOT_SUPPORTED;
+            mImsService = null;
+        }
+    };
+
+    public static int getImsServiceStatus (int service) {
+        int status = PhoneUtils.IMS_SRV_STATUS_NOT_SUPPORTED;
+        switch (service) {
+            case Phone.CALL_TYPE_VOICE:
+                status = sImsVoiceSrvStatus;
+                break;
+            case Phone.CALL_TYPE_VT:
+                status = sImsVideoSrvStatus;
+                break;
+            default:
+                Log.e(LOG_TAG, "Unsupported service for API usage");
+                break;
+        }
+        return status;
+    }
+
+    IImsServiceListener imsServListener = new IImsServiceListener.Stub() {
+        public void imsUpdateServiceStatus(int service, int status) {
+            Log.v(LOG_TAG, "imsUpdateServiceStatus response service " + service + "status = "
+                    + status);
+            if (service == Phone.CALL_TYPE_VOICE) {
+                sImsVoiceSrvStatus = status;
+            } else if (service == Phone.CALL_TYPE_VT) {
+                sImsVideoSrvStatus = status;
+            }
+        }
+
+        public void imsRegStateChanged(int imsRegState) {
+        }
+
+        public void imsRegStateChangeReqFailed() {
         }
     };
 
