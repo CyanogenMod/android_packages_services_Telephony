@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_0" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_1" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_2" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_3" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_4" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_5" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_6" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_7" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_8" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_9" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_10" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_11" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_12" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_13" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_14" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_15" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_16" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_17" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_18" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_19" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_20" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_19" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_18" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_17" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_16" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_15" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_14" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_13" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_12" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_11" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_10" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_9" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_8" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_7" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_6" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_5" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_4" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_3" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_2" />
+    <item android:duration="80" android:drawable="@drawable/stat_notify_voicemail_1" />
+    <item android:duration="1000" android:drawable="@drawable/stat_notify_voicemail_0" />
+</animation-list>
