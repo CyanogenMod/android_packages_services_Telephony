@@ -33,6 +33,7 @@ import android.widget.Toast;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.Connection;
+import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.SmsApplication;
 
@@ -143,7 +144,8 @@ public class RejectWithTextMessageManager {
     /**
      * Reject the call with the specified message. If message is null this call is ignored.
      */
-    public static void rejectCallWithMessage(String phoneNumber, String message) {
+    public static void rejectCallWithMessage(String phoneNumber, String message,
+            int subscription) {
         if (message != null) {
             final ComponentName component =
                     SmsApplication.getDefaultRespondViaMessageApplication(
@@ -153,6 +155,7 @@ public class RejectWithTextMessageManager {
                 final Uri uri = Uri.fromParts(Constants.SCHEME_SMSTO, phoneNumber, null);
                 final Intent intent = new Intent(TelephonyManager.ACTION_RESPOND_VIA_MESSAGE, uri);
                 intent.putExtra(Intent.EXTRA_TEXT, message);
+                intent.putExtra(MSimConstants.SUBSCRIPTION_KEY, subscription);
                 showMessageSentToast(phoneNumber);
                 intent.setComponent(component);
                 PhoneGlobals.getInstance().startService(intent);
