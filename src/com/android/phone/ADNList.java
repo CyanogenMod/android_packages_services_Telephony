@@ -40,6 +40,8 @@ import android.widget.CursorAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
+import com.android.internal.telephony.PhoneFactory;
+
 /**
  * ADN List activity for the Phone app.
  */
@@ -74,7 +76,6 @@ public class ADNList extends ListActivity {
     protected CursorAdapter mCursorAdapter;
     protected Cursor mCursor = null;
 
-    private int mSubscription = 0;
     private TextView mEmptyText;
 
     protected int mInitialSelection = -1;
@@ -173,7 +174,7 @@ public class ADNList extends ListActivity {
         if (DBG) log("displayProgress: " + loading);
 
         mEmptyText.setText(loading ? R.string.simContacts_emptyLoading:
-            (isAirplaneModeOn(this) ? R.string.simContacts_airplaneMode :
+            ((isAirplaneModeOn(this) && !isSimPresent()) ? R.string.simContacts_airplaneMode :
                 R.string.simContacts_empty));
         getWindow().setFeatureInt(
                 Window.FEATURE_INDETERMINATE_PROGRESS,
@@ -248,6 +249,10 @@ public class ADNList extends ListActivity {
             }
         });
         alertDialog.show();
+    }
+
+    protected boolean isSimPresent() {
+        return PhoneFactory.getDefaultPhone().getIccCard().hasIccCard();
     }
 
     protected void log(String msg) {
