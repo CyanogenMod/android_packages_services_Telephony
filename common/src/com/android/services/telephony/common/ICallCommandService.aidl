@@ -106,4 +106,9 @@ oneway interface ICallCommandService {
      * device has soft navigation buttons.
      */
     void setSystemBarNavigationEnabled(boolean enable);
+
+    /**
+     * After confirming, adds a number to the Blacklist and hangs up the call.
+     */
+    void confirmAddBlacklist(in Call call);
 }

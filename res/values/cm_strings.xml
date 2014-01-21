@@ -68,6 +68,11 @@
     <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> calls were blocked</string>
     <string name="unblock_number">Unblock</string>
 
+    <!-- Blacklist management -->
+    <string name="add_blacklist_number">Add phone number</string>
+    <string name="add_to_blacklist">Add to blacklist</string>
+    <string name="add_to_blacklist_message">Future calls from %s will be blocked</string>
+
     <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
     <string name="mwi_notification_title">Message wait indicator</string>
     <string name="mwi_notification_summary">Show message wait indicator voicemail notifications</string>

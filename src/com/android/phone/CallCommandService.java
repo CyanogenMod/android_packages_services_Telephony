@@ -16,14 +16,19 @@
 
 package com.android.phone;
 
+import android.app.AlertDialog;
 import android.bluetooth.IBluetoothHeadsetPhone;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.util.Log;
 
 import com.android.internal.telephony.CallManager;
+import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
+import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.phone.CallModeler.CallResult;
 import com.android.phone.NotificationMgr.StatusBarHelper;
 import com.android.services.telephony.common.Call;
@@ -268,4 +273,40 @@ class CallCommandService extends ICallCommandService.Stub {
         }
     }
 
+    /**
+     *  Pop up a dialog confirming adding the current number to the blacklist
+     */
+    public void confirmAddBlacklist(Call call) {
+        try {
+            int callId = Call.INVALID_CALL_ID;
+            if (call != null) {
+                callId = call.getCallId();
+            }
+            final CallResult result = mCallModeler.getCallWithId(callId);
+
+            if (result != null) {
+                final String phoneNumber = result.getConnection().getAddress();
+
+                // Show dialog
+                final String message = mContext.getResources().getString(
+                        R.string.add_to_blacklist_message, phoneNumber);
+                new AlertDialog.Builder(mContext)
+                        .setTitle(R.string.add_to_blacklist)
+                        .setMessage(message)
+                        .setPositiveButton(R.string.alert_dialog_yes,
+                                new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                BlacklistUtils.addOrUpdate(mContext, phoneNumber,
+                                        BlacklistUtils.BLOCK_CALLS, BlacklistUtils.BLOCK_CALLS);
+                                Log.v(TAG, "Hanging up");
+                                PhoneUtils.hangup(result.getConnection().getCall());
+                            }
+                        })
+                        .setNegativeButton(R.string.alert_dialog_no, null)
+                        .show();
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error during confirmAddBlacklist().", e);
+        }
+    }
 }
