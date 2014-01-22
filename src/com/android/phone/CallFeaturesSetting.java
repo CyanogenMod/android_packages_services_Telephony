@@ -555,7 +555,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             View v = getLayoutInflater().inflate(R.layout.ip_prefix, null);
             final EditText edit = (EditText) v.findViewById(R.id.ip_prefix_dialog_edit);
             String ip_prefix = Settings.System.getString(getContentResolver(),
-                    Constants.SETTINGS_IP_PREFIX);
+                    Constants.SETTINGS_IP_PREFIX + 1);
             edit.setText(ip_prefix);
 
             new AlertDialog.Builder(this)
@@ -567,7 +567,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                                 public void onClick(DialogInterface dialog, int which) {
                                     String ip_prefix = edit.getText().toString();
                                     Settings.System.putString(getContentResolver(),
-                                            Constants.SETTINGS_IP_PREFIX, ip_prefix);
+                                            Constants.SETTINGS_IP_PREFIX + 1, ip_prefix);
                                     if (TextUtils.isEmpty(ip_prefix)) {
                                         mIPPrefix.setSummary(
                                                 R.string.ipcall_sub_summery);
@@ -1730,7 +1730,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         if (mIPPrefix != null) {
             String ip_prefix = Settings.System.getString(getContentResolver(),
-                    Constants.SETTINGS_IP_PREFIX);
+                    Constants.SETTINGS_IP_PREFIX + 1);
             if (TextUtils.isEmpty(ip_prefix)) {
                 mIPPrefix.setSummary(R.string.ipcall_sub_summery);
             } else {

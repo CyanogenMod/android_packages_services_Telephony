@@ -159,5 +159,5 @@ public class Constants {
      */
     public static final String SETTINGS_VIBRATE_WHEN_ACCEPTED = "vibrate_on_accepted";
 
-    public static final String SETTINGS_IP_PREFIX = "ipcall_prefix_sub";
+    public static final String SETTINGS_IP_PREFIX = "ip_call_prefix_sub";
 }
