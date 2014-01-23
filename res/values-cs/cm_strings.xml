@@ -48,7 +48,11 @@
     <string name="blacklist_notification_list_private">Soukromý</string>
     <string name="blacklist_notification_unknown_number">Blokováno nezmáné číslo: %s</string>
     <string name="blacklist_notification_multiple">Blokovaných hovorů: <xliff:g id="count">%d</xliff:g></string>
-    <string name="unblock_number">Odblokovat</string>
+    <string name="blacklist_message_notification">Blokovaná zpráva z čísla %s</string>
+    <string name="blacklist_message_notification_private_number">Blokovaná zpráva ze skrytého čísla</string>
+    <string name="blacklist_message_notification_unknown_number">Blokovaná zpráva z neznámého čísla %s</string>
+    <string name="blacklist_message_notification_multiple">Blokovaných zpráv: <xliff:g id="count">%d</xliff:g></string>
+    <string name="unblock_number">Neblokovat</string>
 
     <string name="mwi_notification_title">Upozornění na hlasovou zprávu</string>
     <string name="mwi_notification_summary">Zobrazit upozornění na čekající hlasovou zprávu</string>

@@ -40,11 +40,15 @@
     <string name="blacklist_title">Czarna lista</string>
     <string name="blacklist_summary_disabled">Wyłączona</string>
     <string name="blacklist_summary">Przychodzące połączenia z numerów na czarnej liście będą zablokowane</string>
-    <string name="blacklist_notification">Zablokowanie połączenia z %s</string>
-    <string name="blacklist_notification_private_number">Zablokowanie połączenia z prywatnego numeru</string>
+    <string name="blacklist_call_notification">Zablokowanie połączenia z %s</string>
+    <string name="blacklist_call_notification_private_number">Zablokowanie połączenia z prywatnego numeru</string>
+    <string name="blacklist_call_notification_unknown_number">Zablokowano nieznany numer %s</string>
+    <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> połączeń zostało zablokowanych</string>
+    <string name="blacklist_message_notification">Zablokowano wiadomość od %s</string>
+    <string name="blacklist_message_notification_private_number">Zablokowano wiadomość od numeru prywatnego</string>
+    <string name="blacklist_message_notification_unknown_number">Zablokowano wiadomość od nieznanego numeru %s</string>
+    <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> wiadomości zablokowano</string>
     <string name="blacklist_notification_list_private">Prywatne</string>
-    <string name="blacklist_notification_unknown_number">Zablokowano nieznany numer %s</string>
-    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> połączeń zostało zablokowanych</string>
     <string name="unblock_number">Odblokuj</string>
     <string name="mwi_notification_title">Wskaźnik oczekiwania wiadomości</string>
     <string name="mwi_notification_summary">Pokaż powiadomienie oczekiwania na pocztę głosową</string>
