@@ -95,9 +95,11 @@ public final class Call implements Parcelable {
                                                                     callModify option*/
         public static final int ADD_PARTICIPANT    = 0x00000200; /* Add participant from and active
                                                                     or conference call option*/
+        public static final int VOICE_PRIVACY      = 0x00000400; /* Voice Privacy is enabled */
 
         public static final int ALL = HOLD | SUPPORT_HOLD | MERGE_CALLS | SWAP_CALLS | ADD_CALL
-                | RESPOND_VIA_TEXT | MUTE | GENERIC_CONFERENCE | MODIFY_CALL | ADD_PARTICIPANT;
+                | RESPOND_VIA_TEXT | MUTE | GENERIC_CONFERENCE | MODIFY_CALL | ADD_PARTICIPANT
+                | VOICE_PRIVACY;
     }
 
     /**
