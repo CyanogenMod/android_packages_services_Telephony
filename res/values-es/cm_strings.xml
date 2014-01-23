@@ -40,11 +40,15 @@
     <string name="blacklist_title">Lista negra</string>
     <string name="blacklist_summary_disabled">Deshabilitada</string>
     <string name="blacklist_summary">Las llamadas entrantes de los números en la lista negra serán bloqueadas</string>
-    <string name="blacklist_notification">Llamada de %s, bloqueada</string>
-    <string name="blacklist_notification_private_number">Llamada de número privado, bloqueada</string>
+    <string name="blacklist_call_notification">Llamada de %s, bloqueada</string>
+    <string name="blacklist_call_notification_private_number">Llamada de número privado, bloqueada</string>
+    <string name="blacklist_call_notification_unknown_number">Número desconocido %s, bloqueado</string>
+    <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> llamadas fueron bloqueadas</string>
+    <string name="blacklist_message_notification">Mensaje de %s, bloqueado</string>
+    <string name="blacklist_message_notification_private_number">Mensaje de número privado, bloqueado</string>
+    <string name="blacklist_message_notification_unknown_number">Mensaje de número desconocido %s, bloqueado</string>
+    <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> mensajes fueron bloqueados</string>
     <string name="blacklist_notification_list_private">Privado</string>
-    <string name="blacklist_notification_unknown_number">Número desconocido %s, bloqueado</string>
-    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> llamadas fueron bloqueadas</string>
     <string name="unblock_number">Desbloquear</string>
     <string name="mwi_notification_title">Notificación buzón de voz</string>
     <string name="mwi_notification_summary">Mostrar una notificación para los mensajes en espera del buzón de voz</string>

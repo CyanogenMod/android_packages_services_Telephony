@@ -40,10 +40,14 @@
     <string name="blacklist_title">Sperrliste</string>
     <string name="blacklist_summary_disabled">Deaktiviert</string>
     <string name="blacklist_summary">Eingehende Anrufe von Nummern, die sich in der Sperrliste befinden, werden abgewiesen</string>
-    <string name="blacklist_notification">Ein Anruf von %s wurde abgewiesen</string>
-    <string name="blacklist_notification_private_number">Ein Anruf mit unterdrückter Nummer wurde abgewiesen</string>
-    <string name="blacklist_notification_unknown_number">Ein Anruf von %s wurde abgewiesen</string>
-    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> abgewiesene Anrufe</string>
+    <string name="blacklist_call_notification">Ein Anruf von %s wurde abgewiesen</string>
+    <string name="blacklist_call_notification_private_number">Ein Anruf mit unterdrückter Nummer wurde abgewiesen</string>
+    <string name="blacklist_call_notification_unknown_number">Ein Anruf von %s wurde abgewiesen</string>
+    <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> abgewiesene Anrufe</string>
+    <string name="blacklist_message_notification">Eine Nachricht von % wurde abgewiesens</string>
+    <string name="blacklist_message_notification_private_number">Eine Nachricht mit unterdrückter Nummer wurde abgewiesen</string>
+    <string name="blacklist_message_notification_unknown_number">Eine Nachricht von %s wurde abgewiesen</string>
+    <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> abgewiesene Nachrichten</string>
     <string name="blacklist_notification_list_private">Unterdrückte Nummer</string>
     <string name="unblock_number">Sperre aufheben</string>
     <string name="mwi_notification_title">Indikator anzeigen</string>
