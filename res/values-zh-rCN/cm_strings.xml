@@ -142,4 +142,5 @@
   <string name="ipcall_dialog_edit_hint">请输入IP电话前缀</string>
   <string name="headset_plugin_view_text">耳机已插入到手机。</string>
   <string name="headset_plugin_view_title">耳机插入</string>
+  <string name="speed_dial_setting">快速拨号设置</string>
 </resources>

@@ -34,4 +34,5 @@
   <string name="fdn_empty_number">"FDN 未更新：號碼不能為空。"</string>
   <string name="headset_plugin_view_text">耳機已插入到手機</string>
   <string name="headset_plugin_view_title">耳機插入</string>
+  <string name="speed_dial_setting">"快速撥號設置"</string>
 </resources>
