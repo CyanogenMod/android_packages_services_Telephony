@@ -249,6 +249,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     // For adding to Blacklist from call log
     private static final String REMOVE_BLACKLIST = "com.android.phone.REMOVE_BLACKLIST";
     private static final String EXTRA_NUMBER = "number";
+    private static final String EXTRA_TYPE = "type";
     private static final String EXTRA_FROM_NOTIFICATION = "fromNotification";
 
     /**
@@ -707,10 +708,11 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     }
 
     /* package */ static PendingIntent getUnblockNumberFromNotificationPendingIntent(
-            Context context, String number) {
+            Context context, String number, int type) {
         Intent intent = new Intent(REMOVE_BLACKLIST);
         intent.putExtra(EXTRA_NUMBER, number);
         intent.putExtra(EXTRA_FROM_NOTIFICATION, true);
+        intent.putExtra(EXTRA_TYPE, type);
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
@@ -1099,9 +1101,10 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             } else if (action.equals(REMOVE_BLACKLIST)) {
                 if (intent.getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
                     // Dismiss the notification that brought us here
-                    notificationMgr.cancelBlacklistedCallNotification();
+                    int blacklistType = intent.getIntExtra(EXTRA_TYPE, 0);
+                    notificationMgr.cancelBlacklistedNotification(blacklistType);
                     BlacklistUtils.addOrUpdate(context, intent.getStringExtra(EXTRA_NUMBER),
-                            0, BlacklistUtils.BLOCK_CALLS);
+                            0, blacklistType);
                 }
             }
         }

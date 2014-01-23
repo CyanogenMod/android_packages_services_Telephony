@@ -40,11 +40,15 @@
     <string name="blacklist_title">Tiltólista</string>
     <string name="blacklist_summary_disabled">Letiltva</string>
     <string name="blacklist_summary">Bejövő hívások blokkolása, melyek szerepelnek a tiltólistán</string>
-    <string name="blacklist_notification">Blokkolt hívás a következő számról: %s</string>
-    <string name="blacklist_notification_private_number">Blokkolt szám nélküli hívás</string>
+    <string name="blacklist_call_notification">Blokkolt hívás a következő számról: %s</string>
+    <string name="blacklist_call_notification_private_number">Blokkolt szám nélküli hívás</string>
+    <string name="blacklist_call_notification_unknown_number">Blokkolt ismeretlen szám: %s</string>
+    <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> blokkolt hívás</string>
+    <string name="blacklist_message_notification">Blokkolt üzenet a következő számról: %s</string>
+    <string name="blacklist_message_notification_private_number">Blokkolt szám nélküli üzenet</string>
+    <string name="blacklist_message_notification_unknown_number">Blokkolt ismeretlen üzenet: %s</string>
+    <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> blokkolt üzenet</string>
     <string name="blacklist_notification_list_private">Rejtett szám</string>
-    <string name="blacklist_notification_unknown_number">Blokkolt ismeretlen szám: %s</string>
-    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> blokkolt hívás</string>
     <string name="unblock_number">Eltávolítás</string>
     <string name="mwi_notification_title">Várakozó üzenet</string>
     <string name="mwi_notification_summary">Várakozó hangposta üzenet megjelenítése</string>

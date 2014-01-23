@@ -40,11 +40,15 @@
     <string name="blacklist_title">Juodasis sąrašas</string>
     <string name="blacklist_summary_disabled">Išjungtas</string>
     <string name="blacklist_summary">Įeinantys skambučiai iš telefono numerių kurie yra juodajame sąraše bus blokuojami</string>
-    <string name="blacklist_notification">Skambutis užblokuotas iš %s</string>
-    <string name="blacklist_notification_private_number">Užblokuotas skambutis iš privataus numerio</string>
+    <string name="blacklist_call_notification">Skambutis užblokuotas iš %s</string>
+    <string name="blacklist_call_notification_private_number">Užblokuotas skambutis iš privataus numerio</string>
+    <string name="blacklist_call_notification_unknown_number">Užblokuotas skambutis iš nežinomo numerio %s</string>
+    <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> skambučiai buvo užblokuoti</string>
+    <string name="blacklist_message_notification">Užblokuotas pranešimas iš %s</string>
+    <string name="blacklist_message_notification_private_number">Užblokuotas pranešimas iš privataus numerio</string>
+    <string name="blacklist_message_notification_unknown_number">Užblokuotas pranešimas iš nežinomo numerio %s</string>
+    <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> pranešimai buvo užblokuoti</string>
     <string name="blacklist_notification_list_private">Privatus</string>
-    <string name="blacklist_notification_unknown_number">Užblokuotas skambutis iš nežinomo numerio %s</string>
-    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> skambučiai buvo užblokuoti</string>
     <string name="unblock_number">Atblokuoti</string>
     <string name="mwi_notification_title">Pranešimų rodymas</string>
     <string name="mwi_notification_summary">Rodyti gaunamus balso pašto pranešimus</string>

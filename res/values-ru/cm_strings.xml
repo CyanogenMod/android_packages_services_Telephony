@@ -43,11 +43,15 @@
     <string name="blacklist_summary_disabled">Выключен</string>
     <string name="blacklist_summary">Автоматически отклонять звонки и сообщения от указанных абонентов</string>
 
-    <string name="blacklist_notification">Вызов от %s отклонён</string>
-    <string name="blacklist_notification_private_number">Вызов со скрытого номера отклонён</string>
+    <string name="blacklist_call_notification">Вызов от %s отклонён</string>
+    <string name="blacklist_call_notification_private_number">Вызов со скрытого номера отклонён</string>
+    <string name="blacklist_call_notification_unknown_number">Вызов с неизвестного номера (%s) отклонён</string>
+    <string name="blacklist_call_notification_multiple">Отклонено вызовов: <xliff:g id="count">%d</xliff:g></string>
+    <string name="blacklist_message_notification">Сообщение от %s заблокировано</string>
+    <string name="blacklist_message_notification_private_number">Сообщение от неизвестного номера заблокировано</string>
+    <string name="blacklist_message_notification_unknown_number">Заблокирован неизвестный номер %s</string>
+    <string name="blacklist_message_notification_multiple">Заблокировано сообщений: <xliff:g id="count">%d</xliff:g></string>
     <string name="blacklist_notification_list_private">Скрытый номер</string>
-    <string name="blacklist_notification_unknown_number">Вызов с неизвестного номера (%s) отклонён</string>
-    <string name="blacklist_notification_multiple">Отклонено вызовов: <xliff:g id="count">%d</xliff:g></string>
     <string name="unblock_number">Разблокировать</string>
 
     <string name="mwi_notification_title">Индикатор ожидания сообщения</string>
