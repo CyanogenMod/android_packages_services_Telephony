@@ -234,4 +234,7 @@
     <!-- Headset notification -->
     <string name="headset_plugin_view_text">Headset inserted.</string>
     <string name="headset_plugin_view_title">Headset</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial_setting">Speed dial settings</string>
 </resources>

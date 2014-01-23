@@ -111,4 +111,13 @@
         android:summary="@string/xdivert_summary"
         android:persistent="false">
     </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="speed_dial_settings"
+        android:title="@string/speed_dial_setting"
+        android:persistent="false">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.dialer"
+            android:targetClass="com.android.dialer.SpeedDialListActivity"/>
+    </PreferenceScreen>
 </PreferenceScreen>
