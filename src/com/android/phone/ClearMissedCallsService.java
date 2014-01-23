@@ -31,6 +31,9 @@ public class ClearMissedCallsService extends IntentService {
     /** This action is used to clear blacklisted calls. */
     public static final String ACTION_CLEAR_BLACKLISTED_CALLS =
             "com.android.phone.intent.CLEAR_BLACKLISTED_CALLS";
+    /** This action is used to clear blacklisted messages. */
+    public static final String ACTION_CLEAR_BLACKLISTED_MESSAGES =
+            "com.android.phone.intent.CLEAR_BLACKLISTED_MESSAGES";
 
     private PhoneGlobals mApp;
 
@@ -62,6 +65,8 @@ public class ClearMissedCallsService extends IntentService {
             mApp.notificationMgr.cancelMissedCallNotification();
         } else if (ACTION_CLEAR_BLACKLISTED_CALLS.equals(action)) {
             mApp.notificationMgr.cancelBlacklistedCallNotification();
+        } else if (ACTION_CLEAR_BLACKLISTED_MESSAGES.equals(action)) {
+            mApp.notificationMgr.cancelBlacklistedMessageNotification();
         }
     }
 }

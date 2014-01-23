@@ -40,11 +40,15 @@
     <string name="blacklist_title">Zwarte lijst</string>
     <string name="blacklist_summary_disabled">Uitgeschakeld</string>
     <string name="blacklist_summary">Inkomende oproepen van telefoonnummers op de zwarte lijst worden geblokkeerd</string>
-    <string name="blacklist_notification">Oproep geblokkeerd van %s</string>
-    <string name="blacklist_notification_private_number">Oproep geblokkeerd van afgeschermd nummer</string>
+    <string name="blacklist_call_notification">Oproep geblokkeerd van %s</string>
+    <string name="blacklist_call_notification_private_number">Oproep geblokkeerd van afgeschermd nummer</string>
+    <string name="blacklist_call_notification_unknown_number">Oproep geblokkeerd van onbekend nummer %s</string>
+    <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> oproepen geblokkeerd</string>
+    <string name="blacklist_message_notification">Bericht van %s geblokkeerd</string>
+    <string name="blacklist_message_notification_private_number">Bericht van afgeschermd nummer geblokkeerd</string>
+    <string name="blacklist_message_notification_unknown_number">Bericht van onbekend nummer %s geblokkeerd</string>
+    <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> berichten geblokkeerd</string>
     <string name="blacklist_notification_list_private">Afgeschermd</string>
-    <string name="blacklist_notification_unknown_number">Oproep geblokkeerd van onbekend nummer %s</string>
-    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> oproepen geblokkeerd</string>
     <string name="unblock_number">Deblokkeren</string>
     <string name="mwi_notification_title">Voicemailmeldingen</string>
     <string name="mwi_notification_summary">Meldingen weergeven voor nieuwe voicemailberichten</string>
