@@ -262,10 +262,6 @@ public class MSimPhoneGlobals extends PhoneGlobals {
             notifier = MSimCallNotifier.init(this, phone, ringer, callLogger, callStateMonitor,
                     bluetoothManager, callModeler);
 
-            // Create the Managed Roaming singleton class, used to show popup
-            // to user for initiating network search when location update is rejected
-            mManagedRoam = ManagedRoaming.init(this);
-
             XDivertUtility.init(this, phone, (MSimCallNotifier)notifier, this);
 
             // register for ICC status
@@ -297,6 +293,7 @@ public class MSimPhoneGlobals extends PhoneGlobals {
             intentFilter.addAction(TelephonyIntents.ACTION_SERVICE_STATE_CHANGED);
             intentFilter.addAction(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
             intentFilter.addAction(MSimTelephonyIntents.ACTION_DEFAULT_SUBSCRIPTION_CHANGED);
+            intentFilter.addAction(TelephonyIntents.ACTION_MANAGED_ROAMING_IND);
             if (mTtyEnabled) {
                 intentFilter.addAction(TtyIntent.TTY_PREFERRED_MODE_CHANGE_ACTION);
             }

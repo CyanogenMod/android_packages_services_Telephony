@@ -82,6 +82,8 @@ import org.codeaurora.ims.IImsService;
 import org.codeaurora.ims.IImsServiceListener;
 
 import static com.android.internal.telephony.MSimConstants.DEFAULT_SUBSCRIPTION;
+import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
+
 import org.codeaurora.ims.csvt.ICsvtService;
 
 /**
@@ -180,7 +182,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     Phone mImsPhone;
     CallController callController;
     CallManager mCM;
-    ManagedRoaming mManagedRoam;
     CallNotifier notifier;
     CallerInfoCache callerInfoCache;
     NotificationMgr notificationMgr;
@@ -534,10 +535,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             notifier = CallNotifier.init(this, phone, ringer, callLogger, callStateMonitor,
                     bluetoothManager, callModeler);
 
-            // Create the Managed Roaming singleton class, used to show popup
-            // to user for initiating network search when location update is rejected
-            mManagedRoam = ManagedRoaming.init(this);
-
             // register for ICC status
             IccCard sim = phone.getIccCard();
             if (sim != null) {
@@ -563,6 +560,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             intentFilter.addAction(TelephonyIntents.ACTION_RADIO_TECHNOLOGY_CHANGED);
             intentFilter.addAction(TelephonyIntents.ACTION_SERVICE_STATE_CHANGED);
             intentFilter.addAction(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
+            intentFilter.addAction(TelephonyIntents.ACTION_MANAGED_ROAMING_IND);
             if (mTtyEnabled) {
                 intentFilter.addAction(TtyIntent.TTY_PREFERRED_MODE_CHANGE_ACTION);
             }
@@ -1233,6 +1231,14 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
                 if (VDBG) Log.d(LOG_TAG, "mReceiver: TTY_PREFERRED_MODE_CHANGE_ACTION");
                 if (VDBG) Log.d(LOG_TAG, "    mode: " + mPreferredTtyMode);
                 mHandler.sendMessage(mHandler.obtainMessage(EVENT_TTY_PREFERRED_MODE_CHANGED, 0));
+            } else if (action.equals(TelephonyIntents.ACTION_MANAGED_ROAMING_IND)) {
+                int subscription = intent.getIntExtra(SUBSCRIPTION_KEY,
+                        getDefaultSubscription());
+                Intent createIntent = new Intent();
+                createIntent.setClass(context, ManagedRoaming.class);
+                createIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                createIntent.putExtra(SUBSCRIPTION_KEY, subscription);
+                context.startActivity(createIntent);
             } else if (action.equals(AudioManager.RINGER_MODE_CHANGED_ACTION)) {
                 int ringerMode = intent.getIntExtra(AudioManager.EXTRA_RINGER_MODE,
                         AudioManager.RINGER_MODE_NORMAL);
