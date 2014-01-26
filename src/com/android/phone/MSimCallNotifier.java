@@ -61,8 +61,14 @@ public class MSimCallNotifier extends CallNotifier {
     private static final boolean VDBG = (MSimPhoneGlobals.DBG_LEVEL >= 2);
 
     private static final int PHONE_START_MSIM_INCALL_TONE = 55;
+    private static final int LCH_PLAY_DTMF = 56;
+    private static final int LCH_STOP_DTMF = 57;
+    private static final int LCH_DTMF_PERIODICITY = 3000;
+    private static final int LCH_DTMF_PERIOD = 500;
 
     private static final String XDIVERT_STATUS = "xdivert_status_key";
+
+    private int mLchSub = MSimConstants.INVALID_SUBSCRIPTION;
 
     private InCallTonePlayer mLocalCallReminderTonePlayer = null;
     private InCallTonePlayer mSupervisoryCallHoldTonePlayer = null;
@@ -133,7 +139,12 @@ public class MSimCallNotifier extends CallNotifier {
                 if (DBG) log("PHONE_START_MSIM_INCALL_TONE...");
                 startMSimInCallTones();
                 break;
-
+            case LCH_PLAY_DTMF:
+                playLchDtmf();
+                break;
+            case LCH_STOP_DTMF:
+                stopLchDtmf();
+                break;
             default:
                 super.handleMessage(msg);
         }
@@ -418,8 +429,6 @@ public class MSimCallNotifier extends CallNotifier {
         // CallNotifier
         mBluetoothManager.updateBluetoothIndication();
 
-        manageMSimInCallTones(false);
-
         // Update the phone state and other sensor/lock.
         mApplication.updatePhoneState(state);
 
@@ -445,6 +454,8 @@ public class MSimCallNotifier extends CallNotifier {
             if (DBG) log("stopRing()... (OFFHOOK state)");
             mRinger.stopRing();
         }
+
+        manageMSimInCallTones(false);
 
         if (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
             Connection c = fgPhone.getForegroundCall().getLatestConnection();
@@ -867,8 +878,57 @@ public class MSimCallNotifier extends CallNotifier {
 
     public void reStartMSimInCallTones() {
         stopMSimInCallTones();
-        Message message = Message.obtain(this, PHONE_START_MSIM_INCALL_TONE);
-        sendMessageDelayed(message, 100);
+        if (sLocalCallHoldToneEnabled) {
+            /* Remove any pending PHONE_START_MSIM_INCALL_TONE messages from queue */
+            removeMessages(PHONE_START_MSIM_INCALL_TONE);
+            Message message = Message.obtain(this, PHONE_START_MSIM_INCALL_TONE);
+            sendMessageDelayed(message, 100);
+        } else {
+            /* Dont need 100 msec delay when SCH tones to be sent as DTMF */
+            playLchDtmf();
+        }
+    }
+
+    private void playLchDtmf() {
+        if (mLchSub != MSimConstants.INVALID_SUBSCRIPTION || hasMessages(LCH_PLAY_DTMF)) {
+            // Ignore any redundant requests to start playing tones
+            return;
+        }
+        int activeSub = PhoneUtils.getActiveSubscription();
+        int otherSub = PhoneUtils.getOtherActiveSub(activeSub);
+
+        log(" playLchDtmf... activesub " + activeSub + " otherSub " + otherSub);
+        if (mCM.getLocalCallHoldStatus(activeSub) == true) {
+            mLchSub = activeSub;
+        } else if (mCM.getLocalCallHoldStatus(otherSub) == true) {
+            mLchSub = otherSub;
+        } else {
+        // There is no other sub active apart from active sub, no need of lch
+            log(" There is no sub on lch, returning... ");
+            return;
+        }
+        removeAnyPendingDtmfMsgs();
+        char c;
+        // For CDMA use # as DTMF char for SCH tones
+        if (mCM.getPhoneInCall(mLchSub).getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
+            c = '#';
+        } else {
+            c = mApplication.getApplicationContext().getResources().getString(
+                R.string.Lch_dtmf_key).charAt(0);
+        }
+        mCM.startDtmf(c, mLchSub);
+        // Keep playing LCH DTMF tone to remote party on LCH call, with periodicity
+        // "LCH_DTMF_PERIODICITY" until call moves out of LCH.
+        sendMessageDelayed(Message.obtain(this, LCH_PLAY_DTMF), LCH_DTMF_PERIODICITY);
+        sendMessageDelayed(Message.obtain(this, LCH_STOP_DTMF), LCH_DTMF_PERIOD);
+    }
+
+    private void stopLchDtmf() {
+        if (mLchSub != MSimConstants.INVALID_SUBSCRIPTION) {
+            // Ignore any redundant requests to stop playing tones
+            mCM.stopDtmf(mLchSub);
+        }
+        mLchSub = MSimConstants.INVALID_SUBSCRIPTION;
     }
 
     private void startMSimInCallTones() {
@@ -878,15 +938,24 @@ public class MSimCallNotifier extends CallNotifier {
             mLocalCallReminderTonePlayer.start();
         }
         if (sLocalCallHoldToneEnabled) {
-            // Only play Supervisory call hold tone when
-            // "persist.radio.lch_inband_tone" is set to true.
+            // Only play inband Supervisory call hold tone when
+            // "persist.radio.lch_inband_tone" is set to true, else play the SCH tones
+            // over DTMF
             if (mSupervisoryCallHoldTonePlayer == null) {
                 log(" startMSimInCallTones: Supervisory call hold tone ");
                 mSupervisoryCallHoldTonePlayer =
                         new InCallTonePlayer(InCallTonePlayer.TONE_SUPERVISORY_CH);
                 mSupervisoryCallHoldTonePlayer.start();
             }
+        } else {
+            log(" startMSimInCallTones: Supervisory call hold tone over dtmf ");
+            playLchDtmf();
         }
+    }
+
+    private void removeAnyPendingDtmfMsgs() {
+        removeMessages(LCH_PLAY_DTMF);
+        removeMessages(LCH_STOP_DTMF);
     }
 
     protected void stopMSimInCallTones() {
@@ -899,6 +968,12 @@ public class MSimCallNotifier extends CallNotifier {
             log(" stopMSimInCallTones: Supervisory call hold tone ");
             mSupervisoryCallHoldTonePlayer.stopTone();
             mSupervisoryCallHoldTonePlayer = null;
+        }
+        if (!sLocalCallHoldToneEnabled) {
+            log(" stopMSimInCallTones: stop SCH Dtmf call hold tone ");
+            stopLchDtmf();
+            /* Remove any previous dtmf nssages from queue */
+            removeAnyPendingDtmfMsgs();
         }
     }
 

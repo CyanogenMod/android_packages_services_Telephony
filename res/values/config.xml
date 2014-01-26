@@ -179,6 +179,9 @@
     <!-- whether to show uplmn preference for cta test -->
     <bool name="config_uplmn_for_cta_test">false</bool>
 
+    <!-- DTMF key to be used for LCH hold tone -->
+    <string name="Lch_dtmf_key" translatable="false">D</string>
+
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">false</bool>
 </resources>
