@@ -66,8 +66,13 @@ public class CdmaOptions {
 
         mButtonCdmaSystemSelect.setEnabled(true);
         if(deviceSupportsNvAndRuim()) {
-            log("Both NV and Ruim supported, ENABLE subscription type selection");
-            mButtonCdmaSubscription.setEnabled(true);
+            if (mPrefActivity.getResources().getBoolean(
+                                  R.bool.disable_cdma_subscription)) {
+                mButtonCdmaSubscription.setEnabled(false);
+            } else {
+                log("Both NV and Ruim supported, ENABLE subscription type selection");
+                mButtonCdmaSubscription.setEnabled(true);
+            }
         } else {
             log("Both NV and Ruim NOT supported, REMOVE subscription type selection");
             mPrefScreen.removePreference(mPrefScreen
