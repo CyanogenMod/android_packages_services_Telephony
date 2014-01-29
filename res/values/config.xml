@@ -167,6 +167,9 @@
     <!-- Disable SUB0 APN in DSDS mode-->
     <bool name="disable_data_sub2">false</bool>
 
+    <!-- whether disable CDMA subscription settings -->
+    <bool name="disable_cdma_subscription">false</bool>
+
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">false</bool>
 </resources>
