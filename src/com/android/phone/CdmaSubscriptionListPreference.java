@@ -51,6 +51,9 @@ public class CdmaSubscriptionListPreference extends ListPreference {
         mPhone = PhoneFactory.getDefaultPhone();
         mHandler = new CdmaSubscriptionButtonHandler();
         setCurrentCdmaSubscriptionModeValue();
+        if (context.getResources().getBoolean(R.bool.disable_cdma_subscription)) {
+            setCurrentCdmaSubscriptionSummary(context);
+        }
     }
 
     private void setCurrentCdmaSubscriptionModeValue() {
@@ -61,6 +64,13 @@ public class CdmaSubscriptionListPreference extends ListPreference {
 
     public CdmaSubscriptionListPreference(Context context) {
         this(context, null);
+    }
+
+    public void setCurrentCdmaSubscriptionSummary(Context context) {
+        int cdmaSubscriptionMode = Settings.Global.getInt(mPhone.getContext().getContentResolver(),
+                Settings.Global.CDMA_SUBSCRIPTION_MODE, preferredSubscriptionMode);
+        String[] summary = context.getResources().getStringArray(R.array.cdma_subscription_choices);
+        setSummary(summary[cdmaSubscriptionMode]);
     }
 
     @Override
