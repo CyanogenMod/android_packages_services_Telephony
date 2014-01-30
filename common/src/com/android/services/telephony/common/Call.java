@@ -200,6 +200,8 @@ public final class Call implements Parcelable {
         ERROR_UNSPECIFIED,
         UNKNOWN,                        /* Disconnect cause not known */
         SRVCC_CALL_DROP,                /* Call dropped because of SRVCC*/
+        ANSWERED_ELSEWHERE,             /* MT call has ended due to a release from the network
+                                         * because the call was answered elsewhere */
         CALL_FAIL_MISC                  /* miscellaneous error not covered in above errors */
     }
 
