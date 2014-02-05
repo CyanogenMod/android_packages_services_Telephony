@@ -329,6 +329,7 @@ class CallCommandService extends ICallCommandService.Stub {
             // Active subscription got changed from UI, call setAudioMode
             // which informs LCH state to RIL and updates audio state of subs.
             PhoneUtils.setActiveSubscription(subscriptionId);
+            mCallManager.deactivateLchState(subscriptionId);
             mCallManager.setAudioMode();
         } catch (Exception e) {
             Log.e(TAG, "Error during setActiveSubscription().", e);
@@ -345,5 +346,25 @@ class CallCommandService extends ICallCommandService.Stub {
             Log.e(TAG, "Error during getActiveSubscription().", e);
         }
         return subscriptionId;
+    }
+
+    /**
+     * This method sets the active subscription but
+     *  - does not call setAudioMode(), so the other active subscription's
+     *    current LCH state will not be changed.
+     *  - mute the other active subscription.
+     * This method is called when the call on current active subscription is
+     * ended by the remote party.
+     *
+     * @param subscription newly active subscription.
+     */
+    @Override
+    public void setActiveSubRetainLch(int subscriptionId) {
+        try {
+            PhoneUtils.setActiveSubscription(subscriptionId);
+            PhoneUtils.setMute(true);
+        } catch (Exception e) {
+            Log.e(TAG, "Error during setActiveSubRetainLch.", e);
+        }
     }
 }

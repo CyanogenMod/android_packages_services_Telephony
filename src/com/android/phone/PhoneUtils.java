@@ -2167,6 +2167,22 @@ public class PhoneUtils {
             muted = false;
         }
 
+        int activeSub = getActiveSubscription();
+        if (cm.getLocalCallHoldStatus(activeSub) == true) {
+            if (muted == false) {
+                // if the current active sub is in lch state and user
+                // has clicked the unmute button, deactivate this sub's
+                // lch state and set the audio mode accordingly.
+                cm.deactivateLchState(activeSub);
+                cm.setAudioMode();
+            }
+
+            // if any local hold tones are playing then they need to be stoped.
+            final MSimCallNotifier notifier =
+                    (MSimCallNotifier) PhoneGlobals.getInstance().notifier;
+            notifier.manageMSimInCallTones(false);
+        }
+
         // make the call to mute the audio
         setMuteInternal(cm.getFgPhone(), muted);
 
