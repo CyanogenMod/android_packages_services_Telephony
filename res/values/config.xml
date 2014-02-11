@@ -169,4 +169,7 @@
 
     <!-- whether disable CDMA subscription settings -->
     <bool name="disable_cdma_subscription">false</bool>
+
+    <!-- Show different network mode list -->
+    <integer name="cmcc_network_mode">0</integer>
 </resources>
