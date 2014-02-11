@@ -470,6 +470,12 @@ public class CallModeler extends Handler {
      */
     private void onPhoneStateChanged(AsyncResult r) {
         Log.i(TAG, "onPhoneStateChanged: ");
+        //csvt state changed, do not update phone UI.
+        if(PhoneGlobals.getInstance().isCsvtActive())
+        {
+            Log.d(TAG, "csvt is active, do not update phone UI.");
+            return;
+        }
         final List<Call> updatedCalls = Lists.newArrayList();
         doUpdate(false, updatedCalls);
 

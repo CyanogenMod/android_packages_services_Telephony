@@ -157,6 +157,10 @@ public class MSimPhoneGlobals extends PhoneGlobals {
             setDefaultPhone(mDefaultSubscription);
             mCM.registerPhone(phone);
 
+            createImsService();
+
+            createCsvtService();
+
             // Create the NotificationMgr singleton, which is used to display
             // status bar icons and control other status bar behavior.
             notificationMgr = MSimNotificationMgr.init(this);

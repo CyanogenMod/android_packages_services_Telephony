@@ -133,4 +133,8 @@
   <string name="ipcall_sub_summery">修改IP电话前缀</string>
   <string name="ipcall_dialog_title">IP电话设置</string>
   <string name="ipcall_dialog_edit_hint">请输入IP电话前缀</string>
+  <string name="notification_missedVideoCallTitle">未接可视电话</string>
+  <string name="notification_missedVideoCallsTitle">未接可视电话</string>
+  <string name="notification_missedVideoCallsMsg"><xliff:g id="num_missed_calls">%1$s</xliff:g>个未接可视电话</string>
+  <string name="notification_missedVideoCallTicker">未接可视电话来自<xliff:g id="missed_call_from">%1$s</xliff:g></string>
 </resources>

@@ -845,6 +845,13 @@ public class CallNotifier extends Handler
      */
     protected void onPhoneStateChanged(AsyncResult r) {
         PhoneConstants.State state = mCM.getState();
+
+        if(PhoneGlobals.getInstance().isCsvtActive() &&
+            state == PhoneConstants.State.OFFHOOK ) {
+            log("onPhoneStateChanged: CSVT is active");
+            return;
+        }
+
         if (VDBG) log("onPhoneStateChanged: state = " + state);
 
         // Turn status bar notifications on or off depending upon the state

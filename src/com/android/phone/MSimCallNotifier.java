@@ -239,7 +239,7 @@ public class MSimCallNotifier extends CallNotifier {
         hideUssdResponseDialog();
 
         // Check for a few cases where we totally ignore incoming calls.
-        if (ignoreAllIncomingCalls(phone)) {
+        if (ignoreAllIncomingCalls(phone)||MSimPhoneGlobals.getInstance().isCsvtActive()) {
             // Immediately reject the call, without even indicating to the user
             // that an incoming call occurred.  (This will generally send the
             // caller straight to voicemail, just as if we *had* shown the
@@ -378,6 +378,13 @@ public class MSimCallNotifier extends CallNotifier {
         int subscription = pb.getSubscription();
 
         PhoneConstants.State state = mCM.getState(subscription);
+
+        if(MSimPhoneGlobals.getInstance().isCsvtActive() &&
+            state == PhoneConstants.State.OFFHOOK ) {
+            log("onPhoneStateChanged: CSVT is active");
+            return;
+        }
+
         if (VDBG) log("onPhoneStateChanged: state = " + state +
                 " subscription = " + subscription);
 

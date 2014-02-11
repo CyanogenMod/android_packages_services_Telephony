@@ -721,6 +721,19 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         }
     };
 
+    public boolean isCsvtActive(){
+        boolean result = false;
+        if (mCsvtService != null){
+            try{
+                result = mCsvtService.isActive();
+                Log.d(LOG_TAG, "mCsvtService.isActive = " + result);
+            } catch (RemoteException e) {
+                Log.e(LOG_TAG, Log.getStackTraceString(new Throwable()));
+            }
+        }
+        return result;
+    }
+
     public void createCsvtService() {
         if (PhoneUtils.isCallOnCsvtEnabled()) {
             try {
