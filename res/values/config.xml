@@ -170,6 +170,9 @@
     <!-- whether disable CDMA subscription settings -->
     <bool name="disable_cdma_subscription">false</bool>
 
+    <!-- Show different network mode list -->
+    <integer name="cmcc_network_mode">0</integer>
+
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">false</bool>
 </resources>
