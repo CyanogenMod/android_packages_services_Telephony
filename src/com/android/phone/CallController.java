@@ -457,8 +457,16 @@ public class CallController extends Handler {
                 // TODO(santoscordon): Try to restructure code so that we can handle failure-
                 // condition call logging in a single place (placeCall()) that also has access to
                 // the number we attempted to dial (not placeCall()).
-                mCallLogger.logCall(null /* callerInfo */, number, 0 /* presentation */,
-                        Calls.OUTGOING_TYPE, System.currentTimeMillis(), 0 /* duration */);
+                mCallLogger.logCall(
+                        null /* callerInfo */,
+                        number,
+                        0 /* presentation */,
+                        Calls.OUTGOING_TYPE,
+                        System.currentTimeMillis(),
+                        0 /* duration */,
+                        phone.getSubscription(),
+                        phone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA ?
+                                Calls.DURATION_TYPE_CALLOUT : Calls.DURATION_TYPE_ACTIVE);
 
                 return okToCallStatus;
             }
@@ -563,8 +571,16 @@ public class CallController extends Handler {
                 // failure in the telephony layer.
 
                 // Log failed call.
-                mCallLogger.logCall(null /* callerInfo */, number, 0 /* presentation */,
-                        Calls.OUTGOING_TYPE, System.currentTimeMillis(), 0 /* duration */);
+                mCallLogger.logCall(
+                        null /* callerInfo */,
+                        number,
+                        0 /* presentation */,
+                        Calls.OUTGOING_TYPE,
+                        System.currentTimeMillis(),
+                        0 /* duration */,
+                        phone.getSubscription(),
+                        phone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA ?
+                                Calls.DURATION_TYPE_CALLOUT : Calls.DURATION_TYPE_ACTIVE);
 
                 return CallStatusCode.CALL_FAILED;
 
