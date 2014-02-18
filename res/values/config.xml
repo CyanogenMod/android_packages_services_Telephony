@@ -172,4 +172,7 @@
 
     <!-- Show different network mode list -->
     <integer name="cmcc_network_mode">0</integer>
+
+    <!-- whether hide roaming settings -->
+    <bool name="hide_roaming">false</bool>
 </resources>
