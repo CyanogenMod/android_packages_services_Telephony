@@ -173,6 +173,9 @@
     <!-- Show different network mode list -->
     <integer name="cmcc_network_mode">0</integer>
 
+    <!-- whether hide roaming settings -->
+    <bool name="hide_roaming">false</bool>
+
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">false</bool>
 </resources>
