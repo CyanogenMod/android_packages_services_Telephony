@@ -146,6 +146,16 @@ public class DTMFTonePlayer implements CallModeler.Listener {
         }
     }
 
+    @Override
+    public void onModifyCall(Call call) {
+        // no-op
+    }
+
+    @Override
+    public void onActiveSubChanged(int activeSub) {
+        // no-op
+    }
+
     /**
      * Allocates some resources we keep around during a "dialer session".
      *
@@ -365,7 +375,8 @@ public class DTMFTonePlayer implements CallModeler.Listener {
      */
     private static boolean useShortDtmfTones(Phone phone, Context context) {
         int phoneType = phone.getPhoneType();
-        if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+        if (phoneType == PhoneConstants.PHONE_TYPE_GSM ||
+                phoneType == PhoneConstants.PHONE_TYPE_IMS) {
             return false;
         } else if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
             int toneType = android.provider.Settings.System.getInt(
