@@ -370,6 +370,10 @@ public class MobileNetworkSettings extends PreferenceActivity
             // android.R.id.home will be triggered in onOptionsItemSelected()
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        if (this.getResources().getBoolean(R.bool.hide_roaming)) {
+            prefSet.removePreference(mButtonDataRoam);
+        }
     }
 
     @Override
