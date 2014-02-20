@@ -2030,53 +2030,33 @@ public class PhoneUtils {
      * call is active (like displaying the label "Conference call", and
      * enabling the "Manage conference" UI.)
      *
-     * Watch out: This method simply checks the number of Connections,
-     * *not* their states.  So if a Call has (for example) one ACTIVE
-     * connection and one DISCONNECTED connection, this method will return
-     * true (which is unintuitive, since the Call isn't *really* a
-     * conference call any more.)
-     *
-     * @return true if the specified call has more than one connection (in any state.)
+     * @return true if the specified call has more than one ACTIVE connection.
      */
     static boolean isConferenceCall(Call call) {
-        // CDMA phones don't have the same concept of "conference call" as
-        // GSM phones do; there's no special "conference call" state of
-        // the UI or a "manage conference" function.  (Instead, when
-        // you're in a 3-way call, all we can do is display the "generic"
-        // state of the UI.)  So as far as the in-call UI is concerned,
-        // Conference corresponds to generic display.
-        final PhoneGlobals app = PhoneGlobals.getInstance();
-        int phoneType = call.getPhone().getPhoneType();
-        if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
-            CdmaPhoneCallState.PhoneCallState state = app.cdmaPhoneCallState.getCurrentCallState();
-            if ((state == CdmaPhoneCallState.PhoneCallState.CONF_CALL)
-                    || ((state == CdmaPhoneCallState.PhoneCallState.THRWAY_ACTIVE)
-                    && !app.cdmaPhoneCallState.IsThreeWayCallOrigStateDialing())) {
+        return call.isMultiparty() && isRealConferenceCall(call);
+    }
+
+    /**
+     * A given call is only really a conference call if the number
+     * of ACTIVE connections, not the total number of connections,
+     * is greater than one.
+     *
+     */
+    static boolean isRealConferenceCall(Call call) {
+        List<Connection> connections;
+        connections = call.getConnections();
+        if (connections == null) {
+               return false;
+        }
+        int numActiveConnections = 0;
+        for (Connection conn : connections) {
+            if (DBG) log("  - CONN: " + conn + ", state = " + conn.getState());
+            if (conn.getState() == Call.State.ACTIVE) numActiveConnections++;
+            if (numActiveConnections > 1) {
                 return true;
             }
-        } else {
-            return call.isMultiparty();
         }
         return false;
-
-        // TODO: We may still want to change the semantics of this method
-        // to say that a given call is only really a conference call if
-        // the number of ACTIVE connections, not the total number of
-        // connections, is greater than one.  (See warning comment in the
-        // javadoc above.)
-        // Here's an implementation of that:
-        //        if (connections == null) {
-        //            return false;
-        //        }
-        //        int numActiveConnections = 0;
-        //        for (Connection conn : connections) {
-        //            if (DBG) log("  - CONN: " + conn + ", state = " + conn.getState());
-        //            if (conn.getState() == Call.State.ACTIVE) numActiveConnections++;
-        //            if (numActiveConnections > 1) {
-        //                return true;
-        //            }
-        //        }
-        //        return false;
     }
 
     /**
