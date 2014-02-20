@@ -320,12 +320,16 @@ public class MSimCallNotifier extends CallNotifier {
      * ringtone. Otherwise we will play the call waiting tone instead.
      * @param c The new ringing connection.
      */
-    private void ringAndNotifyOfIncomingCall(Connection c) {
+    @Override
+    protected void ringAndNotifyOfIncomingCall(Connection c) {
         if (PhoneUtils.isRealIncomingCall(c.getState())) {
             mRinger.ring();
         } else {
-            if (VDBG) log("- starting call waiting tone...");
-            if (mCallWaitingTonePlayer == null) {
+            int subscription = c.getCall().getPhone().getSubscription();
+            int otherActiveSub = PhoneUtils.getOtherActiveSub(subscription);
+            if ((MSimConstants.INVALID_SUBSCRIPTION == otherActiveSub)
+                    && (mCallWaitingTonePlayer == null)) {
+                if (VDBG) log("- starting call waiting tone...");
                 mCallWaitingTonePlayer = new InCallTonePlayer(InCallTonePlayer.TONE_CALL_WAITING);
                 mCallWaitingTonePlayer.start();
             }
