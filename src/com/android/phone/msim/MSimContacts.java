@@ -38,7 +38,7 @@ public class MSimContacts extends SimContacts {
     private static final String LOG_TAG = "MSimContacts";
     private static final String SIM_INDEX = "sim_index";
 
-    private int mSimIndex = 0;
+    private int mSelectedSim = 0;
     String[] mAdnString = {"adn", "adn_sub2", "adn_sub3"};
     //Import from all SIM's option is having the maximum index
     //we cannot take the phoneCount as maximum index as it will conflict
@@ -49,14 +49,14 @@ public class MSimContacts extends SimContacts {
     protected Uri resolveIntent() {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        mSimIndex  = extras.getInt(SIM_INDEX);
+        mSelectedSim  = extras.getInt(SIM_INDEX);
 
-        if (mSimIndex == IMPORT_FROM_ALL) {
+        if (mSelectedSim == IMPORT_FROM_ALL) {
             intent.setData(Uri.parse("content://iccmsim/adn_all"));
-        } else if (mSimIndex < MSimTelephonyManager.getDefault().getPhoneCount()) {
-            intent.setData(Uri.parse("content://iccmsim/" + mAdnString[mSimIndex]));
+        } else if (mSelectedSim < MSimTelephonyManager.getDefault().getPhoneCount()) {
+            intent.setData(Uri.parse("content://iccmsim/" + mAdnString[mSelectedSim]));
         } else {
-            Log.e(LOG_TAG, "Error: received invalid sub =" + mSimIndex);
+            Log.e(LOG_TAG, "Error: received invalid sub =" + mSelectedSim);
         }
 
         if (Intent.ACTION_PICK.equals(intent.getAction())) {
@@ -70,16 +70,16 @@ public class MSimContacts extends SimContacts {
 
     @Override
     protected Uri getUri() {
-        if (mSimIndex < MSimTelephonyManager.getDefault().getPhoneCount()) {
-            return Uri.parse("content://iccmsim/" + mAdnString[mSimIndex]);
+        if (mSelectedSim < MSimTelephonyManager.getDefault().getPhoneCount()) {
+            return Uri.parse("content://iccmsim/" + mAdnString[mSelectedSim]);
         } else {
-            Log.e(TAG, "Invalid subcription:" + mSimIndex);
+            Log.e(TAG, "Invalid subcription:" + mSelectedSim);
             return null;
         }
     }
 
     private boolean isImportFromAllSelection() {
-        return (mSimIndex == IMPORT_FROM_ALL);
+        return (mSelectedSim == IMPORT_FROM_ALL);
     }
 
     @Override
@@ -116,6 +116,17 @@ public class MSimContacts extends SimContacts {
     }
 
     protected boolean isSimPresent() {
-        return MSimPhoneFactory.getPhone(mSimIndex).getIccCard().hasIccCard();
+        boolean isSimPresent = false;
+        if (mSelectedSim == IMPORT_FROM_ALL) {
+            for (int i = 0; i < MSimTelephonyManager.getDefault().getPhoneCount(); i++) {
+                if (MSimPhoneFactory.getPhone(i).getIccCard().hasIccCard()) {
+                    isSimPresent = true;
+                    break;
+                }
+            }
+        } else {
+            isSimPresent = MSimPhoneFactory.getPhone(mSelectedSim).getIccCard().hasIccCard();
+        }
+        return isSimPresent;
     }
 }
