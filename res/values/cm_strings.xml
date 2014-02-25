@@ -265,4 +265,10 @@
         <item>"20"</item>
         <item>"18"</item>
     </string-array>
+
+    <!-- Call forwarding -->
+    <string name="CFActivate">Activate</string>
+    <string name="CFDeactivate">Deactivate</string>
+    <string name="null_phone_number">Phone number cannot be null!</string>
+    <string name="labelCFDeactAll">Deactivate all</string>
 </resources>
