@@ -3,6 +3,16 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.phone"
         android:title="@string/additional_cdma_call_settings">
 
+    <PreferenceScreen
+        android:key="button_cf_expand_key"
+        android:title="@string/labelCF"
+        android:persistent="false">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.CdmaCallForwardOptions"/>
+    </PreferenceScreen>
+
     <com.android.phone.CdmaVoicePrivacyCheckBoxPreference
         android:key="button_voice_privacy_key"
         android:title="@string/voice_privacy"
