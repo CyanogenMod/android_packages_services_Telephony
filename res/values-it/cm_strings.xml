@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-     Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2013-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="throttle_status_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) of <xliff:g id="used">%3$s</xliff:g> periodo massimo\nIl periodo successivo inizia fra <xliff:g id="used">%4$d</xliff:g> giorni (<xliff:g id="used">%5$s</xliff:g>)</string>
+    <string name="throttle_data_usage_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) di <xliff:g id="used">%3$s</xliff:g> periodo massimo</string>
     <string name="call_notif_unconditionalCF">Deviazione incondizionata attiva</string>
     <string name="call_notif_conditionalCF">Deviazione condizionata attiva</string>
     <string name="call_notif_MOcall_forwarding">Chiamata in uscita deviata</string>
@@ -42,7 +44,7 @@
     <string name="blacklist_summary">Le chiamate in entrata provenienti da numeri di telefono presenti nella blacklist verranno bloccate</string>
     <string name="blacklist_call_notification">Bloccata una chiamata dal %s</string>
     <string name="blacklist_call_notification_private_number">Bloccata una chiamata da un numero privato</string>
-    <string name="blacklist_call_notification_unknown_number">Numero sconosciuto: %s</string>
+    <string name="blacklist_call_notification_unknown_number">Bloccata una chiamata da un numero sconosciuto %s</string>
     <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> chiamate sono state bloccate</string>
     <string name="blacklist_message_notification">Bloccato un messaggio da %s</string>
     <string name="blacklist_message_notification_private_number">Bloccato un messaggio da un numero privato</string>
