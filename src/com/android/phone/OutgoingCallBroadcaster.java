@@ -469,7 +469,8 @@ public class OutgoingCallBroadcaster extends Activity
         }
 
         mIPCall = intent.getBooleanExtra(PhoneConstants.IP_CALL, false);
-        boolean promptEnabled = MSimPhoneFactory.isPromptEnabled();
+        boolean promptEnabled = (intent.getIntExtra(SUBSCRIPTION_KEY, -1) == -1) ?
+                MSimPhoneFactory.isPromptEnabled() : false;
         String number = PhoneNumberUtils.getNumberFromIntent(intent, this);
         boolean isEmergency = PhoneNumberUtils.isEmergencyNumber(number);
         if (MSimTelephonyManager.getDefault().isMultiSimEnabled() && promptEnabled &&
