@@ -16,6 +16,8 @@
 
 package com.android.phone;
 
+import com.android.internal.telephony.CallStateException;
+import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallerInfo;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.Phone;
@@ -54,10 +56,19 @@ class CallLogger {
      * @param callLogType The type of call log entry.
      */
     public void logCall(Connection c, int callLogType) {
+
+        //call log type for ims
+        final int INCOMING_IMS_TYPE = 21;
+        final int OUTGOING_IMS_TYPE = 22;
+        final int MISSED_IMS_TYPE = 23;
+
         final String number = c.getAddress();
         final long date = c.getCreateTime();
         final long duration = c.getDurationMillis();
         final Phone phone = c.getCall().getPhone();
+        if (DBG) {
+            log("- logCall(Connection c, int callLogType), phone = " + phone);
+        }
 
         final CallerInfo ci = getCallerInfoFromConnection(c);  // May be null.
         final String logNumber = getLogNumber(c, ci);
@@ -79,6 +90,28 @@ class CallLogger {
 
         // Don't log OTASP calls.
         if (!isOtaspNumber) {
+            //get the current phone type: csvoice, ims
+            if (DBG) {
+                log("CallLogger: logCall: callLogType in =" + callLogType);
+                log("CallLogger: logCall: phoneType =" + phone.getPhoneType());
+            }
+            if (SystemProperties.getBoolean("net.lte.VT_LOOPBACK_ENABLE", false) ||
+                phone.getPhoneType() == PhoneConstants.PHONE_TYPE_IMS){
+                switch(callLogType){
+                    case Calls.INCOMING_TYPE:
+                        callLogType = INCOMING_IMS_TYPE;
+                        break;
+                    case Calls.OUTGOING_TYPE:
+                        callLogType = OUTGOING_IMS_TYPE;
+                        break;
+                    case Calls.MISSED_TYPE:
+                        callLogType = MISSED_IMS_TYPE;
+                        break;
+                }
+            }
+            if (DBG) {
+                log("CallLogger: logCall: callLogType out =" + callLogType);
+            }
             logCall(ci, logNumber, presentation, callLogType, date, duration);
         }
     }
