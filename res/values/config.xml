@@ -176,6 +176,9 @@
     <!-- whether hide roaming settings -->
     <bool name="hide_roaming">false</bool>
 
+    <!-- whether to show uplmn preference for cta test -->
+    <bool name="config_uplmn_for_cta_test">false</bool>
+
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">false</bool>
 </resources>

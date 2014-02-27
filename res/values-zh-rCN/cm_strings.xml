@@ -141,4 +141,10 @@
   <string name="CFDeactivate">禁用</string>
   <string name="null_phone_number">输入的电话号码不能为空!</string>
   <string name="labelCFDeactAll">全部禁用</string>
+  <string name="uplmn_list_setting_title">偏好设置</string>
+  <string name="network_id">网络 ID</string>
+  <string name="dialog_network_priority_title">优先级</string>
+  <string name="uplmn_list_setting_add_plmn">新增 PLMN</string>
+  <string name="gsm_umts_network_preferences_title">网络模式</string>
+  <string name="gsm_umts_network_preferences_dialogtitle">网络模式</string>
 </resources>

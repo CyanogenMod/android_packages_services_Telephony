@@ -771,6 +771,20 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="UserPLMNListPreference"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="UPLMNEditor"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
     </application>
 
     <permission android:name="com.android.phone.CHANGE_NETWORK_MODE"

@@ -271,4 +271,12 @@
     <string name="CFDeactivate">Deactivate</string>
     <string name="null_phone_number">Phone number cannot be null!</string>
     <string name="labelCFDeactAll">Deactivate all</string>
+
+    <!-- UPLMN Prefer -->
+    <string name="uplmn_list_setting_title">Preferred networks</string>
+    <string name="network_id">Network ID</string>
+    <string name="dialog_network_priority_title">Priority</string>
+    <string name="uplmn_list_setting_add_plmn">New PLMN</string>
+    <string name="gsm_umts_network_preferences_title">Network Mode</string>
+    <string name="gsm_umts_network_preferences_dialogtitle">Network Mode</string>
 </resources>
