@@ -24,9 +24,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
@@ -53,7 +55,9 @@ import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
@@ -67,6 +71,7 @@ import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.cdma.TtyIntent;
+import com.android.internal.telephony.TelephonyIntents;
 import com.android.phone.Constants;
 
 import java.util.Collection;
@@ -360,6 +365,16 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         public CallForwardInfo[] forwardingSettings;
     }
 
+    /**
+     * Receiver for Receiver for ACTION_AIRPLANE_MODE_CHANGED and ACTION_SIM_STATE_CHANGED.
+     */
+    private BroadcastReceiver mReceiver = new BroadcastReceiver (){
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            setScreenState();
+        }
+    };
+
     private SharedPreferences mPerProviderSavedVMNumbers;
 
     /**
@@ -643,6 +658,11 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
 
         if (DBG) log("startSubActivity: starting requested subactivity");
         super.startActivityForResult(intent, requestCode);
+    }
+
+    private void setScreenState() {
+        int simState = MSimTelephonyManager.getDefault().getSimState(mSubscription);
+        getPreferenceScreen().setEnabled(simState != TelephonyManager.SIM_STATE_ABSENT);
     }
 
     private void switchToPreviousVoicemailProvider() {
@@ -1502,6 +1522,12 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         // getting selected subscription
         mSubscription = getIntent().getIntExtra(SUBSCRIPTION_KEY, 0);
 
+        //Register for intent broadcasts
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        intentFilter.addAction(TelephonyIntents.ACTION_SIM_STATE_CHANGED);
+
+        registerReceiver(mReceiver, intentFilter);
+
         mSubscriptionPrefFDN  = (PreferenceScreen) findPreference(BUTTON_FDN_KEY);
         mSubscriptionPrefGSM  = (PreferenceScreen) findPreference(BUTTON_GSM_UMTS_OPTIONS);
         mSubscriptionPrefCDMA = (PreferenceScreen) findPreference(BUTTON_CDMA_OPTIONS);
@@ -1698,6 +1724,8 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     protected void onResume() {
         super.onResume();
         mForeground = true;
+
+        setScreenState();
 
         if (isAirplaneModeOn()) {
             PreferenceScreen screen = getPreferenceScreen();
