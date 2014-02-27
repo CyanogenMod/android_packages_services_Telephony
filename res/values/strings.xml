@@ -1469,4 +1469,11 @@
      <!-- Summary for the XDivert Feature displayed in Call Settings -->
      <string name="xdivert_summary">CFNRc Settings</string>
 
+    <!-- UPLMN Prefer -->
+    <string name="uplmn_list_setting_title">Preferred networks</string>
+    <string name="network_id">Network ID</string>
+    <string name="dialog_network_priority_title">Priority</string>
+    <string name="uplmn_list_setting_add_plmn">New PLMN</string>
+    <string name="gsm_umts_network_preferences_title">Network Mode</string>
+    <string name="gsm_umts_network_preferences_dialogtitle">Network Mode</string>
 </resources>
