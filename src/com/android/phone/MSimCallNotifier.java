@@ -383,7 +383,6 @@ public class MSimCallNotifier extends CallNotifier {
             log("onPhoneStateChanged: CSVT is active");
             return;
         }
-        mLastPhoneState = state;
         if (VDBG) log("onPhoneStateChanged: state = " + state +
                 " subscription = " + subscription);
 
@@ -539,7 +538,7 @@ public class MSimCallNotifier extends CallNotifier {
             Log.w(LOG_TAG, "onDisconnect: null connection");
         }
 
-        showCallDuration(c);
+        showCallDurationIfNeed(c);
 
         boolean disconnectedDueToBlacklist = isDisconnectedDueToBlacklist(c);
 
