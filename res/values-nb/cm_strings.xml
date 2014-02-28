@@ -16,10 +16,5 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="blacklist_message_notification">บล็อคข้อความจาก %s</string>
-  <string name="blacklist_message_notification_private_number">บล็อคข้อความจากหมายเลขส่วนตัว</string>
-  <string name="blacklist_message_notification_unknown_number">บล็อคข้อความจากหมายเลขที่ไม่รู้จัก  %s</string>
-  <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g>ข้อความโดนบล็อค</string>
-  <string name="blacklist_notification_list_private">ส่วนตัว</string>
-  <string name="unblock_number">ปลดล็อค</string>
+  <string name="blacklist_summary_disabled">Deaktivert</string>
 </resources>
