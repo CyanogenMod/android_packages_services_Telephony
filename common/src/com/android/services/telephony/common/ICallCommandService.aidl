@@ -136,4 +136,10 @@ interface ICallCommandService {
      * Sets the subscriptionId as new active subscription.
      */
     void setActiveSubscription(int subscriptionId);
+
+    /**
+     * Sets the subscriptionId as new active subscription.
+     * However retains the LCH state of the subscription.
+     */
+    void setActiveSubRetainLch(int subscriptionId);
 }

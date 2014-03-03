@@ -863,6 +863,12 @@ public class PhoneUtils {
             initiallyIdle = app.mCM.getState() == PhoneConstants.State.IDLE;
         }
 
+        if (isCallOnImsEnabled() && (PhoneNumberUtils.isLocalEmergencyNumber(number, app)
+                || PhoneNumberUtils.isPotentialLocalEmergencyNumber(number, app))) {
+            Log.d(LOG_TAG, "IMS is enabled , place emergency call on ims phone");
+            phone = getImsPhone(app.mCM);
+        }
+
         try {
             connection = app.mCM.dial(phone, numberToDial, callType, extras);
         } catch (CallStateException ex) {
@@ -2147,6 +2153,22 @@ public class PhoneUtils {
         // Emergency calls never get muted.
         if (isInEmergencyCall(cm)) {
             muted = false;
+        }
+
+        int activeSub = getActiveSubscription();
+        if (cm.getLocalCallHoldStatus(activeSub) == true) {
+            if (muted == false) {
+                // if the current active sub is in lch state and user
+                // has clicked the unmute button, deactivate this sub's
+                // lch state and set the audio mode accordingly.
+                cm.deactivateLchState(activeSub);
+                cm.setAudioMode();
+            }
+
+            // if any local hold tones are playing then they need to be stoped.
+            final MSimCallNotifier notifier =
+                    (MSimCallNotifier) PhoneGlobals.getInstance().notifier;
+            notifier.manageMSimInCallTones(false);
         }
 
         // make the call to mute the audio

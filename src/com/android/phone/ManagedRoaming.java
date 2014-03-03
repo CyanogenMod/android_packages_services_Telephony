@@ -29,13 +29,12 @@
 
 package com.android.phone;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.telephony.MSimTelephonyManager;
 import android.text.TextUtils;
@@ -43,72 +42,42 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 
-import com.android.internal.telephony.TelephonyIntents;
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
-public class ManagedRoaming {
+public class ManagedRoaming extends Activity {
     private static final String LOG_TAG = "ManagedRoaming";
 
-    private Context mContext;
     private int mSubscription = 0;
     private boolean mIsMRDialogShown = false;
 
     // Key used to read and write the saved network selection numeric value
     private static final String NETWORK_SELECTION_KEY = "network_selection_key";
+    private final int NETWORK_SCAN_ACTIVITY_REQUEST_CODE = 0;
 
-    /** The singleton ManagedRoaming instance. */
-    private static ManagedRoaming sInstance;
-
-    static ManagedRoaming init(Context context) {
-        synchronized (ManagedRoaming.class) {
-            if (sInstance == null) {
-                sInstance = new ManagedRoaming(context);
-            } else {
-                Log.wtf(LOG_TAG, "init() called multiple times!  sInstance = " + sInstance);
-            }
-            return sInstance;
-        }
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        Intent intent = getIntent();
+        int subscription = intent.getIntExtra(SUBSCRIPTION_KEY, PhoneGlobals
+                .getInstance().getDefaultSubscription());
+        createManagedRoamingDialog(subscription);
     }
-
-    private ManagedRoaming(Context context) {
-
-        mContext = context;
-
-        // Register receiver for intent
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(TelephonyIntents.ACTION_MANAGED_ROAMING_IND);
-        mContext.registerReceiver(mManagedRoamingReceiver, filter);
-    }
-
-    /**
-     * Listens for Managed roaming intent
-     */
-    private BroadcastReceiver mManagedRoamingReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(TelephonyIntents.ACTION_MANAGED_ROAMING_IND)) {
-                int subscription = intent.getIntExtra(SUBSCRIPTION_KEY,
-                        PhoneGlobals.getInstance().getDefaultSubscription());
-                createManagedRoamingDialog(subscription);
-            }
-        }
-    };
 
     /*
      * Show Managed Roaming dialog if user preferred Network Selection mode is 'Manual'
      */
     private void createManagedRoamingDialog(int subscription) {
         Resources r = Resources.getSystem();
-        String networkSelection = PreferenceManager.getDefaultSharedPreferences(mContext)
-               .getString(NETWORK_SELECTION_KEY, "");
-
-        log(" Received Managed Roaming intent, networkSelection " + networkSelection +
-                " Is Dialog Displayed " + mIsMRDialogShown + " sub = " + subscription);
+        String networkSelection = PreferenceManager.getDefaultSharedPreferences(ManagedRoaming.this)
+                .getString(NETWORK_SELECTION_KEY, "");
+        log(" Received Managed Roaming intent, networkSelection "
+                + networkSelection + " Is Dialog Displayed " + mIsMRDialogShown
+                + " sub = " + subscription);
         // networkSelection will be empty for 'Automatic' mode.
         if (!TextUtils.isEmpty(networkSelection) && !mIsMRDialogShown) {
             MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
-            int[] titleResource = {R.string.managed_roaming_title_sub1,
-                    R.string.managed_roaming_title_sub2, R.string.managed_roaming_title_sub3};
+            int[] titleResource = { R.string.managed_roaming_title_sub1,
+                    R.string.managed_roaming_title_sub2,
+                    R.string.managed_roaming_title_sub3 };
             int title = R.string.managed_roaming_title;
 
             mSubscription = subscription;
@@ -117,7 +86,7 @@ public class ManagedRoaming {
                 title = titleResource[mSubscription];
             }
 
-            AlertDialog managedRoamingDialog = new AlertDialog.Builder(mContext)
+            AlertDialog managedRoamingDialog = new AlertDialog.Builder(ManagedRoaming.this)
                     .setTitle(title)
                     .setMessage(R.string.managed_roaming_dialog_content)
                     .setPositiveButton(R.string.managed_roaming_dialog_ok_button,
@@ -130,6 +99,8 @@ public class ManagedRoaming {
             mIsMRDialogShown = true;
             managedRoamingDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
             managedRoamingDialog.show();
+        } else {
+            finish();
         }
     }
 
@@ -143,15 +114,16 @@ public class ManagedRoaming {
                     Intent networkSettingIntent = new Intent(Intent.ACTION_MAIN);
                     networkSettingIntent.setClassName("com.android.phone",
                             "com.android.phone.NetworkSetting");
-                    networkSettingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     networkSettingIntent.putExtra(SUBSCRIPTION_KEY, mSubscription);
-                    mContext.startActivity(networkSettingIntent);
+                    startActivityForResult(networkSettingIntent,
+                            NETWORK_SCAN_ACTIVITY_REQUEST_CODE);
                     break;
-
                 case DialogInterface.BUTTON_NEGATIVE:
+                    finish();
                     break;
                 default:
                     Log.w(LOG_TAG, "received unknown button type: "+ which);
+                    finish();
                     break;
             }
             mIsMRDialogShown = false;
@@ -165,6 +137,8 @@ public class ManagedRoaming {
             if (keyCode == KeyEvent.KEYCODE_BACK) {
                 log(" presed back key, reset local state");
                 mIsMRDialogShown = false;
+                dialog.dismiss();
+                finish();
             }
             return false;
         }
@@ -172,5 +146,11 @@ public class ManagedRoaming {
 
     private void log(String msg) {
         Log.d(LOG_TAG, msg);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        log("On activity result ");
+        finish();
     }
 }

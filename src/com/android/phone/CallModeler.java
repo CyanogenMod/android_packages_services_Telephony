@@ -102,6 +102,7 @@ public class CallModeler extends Handler {
     private Connection mCdmaOutgoingConnection;
     private boolean mNextGsmCallIsForwarded;
     private SuppServiceNotification mSuppSvcNotification;
+    private boolean mVoicePrivacyState = false;
 
     public CallModeler(CallStateMonitor callStateMonitor, CallManager callManager,
             CallGatewayManager callGatewayManager) {
@@ -148,6 +149,21 @@ public class CallModeler extends Handler {
             case CallStateMonitor.PHONE_ACTIVE_SUBSCRIPTION_CHANGE:
                 onActiveSubChanged((AsyncResult) msg.obj);
                 break;
+            case CallStateMonitor.PHONE_ENHANCED_VP_ON:
+                if (DBG) Log.d(TAG, "PHONE_ENHANCED_VP_ON...");
+                if (!mVoicePrivacyState) {
+                    mVoicePrivacyState = true;
+                    onPhoneStateChanged(null);
+                }
+                break;
+            case CallStateMonitor.PHONE_ENHANCED_VP_OFF:
+                if (DBG) Log.d(TAG, "PHONE_ENHANCED_VP_OFF...");
+                if (mVoicePrivacyState) {
+                    mVoicePrivacyState = false;
+                    onPhoneStateChanged(null);
+                }
+                break;
+
             default:
                 break;
         }
@@ -346,6 +362,8 @@ public class CallModeler extends Handler {
 
     private void onDisconnect(Connection conn) {
         Log.i(TAG, "onDisconnect");
+
+        mVoicePrivacyState = false;
         final Call call = getCallFromMap(mCallMap, conn, false);
 
         if (call != null) {
@@ -767,6 +785,7 @@ public class CallModeler extends Handler {
         boolean canMute = false;
         boolean canAddParticipant = false;
         boolean canModifyCall = false;
+        boolean voicePrivacy = false;
         final boolean supportHold;
         final boolean canHold;
 
@@ -824,6 +843,11 @@ public class CallModeler extends Handler {
             canAddCall = true;
         }
 
+        //Voice Privacy for CDMA
+        if ((phone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) && mVoicePrivacyState) {
+            voicePrivacy = true;
+        }
+
         int retval = 0x0;
         if (canHold) {
             retval |= Capabilities.HOLD;
@@ -854,6 +878,9 @@ public class CallModeler extends Handler {
         }
         if (canModifyCall) {
             retval |= Capabilities.MODIFY_CALL;
+        }
+        if (voicePrivacy) {
+            retval |= Capabilities.VOICE_PRIVACY;
         }
         return retval;
     }
@@ -1015,6 +1042,8 @@ public class CallModeler extends Handler {
                         Call.DisconnectCause.DIAL_MODIFIED_TO_DIAL)
                 .put(Connection.DisconnectCause.SRVCC_CALL_DROP,
                         Call.DisconnectCause.SRVCC_CALL_DROP)
+                .put(Connection.DisconnectCause.ANSWERED_ELSEWHERE,
+                        Call.DisconnectCause.ANSWERED_ELSEWHERE)
                 .put(Connection.DisconnectCause.CALL_FAIL_MISC,
                         Call.DisconnectCause.CALL_FAIL_MISC)
                 .build();
