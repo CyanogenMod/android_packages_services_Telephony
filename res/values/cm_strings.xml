@@ -88,4 +88,29 @@
     <!-- Noise suppression -->
     <string name="noise_suppression_title">Noise suppression</string>
     <string name="noise_suppression_summary">Enable noise suppression for calls</string>
+
+    <!-- Mobile network settings, preferred network mode -->
+    <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma" translatable="false">TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma" translatable="false">TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte" translatable="false">TD-SCDMA/GSM/WCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_wcdma_lte" translatable="false">TD-SCDMA/WCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma" translatable="false">TD-SCDMA/GSM/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_gsm_lte" translatable="false">TD-SCDMA/GSM/LTE</string>
+    <string name="preferred_network_mode_td_scdma_gsm" translatable="false">TD-SCDMA/GSM</string>
+    <string name="preferred_network_mode_td_scdma_lte" translatable="false">TD-SCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_wcdma" translatable="false">TD-SCDMA/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_only">TD-SCDMA only</string>
+    <string name="preferred_network_mode_lte_wcdma" translatable="false">LTE/WCDMA</string>
+    <string name="preferred_network_mode_lte" translatable="false">LTE</string>
+    <string name="preferred_network_mode_global">Global</string>
+    <string name="preferred_network_mode_gsm_wcdma_lte" translatable="false">GSM/WCDMA/LTE</string>
+    <string name="preferred_network_mode_cdma_lte_evdo" translatable="false">CDMA + LTE/EvDo</string>
+    <string name="preferred_network_mode_cdma_evdo_gsm_wcdma" translatable="false">CDMA/EvDo/GSM/WCDMA</string>
+    <string name="preferred_network_mode_evdo_only">EvDo only</string>
+    <string name="preferred_network_mode_cdma_without_evdo">CDMA w/o EvDo</string>
+    <string name="preferred_network_mode_cdma_evdo_auto">CDMA/EvDo auto</string>
+    <string name="preferred_network_mode_gsm_wcdma_auto">GSM/WCDMA auto</string>
+    <string name="preferred_network_mode_wcdma_only">WCDMA only</item>
+    <string name="preferred_network_mode_gsm_only">GSM only</item>
+    <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA preferred</item>
 </resources>
