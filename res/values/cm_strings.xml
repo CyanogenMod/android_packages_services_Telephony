@@ -88,4 +88,16 @@
     <!-- Noise suppression -->
     <string name="noise_suppression_title">Noise suppression</string>
     <string name="noise_suppression_summary">Enable noise suppression for calls</string>
+
+    <!-- Mobile network settings, preferred network mode -->
+    <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma">TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma">TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte">TD-SCDMA/GSM/WCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_wcdma_lte">TD-SCDMA/WCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma">TD-SCDMA/GSM/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_gsm_lte">TD-SCDMA/GSM/LTE</string>
+    <string name="preferred_network_mode_td_scdma_gsm">TD-SCDMA/GSM</string>
+    <string name="preferred_network_mode_td_scdma_lte">TD-SCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_wcdma">TD-SCDMA/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_only">TD-SCDMA only</string>
 </resources>
