@@ -36,6 +36,8 @@ interface ICallCommandService {
      */
     void answerCallWithCallType(int callId, int callType);
 
+    void deflectCall(int callId, String number);
+
     void modifyCallInitiate(int callId, int callType);
 
     void modifyCallConfirm(boolean responseType, int callId);
