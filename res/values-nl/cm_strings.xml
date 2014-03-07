@@ -58,4 +58,26 @@
     <string name="phone_number_summary">Telefoonnummer instellen voor deze telefoon</string>
     <string name="noise_suppression_title">Ruisonderdrukking</string>
     <string name="noise_suppression_summary">Ruisonderdrukking inschakelen tijdens gesprekken</string>
+
+    <string name="preferred_network_mode_td_scdma_only">Alleen TD-SCDMA</string>
+    <string name="preferred_network_mode_global">Wereldwijd</string>
+    <string name="preferred_network_mode_evdo_only">Alleen EvDo</string>
+    <string name="preferred_network_mode_cdma_without_evdo">CDMA zonder EvDo</string>
+    <string name="preferred_network_mode_cdma_evdo_auto">CDMA/EvDo automatisch</string>
+    <string name="preferred_network_mode_gsm_wcdma_auto">GSM/WCDMA automatisch</string>
+    <string name="preferred_network_mode_wcdma_only">Alleen WCDMA</string>
+    <string name="preferred_network_mode_gsm_only">Alleen GSM</string>
+    <string name="preferred_network_mode_gsm_wcdma_preferred">Voorkeur voor GSM/WCDMA</string>
+
+    <string name="number_lookup">Telefoonnummer zoeken</string>
+    <string name="enable_forward_lookup_title">Plaatsen zoeken</string>
+    <string name="enable_forward_lookup_summary">Nabijgelegen plaatsen laten zien</string>
+    <string name="enable_people_lookup_title">Mensen zoeken</string>
+    <string name="enable_people_lookup_summary">Online zoekresultaten van mensen laten zien</string>
+    <string name="enable_reverse_lookup_title">Omgekeerd zoeken</string>
+    <string name="enable_reverse_lookup_summary">Informatie over de persoon of plaats zoeken bij inkomende oproepen van onbekende nummers</string>
+    <string name="choose_lookup_providers">Zoekaanbieders kiezen</string>
+    <string name="choose_forward_lookup_provider_title">Aanbieder plaatsen zoeken</string>
+    <string name="choose_people_lookup_provider_title">Aanbieder mensen zoeken</string>
+    <string name="choose_reverse_lookup_provider_title">Aanbieder omgekeerd zoeken</string>
 </resources>
