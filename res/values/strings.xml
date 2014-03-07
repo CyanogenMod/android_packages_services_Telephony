@@ -428,7 +428,7 @@
     <string name="preferred_network_mode_global_summary">Preferred network mode: Global(CDMA/EVDO/LTE/GSM/WCDMA)</string>
     <!-- Mobile network settings, summary for preferred network mode LTE / WCDMA[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_lte_wcdma_summary">Preferred network mode: LTE / WCDMA</string>
-        <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_td_scdma_only_summary">Preferred network mode: TD-SCDMA only</string>
     <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferred network mode: TD-SCDMA / WCDMA</string>
@@ -448,8 +448,6 @@
     <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
     <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
-
-
 
     <string-array name="preferred_network_mode_choices">
         <item>TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO </item>
