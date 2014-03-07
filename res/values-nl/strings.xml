@@ -49,9 +49,9 @@
     <string name="label_ndp" msgid="780479633159517250">"PIN-code voor ontgrendelen SIM-netwerk"</string>
     <string name="sim_ndp_unlock_text" msgid="683628237760543009">"Ontgrendelen"</string>
     <string name="sim_ndp_dismiss_text" msgid="1604823375752456947">"Negeren"</string>
-    <string name="requesting_unlock" msgid="6412629401033249351">"Verzoek om ontgrendelen netwerk..."</string>
+    <string name="requesting_unlock" msgid="6412629401033249351">Verzoek om ontgrendelen netwerk-SIM\u2026</string>
     <string name="unlock_failed" msgid="6490531697031504225">"Verzoek voor ontgrendelen netwerk mislukt."</string>
-    <string name="unlock_success" msgid="6770085622238180152">"Het netwerk is ontgrendeld."</string>
+    <string name="unlock_success" msgid="6770085622238180152">"Het SIM-netwerk is ontgrendeld."</string>
     <string name="labelGSMMore" msgid="5930842194056092106">"GSM-oproepinstellingen"</string>
     <string name="labelCDMAMore" msgid="1630676740428229339">"CDMA-oproepinstellingen"</string>
     <string name="apn_settings" msgid="9043423184895642077">"Namen toegangspunten"</string>
@@ -151,8 +151,8 @@
     <string name="preferred_network_mode_lte_summary" msgid="574752287596469136">"Voorkeursnetwerkmodus: LTE"</string>
     <string name="preferred_network_mode_lte_gsm_wcdma_summary" msgid="8455358514068283935">"Voorkeursnetwerkmodus: GSM/WCDMA/LTE"</string>
     <string name="preferred_network_mode_lte_cdma_evdo_summary" msgid="228702246343742853">"Voorkeursnetwerkmodus: CDMA+LTE/EVDO"</string>
-    <string name="preferred_network_mode_global_summary" msgid="1633134285545730364">"Voorkeursnetwerkmodus: Wereldwijd"</string>
-    <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"Voorkeursnetwerkmodus: LTE / WCDMA"</string>
+    <string name="preferred_network_mode_global_summary" msgid="1633134285545730364">"Voorkeursnetwerkmodus: Wereldwijd (CDMA/EVDO/LTE/GSM/WCDMA)"</string>
+    <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"Voorkeursnetwerkmodus: LTE/WCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE/WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -340,7 +340,7 @@
     <string name="fdn_failed" msgid="540018079008319747">"FDN-bewerking mislukt."</string>
     <string name="simContacts_emptyLoading" msgid="2203331234764498011">"Lezen vanaf SIM-kaart..."</string>
     <string name="simContacts_empty" msgid="5270660846489561932">"Geen contacten op uw SIM-kaart."</string>
-    <string name="simContacts_title" msgid="1861472842524839921">"Contacten selecteren om te importeren"</string>
+    <string name="simContacts_title" msgid="1861472842524839921">"Contacten op SIM-kaart beheren"</string>
     <string name="simContacts_airplaneMode" msgid="1846161429087789936">"Voor het importeren van contacten vanaf de simkaart moet u eerst de vliegmodus uitschakelen."</string>
     <string name="enable_pin" msgid="5422767284133234860">"SIM PIN-code in-/uitschakelen"</string>
     <string name="change_pin" msgid="9174186126330785343">"SIM PIN-code wijzigen"</string>
@@ -505,7 +505,7 @@
     <string name="selectContact" msgid="781975788478987237">"contact selecteren"</string>
     <string name="sip_settings" msgid="6699045718560859691">"Instellingen voor bellen via internet"</string>
     <string name="sip_accounts" msgid="2097054001288457163">"Accounts voor internetoproepen (SIP)"</string>
-    <string name="sip_accounts_title" msgid="1212889069281054570">"Accounts"</string>
+    <string name="sip_accounts_title" msgid="1212889069281054570">"SIP-Accounts"</string>
     <string name="sip_receive_calls" msgid="5635685570889971559">"Inkomende gesprekken ontvangen"</string>
     <string name="sip_receive_calls_summary" msgid="8403613238633679184">"Verkort levensduur van accu"</string>
     <string name="sip_call_options_title" msgid="27433718808839672">"Internetoproepen gebruiken"</string>
