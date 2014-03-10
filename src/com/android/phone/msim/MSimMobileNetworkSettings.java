@@ -171,7 +171,11 @@ public class MSimMobileNetworkSettings extends PreferenceActivity
 
         addPreferencesFromResource(R.xml.msim_network_setting);
 
-        mPhone = ((MSimPhoneGlobals)PhoneGlobals.getInstance()).getDefaultPhone();
+        if (PhoneGlobals.getInstance() instanceof MSimPhoneGlobals) {
+            mPhone = ((MSimPhoneGlobals)PhoneGlobals.getInstance()).getDefaultPhone();
+        } else {
+            mPhone = PhoneGlobals.getInstance().getPhone(0);
+        }
 
         //get UI object references
         PreferenceScreen prefSet = getPreferenceScreen();
