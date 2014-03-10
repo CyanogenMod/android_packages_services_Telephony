@@ -60,4 +60,24 @@
     <string name="throttle_status_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) af <xliff:g id="used">%3$s</xliff:g> periode-maksimum\nNæste periode starter om <xliff:g id="used">%4$d</xliff:g> dage (<xliff:g id="used">%5$s</xliff:g>)</string>
     <string name="throttle_data_usage_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) af <xliff:g id="used">%3$s</xliff:g> periode-maksimum</string>
     <string name="throttle_time_frame_subtext"><xliff:g id="used">%1$d</xliff:g>\u066A af cyklus gået\nNæste periode starter om <xliff:g id="used">%2$d</xliff:g> dage (<xliff:g id="used">%3$s</xliff:g>)</string>
+    <string name="preferred_network_mode_td_scdma_only">Kun TD-SCDMA</string>
+    <string name="preferred_network_mode_global">Global</string>
+    <string name="preferred_network_mode_evdo_only">Kun EvDo</string>
+    <string name="preferred_network_mode_cdma_without_evdo">CDMA uden EvDo</string>
+    <string name="preferred_network_mode_cdma_evdo_auto">CDMA/EvDo automatisk</string>
+    <string name="preferred_network_mode_gsm_wcdma_auto">GSM/WCDMA automatisk</string>
+    <string name="preferred_network_mode_wcdma_only">Kun WCDMA</string>
+    <string name="preferred_network_mode_gsm_only">Kun GSM</string>
+    <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA foretrukket</string>
+    <string name="number_lookup">Telefonnummeropslag</string>
+    <string name="enable_forward_lookup_title">Nabolagsopslag</string>
+    <string name="enable_forward_lookup_summary">Vis steder i nærheden, når der søges i opkaldsprogrammet</string>
+    <string name="enable_people_lookup_title">Personopslag</string>
+    <string name="enable_people_lookup_summary">Vis onlineresultater for personer, når der søges i opkaldsprogrammet</string>
+    <string name="enable_reverse_lookup_title">Opslag af ukendte numre</string>
+    <string name="enable_reverse_lookup_summary">Slå information op om personen eller stedet for ukendte numre ved indgående opkald</string>
+    <string name="choose_lookup_providers">Vælg opslagsudbydere</string>
+    <string name="choose_forward_lookup_provider_title">Opslagsudbyder for nabolagsopslag</string>
+    <string name="choose_people_lookup_provider_title">Opslagsudbyder for personer</string>
+    <string name="choose_reverse_lookup_provider_title">Opslagsudbyder for ukendte numre</string>
 </resources>
