@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
-     Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2013-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -40,15 +40,15 @@
   <string name="blacklist_title">Llista negra</string>
   <string name="blacklist_summary_disabled">Desactivada</string>
   <string name="blacklist_summary">Les trucades entrants de números de telèfon dins la llista negra seran bloquejades</string>
-  <string name="blacklist_notification">S\'ha bloquejat una trucada de %s</string>
-  <string name="blacklist_notification_private_number">S\'ha bloquejat una trucada d\'un número privat</string>
-  <string name="blacklist_notification_list_private">Privat</string>
-  <string name="blacklist_notification_unknown_number">S\'ha bloquejat una trucada d\'un número desconegut %s</string>
-  <string name="blacklist_notification_multiple">S\'han bloquejat <xliff:g id="count">%d</xliff:g> trucades</string>
+  <string name="blacklist_call_notification">S\'ha bloquejat una trucada de %s</string>
+  <string name="blacklist_call_notification_private_number">S\'ha bloquejat una trucada d\'un número privat</string>
+  <string name="blacklist_call_notification_unknown_number">S\'ha bloquejat una trucada del número desconegut %s</string>
+  <string name="blacklist_call_notification_multiple">S\'han bloquejat <xliff:g id="count">%d</xliff:g> trucades</string>
   <string name="blacklist_message_notification">S\'ha bloquejat un missatge de %s</string>
   <string name="blacklist_message_notification_private_number">S\'ha bloquejat un missatge d\'un número privat</string>
   <string name="blacklist_message_notification_unknown_number">S\'ha bloquejat un missatge d\'un número desconegut %s</string>
   <string name="blacklist_message_notification_multiple">S\'han bloquejat <xliff:g id="count">%d</xliff:g> missatges</string>
+  <string name="blacklist_notification_list_private">Privat</string>
   <string name="unblock_number">Desbloqueja</string>
   <string name="mwi_notification_title">Indicador de missatges en espera</string>
   <string name="mwi_notification_summary">Mostra un indicador de missatges en espera en les notificacions de la bústia de veu</string>
@@ -56,5 +56,6 @@
   <string name="perm_change_mobile_network_desc">Permet a l\'app canviar entre dades 2G i dades 3G en qualsevol moment. Les 3G són més ràpides, però consumeixen més bateria i poden tenir costos addicionals.</string>
   <string name="phone_number_label">El meu número de telèfon</string>
   <string name="phone_number_summary">Estableix el número de telèfon per aquest dispositiu</string>
-
+  <string name="noise_suppression_title">Supressió de sorolls</string>
+  <string name="noise_suppression_summary">Activa la supressió de sorolls per les trucades</string>
 </resources>
