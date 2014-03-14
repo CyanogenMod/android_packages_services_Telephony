@@ -113,4 +113,18 @@
     <string name="preferred_network_mode_wcdma_only">WCDMA only</string>
     <string name="preferred_network_mode_gsm_only">GSM only</string>
     <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA preferred</string>
+
+    <!-- Number lookup -->
+    <string name="number_lookup">Phone number lookup</string>
+    <string name="enable_forward_lookup_title">Enable forward lookup</string>
+    <string name="enable_forward_lookup_summary">Show nearby places when searching in the dialer</string>
+    <string name="enable_people_lookup_title">Enable people lookup</string>
+    <string name="enable_people_lookup_summary">Show online results for people when searching in the dialer</string>
+    <string name="enable_reverse_lookup_title">Enable reverse lookup</string>
+    <string name="enable_reverse_lookup_summary">Look up information about the person or place for unknown numbers on incoming calls</string>
+    <string name="choose_lookup_providers">Choose lookup providers</string>
+    <string name="choose_forward_lookup_provider_title">Choose forward lookup provider</string>
+    <string name="choose_people_lookup_provider_title">Choose people lookup provider</string>
+    <string name="choose_reverse_lookup_provider_title">Choose reverse lookup provider</string>
+
 </resources>
