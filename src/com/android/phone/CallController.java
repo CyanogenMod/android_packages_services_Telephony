@@ -83,6 +83,7 @@ public class CallController extends Handler {
     /** Helper object for emergency calls in some rare use cases.  Created lazily. */
     private EmergencyCallHelper mEmergencyCallHelper;
 
+    private int mVoiceMailSub = 0;
 
     //
     // Message codes; see handleMessage().
@@ -155,6 +156,10 @@ public class CallController extends Handler {
                 Log.wtf(TAG, "handleMessage: unexpected code: " + msg);
                 break;
         }
+    }
+
+    public int getVoiceMailSub() {
+        return mVoiceMailSub;
     }
 
     //
@@ -362,6 +367,7 @@ public class CallController extends Handler {
             // may effect the way the voicemail number is being
             // retrieved.  Mask the VoiceMailNumberMissingException
             // with the underlying issue of the phone state.
+            mVoiceMailSub = intent.getIntExtra(SUBSCRIPTION_KEY, mApp.getDefaultSubscription());
             if (okToCallStatus != CallStatusCode.SUCCESS) {
                 if (DBG) log("Voicemail number not reachable in current SIM card state.");
                 return okToCallStatus;
