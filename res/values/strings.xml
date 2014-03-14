@@ -1589,6 +1589,13 @@
     <string name="ims_menu_discard">Discard</string>
     <!-- Title for the button to remove a IMS account. [CHAR LIMIT=NONE] -->
     <string name="remove_ims_account">Remove account</string>
+    <!-- VT call quality settings. -->
+    <string translatable="false" name="ims_vt_call_quality">VtCallQuality</string>
+    <string name="ims_vt_call_quality_title">VT Call Quality</string>
+    <string name="ims_vt_call_quality_low">Low</string>
+    <string name="ims_vt_call_quality_high">High</string>
+    <string name="ims_vt_call_quality_unknown">Unknown</string>
+    <string name="ims_vt_call_quality_set_failed">Failed to set video quality</string>
     <!-- End of IMS settings related strings -->
 
     <!-- Dialog title to notify user that Voice calling is not supported
