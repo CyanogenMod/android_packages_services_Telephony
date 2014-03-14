@@ -45,6 +45,7 @@ import android.widget.TabHost.TabSpec;
 import android.app.TabActivity;
 
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
+import static com.android.internal.telephony.MSimConstants.DEFAULT_SUBSCRIPTION;
 
 public class SelectSubscription extends  TabActivity {
 
@@ -98,6 +99,7 @@ public class SelectSubscription extends  TabActivity {
             subscriptionPref.setContent(intent);
             tabHost.addTab(subscriptionPref);
         }
+        tabHost.setCurrentTab(getIntent().getIntExtra(SUBSCRIPTION_KEY, DEFAULT_SUBSCRIPTION));
 
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
