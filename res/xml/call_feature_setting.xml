@@ -63,6 +63,57 @@
   </PreferenceCategory>
 
   <PreferenceCategory
+      android:title="@string/number_lookup" />
+
+  <CheckBoxPreference
+      android:key="switch_enable_forward_lookup"
+      android:title="@string/enable_forward_lookup_title"
+      android:summary="@string/enable_forward_lookup_summary"
+      android:defaultValue="false"
+      android:persistent="false" />
+
+  <CheckBoxPreference
+      android:key="switch_enable_people_lookup"
+      android:title="@string/enable_people_lookup_title"
+      android:summary="@string/enable_people_lookup_summary"
+      android:defaultValue="false"
+      android:persistent="false" />
+
+  <CheckBoxPreference
+      android:key="switch_enable_reverse_lookup"
+      android:title="@string/enable_reverse_lookup_title"
+      android:summary="@string/enable_reverse_lookup_summary"
+      android:defaultValue="false"
+      android:persistent="false" />
+
+  <PreferenceScreen
+      android:title="@string/choose_lookup_providers"
+      android:persistent="false">
+
+      <ListPreference
+          android:key="button_choose_forward_lookup_provider"
+          android:title="@string/choose_forward_lookup_provider_title"
+          android:entries="@array/forward_lookup_provider_names"
+          android:entryValues="@array/forward_lookup_providers"
+          android:persistent="false" />
+
+      <ListPreference
+          android:key="button_choose_people_lookup_provider"
+          android:title="@string/choose_people_lookup_provider_title"
+          android:entries="@array/people_lookup_provider_names"
+          android:entryValues="@array/people_lookup_providers"
+          android:persistent="false" />
+
+      <ListPreference
+          android:key="button_choose_reverse_lookup_provider"
+          android:title="@string/choose_reverse_lookup_provider_title"
+          android:entries="@array/reverse_lookup_provider_names"
+          android:entryValues="@array/reverse_lookup_providers"
+          android:persistent="false" />
+
+  </PreferenceScreen>
+
+  <PreferenceCategory
       android:key="button_misc_category_key"
       android:title="@string/other_settings"
       android:persistent="false" />
