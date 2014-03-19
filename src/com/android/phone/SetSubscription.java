@@ -199,14 +199,14 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
             .setIcon(android.R.drawable.ic_dialog_alert)
             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        Log.d(TAG, "new card dialog box:  onClick");
-                        //finish();
+                        Intent msimSettings = new Intent("com.android.settings.MULTI_SIM_SETTINGS");
+                        msimSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(msimSettings);
                     }
                 })
             .show()
             .setOnDismissListener(new DialogInterface.OnDismissListener() {
                     public void onDismiss(DialogInterface dialog) {
-                        Log.d(TAG, "new card dialog box:  onDismiss");
                         finish();
                     }
                 });
