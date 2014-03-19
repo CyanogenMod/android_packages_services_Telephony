@@ -97,7 +97,7 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
     public void onCreate(Bundle icicle) {
         boolean newCardNotify = getIntent().getBooleanExtra("NOTIFY_NEW_CARD_AVAILABLE", false);
         if (!newCardNotify) {
-            setTheme(android.R.style.Theme);
+            setTheme(android.R.style.Theme_Holo);
         }
         super.onCreate(icicle);
 
@@ -199,14 +199,14 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
             .setIcon(android.R.drawable.ic_dialog_alert)
             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        Log.d(TAG, "new card dialog box:  onClick");
-                        //finish();
+                        Intent msimSettings = new Intent("com.android.settings.MULTI_SIM_SETTINGS");
+                        msimSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(msimSettings);
                     }
                 })
             .show()
             .setOnDismissListener(new DialogInterface.OnDismissListener() {
                     public void onDismiss(DialogInterface dialog) {
-                        Log.d(TAG, "new card dialog box:  onDismiss");
                         finish();
                     }
                 });
