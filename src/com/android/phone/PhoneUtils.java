@@ -3258,6 +3258,13 @@ public class PhoneUtils {
             log("IMS Conversion not required ");
         } else {
 
+            /*
+             * Initialize imsNumber if it's null to avoid Uri.fromParts() throws
+             * NullPointerException due to ssp scheme-specific-part is null.
+             */
+            if (imsNumber == null) {
+                imsNumber = "";
+            }
             intent.setData(Uri.fromParts(Constants.SCHEME_SIP, imsNumber, null));
             intent.putExtra(OutgoingCallBroadcaster.EXTRA_CALL_TYPE, callType);
 
