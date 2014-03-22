@@ -537,7 +537,7 @@
         <activity android:name="MSimCallFeaturesSetting"
             android:label="@string/call_settings"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+            android:theme="@style/SettingsLight">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -550,7 +550,7 @@
         <activity android:name="MSimCallFeaturesSubSetting"
             android:label="@string/call_settings"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+            android:theme="@style/SettingsLight">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
