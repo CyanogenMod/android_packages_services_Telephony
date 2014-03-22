@@ -42,6 +42,7 @@ public class DefaultRingtonePreference extends RingtonePreference {
          * doesn't make sense to show a 'Default' item.
          */
         ringtonePickerIntent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, false);
+        ringtonePickerIntent.putExtra(RingtoneManager.EXTRA_RINGTONE_DIALOG_THEME, R.style.Theme_Ringtone_Dialog);
     }
 
     @Override
