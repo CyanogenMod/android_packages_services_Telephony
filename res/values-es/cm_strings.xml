@@ -58,8 +58,24 @@
     <string name="phone_number_summary">Establecer el número asociado a este dispositivo</string>
     <string name="noise_suppression_title">Supresor de ruido</string>
     <string name="noise_suppression_summary">Activar la supresión de ruido durante las llamadas</string>
-
-    <!-- AOSP -->
-    <string name="throttle_status_subtext">Máx de <xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) del período <xliff:g id="used">%3$s</xliff:g>\nPróx período en <xliff:g id="used">%4$d</xliff:g> días (<xliff:g id="used">%5$s</xliff:g>)</string>
-    <string name="throttle_data_usage_subtext">Máx de <xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) del período <xliff:g id="used">%3$s</xliff:g></string>
+    <string name="preferred_network_mode_td_scdma_only">Solo TD-SCDMA</string>
+    <string name="preferred_network_mode_global">Global</string>
+    <string name="preferred_network_mode_evdo_only">Solo EvDo</string>
+    <string name="preferred_network_mode_cdma_without_evdo">CDMA sin EvDo</string>
+    <string name="preferred_network_mode_cdma_evdo_auto">Modo automático CDMA/EvDo</string>
+    <string name="preferred_network_mode_gsm_wcdma_auto">Modo automático GSM/WCDMA</string>
+    <string name="preferred_network_mode_wcdma_only">Solo WCDMA</string>
+    <string name="preferred_network_mode_gsm_only">Solo GSM</string>
+    <string name="preferred_network_mode_gsm_wcdma_preferred">Preferencia de GSM/WCDMA</string>
+    <string name="number_lookup">Búsqueda de números telefónicos</string>
+    <string name="enable_forward_lookup_title">Búsqueda de lugares</string>
+    <string name="enable_forward_lookup_summary">Mostrar resultados de lugares cercanos al buscar en el marcador</string>
+    <string name="enable_people_lookup_title">Búsqueda de personas</string>
+    <string name="enable_people_lookup_summary">Mostrar resultados de personas al buscar en el marcador</string>
+    <string name="enable_reverse_lookup_title">Búsqueda inversa</string>
+    <string name="enable_reverse_lookup_summary">Buscar información sobre la persona o lugar para llamadas de números desconocidos</string>
+    <string name="choose_lookup_providers">Elegir proveedor de búsqueda</string>
+    <string name="choose_forward_lookup_provider_title">Elegir proveedor para lugares</string>
+    <string name="choose_people_lookup_provider_title">Elegir proveedor para personas</string>
+    <string name="choose_reverse_lookup_provider_title">Elegir proveedor para búsqueda inversa</string>
 </resources>
