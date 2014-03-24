@@ -113,11 +113,11 @@
     <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
     <string name="label_sdp">SIM unlock PIN</string>
     <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
-    <string name="label_rn1dp">RUIM network1 unlock PIN</string>
+    <string name="label_rn1dp">RUIM network 1 unlock PIN</string>
     <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
-    <string name="label_rn2dp">RUIM network2 unlock PIN</string>
+    <string name="label_rn2dp">RUIM network 2 unlock PIN</string>
     <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
-    <string name="label_rhrpd">RUIM hrpd unlock PIN</string>
+    <string name="label_rhrpd">RUIM HRPD unlock PIN</string>
     <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
     <string name="label_rcdp">RUIM corporate unlock PIN</string>
     <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
@@ -141,11 +141,11 @@
     <!-- Status message displayed on SIM SIM Depersonalization panel -->
     <string name="requesting_sim_unlock">Requesting SIM unlock\u2026</string>
     <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
-    <string name="requesting_rnw1_unlock">Requesting RUIM network1 unlock\u2026</string>
+    <string name="requesting_rnw1_unlock">Requesting RUIM network 1 unlock\u2026</string>
     <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
-    <string name="requesting_rnw2_unlock">Requesting RUIM network2 unlock\u2026</string>
+    <string name="requesting_rnw2_unlock">Requesting RUIM network 2 unlock\u2026</string>
     <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
-    <string name="requesting_rhrpd_unlock">Requesting RUIM hrpd unlock\u2026</string>
+    <string name="requesting_rhrpd_unlock">Requesting RUIM HRPD unlock\u2026</string>
     <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
     <string name="requesting_rsp_unlock">Requesting RUIM service provider unlock\u2026</string>
     <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
@@ -155,49 +155,49 @@
     <!-- Status message displayed on PUK Depersonalization panel -->
     <string name="requesting_puk_unlock">Requesting PUK unlock\u2026</string>
     <!-- Error message displayed on SIM Network Depersonalization panel -->
-    <string name="unlock_failed">SIM Network unlock request unsuccessful.</string>
+    <string name="unlock_failed">SIM network unlock request unsuccessful.</string>
     <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
-    <string name="nw_subset_unlock_failed">SIM Network Subset unlock request unsuccessful.</string>
+    <string name="nw_subset_unlock_failed">SIM network subset unlock request unsuccessful.</string>
     <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
-    <string name="sp_unlock_failed">SIM Service Provider unlock request unsuccessful.</string>
+    <string name="sp_unlock_failed">SIM service provider unlock request unsuccessful.</string>
     <!-- Error message displayed on SIM Corporate Depersonalization panel -->
-    <string name="corporate_unlock_failed">SIM Corporate unlock request unsuccessful.</string>
+    <string name="corporate_unlock_failed">SIM corporate unlock request unsuccessful.</string>
     <!-- Error message displayed on SIM SIM Depersonalization panel -->
     <string name="sim_unlock_failed">SIM unlock request unsuccessful.</string>
     <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
-    <string name="rnw1_unlock_failed">RUIM Network1 unlock request unsuccessful.</string>
+    <string name="rnw1_unlock_failed">RUIM network 1 unlock request unsuccessful.</string>
     <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
-    <string name="rnw2_unlock_failed">RUIM Network2 unlock request unsuccessful.</string>
+    <string name="rnw2_unlock_failed">RUIM network 2 unlock request unsuccessful.</string>
     <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
-    <string name="rhrpd_unlock_failed">RUIM Hrpd unlock request unsuccessful.</string>
+    <string name="rhrpd_unlock_failed">RUIM HRPD unlock request unsuccessful.</string>
     <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
-    <string name="rsp_unlock_failed">RUIM Service Provider unlock request unsuccessful.</string>
+    <string name="rsp_unlock_failed">RUIM service provider unlock request unsuccessful.</string>
     <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-    <string name="rc_unlock_failed">RUIM Corporate unlock request unsuccessful.</string>
+    <string name="rc_unlock_failed">RUIM corporate unlock request unsuccessful.</string>
     <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
     <string name="ruim_unlock_failed">RUIM unlock request unsuccessful.</string>
     <!-- Error message displayed on PUK Depersonalization panel -->
     <string name="puk_unlock_failed">PUK unlock unsuccessful.</string>
     <!-- Success message displayed on SIM Network Depersonalization panel -->
-    <string name="unlock_success">SIM Network unlock successful.</string>
+    <string name="unlock_success">SIM network unlock successful.</string>
     <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
-    <string name="nw_subset_unlock_success">SIM Network Subset unlock successful.</string>
+    <string name="nw_subset_unlock_success">SIM network subset unlock successful.</string>
     <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
-    <string name="sp_unlock_success">SIM Service Provider unlock successful.</string>
+    <string name="sp_unlock_success">SIM service provider unlock successful.</string>
     <!-- Success message displayed on SIM Corporate Depersonalization panel -->
-    <string name="corporate_unlock_success">SIM Corporate unlock successful.</string>
+    <string name="corporate_unlock_success">SIM corporate unlock successful.</string>
     <!-- Success message displayed on SIM SIM Depersonalization panel -->
     <string name="sim_unlock_success">SIM unlock successful.</string>
     <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
-    <string name="rnw1_unlock_success">RUIM Network1 unlock successful.</string>
+    <string name="rnw1_unlock_success">RUIM network 1 unlock successful.</string>
     <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-    <string name="rnw2_unlock_success">RUIM Network2 unlock successful.</string>
+    <string name="rnw2_unlock_success">RUIM network 2 unlock successful.</string>
     <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
-    <string name="rhrpd_unlock_success">RUIM Hrpd unlock successful.</string>
+    <string name="rhrpd_unlock_success">RUIM HRPD unlock successful.</string>
     <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
-    <string name="rsp_unlock_success">RUIM Service Provider unlock successful.</string>
+    <string name="rsp_unlock_success">RUIM service provider unlock successful.</string>
     <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
-    <string name="rc_unlock_success">RUIM Corporate unlock successful.</string>
+    <string name="rc_unlock_success">RUIM corporate unlock successful.</string>
     <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
     <string name="ruim_unlock_success">RUIM unlock successful.</string>
     <!-- Success message displayed on PUK Depersonalization panel -->
@@ -519,11 +519,11 @@
     <string name="roaming_warning">Allow data roaming? You may incur significant roaming charges!</string>
     <string name="gsm_umts_options">GSM/UMTS Options</string>
     <string name="cdma_options">CDMA Options</string>
-    <string name="mobile_network_setting">Mobile Network Settings</string>
-    <string name="network_settings_sel_sub">SUBS Settings</string>
-    <string name="network_manage_settings">Network Settings</string>
-    <string name="title_data_settings">Data Settings</string>
-    <string name="summary_manage_subscriptions">Manage Network settings of each subscriptions</string>
+    <string name="mobile_network_setting">Mobile network settings</string>
+    <string name="network_settings_sel_sub">Subscription settings</string>
+    <string name="network_manage_settings">Network settings</string>
+    <string name="title_data_settings">Data settings</string>
+    <string name="summary_manage_subscriptions">Manage network settings of each subscription</string>
 
     <!-- Screen option on the mobile network settings to go into data usage settings -->
     <string name="throttle_data_usage">Data usage</string>
@@ -769,29 +769,29 @@
     <string name="carrier_settings_title">Carrier settings</string>
 
     <!-- Call Independent services screen title-->
-    <string name="call_ind_services">Call Independent Services</string>
+    <string name="call_ind_services">Call independent services</string>
     <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
-    <string name="callind_multi_sim">SUBS Settings</string>
+    <string name="callind_multi_sim">Subscription settings</string>
     <!-- button name for direct launch of Call Feature screen for Single Sim Functionality -->
-    <string name="callind">Call Feature Settings</string>
+    <string name="callind">Call feature settings</string>
 
     <!-- multi sub one, setting option name -->
     <string name="sub1">Subscription 1</string>
     <!-- multi mode settings screen, setting summary text -->
-    <string name="sub1_summary">Manage Subscription 1</string>
+    <string name="sub1_summary">Manage subscription 1</string>
     <!-- multi sub two, setting option name -->
     <string name="sub2">Subscription 2</string>
     <!-- multi mode settings screen, setting summary text -->
-    <string name="sub2_summary">Manage Subscription 2</string>
+    <string name="sub2_summary">Manage subscription 2</string>
     <!-- multi sub three, setting option name -->
     <string name="sub3">Subscription 3</string>
     <!-- multi mode settings screen, setting summary text -->
-    <string name="sub3_summary">Manage Subscription 3</string>
+    <string name="sub3_summary">Manage subscription 3</string>
 
     <!-- dual prompt, setting option name -->
     <string name="prompt">Prompt</string>
     <!-- dual mode settings screen, setting summary text -->
-    <string name="prompt_user">Prompt User</string>
+    <string name="prompt_user">Prompt user</string>
 
     <!-- FDN settings strings -->
     <!-- Call settings screen, setting option name -->
@@ -829,7 +829,7 @@
     <string name="auto_retry_mode_title">Auto-retry</string>
     <string name="auto_retry_mode_summary">Enable Auto-retry mode</string>
     <!-- TTY Mode change is NOT allowed during a VT call -->
-    <string name="tty_mode_not_allowed_vt_call">TTY Mode change is not allowed during a VT call</string>
+    <string name="tty_mode_not_allowed_vt_call">TTY mode change is not allowed during a VT call</string>
 
     <!-- FDN list screen: menu item label -->
     <string name="menu_add">Add contact</string>
@@ -1119,7 +1119,7 @@
     <string name="onscreenAudioText">Audio</string>
     <!-- Text for the onscreen "Subscription" button that lets you switch
          between the available scubscriptions [CHAR LIMIT=20] -->
-    <string name="onscreenSwitchText">Switch Subscription</string>
+    <string name="onscreenSwitchText">Switch subscription</string>
     <!-- Text for the onscreen "Video call" button used to change a voice call
          to a video call. [CHAR LIMIT=10] -->
     <string name="onscreenVideoCallText">Video call</string>
@@ -1178,32 +1178,32 @@
     <string name="xdivert_title">X-Divert</string>
     <!-- Summary for the XDivert Feature displayed in Call Settings -->
     <string name="xdivert_summary">CFNRc Settings</string>
-    <string name="phone_numbers">Enter Phone Numbers</string>
-    <string name="sub1LineNumber">Sub1 Number :</string>
-    <string name="sub2LineNumber">Sub2 Number :</string>
+    <string name="phone_numbers">Enter phone numbers</string>
+    <string name="sub1LineNumber">Sub 1 number:</string>
+    <string name="sub2LineNumber">Sub 2 number:</string>
     <string name="proceed">Proceed</string>
-    <string name="xdivert_button">X-Divert Setting</string>
-    <string name="xdivert_setting">X-Divert Setting</string>
-    <string name="sum_xdivert_enabled">X-Divert Enabled</string>
-    <string name="sum_xdivert_disabled">X-Divert Disabled</string>
-    <string name="xdivert_not_supported">X-Divert Not supported for CDMA</string>
-    <string name="xdivert_enternumber_error">Enter phone number for both the subscriptions</string>
-    <string name="xdivert_partial_set">XDivert has been set only for 1st subscription</string>
+    <string name="xdivert_button">X-Divert</string>
+    <string name="xdivert_setting">X-Divert</string>
+    <string name="sum_xdivert_enabled">X-Divert enabled</string>
+    <string name="sum_xdivert_disabled">X-Divert disabled</string>
+    <string name="xdivert_not_supported">X-Divert not supported for CDMA</string>
+    <string name="xdivert_enternumber_error">Enter phone number for both subscriptions</string>
+    <string name="xdivert_partial_set">X-Divert has been set only for the first subscription</string>
     <string name="xdivert_sub_absent">Both subscriptions should be activated to process X-Divert</string>
-    <string name="xdivert_status">X-Divert Status</string>
+    <string name="xdivert_status">X-Divert status</string>
     <string name="xdivert_active">Active</string>
-    <string name="xdivert_not_active">Not Active</string>
-    <string name="xdivert_imsi_not_read">Sim Initialization happening.Please try after some time.</string>
+    <string name="xdivert_not_active">Not active</string>
+    <string name="xdivert_imsi_not_read">SIM initialization in progress. Please try again later.</string>
 
     <!-- Title for the dialog used to display CDMA DisplayInfo -->
     <string name="network_message">Network message</string>
 
     <!-- Shown in "Managed Roaming" dialog when registration is denied with rejCode 10. -->
-    <string name="managed_roaming_title">Managed Roaming</string>
-    <string name="managed_roaming_title_sub1">Managed Roaming (SUB1)</string>
-    <string name="managed_roaming_title_sub2">Managed Roaming (SUB2)</string>
-    <string name="managed_roaming_title_sub3">Managed Roaming (SUB3)</string>
-    <string name="managed_roaming_dialog_content">Network with Limited Service found. Do you want to initiate a Network Search?</string>
+    <string name="managed_roaming_title">Managed roaming</string>
+    <string name="managed_roaming_title_sub1">Managed roaming (SUB 1)</string>
+    <string name="managed_roaming_title_sub2">Managed roaming (SUB 2)</string>
+    <string name="managed_roaming_title_sub3">Managed roaming (SUB 3)</string>
+    <string name="managed_roaming_dialog_content">Network with limited service found. Do you want to initiate a network search?</string>
     <string name="managed_roaming_dialog_ok_button">Yes</string>
     <string name="managed_roaming_dialog_cancel_button">No</string>
 
@@ -1498,9 +1498,9 @@
     <string name="no_voip">Internet calling not supported</string>
 
     <!-- Title of the alert dialog to notify user that there is no IMS connectivity. [CHAR LIMIT=40] -->
-    <string name="no_volte">Unable to make IMS call</string>
+    <string name="no_volte">Unable to make IMS calls</string>
     <!-- Title of the alert dialog to notify user that there is VT is not allowed when TTY mode is ON. [CHAR LIMIT=40] -->
-    <string name="no_vt_allowed">To place a video call, turn off the TTY mode</string>
+    <string name="no_vt_allowed">To place a video call, turn off TTY mode</string>
 
     <!-- Option for whether the SIP service should send keepalive messages. [CHAR LIMIT=40] -->
     <string translatable="true" name="sip_system_decide">Automatic</string>
@@ -1530,19 +1530,19 @@
     <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
     <string name="ims_edit_title">IMS account details</string>
     <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
-    <string name="ims_accounts_title">IMS Account</string>
+    <string name="ims_accounts_title">IMS account</string>
     <!-- Text of the domain address preference. [CHAR LIMIT=NONE] -->
-    <string name="ims_domain_address_title">IMS Server</string>
+    <string name="ims_domain_address_title">IMS server</string>
     <!-- Text of the transport type preference. [CHAR LIMIT=NONE] -->
     <string translatable="false" name="call_type">CallType</string>
-    <string name="mo_call_type_title">MO Call Type</string>
-    <string name="ims_service_capability">Enable/Disable Service Capability</string>
+    <string name="mo_call_type_title">MO call type</string>
+    <string name="ims_service_capability">Enable/disable service capability</string>
     <!-- Default MO call type. -->
     <string translatable="false" name="default_call_type">CSVoice</string>
     <!-- Ims Call Type Capability Control -->
     <string translatable="false" name="ims_call_type_control">ImsCallTypeCapabilityControl</string>
     <!-- Text of the use IMS default preference. [CHAR LIMIT=NONE] -->
-    <string name="ims_service_capability_title">Enable/Disable IMS Service Capability</string>
+    <string name="ims_service_capability_title">IMS service capability</string>
     <!-- Default to IMS call summary. -->
     <string name="use_ims_default_summary">Use IMS for all voice calls</string>
     <!-- Menu item when the menu button is pressed in the IMS account editor. [CHAR LIMIT=NONE] -->
@@ -1760,31 +1760,31 @@
     <string name="call_settings_title_font_family">sans-serif-light</string>
 
     <!-- Sim contacts management -->
-    <string name="contactScreen"> Add/Edit SIM Contact</string>
-    <string name="exportContactScreen"> Export phone contacts to sim </string>
-    <string name="addSimEntries"> Add SIM Contact</string>
-    <string name="deleteAllSimEntries"> Delete All SIM Contacts</string>
-    <string name="deleteSimContacts">Deleting SIM contacts</string>
-    <string name="editContact"> Edit</string>
-    <string name="sendSms"> Send SMS</string>
-    <string name="delete"> Delete</string>
-    <string name="dial"> Dial</string>
-    <string name="enterName"> Enter Name:</string>
-    <string name="enterNumber"> Enter Phone Number:</string>
-    <string name="contactAddSuccess"> Succesfully added contact to SIM </string>
-    <string name="contactAddFailed"> Failed to add contact to SIM !!!</string>
-    <string name="contactUpdateSuccess"> Succesfully updated contact in SIM </string>
-    <string name="contactUpdateFailed"> Failed to update contact in SIM !!!</string>
-    <string name="contactdeleteSuccess"> Succesfully deleted contact from SIM </string>
-    <string name="contactdeleteFailed"> Failed to delete contact from SIM !!!</string>
-    <string name="allContactdeleteSuccess"> Succesfully deleted all contacts from SIM </string>
-    <string name="allContactdeleteFailed"> Failed to delete all contacts from SIM !!!</string>
-    <string name="exportAllcontatsSuccess">Succesfully exported all contacts to SIM </string>
-    <string name="exportAllcontatsFailed"> Failed to export all contacts to SIM !!!</string>
-    <string name="exportAllcontatsNoContacts"> No Contacts found to export to SIM !!!</string>
-    <string name="cursorError"> Cursor is not having proper data !!! </string>
+    <string name="contactScreen">Manage SIM contacts</string>
+    <string name="exportContactScreen">Export phone contacts to SIM</string>
+    <string name="addSimEntries">Add SIM contact</string>
+    <string name="deleteAllSimEntries">Delete all SIM contacts</string>
+    <string name="deleteSimContacts">Deleting SIM contacts\u2026</string>
+    <string name="editContact">Edit</string>
+    <string name="sendSms">Send SMS</string>
+    <string name="delete">Delete</string>
+    <string name="dial">Dial</string>
+    <string name="enterName">Enter name:</string>
+    <string name="enterNumber">Enter phone number:</string>
+    <string name="contactAddSuccess">Succesfully added contact to SIM</string>
+    <string name="contactAddFailed">Failed to add contact to SIM</string>
+    <string name="contactUpdateSuccess">Succesfully updated contact in SIM</string>
+    <string name="contactUpdateFailed">Failed to update contact in SIM</string>
+    <string name="contactdeleteSuccess">Succesfully deleted contact from SIM</string>
+    <string name="contactdeleteFailed">Failed to delete contact from SIM</string>
+    <string name="allContactdeleteSuccess">Succesfully deleted all contacts from SIM</string>
+    <string name="allContactdeleteFailed">Failed to delete all contacts from SIM</string>
+    <string name="exportAllcontatsSuccess">Succesfully exported all contacts to SIM</string>
+    <string name="exportAllcontatsFailed">Failed to export all contacts to SIM</string>
+    <string name="exportAllcontatsNoContacts">No contacts found to export to SIM</string>
+    <string name="cursorError">Invalid cursor data</string>
     <!-- Set Subscription screen: set subscription option name -->
-    <string name="set_subscription">Select subscriptions</string>
+    <string name="set_subscription">Select subscription</string>
     <!-- Set Subscription screen: label Card 1 -->
     <string name="card_01">Card 1 / SUB 1</string>
     <!-- Set Subscription screen: label Card 2 -->
@@ -1801,7 +1801,7 @@
     <string name="cancel_call">Cancel</string>
 
     <!-- Set Subscription screen: Message shown in error dialog -->
-    <string name="set_subscription_error_atleast_one">Select atleast one subscription</string>
+    <string name="set_subscription_error_atleast_one">Select at least one subscription</string>
     <!-- Set Subscription screen: label sub 1 -->
     <string name="sub_1">SUB 1</string>
     <!-- Set Subscription screen: label sub 2 -->
@@ -1809,11 +1809,11 @@
     <!-- Set Subscription screen: label sub 3 -->
     <string name="sub_3">SUB 3</string>
     <!-- Set Subscription screen: Progress message -->
-    <string name="set_uicc_subscription_progress">Set subscription in progress...</string>
+    <string name="set_uicc_subscription_progress">Setting subscription\u2026</string>
     <!-- Set Subscription screen: Set subscriptio success -->
-    <string name="set_sub_success">Set subscription success</string>
+    <string name="set_sub_success">Subscription was set successfully</string>
     <!-- Set Subscription screen: Set subscriptio success -->
-    <string name="set_sub_failed">Set subscription failed</string>
+    <string name="set_sub_failed">Failed to set subscription</string>
     <!-- Set Subscription screen: Subscription 1 -->
     <string name="set_sub_1">Subscription 1: </string>
     <!-- Set Subscription screen: Subscription 2 -->
@@ -1822,30 +1822,30 @@
     <string name="set_sub_3">Subscription 3: </string>
     <!-- Set Subscription screen: Subscription activate success -->
     <!-- Set Subscription screen: Subscription activate success -->
-    <string name="set_sub_activate_success">Activate success</string>
+    <string name="set_sub_activate_success">Activation successful</string>
     <!-- Set Subscription screen: Subscription deactivate success -->
-    <string name="set_sub_deactivate_success">Deactivate success</string>
+    <string name="set_sub_deactivate_success">Deactivation successful</string>
     <!-- Set Subscription screen: Subscription activate failed -->
-    <string name="set_sub_activate_failed">Activate failed</string>
+    <string name="set_sub_activate_failed">Activation failed</string>
     <!-- Set Subscription screen: Subscription Global activate failed -->
-    <string name="set_sub_global_activate_failed">Activate global failed</string>
+    <string name="set_sub_global_activate_failed">Global activation failed</string>
     <!-- Set Subscription screen: Subscription Global deactivate failed -->
-    <string name="set_sub_global_deactivate_failed">Deactivate global failed</string>
+    <string name="set_sub_global_deactivate_failed">Global deactivation failed</string>
     <!-- Set Subscription screen: Subscription deactivate failed -->
-    <string name="set_sub_deactivate_failed">Deactivate failed</string>
+    <string name="set_sub_deactivate_failed">Deactivation failed</string>
     <!-- Set Subscription screen: Subscription activate not supported -->
-    <string name="set_sub_activate_not_supported">Activate not supported</string>
+    <string name="set_sub_activate_not_supported">Activation not supported</string>
     <!-- Set Subscription screen: Subscription deactivate not supported -->
-    <string name="set_sub_deactivate_not_supported">Deactivate not supported</string>
+    <string name="set_sub_deactivate_not_supported">Deactivation not supported</string>
     <!-- Set Subscription screen: No change in subscription -->
-    <string name="set_sub_no_change">No change in Subscription</string>
+    <string name="set_sub_no_change">No change in subscription</string>
     <!-- Set Subscription screen: New cards available -->
-    <string name="new_cards_available">New card available. Please configure subscriptions.</string>
+    <string name="new_cards_available">New card available. Please configure your subscriptions.</string>
     <!-- Set Subscription screen: Configure subscription dialog title -->
-    <string name="config_sub_title">Configure Subscriptions</string>
+    <string name="config_sub_title">Configure subscriptions</string>
     <!-- Set Subscription screen: Deactivate All subscription not supported -->
-    <string name="deact_all_sub_not_supported">Deactivation of All the subscriptions is not supported.</string>
+    <string name="deact_all_sub_not_supported">Deactivation of all the subscriptions is not supported.</string>
     <!-- Set Subscription screen: Deactivate All subscription not supported -->
-    <string name="set_sub_not_supported_phone_in_call">Activate or Deactivate subscription is not allowed while phone in call.</string>
+    <string name="set_sub_not_supported_phone_in_call">Activating or deactivating subscriptions is not allowed during a call.</string>
 
 </resources>
