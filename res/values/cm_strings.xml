@@ -123,8 +123,8 @@
     <string name="enable_reverse_lookup_title">Reverse lookup</string>
     <string name="enable_reverse_lookup_summary">Look up information about the person or place for unknown numbers on incoming calls</string>
     <string name="choose_lookup_providers">Choose lookup providers</string>
-    <string name="choose_forward_lookup_provider_title">Choose forward lookup provider</string>
-    <string name="choose_people_lookup_provider_title">Choose people lookup provider</string>
-    <string name="choose_reverse_lookup_provider_title">Choose reverse lookup provider</string>
+    <string name="choose_forward_lookup_provider_title">Forward lookup provider</string>
+    <string name="choose_people_lookup_provider_title">People lookup provider</string>
+    <string name="choose_reverse_lookup_provider_title">Reverse lookup provider</string>
 
 </resources>
