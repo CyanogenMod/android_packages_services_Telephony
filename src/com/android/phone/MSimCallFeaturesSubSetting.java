@@ -263,7 +263,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         }
     };
 
-    private Preference mRingtonePreference;
+    private DefaultRingtonePreference mRingtonePreference;
     private CheckBoxPreference mVibrateWhenRinging;
     private ListPreference mVoicemailProviders;
     private PreferenceScreen mVoicemailSettings;
@@ -1559,7 +1559,11 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             mSubMenuVoicemailSettings.setDialogTitle(R.string.voicemail_settings_number_label);
         }
 
-        mRingtonePreference = findPreference(BUTTON_RINGTONE_KEY);
+        mRingtonePreference = (DefaultRingtonePreference) findPreference(BUTTON_RINGTONE_KEY);
+        if (mRingtonePreference != null) {
+            mRingtonePreference.setSubId(mSubscription);
+        }
+
         mVibrateWhenRinging = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_ON_RING);
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         if (mVoicemailProviders != null) {
@@ -1691,7 +1695,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         } else {
             // For ringtones, we can just lookup the system default because changing the settings
             // in Call Settings changes the system default.
-            ringtoneUri = RingtoneManager.getActualDefaultRingtoneUri(this, type);
+            ringtoneUri = RingtoneManager.getActualRingtoneUriBySubId(this, mSubscription);
         }
 
         CharSequence summary = getString(com.android.internal.R.string.ringtone_unknown);

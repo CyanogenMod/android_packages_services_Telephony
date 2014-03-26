@@ -48,6 +48,7 @@ import android.bluetooth.BluetoothProfile;
 import android.content.Context;
 import android.database.Cursor;
 import android.media.AudioManager;
+import android.media.RingtoneManager;
 import android.media.ToneGenerator;
 import android.net.Uri;
 import android.os.AsyncResult;
@@ -710,8 +711,15 @@ public class CallNotifier extends Handler
             }
         }
         if (shouldStartQuery) {
+            int subscription = 0;
+            if (c != null && c.getCall() != null) {
+               Phone phone = c.getCall().getPhone();
+               subscription = phone.getSubscription();
+            }
+
             // Reset the ringtone to the default first.
-            mRinger.setCustomRingtoneUri(Settings.System.DEFAULT_RINGTONE_URI);
+            mRinger.setCustomRingtoneUri(RingtoneManager.getActualRingtoneUriBySubId(
+                        mApplication.getApplicationContext(), subscription));
 
             // query the callerinfo to try to get the ringer.
             PhoneUtils.CallerInfoToken cit = PhoneUtils.startGetCallerInfo(
