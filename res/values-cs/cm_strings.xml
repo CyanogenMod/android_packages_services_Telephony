@@ -43,15 +43,15 @@
     <string name="blacklist_summary_disabled">Vypnuta</string>
     <string name="blacklist_summary">Příchozí hovory z čísel, která jsou na černé listině, jsou automaticky blokována</string>
 
-    <string name="blacklist_notification">Blokovaný hovor: %s</string>
-    <string name="blacklist_notification_private_number">Blokovaný hovor ze soukromého čísla</string>
-    <string name="blacklist_notification_list_private">Soukromý</string>
-    <string name="blacklist_notification_unknown_number">Blokováno nezmáné číslo: %s</string>
-    <string name="blacklist_notification_multiple">Blokovaných hovorů: <xliff:g id="count">%d</xliff:g></string>
+    <string name="blacklist_call_notification">Blokovaný hovor od %s</string>
+    <string name="blacklist_call_notification_private_number">Blokovaný hovor ze skrytého čísla</string>
+    <string name="blacklist_call_notification_unknown_number">Blokovaný hovor z neznámého čísla %s</string>
+    <string name="blacklist_call_notification_multiple">Blokovaných hovorů: <xliff:g id="count">%d</xliff:g></string>
     <string name="blacklist_message_notification">Blokovaná zpráva z čísla %s</string>
     <string name="blacklist_message_notification_private_number">Blokovaná zpráva ze skrytého čísla</string>
     <string name="blacklist_message_notification_unknown_number">Blokovaná zpráva z neznámého čísla %s</string>
     <string name="blacklist_message_notification_multiple">Blokovaných zpráv: <xliff:g id="count">%d</xliff:g></string>
+    <string name="blacklist_notification_list_private">Soukromý</string>
     <string name="unblock_number">Neblokovat</string>
 
     <string name="mwi_notification_title">Upozornění na hlasovou zprávu</string>
@@ -65,4 +65,26 @@
 
     <string name="noise_suppression_title">Potlačení hluku</string>
     <string name="noise_suppression_summary">Povolit potlačení okolního hluku při hovorech</string>
+
+    <string name="preferred_network_mode_td_scdma_only">Pouze TD-SCDMA</string>
+    <string name="preferred_network_mode_global">Globální</string>
+    <string name="preferred_network_mode_evdo_only">Pouze EvDo</string>
+    <string name="preferred_network_mode_cdma_without_evdo">CDMA bez EvDo</string>
+    <string name="preferred_network_mode_cdma_evdo_auto">Automaticky CDMA/EvDo</string>
+    <string name="preferred_network_mode_gsm_wcdma_auto">Automaticky GSM/WCDMA</string>
+    <string name="preferred_network_mode_wcdma_only">Pouze WCDMA</string>
+    <string name="preferred_network_mode_gsm_only">Pouze GSM</string>
+    <string name="preferred_network_mode_gsm_wcdma_preferred">Preferované GSM/WCDMA</string>
+
+    <string name="number_lookup">Vyhledávání telefonního čísla</string>
+    <string name="enable_forward_lookup_title">Předběžné vyhledávání</string>
+    <string name="enable_forward_lookup_summary">Zobrazit blízká místa při vyhledávání v číselníku</string>
+    <string name="enable_people_lookup_title">Vyhledávání lidí</string>
+    <string name="enable_people_lookup_summary">Zobrazit výsledky lidí online při vyhledávání v číselníku</string>
+    <string name="enable_reverse_lookup_title">Zpětné vyhledávání</string>
+    <string name="enable_reverse_lookup_summary">Vyhledávání informací o osobě nebo místě pro neznámá čísla při příchozím hovoru</string>
+    <string name="choose_lookup_providers">Zvolit poskytovatele vyhledávání</string>
+    <string name="choose_forward_lookup_provider_title">Poskytovatel předběžného vyhledávání</string>
+    <string name="choose_people_lookup_provider_title">Poskytovatel vyhledávání osob</string>
+    <string name="choose_reverse_lookup_provider_title">Poskytovatel zpětného vyhledávání</string>
 </resources>
