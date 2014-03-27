@@ -662,7 +662,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
 
     private void setScreenState() {
         int simState = MSimTelephonyManager.getDefault().getSimState(mSubscription);
-        getPreferenceScreen().setEnabled(simState != TelephonyManager.SIM_STATE_ABSENT);
+        getPreferenceScreen().setEnabled(simState == TelephonyManager.SIM_STATE_READY);
     }
 
     private void switchToPreviousVoicemailProvider() {
