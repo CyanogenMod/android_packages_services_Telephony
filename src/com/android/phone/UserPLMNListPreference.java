@@ -38,11 +38,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.TelephonyIntents;
@@ -61,6 +63,8 @@ import com.android.internal.telephony.uicc.IccFileHandler;
 import com.android.internal.telephony.uicc.UiccCard;
 import com.android.internal.telephony.uicc.UiccCardApplication;
 import com.android.internal.telephony.uicc.UiccController;
+import com.codeaurora.telephony.msim.MSimUiccController;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -75,7 +79,6 @@ public class UserPLMNListPreference extends TimeConsumingPreferenceActivity {
     private static final String LOG_TAG = "UserPLMNListPreference";
 
     private IccFileHandler mIccFileHandler = null;
-    private UiccController mUiccController;
 
     private List<UPLMNInfoWithEf> mUPLMNList;
     private PreferenceScreen mUPLMNListContainer;
@@ -90,7 +93,6 @@ public class UserPLMNListPreference extends TimeConsumingPreferenceActivity {
     private static final int UPLMNLIST_EDIT = 102;
     private static final int MENU_ADD_OPTIION = Menu.FIRST;
 
-    private byte[] mEfdata = null;
     private int mNumRec = 0;
 
     private static final int UPLMN_W_ACT_LEN = 5;
@@ -115,6 +117,7 @@ public class UserPLMNListPreference extends TimeConsumingPreferenceActivity {
     private boolean mAirplaneModeOn = false;
 
     private IntentFilter mIntentFilter;
+    private int mSubscription;
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -131,9 +134,39 @@ public class UserPLMNListPreference extends TimeConsumingPreferenceActivity {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.uplmn_list);
         mUPLMNListContainer = (PreferenceScreen) findPreference(BUTTON_UPLMN_LIST_KEY);
+        mSubscription = getIntent().getIntExtra(MSimConstants.SUBSCRIPTION_KEY,
+                MSimConstants.DEFAULT_SUBSCRIPTION);
+        loadIccFileHandler();
 
         mIntentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         registerReceiver(mReceiver, mIntentFilter);
+    }
+
+    private void loadIccFileHandler() {
+        UiccCard newCard = null;
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            MSimUiccController uiccController = MSimUiccController.getInstance();
+            if (uiccController != null) {
+                newCard = uiccController.getUiccCard(mSubscription);
+            }
+        } else {
+            UiccController uiccController = UiccController.getInstance();
+            if (uiccController != null) {
+                newCard = uiccController.getUiccCard();
+
+            }
+        }
+        Log.d(LOG_TAG, "newCard = " + newCard);
+        if (newCard != null) {
+            // Always get IccApplication 0.
+            UiccCardApplication newUiccApplication = newCard
+                    .getApplication(UiccController.APP_FAM_3GPP);
+            Log.d(LOG_TAG, "newUiccApplication = " + newUiccApplication);
+            if (newUiccApplication != null) {
+                mIccFileHandler = newUiccApplication.getIccFileHandler();
+                Log.d(LOG_TAG, "fh = " + mIccFileHandler);
+            }
+        }
     }
 
     @Override
@@ -205,34 +238,10 @@ public class UserPLMNListPreference extends TimeConsumingPreferenceActivity {
 
     private void getUPLMNInfoFromEf() {
         Log.d(LOG_TAG, "UPLMNInfoFromEf Start read...");
-        mUiccController = UiccController.getInstance();
-        if (mUiccController != null) {
-            UiccCard newCard = mUiccController.getUiccCard();
-            UiccCardApplication newUiccApplication = null;
-            IccFileHandler fh = null;
-            Log.d(LOG_TAG, "newCard = " + newCard);
-            if (newCard != null) {
-                // Always get IccApplication 0.
-                newUiccApplication = newCard
-                        .getApplication(UiccController.APP_FAM_3GPP);
-                Log.d(LOG_TAG, "newUiccApplication = " + newUiccApplication);
-                if (newUiccApplication != null) {
-                    Log.d(LOG_TAG, "newUiccApplication.getType() = "
-                            + newUiccApplication.getType());
-                    Log.d(LOG_TAG, "newUiccApplication.getState() = "
-                            + newUiccApplication.getState());
-                    fh = newUiccApplication.getIccFileHandler();
-                    Log.d(LOG_TAG, "fh = " + fh);
-                } else {
-                    Log.d(LOG_TAG, "UiccApplication is null");
-                }
-            }
-
-            if (fh != null) {
-                readEfFromIcc(fh, IccConstants.EF_PLMNWACT);
-            }
+        if (mIccFileHandler != null) {
+            readEfFromIcc(mIccFileHandler, IccConstants.EF_PLMNWACT);
         } else {
-            Log.w(LOG_TAG, "mUiccController instance is null");
+            Log.w(LOG_TAG, "mIccFileHandler is null");
         }
 
     }
@@ -436,34 +445,8 @@ public class UserPLMNListPreference extends TimeConsumingPreferenceActivity {
             }
         }
         Log.d(LOG_TAG, "update EFuplmn Start.");
-        mUiccController = UiccController.getInstance();
-        if (mUiccController != null) {
-            UiccCard newCard = mUiccController.getUiccCard();
-            UiccCardApplication newUiccApplication = null;
-            IccFileHandler fh = null;
-            Log.d(LOG_TAG, "newCard = " + newCard);
-            if (newCard != null) {
-                // Always get IccApplication 0.
-                newUiccApplication = newCard
-                        .getApplication(UiccController.APP_FAM_3GPP);
-                Log.d(LOG_TAG, "newUiccApplication = " + newUiccApplication);
-                if (newUiccApplication != null) {
-                    Log.d(LOG_TAG, "newUiccApplication.getType() = "
-                            + newUiccApplication.getType());
-                    Log.d(LOG_TAG, "newUiccApplication.getState() = "
-                            + newUiccApplication.getState());
-                    fh = newUiccApplication.getIccFileHandler();
-                    Log.d(LOG_TAG, "fh = " + fh);
-                } else {
-                    Log.d(LOG_TAG, "UiccApplication is null");
-                }
-            }
-
-            if (fh != null) {
-                writeEfToIcc(fh, data, IccConstants.EF_PLMNWACT);
-            }
-        } else {
-            Log.w(LOG_TAG, "mUiccController instance is null");
+        if (mIccFileHandler != null) {
+            writeEfToIcc(mIccFileHandler, data, IccConstants.EF_PLMNWACT);
         }
 
     }
