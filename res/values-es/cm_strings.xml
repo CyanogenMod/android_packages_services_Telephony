@@ -75,7 +75,7 @@
     <string name="enable_reverse_lookup_title">Búsqueda inversa</string>
     <string name="enable_reverse_lookup_summary">Buscar información sobre la persona o lugar para llamadas de números desconocidos</string>
     <string name="choose_lookup_providers">Elegir proveedor de búsqueda</string>
-    <string name="choose_forward_lookup_provider_title">Elegir proveedor para lugares</string>
-    <string name="choose_people_lookup_provider_title">Elegir proveedor para personas</string>
-    <string name="choose_reverse_lookup_provider_title">Elegir proveedor para búsqueda inversa</string>
+    <string name="choose_forward_lookup_provider_title">Proveedor para buscar lugares</string>
+    <string name="choose_people_lookup_provider_title">Proveedor para buscar personas</string>
+    <string name="choose_reverse_lookup_provider_title">Proveedor para búsqueda inversa</string>
 </resources>
