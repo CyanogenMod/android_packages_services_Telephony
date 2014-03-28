@@ -136,6 +136,10 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mButtonDTMF) {
             return true;
+        } else if (preference == mPlayDtmfTone) {
+            Settings.System.putInt(getContentResolver(), Settings.System.DTMF_TONE_WHEN_DIALING,
+                    mPlayDtmfTone.isChecked() ? 1 : 0);
+            return true;
         } else if (preference == mButtonTTY) {
             return true;
         } else if (preference == mButtonAutoRetry) {
