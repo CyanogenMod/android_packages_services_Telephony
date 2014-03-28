@@ -201,8 +201,7 @@ public class EmergencyCallHelper extends Handler {
 
         // Once we reach either STATE_IN_SERVICE or STATE_EMERGENCY_ONLY,
         // it's finally OK to place the emergency call.
-        boolean okToCall = (state.getState() == ServiceState.STATE_IN_SERVICE)
-                || (state.getState() == ServiceState.STATE_EMERGENCY_ONLY);
+        boolean okToCall = (state.getState() != ServiceState.STATE_POWER_OFF);
 
         if (okToCall) {
             // Woo hoo!  It's OK to actually place the call.
