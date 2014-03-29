@@ -16,5 +16,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="blacklist_summary_disabled">Pois käytöstä</string>
+  <string name="blacklist_title">Llista prieta</string>
+  <string name="blacklist_summary_disabled">Deshabilitada</string>
 </resources>
