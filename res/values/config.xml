@@ -182,6 +182,9 @@
     <!-- DTMF key to be used for LCH hold tone -->
     <string name="Lch_dtmf_key" translatable="false">D</string>
 
+    <!-- whether show X-Divert settings-->
+    <bool name="config_show_xdivert">false</bool>
+
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">false</bool>
 </resources>
