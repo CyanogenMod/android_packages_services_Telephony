@@ -237,6 +237,10 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
 
         final ContentResolver contentResolver = getContentResolver();
 
+        if (!getResources().getBoolean(R.bool.config_show_xdivert)) {
+            prefSet.removePreference(mButtonXDivert);
+        }
+
         if (mButtonProximity != null) {
             mButtonProximity.setOnPreferenceChangeListener(this);
         }
