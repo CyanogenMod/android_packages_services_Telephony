@@ -182,4 +182,7 @@
 
     <!-- whether show X-Divert settings-->
     <bool name="config_show_xdivert">false</bool>
+
+    <!-- whether show emergency call list -->
+    <bool name="show_emergency_call_list">false</bool>
 </resources>
