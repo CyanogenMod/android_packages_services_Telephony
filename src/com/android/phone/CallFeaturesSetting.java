@@ -199,6 +199,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private static final String BUTTON_PROXIMITY_KEY   = "button_proximity_key";
     private static final String BUTTON_IPPREFIX_KEY = "button_ipprefix_key";
+    private static final String BUTTON_EMERGENCY_CALL_KEY = "emergency_call_list";
 
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
@@ -320,6 +321,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     };
 
     private Preference mRingtonePreference;
+    private PreferenceScreen mEmergencyCall;
     private CheckBoxPreference mVibrateWhenRinging;
     private ListPreference mIncomingCallStyle;
     /** Whether dialpad plays DTMF tone or not. */
@@ -1723,6 +1725,11 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
 
         final ContentResolver contentResolver = getContentResolver();
+
+        mEmergencyCall = (PreferenceScreen) findPreference(BUTTON_EMERGENCY_CALL_KEY);
+        if (!getResources().getBoolean(R.bool.show_emergency_call_list)) {
+            prefSet.removePreference(mEmergencyCall);
+        }
 
         if (mPlayDtmfTone != null) {
             mPlayDtmfTone.setChecked(Settings.System.getInt(contentResolver,

@@ -93,6 +93,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
             "sip_call_options_key";
     private static final String BUTTON_SIP_CALL_OPTIONS_WIFI_ONLY =
             "sip_call_options_wifi_only_key";
+    private static final String BUTTON_EMERGENCY_CALL_KEY = "emergency_call_list";
     private static final String SIP_SETTINGS_CATEGORY_KEY =
             "sip_settings_category_key";
 
@@ -120,6 +121,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
     private SipSharedPreferences mSipSharedPreferences;
 
     private PreferenceScreen mButtonXDivert;
+    private PreferenceScreen mEmergencyCall;
     private int mNumPhones;
     private SubscriptionManager mSubManager;
 
@@ -220,6 +222,11 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
         mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
 
         final ContentResolver contentResolver = getContentResolver();
+
+        mEmergencyCall = (PreferenceScreen) findPreference(BUTTON_EMERGENCY_CALL_KEY);
+        if (!getResources().getBoolean(R.bool.show_emergency_call_list)) {
+            prefSet.removePreference(mEmergencyCall);
+        }
 
         if (!getResources().getBoolean(R.bool.config_show_xdivert)) {
             prefSet.removePreference(mButtonXDivert);
