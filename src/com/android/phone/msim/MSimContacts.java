@@ -30,6 +30,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
 
+import com.codeaurora.telephony.msim.MSimPhoneFactory;
 /**
  * SIM Address Book UI for the Phone app.
  */
@@ -112,5 +113,9 @@ public class MSimContacts extends SimContacts {
                 Log.i(LOG_TAG, "Only import is supported");
             }
         }
+    }
+
+    protected boolean isSimPresent() {
+        return MSimPhoneFactory.getPhone(mSimIndex).getIccCard().hasIccCard();
     }
 }
