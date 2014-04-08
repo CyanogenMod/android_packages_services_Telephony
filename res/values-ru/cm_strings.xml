@@ -65,5 +65,28 @@
 
     <string name="noise_suppression_title">Шумоподавление</string>
     <string name="noise_suppression_summary">Включить шумоподавление для телефонных вызовов</string>
-
+    
+     <string name="number_lookup">Поиск номера телефона</string>
+    <string name="enable_forward_lookup_title">Первичный поиск</string>
+    <string name="enable_forward_lookup_summary">Показывать близлежащие места при поиске в номеронабирателе</string>
+    <string name="enable_people_lookup_title">Поиск людей</string>
+    <string name="enable_people_lookup_summary">Показывать онлайн результаты для людей при поиске в номеронабирателе</string>
+    <string name="enable_reverse_lookup_title">Обратный поиск</string>
+    <string name="enable_reverse_lookup_summary">Показывать информацию о человеке или месте для неизвестных номеров при входящих звонках</string>
+    <string name="choose_lookup_providers">Выбрать поставщика поиска</string>
+    <string name="choose_forward_lookup_provider_title">Поставщик первичного поиска</string>
+    <string name="choose_people_lookup_provider_title">Поставщик поиска людей</string>
+    <string name="choose_reverse_lookup_provider_title">Поставщик обратного поиска</string>
+    
+    <string name="ims_edit_title">Детали аккаунта IMS</string>
+    <string name="ims_accounts_title">Аккаунт IMS</string>
+    <string name="ims_domain_address_title">Сервер IMS</string>
+    <string name="mo_call_type_title">Тип звонка MO</string>
+    <string name="ims_service_capability">Вкл./Выкл. предоставление услуг</string>
+    <string name="ims_service_capability_title">Возможность обслуживания IMS</string>
+    <string name="use_ims_default_summary">Использовать IMS для всех голосовых вызовов</string>
+    <string name="ims_menu_save">Сохранить</string>
+    <string name="ims_menu_discard">Отменить</string>
+    <string name="remove_ims_account">Удалить аккаунт</string>
+    
 </resources>
