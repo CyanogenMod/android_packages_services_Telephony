@@ -16,5 +16,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="blacklist_summary_disabled">停用</string>
+  <string name="blacklist_title">Lista Negra</string>
+  <string name="blacklist_summary_disabled">Desativado</string>
 </resources>
