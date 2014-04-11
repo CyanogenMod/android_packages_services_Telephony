@@ -85,6 +85,11 @@ interface ICallCommandService {
     void mute(boolean onOff);
 
     /**
+     * Mute the phone on add call.
+     */
+    void muteInternal(boolean onOff);
+
+    /**
      * Turn on or off speaker.
      * TODO(klp): Remove in favor of setAudioMode
      */

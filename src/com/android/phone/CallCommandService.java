@@ -245,6 +245,15 @@ class CallCommandService extends ICallCommandService.Stub {
     }
 
     @Override
+    public void muteInternal(boolean onOff) {
+        try {
+            PhoneUtils.muteOnNewCall(onOff);
+        } catch (Exception e) {
+            Log.e(TAG, "Error during mute().", e);
+        }
+    }
+
+    @Override
     public void speaker(boolean onOff) {
         try {
             PhoneUtils.turnOnSpeaker(mContext, onOff, true);
