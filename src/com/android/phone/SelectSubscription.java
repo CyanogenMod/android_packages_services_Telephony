@@ -101,6 +101,11 @@ public class SelectSubscription extends  TabActivity {
         }
         tabHost.setCurrentTab(getIntent().getIntExtra(SUBSCRIPTION_KEY, DEFAULT_SUBSCRIPTION));
 
+        if ("com.android.phone.MSimMobileNetworkSubSettings".equals(targetClass)) {
+            // Update title for mobile networks settings.
+            setTitle(getResources().getText(R.string.mobile_networks));
+        }
+
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
             // android.R.id.home will be triggered in onOptionsItemSelected()
