@@ -69,4 +69,14 @@
   <string name="preferred_network_mode_gsm_only">Csak GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA preferált</string>
   <string name="number_lookup">Telefonszámot keresés</string>
+  <string name="enable_forward_lookup_title">Címkeresés</string>
+  <string name="enable_forward_lookup_summary">Közeli helyek megjelenítése a tárcsázóban történő kereséskor</string>
+  <string name="enable_people_lookup_title">Személy keresés</string>
+  <string name="enable_people_lookup_summary">Személyek státuszának megjelenítése a tárcsázóban történő kereséskor</string>
+  <string name="enable_reverse_lookup_title">Névkeresés</string>
+  <string name="enable_reverse_lookup_summary">Személy és hely információk megjelenítése bejövő hívás esetén</string>
+  <string name="choose_lookup_providers">Válasszon keresési szolgáltatót</string>
+  <string name="choose_forward_lookup_provider_title">Címkeresési szolgáltató</string>
+  <string name="choose_people_lookup_provider_title">Személy keresési szolgáltató</string>
+  <string name="choose_reverse_lookup_provider_title">Névkeresési szolgáltató</string>
 </resources>

@@ -87,7 +87,7 @@
   <string name="sub2_summary">Настройка параметров оператора 2</string>
   <string name="sub3">Оператор 3</string>
   <string name="sub3_summary">Настройка параметров оператора 3</string>
-  <string name="prompt">Спрашивать каждый раз</string>
+  <string name="prompt">Спрашивать</string>
   <string name="prompt_user">Спрашивать каждый раз</string>
   <string name="tty_mode_not_allowed_vt_call">Не допускается изменение режима TTY во время видеовызова</string>
   <string name="fdn_service_unavailable">Служба FDN недоступна.</string>

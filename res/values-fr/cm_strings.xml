@@ -17,12 +17,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="call_notif_unconditionalCF">Renvoi d\'appel inconditionnel actif</string>
-  <string name="blacklist_title">Liste noire</string>
-  <string name="blacklist_summary_disabled">Désactivé</string>
   <string name="blacklist_notification_list_private">Privé</string>
   <string name="unblock_number">Débloquer</string>
   <string name="phone_number_label">Mon numéro de téléphone</string>
   <string name="noise_suppression_title">Suppression du bruit</string>
+  <string name="preferred_network_mode_td_scdma_only">TD-SCDMA seulement</string>
   <string name="preferred_network_mode_global">Global</string>
   <string name="preferred_network_mode_evdo_only">EvDo uniquement</string>
   <string name="preferred_network_mode_cdma_evdo_auto">CDMA/EvDo auto</string>

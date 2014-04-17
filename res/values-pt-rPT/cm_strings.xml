@@ -16,6 +16,64 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="call_notif_unconditionalCF">Reencaminhamento incondicional de chamada  ativo</string>
+  <string name="call_notif_conditionalCF">Reencaminhamento condicional de chamada ativo</string>
+  <string name="call_notif_MOcall_forwarding">A chamada efetuada foi reencaminhada</string>
+  <string name="call_notif_cugcall">Chamada num grupo fechado de utilizadores</string>
+  <string name="call_notif_outgoing_barred">Chamadas efetuadas barradas</string>
+  <string name="call_notif_incoming_barred">Chamadas recebidas barradas na origem</string>
+  <string name="call_notif_clir_suppression_rejected">Eliminação do próprio número foi rejeitada pela rede</string>
+  <string name="call_notif_call_deflected">Chamada encaminhada pelo destinatário</string>
+  <string name="call_notif_MTcall_forwarding">Chamada recebida encaminhada</string>
+  <string name="call_notif_callonhold_released">Chamada desligada remotamente</string>
+  <string name="call_notif_forwardcheckreceived">Chamada foi encaminhada</string>
+  <string name="incall_vibration">Vibrar durante a chamada</string>
+  <string name="vibrate_outgoing">Vibrar ao atender</string>
+  <string name="vibrate_call_waiting">Vibrar com chamada em espera</string>
+  <string name="vibrate_hangup">Vibrar quando terminar chamada</string>
+  <string name="vibrate_45">Vibrar a cada minuto</string>
+  <string name="vibrate_45_sum">Vibra aos 45 segundos de cada minuto durante chamadas efetuadas</string>
+  <string name="show_ssn_label">Notificação de Evento</string>
+  <string name="show_ssn_summary">Mostrar uma notificação para vários eventos de rede relacionados com o tratamento de chamadas</string>
   <string name="blacklist_title">Lista Negra</string>
   <string name="blacklist_summary_disabled">Desativado</string>
+  <string name="blacklist_summary">Mensagens de entrada de números de telefone na lista negra serão bloqueadas</string>
+  <string name="blacklist_call_notification">Bloqueou uma chamada de %s</string>
+  <string name="blacklist_call_notification_private_number">Bloqueou uma chamada de um número privado</string>
+  <string name="blacklist_call_notification_unknown_number">Bloqueou uma chamada do número desconhecido %s</string>
+  <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> chamadas foram bloqueadas</string>
+  <string name="blacklist_message_notification">Bloqueou uma mensagem de %s</string>
+  <string name="blacklist_message_notification_private_number">Bloqueou uma mensagem de um número privado</string>
+  <string name="blacklist_message_notification_unknown_number">Bloqueou uma mensagem do número desconhecido %s</string>
+  <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> mensagens foram bloqueadas</string>
+  <string name="blacklist_notification_list_private">Privada</string>
+  <string name="unblock_number">Desbloquear</string>
+  <string name="mwi_notification_title">Indicador de mensagem em espera</string>
+  <string name="mwi_notification_summary">Mostrar notificações de voicemal do indicador de mensagem em espera</string>
+  <string name="perm_change_mobile_network">Alterar o modo de rede (2G/3G)</string>
+  <string name="perm_change_mobile_network_desc">Permite a uma aplicação alterar entre 2G e 3G a qualquer momento. 3G é mais rápido, mas consome mais bateria e pode causar um custo adicional.</string>
+  <string name="phone_number_label">Meu número de telefone</string>
+  <string name="phone_number_summary">Definir o número de telefone para este dispositivo</string>
+  <string name="noise_suppression_title">Supressão de ruído</string>
+  <string name="noise_suppression_summary">Permitir a supressão de ruído para chamadas</string>
+  <string name="preferred_network_mode_td_scdma_only">Só TD-SCDMA</string>
+  <string name="preferred_network_mode_global">Global</string>
+  <string name="preferred_network_mode_evdo_only">Só EvDo</string>
+  <string name="preferred_network_mode_cdma_without_evdo">CDMA w/o EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_auto">CDMA/EvDo auto</string>
+  <string name="preferred_network_mode_gsm_wcdma_auto">GSM/WCDMA auto</string>
+  <string name="preferred_network_mode_wcdma_only">Só WCDMA</string>
+  <string name="preferred_network_mode_gsm_only">Só GSM</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA preferido</string>
+  <string name="number_lookup">Pesquisa de números de telefone</string>
+  <string name="enable_forward_lookup_title">Pesquisa direta</string>
+  <string name="enable_forward_lookup_summary">Mostrar lugares próximos ao pesquisar no discador</string>
+  <string name="enable_people_lookup_title">Pesquisa de pessoas</string>
+  <string name="enable_people_lookup_summary">Mostrar resultados para as pessoas on-line, ao pesquisar no discador</string>
+  <string name="enable_reverse_lookup_title">Pesquisa inversa</string>
+  <string name="enable_reverse_lookup_summary">Procurar informações sobre a pessoa ou lugar para números desconhecidos de chamadas recebidas</string>
+  <string name="choose_lookup_providers">Escolha de fornecedor de pesquisa</string>
+  <string name="choose_forward_lookup_provider_title">Fornecedor de pesquisa direta</string>
+  <string name="choose_people_lookup_provider_title">Fornecedor de pesquisa de pessoas</string>
+  <string name="choose_reverse_lookup_provider_title">Fornecedor de pesquisa inversa</string>
 </resources>

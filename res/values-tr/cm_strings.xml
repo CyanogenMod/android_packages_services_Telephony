@@ -60,6 +60,23 @@
   <string name="noise_suppression_title">Gürültü giderme</string>
   <string name="noise_suppression_summary">Arama esnasında gürültüyü gidermeyi etkinleştir</string>
   <string name="preferred_network_mode_td_scdma_only">Sadece TD-SCDMA</string>
+  <string name="preferred_network_mode_global">Genel</string>
+  <string name="preferred_network_mode_evdo_only">Sadece EvDo</string>
+  <string name="preferred_network_mode_cdma_without_evdo">CDMA (EvDo olmadan)</string>
+  <string name="preferred_network_mode_cdma_evdo_auto">CDMA/EvDo otomatik</string>
+  <string name="preferred_network_mode_gsm_wcdma_auto">GSM/WCDMA otomatik</string>
+  <string name="preferred_network_mode_wcdma_only">Sadece WCDMA</string>
   <string name="preferred_network_mode_gsm_only">Sadece GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA tercihli</string>
+  <string name="number_lookup">Telefon numarası arama</string>
+  <string name="enable_forward_lookup_title">Yönlendirme araması</string>
+  <string name="enable_forward_lookup_summary">Arama yaparken yakın konumları göster</string>
+  <string name="enable_people_lookup_title">Kişi araması</string>
+  <string name="enable_people_lookup_summary">Çeviricide arama yaparken kişiler için çevrimiçi sonuçları göster</string>
+  <string name="enable_reverse_lookup_title">Geri arama</string>
+  <string name="enable_reverse_lookup_summary">Gelen aramalarda bilinmeyen numaralar için kişi veya konum hakkında bilgi araştır</string>
+  <string name="choose_lookup_providers">Arama sağlayıcılarını seç</string>
+  <string name="choose_forward_lookup_provider_title">Arama sağlayıcısını yönlendir</string>
+  <string name="choose_people_lookup_provider_title">Kişi arama sağlayıcısı</string>
+  <string name="choose_reverse_lookup_provider_title">Geri arama sağlayıcısı</string>
 </resources>
