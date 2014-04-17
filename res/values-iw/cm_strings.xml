@@ -16,8 +16,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="blacklist_title">רשימה שחורה</string>
-  <string name="blacklist_summary_disabled">מושבת</string>
+  <string name="call_notif_MOcall_forwarding">שיחה יוצאת הועברה</string>
+  <string name="incall_vibration">רטט במהלך שיחה</string>
+  <string name="vibrate_outgoing">רטט בזמן מענה</string>
+  <string name="vibrate_call_waiting">רטט בשיחה ממתינה</string>
+  <string name="vibrate_hangup">רטט בזמן ניתוק</string>
+  <string name="vibrate_45">רטט בכל דקה</string>
+  <string name="vibrate_45_sum">רטט בכל 45 שניות של כל דקה במהלך שיחה יוצאת</string>
+  <string name="show_ssn_label">דיווח על אירוע</string>
+  <string name="blacklist_summary">הודעות נכנסות ממספרי טלפון שברשימה השחורה ייחסמו</string>
   <string name="blacklist_call_notification">חסום שיחה מ-%s</string>
   <string name="blacklist_call_notification_private_number">חסום שיחה ממספר חסוי</string>
   <string name="blacklist_call_notification_unknown_number">חסo שיחה מתוך מספר לא ידוע %s</string>
@@ -29,9 +36,31 @@
   <string name="blacklist_notification_list_private">פרטי</string>
   <string name="unblock_number">הורד חסימה</string>
   <string name="mwi_notification_title">מחוון הודעה ממתינה</string>
+  <string name="mwi_notification_summary">הצג מחוון עבור הודעה קולית ממתינה</string>
   <string name="perm_change_mobile_network">שנה מצב רשת (2G/3G)</string>
+  <string name="perm_change_mobile_network_desc">אפשר ליישום לשנות בין 2G ו-3G בחיבור לרשת. 3G מהיר יותר, אבל דורש יותר סוללה ויכול לגרום להוצאות נוספות.</string>
   <string name="phone_number_label">המספר שלי</string>
   <string name="phone_number_summary">הגדר מספר אלפון למכשיר זה</string>
   <string name="noise_suppression_title">השתקת רעש</string>
   <string name="noise_suppression_summary">אפשר השתקת רעש עבור שיחות</string>
+  <string name="preferred_network_mode_td_scdma_only">TD-SCDMA בלבד</string>
+  <string name="preferred_network_mode_global">גלובלי</string>
+  <string name="preferred_network_mode_evdo_only">EvDo בלבד</string>
+  <string name="preferred_network_mode_cdma_without_evdo">‏CDMA ללא EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_auto">‏CDMA/EvDo אוטומטי</string>
+  <string name="preferred_network_mode_gsm_wcdma_auto">GSM/‏WCDMA אוטומטי</string>
+  <string name="preferred_network_mode_wcdma_only">‏WCDMA בלבד</string>
+  <string name="preferred_network_mode_gsm_only">GSM בלבד</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred">‏GSM/WCDMA מועדף</string>
+  <string name="number_lookup">חיפוש מספר טלפון</string>
+  <string name="enable_forward_lookup_title">בדיקה קדימה</string>
+  <string name="enable_forward_lookup_summary">הצג מקומות סמוכים כשמחפש בחייגן</string>
+  <string name="enable_people_lookup_title">חיפוש אנשים</string>
+  <string name="enable_people_lookup_summary">התג תוצאות מהרשת עבור אנשים בעת חיפוש בחייגן</string>
+  <string name="enable_reverse_lookup_title">בדיקה הפוכה</string>
+  <string name="enable_reverse_lookup_summary">חפש מידע אודות האדם או המקום עבור מספרים לא ידועים בשיחות נכנסות</string>
+  <string name="choose_lookup_providers">בחר ספקי חיפוש</string>
+  <string name="choose_forward_lookup_provider_title">ספק בדיקה קדימה</string>
+  <string name="choose_people_lookup_provider_title">ספק חיפוש אנשים</string>
+  <string name="choose_reverse_lookup_provider_title">ספק חיפוש הפוך</string>
 </resources>
