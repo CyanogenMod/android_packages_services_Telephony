@@ -759,7 +759,7 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
         return (List <NeighboringCellInfo>) cells;
     }
 
-    public List<CellInfo> getAllCellInfo() {
+    public List<CellInfo> getAllCellInfo(int subscription) {
         try {
             mApp.enforceCallingOrSelfPermission(
                 android.Manifest.permission.ACCESS_FINE_LOCATION, null);
@@ -771,8 +771,7 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
                 android.Manifest.permission.ACCESS_COARSE_LOCATION, null);
         }
 
-        // TODO return cell info list got from mPhone
-        return null;
+        return getPhone(subscription).getAllCellInfo();
     }
 
     //
