@@ -28,6 +28,9 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -59,6 +62,8 @@ import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.util.BlacklistUtils;
+
+import java.util.List;
 
 /**
  * NotificationManager-related utility code for the Phone app.
@@ -1258,17 +1263,41 @@ public class NotificationMgr {
         notification.tickerText = null;
 
         // create the target network operators settings intent
-        Intent intent = new Intent(Intent.ACTION_MAIN);
+        Intent intent;
+        if (isAppInstalled("org.codeaurora.settings.NETWORK_OPERATOR_SETTINGS_ASYNC")) {
+            intent = new Intent("org.codeaurora.settings.NETWORK_OPERATOR_SETTINGS_ASYNC");
+        } else {
+            intent = new Intent(Intent.ACTION_MAIN);
+            // Use NetworkSetting to handle the selection intent
+            intent.setComponent(new ComponentName("com.android.phone",
+                    "com.android.phone.NetworkSetting"));
+        }
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                 Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-        // Use NetworkSetting to handle the selection intent
-        intent.setComponent(new ComponentName("com.android.phone",
-                "com.android.phone.NetworkSetting"));
         PendingIntent pi = PendingIntent.getActivity(mContext, 0, intent, 0);
 
         notification.setLatestEventInfo(mContext, titleText, expandedText, pi);
 
         mNotificationManager.notify(SELECTED_OPERATOR_FAIL_NOTIFICATION, notification);
+    }
+
+    /**
+     * Check whether the target handler exist in system
+     */
+    private boolean isAppInstalled(String action) {
+        boolean installed = false;
+        PackageManager pm = mContext.getPackageManager();
+        List<ResolveInfo> list = pm.queryIntentActivities(new Intent(action), 0);
+        int listSize = list.size();
+        for (int i = 0; i < listSize; i++) {
+            ResolveInfo resolveInfo = list.get(i);
+            if ((resolveInfo.activityInfo.applicationInfo.flags &
+                    ApplicationInfo.FLAG_SYSTEM) != 0) {
+                installed = true;
+                break;
+            }
+        }
+        return installed;
     }
 
     /**
