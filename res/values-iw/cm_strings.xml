@@ -24,6 +24,8 @@
   <string name="vibrate_45">רטט בכל דקה</string>
   <string name="vibrate_45_sum">רטט בכל 45 שניות של כל דקה במהלך שיחה יוצאת</string>
   <string name="show_ssn_label">דיווח על אירוע</string>
+  <string name="blacklist_title">רשימה שחורה</string>
+  <string name="blacklist_summary_disabled">מושבת</string>
   <string name="blacklist_summary">הודעות נכנסות ממספרי טלפון שברשימה השחורה ייחסמו</string>
   <string name="blacklist_call_notification">חסום שיחה מ-%s</string>
   <string name="blacklist_call_notification_private_number">חסום שיחה ממספר חסוי</string>
