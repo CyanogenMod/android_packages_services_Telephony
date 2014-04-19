@@ -38,6 +38,8 @@
   <string name="vibrate_45_sum">Vibrar nel segundu 45 de cada minutu nes llamaes salientes</string>
   <string name="show_ssn_label">Notificación d\'eventos</string>
   <string name="show_ssn_summary">Amosar notificación pa dellos eventos de rede rellacionaos cola xestión de llamaes</string>
+  <string name="blacklist_title">Llista prieta</string>
+  <string name="blacklist_summary_disabled">Desactivada</string>
   <string name="blacklist_summary">Van bloquiase les llamaes entrantes de númberos que tean na llista prieta</string>
   <string name="blacklist_call_notification">Bloquióse una llamada de %s</string>
   <string name="blacklist_call_notification_private_number">Bloquióse una llamada d\'un númberu priváu</string>

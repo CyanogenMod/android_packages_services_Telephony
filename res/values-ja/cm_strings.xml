@@ -21,6 +21,7 @@
   <string name="vibrate_call_waiting">割込通話時のバイブレーション</string>
   <string name="vibrate_hangup">通話終了時のバイブレーション</string>
   <string name="vibrate_45">時間ごとのバイブレーション</string>
+  <string name="vibrate_45_sum">発信中、45秒ごとに振動する</string>
   <string name="show_ssn_label">イベント通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
   <string name="blacklist_title">ブラックリスト</string>
