@@ -39,6 +39,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.telephony.MSimTelephonyManager;
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import android.text.Selection;
 import android.text.Spannable;
 import android.util.Log;
@@ -55,6 +56,7 @@ public class XDivertPhoneNumbers extends Activity {
     private static final boolean DBG = false;
 
     private EditText[] mLine1Numbers;
+    private TextView[] mLineNames;
     private Button mButton;
     int mNumPhones;
     XDivertUtility mXDivertUtility;
@@ -104,16 +106,26 @@ public class XDivertPhoneNumbers extends Activity {
 
     private void setupView() {
         int numberEditTextId[] = {R.id.sub1_number, R.id.sub2_number};
+        int subTextId[] = {R.id.sub1_name, R.id.sub2_name};
 
         mLine1Numbers = new EditText[mNumPhones];
+        mLineNames = new TextView[mNumPhones];
         // Get the lineNumbers from XDivertUtility
         // lineNumbers will be returned if they were previously stored in shared preference
         // else null will be returned.
         String[] subLine1Number = mXDivertUtility.getLineNumbers();
+
         for (int i = 0; i < mNumPhones; i++) {
             Log.d(LOG_TAG,"setupView sub" + (i+1) + " line number = " + subLine1Number[i]);
             mLine1Numbers[i] = (EditText) findViewById(numberEditTextId[i]);
-            if (mLine1Numbers[i] != null) {
+            mLineNames[i] = (TextView) findViewById(subTextId[i]);
+            if (mLine1Numbers[i] != null && mLineNames[i] != null) {
+                String mOperatorName = MSimTelephonyManager.getDefault().getNetworkOperatorName(i);
+                String operatorName = getString(R.string.sub_no_sim);
+                if (MSimTelephonyManager.getDefault().getSimState(i) != SIM_STATE_ABSENT) {
+                    operatorName = mOperatorName;
+                }
+                mLineNames[i].setText(operatorName);
                 mLine1Numbers[i].setText(subLine1Number[i]);
                 mLine1Numbers[i].setOnFocusChangeListener(mOnFocusChangeHandler);
                 mLine1Numbers[i].setOnClickListener(mClicked);

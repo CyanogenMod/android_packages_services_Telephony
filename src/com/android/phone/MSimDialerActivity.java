@@ -37,6 +37,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.MSimTelephonyManager;
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
@@ -217,7 +218,12 @@ public class MSimDialerActivity extends Activity {
 
         for (index = 0; index < mPhoneCount; index++) {
             callButton[index] =  (Button) layout.findViewById(callMark[index]);
-            callButton[index].setText(subString[index]);
+            String mOperatorName = MSimTelephonyManager.getDefault().getNetworkOperatorName(index);
+            String operatorName = getString(R.string.sub_no_sim);
+            if (MSimTelephonyManager.getDefault().getSimState(index) != SIM_STATE_ABSENT) {
+                operatorName = mOperatorName;
+            }
+            callButton[index].setText(operatorName + subString[index]);
             callButton[index].setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     mAlertDialog.dismiss();

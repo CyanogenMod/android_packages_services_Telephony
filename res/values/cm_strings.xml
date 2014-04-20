@@ -126,4 +126,7 @@
     <string name="choose_forward_lookup_provider_title">Forward lookup provider</string>
     <string name="choose_people_lookup_provider_title">People lookup provider</string>
     <string name="choose_reverse_lookup_provider_title">Reverse lookup provider</string>
+
+    <!-- Set Subscription screen: label no sim -->
+    <string name="sub_no_sim">No SIM</string>
 </resources>
