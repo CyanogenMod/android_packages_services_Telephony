@@ -1803,11 +1803,13 @@
     <!-- Set Subscription screen: Message shown in error dialog -->
     <string name="set_subscription_error_atleast_one">Select at least one subscription</string>
     <!-- Set Subscription screen: label sub 1 -->
-    <string name="sub_1">SUB 1</string>
+    <string name="sub_1">-1</string>
     <!-- Set Subscription screen: label sub 2 -->
-    <string name="sub_2">SUB 2</string>
+    <string name="sub_2">-2</string>
     <!-- Set Subscription screen: label sub 3 -->
-    <string name="sub_3">SUB 3</string>
+    <string name="sub_3">-3</string>
+    <!-- Set Subscription screen: label no sim -->
+    <string name="sub_no_sim">No SIM</string>
     <!-- Set Subscription screen: Progress message -->
     <string name="set_uicc_subscription_progress">Setting subscription\u2026</string>
     <!-- Set Subscription screen: Set subscriptio success -->
