@@ -93,9 +93,6 @@
   <string name="call_number">Para: </string>
   <string name="cancel_call">Cancelar</string>
   <string name="set_subscription_error_atleast_one">Selecionar pelo menos uma assinatura</string>
-  <string name="sub_1">SUB 1</string>
-  <string name="sub_2">SUB 2</string>
-  <string name="sub_3">SUB 3</string>
   <string name="set_uicc_subscription_progress">Configurar subscrição\u2026</string>
   <string name="set_sub_success">Assinatura foi definida com êxito</string>
   <string name="set_sub_failed">Falha ao definir a assinatura</string>

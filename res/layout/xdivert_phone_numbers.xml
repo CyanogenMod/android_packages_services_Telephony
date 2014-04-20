@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="15dip"
             android:paddingBottom="5dip">
-            <TextView
+            <TextView android:id="@+id/sub1_name"
                 android:layout_width="150dip"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dip"
@@ -71,7 +71,7 @@
             android:paddingTop="15dip"
             android:paddingBottom="5dip">
 
-            <TextView
+            <TextView android:id="@+id/sub2_name"
                 android:layout_width="150dip"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dip"

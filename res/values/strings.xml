@@ -1802,12 +1802,6 @@
 
     <!-- Set Subscription screen: Message shown in error dialog -->
     <string name="set_subscription_error_atleast_one">Select at least one subscription</string>
-    <!-- Set Subscription screen: label sub 1 -->
-    <string name="sub_1">SUB 1</string>
-    <!-- Set Subscription screen: label sub 2 -->
-    <string name="sub_2">SUB 2</string>
-    <!-- Set Subscription screen: label sub 3 -->
-    <string name="sub_3">SUB 3</string>
     <!-- Set Subscription screen: Progress message -->
     <string name="set_uicc_subscription_progress">Setting subscription\u2026</string>
     <!-- Set Subscription screen: Set subscriptio success -->
@@ -1820,7 +1814,6 @@
     <string name="set_sub_2">Subscription 2: </string>
     <!-- Set Subscription screen: Subscription 3 -->
     <string name="set_sub_3">Subscription 3: </string>
-    <!-- Set Subscription screen: Subscription activate success -->
     <!-- Set Subscription screen: Subscription activate success -->
     <string name="set_sub_activate_success">Activation successful</string>
     <!-- Set Subscription screen: Subscription deactivate success -->
