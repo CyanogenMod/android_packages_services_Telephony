@@ -55,6 +55,7 @@ public class XDivertPhoneNumbers extends Activity {
     private static final boolean DBG = false;
 
     private EditText[] mLine1Numbers;
+    private TextView[] mLineNames;
     private Button mButton;
     int mNumPhones;
     XDivertUtility mXDivertUtility;
@@ -104,16 +105,22 @@ public class XDivertPhoneNumbers extends Activity {
 
     private void setupView() {
         int numberEditTextId[] = {R.id.sub1_number, R.id.sub2_number};
+        int subTextId[] = {R.id.sub1_name, R.id.sub2_name};
 
         mLine1Numbers = new EditText[mNumPhones];
+        mLineNames = new TextView[mNumPhones];
         // Get the lineNumbers from XDivertUtility
         // lineNumbers will be returned if they were previously stored in shared preference
         // else null will be returned.
         String[] subLine1Number = mXDivertUtility.getLineNumbers();
+
         for (int i = 0; i < mNumPhones; i++) {
             Log.d(LOG_TAG,"setupView sub" + (i+1) + " line number = " + subLine1Number[i]);
             mLine1Numbers[i] = (EditText) findViewById(numberEditTextId[i]);
-            if (mLine1Numbers[i] != null) {
+            mLineNames[i] = (TextView) findViewById(subTextId[i]);
+            if (mLine1Numbers[i] != null && mLineNames[i] != null) {
+                mLineNames[i].setText(MSimTelephonyManager.getDefault().getNetworkOperatorName(i));
+                mLine1Numbers[i].setText(subLine1Number[i]);
                 mLine1Numbers[i].setText(subLine1Number[i]);
                 mLine1Numbers[i].setOnFocusChangeListener(mOnFocusChangeHandler);
                 mLine1Numbers[i].setOnClickListener(mClicked);

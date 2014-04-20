@@ -80,7 +80,7 @@ public class SelectSubscription extends  TabActivity {
         for (int i = 0; i < numPhones; i++) {
             log("Creating SelectSub activity = " + i);
             subscriptionPref = tabHost.newTabSpec(tabLabel[i]);
-            subscriptionPref.setIndicator(tabLabel[i]);
+            subscriptionPref.setIndicator(MSimTelephonyManager.getDefault().getNetworkOperatorName(i));
             intent = new Intent().setClassName(pkg, targetClass)
                     .setAction(intent.getAction()).putExtra(SUBSCRIPTION_KEY, i);
             subscriptionPref.setContent(intent);
