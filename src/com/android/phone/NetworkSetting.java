@@ -105,13 +105,6 @@ public class NetworkSetting extends PreferenceActivity
                     removeDialog(DIALOG_NETWORK_SELECTION);
                     getPreferenceScreen().setEnabled(true);
 
-                    // After selection operation, FORBIDDEN preferences may
-                    // be enabled again, so disable them here.
-                    for (Preference carrier : mNetworkMap.keySet()) {
-                        OperatorInfo ni = mNetworkMap.get(carrier);
-                        carrier.setEnabled(ni.getState() != OperatorInfo.State.FORBIDDEN);
-                    }
-
                     ar = (AsyncResult) msg.obj;
                     if (ar.exception != null) {
                         if (DBG) log("manual network selection: failed!");
@@ -479,7 +472,6 @@ public class NetworkSetting extends PreferenceActivity
                 for (OperatorInfo ni : result) {
                     Preference carrier = new Preference(this, null);
                     carrier.setTitle(getNetworkTitle(ni));
-                    carrier.setEnabled(ni.getState() != OperatorInfo.State.FORBIDDEN);
                     carrier.setPersistent(false);
                     mNetworkList.addPreference(carrier);
                     mNetworkMap.put(carrier, ni);
