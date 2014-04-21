@@ -278,7 +278,7 @@ public class CallController extends Handler {
                 // initiating an outgoing call, typically by directing the
                 // InCallScreen to display a diagnostic message (via the
                 // "pending call status code" flag.)
-                handleOutgoingCallError(status, intent);
+                handleOutgoingCallError(status);
                 break;
         }
 
@@ -650,10 +650,9 @@ public class CallController extends Handler {
      *
      * @param status one of the CallStatusCode error codes.
      */
-    private void handleOutgoingCallError(CallStatusCode status, Intent callIntent) {
+    private void handleOutgoingCallError(CallStatusCode status) {
         if (DBG) log("handleOutgoingCallError(): status = " + status);
-        String number = PhoneNumberUtils.getNumberFromIntent(callIntent, mApp);
-        Intent intent = new Intent(mApp, ErrorDialogActivity.class);
+        final Intent intent = new Intent(mApp, ErrorDialogActivity.class);
         int errorMessageId = -1;
         switch (status) {
             case SUCCESS:
@@ -733,7 +732,6 @@ public class CallController extends Handler {
                 break;
         }
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        intent.putExtra(ErrorDialogActivity.CALL_NUMBER_EXTRA, number);
         if (errorMessageId != -1) {
             intent.putExtra(ErrorDialogActivity.ERROR_MESSAGE_ID_EXTRA, errorMessageId);
         }
