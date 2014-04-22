@@ -37,6 +37,7 @@ public class MSimActivityDisabler extends BroadcastReceiver {
         } else {
             disable(context, MSimCallFeaturesSetting.class);
             disable(context, MSimMobileNetworkSettings.class);
+            disable(context, SelectSubscription.class);
         }
 
         // Die an honorable death, our work is done here.
