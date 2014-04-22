@@ -193,6 +193,7 @@ public class MSimMobileNetworkSettings extends PreferenceActivity
             intent.putExtra(SelectSubscription.PACKAGE, "com.android.phone");
             intent.putExtra(SelectSubscription.TARGET_CLASS,
                     "com.android.phone.MSimMobileNetworkSubSettings");
+            startActivityForResult(intent, 0);
         }
 
         final boolean missingDataServiceUrl = TextUtils.isEmpty(
@@ -237,6 +238,13 @@ public class MSimMobileNetworkSettings extends PreferenceActivity
 
     private static void log(String msg) {
         Log.d(LOG_TAG, msg);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == 0) {
+            finish();
+        }
     }
 
     @Override
