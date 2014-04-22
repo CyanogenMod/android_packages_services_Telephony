@@ -29,10 +29,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.telephony.MSimTelephonyManager;
 import android.util.Log;
 
 import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.Connection;
+import com.android.internal.telephony.PhoneConstants;
 import com.android.services.telephony.common.Call;
 
 import java.util.List;
@@ -306,8 +308,18 @@ public class BluetoothManager implements CallModeler.Listener {
         // (b) The not-so-obvious case: if an incoming call is ringing,
         //     and we expect that audio *will* be routed to a bluetooth
         //     headset once the call is answered.
+        PhoneConstants.State state = cm.getState();
 
-        switch (cm.getState()) {
+        //check the call states on both subscriptions in case of DSDA
+        if (MSimTelephonyManager.getDefault().getMultiSimConfiguration()
+                == MSimTelephonyManager.MultiSimVariants.DSDA) {
+            if (state == PhoneConstants.State.IDLE) {
+                int sub = cm.getActiveSubscription() ^ 1;
+                state = cm.getState(sub);
+            }
+        }
+
+        switch (state) {
             case OFFHOOK:
                 // This covers normal active calls, and also the case if
                 // the foreground call is DIALING or ALERTING.  In this
