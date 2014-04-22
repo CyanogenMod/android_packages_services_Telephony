@@ -46,7 +46,7 @@ public class SipBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, final Intent intent) {
         String action = intent.getAction();
 
-        if (!PhoneUtils.isVoipSupported()) {
+        if (!PhoneUtils.isVoipSupported(context)) {
             if (DBG) log("SIP VOIP not supported: " + action);
             return;
         }
