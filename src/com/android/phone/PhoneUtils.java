@@ -3036,19 +3036,15 @@ public class PhoneUtils {
                 !PhoneGlobals.getInstance().mCM.hasActiveFgCallAnyPhone());
     }
 
-    private static boolean sVoipSupported = false;
-    static {
-        PhoneGlobals app = PhoneGlobals.getInstance();
-        sVoipSupported = SipManager.isVoipSupported(app)
-                && app.getResources().getBoolean(com.android.internal.R.bool.config_built_in_sip_phone)
-                && app.getResources().getBoolean(com.android.internal.R.bool.config_voice_capable);
-    }
-
     /**
      * @return true if this device supports voice calls using the built-in SIP stack.
      */
-    static boolean isVoipSupported() {
-        return sVoipSupported;
+    static boolean isVoipSupported(Context context) {
+        boolean builtInSip = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_built_in_sip_phone);
+        boolean voiceCapable = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_voice_capable);
+        return SipManager.isVoipSupported(context) && builtInSip && voiceCapable;
     }
 
     public static String getPresentationString(Context context, int presentation) {

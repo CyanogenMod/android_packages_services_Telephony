@@ -173,7 +173,7 @@ public class SipCallOptionHandler extends Activity implements
         //       CallManager would then find the best match for every
         //       outgoing call.)
 
-        boolean voipSupported = PhoneUtils.isVoipSupported();
+        boolean voipSupported = PhoneUtils.isVoipSupported(this);
         if (DBG) Log.v(TAG, "voipSupported: " + voipSupported);
         mSipProfileDb = new SipProfileDb(this);
         mSipSharedPreferences = new SipSharedPreferences(this);
