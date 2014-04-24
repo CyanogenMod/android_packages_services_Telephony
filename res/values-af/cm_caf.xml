@@ -164,9 +164,6 @@
   <string name="call_number">Aan: </string>
   <string name="cancel_call">Kanselleer</string>
   <string name="set_subscription_error_atleast_one">Kies ten minste een inskrywing</string>
-  <string name="sub_1">INS 1</string>
-  <string name="sub_2">INS 2</string>
-  <string name="sub_3">INS 3</string>
   <string name="set_uicc_subscription_progress">Inskrywing aan die gang...</string>
   <string name="set_sub_success">Stel inskrywing sukses</string>
   <string name="set_sub_failed">Stel inskrywing het misluk</string>
