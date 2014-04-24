@@ -66,6 +66,9 @@ public class EditFdnContactScreen extends Activity {
 
     private static final int PIN2_REQUEST_CODE = 100;
 
+    //Delay in milli sec
+    private static final int DELAY_POST_RESULT_MS = 100;
+
     private String mName;
     private String mNumber;
     private String mPin2;
@@ -442,18 +445,38 @@ public class EditFdnContactScreen extends Activity {
         protected void onQueryComplete(int token, Object cookie, Cursor c) {
         }
 
+        private void postDelayedResult (boolean result, boolean invalidNumber) {
+            final boolean res = result;
+            final boolean isInvalidNum = invalidNumber;
+            if(DBG) log("postDelayedResult: result will be posted after " +
+                    DELAY_POST_RESULT_MS + "ms");
+
+            // UiccCardApplication is queried to retreive the status of pin2 when the
+            // insert/update operation fails. Therefore UiccCardApplication needs to be
+            // updated before EditFdnContactScreen queries the pin2 status.
+            // Adding the delay before posting the result; This delay will give time for
+            // the correct pin2 status to be updated in UiccCArdApplication.
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if(DBG) log("postDelayedResult: delay over");
+                    handleResult(res, isInvalidNum);
+                }
+            }, DELAY_POST_RESULT_MS);
+        }
+
         @Override
         protected void onInsertComplete(int token, Object cookie, Uri uri) {
             if (DBG) log("onInsertComplete");
             displayProgress(false);
-            handleResult(uri != null, false);
+            postDelayedResult(uri != null, false);
         }
 
         @Override
         protected void onUpdateComplete(int token, Object cookie, int result) {
             if (DBG) log("onUpdateComplete");
             displayProgress(false);
-            handleResult(result > 0, false);
+            postDelayedResult(result > 0, false);
         }
 
         @Override
