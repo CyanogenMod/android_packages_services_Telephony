@@ -706,6 +706,9 @@ public class MobileNetworkSettings extends PreferenceActivity
             case Phone.NT_MODE_GSM_ONLY:
                 mButtonPreferredNetworkMode.setSummary(
                         R.string.preferred_network_mode_gsm_only_summary);
+                if (cmccNetworkMode == Constants.NETWORK_MODE_CMCC) {
+                    mButtonPreferredNetworkMode.setEnabled(false);
+                }
                 break;
             case Phone.NT_MODE_WCDMA_ONLY:
                 mButtonPreferredNetworkMode.setSummary(
