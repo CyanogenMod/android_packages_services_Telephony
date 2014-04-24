@@ -182,6 +182,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private static final String BUTTON_FDN_KEY   = "button_fdn_key";
     private static final String BUTTON_RESPOND_VIA_SMS_KEY   = "button_respond_via_sms_key";
 
+    private static final String BUTTON_RINGTONE_CATEGORY_KEY = "button_ringtone_category_key";
     private static final String BUTTON_RINGTONE_KEY    = "button_ringtone_key";
     private static final String BUTTON_VIBRATE_ON_RING = "button_vibrate_on_ring";
 
@@ -1578,6 +1579,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             initVoiceMailProviders();
         }
 
+        /*
         if (mVibrateWhenRinging != null) {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             if (vibrator != null && vibrator.hasVibrator()) {
@@ -1586,7 +1588,11 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                 prefSet.removePreference(mVibrateWhenRinging);
                 mVibrateWhenRinging = null;
             }
-        }
+        }*/
+        // "Vibrate When Ringing" item is no long needed on DSDS mode
+        PreferenceGroup ringtoneCategory = (PreferenceGroup)
+                findPreference(BUTTON_RINGTONE_CATEGORY_KEY);
+        ringtoneCategory.removePreference(mVibrateWhenRinging);
 
         if (!getResources().getBoolean(R.bool.world_phone)) {
             Preference options = prefSet.findPreference(BUTTON_CDMA_OPTIONS);
