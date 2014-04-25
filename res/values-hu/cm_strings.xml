@@ -79,4 +79,5 @@
   <string name="choose_forward_lookup_provider_title">Címkeresési szolgáltató</string>
   <string name="choose_people_lookup_provider_title">Személy keresési szolgáltató</string>
   <string name="choose_reverse_lookup_provider_title">Névkeresési szolgáltató</string>
+  <string name="sub_no_sim">Nincs SIM</string>
 </resources>

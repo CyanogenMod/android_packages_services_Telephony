@@ -25,8 +25,11 @@
   <string name="call_notif_clir_suppression_rejected">Eliminação do próprio número foi rejeitada pela rede</string>
   <string name="call_notif_call_deflected">Chamada encaminhada pelo destinatário</string>
   <string name="call_notif_MTcall_forwarding">Chamada recebida encaminhada</string>
+  <string name="call_notif_multipartycall">Chamada em grupo</string>
   <string name="call_notif_callonhold_released">Chamada desligada remotamente</string>
   <string name="call_notif_forwardcheckreceived">Chamada foi encaminhada</string>
+  <string name="call_notif_callconnectingect">Chamada conectando através da transferência de chamada explícita</string>
+  <string name="call_notif_callconnectedect">Chamada conectada através da transferência de chamada explícita</string>
   <string name="incall_vibration">Vibrar durante a chamada</string>
   <string name="vibrate_outgoing">Vibrar ao atender</string>
   <string name="vibrate_call_waiting">Vibrar com chamada em espera</string>
@@ -37,7 +40,7 @@
   <string name="show_ssn_summary">Mostrar uma notificação para vários eventos de rede relacionados com o tratamento de chamadas</string>
   <string name="blacklist_title">Lista Negra</string>
   <string name="blacklist_summary_disabled">Desativado</string>
-  <string name="blacklist_summary">Mensagens de entrada de números de telefone na lista negra serão bloqueadas</string>
+  <string name="blacklist_summary">Chamadas recebidas de números de telefone na lista negra serão bloqueadas</string>
   <string name="blacklist_call_notification">Bloqueou uma chamada de %s</string>
   <string name="blacklist_call_notification_private_number">Bloqueou uma chamada de um número privado</string>
   <string name="blacklist_call_notification_unknown_number">Bloqueou uma chamada do número desconhecido %s</string>
@@ -76,4 +79,5 @@
   <string name="choose_forward_lookup_provider_title">Fornecedor de pesquisa direta</string>
   <string name="choose_people_lookup_provider_title">Fornecedor de pesquisa de pessoas</string>
   <string name="choose_reverse_lookup_provider_title">Fornecedor de pesquisa inversa</string>
+  <string name="sub_no_sim">Sem SIM</string>
 </resources>

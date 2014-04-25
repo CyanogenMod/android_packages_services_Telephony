@@ -79,4 +79,5 @@
   <string name="choose_forward_lookup_provider_title">Poskytovateľ pre vyhľadávanie miesta</string>
   <string name="choose_people_lookup_provider_title">Poskytovateľ pre vyhľadávanie ľudí</string>
   <string name="choose_reverse_lookup_provider_title">Poskytovateľ pre spätné vyhľadávanie</string>
+  <string name="sub_no_sim">Žiadna SIM</string>
 </resources>

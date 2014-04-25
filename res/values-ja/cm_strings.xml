@@ -21,6 +21,7 @@
   <string name="vibrate_call_waiting">割込通話時のバイブレーション</string>
   <string name="vibrate_hangup">通話終了時のバイブレーション</string>
   <string name="vibrate_45">時間ごとのバイブレーション</string>
+  <string name="vibrate_45_sum">発信中、45秒ごとに振動する</string>
   <string name="show_ssn_label">イベント通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
   <string name="blacklist_title">ブラックリスト</string>
@@ -31,7 +32,7 @@
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
   <string name="noise_suppression_title">ノイズの抑制</string>
-  <string name="noise_suppression_summary">通話でノイズの抑制を有効にする</string>
+  <string name="noise_suppression_summary">通話中のノイズの抑制を有効にする</string>
   <string name="preferred_network_mode_td_scdma_only">TD-SCDMAのみ</string>
   <string name="preferred_network_mode_global">Global</string>
   <string name="preferred_network_mode_evdo_only">EvDoのみ</string>
@@ -43,9 +44,9 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA優先</string>
   <string name="number_lookup">電話番号検索</string>
   <string name="enable_forward_lookup_title">前方検索</string>
-  <string name="enable_forward_lookup_summary">電話で検索しているときに近くの場所を表示する</string>
+  <string name="enable_forward_lookup_summary">ダイアラで検索しているときに近くの場所を表示する</string>
   <string name="enable_people_lookup_title">人物検索</string>
-  <string name="enable_people_lookup_summary">電話で検索しているときに人物のオンラインの結果を表示する</string>
+  <string name="enable_people_lookup_summary">ダイアラで検索しているときに人物のオンラインの結果を表示する</string>
   <string name="enable_reverse_lookup_title">逆引き検索</string>
   <string name="enable_reverse_lookup_summary">着信中の不明な番号の人物または場所の情報を検索する</string>
   <string name="choose_lookup_providers">検索プロバイダを選択</string>

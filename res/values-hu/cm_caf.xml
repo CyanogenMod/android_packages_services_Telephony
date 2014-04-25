@@ -60,6 +60,8 @@
   <string name="rc_unlock_success">Sikeres vállalati RUIM feloldás.</string>
   <string name="ruim_unlock_success">Sikeres RUIM feloldás.</string>
   <string name="puk_unlock_success">Sikeres PUK feloldás.</string>
+  <string name="stk_cc_ss_to_dial_error">SS kérés módosítva DIAL kérésre.</string>
+  <string name="stk_cc_ss_to_ussd_error">SS kérés módosítva USSD kérésre.</string>
   <string name="stk_cc_ss_to_ss_error">SS kérés módosítva új SS kérésre.</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Preferált hálózati mód: Csak TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferált hálózati mód: TD-SCDMA / WCDMA</string>
@@ -77,6 +79,7 @@
   <string name="title_data_settings">Adat beállítások</string>
   <string name="summary_manage_subscriptions">Előfizetések hálózati beállításai</string>
   <string name="call_ind_services">Hívásfüggetlen szolgáltatások</string>
+  <string name="callind_multi_sim">Előfizetések beállításai</string>
   <string name="callind">Hívásfunkciók beállításai</string>
   <string name="sub1">Előfizetés 1</string>
   <string name="sub1_summary">Előfizetés 1 kezelése</string>
@@ -85,6 +88,7 @@
   <string name="sub3">Előfizetés 3</string>
   <string name="sub3_summary">Előfizetés 3 kezelése</string>
   <string name="prompt">Rákérdez</string>
+  <string name="prompt_user">Rákérdez a felhasználótól</string>
   <string name="tty_mode_not_allowed_vt_call">TTY mód változtatása nem lehetséges VT hívás közben</string>
   <string name="fdn_service_unavailable">FDN szolgáltatás nem elérhető.</string>
   <string name="exportContacts">Névjegyek exportálása a SIM kártyára\u2026</string>
@@ -112,6 +116,8 @@
   <string name="managed_roaming_title_sub2">Menedzselt Roaming (Előfiz. 2)</string>
   <string name="managed_roaming_title_sub3">Menedzselt Roaming (Előfiz. 3)</string>
   <string name="managed_roaming_dialog_content">Korlátozott hálózat. Szeretne új hálózat keresést futtatni?</string>
+  <string name="managed_roaming_dialog_ok_button">Igen</string>
+  <string name="managed_roaming_dialog_cancel_button">Nem</string>
   <string name="no_volte">Sikertelen az IMS hívás létrehozása</string>
   <string name="no_vt_allowed">Videohívás kezdeményezéséhez, kapcsolja ki a TTY üzemmódot</string>
   <string name="ims_edit_title">IMS fiók adatai</string>
@@ -121,6 +127,7 @@
   <string name="ims_service_capability">Szolgáltatás engedélyezése/tiltása</string>
   <string name="ims_service_capability_title">IMS szolgáltatás képesség</string>
   <string name="use_ims_default_summary">IMS használata az összes hanghíváshoz</string>
+  <string name="ims_menu_save">Mentés</string>
   <string name="ims_menu_discard">Elvetés</string>
   <string name="remove_ims_account">Fiók eltávolítása</string>
   <string name="contactScreen">SIM névjegyek kezelése</string>
@@ -128,7 +135,9 @@
   <string name="addSimEntries">SIM névjegy hozzáadása</string>
   <string name="deleteAllSimEntries">Az összes SIM névjegy törlése</string>
   <string name="deleteSimContacts">SIM névjegyek törlése\u2026</string>
+  <string name="editContact">Szerkesztés</string>
   <string name="sendSms">SMS küldése</string>
+  <string name="delete">Törlés</string>
   <string name="dial">Tárcsázás</string>
   <string name="enterName">Adja meg nevét:</string>
   <string name="enterNumber">Adja meg a telefonszámot:</string>
@@ -144,6 +153,7 @@
   <string name="exportAllcontatsFailed">Nem sikerült exportálni az összes névjegyet a SIM-re</string>
   <string name="exportAllcontatsNoContacts">Nem található SIM-re exportálandó névjegy</string>
   <string name="cursorError">A kurzornak nincs megfelelő adata</string>
+  <string name="set_subscription">Válasszon előfizetést</string>
   <string name="card_01">Kártya 1 / Előfiz. 1</string>
   <string name="card_02">Kártya 2 / Előfiz. 2</string>
   <string name="card_03">Kártya 3 / Előfiz. 3</string>
@@ -152,6 +162,7 @@
   <string name="place_a_call3">Előfizetés 3</string>
   <string name="count_down">Másodperc: </string>
   <string name="call_number">Hívás: </string>
+  <string name="cancel_call">Mégsem</string>
   <string name="set_subscription_error_atleast_one">Legalább egy előfizetést válasszon</string>
   <string name="set_uicc_subscription_progress">Előfizetés beállítása folyamatban\u2026</string>
   <string name="set_sub_success">Sikerült az előfizetés beállítása</string>
@@ -169,6 +180,7 @@
   <string name="set_sub_deactivate_not_supported">Deaktiválás nem támogatott</string>
   <string name="set_sub_no_change">>Nincs változás az előfizetésben</string>
   <string name="new_cards_available">Új kártya elérhető. Kérjük állítsa be az előfizetést.</string>
+  <string name="config_sub_title">Előfizetések konfigurálása</string>
   <string name="deact_all_sub_not_supported">Az összes előfizetés deaktiválása nem támogatott.</string>
   <string name="set_sub_not_supported_phone_in_call">Előfizetés módosítása nem engedélyezett hívás közben.</string>
 </resources>

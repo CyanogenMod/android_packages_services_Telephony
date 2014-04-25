@@ -79,4 +79,5 @@
   <string name="choose_forward_lookup_provider_title">Paikkahauntarjoaja</string>
   <string name="choose_people_lookup_provider_title">Ihmisen haun tarjoaja</string>
   <string name="choose_reverse_lookup_provider_title">Käänteisen haun tarjoaja</string>
+  <string name="sub_no_sim">Ei SIMiä</string>
 </resources>

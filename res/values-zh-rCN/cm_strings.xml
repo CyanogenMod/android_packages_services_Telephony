@@ -69,10 +69,14 @@
   <string name="preferred_network_mode_gsm_only">仅 GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred">首选 GSM/WCDMA</string>
   <string name="number_lookup">电话号码查询</string>
+  <string name="enable_forward_lookup_title">正向查询</string>
   <string name="enable_forward_lookup_summary">在拨号器搜索时显示附近地点</string>
   <string name="enable_people_lookup_title">人名查询</string>
   <string name="enable_people_lookup_summary">在拨号器搜索人名时显示在线搜索结果</string>
+  <string name="enable_reverse_lookup_title">反向查询</string>
   <string name="enable_reverse_lookup_summary">为未知来电号码查询人名或地点信息</string>
   <string name="choose_lookup_providers">选择查询提供商</string>
+  <string name="choose_forward_lookup_provider_title">正向查询提供商</string>
   <string name="choose_people_lookup_provider_title">人名查询提供商</string>
+  <string name="choose_reverse_lookup_provider_title">反向查询提供商</string>
 </resources>
