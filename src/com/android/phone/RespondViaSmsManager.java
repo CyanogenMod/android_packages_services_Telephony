@@ -152,6 +152,13 @@ public class RespondViaSmsManager {
             if (VDBG) log("  preference = '" + preference + "'");
             if (VDBG) log("  newValue = '" + newValue + "'");
 
+            if (TextUtils.isEmpty((String) newValue)) {
+                // If the newValue is empty, we prompt a toast and do not save the newValue.
+                Toast.makeText(getApplicationContext(),
+                        R.string.respond_via_sms_cannot_be_empty, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
             EditTextPreference pref = (EditTextPreference) preference;
 
             // Copy the new text over to the title, just like in onCreate().
