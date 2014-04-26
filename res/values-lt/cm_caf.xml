@@ -111,13 +111,6 @@
   <string name="xdivert_active">Aktyvus</string>
   <string name="xdivert_not_active">Neaktyvus</string>
   <string name="xdivert_imsi_not_read">Vykdoma SIM iniciacija. Bandykite vėliau.</string>
-  <string name="managed_roaming_title">Valdomas tarptinklinis ryšys</string>
-  <string name="managed_roaming_title_sub1">Valdomas tarptinklinis ryšys (PREN. 1)</string>
-  <string name="managed_roaming_title_sub2">Valdomas tarptinklinis ryšys (PREN. 2)</string>
-  <string name="managed_roaming_title_sub3">Valdomas tarptinklinis ryšys (PREN. 3)</string>
-  <string name="managed_roaming_dialog_content">Rastas tinklas su ribotomis paslaugomis. Norite ieškoti kitų tinklų?</string>
-  <string name="managed_roaming_dialog_ok_button">Taip</string>
-  <string name="managed_roaming_dialog_cancel_button">Ne</string>
   <string name="no_volte">Negalima pradėti IMS skambučių</string>
   <string name="no_vt_allowed">Norėdami įdėti vaizdo skambutį, išjunkite TTY režimą</string>
   <string name="ims_edit_title">IMS paskyros duomenys</string>

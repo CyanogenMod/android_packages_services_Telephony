@@ -44,8 +44,6 @@
   <string name="xdivert_status">X-Divert 状态</string>
   <string name="xdivert_active">激活</string>
   <string name="xdivert_not_active">未激活</string>
-  <string name="managed_roaming_dialog_ok_button">是</string>
-  <string name="managed_roaming_dialog_cancel_button">否</string>
   <string name="ims_menu_save">保存</string>
   <string name="ims_menu_discard">取消</string>
   <string name="remove_ims_account">删除帐户</string>

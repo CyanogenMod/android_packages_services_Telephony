@@ -111,13 +111,6 @@
   <string name="xdivert_active">Attivato</string>
   <string name="xdivert_not_active">Disattivato</string>
   <string name="xdivert_imsi_not_read">Inizializzazione SIM in corso. Riprovare più tardi.</string>
-  <string name="managed_roaming_title">Managed roaming</string>
-  <string name="managed_roaming_title_sub1">Roaming gestito (ABB 1)</string>
-  <string name="managed_roaming_title_sub2">Roaming gestito (ABB 2)</string>
-  <string name="managed_roaming_title_sub3">Roaming gestito (ABB 3)</string>
-  <string name="managed_roaming_dialog_content">Trovata rete con servizi limitati. Iniziare una ricerca di reti?</string>
-  <string name="managed_roaming_dialog_ok_button">Si</string>
-  <string name="managed_roaming_dialog_cancel_button">No</string>
   <string name="no_volte">Impossibile effettuare chiamate IMS</string>
   <string name="no_vt_allowed">Per eseguire una chiamata video, disattivare la modalità TTY</string>
   <string name="ims_edit_title">Dettagli account IMS</string>

@@ -111,13 +111,6 @@
   <string name="xdivert_active">Actief</string>
   <string name="xdivert_not_active">Inactief</string>
   <string name="xdivert_imsi_not_read">SIM wordt geïnitialiseerd. Probeer het over enkele ogenblikken opnieuw.</string>
-  <string name="managed_roaming_title">Beheerde roaming</string>
-  <string name="managed_roaming_title_sub1">Beheerde roaming (ABON.1)</string>
-  <string name="managed_roaming_title_sub2">Beheerde roaming (ABON.2)</string>
-  <string name="managed_roaming_title_sub3">Beheerde roaming (ABON.3)</string>
-  <string name="managed_roaming_dialog_content">Netwerk met slecht bereik gevonden. Wilt u naar andere netwerken zoeken?</string>
-  <string name="managed_roaming_dialog_ok_button">Ja</string>
-  <string name="managed_roaming_dialog_cancel_button">Nee</string>
   <string name="no_volte">Kan geen IMS-gesprek starten</string>
   <string name="no_vt_allowed">Schakel TTY-modus uit om een videogesprek te starten</string>
   <string name="ims_edit_title">IMS-accountdetails</string>

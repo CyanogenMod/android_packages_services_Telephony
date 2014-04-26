@@ -112,13 +112,6 @@
   <string name="xdivert_active">مفعل</string>
   <string name="xdivert_not_active">غير مفعل</string>
   <string name="xdivert_imsi_not_read">SIM التهيئة في التقدم. الرجاء المحاولة مرة أخرى لاحقاً.</string>
-  <string name="managed_roaming_title">تمكن خدمة التجوال</string>
-  <string name="managed_roaming_title_sub1">تمكن خدمة التجوال (1 فرعي)</string>
-  <string name="managed_roaming_title_sub2">تمكن خدمة التجوال (2 فرعي)</string>
-  <string name="managed_roaming_title_sub3">تمكن خدمة التجوال (3 فرعي)</string>
-  <string name="managed_roaming_dialog_content">شبكة الاتصال مع خدمة محدودة وجدت. هل تريد بدء بحث شبكة؟</string>
-  <string name="managed_roaming_dialog_ok_button">نعم</string>
-  <string name="managed_roaming_dialog_cancel_button">لا</string>
   <string name="no_volte">غير قادر على إجراء مكالمات IMS</string>
   <string name="no_vt_allowed">لإجراء مكالمة فيديو، إيقاف تشغيل وضع TTY</string>
   <string name="ims_edit_title">تفاصيل حساب IMS</string>

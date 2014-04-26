@@ -111,13 +111,6 @@
   <string name="xdivert_active">Activáu</string>
   <string name="xdivert_not_active">Desactiváu</string>
   <string name="xdivert_imsi_not_read">Anicialización de tarxeta SIM en cursu. Por favor, inténtalo dempués.</string>
-  <string name="managed_roaming_title">Xestión de la itinerancia</string>
-  <string name="managed_roaming_title_sub1">Xestión de la itinerancia (SUB 1)</string>
-  <string name="managed_roaming_title_sub2">Xestión de la itinerancia (SUB 2)</string>
-  <string name="managed_roaming_title_sub3">Xestión de la itinerancia (SUB 3)</string>
-  <string name="managed_roaming_dialog_content">Atopóse una rede con serviciu llendáu. ¿Quies aniciar una busca de redes?</string>
-  <string name="managed_roaming_dialog_ok_button">Sí</string>
-  <string name="managed_roaming_dialog_cancel_button">Non</string>
   <string name="no_volte">Imposible facer una llamada IMS</string>
   <string name="no_vt_allowed">Pa facer una videollamada desconeuta\'l mou TTY</string>
   <string name="ims_edit_title">Detalles de cuenta IMS</string>

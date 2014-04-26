@@ -66,13 +66,6 @@
   <string name="xdivert_active">פועל</string>
   <string name="xdivert_not_active">כבוי</string>
   <string name="xdivert_imsi_not_read">אתחול SIM בהתליך. נסה שוב מאוחר יותר.</string>
-  <string name="managed_roaming_title">ניהול נדידה</string>
-  <string name="managed_roaming_title_sub1">ניהול נדידה (הרשמה 1)</string>
-  <string name="managed_roaming_title_sub2">ניהול נדידה (הרשמה 2)</string>
-  <string name="managed_roaming_title_sub3">ניהול נדידה (הרשמה 3)</string>
-  <string name="managed_roaming_dialog_content">רשת עם שירות מוגבל נמצאה. האם ברצונך להפעיל חיפוש ברשת?</string>
-  <string name="managed_roaming_dialog_ok_button">כן</string>
-  <string name="managed_roaming_dialog_cancel_button">לא</string>
   <string name="no_volte">אין אפשרות לבצע שיחות IMS</string>
   <string name="ims_edit_title">פרטי חשבון IMS</string>
   <string name="ims_accounts_title">חשבון IMS</string>

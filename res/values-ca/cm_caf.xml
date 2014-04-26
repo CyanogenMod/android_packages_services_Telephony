@@ -111,13 +111,6 @@
   <string name="xdivert_active">Actiu</string>
   <string name="xdivert_not_active">No actiu</string>
   <string name="xdivert_imsi_not_read">Inicialització SIM en curs. Si us plau intenta-ho una altra vegada més tard.</string>
-  <string name="managed_roaming_title">Gestió d\'itinerància</string>
-  <string name="managed_roaming_title_sub1">Gestió d\'itinerància (SUB 1)</string>
-  <string name="managed_roaming_title_sub2">Gestió d\'itinerància (SUB 2)</string>
-  <string name="managed_roaming_title_sub3">Gestió d\'itinerància (SUB 3)</string>
-  <string name="managed_roaming_dialog_content">S\'ha trobat una xarxa amb servei limitat. Vols iniciar una recerca de xarxes?</string>
-  <string name="managed_roaming_dialog_ok_button">Si</string>
-  <string name="managed_roaming_dialog_cancel_button">No</string>
   <string name="no_volte">No s\'han pogut realitzar trucades IMS</string>
   <string name="no_vt_allowed">Per realitzar una videotrucada, apaga el mode TTY</string>
   <string name="ims_edit_title">Detalls del compte IMS</string>

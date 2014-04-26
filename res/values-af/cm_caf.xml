@@ -111,13 +111,6 @@
   <string name="xdivert_active">Aktief</string>
   <string name="xdivert_not_active">Nie Aktief</string>
   <string name="xdivert_imsi_not_read">SIM Inisialisasie. Probeer asseblief na \'n tyd.</string>
-  <string name="managed_roaming_title">Bestuur dataswerwing</string>
-  <string name="managed_roaming_title_sub1">Bestuur dataswerwing (INS1)</string>
-  <string name="managed_roaming_title_sub2">Bestuur dataswerwing (INS2)</string>
-  <string name="managed_roaming_title_sub3">Bestuur dataswerwing (INS3)</string>
-  <string name="managed_roaming_dialog_content">Netwerk met beperkte Dienste gevind. Wil jy \'n netwerk soektog begin?</string>
-  <string name="managed_roaming_dialog_ok_button">Ja</string>
-  <string name="managed_roaming_dialog_cancel_button">Nee</string>
   <string name="no_volte">Kan nie IMS oproep maak nie</string>
   <string name="no_vt_allowed">Om \'n video-oproep te plaas, deaktiveer die TTY modus</string>
   <string name="ims_edit_title">IMS rekening besonderhede</string>
