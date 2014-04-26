@@ -279,4 +279,7 @@
     <string name="uplmn_list_setting_add_plmn">New PLMN</string>
     <string name="gsm_umts_network_preferences_title">Network Mode</string>
     <string name="gsm_umts_network_preferences_dialogtitle">Network Mode</string>
+
+    <!-- Prompt toast message string for the "Respond via SMS" feature. [CHAR LIMIT=40] -->
+    <string name="respond_via_sms_cannot_be_empty">Quick response cannot be empty</string>
 </resources>
