@@ -179,6 +179,13 @@ public class MSimDialerActivity extends Activity {
             }
         });
 
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                mAlertDialog.dismiss();
+                startOutgoingCall(INVALID_SUB);
+            }
+        });
+
         mAlertDialog = builder.create();
         mAlertDialog.setCanceledOnTouchOutside(false);
 
@@ -194,14 +201,6 @@ public class MSimDialerActivity extends Activity {
         } else {
             mTextNumber.setText(mCallNumber + mNumber);
         }
-
-        Button callCancel = (Button)layout.findViewById(R.id.callcancel);
-        callCancel.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mAlertDialog.dismiss();
-                startOutgoingCall(INVALID_SUB);
-            }
-        });
 
         Button[] callButton = new Button[mPhoneCount];
         int[] callMark = {R.id.callmark1, R.id.callmark2, R.id.callmark3};
@@ -238,11 +237,6 @@ public class MSimDialerActivity extends Activity {
                     }
                 }
             });
-        }
-
-        index = MSimPhoneFactory.getVoiceSubscription();
-        if (index < mPhoneCount) {
-            callButton[index].setBackgroundResource(R.drawable.highlight_btn_call);
         }
 
         mAlertDialog.show();

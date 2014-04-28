@@ -101,9 +101,6 @@
   <string name="card_01">כרטיס 1 / הרשמה 1</string>
   <string name="card_02">כרטיס 2 / הרשמה 2</string>
   <string name="card_03">כרטיס 3 / הרשמה 3</string>
-  <string name="place_a_call1">הרשמה 1</string>
-  <string name="place_a_call2">הרשמה 2</string>
-  <string name="place_a_call3">הרשמה 3</string>
   <string name="count_down">שניות: </string>
   <string name="call_number">ל: </string>
   <string name="cancel_call">בטל</string>
