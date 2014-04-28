@@ -207,17 +207,21 @@ public class MSimDialerActivity extends Activity {
         int[] callMark = {R.id.callmark1, R.id.callmark2, R.id.callmark3};
         int index = 0;
         SubscriptionManager subManager = SubscriptionManager.getInstance();
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
 
         for (index = 0; index < mPhoneCount; index++) {
             if (subManager.isSubActive(index)) {
+                String operatorName = tm.getSimState(index) != SIM_STATE_ABSENT
+                        ? tm.getNetworkOperatorName(index) : getString(R.string.sub_no_sim);
+                String label = getString(R.string.multi_sim_entry_format, operatorName, index + 1);
                 Button button = (Button) layout.findViewById(callMark[index]);
+                button.setText(label);
                 button.setVisibility(View.VISIBLE);
             }
         }
 
         for (index = 0; index < mPhoneCount; index++) {
             callButton[index] =  (Button) layout.findViewById(callMark[index]);
-            MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
             String operatorName = tm.getSimState(index) != SIM_STATE_ABSENT
                     ? tm.getNetworkOperatorName(index) : getString(R.string.sub_no_sim);
             String label = getString(R.string.multi_sim_entry_format, operatorName, index + 1);

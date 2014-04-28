@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Није активно</string>
   <string name="xdivert_imsi_not_read">SIM иницијализација у току. Покушајте поново касније.</string>
   <string name="managed_roaming_title">Уреди роминг</string>
-  <string name="managed_roaming_title_sub1">Уреди роминг (SUB 1)</string>
-  <string name="managed_roaming_title_sub2">Уреди роминг (SUB 2)</string>
-  <string name="managed_roaming_title_sub3">Уреди роминг (SUB 3)</string>
   <string name="managed_roaming_dialog_content">Мрежа са ограниченим сервисом пронађена. Да ли желите да покренете претрагу мрежа?</string>
   <string name="managed_roaming_dialog_ok_button">Да</string>
   <string name="managed_roaming_dialog_cancel_button">Не</string>
@@ -154,12 +151,6 @@
   <string name="exportAllcontatsNoContacts"> Није пронађен ниједан контакт за извоз на SIM </string>
   <string name="cursorError">Неважећи подаци курсора</string>
   <string name="set_subscription">Изаберите претплату</string>
-  <string name="card_01">Картица 1 / SUB 1</string>
-  <string name="card_02">Картица 2 / SUB 2</string>
-  <string name="card_03">Картица 3 / SUB 3 </string>
-  <string name="place_a_call1">Претплата 1</string>
-  <string name="place_a_call2">Претплата 2</string>
-  <string name="place_a_call3">Претплата 3</string>
   <string name="count_down">Секунде: </string>
   <string name="call_number">Коме: </string>
   <string name="cancel_call">Откажи</string>
@@ -167,9 +158,6 @@
   <string name="set_uicc_subscription_progress">Подешавање претплате\u2026</string>
   <string name="set_sub_success">Претплата је успешно постављена</string>
   <string name="set_sub_failed">Неуспешно постављање претплате</string>
-  <string name="set_sub_1">Претплата 1: </string>
-  <string name="set_sub_2">Претплата 2: </string>
-  <string name="set_sub_3">Претплата 3: </string>
   <string name="set_sub_activate_success">Активација је успешнаl</string>
   <string name="set_sub_deactivate_success">Деактивација је успешна</string>
   <string name="set_sub_activate_failed">Активација није успела</string>

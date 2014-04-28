@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Desactiváu</string>
   <string name="xdivert_imsi_not_read">Anicialización de tarxeta SIM en cursu. Por favor, inténtalo dempués.</string>
   <string name="managed_roaming_title">Xestión de la itinerancia</string>
-  <string name="managed_roaming_title_sub1">Xestión de la itinerancia (SUB 1)</string>
-  <string name="managed_roaming_title_sub2">Xestión de la itinerancia (SUB 2)</string>
-  <string name="managed_roaming_title_sub3">Xestión de la itinerancia (SUB 3)</string>
   <string name="managed_roaming_dialog_content">Atopóse una rede con serviciu llendáu. ¿Quies aniciar una busca de redes?</string>
   <string name="managed_roaming_dialog_ok_button">Sí</string>
   <string name="managed_roaming_dialog_cancel_button">Non</string>
@@ -154,12 +151,6 @@
   <string name="exportAllcontatsNoContacts">Nun s\'atoparon contautos qu\'esportar a la tarxeta SIM</string>
   <string name="cursorError">Datos del cursor inválidos</string>
   <string name="set_subscription">Esbillar la soscripción</string>
-  <string name="card_01">Tarxeta 1 / SUS 1</string>
-  <string name="card_02">Tarxeta 2 / SUS 2</string>
-  <string name="card_03">Tarxeta 3 / SUS 3</string>
-  <string name="place_a_call1">Soscripción 1</string>
-  <string name="place_a_call2">Soscripción 2</string>
-  <string name="place_a_call3">Soscripción 3</string>
   <string name="count_down">Segundos: </string>
   <string name="call_number">Pa: </string>
   <string name="cancel_call">Encaboxar</string>
@@ -167,9 +158,6 @@
   <string name="set_uicc_subscription_progress">Afitando soscripción\u2026</string>
   <string name="set_sub_success">Afitóse la soscripción</string>
   <string name="set_sub_failed">Falló al afitase la soscripción</string>
-  <string name="set_sub_1">Soscripción 1: </string>
-  <string name="set_sub_2">Soscripción 2: </string>
-  <string name="set_sub_3">Soscripción 3: </string>
   <string name="set_sub_activate_success">Activación fecha</string>
   <string name="set_sub_deactivate_success">Desactivación fecha</string>
   <string name="set_sub_activate_failed">L\'activación falló</string>

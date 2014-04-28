@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Inactief</string>
   <string name="xdivert_imsi_not_read">SIM wordt geïnitialiseerd. Probeer het over enkele ogenblikken opnieuw.</string>
   <string name="managed_roaming_title">Beheerde roaming</string>
-  <string name="managed_roaming_title_sub1">Beheerde roaming (ABON.1)</string>
-  <string name="managed_roaming_title_sub2">Beheerde roaming (ABON.2)</string>
-  <string name="managed_roaming_title_sub3">Beheerde roaming (ABON.3)</string>
   <string name="managed_roaming_dialog_content">Netwerk met slecht bereik gevonden. Wilt u naar andere netwerken zoeken?</string>
   <string name="managed_roaming_dialog_ok_button">Ja</string>
   <string name="managed_roaming_dialog_cancel_button">Nee</string>
@@ -154,12 +151,6 @@
   <string name="exportAllcontatsNoContacts">Geen contacten gevonden om te exporteren naar SIM</string>
   <string name="cursorError">Ongeldige cursorgegevens</string>
   <string name="set_subscription">Abonnementen selecteren</string>
-  <string name="card_01">Kaart 1 / ABON.1</string>
-  <string name="card_02">Kaart 2 / ABON.2</string>
-  <string name="card_03">Kaart 3 / ABON.3</string>
-  <string name="place_a_call1">Abonnement 1</string>
-  <string name="place_a_call2">Abonnement 2</string>
-  <string name="place_a_call3">Abonnement 3</string>
   <string name="count_down">Seconden: </string>
   <string name="call_number">Naar: </string>
   <string name="cancel_call">Annuleren</string>
@@ -167,9 +158,6 @@
   <string name="set_uicc_subscription_progress">Abonnement toepassen\u2026</string>
   <string name="set_sub_success">Abonnement succesvol toegepast</string>
   <string name="set_sub_failed">Kan abonnement niet toepassen</string>
-  <string name="set_sub_1">Abonnement 1:</string>
-  <string name="set_sub_2">Abonnement 2:</string>
-  <string name="set_sub_3">Abonnement 3:</string>
   <string name="set_sub_activate_success">Activeren succesvol</string>
   <string name="set_sub_deactivate_success">Deactiveren succesvol</string>
   <string name="set_sub_activate_failed">Activeren mislukt</string>

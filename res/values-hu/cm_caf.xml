@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Inaktív</string>
   <string name="xdivert_imsi_not_read">SIM inicializálás folyamatban. Próbálja meg később.</string>
   <string name="managed_roaming_title">Menedzselt Roaming</string>
-  <string name="managed_roaming_title_sub1">Menedzselt Roaming (Előfiz. 1)</string>
-  <string name="managed_roaming_title_sub2">Menedzselt Roaming (Előfiz. 2)</string>
-  <string name="managed_roaming_title_sub3">Menedzselt Roaming (Előfiz. 3)</string>
   <string name="managed_roaming_dialog_content">Korlátozott hálózat. Szeretne új hálózat keresést futtatni?</string>
   <string name="managed_roaming_dialog_ok_button">Igen</string>
   <string name="managed_roaming_dialog_cancel_button">Nem</string>
@@ -154,12 +151,6 @@
   <string name="exportAllcontatsNoContacts">Nem található SIM-re exportálandó névjegy</string>
   <string name="cursorError">A kurzornak nincs megfelelő adata</string>
   <string name="set_subscription">Válasszon előfizetést</string>
-  <string name="card_01">Kártya 1 / Előfiz. 1</string>
-  <string name="card_02">Kártya 2 / Előfiz. 2</string>
-  <string name="card_03">Kártya 3 / Előfiz. 3</string>
-  <string name="place_a_call1">Előfizetés 1</string>
-  <string name="place_a_call2">Előfizetés 2</string>
-  <string name="place_a_call3">Előfizetés 3</string>
   <string name="count_down">Másodperc: </string>
   <string name="call_number">Hívás: </string>
   <string name="cancel_call">Mégsem</string>
@@ -167,9 +158,6 @@
   <string name="set_uicc_subscription_progress">Előfizetés beállítása folyamatban\u2026</string>
   <string name="set_sub_success">Sikerült az előfizetés beállítása</string>
   <string name="set_sub_failed">Nem sikerült az előfizetés beállítása</string>
-  <string name="set_sub_1">Előfizetés 1: </string>
-  <string name="set_sub_2">Előfizetés 2: </string>
-  <string name="set_sub_3">Előfizetés 3: </string>
   <string name="set_sub_activate_success">Sikeres aktiválás</string>
   <string name="set_sub_deactivate_success">Sikeres deaktiválás</string>
   <string name="set_sub_activate_failed">Sikertelen aktiválás</string>

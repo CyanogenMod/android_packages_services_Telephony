@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Неактивен</string>
   <string name="xdivert_imsi_not_read">Выполняется инициализация SIM-карты. Повторите попытку позднее.</string>
   <string name="managed_roaming_title">Управляемый роуминг</string>
-  <string name="managed_roaming_title_sub1">Управляемый роуминг (SIM 1)</string>
-  <string name="managed_roaming_title_sub2">Управляемый роуминг (SIM 2)</string>
-  <string name="managed_roaming_title_sub3">Управляемый роуминг (SIM 3)</string>
   <string name="managed_roaming_dialog_content">Обнаружена сеть с ограниченным уровнем обслуживания. Начать поиск сетей?</string>
   <string name="managed_roaming_dialog_ok_button">Да</string>
   <string name="managed_roaming_dialog_cancel_button">Нет</string>
@@ -154,12 +151,6 @@
   <string name="exportAllcontatsNoContacts">Не найдены контакты для экспорта на SIM</string>
   <string name="cursorError">Неверные данные курсора</string>
   <string name="set_subscription">Выберите оператора</string>
-  <string name="card_01">SIM 1 / Оператор 1</string>
-  <string name="card_02">SIM 2 / Оператор 2</string>
-  <string name="card_03">SIM 3 / Оператор 3</string>
-  <string name="place_a_call1">Оператор 1</string>
-  <string name="place_a_call2">Оператор 2</string>
-  <string name="place_a_call3">Оператор 3</string>
   <string name="count_down">Секунд: </string>
   <string name="call_number">Кому: </string>
   <string name="cancel_call">Отмена</string>
@@ -167,9 +158,6 @@
   <string name="set_uicc_subscription_progress">Установка настроек операторов\u2026</string>
   <string name="set_sub_success">Настройки операторов сохранены</string>
   <string name="set_sub_failed">Не удалось сохранить настройки операторов</string>
-  <string name="set_sub_1">Оператор 1: </string>
-  <string name="set_sub_2">Оператор 2: </string>
-  <string name="set_sub_3">Оператор 3: </string>
   <string name="set_sub_activate_success">Активация успешно выполнена</string>
   <string name="set_sub_deactivate_success">Деактивация успешно выполнена</string>
   <string name="set_sub_activate_failed">Ошибка активации</string>
