@@ -79,7 +79,7 @@ public class MSimDialerActivity extends Activity {
         super.onCreate(icicle);
 
         mContext = getApplicationContext();
-        mCallNumber = getResources().getString(R.string.call_number);
+        mCallNumber = getResources().getString(R.string.call_number, mNumber);
     }
 
     @Override
@@ -179,6 +179,13 @@ public class MSimDialerActivity extends Activity {
             }
         });
 
+        builder.setNegativeButton(R.string.cancel_call, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                mAlertDialog.dismiss();
+                startOutgoingCall(INVALID_SUB);
+            }
+        });
+
         mAlertDialog = builder.create();
         mAlertDialog.setCanceledOnTouchOutside(false);
 
@@ -189,19 +196,11 @@ public class MSimDialerActivity extends Activity {
             vm =  mIntent.getData().getScheme();
 
         if ((vm != null) && (vm.equals("voicemail"))) {
-            mTextNumber.setText(mCallNumber + "VoiceMail" );
+            mTextNumber.setText(getResources().getString(R.string.call_number, "VoiceMail"));
             Log.d(TAG, "its voicemail!!!");
         } else {
-            mTextNumber.setText(mCallNumber + mNumber);
+            mTextNumber.setText(getResources().getString(R.string.call_number, mNumber));
         }
-
-        Button callCancel = (Button)layout.findViewById(R.id.callcancel);
-        callCancel.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mAlertDialog.dismiss();
-                startOutgoingCall(INVALID_SUB);
-            }
-        });
 
         Button[] callButton = new Button[mPhoneCount];
         int[] callMark = {R.id.callmark1, R.id.callmark2, R.id.callmark3};
@@ -238,11 +237,6 @@ public class MSimDialerActivity extends Activity {
                     }
                 }
             });
-        }
-
-        index = MSimPhoneFactory.getVoiceSubscription();
-        if (index < mPhoneCount) {
-            callButton[index].setBackgroundResource(R.drawable.highlight_btn_call);
         }
 
         mAlertDialog.show();

@@ -130,4 +130,7 @@
     <!-- Set Subscription screen: label no sim -->
     <string name="sub_no_sim">No SIM</string>
     <string name="multi_sim_entry_format" translatable="false"><xliff:g id="operator">%1$s</xliff:g>-<xliff:g id="index">%2$d</xliff:g></string>
+
+    <!-- Set dual dialer for MultiSim -->
+    <string name="call_number">Call <xliff:g id="mNumber">%s</xliff:g> via</string>
 </resources>
