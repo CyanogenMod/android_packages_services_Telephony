@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Neaktyvus</string>
   <string name="xdivert_imsi_not_read">Vykdoma SIM iniciacija. Bandykite vėliau.</string>
   <string name="managed_roaming_title">Valdomas tarptinklinis ryšys</string>
-  <string name="managed_roaming_title_sub1">Valdomas tarptinklinis ryšys (PREN. 1)</string>
-  <string name="managed_roaming_title_sub2">Valdomas tarptinklinis ryšys (PREN. 2)</string>
-  <string name="managed_roaming_title_sub3">Valdomas tarptinklinis ryšys (PREN. 3)</string>
   <string name="managed_roaming_dialog_content">Rastas tinklas su ribotomis paslaugomis. Norite ieškoti kitų tinklų?</string>
   <string name="managed_roaming_dialog_ok_button">Taip</string>
   <string name="managed_roaming_dialog_cancel_button">Ne</string>
@@ -154,9 +151,6 @@
   <string name="exportAllcontatsNoContacts">Kontaktų nerasta eksportuoti į SIM</string>
   <string name="cursorError">Neteisingi žymeklio duomenys</string>
   <string name="set_subscription">Pasirinkite prenumeratą</string>
-  <string name="card_01">Kortelė 1 / PREN. 1</string>
-  <string name="card_02">Kortelė 2 / PREN. 2</string>
-  <string name="card_03">Kortelė 3 / PREN. 3</string>
   <string name="place_a_call1">Prenumerata 1</string>
   <string name="place_a_call2">Prenumerata 2</string>
   <string name="place_a_call3">Prenumerata 3</string>
@@ -167,9 +161,6 @@
   <string name="set_uicc_subscription_progress">Nustatoma prenumerata\u2026</string>
   <string name="set_sub_success">Prenumeratos nustatymas sėkmingas</string>
   <string name="set_sub_failed">Prenumeratos nustatymas nepavyko</string>
-  <string name="set_sub_1">Prenumerata 1:</string>
-  <string name="set_sub_2">Prenumerata 2:</string>
-  <string name="set_sub_3">Prenumerata 3:</string>
   <string name="set_sub_activate_success">Aktyvavimas sėkmingas</string>
   <string name="set_sub_deactivate_success">Išjungimas sėkmingas</string>
   <string name="set_sub_activate_failed">Nepavyko aktivuoti</string>

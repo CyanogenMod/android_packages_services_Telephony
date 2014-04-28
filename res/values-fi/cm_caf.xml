@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Ei aktiivinen</string>
   <string name="xdivert_imsi_not_read">SIM-alustus käynnissä. Yritä myöhemmin uudelleen.</string>
   <string name="managed_roaming_title">Hallittu roaming</string>
-  <string name="managed_roaming_title_sub1">Hallittu roaming (Tilaus 1)</string>
-  <string name="managed_roaming_title_sub2">Hallittu roaming (Tilaus 2)</string>
-  <string name="managed_roaming_title_sub3">Hallittu roaming (Tilaus 3)</string>
   <string name="managed_roaming_dialog_content">Verkko rajoitetulla palvelulla löytyi. Haluatko aloittaa verkon haun?</string>
   <string name="managed_roaming_dialog_ok_button">Kyllä</string>
   <string name="managed_roaming_dialog_cancel_button">Ei</string>
@@ -154,9 +151,6 @@
   <string name="exportAllcontatsNoContacts">SIM-kortille vietäviä yhteystietoja ei löydy</string>
   <string name="cursorError">Virheellinen kursoridata</string>
   <string name="set_subscription">Valitse tilaus</string>
-  <string name="card_01">Kortti 1 / Tilaus 1</string>
-  <string name="card_02">Kortti 2 / Tilaus 2</string>
-  <string name="card_03">Kortti 3 / Tilaus 3</string>
   <string name="place_a_call1">Tilaus 1</string>
   <string name="place_a_call2">Tilaus 2</string>
   <string name="place_a_call3">Tilaus 3</string>
@@ -167,9 +161,6 @@
   <string name="set_uicc_subscription_progress">Asetetaan tilausta\u2026</string>
   <string name="set_sub_success">Tilaus asetettu onnistuneesti</string>
   <string name="set_sub_failed">Tilauksen asetus epäonnistui</string>
-  <string name="set_sub_1">Tilaus 1: </string>
-  <string name="set_sub_2">Tilaus 2: </string>
-  <string name="set_sub_3">Tilaus 3: </string>
   <string name="set_sub_activate_success">Aktivointi onnistui</string>
   <string name="set_sub_deactivate_success">Deaktivointi onnistui</string>
   <string name="set_sub_activate_failed">Aktivointi epäonnistui</string>

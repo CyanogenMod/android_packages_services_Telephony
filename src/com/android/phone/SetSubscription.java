@@ -50,6 +50,7 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import android.telephony.MSimTelephonyManager;
 import android.util.Log;
 import android.view.View;
@@ -266,7 +267,7 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
     private void populateList() {
         PreferenceScreen prefParent = (PreferenceScreen) getPreferenceScreen().
                 findPreference(PREF_PARENT_KEY);
-        int[] subGroupTitle = {R.string.card_01, R.string.card_02, R.string.card_03};
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
 
         Log.d(TAG, "populateList:  mCardSubscrInfo.length = " + mCardSubscrInfo.length);
 
@@ -276,10 +277,14 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
             if ((cardSub != null ) && (cardSub.getLength() > 0)) {
                 int i = 0;
 
-                // Create a subgroup for the apps in card 01
+                // Create a subgroup for the apps in each card
                 PreferenceCategory subGroup = new PreferenceCategory(this);
+                String operatorName = tm.getSimState(i) != SIM_STATE_ABSENT
+                        ? tm.getNetworkOperatorName(i) : getString(R.string.sub_no_sim);
+                String subGroupTitle = getString(R.string.multi_sim_entry_format,
+                        operatorName, i + 1);
                 subGroup.setKey("sub_group_" + k);
-                subGroup.setTitle(subGroupTitle[k]);
+                subGroup.setTitle(subGroupTitle);
                 prefParent.addPreference(subGroup);
 
                 // Add each element as a CheckBoxPreference to the group
@@ -588,7 +593,7 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
     }
 
     void displayAlertDialog(String msg[]) {
-        int resSubId[] = {R.string.set_sub_1, R.string.set_sub_2, R.string.set_sub_3};
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
         String dispMsg = "";
         int title = R.string.set_sub_failed;
 
@@ -601,8 +606,10 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
 
         for (int i = 0; i < msg.length; i++) {
             if (msg[i] != null) {
-                dispMsg = dispMsg + getResources().getString(resSubId[i]) +
-                                      setSubscriptionStatusToString(msg[i]) + "\n";
+                String operatorName = tm.getSimState(i) != SIM_STATE_ABSENT
+                        ? tm.getNetworkOperatorName(i) : getString(R.string.sub_no_sim);
+                String resSubId = getString(R.string.multi_sim_entry_format, operatorName, i + 1);
+                dispMsg = dispMsg + resSubId + setSubscriptionStatusToString(msg[i]) + "\n";
             }
         }
 

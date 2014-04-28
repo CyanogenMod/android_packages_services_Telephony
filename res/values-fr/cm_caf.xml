@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Inactif</string>
   <string name="xdivert_imsi_not_read">Initialisation de la carte SIM en cours. Veuillez réessayer ultérieurement.</string>
   <string name="managed_roaming_title">Gestion de l\'itinérance</string>
-  <string name="managed_roaming_title_sub1">Gestion de l\'itinérance (SUB 1)</string>
-  <string name="managed_roaming_title_sub2">Gestion de l\'itinérance (SUB 2)</string>
-  <string name="managed_roaming_title_sub3">Gestion de l\'itinérance (SUB 3)</string>
   <string name="managed_roaming_dialog_content">Réseau avec un service limité trouvé. Vous voulez lancer une recherche de réseau ?</string>
   <string name="managed_roaming_dialog_ok_button">Oui</string>
   <string name="managed_roaming_dialog_cancel_button">Non</string>
@@ -154,9 +151,6 @@
   <string name="exportAllcontatsNoContacts">Aucun contact à exporter sur la carte SIM n\'a été trouvé</string>
   <string name="cursorError">Données de curseur non valide</string>
   <string name="set_subscription">Sélectionner l\'abonnement</string>
-  <string name="card_01">Carte 1 / SUB 1</string>
-  <string name="card_02">Carte 2 / SUB 2</string>
-  <string name="card_03">Carte 3 / SUB 3</string>
   <string name="place_a_call1">Abonnement 1</string>
   <string name="place_a_call2">Abonnement 2</string>
   <string name="place_a_call3">Abonnement 3</string>
@@ -167,9 +161,6 @@
   <string name="set_uicc_subscription_progress">Paramètre d\'abonnement\u2026</string>
   <string name="set_sub_success">L\'abonnement a été créé avec succès</string>
   <string name="set_sub_failed">Impossible de définir l\'abonnement</string>
-  <string name="set_sub_1">Abonnement 1 : </string>
-  <string name="set_sub_2">Abonnement 2 : </string>
-  <string name="set_sub_3">Abonnement 3 : </string>
   <string name="set_sub_activate_success">Activation réussie</string>
   <string name="set_sub_deactivate_success">Désactivation réussie</string>
   <string name="set_sub_activate_failed">L\'activation a échoué</string>

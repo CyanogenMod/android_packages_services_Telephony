@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Não ativo</string>
   <string name="xdivert_imsi_not_read">Inicialização de SIM em andamento. Por favor, tente novamente mais tarde.</string>
   <string name="managed_roaming_title">Gerir roaming</string>
-  <string name="managed_roaming_title_sub1">Gerir roaming (SUB 1)</string>
-  <string name="managed_roaming_title_sub2">Gerir roaming (SUB 2)</string>
-  <string name="managed_roaming_title_sub3">Gerir roaming (SUB 3)</string>
   <string name="managed_roaming_dialog_content">Encontrada rede com serviço limitado. Quer iniciar uma busca de rede?</string>
   <string name="managed_roaming_dialog_ok_button">Sim</string>
   <string name="managed_roaming_dialog_cancel_button">Não</string>
@@ -154,9 +151,6 @@
   <string name="exportAllcontatsNoContacts">Não foram encontrados contactos para exportar para o cartão SIM</string>
   <string name="cursorError">Dados do cursor inválidos</string>
   <string name="set_subscription">Selecionar a assinatura</string>
-  <string name="card_01">Cartão 1 / Ass 1</string>
-  <string name="card_02">Cartão 2 / Ass 2</string>
-  <string name="card_03">Cartão 3 / Ass 3</string>
   <string name="place_a_call1">Assinatura 1</string>
   <string name="place_a_call2">Assinatura 2</string>
   <string name="place_a_call3">Assinatura 3</string>
@@ -167,9 +161,6 @@
   <string name="set_uicc_subscription_progress">Configurar subscrição\u2026</string>
   <string name="set_sub_success">Assinatura foi definida com êxito</string>
   <string name="set_sub_failed">Falha ao definir a assinatura</string>
-  <string name="set_sub_1">Assinatura 1: </string>
-  <string name="set_sub_2">Assinatura 2: </string>
-  <string name="set_sub_3">Assinatura 3: </string>
   <string name="set_sub_activate_success">Ativação bem-sucedida</string>
   <string name="set_sub_deactivate_success">Desativação bem sucedida</string>
   <string name="set_sub_activate_failed">Ativação falhou</string>

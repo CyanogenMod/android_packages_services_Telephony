@@ -67,9 +67,6 @@
   <string name="xdivert_not_active">כבוי</string>
   <string name="xdivert_imsi_not_read">אתחול SIM בהתליך. נסה שוב מאוחר יותר.</string>
   <string name="managed_roaming_title">ניהול נדידה</string>
-  <string name="managed_roaming_title_sub1">ניהול נדידה (הרשמה 1)</string>
-  <string name="managed_roaming_title_sub2">ניהול נדידה (הרשמה 2)</string>
-  <string name="managed_roaming_title_sub3">ניהול נדידה (הרשמה 3)</string>
   <string name="managed_roaming_dialog_content">רשת עם שירות מוגבל נמצאה. האם ברצונך להפעיל חיפוש ברשת?</string>
   <string name="managed_roaming_dialog_ok_button">כן</string>
   <string name="managed_roaming_dialog_cancel_button">לא</string>
@@ -105,9 +102,6 @@
   <string name="exportAllcontatsFailed">נכשל בייצוא כל אנשי הקשר מה-SIM</string>
   <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ב-SIM</string>
   <string name="set_subscription">בחר הרשמה</string>
-  <string name="card_01">כרטיס 1 / הרשמה 1</string>
-  <string name="card_02">כרטיס 2 / הרשמה 2</string>
-  <string name="card_03">כרטיס 3 / הרשמה 3</string>
   <string name="place_a_call1">הרשמה 1</string>
   <string name="place_a_call2">הרשמה 2</string>
   <string name="place_a_call3">הרשמה 3</string>
@@ -118,9 +112,6 @@
   <string name="set_uicc_subscription_progress">מגדיר הרשמה\u2026</string>
   <string name="set_sub_success">הרשמה הוגדרה בהצלחה</string>
   <string name="set_sub_failed">נכשל בהגדרת הרשמה</string>
-  <string name="set_sub_1">הרשמה 1: </string>
-  <string name="set_sub_2">הרשמה 2: </string>
-  <string name="set_sub_3">הרשמה 3: </string>
   <string name="set_sub_activate_success">הפעלה הצליחה</string>
   <string name="set_sub_deactivate_success">ביטול הפעלה הצליחה</string>
   <string name="set_sub_activate_failed">הפעלה נכשלה</string>

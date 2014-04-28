@@ -37,6 +37,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Looper;
 import android.preference.CheckBoxPreference;
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
@@ -200,7 +201,7 @@ public class XDivertCheckBoxPreference extends CheckBoxPreference {
     public void displayAlertMessage(boolean sub1Cfnrc, boolean sub2Cfnrc,
             boolean sub1CW, boolean sub2CW) {
         int subStatus[] = {R.string.xdivert_not_active, R.string.xdivert_not_active};
-        int resSubId[] = {R.string.set_sub_1, R.string.set_sub_2};
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
         String dispMsg = "";
 
         for (int i=0; i < mNumPhones; i++) {
@@ -215,8 +216,12 @@ public class XDivertCheckBoxPreference extends CheckBoxPreference {
                 subStatus[i] = R.string.xdivert_active;
             }
 
-            dispMsg = dispMsg + (this.getContext().getString(resSubId[i])) + " " +
-                                  (this.getContext().getString(subStatus[i])) + "\n";
+            String operatorName = tm.getSimState(i) != SIM_STATE_ABSENT
+                    ? tm.getNetworkOperatorName(i) : this.getContext().getString(
+                            R.string.sub_no_sim);
+            String resSubId = this.getContext().getString(R.string.multi_sim_entry_format,
+                    operatorName, i + 1);
+            dispMsg = dispMsg + resSubId + " " + (this.getContext().getString(subStatus[i])) + "\n";
         }
 
         Log.d(LOG_TAG, "displayAlertMessage:  dispMsg = " + dispMsg);
