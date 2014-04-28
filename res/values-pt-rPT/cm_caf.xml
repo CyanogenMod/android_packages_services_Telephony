@@ -154,9 +154,6 @@
   <string name="exportAllcontatsNoContacts">Não foram encontrados contactos para exportar para o cartão SIM</string>
   <string name="cursorError">Dados do cursor inválidos</string>
   <string name="set_subscription">Selecionar a assinatura</string>
-  <string name="card_01">Cartão 1 / Ass 1</string>
-  <string name="card_02">Cartão 2 / Ass 2</string>
-  <string name="card_03">Cartão 3 / Ass 3</string>
   <string name="place_a_call1">Assinatura 1</string>
   <string name="place_a_call2">Assinatura 2</string>
   <string name="place_a_call3">Assinatura 3</string>

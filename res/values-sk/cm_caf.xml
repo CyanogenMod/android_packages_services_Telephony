@@ -154,9 +154,6 @@
   <string name="exportAllcontatsNoContacts">Nenašli sa žiadne kontakty pre export na kartu SIM</string>
   <string name="cursorError">Neplatné údaje kurzora</string>
   <string name="set_subscription">Vyberte poskytovateľa</string>
-  <string name="card_01">Karta 1 / Posk. 1</string>
-  <string name="card_02">Karta 2 / Posk. 2</string>
-  <string name="card_03">Karta 3 / Posk. 3</string>
   <string name="place_a_call1">Poskytovateľ 1</string>
   <string name="place_a_call2">Poskytovateľ 2</string>
   <string name="place_a_call3">Poskytovateľ 3</string>

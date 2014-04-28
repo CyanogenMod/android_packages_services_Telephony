@@ -154,9 +154,6 @@
   <string name="exportAllcontatsNoContacts">Nun s\'atoparon contautos qu\'esportar a la tarxeta SIM</string>
   <string name="cursorError">Datos del cursor inválidos</string>
   <string name="set_subscription">Esbillar la soscripción</string>
-  <string name="card_01">Tarxeta 1 / SUS 1</string>
-  <string name="card_02">Tarxeta 2 / SUS 2</string>
-  <string name="card_03">Tarxeta 3 / SUS 3</string>
   <string name="place_a_call1">Soscripción 1</string>
   <string name="place_a_call2">Soscripción 2</string>
   <string name="place_a_call3">Soscripción 3</string>
