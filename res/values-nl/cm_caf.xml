@@ -150,9 +150,6 @@
   <string name="card_01">Kaart 1 / ABON.1</string>
   <string name="card_02">Kaart 2 / ABON.2</string>
   <string name="card_03">Kaart 3 / ABON.3</string>
-  <string name="place_a_call1">Abonnement 1</string>
-  <string name="place_a_call2">Abonnement 2</string>
-  <string name="place_a_call3">Abonnement 3</string>
   <string name="count_down">Seconden: </string>
   <string name="call_number">Naar: </string>
   <string name="cancel_call">Annuleren</string>
