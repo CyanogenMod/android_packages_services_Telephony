@@ -147,12 +147,6 @@
   <string name="exportAllcontatsNoContacts">Nenašli sa žiadne kontakty pre export na kartu SIM</string>
   <string name="cursorError">Neplatné údaje kurzora</string>
   <string name="set_subscription">Vyberte poskytovateľa</string>
-  <string name="card_01">Karta 1 / Posk. 1</string>
-  <string name="card_02">Karta 2 / Posk. 2</string>
-  <string name="card_03">Karta 3 / Posk. 3</string>
-  <string name="place_a_call1">Poskytovateľ 1</string>
-  <string name="place_a_call2">Poskytovateľ 2</string>
-  <string name="place_a_call3">Poskytovateľ 3</string>
   <string name="count_down">Sekundy: </string>
   <string name="call_number">Komu: </string>
   <string name="cancel_call">Zrušiť</string>
@@ -160,9 +154,6 @@
   <string name="set_uicc_subscription_progress">Nastavenie poskytovateľa\u2026</string>
   <string name="set_sub_success">Poskytovateľ bol úspešne nastavený</string>
   <string name="set_sub_failed">Nastavenie poskytovateľa zlyhalo</string>
-  <string name="set_sub_1">Poskytovateľ 1: </string>
-  <string name="set_sub_2">Poskytovateľ 2: </string>
-  <string name="set_sub_3">Poskytovateľ 3: </string>
   <string name="set_sub_activate_success">Aktivácia bola úspešná</string>
   <string name="set_sub_deactivate_success">Deaktivácia bola úspešná</string>
   <string name="set_sub_activate_failed">Aktivácia zlyhala</string>

@@ -147,12 +147,6 @@
   <string name="exportAllcontatsNoContacts">Nessun contatto trovato da esportare sulla SIM</string>
   <string name="cursorError">Cursore dati non valido</string>
   <string name="set_subscription">Selezionare abbonamento</string>
-  <string name="card_01">Scheda 1 / ABB 1</string>
-  <string name="card_02">Scheda 2 / ABB 2</string>
-  <string name="card_03">Scheda 3 / ABB 3</string>
-  <string name="place_a_call1">Abbonamento 1</string>
-  <string name="place_a_call2">Abbonamento 2</string>
-  <string name="place_a_call3">Abbonamento 3</string>
   <string name="count_down">Secondi: </string>
   <string name="call_number">A: </string>
   <string name="cancel_call">Annulla</string>
@@ -160,9 +154,6 @@
   <string name="set_uicc_subscription_progress">Impostazione abbonamento\u2026</string>
   <string name="set_sub_success">Abbonamento impostato correttamente</string>
   <string name="set_sub_failed">Impossibile impostare l\'abbonamento</string>
-  <string name="set_sub_1">Abbonamento 1: </string>
-  <string name="set_sub_2">Abbonamento 2: </string>
-  <string name="set_sub_3">Abbonamento 3: </string>
   <string name="set_sub_activate_success">Attivazione riuscita</string>
   <string name="set_sub_deactivate_success">Disattivazione riuscita</string>
   <string name="set_sub_activate_failed">Attivazione fallita</string>
