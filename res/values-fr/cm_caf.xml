@@ -154,9 +154,6 @@
   <string name="exportAllcontatsNoContacts">Aucun contact à exporter sur la carte SIM n\'a été trouvé</string>
   <string name="cursorError">Données de curseur non valide</string>
   <string name="set_subscription">Sélectionner l\'abonnement</string>
-  <string name="card_01">Carte 1 / SUB 1</string>
-  <string name="card_02">Carte 2 / SUB 2</string>
-  <string name="card_03">Carte 3 / SUB 3</string>
   <string name="place_a_call1">Abonnement 1</string>
   <string name="place_a_call2">Abonnement 2</string>
   <string name="place_a_call3">Abonnement 3</string>

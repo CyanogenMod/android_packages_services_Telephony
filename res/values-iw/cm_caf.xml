@@ -105,9 +105,6 @@
   <string name="exportAllcontatsFailed">נכשל בייצוא כל אנשי הקשר מה-SIM</string>
   <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ב-SIM</string>
   <string name="set_subscription">בחר הרשמה</string>
-  <string name="card_01">כרטיס 1 / הרשמה 1</string>
-  <string name="card_02">כרטיס 2 / הרשמה 2</string>
-  <string name="card_03">כרטיס 3 / הרשמה 3</string>
   <string name="place_a_call1">הרשמה 1</string>
   <string name="place_a_call2">הרשמה 2</string>
   <string name="place_a_call3">הרשמה 3</string>

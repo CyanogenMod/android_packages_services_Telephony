@@ -154,9 +154,6 @@
   <string name="exportAllcontatsNoContacts">SIM-kortille vietäviä yhteystietoja ei löydy</string>
   <string name="cursorError">Virheellinen kursoridata</string>
   <string name="set_subscription">Valitse tilaus</string>
-  <string name="card_01">Kortti 1 / Tilaus 1</string>
-  <string name="card_02">Kortti 2 / Tilaus 2</string>
-  <string name="card_03">Kortti 3 / Tilaus 3</string>
   <string name="place_a_call1">Tilaus 1</string>
   <string name="place_a_call2">Tilaus 2</string>
   <string name="place_a_call3">Tilaus 3</string>

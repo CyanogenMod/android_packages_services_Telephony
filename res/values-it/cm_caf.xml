@@ -154,9 +154,6 @@
   <string name="exportAllcontatsNoContacts">Nessun contatto trovato da esportare sulla SIM</string>
   <string name="cursorError">Cursore dati non valido</string>
   <string name="set_subscription">Selezionare abbonamento</string>
-  <string name="card_01">Scheda 1 / ABB 1</string>
-  <string name="card_02">Scheda 2 / ABB 2</string>
-  <string name="card_03">Scheda 3 / ABB 3</string>
   <string name="place_a_call1">Abbonamento 1</string>
   <string name="place_a_call2">Abbonamento 2</string>
   <string name="place_a_call3">Abbonamento 3</string>

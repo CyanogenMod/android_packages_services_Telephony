@@ -154,9 +154,6 @@
   <string name="exportAllcontatsNoContacts">Не найдены контакты для экспорта на SIM</string>
   <string name="cursorError">Неверные данные курсора</string>
   <string name="set_subscription">Выберите оператора</string>
-  <string name="card_01">SIM 1 / Оператор 1</string>
-  <string name="card_02">SIM 2 / Оператор 2</string>
-  <string name="card_03">SIM 3 / Оператор 3</string>
   <string name="place_a_call1">Оператор 1</string>
   <string name="place_a_call2">Оператор 2</string>
   <string name="place_a_call3">Оператор 3</string>

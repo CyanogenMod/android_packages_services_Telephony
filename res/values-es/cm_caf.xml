@@ -154,9 +154,6 @@
   <string name="exportAllcontatsNoContacts">No hay contactos que exportar a la tarjeta SIM</string>
   <string name="cursorError">Error al procesar los datos</string>
   <string name="set_subscription">Seleccionar suscripciones</string>
-  <string name="card_01">Tarjeta 1 / SUS 1</string>
-  <string name="card_02">Tarjeta 2 / SUS 2</string>
-  <string name="card_03">Tarjeta 3 / SUS 3</string>
   <string name="place_a_call1">Suscripción 1</string>
   <string name="place_a_call2">Suscripción 2</string>
   <string name="place_a_call3">Suscripción 3</string>

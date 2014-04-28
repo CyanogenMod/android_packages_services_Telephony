@@ -154,9 +154,6 @@
   <string name="exportAllcontatsNoContacts">Ingen kontakter fundet til eksport til SIM-kort</string>
   <string name="cursorError">Ugyldige cursordata</string>
   <string name="set_subscription">Vælg abonnement</string>
-  <string name="card_01">Kort 1 / ABN 1</string>
-  <string name="card_02">Kort 2 / ABN 2</string>
-  <string name="card_03">Kort 3 / ABN 3</string>
   <string name="place_a_call1">Abonnement 1</string>
   <string name="place_a_call2">Abonnement 2</string>
   <string name="place_a_call3">Abonnement 3</string>
