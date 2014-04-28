@@ -112,9 +112,6 @@
   <string name="xdivert_not_active">Inativo</string>
   <string name="xdivert_imsi_not_read">Inicialização de SIM em andamento. Por favor, tente novamente mais tarde.</string>
   <string name="managed_roaming_title">Roaming gerenciado</string>
-  <string name="managed_roaming_title_sub1">Roaming gerenciado (ASS 1)</string>
-  <string name="managed_roaming_title_sub2">Roaming gerenciado (ASS 2)</string>
-  <string name="managed_roaming_title_sub3">Roaming gerenciado (ASS 3)</string>
   <string name="managed_roaming_dialog_content">Rede com serviço limitado encontrada. Você quer iniciar uma busca de rede?</string>
   <string name="managed_roaming_dialog_ok_button">Sim</string>
   <string name="managed_roaming_dialog_cancel_button">Não</string>
