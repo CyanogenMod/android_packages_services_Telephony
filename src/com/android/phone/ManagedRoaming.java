@@ -36,6 +36,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import android.telephony.MSimTelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -75,15 +76,17 @@ public class ManagedRoaming extends Activity {
         // networkSelection will be empty for 'Automatic' mode.
         if (!TextUtils.isEmpty(networkSelection) && !mIsMRDialogShown) {
             MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
-            int[] titleResource = { R.string.managed_roaming_title_sub1,
-                    R.string.managed_roaming_title_sub2,
-                    R.string.managed_roaming_title_sub3 };
-            int title = R.string.managed_roaming_title;
-
+            int numPhones = tm.getPhoneCount();
+            String title = getString(R.string.managed_roaming_title);
             mSubscription = subscription;
 
-            if (tm.isMultiSimEnabled() && (tm.getPhoneCount() > mSubscription)) {
-                title = titleResource[mSubscription];
+            if (tm.isMultiSimEnabled() && (numPhones > mSubscription)) {
+                String operatorName = tm.getSimState(mSubscription) != SIM_STATE_ABSENT
+                        ? tm.getNetworkOperatorName(mSubscription) : getString(R.string.sub_no_sim);
+                String label = getString(R.string.managed_roaming_title_multi_sim,
+                       operatorName, mSubscription + 1);
+
+                title = label;
             }
 
             AlertDialog managedRoamingDialog = new AlertDialog.Builder(ManagedRoaming.this)
