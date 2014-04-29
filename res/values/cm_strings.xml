@@ -130,4 +130,8 @@
     <!-- Set Subscription screen: label no sim -->
     <string name="sub_no_sim">No SIM</string>
     <string name="multi_sim_entry_format" translatable="false"><xliff:g id="operator">%1$s</xliff:g>-<xliff:g id="index">%2$d</xliff:g></string>
+
+    <!-- Multi-SIM dial target selection -->
+    <string name="msim_call_selector_title">Call <xliff:g id="number">%s</xliff:g> via</string>
+    <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>

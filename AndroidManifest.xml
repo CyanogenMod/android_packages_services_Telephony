@@ -214,7 +214,9 @@
 
         <activity android:name="MSimDialerActivity"
                 android:permission="android.permission.CALL_PRIVILEGED"
-                android:configChanges="orientation|keyboardHidden">
+                android:theme="@*android:style/Theme.Holo.Dialog.Alert"
+                android:configChanges="orientation|keyboardHidden"
+                android:excludeFromRecents="true">
         </activity>
 
         <activity android:name="OutgoingCallBroadcaster"

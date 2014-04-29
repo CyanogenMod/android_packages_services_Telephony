@@ -74,9 +74,6 @@
   <string name="sendSms">SMS senden</string>
   <string name="delete">Löschen</string>
   <string name="dial">Wählen</string>
-  <string name="count_down">Sekunden: </string>
-  <string name="call_number">An: </string>
-  <string name="cancel_call">Abbrechen</string>
   <string name="set_sub_activate_success">Aktivierung erfolgreich</string>
   <string name="set_sub_deactivate_success">Deaktivierung fehlgeschlagen</string>
   <string name="set_sub_activate_failed">Aktivierung fehlgeschlagen</string>
