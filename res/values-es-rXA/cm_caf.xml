@@ -150,12 +150,6 @@
   <string name="card_01">Tarxeta 1 / SUS 1</string>
   <string name="card_02">Tarxeta 2 / SUS 2</string>
   <string name="card_03">Tarxeta 3 / SUS 3</string>
-  <string name="place_a_call1">Soscripción 1</string>
-  <string name="place_a_call2">Soscripción 2</string>
-  <string name="place_a_call3">Soscripción 3</string>
-  <string name="count_down">Segundos: </string>
-  <string name="call_number">Pa: </string>
-  <string name="cancel_call">Encaboxar</string>
   <string name="set_subscription_error_atleast_one">Esbilla a lo menos una soscripción</string>
   <string name="set_uicc_subscription_progress">Afitando soscripción\u2026</string>
   <string name="set_sub_success">Afitóse la soscripción</string>

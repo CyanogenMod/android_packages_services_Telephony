@@ -151,12 +151,6 @@
   <string name="card_01">بطاقة 1/SUB 1</string>
   <string name="card_02">بطاقة 2/SUB 2</string>
   <string name="card_03">بطاقة 3/SUB 3</string>
-  <string name="place_a_call1">اشتراك 1</string>
-  <string name="place_a_call2">اشتراك 2</string>
-  <string name="place_a_call3">اشتراك 3</string>
-  <string name="count_down">ثانية: </string>
-  <string name="call_number">إلى: </string>
-  <string name="cancel_call">إلغاء</string>
   <string name="set_subscription_error_atleast_one">حدد اشتراك واحد على الأقل</string>
   <string name="set_uicc_subscription_progress">إعداد الإشتراك\u2026</string>
   <string name="set_sub_success">تم الاشتراك بنجاح</string>
