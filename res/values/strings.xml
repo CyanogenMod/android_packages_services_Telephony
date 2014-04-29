@@ -1783,14 +1783,6 @@
     <!-- Set Subscription screen: label Card 3 -->
     <string name="card_03">Card 3 / SUB 3</string>
 
-    <!-- Set dual dialer for MultiSim -->
-    <string name="place_a_call1">Subscription 1</string>
-    <string name="place_a_call2">Subscription 2</string>
-    <string name="place_a_call3">Subscription 3</string>
-    <string name="count_down">Seconds: </string>
-    <string name="call_number">To: </string>
-    <string name="cancel_call">Cancel</string>
-
     <!-- Set Subscription screen: Message shown in error dialog -->
     <string name="set_subscription_error_atleast_one">Select at least one subscription</string>
     <!-- Set Subscription screen: Progress message -->

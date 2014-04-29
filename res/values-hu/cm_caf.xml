@@ -150,12 +150,6 @@
   <string name="card_01">Kártya 1 / Előfiz. 1</string>
   <string name="card_02">Kártya 2 / Előfiz. 2</string>
   <string name="card_03">Kártya 3 / Előfiz. 3</string>
-  <string name="place_a_call1">Előfizetés 1</string>
-  <string name="place_a_call2">Előfizetés 2</string>
-  <string name="place_a_call3">Előfizetés 3</string>
-  <string name="count_down">Másodperc: </string>
-  <string name="call_number">Hívás: </string>
-  <string name="cancel_call">Mégsem</string>
   <string name="set_subscription_error_atleast_one">Legalább egy előfizetést válasszon</string>
   <string name="set_uicc_subscription_progress">Előfizetés beállítása folyamatban\u2026</string>
   <string name="set_sub_success">Sikerült az előfizetés beállítása</string>

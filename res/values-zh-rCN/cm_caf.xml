@@ -66,6 +66,4 @@
   <string name="contactdeleteFailed">从 SIM 卡中删除联系人失败</string>
   <string name="allContactdeleteSuccess">成功从 SIM 卡中删除所有联系人</string>
   <string name="exportAllcontatsSuccess">已成功导出所有联系人到 SIM 卡</string>
-  <string name="count_down">秒：</string>
-  <string name="cancel_call">取消 </string>
 </resources>

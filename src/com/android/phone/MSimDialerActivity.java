@@ -29,47 +29,43 @@
 
 package com.android.phone;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.MSimTelephonyManager;
-import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.view.View;
-import android.view.KeyEvent;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Button;
 
-
+import com.android.internal.app.AlertActivity;
+import com.android.internal.app.AlertController;
 import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.Phone;
 import com.codeaurora.telephony.msim.MSimPhoneFactory;
 import com.codeaurora.telephony.msim.SubscriptionManager;
 
-import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
+import java.util.ArrayList;
 
 /**
  * While initiating MO call this class is used to provide
  * a prompt option to user to choose the sub on  which user
  * want to make outgoing call.
  */
-public class MSimDialerActivity extends Activity {
+public class MSimDialerActivity extends AlertActivity implements
+        DialogInterface.OnClickListener {
     private static final String TAG = "MSimDialerActivity";
     private static final boolean DBG = true;
 
-    private Context mContext;
-    private String mCallNumber;
-    private String mNumber;
-    private AlertDialog mAlertDialog = null;
-    private TextView mTextNumber;
-    private Intent mIntent;
-    private int mPhoneCount = 0;
+    private MSimTelephonyManager mTelephonyManager;
+    private MSimTargetAdapter mAdapter;
 
     public static final String PHONE_SUBSCRIPTION = "Subscription";
     public static final int INVALID_SUB = 99;
@@ -78,196 +74,192 @@ public class MSimDialerActivity extends Activity {
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        mContext = getApplicationContext();
-        mCallNumber = getResources().getString(R.string.call_number);
+        mTelephonyManager = MSimTelephonyManager.getDefault();
+
+        final Intent intent = getIntent();
+        if (DBG) Log.v(TAG, "Intent = " + intent);
+
+        String number = PhoneNumberUtils.getNumberFromIntent(intent, this);
+        if (number != null) {
+            number = PhoneNumberUtils.convertKeypadLettersToDigits(number);
+            number = PhoneNumberUtils.stripSeparators(number);
+        }
+        if (DBG) Log.v(TAG, "Number = " + number);
+
+        Phone activePhone = getActivePhone();
+        MSimTelephonyManager.MultiSimVariants config =
+                mTelephonyManager.getMultiSimConfiguration();
+
+        if (activePhone != null && config != MSimTelephonyManager.MultiSimVariants.DSDA) {
+            if (DBG) Log.v(TAG, "SUB[" + activePhone.getSubscription() + "] is in call");
+            // use the sub which is already in call
+            startOutgoingCall(activePhone.getSubscription());
+        } else if (PhoneNumberUtils.isEmergencyNumber(number)) {
+            Log.d(TAG,"emergency call");
+            startOutgoingCall(getSubscriptionForEmergencyCall());
+        } else {
+            mAdapter = new MSimTargetAdapter(this);
+            if (mAdapter.getCount() == 0) {
+                cancel();
+            } else if (mAdapter.getCount() == 1) {
+                MSimTargetAdapter.Item item = (MSimTargetAdapter.Item) mAdapter.getItem(0);
+                startOutgoingCall(item.subscription);
+            } else {
+                if (DBG) Log.v(TAG, "Showing selector");
+
+                String titleNumber = number;
+                if (intent.getData() != null && "voicemail".equals(intent.getData().getScheme())) {
+                    titleNumber = getString(R.string.voicemail);
+                }
+
+                // Create dialog parameters
+                AlertController.AlertParams params = mAlertParams;
+                params.mTitle = getString(R.string.msim_call_selector_title, titleNumber);
+                params.mAdapter = mAdapter;
+                params.mNegativeButtonText = getString(android.R.string.cancel);
+                params.mNegativeButtonListener = this;
+
+                setupAlert();
+
+                final int defaultSub = mAdapter.getDefaultSubscriptionIndex();
+                if (defaultSub >= 0) {
+                    ListView list = mAlert.getListView();
+                    list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+                    list.setItemChecked(defaultSub, true);
+                }
+            }
+        }
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-        mPhoneCount = MSimTelephonyManager.getDefault().getPhoneCount();
-        mIntent = getIntent();
-        if (DBG) Log.v(TAG, "Intent = " + mIntent);
-
-        mNumber = PhoneNumberUtils.getNumberFromIntent(mIntent, this);
-        if (DBG) Log.v(TAG, "mNumber " + mNumber);
-        if (mNumber != null) {
-            mNumber = PhoneNumberUtils.convertKeypadLettersToDigits(mNumber);
-            mNumber = PhoneNumberUtils.stripSeparators(mNumber);
-        }
-
-        Phone phone = null;
-        boolean phoneInCall = false;
-        //checking if any of the phones are in use
-        for (int i = 0; i < mPhoneCount; i++) {
-             phone = MSimPhoneFactory.getPhone(i);
-             boolean inCall = isInCall(phone);
-             if ((phone != null) && (inCall)) {
-                 phoneInCall = true;
-                 break;
-             }
-        }
-
-        if (phoneInCall && !(MSimTelephonyManager.getDefault().getMultiSimConfiguration()
-                == MSimTelephonyManager.MultiSimVariants.DSDA)) {
-            if (DBG) Log.v(TAG, "subs [" + phone.getSubscription() + "] is in call");
-            // use the sub which is already in call
-            startOutgoingCall(phone.getSubscription());
+    public void onClick(DialogInterface dialog, int which) {
+        if (which == DialogInterface.BUTTON_NEGATIVE) {
+            cancel();
         } else {
-            if (DBG) Log.v(TAG, "launch dsdsdialer");
-            // if none in use, launch the MultiSimDialer
-            launchMSDialer();
-        }
-        Log.d(TAG, "end of onResume()");
-    }
-
-    protected void onPause() {
-        super.onPause();
-        if(DBG) Log.v(TAG, "onPause : " + mIntent);
-        if (mAlertDialog != null) {
-            mAlertDialog.dismiss();
-            mAlertDialog = null;
+            MSimTargetAdapter.Item item = (MSimTargetAdapter.Item) mAdapter.getItem(which);
+            startOutgoingCall(item.subscription);
         }
     }
 
-    private int getSubscriptionForEmergencyCall(){
-        Log.d(TAG,"emergency call, getVoiceSubscriptionInService");
-        int sub = PhoneGlobals.getInstance().getVoiceSubscriptionInService();
-        return sub;
+    @Override
+    public void cancel() {
+        startOutgoingCall(INVALID_SUB);
     }
 
-    private void launchMSDialer() {
-        boolean isEmergency = PhoneNumberUtils.isEmergencyNumber(mNumber);
-        if (isEmergency) {
-            Log.d(TAG,"emergency call");
-            startOutgoingCall(getSubscriptionForEmergencyCall());
-            return;
-        }
-
-        LayoutInflater inflater = (LayoutInflater) mContext.
-                getSystemService(LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.dialer_ms,
-                (ViewGroup) findViewById(R.id.layout_root));
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(MSimDialerActivity.this);
-        builder.setView(layout);
-        builder.setOnKeyListener(new DialogInterface.OnKeyListener() {
-            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                Log.d(TAG, "key code is :" + keyCode);
-                switch (keyCode) {
-                    case KeyEvent.KEYCODE_BACK: {
-                        mAlertDialog.dismiss();
-                        startOutgoingCall(INVALID_SUB);
-                        return true;
-                    }
-                    case KeyEvent.KEYCODE_CALL: {
-                        Log.d(TAG, "event is" + event.getAction());
-                        if (event.getAction() == KeyEvent.ACTION_UP) {
-                            return true;
-                        } else {
-                            mAlertDialog.dismiss();
-                            startOutgoingCall(MSimPhoneFactory.getVoiceSubscription());
-                            return true;
-                        }
-                    }
-                    case KeyEvent.KEYCODE_SEARCH:
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
-
-        mAlertDialog = builder.create();
-        mAlertDialog.setCanceledOnTouchOutside(false);
-
-        mTextNumber = (TextView)layout.findViewById(R.id.CallNumber);
-
-        String vm = "";
-        if (mIntent.getData() != null)
-            vm =  mIntent.getData().getScheme();
-
-        if ((vm != null) && (vm.equals("voicemail"))) {
-            mTextNumber.setText(mCallNumber + "VoiceMail" );
-            Log.d(TAG, "its voicemail!!!");
-        } else {
-            mTextNumber.setText(mCallNumber + mNumber);
-        }
-
-        Button callCancel = (Button)layout.findViewById(R.id.callcancel);
-        callCancel.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mAlertDialog.dismiss();
-                startOutgoingCall(INVALID_SUB);
-            }
-        });
-
-        Button[] callButton = new Button[mPhoneCount];
-        int[] callMark = {R.id.callmark1, R.id.callmark2, R.id.callmark3};
-        int index = 0;
-        SubscriptionManager subManager = SubscriptionManager.getInstance();
-
-        for (index = 0; index < mPhoneCount; index++) {
-            if (subManager.isSubActive(index)) {
-                Button button = (Button) layout.findViewById(callMark[index]);
-                button.setVisibility(View.VISIBLE);
-            }
-        }
-
-        for (index = 0; index < mPhoneCount; index++) {
-            callButton[index] =  (Button) layout.findViewById(callMark[index]);
-            MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
-            String operatorName = tm.getSimState(index) != SIM_STATE_ABSENT
-                    ? tm.getNetworkOperatorName(index) : getString(R.string.sub_no_sim);
-            String label = getString(R.string.multi_sim_entry_format, operatorName, index + 1);
-            callButton[index].setText(label);
-            callButton[index].setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    mAlertDialog.dismiss();
-                    switch (v.getId()) {
-                    case R.id.callmark1:
-                        startOutgoingCall(MSimConstants.SUB1);
-                        break;
-                    case R.id.callmark2:
-                        startOutgoingCall(MSimConstants.SUB2);
-                        break;
-                    case R.id.callmark3:
-                        startOutgoingCall(MSimConstants.SUB3);
-                        break;
-                    }
-                }
-            });
-        }
-
-        index = MSimPhoneFactory.getVoiceSubscription();
-        if (index < mPhoneCount) {
-            callButton[index].setBackgroundResource(R.drawable.highlight_btn_call);
-        }
-
-        mAlertDialog.show();
-    }
-
-    boolean isInCall(Phone phone) {
-        if (phone != null) {
-            if ((phone.getForegroundCall().getState().isAlive()) ||
-                   (phone.getBackgroundCall().getState().isAlive()) ||
-                   (phone.getRingingCall().getState().isAlive()))
-                return true;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            cancel();
+            return true;
+        } else if (keyCode == KeyEvent.KEYCODE_CALL) {
+            startOutgoingCall(MSimPhoneFactory.getVoiceSubscription());
+            return true;
         }
         return false;
     }
 
+    private Phone getActivePhone() {
+        for (int i = 0; i < mTelephonyManager.getPhoneCount(); i++) {
+             Phone phone = MSimPhoneFactory.getPhone(i);
+             if (phone.getForegroundCall().getState().isAlive()) {
+                 return phone;
+             }
+             if (phone.getBackgroundCall().getState().isAlive()) {
+                 return phone;
+             }
+             if (phone.getRingingCall().getState().isAlive()) {
+                 return phone;
+             }
+        }
+        return null;
+    }
+
+    private int getSubscriptionForEmergencyCall() {
+        if (DBG) Log.d(TAG,"emergency call, getVoiceSubscriptionInService");
+        return PhoneGlobals.getInstance().getVoiceSubscriptionInService();
+    }
+
+    private static class MSimTargetAdapter extends BaseAdapter {
+        private final LayoutInflater mInflater;
+        private final ArrayList<Item> mItems;
+
+        private static final class Item {
+            int subscription;
+            boolean isDefault;
+            String label;
+        }
+
+        public MSimTargetAdapter(Context context) {
+            MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
+            SubscriptionManager sm = SubscriptionManager.getInstance();
+            int defaultSub = MSimPhoneFactory.getVoiceSubscription();
+
+            mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            mItems = new ArrayList<Item>();
+
+            for (int i = 0; i < tm.getPhoneCount(); i++) {
+                if (!sm.isSubActive(i) || tm.getSimState(i) == TelephonyManager.SIM_STATE_ABSENT) {
+                    continue;
+                }
+
+                Item item = new Item();
+                item.subscription = MSimPhoneFactory.getPhone(i).getSubscription();
+                item.isDefault = item.subscription == defaultSub;
+                item.label = context.getString(R.string.msim_call_selector_item,
+                        i + 1, tm.getNetworkOperatorName(i));
+                mItems.add(item);
+            }
+        }
+
+        public int getDefaultSubscriptionIndex() {
+            for (int i = 0; i < mItems.size(); i++) {
+                if (mItems.get(i).isDefault) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        @Override
+        public int getCount() {
+            return mItems.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return mItems.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = mInflater.inflate(R.layout.dialer_msim_item, parent, false);
+            }
+
+            TextView textView = (TextView) convertView;
+            textView.setText(mItems.get(position).label);
+
+            return convertView;
+        }
+    }
+
     private void startOutgoingCall(int subscription) {
-         mIntent.putExtra(SUBSCRIPTION_KEY, subscription);
-         mIntent.setClass(MSimDialerActivity.this, OutgoingCallBroadcaster.class);
-         if (DBG) Log.v(TAG, "startOutgoingCall for sub " +subscription
-                 + " from intent: "+ mIntent);
-         if (subscription < mPhoneCount) {
-             setResult(RESULT_OK, mIntent);
+        final Intent intent = getIntent();
+        intent.putExtra(MSimConstants.SUBSCRIPTION_KEY, subscription);
+        intent.setClass(MSimDialerActivity.this, OutgoingCallBroadcaster.class);
+
+        if (DBG) Log.v(TAG, "startOutgoingCall for sub " + subscription
+                + " from intent: "+ intent);
+         if (subscription < mTelephonyManager.getPhoneCount()) {
+             setResult(RESULT_OK, intent);
          } else {
-             setResult(RESULT_CANCELED, mIntent);
              Log.d(TAG, "call cancelled");
+             setResult(RESULT_CANCELED, intent);
          }
          finish();
     }
