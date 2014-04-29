@@ -150,12 +150,6 @@
   <string name="card_01">Kart 1 / SUB 1</string>
   <string name="card_02">Kart 2 / SUB 2</string>
   <string name="card_03">Kart 3 / SUB 3</string>
-  <string name="place_a_call1">Abonelik 1</string>
-  <string name="place_a_call2">Abonelik 2</string>
-  <string name="place_a_call3">Abonelik 3</string>
-  <string name="count_down">Saniye: </string>
-  <string name="call_number">Kime: </string>
-  <string name="cancel_call">İptal</string>
   <string name="set_subscription_error_atleast_one">En az bir abonelik seçin</string>
   <string name="set_uicc_subscription_progress">Abonelik ayarlanıyor\u2026</string>
   <string name="set_sub_success">Abonelik başarıyla ayarlandı</string>

@@ -150,12 +150,6 @@
   <string name="card_01">Картица 1 / SUB 1</string>
   <string name="card_02">Картица 2 / SUB 2</string>
   <string name="card_03">Картица 3 / SUB 3 </string>
-  <string name="place_a_call1">Претплата 1</string>
-  <string name="place_a_call2">Претплата 2</string>
-  <string name="place_a_call3">Претплата 3</string>
-  <string name="count_down">Секунде: </string>
-  <string name="call_number">Коме: </string>
-  <string name="cancel_call">Откажи</string>
   <string name="set_subscription_error_atleast_one">Изаберите најмање једну претплату</string>
   <string name="set_uicc_subscription_progress">Подешавање претплате\u2026</string>
   <string name="set_sub_success">Претплата је успешно постављена</string>

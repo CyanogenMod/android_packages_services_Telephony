@@ -150,12 +150,6 @@
   <string name="card_01">Cartão 1 / Ass 1</string>
   <string name="card_02">Cartão 2 / Ass 2</string>
   <string name="card_03">Cartão 3 / Ass 3</string>
-  <string name="place_a_call1">Assinatura 1</string>
-  <string name="place_a_call2">Assinatura 2</string>
-  <string name="place_a_call3">Assinatura 3</string>
-  <string name="count_down">Segundos: </string>
-  <string name="call_number">Para: </string>
-  <string name="cancel_call">Cancelar</string>
   <string name="set_subscription_error_atleast_one">Selecionar pelo menos uma assinatura</string>
   <string name="set_uicc_subscription_progress">Configurar subscrição\u2026</string>
   <string name="set_sub_success">Assinatura foi definida com êxito</string>

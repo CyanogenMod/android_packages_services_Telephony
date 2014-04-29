@@ -150,12 +150,6 @@
   <string name="card_01">Kortti 1 / Tilaus 1</string>
   <string name="card_02">Kortti 2 / Tilaus 2</string>
   <string name="card_03">Kortti 3 / Tilaus 3</string>
-  <string name="place_a_call1">Tilaus 1</string>
-  <string name="place_a_call2">Tilaus 2</string>
-  <string name="place_a_call3">Tilaus 3</string>
-  <string name="count_down">Sekuntia: </string>
-  <string name="call_number">Numeroon: </string>
-  <string name="cancel_call">Peruuta</string>
   <string name="set_subscription_error_atleast_one">Valitse vähintään yksi tilaus</string>
   <string name="set_uicc_subscription_progress">Asetetaan tilausta\u2026</string>
   <string name="set_sub_success">Tilaus asetettu onnistuneesti</string>
