@@ -93,7 +93,6 @@ public class RespondViaSmsManager {
     private static final String KEY_CANNED_RESPONSE_PREF_3 = "canned_response_pref_3";
     private static final String KEY_CANNED_RESPONSE_PREF_4 = "canned_response_pref_4";
     private static final String KEY_PREFERRED_PACKAGE = "preferred_package_pref";
-    private static final String KEY_INSTANT_TEXT_DEFAULT_COMPONENT = "instant_text_def_component";
 
     /**
      * Settings activity under "Call settings" to let you manage the
@@ -178,25 +177,11 @@ public class RespondViaSmsManager {
                     // See ActionBar#setDisplayHomeAsUpEnabled()
                     CallFeaturesSetting.goUpToTopLevelSetting(this);
                     return true;
-                case R.id.respond_via_message_reset:
-                    // Reset the preferences settings
-                    SharedPreferences prefs = getSharedPreferences(
-                            SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.remove(KEY_INSTANT_TEXT_DEFAULT_COMPONENT);
-                    editor.apply();
-
-                    return true;
                 default:
             }
             return super.onOptionsItemSelected(item);
         }
 
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            getMenuInflater().inflate(R.menu.respond_via_message_settings_menu, menu);
-            return super.onCreateOptionsMenu(menu);
-        }
     }
 
     private static void log(String msg) {
