@@ -1892,5 +1892,6 @@
     <string name="deact_all_sub_not_supported">Deactivation of All the subscriptions is not supported.</string>
     <!-- Set Subscription screen: Deactivate All subscription not supported -->
     <string name="set_sub_not_supported_phone_in_call">Activate or Deactivate subscription is not allowed while phone in call.</string>
-
+    <!-- Manual PLMN scan data disconnect dialog text -->
+    <string name="disconnect_data_confirm">This needs to disconnect data service temporarily. Are you sure?</string>
 </resources>
