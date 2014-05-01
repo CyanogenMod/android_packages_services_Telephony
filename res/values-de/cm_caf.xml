@@ -55,8 +55,6 @@
   <string name="proceed">Weiter</string>
   <string name="xdivert_active">Aktiviert</string>
   <string name="xdivert_not_active">Deaktiviert</string>
-  <string name="managed_roaming_dialog_ok_button">Ja</string>
-  <string name="managed_roaming_dialog_cancel_button">Nein</string>
   <string name="ims_edit_title">IMS-Kontodetails</string>
   <string name="ims_accounts_title">IMS-Konto</string>
   <string name="ims_domain_address_title">IMS-Server</string>

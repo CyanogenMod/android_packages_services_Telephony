@@ -740,15 +740,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="ManagedRoaming"
-            android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
     </application>
 
     <permission android:name="com.android.phone.CHANGE_NETWORK_MODE"

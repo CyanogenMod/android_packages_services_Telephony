@@ -111,13 +111,6 @@
   <string name="xdivert_active">Aktívny</string>
   <string name="xdivert_not_active">Neaktívny</string>
   <string name="xdivert_imsi_not_read">Prebieha inicializácia SIM. Prosím, skúste to neskôr.</string>
-  <string name="managed_roaming_title">Riadený roaming</string>
-  <string name="managed_roaming_title_sub1">Riadený roaming (Posk. 1)</string>
-  <string name="managed_roaming_title_sub2">Riadený roaming (Posk. 2)</string>
-  <string name="managed_roaming_title_sub3">Riadený roaming (Posk. 3)</string>
-  <string name="managed_roaming_dialog_content">Našla sa sieť s obmedzenými službami. Chcete spustiť vyhľadávanie siete?</string>
-  <string name="managed_roaming_dialog_ok_button">Áno</string>
-  <string name="managed_roaming_dialog_cancel_button">Nie</string>
   <string name="no_volte">Nie je možné vytvárať hovory IMS</string>
   <string name="no_vt_allowed">Pre vytvorenie videohovoru, vypnite režim TTY</string>
   <string name="ims_edit_title">Podrobnosti účtu IMS</string>

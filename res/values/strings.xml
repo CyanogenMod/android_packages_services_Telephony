@@ -1198,15 +1198,6 @@
     <!-- Title for the dialog used to display CDMA DisplayInfo -->
     <string name="network_message">Network message</string>
 
-    <!-- Shown in "Managed Roaming" dialog when registration is denied with rejCode 10. -->
-    <string name="managed_roaming_title">Managed roaming</string>
-    <string name="managed_roaming_title_sub1">Managed roaming (SUB 1)</string>
-    <string name="managed_roaming_title_sub2">Managed roaming (SUB 2)</string>
-    <string name="managed_roaming_title_sub3">Managed roaming (SUB 3)</string>
-    <string name="managed_roaming_dialog_content">Network with limited service found. Do you want to initiate a network search?</string>
-    <string name="managed_roaming_dialog_ok_button">Yes</string>
-    <string name="managed_roaming_dialog_cancel_button">No</string>
-
     <!-- OTA-specific strings -->
     <!-- Title shown on OTA screen -->
     <string name="ota_title_activate">Activate your phone</string>

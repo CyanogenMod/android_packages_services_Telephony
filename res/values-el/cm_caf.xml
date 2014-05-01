@@ -111,13 +111,6 @@
   <string name="xdivert_active">Ενεργό</string>
   <string name="xdivert_not_active">Ανενεργό</string>
   <string name="xdivert_imsi_not_read">Αρχικοποίηση της SIM σε εξέλιξη. Παρακαλώ προσπαθήστε ξανά αργότερα.</string>
-  <string name="managed_roaming_title">Διαχειριζόμενη περιαγωγή</string>
-  <string name="managed_roaming_title_sub1">Διαχειριζόμενη περιαγωγή (ΣΥΝΔΡ 1)</string>
-  <string name="managed_roaming_title_sub2">Διαχειριζόμενη περιαγωγή (ΣΥΝΔΡ 2)</string>
-  <string name="managed_roaming_title_sub3">Διαχειριζόμενη περιαγωγή (ΣΥΝΔΡ 3)</string>
-  <string name="managed_roaming_dialog_content">Βρέθηκε δίκτυο με περιορισμένη υπηρεσία. Θέλετε να ξεκινήσετε μια αναζήτηση δικτύου;</string>
-  <string name="managed_roaming_dialog_ok_button">Ναι</string>
-  <string name="managed_roaming_dialog_cancel_button">Όχι</string>
   <string name="no_volte">Δεν είναι δυνατή η πραγματοποίηση κλήσεων IMS</string>
   <string name="no_vt_allowed">Για να κάνετε μια βιντεοκλήση, απενεργοποιήστε τη λειτουργία TTY</string>
   <string name="ims_edit_title">Λεπτομέρειες λογαριασμού IMS</string>

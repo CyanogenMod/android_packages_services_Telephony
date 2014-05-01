@@ -111,13 +111,6 @@
   <string name="xdivert_active">Aktiv</string>
   <string name="xdivert_not_active">Ikke aktiv</string>
   <string name="xdivert_imsi_not_read">SIM-kort initialiseres. Prøv igen senere.</string>
-  <string name="managed_roaming_title">Administreret roaming</string>
-  <string name="managed_roaming_title_sub1">Administreret roaming (ABN1)</string>
-  <string name="managed_roaming_title_sub2">Administreret roaming (ABN2)</string>
-  <string name="managed_roaming_title_sub3">Administreret roaming (ABN3)</string>
-  <string name="managed_roaming_dialog_content">Netværk med begrænset tjeneste fundet. Vil du søge efter netværk?</string>
-  <string name="managed_roaming_dialog_ok_button">Ja</string>
-  <string name="managed_roaming_dialog_cancel_button">Nej</string>
   <string name="no_volte">Kan ikke foretage et IMS-opkald</string>
   <string name="no_vt_allowed">Sluk for TTY-tilstand for at foretage videoopkald</string>
   <string name="ims_edit_title">IMS-konto-detaljer</string>

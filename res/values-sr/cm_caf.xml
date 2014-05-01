@@ -111,13 +111,6 @@
   <string name="xdivert_active">Активно</string>
   <string name="xdivert_not_active">Није активно</string>
   <string name="xdivert_imsi_not_read">SIM иницијализација у току. Покушајте поново касније.</string>
-  <string name="managed_roaming_title">Уреди роминг</string>
-  <string name="managed_roaming_title_sub1">Уреди роминг (SUB 1)</string>
-  <string name="managed_roaming_title_sub2">Уреди роминг (SUB 2)</string>
-  <string name="managed_roaming_title_sub3">Уреди роминг (SUB 3)</string>
-  <string name="managed_roaming_dialog_content">Мрежа са ограниченим сервисом пронађена. Да ли желите да покренете претрагу мрежа?</string>
-  <string name="managed_roaming_dialog_ok_button">Да</string>
-  <string name="managed_roaming_dialog_cancel_button">Не</string>
   <string name="no_volte">Није могуће направити IMS позиве</string>
   <string name="no_vt_allowed">Да бисте упутили видео позив, искључите TTY режим</string>
   <string name="ims_edit_title">IMS детаљи уговора</string>

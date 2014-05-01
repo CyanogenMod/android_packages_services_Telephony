@@ -111,13 +111,6 @@
   <string name="xdivert_active">Aktif</string>
   <string name="xdivert_not_active">Aktif değil</string>
   <string name="xdivert_imsi_not_read">SIM başlatma devam ediyor. Lütfen daha sonra yeniden deneyin.</string>
-  <string name="managed_roaming_title">Yönetilen dolaşım</string>
-  <string name="managed_roaming_title_sub1">Yönetilen dolaşım (SUB 1)</string>
-  <string name="managed_roaming_title_sub2">Yönetilen dolaşım (SUB 2)</string>
-  <string name="managed_roaming_title_sub3">Yönetilen dolaşım (SUB 3)</string>
-  <string name="managed_roaming_dialog_content">Sınırlı hizmeti bulunan bir şebeke bulundu. Şebeke araması başlatmak ister misiniz?</string>
-  <string name="managed_roaming_dialog_ok_button">Evet</string>
-  <string name="managed_roaming_dialog_cancel_button">Hayır</string>
   <string name="no_volte">IMS aramaları yapılamıyor</string>
   <string name="no_vt_allowed">Görüntülü arama yapmak için, TTy modunu kapatın</string>
   <string name="ims_edit_title">IMS hesap detayları</string>

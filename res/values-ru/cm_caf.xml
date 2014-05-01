@@ -111,13 +111,6 @@
   <string name="xdivert_active">Активен</string>
   <string name="xdivert_not_active">Неактивен</string>
   <string name="xdivert_imsi_not_read">Выполняется инициализация SIM-карты. Повторите попытку позднее.</string>
-  <string name="managed_roaming_title">Управляемый роуминг</string>
-  <string name="managed_roaming_title_sub1">Управляемый роуминг (SIM 1)</string>
-  <string name="managed_roaming_title_sub2">Управляемый роуминг (SIM 2)</string>
-  <string name="managed_roaming_title_sub3">Управляемый роуминг (SIM 3)</string>
-  <string name="managed_roaming_dialog_content">Обнаружена сеть с ограниченным уровнем обслуживания. Начать поиск сетей?</string>
-  <string name="managed_roaming_dialog_ok_button">Да</string>
-  <string name="managed_roaming_dialog_cancel_button">Нет</string>
   <string name="no_volte">Выполнение IMS-звонков невозможно</string>
   <string name="no_vt_allowed">Для выполнения видеовызова выключите режим TTY</string>
   <string name="ims_edit_title">Данные аккаунта IMS</string>

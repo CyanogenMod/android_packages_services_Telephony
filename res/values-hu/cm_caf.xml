@@ -111,13 +111,6 @@
   <string name="xdivert_active">Aktív</string>
   <string name="xdivert_not_active">Inaktív</string>
   <string name="xdivert_imsi_not_read">SIM inicializálás folyamatban. Próbálja meg később.</string>
-  <string name="managed_roaming_title">Menedzselt Roaming</string>
-  <string name="managed_roaming_title_sub1">Menedzselt Roaming (Előfiz. 1)</string>
-  <string name="managed_roaming_title_sub2">Menedzselt Roaming (Előfiz. 2)</string>
-  <string name="managed_roaming_title_sub3">Menedzselt Roaming (Előfiz. 3)</string>
-  <string name="managed_roaming_dialog_content">Korlátozott hálózat. Szeretne új hálózat keresést futtatni?</string>
-  <string name="managed_roaming_dialog_ok_button">Igen</string>
-  <string name="managed_roaming_dialog_cancel_button">Nem</string>
   <string name="no_volte">Sikertelen az IMS hívás létrehozása</string>
   <string name="no_vt_allowed">Videohívás kezdeményezéséhez, kapcsolja ki a TTY üzemmódot</string>
   <string name="ims_edit_title">IMS fiók adatai</string>

@@ -111,13 +111,6 @@
   <string name="xdivert_active">Activado</string>
   <string name="xdivert_not_active">Desactivado</string>
   <string name="xdivert_imsi_not_read">Inicialización de tarjeta SIM en curso. Por favor, inténtalo más tarde.</string>
-  <string name="managed_roaming_title">Gestionar itinerancia</string>
-  <string name="managed_roaming_title_sub1">Gestionar itinerancia (SUS 1)</string>
-  <string name="managed_roaming_title_sub2">Gestionar itinerancia (SUS 2)</string>
-  <string name="managed_roaming_title_sub3">Gestionar itinerancia (SUS 3)</string>
-  <string name="managed_roaming_dialog_content">Encontrada red con servicio limitado. ¿Quieres iniciar una búsqueda de redes?</string>
-  <string name="managed_roaming_dialog_ok_button">Sí</string>
-  <string name="managed_roaming_dialog_cancel_button">No</string>
   <string name="no_volte">Imposible hacer una llamada IMS</string>
   <string name="no_vt_allowed">Para realizar una videollamada desconecta el modo TTY</string>
   <string name="ims_edit_title">Detalles de cuenta IMS</string>
