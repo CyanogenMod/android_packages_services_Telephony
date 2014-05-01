@@ -589,7 +589,7 @@ public class MSimCallFeaturesSetting extends PreferenceActivity
      * This is useful for implementing "HomeAsUp" capability for second-level Settings.
      */
     public static void goUpToTopLevelSetting(Activity activity) {
-        Intent intent = new Intent(activity, CallFeaturesSetting.class);
+        Intent intent = new Intent(activity, MSimCallFeaturesSetting.class);
         intent.setAction(Intent.ACTION_MAIN);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         activity.startActivity(intent);

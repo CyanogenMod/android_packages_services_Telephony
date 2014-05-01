@@ -40,6 +40,7 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -175,7 +176,11 @@ public class RespondViaSmsManager {
             switch (itemId) {
                 case android.R.id.home:
                     // See ActionBar#setDisplayHomeAsUpEnabled()
-                    CallFeaturesSetting.goUpToTopLevelSetting(this);
+                    if (MSimTelephonyManager.getDefault().isMultiSimEnabled()){
+                        MSimCallFeaturesSubSetting.goUpToTopLevelSetting(this);
+                    } else {
+                        CallFeaturesSetting.goUpToTopLevelSetting(this);
+                    }
                     return true;
                 default:
             }
