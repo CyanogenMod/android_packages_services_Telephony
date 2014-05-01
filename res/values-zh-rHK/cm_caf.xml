@@ -18,5 +18,4 @@
 <resources>
   <string name="mobile_network_setting">流動網路設定</string>
   <string name="delete">刪除</string>
-  <string name="count_down">秒: </string>
 </resources>
