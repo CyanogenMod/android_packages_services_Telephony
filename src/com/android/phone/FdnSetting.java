@@ -545,7 +545,11 @@ public class FdnSetting extends PreferenceActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         final int itemId = item.getItemId();
         if (itemId == android.R.id.home) {  // See ActionBar#setDisplayHomeAsUpEnabled()
-            CallFeaturesSetting.goUpToTopLevelSetting(this);
+            if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+                MSimCallFeaturesSubSetting.goUpToTopLevelSetting(this);
+            } else {
+                CallFeaturesSetting.goUpToTopLevelSetting(this);
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
