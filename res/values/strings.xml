@@ -748,6 +748,17 @@
         <item>"2"</item>
     </string-array>
 
+    <!-- TD-SCDMA uses a variation of the GSM combos -->
+    <string-array name="enabled_networks_tdscdma_values" translatable="false">
+        <item>"20"</item>
+        <item>"18"</item>
+        <item>"1"</item>
+    </string-array>
+    <string-array name="enabled_networks_tdscdma_except_lte_values" translatable="false">
+        <item>"18"</item>
+        <item>"1"</item>
+    </string-array>
+
     <string name="cdma_subscription_title">CDMA subscription</string>
     <string name="cdma_subscription_summary">Change between RUIM/SIM and NV</string>
     <string name="cdma_subscription_dialogtitle">subscription</string>
