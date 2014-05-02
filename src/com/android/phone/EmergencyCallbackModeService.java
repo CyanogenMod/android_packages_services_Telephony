@@ -80,6 +80,13 @@ public class EmergencyCallbackModeService extends Service {
 
     @Override
     public void onCreate() {
+        // Register receiver for intents
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
+        filter.addAction(TelephonyIntents.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS);
+        registerReceiver(mEcmReceiver, filter);
+
+        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
     }
 
     @Override
@@ -107,14 +114,6 @@ public class EmergencyCallbackModeService extends Service {
             stopSelf();
         }
 
-        // Register receiver for intents
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
-        filter.addAction(TelephonyIntents.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS);
-        registerReceiver(mEcmReceiver, filter);
-
-        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
         // Register ECM timer reset notfication
         mPhone.registerForEcmTimerReset(mHandler, ECM_TIMER_RESET, null);
 
@@ -127,11 +126,15 @@ public class EmergencyCallbackModeService extends Service {
         // Unregister receiver
         unregisterReceiver(mEcmReceiver);
         // Unregister ECM timer reset notification
-        mPhone.unregisterForEcmTimerReset(mHandler);
+        if (mPhone != null) {
+            mPhone.unregisterForEcmTimerReset(mHandler);
+        }
 
         // Cancel the notification and timer
         mNotificationManager.cancel(R.string.phone_in_ecm_notification_title);
-        mTimer.cancel();
+        if (mTimer != null) {
+            mTimer.cancel();
+        }
     }
 
     /**
