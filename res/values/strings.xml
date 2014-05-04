@@ -1787,12 +1787,6 @@
     <string name="cursorError">Invalid cursor data</string>
     <!-- Set Subscription screen: set subscription option name -->
     <string name="set_subscription">Select subscription</string>
-    <!-- Set Subscription screen: label Card 1 -->
-    <string name="card_01">Card 1 / SUB 1</string>
-    <!-- Set Subscription screen: label Card 2 -->
-    <string name="card_02">Card 2 / SUB 2</string>
-    <!-- Set Subscription screen: label Card 3 -->
-    <string name="card_03">Card 3 / SUB 3</string>
 
     <!-- Set Subscription screen: Message shown in error dialog -->
     <string name="set_subscription_error_atleast_one">Select at least one subscription</string>

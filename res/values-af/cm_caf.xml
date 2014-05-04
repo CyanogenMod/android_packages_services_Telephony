@@ -147,9 +147,6 @@
   <string name="exportAllcontatsNoContacts">Geen kontakte gevind om uit te voer na SIM !!!</string>
   <string name="cursorError">Wyser is nie op behoorlike data !!! </string>
   <string name="set_subscription">Kies inskrywings</string>
-  <string name="card_01">Kaart 1 / Ins 1</string>
-  <string name="card_02">Kaart 2 / Ins 2</string>
-  <string name="card_03">Kaart 3 / Ins 3</string>
   <string name="set_subscription_error_atleast_one">Kies ten minste een inskrywing</string>
   <string name="set_uicc_subscription_progress">Inskrywing aan die gang...</string>
   <string name="set_sub_success">Stel inskrywing sukses</string>

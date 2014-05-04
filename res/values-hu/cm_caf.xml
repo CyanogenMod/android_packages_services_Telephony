@@ -147,9 +147,6 @@
   <string name="exportAllcontatsNoContacts">Nem található SIM-re exportálandó névjegy</string>
   <string name="cursorError">A kurzornak nincs megfelelő adata</string>
   <string name="set_subscription">Válasszon előfizetést</string>
-  <string name="card_01">Kártya 1 / Előfiz. 1</string>
-  <string name="card_02">Kártya 2 / Előfiz. 2</string>
-  <string name="card_03">Kártya 3 / Előfiz. 3</string>
   <string name="set_subscription_error_atleast_one">Legalább egy előfizetést válasszon</string>
   <string name="set_uicc_subscription_progress">Előfizetés beállítása folyamatban\u2026</string>
   <string name="set_sub_success">Sikerült az előfizetés beállítása</string>

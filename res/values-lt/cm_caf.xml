@@ -147,9 +147,6 @@
   <string name="exportAllcontatsNoContacts">Kontaktų nerasta eksportuoti į SIM</string>
   <string name="cursorError">Neteisingi žymeklio duomenys</string>
   <string name="set_subscription">Pasirinkite prenumeratą</string>
-  <string name="card_01">Kortelė 1 / PREN. 1</string>
-  <string name="card_02">Kortelė 2 / PREN. 2</string>
-  <string name="card_03">Kortelė 3 / PREN. 3</string>
   <string name="set_subscription_error_atleast_one">Pasirinkite bent vieną prenumeratą</string>
   <string name="set_uicc_subscription_progress">Nustatoma prenumerata\u2026</string>
   <string name="set_sub_success">Prenumeratos nustatymas sėkmingas</string>

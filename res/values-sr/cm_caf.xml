@@ -147,9 +147,6 @@
   <string name="exportAllcontatsNoContacts"> Није пронађен ниједан контакт за извоз на SIM </string>
   <string name="cursorError">Неважећи подаци курсора</string>
   <string name="set_subscription">Изаберите претплату</string>
-  <string name="card_01">Картица 1 / SUB 1</string>
-  <string name="card_02">Картица 2 / SUB 2</string>
-  <string name="card_03">Картица 3 / SUB 3 </string>
   <string name="set_subscription_error_atleast_one">Изаберите најмање једну претплату</string>
   <string name="set_uicc_subscription_progress">Подешавање претплате\u2026</string>
   <string name="set_sub_success">Претплата је успешно постављена</string>

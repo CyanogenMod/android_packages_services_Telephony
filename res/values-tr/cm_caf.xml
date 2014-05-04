@@ -147,9 +147,6 @@
   <string name="exportAllcontatsNoContacts">SIMe aktarılacak kişi bulunamadı</string>
   <string name="cursorError">Geçersiz imleç verisi</string>
   <string name="set_subscription">Abonelik seçin</string>
-  <string name="card_01">Kart 1 / SUB 1</string>
-  <string name="card_02">Kart 2 / SUB 2</string>
-  <string name="card_03">Kart 3 / SUB 3</string>
   <string name="set_subscription_error_atleast_one">En az bir abonelik seçin</string>
   <string name="set_uicc_subscription_progress">Abonelik ayarlanıyor\u2026</string>
   <string name="set_sub_success">Abonelik başarıyla ayarlandı</string>
