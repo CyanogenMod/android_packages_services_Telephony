@@ -16,5 +16,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="vibrate_outgoing">當接聽時震動</string>
+  <string name="vibrate_call_waiting">當通話等待時震動</string>
+  <string name="vibrate_hangup">當通話結束時震動</string>
+  <string name="vibrate_45">每分鐘震動一次</string>
+  <string name="vibrate_45_sum">撥出電話時，每 45 秒震動一次</string>
   <string name="perm_change_mobile_network">更改網路模式 (2G/3G)</string>
+  <string name="phone_number_label">我的電話號碼</string>
+  <string name="sub_no_sim">沒有 SIM 卡</string>
 </resources>

@@ -80,4 +80,6 @@
   <string name="choose_people_lookup_provider_title">Poskytovateľ pre vyhľadávanie ľudí</string>
   <string name="choose_reverse_lookup_provider_title">Poskytovateľ pre spätné vyhľadávanie</string>
   <string name="sub_no_sim">Žiadna SIM</string>
+  <string name="msim_call_selector_title">Hovor <xliff:g id="number">%s</xliff:g> cez</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>

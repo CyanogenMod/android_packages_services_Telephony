@@ -79,4 +79,5 @@
   <string name="choose_forward_lookup_provider_title">Arama sağlayıcısını yönlendir</string>
   <string name="choose_people_lookup_provider_title">Kişi arama sağlayıcısı</string>
   <string name="choose_reverse_lookup_provider_title">Geri arama sağlayıcısı</string>
+  <string name="sub_no_sim">SIM yok</string>
 </resources>

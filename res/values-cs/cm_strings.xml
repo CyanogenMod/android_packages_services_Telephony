@@ -79,4 +79,6 @@
   <string name="choose_forward_lookup_provider_title">Poskytovatel předběžného vyhledávání</string>
   <string name="choose_people_lookup_provider_title">Poskytovatel vyhledávání osob</string>
   <string name="choose_reverse_lookup_provider_title">Poskytovatel zpětného vyhledávání</string>
+  <string name="sub_no_sim">Není SIM karta</string>
+  <string name="msim_call_selector_title">Volání <xliff:g id="number">%s</xliff:g> pomocí</string>
 </resources>
