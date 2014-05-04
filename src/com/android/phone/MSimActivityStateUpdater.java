@@ -22,32 +22,28 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.telephony.MSimTelephonyManager;
 
-public class MSimActivityDisabler extends BroadcastReceiver {
+public class MSimActivityStateUpdater extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        boolean enabled = MSimTelephonyManager.getDefault().isMultiSimEnabled();
+        boolean dualSim = MSimTelephonyManager.getDefault().isMultiSimEnabled();
 
         // These activities share actions in their intent filters. We need to select the correct one
         // so that apps get what they are looking for, depending if MSIM is available or not.
-        if (enabled) {
-            disable(context, CallFeaturesSetting.class);
-            disable(context, MobileNetworkSettings.class);
-        } else {
-            disable(context, MSimCallFeaturesSetting.class);
-            disable(context, MSimMobileNetworkSettings.class);
-            disable(context, SelectSubscription.class);
-        }
-
-        // Die an honorable death, our work is done here.
-        disable(context, this.getClass());
+        setState(context, CallFeaturesSetting.class, !dualSim);
+        setState(context, MobileNetworkSettings.class, !dualSim);
+        setState(context, MSimCallFeaturesSetting.class, dualSim);
+        setState(context, MSimMobileNetworkSettings.class, dualSim);
+        setState(context, SelectSubscription.class, dualSim);
     }
 
-    private void disable(Context context, Class<?> klass) {
+    private void setState(Context context, Class<?> klass, boolean enabled) {
         PackageManager pm = context.getPackageManager();
         ComponentName component = new ComponentName(context, klass);
-        pm.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+        pm.setComponentEnabledSetting(component, enabled ?
+                PackageManager.COMPONENT_ENABLED_STATE_DEFAULT :
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
     }
 }
