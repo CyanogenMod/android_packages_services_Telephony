@@ -112,7 +112,7 @@ public class NetworkSettingDataManager {
                 msg.sendToTarget();
             }
         } else {
-            if (mNetworkSearchDataDisabled) {
+            if (mNetworkSearchDataDisabled || mNetworkSearchDataDisconnecting) {
                 log("Enabling data");
                 //enable data service
                 mCm.setMobileDataEnabled(true);

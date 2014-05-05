@@ -119,6 +119,7 @@ public class NetworkSetting extends PreferenceActivity
                     if (msg.arg1 == 1) {
                         loadNetworksList();
                     }
+                    mSearchButton.setEnabled(true);
                     break;
 
                 case EVENT_AUTO_SELECT_DONE:
@@ -170,6 +171,7 @@ public class NetworkSetting extends PreferenceActivity
             // as soon as it is bound, run a query.
             if (getApplicationContext().getResources().getBoolean(
                     R.bool.config_disable_data_manual_plmn)) {
+                mSearchButton.setEnabled(false);
                 Message onCompleteMsg = mHandler.obtainMessage(EVENT_NETWORK_DATA_MANAGER_DONE);
                 mDataManager.updateDataState(false, onCompleteMsg);
             } else {
@@ -206,6 +208,7 @@ public class NetworkSetting extends PreferenceActivity
         if (preference == mSearchButton) {
             if (getApplicationContext().getResources().getBoolean(
                     R.bool.config_disable_data_manual_plmn)) {
+                mSearchButton.setEnabled(false);
                 Message onCompleteMsg = mHandler.obtainMessage(EVENT_NETWORK_DATA_MANAGER_DONE);
                 mDataManager.updateDataState(false, onCompleteMsg);
             } else {
