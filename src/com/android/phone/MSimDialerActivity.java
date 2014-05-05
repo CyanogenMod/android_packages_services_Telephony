@@ -118,6 +118,7 @@ public class MSimDialerActivity extends AlertActivity implements
                 params.mAdapter = mAdapter;
                 params.mNegativeButtonText = getString(android.R.string.cancel);
                 params.mNegativeButtonListener = this;
+                params.mOnClickListener = this;
 
                 setupAlert();
 
