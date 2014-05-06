@@ -23,6 +23,9 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.telephony.MSimTelephonyManager;
 
@@ -32,6 +35,7 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 import com.codeaurora.telephony.msim.SubscriptionManager;
 
+import java.util.List;
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
 /**
@@ -81,12 +85,27 @@ public class GsmUmtsOptions {
         enableScreen();
     }
 
+    /**
+     * check whether NetworkSetting apk exist in system, if true, replace the
+     * intent of the NetworkSetting Activity with the intent of NetworkSetting
+     */
     private void enablePlmnIncSearch() {
         if (mButtonOperatorSelectionExpand != null) {
-            // set the target intent
+            PackageManager pm = mButtonOperatorSelectionExpand.getContext().getPackageManager();
+
+            // check whether the target handler exist in system
             Intent intent = new Intent("org.codeaurora.settings.NETWORK_OPERATOR_SETTINGS_ASYNC");
-            intent.putExtra(SUBSCRIPTION_KEY, mSubscription);
-            mButtonOperatorSelectionExpand.setIntent(intent);
+            List<ResolveInfo> list = pm.queryIntentActivities(intent, 0);
+            for(ResolveInfo resolveInfo : list){
+                // check is it installed in system.img, exclude the application
+                // installed by user
+                if ((resolveInfo.activityInfo.applicationInfo.flags &
+                        ApplicationInfo.FLAG_SYSTEM) != 0) {
+                    // set the target intent
+                    intent.putExtra(SUBSCRIPTION_KEY, mSubscription);
+                    mButtonOperatorSelectionExpand.setIntent(intent);
+                }
+            }
         }
     }
 
