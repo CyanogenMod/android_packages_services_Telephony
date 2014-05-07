@@ -311,11 +311,6 @@ public class MSimCallNotifier extends CallNotifier {
         if (VDBG) log("Holding wake lock on new incoming connection.");
         mApplication.requestWakeState(PhoneGlobals.WakeState.PARTIAL);
 
-        log("Setting Active sub : '" + subscription + "'");
-        PhoneUtils.setActiveSubscription(subscription);
-
-        manageLocalCallWaitingTone();
-
         // - don't ring for call waiting connections
         // - do this before showing the incoming call panel
         startIncomingCallQuery(c);
@@ -977,7 +972,7 @@ public class MSimCallNotifier extends CallNotifier {
         }
     }
 
-    private void manageLocalCallWaitingTone() {
+    void manageLocalCallWaitingTone() {
         int activeSub = PhoneUtils.getActiveSubscription();
         int otherSub = PhoneUtils.getOtherActiveSub(activeSub);
 

@@ -1030,7 +1030,8 @@ public class CallNotifier extends Handler
                 // send directly to voicemail.
                 if (ci.shouldSendToVoicemail) {
                     if (DBG) log("send to voicemail flag detected. hanging up.");
-                    final Call ringingCall = mCM.getFirstActiveRingingCall();
+                    final Call ringingCall = mCM.getFirstActiveRingingCall(
+                            c.getCall().getPhone().getSubscription());
                     if (ringingCall != null && ringingCall.getLatestConnection() == c) {
                         PhoneUtils.hangupRingingCall(ringingCall);
                         return;
@@ -1075,8 +1076,10 @@ public class CallNotifier extends Handler
             if (entry != null) {
                 if (entry.sendToVoicemail) {
                     log("send to voicemail flag detected (in fallback cache). hanging up.");
-                    if (mCM.getFirstActiveRingingCall().getLatestConnection() == c) {
-                        PhoneUtils.hangupRingingCall(mCM.getFirstActiveRingingCall());
+                    final Call ringingCall = mCM.getFirstActiveRingingCall(
+                            c.getCall().getPhone().getSubscription());
+                    if (ringingCall.getLatestConnection() == c) {
+                        PhoneUtils.hangupRingingCall(ringingCall);
                         return;
                     }
                 }
