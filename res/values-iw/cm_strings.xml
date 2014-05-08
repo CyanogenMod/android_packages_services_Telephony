@@ -16,7 +16,14 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="call_notif_unconditionalCF">העברת שיחות לא מותנת פעילה</string>
+  <string name="call_notif_conditionalCF">העברת שיחות מותנת פעילה</string>
   <string name="call_notif_MOcall_forwarding">שיחה יוצאת הועברה</string>
+  <string name="call_notif_cugcall">שיחה בקבוצת משתמשים סגורה</string>
+  <string name="call_notif_outgoing_barred">שיחות יוצאות מבוקרות</string>
+  <string name="call_notif_call_deflected">שיחה הועברה על ידי צד מרוחק</string>
+  <string name="call_notif_MTcall_forwarding">שיחה נכנסת מועברת</string>
+  <string name="call_notif_multipartycall">שיחה משותפת</string>
   <string name="call_notif_forwardcheckreceived">השיחה הועברה</string>
   <string name="incall_vibration">רטט במהלך שיחה</string>
   <string name="vibrate_outgoing">רטט בזמן מענה</string>
@@ -25,6 +32,7 @@
   <string name="vibrate_45">רטט בכל דקה</string>
   <string name="vibrate_45_sum">רטט בכל 45 שניות של כל דקה במהלך שיחה יוצאת</string>
   <string name="show_ssn_label">דיווח על אירוע</string>
+  <string name="show_ssn_summary">הצג הודעה לאירועי רשת שונים הקשורים בטיפול בשיחה</string>
   <string name="blacklist_title">רשימה שחורה</string>
   <string name="blacklist_summary_disabled">מושבת</string>
   <string name="blacklist_summary">הודעות נכנסות ממספרי טלפון שברשימה השחורה ייחסמו</string>
@@ -66,4 +74,5 @@
   <string name="choose_forward_lookup_provider_title">ספק בדיקה קדימה</string>
   <string name="choose_people_lookup_provider_title">ספק חיפוש אנשים</string>
   <string name="choose_reverse_lookup_provider_title">ספק חיפוש הפוך</string>
+  <string name="sub_no_sim">אין SIM</string>
 </resources>

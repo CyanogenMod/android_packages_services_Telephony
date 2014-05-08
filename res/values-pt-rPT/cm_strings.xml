@@ -75,9 +75,11 @@
   <string name="enable_people_lookup_summary">Mostrar resultados para as pessoas on-line, ao pesquisar no discador</string>
   <string name="enable_reverse_lookup_title">Pesquisa inversa</string>
   <string name="enable_reverse_lookup_summary">Procurar informações sobre a pessoa ou lugar para números desconhecidos de chamadas recebidas</string>
-  <string name="choose_lookup_providers">Escolha de fornecedor de pesquisa</string>
+  <string name="choose_lookup_providers">Escolha do fornecedor de pesquisa</string>
   <string name="choose_forward_lookup_provider_title">Fornecedor de pesquisa direta</string>
   <string name="choose_people_lookup_provider_title">Fornecedor de pesquisa de pessoas</string>
   <string name="choose_reverse_lookup_provider_title">Fornecedor de pesquisa inversa</string>
   <string name="sub_no_sim">Sem SIM</string>
+  <string name="msim_call_selector_title">Chamar <xliff:g id="number">%s</xliff:g> através</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>

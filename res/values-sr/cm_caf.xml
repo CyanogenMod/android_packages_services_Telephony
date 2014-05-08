@@ -89,7 +89,7 @@
   <string name="sub3_summary">Управљање претплатом 3</string>
   <string name="prompt">Благовремено</string>
   <string name="prompt_user">Благовремени корисник</string>
-  <string name="tty_mode_not_allowed_vt_call">TTY Режим промена није дозвољен током VT позива</string>
+  <string name="tty_mode_not_allowed_vt_call">TTY промена режима није дозвољена током VT позива</string>
   <string name="fdn_service_unavailable">FDN услуга није доступна.</string>
   <string name="exportContacts">Извоз контаката на SIM картицу\u2026</string>
   <string name="onscreenSwitchText">Пребаци претплату</string>

@@ -70,14 +70,16 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred">Преферирај GSM/WCDMA</string>
   <string name="number_lookup">Проналажење телефонског броја</string>
   <string name="enable_forward_lookup_title">Напредно проналажење</string>
-  <string name="enable_forward_lookup_summary">Прикажите околна места када тражи на бројчанику</string>
+  <string name="enable_forward_lookup_summary">Прикажи околна места када се тражи на бројчанику</string>
   <string name="enable_people_lookup_title">Проналажење људи</string>
-  <string name="enable_people_lookup_summary">Прикажите онлајн резултате за људе када се тражи на бројчанику</string>
+  <string name="enable_people_lookup_summary">Прикажи резултате на мрежи за људе када се тражи на бројчанику</string>
   <string name="enable_reverse_lookup_title">Обрнуто проналажење</string>
-  <string name="enable_reverse_lookup_summary">Потражите информације о особи или месту за непознате бројеве на долазне позиве</string>
+  <string name="enable_reverse_lookup_summary">Потражи информације о особи или месту за непознате бројеве на долазне позиве</string>
   <string name="choose_lookup_providers">Изаберите провајдере проналажења</string>
   <string name="choose_forward_lookup_provider_title">Провајдер напредног проналажења</string>
   <string name="choose_people_lookup_provider_title">Провајдер проналажења људи</string>
   <string name="choose_reverse_lookup_provider_title">Провајдер обрнутог проналажења</string>
   <string name="sub_no_sim">Нема SIM картице</string>
+  <string name="msim_call_selector_title">Позив <xliff:g id="number">%s</xliff:g> преко</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>

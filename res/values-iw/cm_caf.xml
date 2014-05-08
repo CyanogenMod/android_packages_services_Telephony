@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources>
+  <string name="label_spdp">קוד הפתיחה של ספק הסים</string>
   <string name="label_sdp">קוד PIN לפתיחת SIM</string>
   <string name="label_rdp">קוד PIN לפתיחת RUIM</string>
   <string name="label_puk">הזן PUK</string>
@@ -24,6 +25,9 @@
   <string name="requesting_puk_unlock">מבקש פתיחת PUK\u2026</string>
   <string name="puk_unlock_failed">פתיחת PUK נכשלה.</string>
   <string name="sim_unlock_success">פתיחת SIM הצליחה.</string>
+  <string name="rnw1_unlock_success">פתיחת רשת RUIM 1 הצליחה.</string>
+  <string name="rnw2_unlock_success">פתיחת רשת RUIM 2 הצליחה.</string>
+  <string name="rhrpd_unlock_success">פתיחת RUIM HRPD הצליחה.</string>
   <string name="ruim_unlock_success">פתיחת RUIM הצליחה.</string>
   <string name="puk_unlock_success">פתיחת PUK הצליחה.</string>
   <string name="stk_cc_ss_to_dial_error">בקשת SS שונתה לבקשת DIAL.</string>
@@ -33,10 +37,18 @@
   <string name="preferred_network_mode_td_scdma_wcdma_summary">מצב רשת מועדף: TD-SCDMA / WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_summary">מצב רשת מועדף: TD-SCDMA / LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_summary">מצב רשת מועדף: TD-SCDMA / GSM</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">מצב רשת מועדף: TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">מצב רשת מועדף: TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">מצב רשת מועדף: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="mobile_network_setting">הגדרות רשת לנייד</string>
   <string name="network_settings_sel_sub">הגדרות הרשמה</string>
   <string name="network_manage_settings">הגדרות רשת</string>
   <string name="title_data_settings">הגדרות נתונים</string>
+  <string name="summary_manage_subscriptions">ניהול הגדרות רשת של כל מנוי</string>
+  <string name="call_ind_services">התקשר לשירותים עצמאיים</string>
   <string name="callind_multi_sim">הגדרות הרשמה</string>
   <string name="callind">הגדרות תכונת שיחה</string>
   <string name="sub1">הרשמה 1</string>

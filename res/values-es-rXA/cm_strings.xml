@@ -79,4 +79,7 @@
   <string name="choose_forward_lookup_provider_title">Fornidor pa guetar llugares</string>
   <string name="choose_people_lookup_provider_title">Fornidor pa guetar persones</string>
   <string name="choose_reverse_lookup_provider_title">Fornidor pa gueta inversa</string>
+  <string name="sub_no_sim">Ensin tarxeta SIM</string>
+  <string name="msim_call_selector_title">Llamar a <xliff:g id="number">%s</xliff:g> vía</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>
