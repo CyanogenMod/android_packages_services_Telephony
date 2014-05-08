@@ -103,6 +103,55 @@ public final class Call implements Parcelable {
     }
 
     /**
+     * Copy of com.android.internal.telephony.gsm.SuppServiceNotification class
+     *  to avoid dependency on telephony lib.
+     */
+    public static class SsNotification {
+        /** Type of notification: 0 = MO; 1 = MT */
+        public int notificationType;
+        /** TS 27.007 7.17 "code1" or "code2" */
+        public int code;
+        /** TS 27.007 7.17 "index" */
+        public int index;
+        /** TS 27.007 7.17 "type" (MT only) */
+        public int type;
+        /** TS 27.007 7.17 "number" (MT only) */
+        public String number;
+
+        static public final int MO_CODE_UNCONDITIONAL_CF_ACTIVE     = 0;
+        static public final int MO_CODE_SOME_CF_ACTIVE              = 1;
+        static public final int MO_CODE_CALL_FORWARDED              = 2;
+        static public final int MO_CODE_CALL_IS_WAITING             = 3;
+        static public final int MO_CODE_CUG_CALL                    = 4;
+        static public final int MO_CODE_OUTGOING_CALLS_BARRED       = 5;
+        static public final int MO_CODE_INCOMING_CALLS_BARRED       = 6;
+        static public final int MO_CODE_CLIR_SUPPRESSION_REJECTED   = 7;
+        static public final int MO_CODE_CALL_DEFLECTED              = 8;
+
+        static public final int MT_CODE_FORWARDED_CALL              = 0;
+        static public final int MT_CODE_CUG_CALL                    = 1;
+        static public final int MT_CODE_CALL_ON_HOLD                = 2;
+        static public final int MT_CODE_CALL_RETRIEVED              = 3;
+        static public final int MT_CODE_MULTI_PARTY_CALL            = 4;
+        static public final int MT_CODE_ON_HOLD_CALL_RELEASED       = 5;
+        static public final int MT_CODE_FORWARD_CHECK_RECEIVED      = 6;
+        static public final int MT_CODE_CALL_CONNECTING_ECT         = 7;
+        static public final int MT_CODE_CALL_CONNECTED_ECT          = 8;
+        static public final int MT_CODE_DEFLECTED_CALL              = 9;
+        static public final int MT_CODE_ADDITIONAL_CALL_FORWARDED   = 10;
+
+        @Override
+        public String toString() {
+            return super.toString() + " mobile"
+                    + (notificationType == 0 ? " originated " : " terminated ")
+                    + " code: " + code
+                    + " index: " + index
+                    + " \""
+                    + PhoneNumberUtils.stringFromStringAndTOA(number, type) + "\" ";
+        }
+    }
+
+    /**
      * Copy of states found in Connection object since Connection object is not available to the UI
      * code.
      * TODO: Consider cutting this down to only the types used by the UI.
@@ -216,6 +265,9 @@ public final class Call implements Parcelable {
 
     // Whether the call is held remotely
     private boolean mHeldRemotely;
+
+    // Supplementary Service notification for GSM calls
+    private SsNotification mSsNotification;
 
     // Holds the subscription id, to which this call belongs to.
     private int mSubscription = MSimConstants.INVALID_SUBSCRIPTION;
@@ -407,6 +459,14 @@ public final class Call implements Parcelable {
         mHeldRemotely = heldRemotely;
     }
 
+    public SsNotification getSuppServNotification() {
+        return mSsNotification;
+    }
+
+    public void setSuppServNotification(SsNotification notification) {
+        mSsNotification = notification;
+    }
+
     public int getSubscription() {
         return mSubscription;
     }
@@ -432,6 +492,16 @@ public final class Call implements Parcelable {
         dest.writeParcelable(mIdentification, 0);
         dest.writeInt(mForwarded ? 1 : 0);
         dest.writeInt(mHeldRemotely ? 1 : 0);
+        int hasSuppServNotification = 0;
+        if (mSsNotification != null) hasSuppServNotification = 1;
+        dest.writeInt(hasSuppServNotification);
+        if (hasSuppServNotification == 1) {
+            dest.writeInt(mSsNotification.notificationType);
+            dest.writeInt(mSsNotification.code);
+            dest.writeInt(mSsNotification.index);
+            dest.writeInt(mSsNotification.type);
+            dest.writeString(mSsNotification.number);
+        }
         dest.writeParcelable(mCallDetails, 1);
         dest.writeParcelable(mCallModifyDetails, 2);
         dest.writeInt(mSubscription);
@@ -452,6 +522,15 @@ public final class Call implements Parcelable {
         mIdentification = in.readParcelable(CallIdentification.class.getClassLoader());
         mForwarded = in.readInt() != 0;
         mHeldRemotely = in.readInt() != 0;
+        int hasSuppServNotification = in.readInt();
+        if (hasSuppServNotification == 1) {
+            mSsNotification = new SsNotification();
+            mSsNotification.notificationType = in.readInt();
+            mSsNotification.code =  in.readInt();
+            mSsNotification.index = in.readInt();
+            mSsNotification.type = in.readInt();
+            mSsNotification.number = in.readString();
+        }
         mCallDetails = in.readParcelable(CallDetails.class.getClassLoader());
         mCallModifyDetails = in.readParcelable(CallDetails.class.getClassLoader());
         mSubscription = in.readInt();
@@ -493,6 +572,7 @@ public final class Call implements Parcelable {
                 .add("mIdentification", mIdentification)
                 .add("mForwarded", mForwarded)
                 .add("mHeldRemotely", mHeldRemotely)
+                .add("mSsNotification", mSsNotification)
                 .add("mCallDetails", mCallDetails)
                 .add("mCallModifyDetails", mCallModifyDetails)
                 .add("mSubscription", mSubscription)

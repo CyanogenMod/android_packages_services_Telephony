@@ -320,12 +320,16 @@ public class MSimCallNotifier extends CallNotifier {
      * ringtone. Otherwise we will play the call waiting tone instead.
      * @param c The new ringing connection.
      */
-    private void ringAndNotifyOfIncomingCall(Connection c) {
+    @Override
+    protected void ringAndNotifyOfIncomingCall(Connection c) {
         if (PhoneUtils.isRealIncomingCall(c.getState())) {
             mRinger.ring();
         } else {
-            if (VDBG) log("- starting call waiting tone...");
-            if (mCallWaitingTonePlayer == null) {
+            int subscription = c.getCall().getPhone().getSubscription();
+            int otherActiveSub = PhoneUtils.getOtherActiveSub(subscription);
+            if ((MSimConstants.INVALID_SUBSCRIPTION == otherActiveSub)
+                    && (mCallWaitingTonePlayer == null)) {
+                if (VDBG) log("- starting call waiting tone...");
                 mCallWaitingTonePlayer = new InCallTonePlayer(InCallTonePlayer.TONE_CALL_WAITING);
                 mCallWaitingTonePlayer.start();
             }
@@ -578,10 +582,9 @@ public class MSimCallNotifier extends CallNotifier {
             final Connection.DisconnectCause cause = c.getDisconnectCause();
             final boolean isEmergencyNumber =
                     PhoneNumberUtils.isLocalEmergencyNumber(number, mApplication);
-            // For DSDA, if emergency call failure is received with cause codes
+            // If emergency call failure is received with cause codes
             // EMERGENCY_TEMP_FAILURE & EMERGENCY_PERM_FAILURE, then redial on other sub.
-            if ((MSimTelephonyManager.getDefault().getMultiSimConfiguration() ==
-                    MSimTelephonyManager.MultiSimVariants.DSDA) && isEmergencyNumber &&
+            if (isEmergencyNumber &&
                     (cause == Connection.DisconnectCause.EMERGENCY_TEMP_FAILURE
                     || cause == Connection.DisconnectCause.EMERGENCY_PERM_FAILURE)) {
                 int subToCall = PhoneUtils.getNextSubscriptionId(phone.getSubscription());

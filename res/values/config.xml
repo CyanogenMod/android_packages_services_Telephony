@@ -148,6 +148,9 @@
     <string name="carrier_settings" translatable="false"></string>
     <string name="carrier_settings_menu" translatable="false"></string>
 
+    <!-- Disable data before manual PLMN scan if true-->
+    <bool name="config_disable_data_manual_plmn">false</bool>
+
     <!-- Sprint Message Wait Indicator Quirk
          If true, message wait indicators are hidden by default on this device
          unless the user enables it in Call Settings.  This quirk is necessary

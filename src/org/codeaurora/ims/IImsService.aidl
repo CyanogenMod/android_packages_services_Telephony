@@ -29,6 +29,7 @@ package org.codeaurora.ims;
 
 import org.codeaurora.ims.IImsServiceListener;
 import android.os.Messenger;
+import android.os.Message;
 
 /**
  * Interface used to interact with IMS phone.
@@ -80,5 +81,22 @@ interface IImsService {
     void setServiceStatus(int service, int networkType, int enabled, int restrictCause,
             int event, in Messenger msgr);
 
+    /**
+     * Query for current video call quality.
+     * @param response - Message object is used to send back the status and quality value.
+     * Message.arg1 contains 0 if the request succeeded, non-zero otherwise.
+     * Message.obj int[] array, which int[0] element contains video quality value: 0-LOW; 1-HIGH.
+     * Message.replyTo must be a valid Messenger.
+     */
+    void queryVtQuality(in Message response);
+
+    /**
+     * Set for current video call quality.
+     * @param quality - Video call quality to set: 0-LOW; 1-HIGH.
+     * @param response - Message object is used to send back the status and quality value.
+     * Message.arg1 contains 0 if the request succeeded, non-zero otherwise.
+     * Message.replyTo must be a valid Messenger.
+     */
+    void setVtQuality(int quality, in Message response);
 }
 

@@ -62,6 +62,8 @@ public class ImsEditor extends PreferenceActivity
     private static final int MENU_REMOVE = Menu.FIRST + 2;
     private static final int EVENT_QUERY_SERVICE_STATUS = 1;
     private static final int EVENT_SET_SERVICE_STATUS = 2;
+    private static final int EVENT_SET_VT_CALL_QUALITY = 3;
+    private static final int EVENT_QUERY_VT_CALL_QUALITY = 4;
 
     private static final String IMS_CALL_TYPE_VOICE = "Voice";
     private static final String IMS_CALL_TYPE_VIDEO = "Video";
@@ -76,8 +78,11 @@ public class ImsEditor extends PreferenceActivity
     private Button mRemoveButton;
     private MultiSelectListPreference mUseAlwaysPref;
     private ListPreference mCallTypePref;
+    private ListPreference mVideoCallQuality;
     private IImsService mImsService = null;
     private boolean mIsImsListenerRegistered = false;
+    private Handler mHandler;
+    private Messenger mMessenger;
 
     enum PreferenceKey {
         CALLTYPE(R.string.call_type, R.string.default_call_type,
@@ -139,6 +144,9 @@ public class ImsEditor extends PreferenceActivity
 
         mSharedPreferences = new ImsSharedPreferences(this);
 
+        mHandler = new ImsEditorHandler();
+        mMessenger = new Messenger(mHandler);
+
         setContentView(R.layout.ims_settings_ui);
         addPreferencesFromResource(R.xml.ims_edit);
 
@@ -150,9 +158,12 @@ public class ImsEditor extends PreferenceActivity
                 .findPreference(getString(R.string.ims_call_type_control));
         mCallTypePref = (ListPreference) getPreferenceScreen().findPreference(
                 getString(R.string.call_type));
+        mVideoCallQuality = (ListPreference) screen
+                .findPreference(getString(R.string.ims_vt_call_quality));
         screen.setTitle(R.string.ims_edit_title);
         bindImsService();
         loadPreferences();
+        loadVideoCallQualityPrefs();
 
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
@@ -171,7 +182,8 @@ public class ImsEditor extends PreferenceActivity
         }
     }
 
-    private Handler mHandler = new Handler() {
+
+    private class ImsEditorHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
             switch(msg.what) {
@@ -187,6 +199,12 @@ public class ImsEditor extends PreferenceActivity
                     } else {
                         enablePref(mUseAlwaysPref, false);
                     }
+                    break;
+                case EVENT_SET_VT_CALL_QUALITY:
+                    handleSetVideoCallQuality(msg);
+                    break;
+                case EVENT_QUERY_VT_CALL_QUALITY:
+                    handleGetVideoCallQuality(msg);
                     break;
                 default:
                     Log.e(TAG, "Unhandled message " + msg.what);
@@ -207,11 +225,6 @@ public class ImsEditor extends PreferenceActivity
         }
     }
 
-    private Messenger createMessenger() {
-        Messenger msg = new Messenger(mHandler);
-        return msg;
-    }
-
     private ServiceConnection ImsServiceConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.v(TAG, "ImsEditor Ims Service Connected");
@@ -227,13 +240,14 @@ public class ImsEditor extends PreferenceActivity
                 }
                 try {
                     mImsService.queryImsServiceStatus(
-                            EVENT_QUERY_SERVICE_STATUS, createMessenger());
+                            EVENT_QUERY_SERVICE_STATUS, mMessenger);
                     enablePref(mUseAlwaysPref, false);
                 }
                 catch (Exception e) {
                     Log.e(TAG, "Exception = " + e);
                 }
             }
+            queryVideoQuality();
         }
 
         public void onServiceDisconnected(ComponentName arg0) {
@@ -250,7 +264,7 @@ public class ImsEditor extends PreferenceActivity
      */
     IImsServiceListener imsServListener = new IImsServiceListener.Stub() {
         public void imsUpdateServiceStatus(int service, int status) {
-            Log.v(TAG, "imsUpdateServiceStatus response service " + service + "status = " + status);
+            Log.d(TAG, "imsUpdateServiceStatus response service " + service + "status = " + status);
             mSharedPreferences.setImsSrvStatus(service, status);
             loadPreferences();
         }
@@ -411,6 +425,7 @@ public class ImsEditor extends PreferenceActivity
         }
         PreferenceKey.CALLTYPE.setValue(convertCallTypeToStr(mSharedPreferences.getCallType()));
         PreferenceKey.CALLTYPE.preference.setSelectable(mSharedPreferences.isCallTypeSelectable());
+        enablePref(mVideoCallQuality, vtSupp);
     }
 
     private void validateAndSetResult() {
@@ -446,13 +461,13 @@ public class ImsEditor extends PreferenceActivity
                 Log.d(TAG, "Voice Pref Changed - sending SET Request");
                 mImsService.setServiceStatus(Phone.CALL_TYPE_VOICE, -1,
                         mSharedPreferences.getisImsCapEnabled(Phone.CALL_TYPE_VOICE) ? 0 : 1,
-                        0, EVENT_SET_SERVICE_STATUS, createMessenger());
+                        0, EVENT_SET_SERVICE_STATUS, mMessenger);
             }
             if (!(hasVT && mSharedPreferences.getisImsCapEnabled(Phone.CALL_TYPE_VT))) {
                 Log.d(TAG, "Video Pref Changed - sending SET Request");
                 mImsService.setServiceStatus(Phone.CALL_TYPE_VT, -1,
                         mSharedPreferences.getisImsCapEnabled(Phone.CALL_TYPE_VT) ? 0 : 1,
-                        0, EVENT_SET_SERVICE_STATUS, createMessenger());
+                        0, EVENT_SET_SERVICE_STATUS, mMessenger);
             }
             enablePref(mUseAlwaysPref, false);
         } catch (Exception e) {
@@ -476,6 +491,12 @@ public class ImsEditor extends PreferenceActivity
         if (pref.equals(mUseAlwaysPref)) {
             handleCallDefaultPrefChange(pref, newValue);
         }
+        if (pref.equals(mVideoCallQuality)) {
+            final int quality = Integer.parseInt(value);
+            setVideoQuality(quality);
+            mSharedPreferences.saveVideoCallQuality(quality);
+            loadVideoCallQualityPrefs();
+        }
         return true;
     }
 
@@ -494,6 +515,86 @@ public class ImsEditor extends PreferenceActivity
                 key.preference = pref;
                 return;
             }
+        }
+    }
+
+    private void handleGetVideoCallQuality(Message msg) {
+        if (hasMsgrRequestFailed(msg)) {
+            Log.e(TAG, "VideoCallQuality: query failed. errorCode=" + msg.arg1);
+        } else if (msg.obj == null){
+            Log.e(TAG, "VideoCallQuality: query failed. object is null.");
+        } else if (!(msg.obj instanceof int[])){
+            Log.e(TAG, "VideoCallQuality: invalid object");
+        } else {
+            final int quality = ((int[]) msg.obj)[0];
+            Log.d(TAG, "VideoCallQuality: value=" + quality);
+            mSharedPreferences.saveVideoCallQuality(quality);
+            loadVideoCallQualityPrefs();
+        }
+    }
+
+    private void handleSetVideoCallQuality(Message msg) {
+        if (hasMsgrRequestFailed(msg)) {
+            Log.e(TAG, "VideoCallQuality: set failed. errorCode=" + msg.arg1);
+            Toast.makeText(this, R.string.ims_vt_call_quality_set_failed,
+                    Toast.LENGTH_SHORT).show();
+            queryVideoQuality(); // Set request failed, request current value.
+        } else {
+            Log.d(TAG, "VideoCallQuality: set succeeded.");
+        }
+    }
+
+    private void loadVideoCallQualityPrefs() {
+        final int vqValue = mSharedPreferences.readVideoCallQuality();
+        final String videoQuality = videoQualityToString(vqValue);
+        Log.d(TAG, "loadVideoCallQualityPrefs, vqValue=" + vqValue);
+        mVideoCallQuality.setValue(String.valueOf(vqValue));
+        mVideoCallQuality.setSummary(videoQuality);
+    }
+
+    private void queryVideoQuality() {
+        try {
+            if (mImsService != null) {
+                mImsService.queryVtQuality(obtainMessage(EVENT_QUERY_VT_CALL_QUALITY));
+            } else {
+                Log.e(TAG, "queryVtQuality failed. ImsService is null");
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "queryVtQuality failed. Exception=" + e);
+        }
+    }
+
+    private void setVideoQuality(int quality) {
+        try {
+            if (mImsService != null) {
+                mImsService.setVtQuality(quality, obtainMessage(EVENT_SET_VT_CALL_QUALITY));
+            } else {
+                Log.e(TAG, "setVtQuality failed. ImsService is null");
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "setVtQuality failed. Exception=" + e);
+        }
+    }
+
+    private Message obtainMessage(int event) {
+        Message msg = mHandler.obtainMessage(event);
+        msg.replyTo = mMessenger;
+        return msg;
+    }
+
+    private boolean hasMsgrRequestFailed(Message msg) {
+        final int ERROR_SUCCESS = 0;
+        return (msg == null) || (msg.arg1 != ERROR_SUCCESS);
+    }
+
+    private String videoQualityToString(int quality) {
+        switch (quality) {
+            case ImsSharedPreferences.VT_QUALITY_HIGH:
+                return getString(R.string.ims_vt_call_quality_high);
+            case ImsSharedPreferences.VT_QUALITY_LOW:
+                return getString(R.string.ims_vt_call_quality_low);
+            default:
+                return getString(R.string.ims_vt_call_quality_unknown);
         }
     }
 }

@@ -80,4 +80,9 @@ oneway interface ICallHandlerService {
      * Called when the active subscription changes.
      */
     void onActiveSubChanged(in int activeSub);
+
+    /**
+     * Called when a SuppService Fails.
+     */
+    void onSuppServiceFailed(in int service);
 }

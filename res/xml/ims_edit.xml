@@ -39,4 +39,13 @@
         android:persistent="false"
         android:dialogTitle="@string/mo_call_type_title"/>
 
+    <ListPreference
+        android:key="@string/ims_vt_call_quality"
+        android:title="@string/ims_vt_call_quality_title"
+        android:entries="@array/ims_vt_call_quality_entries"
+        android:entryValues="@array/ims_vt_call_quality_values"
+        android:summary="@string/ims_vt_call_quality_unknown"
+        android:persistent="false"
+        android:dialogTitle="@string/ims_vt_call_quality_title"/>
+
 </PreferenceScreen>
