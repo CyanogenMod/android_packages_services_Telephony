@@ -24,6 +24,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.AsyncResult;
 import android.os.Bundle;
@@ -72,6 +73,10 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
     private static final String BUTTON_ROAMING_KEY = "button_roaming_key";
     private static final String BUTTON_PREFERED_NETWORK_MODE = "preferred_network_mode_key";
     private static final String BUTTON_UPLMN_KEY = "button_uplmn_key";
+
+    // Used for restoring the preference if APSS tune away is enabled
+    private static final String KEY_PREF_NETWORK_MODE = "pre_network_mode_sub";
+    private static final String PREF_FILE = "pre-network-mode";
 
     static final int preferredNetworkMode = Phone.PREFERRED_NT_MODE;
 
@@ -424,6 +429,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 int networkMode = Integer.valueOf(
                         mButtonPreferredNetworkMode.getValue()).intValue();
                 setPreferredNetworkMode(networkMode);
+                setPrefNetworkTypeInSp(networkMode);
             } else {
                 mPhone.getPreferredNetworkType(obtainMessage(MESSAGE_GET_PREFERRED_NETWORK_TYPE));
             }
@@ -604,5 +610,15 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         log("Set Data Roaming for phoneId-" + mPhone.getPhoneId() + " is " + enabled);
 
         mPhone.setDataRoamingEnabled(enabled);
+    }
+
+    private void setPrefNetworkTypeInSp(int preNetworkType) {
+        SharedPreferences sp = mPhone.getContext().getSharedPreferences(PREF_FILE,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt(KEY_PREF_NETWORK_MODE + mPhone.getPhoneId(), preNetworkType);
+        editor.apply();
+        log("updating network type : " + preNetworkType + " for phoneId : " + mPhone.getPhoneId() +
+            " in shared preference" + " context is : " + mPhone.getContext());
     }
 }
