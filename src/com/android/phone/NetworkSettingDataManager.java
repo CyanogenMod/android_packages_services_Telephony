@@ -41,8 +41,8 @@ import android.net.ConnectivityManager;
 import android.os.AsyncResult;
 import android.os.Message;
 import android.os.RemoteException;
-import android.telephony.MSimTelephonyManager;
 import android.telephony.ServiceState;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -54,18 +54,18 @@ import com.android.internal.telephony.TelephonyIntents;
 public class NetworkSettingDataManager {
     private static final String LOG_TAG = "phone";
     private static final boolean DBG = true;
-    Phone mPhone;
     Context mContext;
     private ConnectivityManager mCm;
+    private TelephonyManager mTelephonyManager;
     private boolean mNetworkSearchDataDisconnecting = false;
     private boolean mNetworkSearchDataDisabled = false;
     Message mMsg;
 
-    public NetworkSettingDataManager(Phone phohe, Context context) {
-        mPhone = phohe;
+    public NetworkSettingDataManager(Context context) {
         mContext  = context;
         if (DBG) log("Create NetworkSettingDataManager");
         mCm = (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+        mTelephonyManager = (TelephonyManager)mContext.getSystemService(Context.TELEPHONY_SERVICE);
     }
 
     /**
@@ -77,7 +77,7 @@ public class NetworkSettingDataManager {
             String action = intent.getAction();
             if (mNetworkSearchDataDisconnecting) {
                 if (action.equals(TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED)) {
-                    if (mPhone.getDataConnectionState() == PhoneConstants.DataState.DISCONNECTED) {
+                    if (mTelephonyManager.getDataState() == TelephonyManager.DATA_DISCONNECTED) {
                         log("network disconnect data done");
                         mNetworkSearchDataDisabled = true;
                         mNetworkSearchDataDisconnecting = false;
@@ -92,7 +92,7 @@ public class NetworkSettingDataManager {
 
     public void updateDataState(boolean enable, Message msg) {
         if (!enable) {
-            if (mPhone.getDataConnectionState() == PhoneConstants.DataState.CONNECTED) {
+            if (mTelephonyManager.getDataState() == TelephonyManager.DATA_CONNECTED) {
                 log("Data is in CONNECTED state");
                 mMsg = msg;
                 ConfirmDialogListener listener = new ConfirmDialogListener(msg);
