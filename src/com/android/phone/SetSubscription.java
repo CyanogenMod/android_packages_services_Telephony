@@ -51,6 +51,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.telephony.MSimTelephonyManager;
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
@@ -266,7 +267,6 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
     private void populateList() {
         PreferenceScreen prefParent = (PreferenceScreen) getPreferenceScreen().
                 findPreference(PREF_PARENT_KEY);
-        int[] subGroupTitle = {R.string.card_01, R.string.card_02, R.string.card_03};
 
         Log.d(TAG, "populateList:  mCardSubscrInfo.length = " + mCardSubscrInfo.length);
 
@@ -276,10 +276,16 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
             if ((cardSub != null ) && (cardSub.getLength() > 0)) {
                 int i = 0;
 
-                // Create a subgroup for the apps in card 01
+                MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
+                String operatorName = tm.getSimState(k) != SIM_STATE_ABSENT
+                    ? tm.getNetworkOperatorName(k) : getString(R.string.sub_no_sim);
+                String subGroupTitle = getString(R.string.multi_sim_entry_format,
+                    operatorName, k + 1);
+
+                // Create a subgroup for the apps in each card
                 PreferenceCategory subGroup = new PreferenceCategory(this);
                 subGroup.setKey("sub_group_" + k);
-                subGroup.setTitle(subGroupTitle[k]);
+                subGroup.setTitle(subGroupTitle);
                 prefParent.addPreference(subGroup);
 
                 // Add each element as a CheckBoxPreference to the group

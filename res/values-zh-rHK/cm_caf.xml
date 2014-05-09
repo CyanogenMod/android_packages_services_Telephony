@@ -16,6 +16,16 @@
      limitations under the License.
 -->
 <resources>
+  <string name="preferred_network_mode_td_scdma_only_summary">首選網絡模式：僅 TD-SCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">首選網絡模式：TD-SCDMA / WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_summary">首選網絡模式：TD-SCDMA / LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_summary">首選網絡模式：TD-SCDMA / GSM</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">首選網絡模式：TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">首選網絡模式：TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">首選網絡模式：TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">首選網絡模式：TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">首選網絡模式：TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">首選網絡模式：TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="mobile_network_setting">流動網路設定</string>
   <string name="delete">刪除</string>
 </resources>

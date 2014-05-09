@@ -79,4 +79,5 @@
   <string name="choose_forward_lookup_provider_title">Dostawca wyszukiwania naprzód</string>
   <string name="choose_people_lookup_provider_title">Dostawca wyszukiwania osób</string>
   <string name="choose_reverse_lookup_provider_title">Dostawca wyszukiwania wstecz</string>
+  <string name="sub_no_sim">Brak karty SIM</string>
 </resources>

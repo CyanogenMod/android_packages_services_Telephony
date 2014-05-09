@@ -147,9 +147,6 @@
   <string name="exportAllcontatsNoContacts">No s\'han trobat contactes per exportar a la SIM</string>
   <string name="cursorError">Dades del cursor invàlides</string>
   <string name="set_subscription">Selecciona la subscripció</string>
-  <string name="card_01">Targeta 1 / SUB 1</string>
-  <string name="card_02">Targeta 2 / SUB 2</string>
-  <string name="card_03">Targeta 3 / SUB 3</string>
   <string name="set_subscription_error_atleast_one">Selecciona almenys una subscripció</string>
   <string name="set_uicc_subscription_progress">Establint subscripció\u2026</string>
   <string name="set_sub_success">La subscripció s\'ha establert amb èxit</string>

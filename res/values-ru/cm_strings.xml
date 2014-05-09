@@ -22,7 +22,7 @@
   <string name="call_notif_cugcall">Вызов в частную группу</string>
   <string name="call_notif_outgoing_barred">Исходящий вызов запрещён</string>
   <string name="call_notif_incoming_barred">Входящий вызов удалённо запрещён</string>
-  <string name="call_notif_clir_suppression_rejected">Анти-АОН во время этого вызова отключен сетью</string>
+  <string name="call_notif_clir_suppression_rejected">Анти-АОН во время этого вызова отключён сетью</string>
   <string name="call_notif_call_deflected">Вызов удалённо переадресован</string>
   <string name="call_notif_MTcall_forwarding">Входящий вызов переадресован</string>
   <string name="call_notif_multipartycall">Входящая конференц-связь</string>
@@ -80,4 +80,6 @@
   <string name="choose_people_lookup_provider_title">Поставщик поиска данных о людях</string>
   <string name="choose_reverse_lookup_provider_title">Поставщик обратного поиска</string>
   <string name="sub_no_sim">Нет SIM-карты</string>
+  <string name="msim_call_selector_title">Позвонить: <xliff:g id="number">%s</xliff:g></string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>

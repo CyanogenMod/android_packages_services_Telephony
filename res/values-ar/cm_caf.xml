@@ -148,9 +148,6 @@
   <string name="exportAllcontatsNoContacts">لا جهات اتصال التي وجدت للتصدير إلى بطاقة SIM</string>
   <string name="cursorError">بيانات المؤشر غير صالح</string>
   <string name="set_subscription">حدد الاشتراك</string>
-  <string name="card_01">بطاقة 1/SUB 1</string>
-  <string name="card_02">بطاقة 2/SUB 2</string>
-  <string name="card_03">بطاقة 3/SUB 3</string>
   <string name="set_subscription_error_atleast_one">حدد اشتراك واحد على الأقل</string>
   <string name="set_uicc_subscription_progress">إعداد الإشتراك\u2026</string>
   <string name="set_sub_success">تم الاشتراك بنجاح</string>

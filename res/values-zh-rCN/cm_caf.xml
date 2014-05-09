@@ -17,6 +17,7 @@
 -->
 <resources>
   <string name="label_sdp">SIM 卡的解锁 PIN 码</string>
+  <string name="label_rdp">RUIM 解锁 PIN 码</string>
   <string name="label_puk">输入 PUK 码</string>
   <string name="puk_unlock_failed">PUK 码解锁失败。</string>
   <string name="sim_unlock_success">SIM 卡解锁成功。</string>
@@ -35,6 +36,11 @@
   <string name="network_settings_sel_sub">订阅设置</string>
   <string name="network_manage_settings">网络设置</string>
   <string name="title_data_settings">数据设置</string>
+  <string name="call_ind_services">通话独立服务</string>
+  <string name="callind_multi_sim">订阅设置</string>
+  <string name="callind">通话功能设置</string>
+  <string name="sub1">订阅 1</string>
+  <string name="sub1_summary">管理订阅 1</string>
   <string name="xdivert_title">X-Divert</string>
   <string name="phone_numbers">输入电话号码</string>
   <string name="proceed">继续</string>

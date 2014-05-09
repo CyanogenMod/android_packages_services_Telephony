@@ -147,9 +147,6 @@
   <string name="exportAllcontatsNoContacts">Δεν βρέθηκαν επαφές για εξαγωγή στη SIM</string>
   <string name="cursorError">Μη έγκυρα δεδομένα κέρσορα</string>
   <string name="set_subscription">Επιλογή συνδρομής</string>
-  <string name="card_01">Κάρτα 1 / ΣΥΝΔΡ 1</string>
-  <string name="card_02">Κάρτα 2 / ΣΥΝΔΡ 2</string>
-  <string name="card_03">Κάρτα 3 / ΣΥΝΔΡ 3</string>
   <string name="set_subscription_error_atleast_one">Επιλέξτε τουλάχιστον μια συνδρομή</string>
   <string name="set_uicc_subscription_progress">Ορισμός συνδρομής\u2026</string>
   <string name="set_sub_success">Η συνδρομή ορίστηκε με επιτυχία</string>
