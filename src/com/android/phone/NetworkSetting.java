@@ -284,7 +284,7 @@ public class NetworkSetting extends PreferenceActivity
                 Context.BIND_AUTO_CREATE);
         if (getApplicationContext().getResources().getBoolean(
                 R.bool.config_disable_data_manual_plmn)) {
-            mDataManager = new NetworkSettingDataManager(mPhone, getApplicationContext());
+            mDataManager = new NetworkSettingDataManager(getApplicationContext());
         }
     }
 
