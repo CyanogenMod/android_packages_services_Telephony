@@ -254,6 +254,15 @@ class CallCommandService extends ICallCommandService.Stub {
     }
 
     @Override
+    public void updateMuteState(int sub, boolean muted) {
+        try {
+            PhoneUtils.updateMuteState(sub, muted);
+        } catch (Exception e) {
+            Log.e(TAG, "Error during updateMuteState().", e);
+        }
+    }
+
+    @Override
     public void speaker(boolean onOff) {
         try {
             PhoneUtils.turnOnSpeaker(mContext, onOff, true);
