@@ -149,4 +149,9 @@ interface ICallCommandService {
      * However retains the LCH state of the subscription.
      */
     void setActiveSubRetainLch(int subscriptionId);
+
+    /**
+     * Update connection mute state accordingly.
+     */
+    void updateMuteState(int subscriptionId, boolean muted);
 }
