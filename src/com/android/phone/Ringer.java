@@ -180,6 +180,7 @@ public class Ringer {
             int ringerVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_RING);
             if (ringerVolume == 0 && mRingerVolumeSetting <= 0) {
                 if (DBG) log("skipping ring because volume is zero");
+                PhoneUtils.setAudioMode();
                 return;
             }
 
