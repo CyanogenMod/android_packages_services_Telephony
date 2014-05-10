@@ -145,10 +145,14 @@ interface ICallCommandService {
     void setActiveSubscription(int subscriptionId);
 
     /**
-     * Sets the subscriptionId as new active subscription.
-     * However retains the LCH state of the subscription.
+     * Sets the subscriptionId as new conversation subscription.
      */
-    void setActiveSubRetainLch(int subscriptionId);
+    void setSubInConversation(int subscriptionId);
+
+    /**
+     * Sets the subscriptionId as new active subscription and conversation subscription.
+     */
+    void setActiveAndConversationSub(int subscriptionId);
 
     /**
      * Update connection mute state accordingly.
