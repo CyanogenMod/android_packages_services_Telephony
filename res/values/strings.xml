@@ -1186,15 +1186,15 @@
 
     <!-- XDivert Settings -->
     <!-- Title for the XDivert Feature displayed in Call Settings -->
-    <string name="xdivert_title">X-Divert</string>
+    <string name="xdivert_title" translatable="false">X-Divert</string>
     <!-- Summary for the XDivert Feature displayed in Call Settings -->
     <string name="xdivert_summary">CFNRc Settings</string>
     <string name="phone_numbers">Enter phone numbers</string>
     <string name="sub1LineNumber">Sub 1 number:</string>
     <string name="sub2LineNumber">Sub 2 number:</string>
     <string name="proceed">Proceed</string>
-    <string name="xdivert_button">X-Divert</string>
-    <string name="xdivert_setting">X-Divert</string>
+    <string name="xdivert_button" translatable="false">X-Divert</string>
+    <string name="xdivert_setting" translatable="false">X-Divert</string>
     <string name="sum_xdivert_enabled">X-Divert enabled</string>
     <string name="sum_xdivert_disabled">X-Divert disabled</string>
     <string name="xdivert_not_supported">X-Divert not supported for CDMA</string>
