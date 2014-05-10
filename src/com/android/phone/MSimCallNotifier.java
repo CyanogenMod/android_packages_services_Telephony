@@ -363,8 +363,8 @@ public class MSimCallNotifier extends CallNotifier {
         if (state == PhoneConstants.State.OFFHOOK) {
             if (DBG) log("unknown connection appeared...");
 
-            // update the active sub before launching incall UI.
-            PhoneUtils.setActiveSubscription(subscription);
+            // update the active sub & conversation sub before launching incall UI.
+            PhoneUtils.setActiveAndConversationSub(subscription);
             // basically do onPhoneStateChanged + display the incoming call UI
             onPhoneStateChanged(r);
         }
@@ -772,6 +772,28 @@ public class MSimCallNotifier extends CallNotifier {
                     mIsCdmaRedialCall = false;
                 }
             }
+            int activeSub = PhoneUtils.getActiveSubscription();
+            int ConversationSub = mCM.getSubInConversation();
+            if (PhoneUtils.getOtherActiveSub(activeSub) == MSimConstants.INVALID_SUBSCRIPTION
+                    && mCM.getState(activeSub) == PhoneConstants.State.IDLE) {
+                log("No calls active on both subs");
+                // No calls active on both subs, below call takes care of stopping tones
+                PhoneUtils.setSubInConversation(MSimConstants.INVALID_SUBSCRIPTION);
+            } else if (subscription == ConversationSub && mCM.getState(subscription)
+                    == PhoneConstants.State.IDLE) {
+                log("No calls active in conversation sub, only update conversation sub");
+                // Calls active on active sub, but not on conversation sub
+                mCM.setSubInConversation(MSimConstants.INVALID_SUBSCRIPTION);
+            } else if (subscription == activeSub && ConversationSub !=
+                    MSimConstants.INVALID_SUBSCRIPTION && mCM.getState(activeSub)
+                    == PhoneConstants.State.OFFHOOK) {
+                // Call on active sub disconnected while user is in conversation on another sub
+                // In this case, if no other calls on active sub, then InCallPresenter takes
+                // care of switching sub to other sub and setting mute on other sub.
+                // If active sub has other calls, then set active sub to conversation sub here
+                log("Set active sub to conversation sub " + ConversationSub);
+                PhoneUtils.setActiveSubscription(ConversationSub);
+            }
         }
     }
 
@@ -862,6 +884,7 @@ public class MSimCallNotifier extends CallNotifier {
                             + activeSub + " other sub = " + otherSub);
                     reStartMSimInCallTones();
                 } else {
+                    if (VDBG) log(" entered manageMSimInCallTones ");
                     startMSimInCallTones();
                 }
             }
