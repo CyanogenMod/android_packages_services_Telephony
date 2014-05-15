@@ -896,15 +896,10 @@ public class MSimCallNotifier extends CallNotifier {
 
     public void reStartMSimInCallTones() {
         stopMSimInCallTones();
-        if (sLocalCallHoldToneEnabled) {
-            /* Remove any pending PHONE_START_MSIM_INCALL_TONE messages from queue */
-            removeMessages(PHONE_START_MSIM_INCALL_TONE);
-            Message message = Message.obtain(this, PHONE_START_MSIM_INCALL_TONE);
-            sendMessageDelayed(message, 100);
-        } else {
-            /* Dont need 100 msec delay when SCH tones to be sent as DTMF */
-            playLchDtmf();
-        }
+        /* Remove any pending PHONE_START_MSIM_INCALL_TONE messages from queue */
+        removeMessages(PHONE_START_MSIM_INCALL_TONE);
+        Message message = Message.obtain(this, PHONE_START_MSIM_INCALL_TONE);
+        sendMessageDelayed(message, 100);
     }
 
     private void playLchDtmf() {
