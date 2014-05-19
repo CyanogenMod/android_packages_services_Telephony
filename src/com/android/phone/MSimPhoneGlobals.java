@@ -639,7 +639,8 @@ public class MSimPhoneGlobals extends PhoneGlobals {
 
         if (sub == -1) {
             for (int i = 0; i < count; i++) {
-                if (tm.getSimState(i) == TelephonyManager.SIM_STATE_READY) {
+                if ((tm.getSimState(i) == TelephonyManager.SIM_STATE_READY)
+                        && (subManager.isSubActive(i))) {
                     sub = i;
                     if (sub == voiceSub) break;
                 }
