@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">SIM alt şebeke kilit açma PINi</string>
   <string name="label_cdp">SIM şirket kilidi açma PINi</string>
   <string name="label_spdp">SIM servis sağlayıcısı kilidi açma PINi</string>
@@ -91,22 +91,19 @@
   <string name="prompt_user">Kullanıcıya sor</string>
   <string name="tty_mode_not_allowed_vt_call">TTY modu değişimine VT çağrısı esnasında izin verilmiyor</string>
   <string name="fdn_service_unavailable">FDN hizmeti kullanılabilir değil.</string>
-  <string name="exportContacts">Kişiler SIM karta aktarılıyor</string>
+  <string name="exportContacts">Kişiler SIM karta aktarılıyor\u2026</string>
   <string name="onscreenSwitchText">Aboneliği değiştir</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">CFNRc Ayarları</string>
   <string name="phone_numbers">Telefon numaralarını girin</string>
-  <string name="sub1LineNumber">Sub 1 no:</string>
-  <string name="sub2LineNumber">Sub 2 no:</string>
+  <string name="sub1LineNumber">Abonelik 1 no:</string>
+  <string name="sub2LineNumber">Abonelik 2 no:</string>
   <string name="proceed">Devam edin</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">X-Divert etkinleştirildi</string>
   <string name="sum_xdivert_disabled">X-Divert devre dışı bırakıldı</string>
   <string name="xdivert_not_supported">X-Divert CDMA için desteklenmiyor</string>
   <string name="xdivert_enternumber_error">Her iki abonelik için telefon numarasını girin</string>
   <string name="xdivert_partial_set">X-Divert sadece ilk abonelik için ayarlanabilir</string>
-  <string name="xdivert_sub_absent">X-Divertin çalışması için her iki abonelikte etkinleştirilmiş olmalı</string>
+  <string name="xdivert_sub_absent">X-Divert\'in çalışması için her iki abonelik de etkinleştirilmiş olmalı</string>
   <string name="xdivert_status">X-Divert durumu</string>
   <string name="xdivert_active">Aktif</string>
   <string name="xdivert_not_active">Aktif değil</string>
@@ -119,7 +116,7 @@
   <string name="mo_call_type_title">MO çağrı türü</string>
   <string name="ims_service_capability">Hizmet özelliğini etkinleştir/devre dışı bırak</string>
   <string name="ims_service_capability_title">IMS servis özelliği</string>
-  <string name="use_ims_default_summary">Sesli aramalar için IMS kullan</string>
+  <string name="use_ims_default_summary">Tüm sesli aramalar için IMS kullan</string>
   <string name="ims_menu_save">Kaydet</string>
   <string name="ims_menu_discard">İptal et</string>
   <string name="remove_ims_account">Hesabı kaldır</string>
@@ -129,22 +126,22 @@
   <string name="deleteAllSimEntries">Tüm SIM kişilerini sil</string>
   <string name="deleteSimContacts">SIM kişileri siliniyor\u2026</string>
   <string name="editContact">Düzenle</string>
-  <string name="sendSms">SMS/MMS gönder</string>
+  <string name="sendSms">SMS gönder</string>
   <string name="delete">Sil</string>
   <string name="dial">Ara</string>
   <string name="enterName">İsim girin:</string>
   <string name="enterNumber">Telefon numarası girin:</string>
   <string name="contactAddSuccess">Başarıyla kişi SIM\'e eklendi</string>
-  <string name="contactAddFailed">SIMe kişi ekleme başarısız oldu</string>
-  <string name="contactUpdateSuccess">SIMdeki kişi başarıyla güncellendi</string>
-  <string name="contactUpdateFailed">SIMdeki kişi güncellemesi başarısız oldu</string>
-  <string name="contactdeleteSuccess">Kişi SIMden başarıyla silindi</string>
+  <string name="contactAddFailed">SIM\'e kişi ekleme başarısız oldu</string>
+  <string name="contactUpdateSuccess">SIM\'deki kişi başarıyla güncellendi</string>
+  <string name="contactUpdateFailed">SIM\'deki kişi güncellemesi başarısız oldu</string>
+  <string name="contactdeleteSuccess">Kişi SIM\'den başarıyla silindi</string>
   <string name="contactdeleteFailed">SIM karttan kişi silme başarısız oldu</string>
   <string name="allContactdeleteSuccess">SIM\'deki tüm kişiler başarıyla silindi</string>
-  <string name="allContactdeleteFailed">SIMdeki tüm kişiler silinemedi</string>
-  <string name="exportAllcontatsSuccess">Tüm kişiler SIMe başarıyla aktarıldı</string>
-  <string name="exportAllcontatsFailed">Tüm kişiler SIMe aktarılamadı</string>
-  <string name="exportAllcontatsNoContacts">SIMe aktarılacak kişi bulunamadı</string>
+  <string name="allContactdeleteFailed">SIM\'deki tüm kişiler silinemedi</string>
+  <string name="exportAllcontatsSuccess">Tüm kişiler SIM\'e başarıyla aktarıldı</string>
+  <string name="exportAllcontatsFailed">Tüm kişiler SIM\'e aktarılamadı</string>
+  <string name="exportAllcontatsNoContacts">SIM\'e aktarılacak kişi bulunamadı</string>
   <string name="cursorError">Geçersiz imleç verisi</string>
   <string name="set_subscription">Abonelik seçin</string>
   <string name="set_subscription_error_atleast_one">En az bir abonelik seçin</string>
@@ -158,13 +155,13 @@
   <string name="set_sub_deactivate_success">Devre dışı bırakma başarılı</string>
   <string name="set_sub_activate_failed">Etkinleştirme başarısız oldu</string>
   <string name="set_sub_global_activate_failed">Genel etkinleştirme başarısız oldu</string>
-  <string name="set_sub_global_deactivate_failed">genel pasifleştirme başarısız oldu</string>
+  <string name="set_sub_global_deactivate_failed">Genel devre dışı bırakma başarısız oldu</string>
   <string name="set_sub_deactivate_failed">Devre dışı bırakma başarısız</string>
   <string name="set_sub_activate_not_supported">Etkinleştirme desteklenmiyor</string>
   <string name="set_sub_deactivate_not_supported">Devre dışı bırakma özelliği desteklenmiyor</string>
   <string name="set_sub_no_change">Abonelikte değişiklik yok</string>
-  <string name="new_cards_available">Yeni kart kullanılabilir. Lütfen aboneliklerinizi yapılandırın.</string>
+  <string name="new_cards_available">Yeni kart takıldı. Lütfen aboneliklerinizi yapılandırın.</string>
   <string name="config_sub_title">Abonelikleri yapılandırın</string>
-  <string name="deact_all_sub_not_supported">Tüm üyeliklerin pasifleştirilmesi desteklenmiyor.</string>
-  <string name="set_sub_not_supported_phone_in_call">Çağrı esnasında aboneliklerin etkinleştirilmesi veya pasifleştirilmesi desteklenmiyor.</string>
+  <string name="deact_all_sub_not_supported">Tüm aboneliklerin devre dışı bırakılması desteklenmiyor.</string>
+  <string name="set_sub_not_supported_phone_in_call">Çağrı esnasında aboneliklerin etkinleştirilmesi veya devre dışı bırakılması desteklenmiyor.</string>
 </resources>

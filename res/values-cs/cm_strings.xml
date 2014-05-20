@@ -81,4 +81,5 @@
   <string name="choose_reverse_lookup_provider_title">Poskytovatel zpětného vyhledávání</string>
   <string name="sub_no_sim">Není SIM karta</string>
   <string name="msim_call_selector_title">Volání <xliff:g id="number">%s</xliff:g> pomocí</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>

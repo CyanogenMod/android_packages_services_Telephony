@@ -15,14 +15,22 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_spdp">קוד הפתיחה של ספק הסים</string>
   <string name="label_sdp">קוד PIN לפתיחת SIM</string>
+  <string name="label_rn1dp">קוד PIN לפתיחת רשת RUIM 1</string>
+  <string name="label_rn2dp">קוד PIN לפתיחת רשת RUIM 2</string>
+  <string name="label_rhrpd">קוד PIN לפתיחת RUIM HRPD</string>
   <string name="label_rdp">קוד PIN לפתיחת RUIM</string>
   <string name="label_puk">הזן PUK</string>
   <string name="requesting_sim_unlock">דרוש פתיחת SIM\u2026</string>
   <string name="requesting_ruim_unlock">מבקש פתיחת RUIM\u2026</string>
   <string name="requesting_puk_unlock">מבקש פתיחת PUK\u2026</string>
+  <string name="sim_unlock_failed">בקשת פתיחת SIM נכשלה.</string>
+  <string name="rnw1_unlock_failed">בקשת פתיחת RUIM רשת 1 נכשלה.</string>
+  <string name="rnw2_unlock_failed">בקשת פתיחת RUIM רשת 2 נכשלה.</string>
+  <string name="rhrpd_unlock_failed">בקשת פתיחת RUIM HRPD נכשלה.</string>
+  <string name="ruim_unlock_failed">בקשת פתיחת RUIM נכשלה.</string>
   <string name="puk_unlock_failed">פתיחת PUK נכשלה.</string>
   <string name="sim_unlock_success">פתיחת SIM הצליחה.</string>
   <string name="rnw1_unlock_success">פתיחת רשת RUIM 1 הצליחה.</string>
@@ -59,30 +67,32 @@
   <string name="sub3_summary">נהל הרשמה 3</string>
   <string name="prompt">שאל</string>
   <string name="prompt_user">שאל משתמש</string>
+  <string name="fdn_service_unavailable">שירות FDN אינו זמין.</string>
   <string name="exportContacts">מיצא אנשי קשר ל-SIM\u2026</string>
   <string name="onscreenSwitchText">החלף הרשמה</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">הגדרות CFNRc</string>
   <string name="phone_numbers">הזן מספרי טלפון</string>
   <string name="sub1LineNumber">מספר הרשמה 1:</string>
   <string name="sub2LineNumber">מספר הרשמה 2:</string>
   <string name="proceed">המשך</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">X-Divert מופעל</string>
   <string name="sum_xdivert_disabled">X-Divert מושבת</string>
   <string name="xdivert_not_supported">X-Divert לא תומך ב-CDMA</string>
   <string name="xdivert_enternumber_error">הזן מספר טלפון עבור שתי ההרשמות</string>
   <string name="xdivert_partial_set">X-Divert הוגדר רק להרשמה הראשונה</string>
+  <string name="xdivert_sub_absent">שתי ההרשמות צריכות להיות מופעלות כדי להפעיל את X-Divert</string>
   <string name="xdivert_status">מצב X-Divert</string>
   <string name="xdivert_active">פועל</string>
   <string name="xdivert_not_active">כבוי</string>
   <string name="xdivert_imsi_not_read">אתחול SIM בהתליך. נסה שוב מאוחר יותר.</string>
   <string name="no_volte">אין אפשרות לבצע שיחות IMS</string>
+  <string name="no_vt_allowed">כדי למקם שיחת וידאו, בטל מצב TTY</string>
   <string name="ims_edit_title">פרטי חשבון IMS</string>
   <string name="ims_accounts_title">חשבון IMS</string>
   <string name="ims_domain_address_title">שרת IMS</string>
+  <string name="mo_call_type_title">סוג השיחה MO</string>
   <string name="ims_service_capability">הפעל/השבת יכולות שירות</string>
+  <string name="ims_service_capability_title">יכולת שירות IMS</string>
   <string name="use_ims_default_summary">השתמש ב-IMS עבור כל שיחות הקול</string>
   <string name="ims_menu_save">שמור</string>
   <string name="ims_menu_discard">ביטול</string>
@@ -109,6 +119,7 @@
   <string name="exportAllcontatsSuccess">ייצא בהצלחה את כל אנשי הקשר ב-SIM</string>
   <string name="exportAllcontatsFailed">נכשל בייצוא כל אנשי הקשר מה-SIM</string>
   <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ב-SIM</string>
+  <string name="cursorError">נתוני סמן לא חוקיים</string>
   <string name="set_subscription">בחר הרשמה</string>
   <string name="set_subscription_error_atleast_one">בחר לפחות הרשמה אחת</string>
   <string name="set_uicc_subscription_progress">מגדיר הרשמה\u2026</string>

@@ -15,8 +15,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_puk">PUK eingeben</string>
+  <string name="sim_unlock_success">SIM erfolgreich entsperrt.</string>
   <string name="puk_unlock_success">PUK erfolgreich entsperrt.</string>
   <string name="stk_cc_ss_to_dial_error">SS-Anfrage wurde in DIAL-Anfrage umgewandelt.</string>
   <string name="stk_cc_ss_to_ussd_error">SS-Anfrage wurde in USSD-Anfrage umgewandelt.</string>
@@ -31,6 +32,7 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Bevorzugter Netzmodus: TD-SDCMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Bevorzugter Netzmodus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Bevorzugter Netzmodus: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="mobile_network_setting">Mobile Netzwerkeinstellungen</string>
   <string name="network_settings_sel_sub">SIM-Einstellungen</string>
   <string name="network_manage_settings">Netzeinstellungen</string>
   <string name="title_data_settings">Daten-Einstellungen</string>
@@ -45,6 +47,7 @@
   <string name="sub3_summary">SIM 3 verwalten</string>
   <string name="prompt">Nachfragen</string>
   <string name="prompt_user">Bei jedem Anruf nachfragen</string>
+  <string name="tty_mode_not_allowed_vt_call">TTY-Moduswechsel während eines VT-Anrufes nicht erlaubt</string>
   <string name="fdn_service_unavailable">FDN-Dienst ist nicht verfügbar.</string>
   <string name="exportContacts">Kontakte werden auf die SD-Karte exportiert\u2026</string>
   <string name="onscreenSwitchText">Aktive SIM ändern</string>
@@ -53,8 +56,12 @@
   <string name="sub1LineNumber">Telefonnummer SIM 1:</string>
   <string name="sub2LineNumber">Telefonnummer SIM 2:</string>
   <string name="proceed">Weiter</string>
+  <string name="sum_xdivert_enabled">Umleitung aktiviert</string>
+  <string name="sum_xdivert_disabled">Umleitung deaktiviert</string>
+  <string name="xdivert_status">Umleitungs-Status</string>
   <string name="xdivert_active">Aktiviert</string>
   <string name="xdivert_not_active">Deaktiviert</string>
+  <string name="xdivert_imsi_not_read">Die SIM wird zurzeit initialisiert. Bitte versuchen Sie es später erneut.</string>
   <string name="ims_edit_title">IMS-Kontodetails</string>
   <string name="ims_accounts_title">IMS-Konto</string>
   <string name="ims_domain_address_title">IMS-Server</string>
@@ -72,6 +79,10 @@
   <string name="sendSms">SMS senden</string>
   <string name="delete">Löschen</string>
   <string name="dial">Wählen</string>
+  <string name="contactdeleteFailed">SIM-Kontakt konnte nicht gelöscht werden</string>
+  <string name="set_sub_1">SIM 1: </string>
+  <string name="set_sub_2">SIM 2: </string>
+  <string name="set_sub_3">SIM 3: </string>
   <string name="set_sub_activate_success">Aktivierung erfolgreich</string>
   <string name="set_sub_deactivate_success">Deaktivierung fehlgeschlagen</string>
   <string name="set_sub_activate_failed">Aktivierung fehlgeschlagen</string>
@@ -80,4 +91,6 @@
   <string name="set_sub_deactivate_failed">Deaktivierung fehlgeschlagen</string>
   <string name="set_sub_activate_not_supported">Aktivierung nicht unterstützt</string>
   <string name="set_sub_deactivate_not_supported">Deaktivierung nicht unterstützt</string>
+  <string name="new_cards_available">Neue SIM-Karte verfügbar. Bitte konfigurieren Sie Ihre SIM-Karten.</string>
+  <string name="config_sub_title">SIM auswählen</string>
 </resources>

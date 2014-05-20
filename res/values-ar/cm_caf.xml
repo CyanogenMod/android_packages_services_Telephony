@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">شبكة SIM الفرعية فتح قفل PIN</string>
   <string name="label_cdp">SIM الشركات فتح قفل PIN</string>
   <string name="label_spdp">SIM مزود الخدمة فتح  PIN</string>
@@ -94,14 +94,11 @@
   <string name="fdn_service_unavailable">لا تتوفر خدمة FDN.</string>
   <string name="exportContacts">تصدير جهات الاتصال إلى بطاقة SIM\u2026</string>
   <string name="onscreenSwitchText">تبديل الاشتراك</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">إعدادات CFNRc</string>
   <string name="phone_numbers">أدخل أرقام الهاتف</string>
   <string name="sub1LineNumber">رقم Sub1:</string>
   <string name="sub2LineNumber">رقم  2Sub:</string>
   <string name="proceed">متابعة</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">تمكين X-Divert</string>
   <string name="sum_xdivert_disabled">تعطيل X-Divert</string>
   <string name="xdivert_not_supported">X-Divert غير معتمد في CDMA</string>

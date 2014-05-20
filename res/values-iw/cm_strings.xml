@@ -21,10 +21,15 @@
   <string name="call_notif_MOcall_forwarding">שיחה יוצאת הועברה</string>
   <string name="call_notif_cugcall">שיחה בקבוצת משתמשים סגורה</string>
   <string name="call_notif_outgoing_barred">שיחות יוצאות מבוקרות</string>
+  <string name="call_notif_incoming_barred">שיחות נכנסות מבוקרות בועידה מרוחקת</string>
+  <string name="call_notif_clir_suppression_rejected">המספר המדוחק נדחה על ידי הרשת</string>
   <string name="call_notif_call_deflected">שיחה הועברה על ידי צד מרוחק</string>
   <string name="call_notif_MTcall_forwarding">שיחה נכנסת מועברת</string>
   <string name="call_notif_multipartycall">שיחה משותפת</string>
+  <string name="call_notif_callonhold_released">השיחה שוחחרה מרחוק</string>
   <string name="call_notif_forwardcheckreceived">השיחה הועברה</string>
+  <string name="call_notif_callconnectingect">השיחה מתחברת דרך העברת שיחה מפורשת</string>
+  <string name="call_notif_callconnectedect">השיחה מחוברת דרך העברת שיחה מפורשת</string>
   <string name="incall_vibration">רטט במהלך שיחה</string>
   <string name="vibrate_outgoing">רטט בזמן מענה</string>
   <string name="vibrate_call_waiting">רטט בשיחה ממתינה</string>
@@ -75,4 +80,6 @@
   <string name="choose_people_lookup_provider_title">ספק חיפוש אנשים</string>
   <string name="choose_reverse_lookup_provider_title">ספק חיפוש הפוך</string>
   <string name="sub_no_sim">אין SIM</string>
+  <string name="msim_call_selector_title">התקשר ל-<xliff:g id="number">%s</xliff:g> דרך</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>

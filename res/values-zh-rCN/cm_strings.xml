@@ -30,12 +30,12 @@
   <string name="call_notif_forwardcheckreceived">呼叫被转接</string>
   <string name="call_notif_callconnectingect">呼叫正在通过显式呼叫转移进行连接</string>
   <string name="call_notif_callconnectedect">呼叫已通过显式呼叫转移连接</string>
-  <string name="incall_vibration">来电震动</string>
-  <string name="vibrate_outgoing">对方接听时震动</string>
-  <string name="vibrate_call_waiting">呼叫等待时震动</string>
-  <string name="vibrate_hangup">通话结束时震动</string>
-  <string name="vibrate_45">每分钟震动</string>
-  <string name="vibrate_45_sum">呼出通话达到每分钟的 45 秒时震动</string>
+  <string name="incall_vibration">来电振动</string>
+  <string name="vibrate_outgoing">对方接听时振动</string>
+  <string name="vibrate_call_waiting">呼叫等待时振动</string>
+  <string name="vibrate_hangup">通话结束时振动</string>
+  <string name="vibrate_45">每分钟振动</string>
+  <string name="vibrate_45_sum">呼出通话达到每分钟的 45 秒时振动</string>
   <string name="show_ssn_label">事件提醒</string>
   <string name="show_ssn_summary">为通话处理相关的各种网络事件显示一个通知</string>
   <string name="blacklist_title">黑名单</string>
@@ -80,4 +80,6 @@
   <string name="choose_people_lookup_provider_title">人名查询提供商</string>
   <string name="choose_reverse_lookup_provider_title">反向查询提供商</string>
   <string name="sub_no_sim">无 SIM 卡</string>
+  <string name="msim_call_selector_title">拨打 <xliff:g id="number">%s</xliff:g> 通过</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>

@@ -27,20 +27,26 @@
   <string name="call_notif_multipartycall">Flerpartssamtal</string>
   <string name="call_notif_callconnectingect">Samtal ansluter genom explicit samtalsöverföring</string>
   <string name="call_notif_callconnectedect">Samtal anslutet genom explicit samtalsöverföring</string>
+  <string name="vibrate_outgoing">Vibrera vid svar</string>
+  <string name="vibrate_call_waiting">Vibrera vid samtal väntar</string>
   <string name="vibrate_hangup">Vibrera vid avslutat samtal</string>
   <string name="vibrate_45">Vibrera varje minut</string>
   <string name="vibrate_45_sum">Vibrerar 45 sekunder in på varje minut under utgående samtal</string>
   <string name="show_ssn_summary">Visa en avisering för olika nätverkshändelser relaterade till samtalshantering</string>
   <string name="blacklist_summary_disabled">Inaktiverad</string>
   <string name="blacklist_summary">Inkommande samtal från telefonnummer i svartlistan kommer att blockeras</string>
+  <string name="blacklist_call_notification">Blockerade samtal från %s</string>
   <string name="blacklist_call_notification_private_number">Blockerade ett samtal från ett privat nummer</string>
   <string name="blacklist_call_notification_unknown_number">Blockerade ett samtal från okänt nummer %s</string>
   <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> samtal blockerades</string>
   <string name="blacklist_message_notification">Blockerade meddelande från %s</string>
+  <string name="blacklist_message_notification_private_number">Blockerade meddelande från hemligt nummer</string>
+  <string name="blacklist_message_notification_unknown_number">Blockerade meddelande från okänt nummer %s</string>
   <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> meddelanden har blockerats</string>
   <string name="blacklist_notification_list_private">Hemligt</string>
   <string name="unblock_number">Häv blockering</string>
   <string name="mwi_notification_summary">Visa meddelande väntar indikator som telefonsvararavisering</string>
+  <string name="perm_change_mobile_network_desc">Tillåter att appen ändrar mellan 2G och 3G data när som helst. 3G är snabbare, men förbrukar mer batteri och kan orsaka extra kostnad.</string>
   <string name="phone_number_label">Mitt telefonnummer</string>
   <string name="noise_suppression_summary">Aktivera brusreducering för samtal</string>
   <string name="preferred_network_mode_global">Global</string>

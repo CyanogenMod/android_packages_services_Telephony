@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">SIM network subset lukituksen PIN</string>
   <string name="label_cdp">SIM corporate lukituksen PIN</string>
   <string name="label_spdp">SIM palveluntarjoajan lukituksen PIN</string>
@@ -93,14 +93,11 @@
   <string name="fdn_service_unavailable">FDN palvelu ei ole käytettävissä.</string>
   <string name="exportContacts">Viedään yhteystiedot SIM-kortille\u2026</string>
   <string name="onscreenSwitchText">Vaihda tilausta</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">CFNRc asetukset</string>
   <string name="phone_numbers">Anna puhelinnumerot</string>
   <string name="sub1LineNumber">1. tilauksen numero :</string>
   <string name="sub2LineNumber">2. tilauksen numero:</string>
   <string name="proceed">Jatka</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">X-Divert käytössä</string>
   <string name="sum_xdivert_disabled">X-Divert pois käytöstä</string>
   <string name="xdivert_not_supported">X-Divert ei tue CDMA-tilaa</string>

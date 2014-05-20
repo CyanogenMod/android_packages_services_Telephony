@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">PIN para desbloquear subconjunto de rede SIM</string>
   <string name="label_cdp">PIN para desbloquear o SIM corporativo</string>
   <string name="label_spdp">PIN para desbloquear fornecedor de serviço SIM</string>
@@ -73,14 +73,14 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Modo de rede preferencial: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Modo de rede preferencial: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Modo de rede preferencial: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
-  <string name="mobile_network_setting">Configurações de rede móvel</string>
-  <string name="network_settings_sel_sub">Configurações de assinatura</string>
-  <string name="network_manage_settings">Configurações de rede</string>
-  <string name="title_data_settings">Configurações de dados</string>
-  <string name="summary_manage_subscriptions">Gerir as configurações de rede de cada assinatura</string>
+  <string name="mobile_network_setting">Definições de rede móvel</string>
+  <string name="network_settings_sel_sub">Definições de assinatura</string>
+  <string name="network_manage_settings">Definições de rede</string>
+  <string name="title_data_settings">Definições de dados</string>
+  <string name="summary_manage_subscriptions">Gerir as definições de rede de cada assinatura</string>
   <string name="call_ind_services">Serviços independentes de chamadas</string>
-  <string name="callind_multi_sim">Configurações de assinatura</string>
-  <string name="callind">Configurações de recurso de chamada</string>
+  <string name="callind_multi_sim">Definições de assinatura</string>
+  <string name="callind">Definições de recurso de chamada</string>
   <string name="sub1">Assinatura 1</string>
   <string name="sub1_summary">Gerir assinatura 1</string>
   <string name="sub2">Assinatura 2</string>
@@ -93,14 +93,11 @@
   <string name="fdn_service_unavailable">Serviço FDN não está disponível.</string>
   <string name="exportContacts">A exportar contactos para o cartão SIM\u2026</string>
   <string name="onscreenSwitchText">Modificar assinatura</string>
-  <string name="xdivert_title">X-Divert</string>
-  <string name="xdivert_summary">Configurações CFNRc</string>
+  <string name="xdivert_summary">Definições CFNRc</string>
   <string name="phone_numbers">Introduzir número de telefone</string>
   <string name="sub1LineNumber">Número Ass 1:</string>
   <string name="sub2LineNumber">Número Ass 2:</string>
   <string name="proceed">Prosseguir</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">X-Divert ativado</string>
   <string name="sum_xdivert_disabled">X-Divert desativado</string>
   <string name="xdivert_not_supported">X-Divert não suportado para CDMA</string>
@@ -126,29 +123,29 @@
   <string name="contactScreen">Gerir contactos SIM</string>
   <string name="exportContactScreen">Exportar contactos do telefone para o SIM</string>
   <string name="addSimEntries">Adicionar contacto ao SIM</string>
-  <string name="deleteAllSimEntries">Apagar todos os contactos do SIM</string>
-  <string name="deleteSimContacts">A apagar todos os contactos do SIM\u2026</string>
+  <string name="deleteAllSimEntries">Eliminar todos os contactos do SIM</string>
+  <string name="deleteSimContacts">A eliminar todos os contactos do SIM\u2026</string>
   <string name="editContact">Editar</string>
   <string name="sendSms">Enviar SMS</string>
-  <string name="delete">Apagar</string>
+  <string name="delete">Eliminar</string>
   <string name="dial">Marcar</string>
   <string name="enterName">Introduzir nome:</string>
   <string name="enterNumber">Introduzir número de telefone:</string>
   <string name="contactAddSuccess">Adicionou com sucesso o contacto no cartão SIM</string>
   <string name="contactAddFailed">Falha ao adicionar contacto no cartão SIM</string>
   <string name="contactUpdateSuccess">Atualizou com sucesso o contacto do cartão SIM</string>
-  <string name="contactUpdateFailed">Falha ao atualizar o contacto no SIM</string>
-  <string name="contactdeleteSuccess">Apagou com sucesso o contacto do cartão SIM</string>
-  <string name="contactdeleteFailed">Falha ao apagar o contacto do cartão SIM</string>
-  <string name="allContactdeleteSuccess">Apagou com sucesso todos os contactos do cartão SIM</string>
-  <string name="allContactdeleteFailed">Falha ao apagar todos os contactos do cartão SIM</string>
+  <string name="contactUpdateFailed">Falha ao atualizar o contacto no cartão SIM</string>
+  <string name="contactdeleteSuccess">Eliminou com sucesso o contacto do cartão SIM</string>
+  <string name="contactdeleteFailed">Falha ao eliminar o contacto do cartão SIM</string>
+  <string name="allContactdeleteSuccess">Eliminou com sucesso todos os contactos do cartão SIM</string>
+  <string name="allContactdeleteFailed">Falha ao eliminar todos os contactos do cartão SIM</string>
   <string name="exportAllcontatsSuccess">Exportou com sucesso todos os contactos para o cartão SIM</string>
   <string name="exportAllcontatsFailed">Falha ao exportar todos os contactos para o cartão SIM</string>
   <string name="exportAllcontatsNoContacts">Não foram encontrados contactos para exportar para o cartão SIM</string>
   <string name="cursorError">Dados do cursor inválidos</string>
   <string name="set_subscription">Selecionar a assinatura</string>
   <string name="set_subscription_error_atleast_one">Selecionar pelo menos uma assinatura</string>
-  <string name="set_uicc_subscription_progress">Configurar subscrição\u2026</string>
+  <string name="set_uicc_subscription_progress">A definir a assinatura\u2026</string>
   <string name="set_sub_success">Assinatura foi definida com êxito</string>
   <string name="set_sub_failed">Falha ao definir a assinatura</string>
   <string name="set_sub_1">Assinatura 1: </string>
@@ -165,6 +162,6 @@
   <string name="set_sub_no_change">Nenhuma mudança na assinatura</string>
   <string name="new_cards_available">Disponível novo cartão. Por favor, configure as suas assinaturas.</string>
   <string name="config_sub_title">Configurar assinaturas</string>
-  <string name="deact_all_sub_not_supported">Desativação de todas as subscrições não é suportada.</string>
+  <string name="deact_all_sub_not_supported">A desativação de todas as subscrições não é suportada.</string>
   <string name="set_sub_not_supported_phone_in_call">Ativar ou desativar as assinaturas não é permitido durante uma chamada.</string>
 </resources>
