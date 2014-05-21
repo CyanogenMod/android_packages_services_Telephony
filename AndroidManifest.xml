@@ -596,7 +596,7 @@
 
         <!-- Broadcast receiver to set default handlers for various actions
              depending if MSim is available -->
-        <receiver android:name="MSimActivityDisabler" android:exported="false">
+        <receiver android:name="MSimActivityStateUpdater" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

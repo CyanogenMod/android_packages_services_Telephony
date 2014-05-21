@@ -34,6 +34,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
 import android.telephony.MSimTelephonyManager;
 import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import android.util.Log;
@@ -73,6 +74,13 @@ public class SelectSubscription extends  TabActivity {
         Intent intent =  getIntent();
         String pkg = intent.getStringExtra(PACKAGE);
         String targetClass = intent.getStringExtra(TARGET_CLASS);
+
+        // Fixed value for public intent
+        if (intent.getAction().equals(Settings.ACTION_DATA_ROAMING_SETTINGS)) {
+            pkg = "com.android.phone";
+            targetClass = "com.android.phone.MSimMobileNetworkSubSettings";
+        }
+
         MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
 
         int numPhones = tm.getPhoneCount();
