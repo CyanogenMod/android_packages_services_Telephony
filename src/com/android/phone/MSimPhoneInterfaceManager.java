@@ -894,21 +894,21 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
      * Returns the network type
      */
     public int getNetworkType() {
-        return getDataNetworkType(getDefaultSubscription());
+        return getDataNetworkType(getPreferredDataSubscription());
     }
 
     /**
      * Returns the network type for a subscription
      */
     public int getNetworkType(int subscription) {
-        return getPhone(subscription).getServiceState().getDataNetworkType();
+        return getDataNetworkType(subscription);
     }
 
     /**
      * Returns the data network type
      */
     public int getDataNetworkType() {
-        return getDataNetworkType(getDefaultSubscription());
+        return getDataNetworkType(getPreferredDataSubscription());
     }
 
     /**
