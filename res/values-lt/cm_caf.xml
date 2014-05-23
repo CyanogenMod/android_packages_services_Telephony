@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">SIM PIN kodo tinklo atrakinimo pogrupis</string>
   <string name="label_cdp">SIM PIN kodo įmonių atrakinimas</string>
   <string name="label_spdp">SIM PIN kodo paslaugų teikėjų atrakinimas</string>
@@ -93,14 +93,11 @@
   <string name="fdn_service_unavailable">Fiksuoto rinkimo paslaugos neteikiamos.</string>
   <string name="exportContacts">Eksportuojami kontaktai į SIM kortelę\u2026</string>
   <string name="onscreenSwitchText">Perjungti prenumeratą</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">CFNRc Nustatymai</string>
   <string name="phone_numbers">Įveskite telefonų numerius</string>
   <string name="sub1LineNumber">Pren. 1 numeris:</string>
   <string name="sub2LineNumber">Pren. 2 numeris:</string>
   <string name="proceed">Tęsti</string>
-  <string name="xdivert_button">„X-Divert“ nustatymai</string>
-  <string name="xdivert_setting">„X-Divert“ nustatymai</string>
   <string name="sum_xdivert_enabled">„X-Divert“ įjungtas</string>
   <string name="sum_xdivert_disabled">„X-Divert“ išjungtas</string>
   <string name="xdivert_not_supported">„X-Divert“ nepalaiko CDMA</string>

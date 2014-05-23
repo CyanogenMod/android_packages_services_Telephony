@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">SIM откључавање мрежног подскупа PIN</string>
   <string name="label_cdp">SIM корпоративно откључавање PIN-а</string>
   <string name="label_spdp">SIM провајдер сервиса откључавања PIN-а</string>
@@ -93,14 +93,11 @@
   <string name="fdn_service_unavailable">FDN услуга није доступна.</string>
   <string name="exportContacts">Извоз контаката на SIM картицу\u2026</string>
   <string name="onscreenSwitchText">Пребаци претплату</string>
-  <string name="xdivert_title">X-скретање</string>
   <string name="xdivert_summary">CFNRc подешавања</string>
   <string name="phone_numbers">Унесите бројеве телефона</string>
   <string name="sub1LineNumber">Sub 1 број:</string>
   <string name="sub2LineNumber">Sub 2 број:</string>
   <string name="proceed">Приступање</string>
-  <string name="xdivert_button">X-скретање</string>
-  <string name="xdivert_setting">X-скретање</string>
   <string name="sum_xdivert_enabled">X-скретање омогућено</string>
   <string name="sum_xdivert_disabled">X-скретање онемогућено</string>
   <string name="xdivert_not_supported">X-скретање није подржано за CDMA</string>

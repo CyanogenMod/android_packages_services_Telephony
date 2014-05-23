@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">PIN para desbloquear subconjunto de rede SIM</string>
   <string name="label_cdp">Pin para desbloquear o SIM corporativo</string>
   <string name="label_spdp">PIN para desbloquear provedor de serviço SIM</string>
@@ -38,17 +38,17 @@
   <string name="requesting_rc_unlock">Solicitando desbloqueio do RUIM corporativo\u2026</string>
   <string name="requesting_ruim_unlock">Solicitando desbloqueio do RUIM\u2026</string>
   <string name="requesting_puk_unlock">Solicitando desbloqueio do PUK\u2026</string>
-  <string name="nw_subset_unlock_failed">Sem sucesso na solicitação de desbloqueio do subconjunto de rede SIM.</string>
-  <string name="sp_unlock_failed">Sem sucesso na solicitação de desbloqueio do provedor de serviço SIM.</string>
-  <string name="corporate_unlock_failed">Sem sucesso na solicitação de desbloqueio do SIM corporativo.</string>
+  <string name="nw_subset_unlock_failed">Solicitação mal sucedida de desbloqueio do subconjunto de rede SIM.</string>
+  <string name="sp_unlock_failed">Solicitação mal sucedida de desbloqueio do provedor de serviço SIM.</string>
+  <string name="corporate_unlock_failed">Solicitação mal sucedida de desbloqueio do SIM corporativo.</string>
   <string name="sim_unlock_failed">Sem sucesso na solicitação de desbloqueio do SIM.</string>
-  <string name="rnw1_unlock_failed">Sem sucesso na solicitação de desbloqueio da rede RUIM 1.</string>
-  <string name="rnw2_unlock_failed">Sem sucesso na solicitação de desbloqueio da rede RUIM 2.</string>
-  <string name="rhrpd_unlock_failed">Sem sucesso na solicitação de desbloqueio do RUIM HRPD.</string>
-  <string name="rsp_unlock_failed">Sem sucesso na solicitação de desbloqueio do provedor de serviço RUIM.</string>
-  <string name="rc_unlock_failed">Sem sucesso na solicitação de desbloqueio do RUIM corporativo.</string>
-  <string name="ruim_unlock_failed">Sem sucesso na solicitação de desbloqueio do RUIM.</string>
-  <string name="puk_unlock_failed">Sem sucesso na solicitação de desbloqueio do PUK.</string>
+  <string name="rnw1_unlock_failed">Solicitação mal sucedida de desbloqueio da rede RUIM 1.</string>
+  <string name="rnw2_unlock_failed">Solicitação mal sucedida de desbloqueio da rede RUIM 2.</string>
+  <string name="rhrpd_unlock_failed">Solicitação mal sucedida de desbloqueio do RUIM HRPD.</string>
+  <string name="rsp_unlock_failed">Solicitação mal sucedida de desbloqueio do provedor de serviço RUIM.</string>
+  <string name="rc_unlock_failed">Solicitação mal sucedida de desbloqueio do RUIM corporativo.</string>
+  <string name="ruim_unlock_failed">Solicitação mal sucedida de desbloqueio do RUIM.</string>
+  <string name="puk_unlock_failed">Solicitação mal sucedida de desbloqueio do PUK.</string>
   <string name="nw_subset_unlock_success">Sucesso na solicitação de desbloqueio do subconjunto de rede SIM.</string>
   <string name="sp_unlock_success">Sucesso no desbloqueio do provedor de serviço SIM.</string>
   <string name="corporate_unlock_success">Sucesso no desbloqueio do SIM corporativo.</string>
@@ -93,14 +93,11 @@
   <string name="fdn_service_unavailable">Serviço FDN não está disponível.</string>
   <string name="exportContacts">Exportação de contatos para o cartão SIM\u2026</string>
   <string name="onscreenSwitchText">Trocar assinatura</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">Configurações CFNRc</string>
   <string name="phone_numbers">Inserir os números de telefone</string>
   <string name="sub1LineNumber">Número Ass 1:</string>
   <string name="sub2LineNumber">Número Ass 2:</string>
   <string name="proceed">Continuar</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">X-Divert ativado</string>
   <string name="sum_xdivert_disabled">X-Divert desativado</string>
   <string name="xdivert_not_supported">X-Divert não é suportado por CDMA</string>

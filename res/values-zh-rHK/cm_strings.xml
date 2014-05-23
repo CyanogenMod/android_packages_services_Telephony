@@ -16,12 +16,70 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="call_notif_unconditionalCF">開啟無條件地來電轉駁</string>
+  <string name="call_notif_conditionalCF">開啟有條件地來電轉駁</string>
+  <string name="call_notif_MOcall_forwarding">撥出通話已轉駁</string>
+  <string name="call_notif_cugcall">致電非公開使用者群組</string>
+  <string name="call_notif_outgoing_barred">禁止撥出電話</string>
+  <string name="call_notif_incoming_barred">來電通話禁止於遠端系統</string>
+  <string name="call_notif_clir_suppression_rejected">本機號碼被制止拒絕了網絡</string>
+  <string name="call_notif_call_deflected">由遠端系統啟用通話轉駁</string>
+  <string name="call_notif_MTcall_forwarding">來電通話已轉駁</string>
+  <string name="call_notif_multipartycall">多方通話</string>
+  <string name="call_notif_callonhold_released">通話被對方釋放</string>
+  <string name="call_notif_forwardcheckreceived">通話被轉駁</string>
+  <string name="call_notif_callconnectingect">致電通過顯式的來電轉接進行連接</string>
+  <string name="call_notif_callconnectedect">致電通過顯式的來電轉接進行連接</string>
+  <string name="incall_vibration">通話震動</string>
   <string name="vibrate_outgoing">當接聽時震動</string>
   <string name="vibrate_call_waiting">當通話等待時震動</string>
   <string name="vibrate_hangup">當通話結束時震動</string>
   <string name="vibrate_45">每分鐘震動一次</string>
   <string name="vibrate_45_sum">撥出電話時，每 45 秒震動一次</string>
+  <string name="show_ssn_label">事件通知</string>
+  <string name="show_ssn_summary">為通話處理相關的各種網絡事件顯示一個通知</string>
+  <string name="blacklist_title">黑名單</string>
+  <string name="blacklist_summary_disabled">已停用</string>
+  <string name="blacklist_summary">從黑名單中的電話號碼的來電通話將被阻止</string>
+  <string name="blacklist_call_notification">已阻擋來自 %s 的來電</string>
+  <string name="blacklist_call_notification_private_number">已阻擋來自私人號碼的來電</string>
+  <string name="blacklist_call_notification_unknown_number">已阻擋來自 %s 的不明號碼來電</string>
+  <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d 個</xliff:g> 來電已被阻止</string>
+  <string name="blacklist_message_notification">已封鎖 %s 傳來的訊息</string>
+  <string name="blacklist_message_notification_private_number">已封鎖私人號碼傳來的訊息</string>
+  <string name="blacklist_message_notification_unknown_number">已封鎖不明號碼 %s 傳來的訊息</string>
+  <string name="blacklist_message_notification_multiple">已封鎖 <xliff:g id="count">%d</xliff:g> 則訊息</string>
+  <string name="blacklist_notification_list_private">私人</string>
+  <string name="unblock_number">解除封鎖</string>
+  <string name="mwi_notification_title">訊息等候指示</string>
+  <string name="mwi_notification_summary">顯示訊息等待指示語音留言通知</string>
   <string name="perm_change_mobile_network">更改網路模式 (2G/3G)</string>
+  <string name="perm_change_mobile_network_desc">被授予此權限的應用程式能夠於任何時候在 2G 及 3G 流動網路之間進行切換。使用 3G 流動網路存取資料的速度會比較快，但會消耗較多的電池電量，亦可能會令您額外花費。</string>
   <string name="phone_number_label">我的電話號碼</string>
+  <string name="phone_number_summary">為此裝置設定手機號碼</string>
+  <string name="noise_suppression_title">噪音抑制</string>
+  <string name="noise_suppression_summary">通話時啟用噪音抑制</string>
+  <string name="preferred_network_mode_td_scdma_only">僅 TD-SCDMA</string>
+  <string name="preferred_network_mode_global">全球</string>
+  <string name="preferred_network_mode_evdo_only">僅 EvDo</string>
+  <string name="preferred_network_mode_cdma_without_evdo">CDMA w/o EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_auto">CDMA/EvDo 自動</string>
+  <string name="preferred_network_mode_gsm_wcdma_auto">GSM/WCDMA 自動</string>
+  <string name="preferred_network_mode_wcdma_only">僅 WCDMA</string>
+  <string name="preferred_network_mode_gsm_only">僅 GSM</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred">首選 GSM/WCDMA</string>
+  <string name="number_lookup">電話號碼查詢</string>
+  <string name="enable_forward_lookup_title">轉駁查詢</string>
+  <string name="enable_forward_lookup_summary">在撥號器中搜索時顯示附近的地點</string>
+  <string name="enable_people_lookup_title">人名查詢</string>
+  <string name="enable_people_lookup_summary">在撥號器中搜索人名時顯示在線搜索結果</string>
+  <string name="enable_reverse_lookup_title">反向查詢</string>
+  <string name="enable_reverse_lookup_summary">為未知來電號碼查詢人名或地點資料</string>
+  <string name="choose_lookup_providers">選擇查詢提供商</string>
+  <string name="choose_forward_lookup_provider_title">轉駁查詢提供商</string>
+  <string name="choose_people_lookup_provider_title">人名查詢供應商</string>
+  <string name="choose_reverse_lookup_provider_title">反向查詢提供商</string>
   <string name="sub_no_sim">沒有 SIM 卡</string>
+  <string name="msim_call_selector_title">通話 <xliff:g id="number">%s</xliff:g> 透過</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
 </resources>

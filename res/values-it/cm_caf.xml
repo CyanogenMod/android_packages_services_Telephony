@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">PIN sblocco per SIM (network subset)</string>
   <string name="label_cdp">PIN sblocco per SIM (aziendale)</string>
   <string name="label_spdp">PIN sblocco per SIM (fornitore di servizi )</string>
@@ -93,14 +93,11 @@
   <string name="fdn_service_unavailable">Servizio FDN non disponibile.</string>
   <string name="exportContacts">Esportazione dei contatti alla SIM\u2026</string>
   <string name="onscreenSwitchText">Cambia abbonamento</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">Impostazioni CFNRc</string>
   <string name="phone_numbers">Inserire i numeri di telefono</string>
   <string name="sub1LineNumber">Numero abb. 1:</string>
   <string name="sub2LineNumber">Numero abb. 2:</string>
   <string name="proceed">Continua</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">X-Divert attivato</string>
   <string name="sum_xdivert_disabled">X-Divert disattivato</string>
   <string name="xdivert_not_supported">X-Divert non supportato in CDMA</string>
@@ -122,8 +119,8 @@
   <string name="use_ims_default_summary">Utilizza IMS per tutte le chiamate vocali</string>
   <string name="ims_menu_save">Salva</string>
   <string name="ims_menu_discard">Annulla</string>
-  <string name="remove_ims_account">Elimina account</string>
-  <string name="contactScreen">Gestione contatti SIM</string>
+  <string name="remove_ims_account">Rimuovi account</string>
+  <string name="contactScreen">Gestisci contatti SIM</string>
   <string name="exportContactScreen">Esporta i contatti del dispositivo sulla SIM</string>
   <string name="addSimEntries">Aggiungi un contatto alla SIM</string>
   <string name="deleteAllSimEntries">Elimina tutti i contatti nella SIM</string>
@@ -142,12 +139,12 @@
   <string name="contactdeleteFailed">Impossibile eliminare il contatto dalla SIM</string>
   <string name="allContactdeleteSuccess">Tutti i contatti eliminati dalla SIM</string>
   <string name="allContactdeleteFailed">Impossibile eliminare i contatti dalla SIM</string>
-  <string name="exportAllcontatsSuccess">Tutti i contatti esportti sulla SIM</string>
+  <string name="exportAllcontatsSuccess">Tutti i contatti esportati sulla SIM</string>
   <string name="exportAllcontatsFailed">Impossibile esportare tutti i contatti sulla SIM</string>
   <string name="exportAllcontatsNoContacts">Nessun contatto trovato da esportare sulla SIM</string>
   <string name="cursorError">Cursore dati non valido</string>
-  <string name="set_subscription">Selezionare abbonamento</string>
-  <string name="set_subscription_error_atleast_one">Selezionare almeno un abbonamento</string>
+  <string name="set_subscription">Seleziona abbonamento</string>
+  <string name="set_subscription_error_atleast_one">Seleziona almeno un abbonamento</string>
   <string name="set_uicc_subscription_progress">Impostazione abbonamento\u2026</string>
   <string name="set_sub_success">Abbonamento impostato correttamente</string>
   <string name="set_sub_failed">Impossibile impostare l\'abbonamento</string>

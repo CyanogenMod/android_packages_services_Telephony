@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">PIN ξεκλειδώματος υποσυνόλου δικτύου SIM</string>
   <string name="label_cdp">PIN ξεκλειδώματος εταιρικής SIM</string>
   <string name="label_spdp">PIN ξεκλειδώματος παρόχου SIM</string>
@@ -93,14 +93,11 @@
   <string name="fdn_service_unavailable">Η υπηρεσία FDN δεν είναι διαθέσιμη.</string>
   <string name="exportContacts">Εξαγωγή επαφών στην κάρτα SIM\u2026</string>
   <string name="onscreenSwitchText">Αλλαγή συνδρομής</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">Ρυθμίσεις CFNRc</string>
   <string name="phone_numbers">Εισαγωγή τηλεφωνικών αριθμών</string>
   <string name="sub1LineNumber">Αριθμός συνδρ. 1:</string>
   <string name="sub2LineNumber">Αριθμός συνδρ. 2:</string>
   <string name="proceed">Συνέχεια</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">X-Divert ενεργό</string>
   <string name="sum_xdivert_disabled">X-Divert ανενεργό</string>
   <string name="xdivert_not_supported">Το X-Divert δεν υποστηρίζεται σε CDMA</string>

@@ -35,7 +35,7 @@
   <string name="vibrate_call_waiting">Çağrı bekletildiğinde titre</string>
   <string name="vibrate_hangup">Kapatıldığında titre</string>
   <string name="vibrate_45">Her dakika titre</string>
-  <string name="vibrate_45_sum">Giden aramaların her dakikasını 45. saniyesinde titreşir</string>
+  <string name="vibrate_45_sum">Giden aramaların her dakikasının 45. saniyesinde titreşir</string>
   <string name="show_ssn_label">Olay bildirimi</string>
   <string name="show_ssn_summary">Arama yönetimiyle ilgili şebeke olayları için bildirim göster</string>
   <string name="blacklist_title">Karaliste</string>
@@ -46,15 +46,15 @@
   <string name="blacklist_call_notification_unknown_number">Bilinmeyen numaradan gelen bir çağrı engellendi %s</string>
   <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> çağrı engellendi</string>
   <string name="blacklist_message_notification">%s kişisinden gelen mesaj engellendi</string>
-  <string name="blacklist_message_notification_private_number">Özel numaradan gelen mesaj engellendi</string>
-  <string name="blacklist_message_notification_unknown_number">Bilinmeyen numaradan gelen mesaj engellendi %s</string>
+  <string name="blacklist_message_notification_private_number">Özel numaradan gelen bir mesaj engellendi</string>
+  <string name="blacklist_message_notification_unknown_number">Bilinmeyen numaradan gelen bir mesaj engellendi %s</string>
   <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> mesaj engellendi</string>
   <string name="blacklist_notification_list_private">Özel</string>
   <string name="unblock_number">Engeli kaldır</string>
   <string name="mwi_notification_title">Mesaj bekleme göstergesi</string>
   <string name="mwi_notification_summary">Mesaj bekleme göstergesinde sesli mesaj bildirimlerini göster</string>
   <string name="perm_change_mobile_network">şebeke modunu değiştir (2G/3G)</string>
-  <string name="perm_change_mobile_network_desc">Uygulamanın 2G ve 3G verisi arasında değişiklik yapmasına izin verir. 3g daha hızlıdır fakat daha fazla pil tüketr ve ek ücretlere sebebiyet verebilir.</string>
+  <string name="perm_change_mobile_network_desc">Uygulamanın 2G ve 3G verisi arasında değişiklik yapmasına izin verir. 3g daha hızlıdır fakat daha fazla pil tüketir ve ek ücretlere neden olabilir.</string>
   <string name="phone_number_label">Telefon numaram</string>
   <string name="phone_number_summary">Bu cihaza telefon numarası atayın</string>
   <string name="noise_suppression_title">Gürültü giderme</string>
@@ -76,7 +76,7 @@
   <string name="enable_reverse_lookup_title">Geri arama</string>
   <string name="enable_reverse_lookup_summary">Gelen aramalarda bilinmeyen numaralar için kişi veya konum hakkında bilgi araştır</string>
   <string name="choose_lookup_providers">Arama sağlayıcılarını seç</string>
-  <string name="choose_forward_lookup_provider_title">Arama sağlayıcısını yönlendir</string>
+  <string name="choose_forward_lookup_provider_title">İleri yönde sorgu sağlayıcısı</string>
   <string name="choose_people_lookup_provider_title">Kişi arama sağlayıcısı</string>
   <string name="choose_reverse_lookup_provider_title">Geri arama sağlayıcısı</string>
   <string name="sub_no_sim">SIM yok</string>

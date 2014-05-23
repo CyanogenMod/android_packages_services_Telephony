@@ -75,10 +75,10 @@
   <string name="enable_people_lookup_summary">Rodyti žmonių interneto rezultatus, kai ieškoma rinkiklyje</string>
   <string name="enable_reverse_lookup_title">Atbulinė paieška</string>
   <string name="enable_reverse_lookup_summary">Ieškoti informacijos apie asmenį ar vietą dėl įeinančių skambučių iš nežinomų telefono numerių</string>
-  <string name="choose_lookup_providers">Pasirinkti paieškos teikėjus</string>
-  <string name="choose_forward_lookup_provider_title">Pasirinkti persiuntimo paieškos teikėją</string>
-  <string name="choose_people_lookup_provider_title">Pasirinkti žmonių paieškos teikėją</string>
-  <string name="choose_reverse_lookup_provider_title">Pasirinkti atbulinės paieškos teikėją</string>
+  <string name="choose_lookup_providers">Pasirinkti paieškos tiekėjus</string>
+  <string name="choose_forward_lookup_provider_title">Pasirinkti persiuntimo paieškos tiekėją</string>
+  <string name="choose_people_lookup_provider_title">Pasirinkti žmonių paieškos tiekėją</string>
+  <string name="choose_reverse_lookup_provider_title">Pasirinkti atbulinės paieškos tiekėją</string>
   <string name="sub_no_sim">Nėra SIM</string>
   <string name="msim_call_selector_title">Skambinti <xliff:g id="number">%s</xliff:g> per</string>
   <string name="msim_call_selector_item">SIM <xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>

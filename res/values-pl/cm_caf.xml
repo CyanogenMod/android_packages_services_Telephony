@@ -15,10 +15,29 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="label_nsdp">Odblokuj PIN podsieci karty SIM</string>
   <string name="label_puk">Wprowadź PUK</string>
+  <string name="requesting_nw_subset_unlock">Żądanie odblokowania podsieci SIM\u2026</string>
+  <string name="requesting_sp_unlock">Żądanie odblokowania usługi SIM\u2026</string>
+  <string name="requesting_sim_unlock">Żądanie odblokowania SIM\u2026</string>
+  <string name="preferred_network_mode_td_scdma_only_summary">Preferowany tryb sieci: Tylko TD-SCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferowany tryb sieci: TD-SCDMA / WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_summary">Preferowany tryb sieci: TD-SCDMA / LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_summary">Preferowany tryb sieci: TD-SCDMA / GSM</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Preferowany tryb sieci: TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Preferowany tryb sieci: TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Preferowany tryb sieci: TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Preferowany tryb sieci: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="network_manage_settings">Ustawienia sieci</string>
+  <string name="callind">Ustawienia funkcji połączeń</string>
+  <string name="prompt">Pytaj za każdym razem</string>
+  <string name="prompt_user">Pytaj użytkownika</string>
+  <string name="phone_numbers">Wprowadź numery telefonów</string>
   <string name="proceed">Kontynuuj</string>
+  <string name="xdivert_active">Aktywne</string>
+  <string name="xdivert_not_active">Nieaktywne</string>
+  <string name="ims_menu_save">Zapisz</string>
   <string name="ims_menu_discard">Anuluj</string>
   <string name="remove_ims_account">Usuń konto</string>
   <string name="contactScreen">Zarządzanie kontaktami na karcie SIM</string>
@@ -26,9 +45,22 @@
   <string name="addSimEntries">Dodaj kontakt na kartę SIM</string>
   <string name="deleteAllSimEntries">Usuń wszystkie kontakty z karty SIM</string>
   <string name="deleteSimContacts">Usuwanie wszystkich kontaktów z karty SIM\u2026</string>
+  <string name="editContact">Edytuj</string>
   <string name="sendSms">Wyślij wiadomość SMS</string>
+  <string name="delete">Usuń</string>
   <string name="dial">Zadzwoń</string>
   <string name="enterName">Wprowadź nazwę:</string>
   <string name="enterNumber">Wprowadź numer telefonu:</string>
+  <string name="contactAddSuccess">Pomyślnie dodano kontakt do karty SIM</string>
+  <string name="contactAddFailed">Nie udało się dodać kontaktu do karty SIM</string>
+  <string name="contactUpdateSuccess">Pomyślnie zaktualizowano kontakt na karcie SIM</string>
+  <string name="contactUpdateFailed">Nie udało się zaktualizować kontaktu na karcie SIM</string>
+  <string name="contactdeleteSuccess">Pomyślnie usunięto kontakt z karty SIM</string>
+  <string name="contactdeleteFailed">Nie udało się usunąć kontaktu z karty SIM</string>
+  <string name="allContactdeleteSuccess">Pomyślnie usunięto wszystko kontakty z karty SIM</string>
+  <string name="allContactdeleteFailed">Nie udało się usunąć wszystkich kontaktów z karty SIM</string>
+  <string name="exportAllcontatsSuccess">Pomyślnie eksportowano kontakty na kartę SIM</string>
+  <string name="exportAllcontatsFailed">Nie udało się eksportować kontaktów na kartę SIM</string>
+  <string name="exportAllcontatsNoContacts">Nie odnaleziono kontaktów do wyeksportowania na kartę SIM</string>
   <string name="set_sub_activate_failed">Aktywacja nie powiodła się</string>
 </resources>

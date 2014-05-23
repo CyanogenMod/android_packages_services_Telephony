@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">PIN-код разблокировки частной сети SIM</string>
   <string name="label_cdp">Корпоративный PIN-код разблокировки SIM</string>
   <string name="label_spdp">PIN-код разблокировки оператора SIM</string>
@@ -93,14 +93,11 @@
   <string name="fdn_service_unavailable">Служба FDN недоступна.</string>
   <string name="exportContacts">Экспорт контактов на SIM-карту\u2026</string>
   <string name="onscreenSwitchText">Переключить оператора</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">Настройки CFNRc</string>
   <string name="phone_numbers">Введите номера телефонов</string>
   <string name="sub1LineNumber">Номер SIM1:</string>
   <string name="sub2LineNumber">Номер SIM2:</string>
   <string name="proceed">Продолжить</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">X-Divert включён</string>
   <string name="sum_xdivert_disabled">X-Divert выключен</string>
   <string name="xdivert_not_supported">X-Divert не поддерживается в сетях CDMA</string>

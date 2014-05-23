@@ -15,7 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_nsdp">PIN de desbloqueig del subconjunt de xarxa SIM</string>
   <string name="label_cdp">PIN de desbloqueig de SIM corporativa</string>
   <string name="label_spdp">PIN de desbloqueig del proveïdor de servei SIM</string>
@@ -60,9 +60,9 @@
   <string name="rc_unlock_success">El desbloqueig del RUIM corporatiu ha tingut èxit.</string>
   <string name="ruim_unlock_success">El desbloqueig del RUIM ha tingut èxit.</string>
   <string name="puk_unlock_success">El desbloqueig amb PUK ha tingut èxit.</string>
-  <string name="stk_cc_ss_to_dial_error">Petició SS modificada a una petició DIAL.</string>
-  <string name="stk_cc_ss_to_ussd_error">Petició SS modificada a una petició USSD.</string>
-  <string name="stk_cc_ss_to_ss_error">Petició SS modificada a una nova petició SS.</string>
+  <string name="stk_cc_ss_to_dial_error">Petició SS modificada cap a una petició DIAL.</string>
+  <string name="stk_cc_ss_to_ussd_error">Petició SS modificada cap a una petició USSD.</string>
+  <string name="stk_cc_ss_to_ss_error">Petició SS modificada cap a una nova petició SS.</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Mode de xarxa preferit: només TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Mode de xarxa preferit: TD-SCDMA / WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_summary">Mode de xarxa preferit: TD-SCDMA / LTE</string>
@@ -93,14 +93,11 @@
   <string name="fdn_service_unavailable">El servei FDN no està disponible.</string>
   <string name="exportContacts">Exportant els contactes a la targeta SIM\u2026</string>
   <string name="onscreenSwitchText">Canvia la subscripció</string>
-  <string name="xdivert_title">X-Divert</string>
   <string name="xdivert_summary">Configuració CFNRc</string>
   <string name="phone_numbers">Introdueix els números de telèfon</string>
   <string name="sub1LineNumber">Número Sub 1:</string>
   <string name="sub2LineNumber">Número Sub 2:</string>
   <string name="proceed">Procedeix</string>
-  <string name="xdivert_button">X-Divert</string>
-  <string name="xdivert_setting">X-Divert</string>
   <string name="sum_xdivert_enabled">X-Divert habilitat</string>
   <string name="sum_xdivert_disabled">X-Divert deshabilitat</string>
   <string name="xdivert_not_supported">X-Divert no està suportat amb CDMA</string>
