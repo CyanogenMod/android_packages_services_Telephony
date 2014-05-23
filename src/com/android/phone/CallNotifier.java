@@ -718,8 +718,9 @@ public class CallNotifier extends Handler
             }
 
             // Reset the ringtone to the default first.
-            mRinger.setCustomRingtoneUri(RingtoneManager.getActualRingtoneUriBySubId(
-                        mApplication.getApplicationContext(), subscription));
+            mRinger.setCustomRingtoneUri(subscription == 0 ?
+                                        Settings.System.DEFAULT_RINGTONE_URI
+                                        : Settings.System.DEFAULT_RINGTONE_URI_2);
 
             // query the callerinfo to try to get the ringer.
             PhoneUtils.CallerInfoToken cit = PhoneUtils.startGetCallerInfo(
