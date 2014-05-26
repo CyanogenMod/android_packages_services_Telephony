@@ -119,7 +119,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     private static final boolean DBG =
             (PhoneGlobals.DBG_LEVEL >= 1) && (SystemProperties.getInt("ro.debuggable", 0) == 1);
     private static final boolean VDBG = (PhoneGlobals.DBG_LEVEL >= 2);
-    private static final String PROPERTY_AIRPLANE_MODE_ON = "persist.radio.airplane_mode_on";
+    protected static final String PROPERTY_AIRPLANE_MODE_ON = "persist.radio.airplane_mode_on";
 
     // Message codes; see mHandler below.
     protected static final int EVENT_PERSO_LOCKED = 3;

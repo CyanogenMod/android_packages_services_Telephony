@@ -455,6 +455,14 @@ public class MSimPhoneGlobals extends PhoneGlobals {
             if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED)) {
                 boolean enabled = System.getInt(getContentResolver(),
                         System.AIRPLANE_MODE_ON, 0) == 0;
+                // Set the airplane mode property for RIL to read on boot up
+                // to know if the phone is in airplane mode so that RIL can
+                // power down the ICC card.
+                Log.d(LOG_TAG, "Setting property " + PROPERTY_AIRPLANE_MODE_ON +
+                        " = " + (enabled ? "0" : "1"));
+                // enabled here implies airplane mode is OFF from above condition
+                SystemProperties.set(PROPERTY_AIRPLANE_MODE_ON, (enabled ? "0" : "1"));
+
                 for (int i = 0; i < MSimTelephonyManager.getDefault().getPhoneCount(); i++) {
                     getPhone(i).setRadioPower(enabled);
                 }
