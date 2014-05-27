@@ -43,7 +43,7 @@
   <string name="blacklist_summary">הודעות נכנסות ממספרי טלפון שברשימה השחורה ייחסמו</string>
   <string name="blacklist_call_notification">חסום שיחה מ-%s</string>
   <string name="blacklist_call_notification_private_number">חסום שיחה ממספר חסוי</string>
-  <string name="blacklist_call_notification_unknown_number">חסo שיחה מתוך מספר לא ידוע %s</string>
+  <string name="blacklist_call_notification_unknown_number">חסום שיחה מתוך מספר לא ידוע %s</string>
   <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> שיחות נחסמו</string>
   <string name="blacklist_message_notification">חסם הודעה מ-%s</string>
   <string name="blacklist_message_notification_private_number">חסם הודעה ממספר חסוי</string>

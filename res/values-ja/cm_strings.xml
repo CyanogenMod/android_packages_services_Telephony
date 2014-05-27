@@ -21,7 +21,7 @@
   <string name="vibrate_call_waiting">割込通話時のバイブレーション</string>
   <string name="vibrate_hangup">通話終了時のバイブレーション</string>
   <string name="vibrate_45">時間ごとのバイブレーション</string>
-  <string name="vibrate_45_sum">発信中、45秒ごとに振動する</string>
+  <string name="vibrate_45_sum">通話発信中に45秒ごとに振動する</string>
   <string name="show_ssn_label">イベント通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
   <string name="blacklist_title">ブラックリスト</string>
@@ -32,7 +32,7 @@
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
   <string name="noise_suppression_title">ノイズの抑制</string>
-  <string name="noise_suppression_summary">通話中のノイズの抑制を有効にする</string>
+  <string name="noise_suppression_summary">通話のノイズ抑制を有効にする</string>
   <string name="preferred_network_mode_td_scdma_only">TD-SCDMAのみ</string>
   <string name="preferred_network_mode_global">Global</string>
   <string name="preferred_network_mode_evdo_only">EvDoのみ</string>

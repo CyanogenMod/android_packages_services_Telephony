@@ -17,6 +17,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_puk">PUK eingeben</string>
+  <string name="sim_unlock_failed">Entsperren der SIM fehlgeschlagen.</string>
+  <string name="rhrpd_unlock_failed">RUIM-HRPD-Entsperren fehlgeschlagen.</string>
+  <string name="ruim_unlock_failed">Entsperren der RUIM fehlgeschlagen.</string>
+  <string name="puk_unlock_failed">PUK entsperren fehlgeschlagen.</string>
   <string name="sim_unlock_success">SIM erfolgreich entsperrt.</string>
   <string name="puk_unlock_success">PUK erfolgreich entsperrt.</string>
   <string name="stk_cc_ss_to_dial_error">SS-Anfrage wurde in DIAL-Anfrage umgewandelt.</string>
