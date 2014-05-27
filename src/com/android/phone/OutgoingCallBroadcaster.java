@@ -718,6 +718,7 @@ public class OutgoingCallBroadcaster extends Activity
             broadcastIntent.putExtra(EXTRA_ORIGINAL_URI, uri.toString());
             broadcastIntent.putExtra(EXTRA_DIAL_CONFERENCE_URI,
                     intent.getBooleanExtra((EXTRA_DIAL_CONFERENCE_URI), false));
+            broadcastIntent.putExtra(SUBSCRIPTION_KEY, mSubscription);
 
             // Need to raise foreground in-call UI as soon as possible while allowing 3rd party app
             // to intercept the outgoing call.
