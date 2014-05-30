@@ -79,8 +79,8 @@
   <string name="title_data_settings">Configuració de dades</string>
   <string name="summary_manage_subscriptions">Administra la configuració de xarxa de cada subscripció</string>
   <string name="call_ind_services">Trucada a serveis independents</string>
-  <string name="callind_multi_sim">Ajustaments de subscripcions</string>
-  <string name="callind">Ajustaments de característiques de trucades</string>
+  <string name="callind_multi_sim">Configuració de les subscripcions</string>
+  <string name="callind">Configuració de les característiques de trucada</string>
   <string name="sub1">Subscripció 1</string>
   <string name="sub1_summary">Gestiona subscripció 1</string>
   <string name="sub2">Subscripció 2</string>

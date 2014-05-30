@@ -18,4 +18,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="call_notif_unconditionalCF">無限制來電轉接啟用中</string>
   <string name="call_notif_conditionalCF">限制來電轉接啟用中</string>
+  <string name="incall_vibration">通話震動</string>
+  <string name="blacklist_summary_disabled">已停用</string>
+  <string name="noise_suppression_summary">通話時啟用噪音抑制</string>
+  <string name="enable_forward_lookup_summary">在撥號器中搜索時顯示附近的地點</string>
+  <string name="enable_people_lookup_title">聯絡人查詢</string>
+  <string name="enable_people_lookup_summary">在撥號器中搜索時，即時顯示搜索聯絡人結果</string>
+  <string name="enable_reverse_lookup_summary">為未知來電號碼查詢聯絡人或地點資料</string>
+  <string name="sub_no_sim">沒有 SIM 卡</string>
 </resources>

@@ -53,8 +53,8 @@
   <string name="unblock_number">解除封鎖</string>
   <string name="mwi_notification_title">訊息等候指示</string>
   <string name="mwi_notification_summary">顯示訊息等待指示語音留言通知</string>
-  <string name="perm_change_mobile_network">更改網路模式 (2G/3G)</string>
-  <string name="perm_change_mobile_network_desc">被授予此權限的應用程式能夠於任何時候在 2G 及 3G 流動網路之間進行切換。使用 3G 流動網路存取資料的速度會比較快，但會消耗較多的電池電量，亦可能會令您額外花費。</string>
+  <string name="perm_change_mobile_network">更改網絡模式 (2G/3G)</string>
+  <string name="perm_change_mobile_network_desc">被授予此權限的應用程式能夠於任何時候在 2G 及 3G 流動網絡之間進行切換。使用 3G 流動網絡存取資料的速度會比較快，但會消耗較多的電池電量，亦可能會令您額外花費。</string>
   <string name="phone_number_label">我的電話號碼</string>
   <string name="phone_number_summary">為此裝置設定手機號碼</string>
   <string name="noise_suppression_title">噪音抑制</string>
@@ -71,13 +71,13 @@
   <string name="number_lookup">電話號碼查詢</string>
   <string name="enable_forward_lookup_title">轉駁查詢</string>
   <string name="enable_forward_lookup_summary">在撥號器中搜索時顯示附近的地點</string>
-  <string name="enable_people_lookup_title">人名查詢</string>
-  <string name="enable_people_lookup_summary">在撥號器中搜索人名時顯示在線搜索結果</string>
+  <string name="enable_people_lookup_title">聯絡人查詢</string>
+  <string name="enable_people_lookup_summary">在撥號器中搜索時，即時顯示搜索聯絡人結果</string>
   <string name="enable_reverse_lookup_title">反向查詢</string>
-  <string name="enable_reverse_lookup_summary">為未知來電號碼查詢人名或地點資料</string>
+  <string name="enable_reverse_lookup_summary">為未知來電號碼查詢聯絡人或地點資料</string>
   <string name="choose_lookup_providers">選擇查詢提供商</string>
   <string name="choose_forward_lookup_provider_title">轉駁查詢提供商</string>
-  <string name="choose_people_lookup_provider_title">人名查詢供應商</string>
+  <string name="choose_people_lookup_provider_title">聯絡人查詢供應商</string>
   <string name="choose_reverse_lookup_provider_title">反向查詢提供商</string>
   <string name="sub_no_sim">沒有 SIM 卡</string>
   <string name="msim_call_selector_title">通話 <xliff:g id="number">%s</xliff:g> 透過</string>

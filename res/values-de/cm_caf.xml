@@ -22,6 +22,7 @@
   <string name="ruim_unlock_failed">Entsperren der RUIM fehlgeschlagen.</string>
   <string name="puk_unlock_failed">PUK entsperren fehlgeschlagen.</string>
   <string name="sim_unlock_success">SIM erfolgreich entsperrt.</string>
+  <string name="ruim_unlock_success">RUIM erfolgreich entsperrt.</string>
   <string name="puk_unlock_success">PUK erfolgreich entsperrt.</string>
   <string name="stk_cc_ss_to_dial_error">SS-Anfrage wurde in DIAL-Anfrage umgewandelt.</string>
   <string name="stk_cc_ss_to_ussd_error">SS-Anfrage wurde in USSD-Anfrage umgewandelt.</string>
@@ -83,6 +84,10 @@
   <string name="sendSms">SMS senden</string>
   <string name="delete">Löschen</string>
   <string name="dial">Wählen</string>
+  <string name="enterName">Namen eingeben:</string>
+  <string name="enterNumber">Telefonnummer eingeben:</string>
+  <string name="contactAddSuccess">SIM-Kontakt erfolgreich hinzugefügt</string>
+  <string name="contactAddFailed">SIM-Kontakt konnte nicht hinzugefügt werden</string>
   <string name="contactdeleteFailed">SIM-Kontakt konnte nicht gelöscht werden</string>
   <string name="set_sub_1">SIM 1: </string>
   <string name="set_sub_2">SIM 2: </string>
