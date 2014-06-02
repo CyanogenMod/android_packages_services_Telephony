@@ -358,6 +358,8 @@ public class PhoneUtils {
                         app.cdmaPhoneCallState.setCurrentCallState(
                                 CdmaPhoneCallState.PhoneCallState.SINGLE_ACTIVE);
                     } else {
+                        // As waiting call answered, remove any timers related to call waiting
+                        notifier.onCdmaCallWaitingAnswered();
                         // This is the CALL WAITING call being answered.
                         // Set the Phone Call State to CONF_CALL
                         app.cdmaPhoneCallState.setCurrentCallState(
