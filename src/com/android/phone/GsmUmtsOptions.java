@@ -23,6 +23,10 @@ import android.content.Intent;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 
 import android.provider.Settings;
@@ -31,6 +35,8 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 
 import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
+
+import java.util.List;
 
 /**
  * List of Network-specific settings screens.
@@ -72,6 +78,31 @@ public class GsmUmtsOptions {
         enableScreen();
     }
 
+    /**
+     * check whether NetworkSetting apk exist in system, if true, replace the
+     * intent of the NetworkSetting Activity with the intent of NetworkSetting
+     */
+    private void enablePlmnIncSearch() {
+        if (mButtonOperatorSelectionExpand != null) {
+            PackageManager pm = mButtonOperatorSelectionExpand.getContext().getPackageManager();
+
+            // check whether the target handler exist in system
+            Intent intent = new Intent("org.codeaurora.settings.NETWORK_OPERATOR_SETTINGS_ASYNC");
+            List<ResolveInfo> list = pm.queryIntentActivities(intent, 0);
+            for(ResolveInfo resolveInfo : list){
+                // check is it installed in system.img, exclude the application
+                // installed by user
+                if ((resolveInfo.activityInfo.applicationInfo.flags &
+                        ApplicationInfo.FLAG_SYSTEM) != 0) {
+                    // set the target intent
+                    intent.putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
+                    mButtonOperatorSelectionExpand.setIntent(intent);
+                    break;
+                }
+            }
+        }
+    }
+
     public void onResume() {
         updateOperatorSelectionVisibility();
     }
@@ -102,6 +133,8 @@ public class GsmUmtsOptions {
     private void updateOperatorSelectionVisibility() {
         log("updateOperatorSelectionVisibility. mPhone = " + mPhone.getPhoneName());
         Resources res = mPrefActivity.getResources();
+
+        enablePlmnIncSearch();
         if (res.getBoolean(R.bool.csp_enabled)) {
             if (mPhone.isCspPlmnEnabled()) {
                 log("[CSP] Enabling Operator Selection menu.");
