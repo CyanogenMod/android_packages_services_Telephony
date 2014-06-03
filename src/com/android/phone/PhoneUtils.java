@@ -150,6 +150,10 @@ public class PhoneUtils {
         }
     }
 
+    /** USSD information used to aggregate all USSD messages */
+    private static AlertDialog sUssdDialog = null;
+    private static StringBuilder sUssdMsg = new StringBuilder();
+
     /**
      * Constants for IMS Service Status - the status of an Ims Service can be
      * the following 1. Disabled - for example, the user can disable IMS Voice
@@ -883,11 +887,6 @@ public class PhoneUtils {
             // we dialed an MMI (see below).
         }
 
-        // Now that the call is successful, we can save the gateway info for the call
-        if (callGateway != null) {
-            callGateway.setGatewayInfoForConnection(connection, gatewayInfo);
-        }
-
         int phoneType = phone.getPhoneType();
 
         // On GSM phones, null is returned for MMI codes
@@ -903,6 +902,11 @@ public class PhoneUtils {
             // The phone on whilch dial request for voice call is initiated
             // set it as active subscription
             setActiveSubscription(phone.getSubscription());
+
+            // Now that the call is successful, we can save the gateway info for the call
+            if (callGateway != null) {
+                callGateway.setGatewayInfoForConnection(connection, gatewayInfo);
+            }
 
             if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
                 updateCdmaCallStateOnNewOutgoingCall(app, connection);
@@ -997,6 +1001,33 @@ public class PhoneUtils {
                 // Send the empty flash
                 if (DBG) Log.d(LOG_TAG, "onReceive: (CDMA) sending empty flash to network");
                 switchHoldingAndActive(phone.getBackgroundCall());
+            }
+        }
+    }
+
+    static void swap() {
+        final PhoneGlobals mApp = PhoneGlobals.getInstance();
+        if (!okToSwapCalls(mApp.mCM)) {
+            // TODO: throw an error instead?
+            return;
+        }
+
+        // Swap the fg and bg calls.
+        // In the future we may provide some way for user to choose among
+        // multiple background calls, for now, always act on the first background call.
+        PhoneUtils.switchHoldingAndActive(mApp.mCM.getFirstActiveBgCall());
+
+        // If we have a valid BluetoothPhoneService then since CDMA network or
+        // Telephony FW does not send us information on which caller got swapped
+        // we need to update the second call active state in BluetoothPhoneService internally
+        if (mApp.mCM.getBgPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
+            final IBluetoothHeadsetPhone btPhone = mApp.getBluetoothPhoneService();
+            if (btPhone != null) {
+                try {
+                    btPhone.cdmaSwapSecondCallState();
+                } catch (RemoteException e) {
+                    Log.e(LOG_TAG, Log.getStackTraceString(new Throwable()));
+                }
             }
         }
     }
@@ -1269,18 +1300,33 @@ public class PhoneUtils {
                 // displaying system alert dialog on the screen instead of
                 // using another activity to display the message.  This
                 // places the message at the forefront of the UI.
-                AlertDialog newDialog = new AlertDialog.Builder(context)
-                        .setMessage(text)
-                        .setPositiveButton(R.string.ok, null)
-                        .setCancelable(true)
-                        .create();
 
-                newDialog.getWindow().setType(
-                        WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG);
-                newDialog.getWindow().addFlags(
-                        WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                if (sUssdDialog == null) {
+                    sUssdDialog = new AlertDialog.Builder(context)
+                            .setPositiveButton(R.string.ok, null)
+                            .setCancelable(true)
+                            .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                @Override
+                                public void onDismiss(DialogInterface dialog) {
+                                    sUssdMsg.setLength(0);
+                                }
+                            })
+                            .create();
 
-                newDialog.show();
+                    sUssdDialog.getWindow().setType(
+                            WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG);
+                    sUssdDialog.getWindow().addFlags(
+                            WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                }
+                if (sUssdMsg.length() != 0) {
+                    sUssdMsg
+                            .insert(0, "\n")
+                            .insert(0, app.getResources().getString(R.string.ussd_dialog_sep))
+                            .insert(0, "\n");
+                }
+                sUssdMsg.insert(0, text);
+                sUssdDialog.setMessage(sUssdMsg.toString());
+                sUssdDialog.show();
             } else {
                 if (DBG) log("USSD code has requested user input. Constructing input dialog.");
 

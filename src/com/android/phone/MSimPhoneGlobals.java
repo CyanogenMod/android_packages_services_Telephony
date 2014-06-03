@@ -209,7 +209,7 @@ public class MSimPhoneGlobals extends PhoneGlobals {
 
             CallLogger callLogger = new CallLogger(this, new CallLogAsync());
 
-            callGatewayManager = new CallGatewayManager();
+            callGatewayManager = CallGatewayManager.getInstance();
 
             // Create the CallController singleton, which is the interface
             // to the telephony layer for user-initiated telephony functionality
@@ -252,7 +252,7 @@ public class MSimPhoneGlobals extends PhoneGlobals {
             callHandlerServiceProxy = new CallHandlerServiceProxy(this, callModeler,
                     callCommandService, audioRouter);
 
-            phoneMgr = PhoneInterfaceManager.init(this, phone, callHandlerServiceProxy);
+            phoneMgr = PhoneInterfaceManager.init(this, phone, callHandlerServiceProxy, callModeler, dtmfTonePlayer);
             phoneMgrMSim = MSimPhoneInterfaceManager.init(this, phone, callHandlerServiceProxy);
 
             // Create the CallNotifer singleton, which handles
