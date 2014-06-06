@@ -29,6 +29,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
@@ -3619,5 +3620,20 @@ public class PhoneUtils {
         }
         if (DBG) log("isImsVtCallNotAllowed: " + isNotAllowed);
         return isNotAllowed;
+    }
+
+    public static boolean isPackageInstalled(Context context, String pkg) {
+        if (pkg != null) {
+            try {
+                PackageInfo pi = context.getPackageManager().getPackageInfo(pkg, 0);
+                if (!pi.applicationInfo.enabled) {
+                    return false;
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
