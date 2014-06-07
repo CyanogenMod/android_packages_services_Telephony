@@ -107,6 +107,8 @@ public class MSimNotificationMgr extends NotificationMgr {
                 R.drawable.stat_notify_voicemail_sub2, R.drawable.stat_notify_voicemail_sub3};
         int resId = iconId[subscription];
 
+        int notificationId = getNotificationIdBasedOnSubscription(subscription);
+
         if (visible) {
             // This Notification can get a lot fancier once we have more
             // information about the current voicemail messages.
@@ -218,9 +220,9 @@ public class MSimNotificationMgr extends NotificationMgr {
 
             notification.flags |= Notification.FLAG_NO_CLEAR;
             configureLedNotification(mContext, VOICEMAIL_NOTIFICATION, notification);
-            mNotificationManager.notify(VOICEMAIL_NOTIFICATION, notification);
+            mNotificationManager.notify(notificationId, notification);
         } else {
-            mNotificationManager.cancel(VOICEMAIL_NOTIFICATION);
+            mNotificationManager.cancel(notificationId);
         }
     }
 
@@ -363,6 +365,30 @@ public class MSimNotificationMgr extends NotificationMgr {
         } else {
             mNotificationManager.cancel(CALL_FORWARD_XDIVERT);
         }
+    }
+
+    private int getNotificationIdBasedOnSubscription(int subscription) {
+
+        int notificationId = VOICEMAIL_NOTIFICATION;
+
+        switch (subscription) {
+            case 0:
+                notificationId = VOICEMAIL_NOTIFICATION;
+                break;
+            case 1:
+                notificationId = VOICEMAIL_NOTIFICATION_SUB2;
+                break;
+            case 2:
+                notificationId = VOICEMAIL_NOTIFICATION_SUB3;
+                break;
+            default:
+                // Subscription should always be a vaild value and case need
+                // to add in future for multiSIM (>3S) architecture, (if any).
+                // Here, default case should not hit in any of multiSIM scenario.
+                Log.e(LOG_TAG, "updateMwi: This should not happen, subscription = " + subscription);
+                break;
+        }
+        return notificationId;
     }
 
     private void log(String msg) {

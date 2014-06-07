@@ -115,6 +115,10 @@ public class DTMFTonePlayer implements CallModeler.Listener {
     }
 
     @Override
+    public void onSuppServiceFailed(int service) {
+    }
+
+    @Override
     public void onIncoming(Call call) {
     }
 

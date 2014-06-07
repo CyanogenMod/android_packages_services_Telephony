@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2014, The Linux Foundation. All rights reserved.
+ * Not a contribution.
+ *
  * Copyright (C) 2012 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,15 +41,23 @@ import android.util.Log;
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.CallManager;
+import android.telephony.MSimTelephonyManager;
 
 import com.android.phone.CallGatewayManager.RawGatewayInfo;
 
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.codeaurora.btmultisim.IBluetoothDsdaService;
+import android.content.ServiceConnection;
+import android.os.RemoteException;
+import android.content.ComponentName;
+
 
 /**
  * Bluetooth headset manager for the Phone app.
@@ -81,6 +92,7 @@ public class BluetoothPhoneService extends Service {
     int mNumActive;
     // number of background (held) calls
     int mNumHeld;
+    private IBluetoothDsdaService mBluetoothDsda = null; //Handles DSDA Service.
 
     long mBgndEarliestConnectionTime = 0;
 
@@ -123,18 +135,34 @@ public class BluetoothPhoneService extends Service {
         mRingNumber = new CallNumber("", 0);;
 
         handlePreciseCallStateChange(null);
-
         if(VDBG) Log.d(TAG, "registerForServiceStateChanged");
         // register for updates
+        Log.d(TAG, "registerForPreciseCallStateChanged start");
         mCM.registerForPreciseCallStateChanged(mHandler, PRECISE_CALL_STATE_CHANGED, null);
-        mCM.registerForCallWaiting(mHandler, PHONE_CDMA_CALL_WAITING, null);
+        for (Phone phone : mCM.getAllPhones()) {
+            if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA ) {
+                log("register for cdma call waiting " + phone.getSubscription());
+                mCM.registerForCallWaiting(mHandler, PHONE_CDMA_CALL_WAITING,
+                                           phone.getSubscription());
+                break;
+            }
+        }
+        if (isDsdaEnabled())
+            mCM.registerForSubscriptionChange(mHandler,
+                      PHONE_ACTIVE_SUBSCRIPTION_CHANGE, null);
+        // TODO(BT) registerForIncomingRing?
+
         mCM.registerForDisconnect(mHandler, PHONE_ON_DISCONNECT, null);
 
-        // TODO(BT) registerForIncomingRing?
         mClccTimestamps = new long[GSM_MAX_CONNECTIONS];
         mClccUsed = new boolean[GSM_MAX_CONNECTIONS];
         for (int i = 0; i < GSM_MAX_CONNECTIONS; i++) {
             mClccUsed[i] = false;
+        }
+        //Check whether we support DSDA or not
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            Log.d(TAG, "DSDA is enabled, Bind to DSDA service");
+            createBTMultiSimService();
         }
     }
 
@@ -158,6 +186,36 @@ public class BluetoothPhoneService extends Service {
         return mBinder;
     }
 
+    private void createBTMultiSimService() {
+        try {
+            // send intent to start BtDsdaService service
+            boolean bound = bindService(new Intent
+                   ("org.codeaurora.btmultisim.IBluetoothDsdaService"),
+                    btMultiSimServiceConnection, Context.BIND_AUTO_CREATE);
+            Log.d(TAG, "IBluetoothDsdaService bound request : " + bound);
+        } catch (NoClassDefFoundError e) {
+            Log.w(TAG, "Ignoring IBluetoothDsdaService class not found exception " + e);
+        }
+    }
+
+    private ServiceConnection btMultiSimServiceConnection = new ServiceConnection() {
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            //Get handle to IBluetoothDsdaService.Stub.asInterface(service);
+            mBluetoothDsda = IBluetoothDsdaService.Stub.asInterface(service);
+            Log.d(TAG,"Dsda Service Connected" + mBluetoothDsda);
+            if (mBluetoothDsda != null) {
+                    Log.e(TAG, "IBluetoothDsdaService created");
+                    if (isDsdaEnabled())
+                        handlePreciseCallStateChange(null);
+                } else Log.e(TAG, "IBluetoothDsdaService Error");
+        }
+
+        public void onServiceDisconnected(ComponentName arg0) {
+            Log.w(TAG,"DSDA Service onServiceDisconnected");
+            mBluetoothDsda = null;
+        }
+    };
+
     private static final int PRECISE_CALL_STATE_CHANGED = 1;
     private static final int PHONE_CDMA_CALL_WAITING = 2;
     private static final int LIST_CURRENT_CALLS = 3;
@@ -165,6 +223,7 @@ public class BluetoothPhoneService extends Service {
     private static final int CDMA_SWAP_SECOND_CALL_STATE = 5;
     private static final int CDMA_SET_SECOND_CALL_STATE = 6;
     private static final int PHONE_ON_DISCONNECT = 7;
+    private static final int PHONE_ACTIVE_SUBSCRIPTION_CHANGE = 8;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -172,11 +231,93 @@ public class BluetoothPhoneService extends Service {
             if (VDBG) Log.d(TAG, "handleMessage: " + msg.what);
             switch(msg.what) {
                 case PRECISE_CALL_STATE_CHANGED:
-                case PHONE_CDMA_CALL_WAITING:
-                case PHONE_ON_DISCONNECT:
                     Connection connection = null;
                     if (((AsyncResult) msg.obj).result instanceof Connection) {
                         connection = (Connection) ((AsyncResult) msg.obj).result;
+                    }
+                    if (isDsdaEnabled() && (mBluetoothDsda != null)) {
+                        //Get the Sub on which call state change happened
+                        if (((AsyncResult) msg.obj).result instanceof PhoneBase) {
+                            PhoneBase pb =  (PhoneBase)((AsyncResult) msg.obj).result;
+                            int subscription = pb.getSubscription();
+                            log("SUB on which it happned: " + subscription);
+                            try {
+                                int mPhonetype = -1;
+                                mBluetoothDsda.setCurrentSub(subscription);
+                                //Get the CDMA call states and update to DSDA state
+                                // machine
+                                for (Phone phone : mCM.getAllPhones()) {
+                                    if (phone != null) {
+                                        if (phone.getSubscription() == subscription) {
+                                            mPhonetype = phone.getPhoneType();
+                                            if (mPhonetype == PhoneConstants.PHONE_TYPE_CDMA) {
+                                                Log.d(TAG, "CDMA.Update held calls on this SUB");
+                                                mBluetoothDsda.updateCdmaHeldCall(getNumHeldCdma());
+                                            }
+                                        }
+                                    }
+                                }
+                            } catch (RemoteException e) {
+                                Log.w(TAG, "mBluetoothDsda class not found exception " + e);
+                                break;
+                            }
+                        } else log("No PhoneBase object found");
+                    }
+                    handlePreciseCallStateChange(connection);
+                    break;
+                case PHONE_CDMA_CALL_WAITING:
+                    Connection conn = null;
+                    if (isDsdaEnabled() && (mBluetoothDsda != null)) {
+                        AsyncResult ar = (AsyncResult) msg.obj;
+                        int subscription = (Integer) ar.userObj;
+                        log("CDMA call waiting on sub: " + subscription);
+                        conn = mCM.getFirstActiveRingingCall(subscription).getLatestConnection();
+                        try {
+                            mBluetoothDsda.setCurrentSub(subscription);
+                            mBluetoothDsda.updateCdmaHeldCall(getNumHeldCdma());
+                        } catch (RemoteException e) {
+                            Log.w(TAG, "Class not found exception " + e);
+                            break;
+                        }
+                    } else {
+                        if (((AsyncResult) msg.obj).result instanceof Connection) {
+                            conn = (Connection) ((AsyncResult) msg.obj).result;
+                        }
+                    }
+                    handlePreciseCallStateChange(conn);
+                    break;
+                case PHONE_ON_DISCONNECT:
+                    connection = null;
+                    if (((AsyncResult) msg.obj).result instanceof Connection) {
+                        connection = (Connection) ((AsyncResult) msg.obj).result;
+                    }
+                    if (isDsdaEnabled() && (mBluetoothDsda != null)) {
+                        //Get the Sub on which call state change happened
+                        if (((AsyncResult) msg.obj).result instanceof PhoneBase) {
+                            PhoneBase pb =  (PhoneBase)((AsyncResult) msg.obj).result;
+                            int subscription = pb.getSubscription();
+                            log("SUB on which it happned: " + subscription);
+                            try {
+                                int mPhonetype = -1;
+                                mBluetoothDsda.setCurrentSub(subscription);
+                                //Get the CDMA call states and update to DSDA state
+                                // machine
+                                for (Phone phone : mCM.getAllPhones()) {
+                                    if (phone != null) {
+                                        if (phone.getSubscription() == subscription) {
+                                            mPhonetype = phone.getPhoneType();
+                                            if (mPhonetype == PhoneConstants.PHONE_TYPE_CDMA) {
+                                                Log.d(TAG, "CDMA. Update held calls on this SUB");
+                                                mBluetoothDsda.updateCdmaHeldCall(getNumHeldCdma());
+                                            }
+                                        }
+                                    }
+                                }
+                            } catch (RemoteException e) {
+                                Log.w(TAG, " mBluetoothDsda class not found exception " + e);
+                                break;
+                            }
+                        } else log("No PhoneBase object found");
                     }
                     handlePreciseCallStateChange(connection);
                     break;
@@ -192,9 +333,27 @@ public class BluetoothPhoneService extends Service {
                 case CDMA_SET_SECOND_CALL_STATE:
                     handleCdmaSetSecondCallState((Boolean) msg.obj);
                     break;
+                case PHONE_ACTIVE_SUBSCRIPTION_CHANGE:
+                    if (isDsdaEnabled() && (mBluetoothDsda != null))
+                        try {
+                             mBluetoothDsda.phoneSubChanged();
+                        } catch (RemoteException e) {
+                            Log.w(TAG, "DSDA class not found exception " + e);
+                        }
+                    break;
             }
         }
     };
+
+    private boolean isDsdaEnabled() {
+        //Check whether we support DSDA or not
+        if ((MSimTelephonyManager.getDefault().getMultiSimConfiguration()
+            == MSimTelephonyManager.MultiSimVariants.DSDA)) {
+            Log.d(TAG, "DSDA is enabled");
+            return true;
+        }
+        return false;
+    }
 
     private void updateBtPhoneStateAfterRadioTechnologyChange() {
         if(VDBG) Log.d(TAG, "updateBtPhoneStateAfterRadioTechnologyChange...");
@@ -202,15 +361,43 @@ public class BluetoothPhoneService extends Service {
         //Unregister all events from the old obsolete phone
         mCM.unregisterForPreciseCallStateChanged(mHandler);
         mCM.unregisterForCallWaiting(mHandler);
+        if (isDsdaEnabled())
+            mCM.unregisterForSubscriptionChange(mHandler);
 
         //Register all events new to the new active phone
         mCM.registerForPreciseCallStateChanged(mHandler,
                                                PRECISE_CALL_STATE_CHANGED, null);
-        mCM.registerForCallWaiting(mHandler,
-                                   PHONE_CDMA_CALL_WAITING, null);
+        for (Phone phone : mCM.getAllPhones()) {
+            if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA ) {
+                log("register for cdma call waiting " + phone.getSubscription());
+                mCM.registerForCallWaiting(mHandler, PHONE_CDMA_CALL_WAITING,
+                                           phone.getSubscription());
+                break;
+            }
+        }
+        if (isDsdaEnabled())
+            mCM.registerForSubscriptionChange(mHandler,
+                     PHONE_ACTIVE_SUBSCRIPTION_CHANGE, null);
     }
 
     private void handlePreciseCallStateChange(Connection connection) {
+
+        //Check whether we support DSDA or not
+        if (isDsdaEnabled()) {
+            Log.d(TAG, "DSDA call operation, handle it separately");
+            if (mBluetoothDsda != null) {
+                try {
+                    //Update the CDMA call states here only
+                    updateCdmaCallStates();
+                    mBluetoothDsda.handleMultiSimPreciseCallStateChange();
+                } catch (RemoteException e) {
+                    Log.w(TAG, "Ignoring DSDA class not found exception " + e);
+                }
+            }
+            return;
+        }
+
+        //Regular Single SUB call handling
         // get foreground call state
         int oldNumActive = mNumActive;
         int oldNumHeld = mNumHeld;
@@ -247,7 +434,6 @@ public class BluetoothPhoneService extends Service {
                         app.cdmaPhoneCallState.getCurrentCallState();
                 CdmaPhoneCallState.PhoneCallState prevCdmaThreeWayCallState =
                     app.cdmaPhoneCallState.getPreviousCallState();
-
                 log("CDMA call state: " + currCdmaThreeWayCallState + " prev state:" +
                     prevCdmaThreeWayCallState);
 
@@ -307,6 +493,7 @@ public class BluetoothPhoneService extends Service {
                     mBgndEarliestConnectionTime));
             mBgndEarliestConnectionTime = backgroundCall.getEarliestConnectTime();
         }
+        log("update the call states, active: " + mNumActive + "held" + mNumHeld);
 
         if (mNumActive != oldNumActive || mNumHeld != oldNumHeld ||
             mRingingCallState != oldRingingCallState ||
@@ -314,6 +501,7 @@ public class BluetoothPhoneService extends Service {
             !mRingNumber.equalTo(oldRingNumber) ||
             callsSwitched) {
             if (mBluetoothHeadset != null) {
+                log("update the headset");
                 mBluetoothHeadset.phoneStateChanged(mNumActive, mNumHeld,
                     convertCallState(mRingingCallState, mForegroundCallState),
                     mRingNumber.mNumber, mRingNumber.mType);
@@ -322,6 +510,16 @@ public class BluetoothPhoneService extends Service {
     }
 
     private void handleListCurrentCalls() {
+        if (isDsdaEnabled()) {
+            if (mBluetoothDsda != null)
+            try {
+                updateCdmaCallStates();
+                mBluetoothDsda.handleListCurrentCalls();
+            } catch (RemoteException e) {
+                Log.w(TAG, "Ignoring DSDA class not found exception " + e);
+            }
+            return;
+        }
         Phone phone = mCM.getDefaultPhone();
         int phoneType = phone.getPhoneType();
 
@@ -342,6 +540,16 @@ public class BluetoothPhoneService extends Service {
     }
 
     private void handleQueryPhoneState() {
+        if (isDsdaEnabled()) {
+            if (mBluetoothDsda != null) {
+                try {
+                    mBluetoothDsda.processQueryPhoneState();
+                } catch (RemoteException e) {
+                    Log.e(TAG, "DSDA Service not found exception " + e);
+                }
+            }
+            return;
+        }
         if (mBluetoothHeadset != null) {
             mBluetoothHeadset.phoneStateChanged(mNumActive, mNumHeld,
                 convertCallState(mRingingCallState, mForegroundCallState),
@@ -387,6 +595,54 @@ public class BluetoothPhoneService extends Service {
             }
         }
         return numHeld;
+    }
+
+    private void updateCdmaCallStates() throws RemoteException {
+        PhoneGlobals app = PhoneGlobals.getInstance();
+        int currCallState = 0;
+        int prevCallState = 0;
+
+        if (app.cdmaPhoneCallState != null) {
+            CdmaPhoneCallState.PhoneCallState curr3WayCallState =
+                app.cdmaPhoneCallState.getCurrentCallState();
+            CdmaPhoneCallState.PhoneCallState prev3WayCallState =
+                app.cdmaPhoneCallState.getPreviousCallState();
+            log("CDMA call state: " + curr3WayCallState + " prev state:" + prev3WayCallState);
+            switch (curr3WayCallState) {
+                case IDLE:
+                    currCallState = 0;
+                    break;
+                case SINGLE_ACTIVE:
+                    currCallState = 1;
+                    break;
+                case THRWAY_ACTIVE:
+                    currCallState = 2;
+                    break;
+                case CONF_CALL:
+                    currCallState = 3;
+                    break;
+                default:
+                    break;
+            }
+            switch (prev3WayCallState) {
+                case IDLE:
+                    prevCallState = 0;
+                    break;
+                case SINGLE_ACTIVE:
+                    prevCallState = 1;
+                    break;
+                case THRWAY_ACTIVE:
+                    prevCallState = 2;
+                    break;
+                case CONF_CALL:
+                    prevCallState = 3;
+                    break;
+                default:
+                    break;
+            }
+            mBluetoothDsda.setCurrentCallState(currCallState, prevCallState,
+                app.cdmaPhoneCallState.IsThreeWayCallOrigStateDialing());
+        }
     }
 
     private CallNumber getCallNumber(Connection connection, Call call) {
@@ -693,18 +949,274 @@ public class BluetoothPhoneService extends Service {
 
     private void handleCdmaSwapSecondCallState() {
         if (VDBG) log("cdmaSwapSecondCallState: Toggling mCdmaIsSecondCallActive");
+        if (isDsdaEnabled() && (mBluetoothDsda != null)) {
+            if (VDBG) log("DSDA.handleCdmaSwapSecondCallState");
+            try {
+                mBluetoothDsda.handleCdmaSwapSecondCallState();
+            } catch (RemoteException e) {
+                Log.w(TAG, "DSDA class not found exception " + e);
+            }
+            return;
+        }
         mCdmaIsSecondCallActive = !mCdmaIsSecondCallActive;
         mCdmaCallsSwapped = true;
     }
 
     private void handleCdmaSetSecondCallState(boolean state) {
         if (VDBG) log("cdmaSetSecondCallState: Setting mCdmaIsSecondCallActive to " + state);
+        if (isDsdaEnabled() && (mBluetoothDsda != null)) {
+            if (VDBG) log("DSDA.handleCdmaSetSecondCallState");
+            try {
+                mBluetoothDsda.handleCdmaSetSecondCallState(state);
+            } catch (RemoteException e) {
+                Log.w(TAG, "DSDA class not found exception " + e);
+            }
+            return;
+        }
         mCdmaIsSecondCallActive = state;
 
         if (!mCdmaIsSecondCallActive) {
             mCdmaCallsSwapped = false;
         }
     }
+
+    /* Get the active or held call on other Sub. */
+    private Call getCallOnOtherSub() throws  RemoteException {
+        if (VDBG) log("getCallOnOtherSub");
+        int activeSub = mCM.getActiveSubscription();
+        int bgSub =  PhoneUtils.getOtherActiveSub(activeSub);
+        /*bgSub would be -1 when bg subscription has no calls*/
+        if (bgSub == -1)
+            return null;
+
+        Call call = null;
+        if (mBluetoothDsda.getTotalCallsOnSub(bgSub) == 1) {
+            if (mCM.hasActiveFgCall(bgSub))
+                call = mCM.getActiveFgCall(bgSub);
+            else if (mCM.hasActiveBgCall(bgSub))
+                call = mCM.getFirstActiveBgCall(bgSub);
+        }
+        return call;
+    }
+
+    private Call getCallOnActiveSub() throws  RemoteException {
+        if (VDBG) log("getCallOnActiveSub");
+        int activeSub = mCM.getActiveSubscription();
+        Call call = null;
+        int bgSub =  PhoneUtils.getOtherActiveSub(activeSub);
+        /*bgSub would be -1 when bg subscription has no calls*/
+        if (bgSub == -1)
+            return null;
+
+        if (mBluetoothDsda.getTotalCallsOnSub(bgSub) < 2 ) {
+            if (mCM.hasActiveFgCall(activeSub))
+                call = mCM.getActiveFgCall(activeSub);
+            else if (mCM.hasActiveBgCall(activeSub))
+                call = mCM.getFirstActiveBgCall(activeSub);
+        }
+        return call;
+    }
+
+    private boolean processDsdaChld(int chld) throws  RemoteException {
+        Phone phone;
+        int phoneType;
+        int activeSub = mCM.getActiveSubscription();
+        boolean status = true;
+        phone = MSimPhoneGlobals.getInstance().getPhone(activeSub);
+
+        phoneType = phone.getPhoneType();
+        log("processChld: " + chld + " for Phone type: " + phoneType);
+        Call ringingCall = mCM.getFirstActiveRingingCall(activeSub);
+        Call backgroundCall = mCM.getFirstActiveBgCall(activeSub);
+        switch (chld) {
+            case CHLD_TYPE_RELEASEHELD:
+                if (ringingCall.isRinging()) {
+                status = PhoneUtils.hangupRingingCall(ringingCall);
+                } else {
+                Call call = getCallOnOtherSub();
+                if (call != null) {
+                PhoneUtils.hangup(call);
+                status = true;
+                } else status = PhoneUtils.hangupHoldingCall(backgroundCall);
+                }
+                break;
+
+            case CHLD_TYPE_RELEASEACTIVE_ACCEPTHELD:
+                if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                    Call call = getCallOnOtherSub();
+                    if (ringingCall.isRinging() && (call != null)) {
+                        //first answer the incoming call
+                        PhoneUtils.answerCall(mCM.getFirstActiveRingingCall(activeSub));
+                        //Try to Drop the call on the other SUB.
+                        PhoneUtils.hangup(call);
+                    } else if (mBluetoothDsda.isSwitchSubAllowed()) {
+                        /* In case of Sub1=Active and Sub2=lch/held, drop call
+                        on active  Sub*/
+                        log("Drop the call on Active sub, move LCH to active");
+                        call = getCallOnActiveSub();
+                        if(call != null)
+                        PhoneUtils.hangup(call);
+                    } else {
+                        //Operate on single SUB
+                        if (ringingCall.isRinging()) {
+                            // Hangup the active call and then answer call waiting call.
+                            log("CHLD:1 Callwaiting Answer call");
+                            PhoneUtils.hangupRingingAndActive(phone);
+                        } else {
+                            // If there is no Call waiting then just hangup
+                            // the active call. In CDMA this mean that the complete
+                            // call session would be ended
+                            log("CHLD:1 Hangup Call");
+                            PhoneUtils.hangup(PhoneGlobals.getInstance().mCM);
+                        }
+                    }
+                    status = true;
+                } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+                    Call call = getCallOnOtherSub();
+                    if (ringingCall.isRinging() && (call != null)) {
+                        //first answer the incoming call
+                        PhoneUtils.answerCall(mCM.getFirstActiveRingingCall(activeSub));
+                        //Try to Drop the call on the other SUB.
+                        PhoneUtils.hangup(call);
+                    } else if (mBluetoothDsda.isSwitchSubAllowed()) {
+                        /* In case of Sub1=Active and Sub2=lch/held, drop call
+                        on active  Sub*/
+                        log("processChld drop the call on Active sub, move LCH to active");
+                        log("Drop call on active sub");
+                        call = getCallOnActiveSub();
+                        if(call != null)
+                        PhoneUtils.hangup(call);
+                    } else {
+                        PhoneUtils.answerAndEndActive(PhoneGlobals.getInstance().mCM, ringingCall);
+                    }
+                    status = true;
+                } else {
+                    Log.e(TAG, "bad phone type: " + phoneType);
+                    status = false;
+                }
+                break;
+
+            case CHLD_TYPE_HOLDACTIVE_ACCEPTHELD:
+                if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                    if (mBluetoothDsda.canDoCallSwap()) {
+                        log("Try to do call swap on same sub");
+                        if (PhoneGlobals.getInstance().cdmaPhoneCallState.getCurrentCallState()
+                            == CdmaPhoneCallState.PhoneCallState.CONF_CALL) {
+                            log("CHLD:2 Swap Calls");
+                            PhoneUtils.switchHoldingAndActive(backgroundCall);
+                            // Toggle the second callers active state flag
+                            handleCdmaSwapSecondCallState();
+                        } else {
+                            Log.e(TAG, "CDMA fail to do hold active and accept held");
+                        }
+                    } else if (mBluetoothDsda.isSwitchSubAllowed()) {
+                        //Switch SUB.
+                        log("CHLD = 2 Switch sub");
+                        // If there is a change in active subscription while both the
+                        // subscriptions are in active state, need to siwtch the
+                        // playing of LCH/SCH tone to new LCH subscription.
+                        final MSimCallNotifier notifier =
+                        (MSimCallNotifier)PhoneGlobals.getInstance().notifier;
+                        notifier.manageMSimInCallTones(true);
+                        mBluetoothDsda.SwitchSub();
+                    } else if (mBluetoothDsda.answerOnThisSubAllowed() == true) {
+                        log("Can we answer the call on other SUB?");
+                        // Answer the call on current SUB.
+                        if (ringingCall.isRinging())
+                        PhoneUtils.answerCall(ringingCall);
+                    } else {
+                        //On same sub
+                        if (ringingCall.isRinging()) {
+                            log("CHLD:2 Callwaiting Answer call");
+                            PhoneUtils.answerCall(ringingCall);
+                            PhoneUtils.setMute(false);
+                            // Setting the second callers state flag to TRUE (i.e. active)
+                            handleCdmaSetSecondCallState(true);
+                        } else if (PhoneGlobals.getInstance().cdmaPhoneCallState
+                            .getCurrentCallState()
+                            == CdmaPhoneCallState.PhoneCallState.CONF_CALL) {
+                            log("CHLD:2 Swap Calls");
+                            PhoneUtils.switchHoldingAndActive(backgroundCall);
+                            // Toggle the second callers active state flag
+                            handleCdmaSwapSecondCallState();
+                        }
+                        Log.e(TAG, "CDMA fail to do hold active and accept held");
+                    }
+                    status = true;
+                } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+                    if (mBluetoothDsda.canDoCallSwap()) {
+                        log("Try to do call swap on same sub");
+                        PhoneUtils.switchHoldingAndActive(backgroundCall);
+                    } else if (mBluetoothDsda.isSwitchSubAllowed()) {
+                        /*Switch SUB*/
+                        log("Switch sub");
+                        // If there is a change in active subscription while both the
+                        // subscriptions are in active state, need to siwtch the
+                        // playing of LCH/SCH tone to new LCH subscription.
+                        final MSimCallNotifier notifier =
+                        (MSimCallNotifier)PhoneGlobals.getInstance().notifier;
+                        notifier.manageMSimInCallTones(true);
+                        mBluetoothDsda.SwitchSub();
+                    } else if (mBluetoothDsda.answerOnThisSubAllowed() == true) {
+                        log("Can we answer the call on other SUB?");
+                        /* Answer the call on current SUB*/
+                        if (ringingCall.isRinging())
+                        PhoneUtils.answerCall(ringingCall);
+                    } else {
+                        log("CHLD=2, Answer the call on same sub");
+                        if ((backgroundCall.mState == Call.State.HOLDING)
+                            && ringingCall.isRinging()) {
+                            log("Background is on hold when incoming call came");
+                            PhoneUtils.answerCall(ringingCall);
+                        } else PhoneUtils.switchHoldingAndActive(backgroundCall);
+                    }
+                    status = true;
+                } else {
+                    Log.e(TAG, "Unexpected phone type: " + phoneType);
+                    status = false;
+                }
+                break;
+
+            case CHLD_TYPE_ADDHELDTOCONF:
+                if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                    CdmaPhoneCallState.PhoneCallState state =
+                        PhoneGlobals.getInstance().cdmaPhoneCallState.getCurrentCallState();
+                    // For CDMA, we need to check if the call is in THRWAY_ACTIVE state
+                    if (state == CdmaPhoneCallState.PhoneCallState.THRWAY_ACTIVE) {
+                        if (VDBG) log("CHLD:3 Merge Calls");
+                        PhoneUtils.mergeCalls();
+                        status = true;
+                    }    else if (state == CdmaPhoneCallState.PhoneCallState.CONF_CALL) {
+                        // State is CONF_CALL already and we are getting a merge call
+                        // This can happen when CONF_CALL was entered from a Call Waiting
+                        // TODO(BT)
+                        status = false;
+                    } else {
+                        Log.e(TAG, "GSG no call to add conference");
+                        status = false;
+                    }
+                } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+                    if (mCM.hasActiveFgCall() && mCM.hasActiveBgCall()) {
+                        PhoneUtils.mergeCalls();
+                        status = true;
+                    } else {
+                        Log.e(TAG, "GSG no call to merge");
+                        status = false;
+                    }
+                } else {
+                    Log.e(TAG, "Unexpected phone type: " + phoneType);
+                    status = false;
+                }
+                break;
+
+            default:
+                Log.e(TAG, "bad CHLD value: " + chld);
+                status = false;
+                break;
+        }
+        return status;
+    }
+
 
     private final IBluetoothHeadsetPhone.Stub mBinder = new IBluetoothHeadsetPhone.Stub() {
         public boolean answerCall() {
@@ -732,8 +1244,16 @@ public class BluetoothPhoneService extends Service {
 
         public boolean processChld(int chld) {
             enforceCallingOrSelfPermission(MODIFY_PHONE_STATE, null);
+            if (isDsdaEnabled() && (mBluetoothDsda != null)) {
+                try {
+                    return processDsdaChld(chld);
+                } catch (RemoteException e) {
+                    Log.e(TAG, " BluetoothDsdaService class not found exception " + e);
+                }
+            }
             Phone phone = mCM.getDefaultPhone();
             int phoneType = phone.getPhoneType();
+            log("processChld: " + chld + " for Phone type: " + phoneType);
             Call ringingCall = mCM.getFirstActiveRingingCall();
             Call backgroundCall = mCM.getFirstActiveBgCall();
 
@@ -822,6 +1342,7 @@ public class BluetoothPhoneService extends Service {
                     Log.e(TAG, "GSG no call to add conference");
                     return false;
                 } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+                    log("processChld fr CHLD = 3 for GSM, operate only on single sub");
                     if (mCM.hasActiveFgCall() && mCM.hasActiveBgCall()) {
                         PhoneUtils.mergeCalls();
                         return true;
@@ -841,11 +1362,22 @@ public class BluetoothPhoneService extends Service {
 
         public String getNetworkOperator() {
             enforceCallingOrSelfPermission(MODIFY_PHONE_STATE, null);
+            if (isDsdaEnabled()) {
+                log("getNetworkOperator for DSDA");
+                int activeSub = mCM.getActiveSubscription();
+                return mCM.getFgPhone(activeSub).getServiceState().getOperatorAlphaLong();
+            }
             return mCM.getDefaultPhone().getServiceState().getOperatorAlphaLong();
         }
 
         public String getSubscriberNumber() {
             enforceCallingOrSelfPermission(MODIFY_PHONE_STATE, null);
+            if (isDsdaEnabled()) {
+                log("getSubscriberNumber for DSDA");
+                int activeSub = mCM.getActiveSubscription();
+                Phone phone = MSimPhoneGlobals.getInstance().getPhone(activeSub);
+                return phone.getLine1Number();
+            }
             return mCM.getDefaultPhone().getLine1Number();
         }
 

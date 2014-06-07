@@ -191,10 +191,11 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
                 case CMD_SET_DATA_SUBSCRIPTION:
                     request = (MainThreadRequest) msg.obj;
                     int subscription = (Integer) request.argument;
+                    boolean isTempSwitch = (Boolean) request.argument2;
                     onCompleted = obtainMessage(EVENT_SET_DATA_SUBSCRIPTION_DONE, request);
                     SubscriptionManager subManager = SubscriptionManager.getInstance();
                     if (subManager != null) {
-                        subManager.setDataSubscription(subscription, onCompleted);
+                        subManager.setDataSubscription(subscription, isTempSwitch, onCompleted);
                     } else {
                         // need to return false;
                         // Wake up the requesting thread
@@ -965,13 +966,28 @@ public class MSimPhoneInterfaceManager extends ITelephonyMSim.Stub {
         return ((MSimPhoneGlobals)mApp).getDataSubscription();
     }
 
+    /**
+     * {@hide}
+     * Returns default/user preferred Data subscription.
+     */
+    public int getDefaultDataSubscription() {
+        return ((MSimPhoneGlobals)mApp).getDefaultDataSubscription();
+    }
 
     /**
      * {@hide}
-     * Set Data subscription.
+     * Set Data subscription retaining the default/user data sub preference.
      */
     public boolean setPreferredDataSubscription(int subscription) {
-        return (Boolean) sendRequest(CMD_SET_DATA_SUBSCRIPTION, subscription, null);
+        return (Boolean) sendRequest(CMD_SET_DATA_SUBSCRIPTION, subscription, true);
+    }
+
+    /**
+     * {@hide}
+     * Set Data subscription. Also update the default/user preference.
+     */
+    public boolean setDefaultDataSubscription(int subscription) {
+        return (Boolean) sendRequest(CMD_SET_DATA_SUBSCRIPTION, subscription, false);
     }
 
     /**

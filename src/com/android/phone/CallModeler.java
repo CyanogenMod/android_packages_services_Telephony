@@ -149,6 +149,15 @@ public class CallModeler extends Handler {
             case CallStateMonitor.PHONE_ACTIVE_SUBSCRIPTION_CHANGE:
                 onActiveSubChanged((AsyncResult) msg.obj);
                 break;
+            case CallStateMonitor.PHONE_SUPP_SERVICE_FAILED:
+                AsyncResult r = (AsyncResult) msg.obj;
+                Phone.SuppService service = (Phone.SuppService) r.result;
+                int val = service.ordinal();
+                if (DBG) Log.d(TAG, "SUPP_SERVICE_FAILED..." +service);
+                for (int i = 0; i < mListeners.size(); i++) {
+                    mListeners.get(i).onSuppServiceFailed(val);
+                }
+                break;
             case CallStateMonitor.PHONE_ENHANCED_VP_ON:
                 if (DBG) Log.d(TAG, "PHONE_ENHANCED_VP_ON...");
                 if (!mVoicePrivacyState) {
@@ -384,24 +393,11 @@ public class CallModeler extends Handler {
             mCallMap.remove(conn);
         }
 
-        mCallManager.clearDisconnected();
-        PhoneGlobals.getInstance().updateWakeState();
-    }
-
-    /**
-     * Called when the phone state changes.
-     */
-    private void onPhoneStateChanged(AsyncResult r) {
-        Log.i(TAG, "onPhoneStateChanged: ");
-        final List<Call> updatedCalls = Lists.newArrayList();
-        doUpdate(false, updatedCalls);
-
-        if (updatedCalls.size() > 0) {
-            for (int i = 0; i < mListeners.size(); ++i) {
-                mListeners.get(i).onUpdate(updatedCalls);
-            }
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            mCallManager.clearDisconnected(call.getSubscription());
+        } else {
+            mCallManager.clearDisconnected();
         }
-
         PhoneGlobals.getInstance().updateWakeState();
     }
 
@@ -446,6 +442,23 @@ public class CallModeler extends Handler {
         for (int i = 0; i < mListeners.size(); ++i) {
             mListeners.get(i).onUpdate(updatedCalls);
         }
+    }
+
+    /**
+     * Called when the phone state changes.
+     */
+    private void onPhoneStateChanged(AsyncResult r) {
+        Log.i(TAG, "onPhoneStateChanged: ");
+        final List<Call> updatedCalls = Lists.newArrayList();
+        doUpdate(false, updatedCalls);
+
+        if (updatedCalls.size() > 0) {
+            for (int i = 0; i < mListeners.size(); ++i) {
+                mListeners.get(i).onUpdate(updatedCalls);
+            }
+        }
+
+        PhoneGlobals.getInstance().updateWakeState();
     }
 
     /**
@@ -649,7 +662,7 @@ public class CallModeler extends Handler {
             call.getCallDetails().setConfUriList(confList);
         }
 
-        call.getCallDetails().setMpty(connection.getCall().isMultiparty());
+        call.getCallDetails().setMpty(PhoneUtils.isConferenceCall(connection.getCall()));
     }
 
     /**
@@ -664,6 +677,7 @@ public class CallModeler extends Handler {
         dest.setCallDomain(src.call_domain);
         dest.setExtras(src.extras);
         dest.setErrorInfo(errorInfo);
+        dest.setVideoPauseState(src.getVideoPauseState());
     }
 
     /**
@@ -776,6 +790,7 @@ public class CallModeler extends Handler {
      */
     private int getCapabilitiesFor(Connection connection, Call call, boolean isForConference) {
         final boolean callIsActive = (call.getState() == Call.State.ACTIVE);
+        final boolean callIsBackground = (call.getState() == Call.State.ONHOLD);
         final Phone phone = connection.getCall().getPhone();
 
         boolean canAddCall = false;
@@ -813,7 +828,7 @@ public class CallModeler extends Handler {
             }
             canAddCall = PhoneUtils.okToAddCall(mCallManager, subscription);
         }
-        if (callIsActive) {
+        if (callIsActive || callIsBackground) {
             canModifyCall = PhoneUtils.isVTModifyAllowed(connection);
         }
         canAddParticipant = PhoneUtils.canAddParticipant(mCallManager) && canAddCall;
@@ -1111,6 +1126,7 @@ public class CallModeler extends Handler {
                 char c);
         void onActiveSubChanged(int activeSub);
         void onModifyCall(Call call);
+        void onSuppServiceFailed(int service);
     }
 
     /**

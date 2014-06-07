@@ -257,6 +257,25 @@ public class CallHandlerServiceProxy extends Handler
     }
 
     @Override
+    public void onSuppServiceFailed(int service) {
+        try {
+            synchronized (mServiceAndQueueLock) {
+                if (mCallHandlerServiceGuarded == null) {
+                    if (DBG) {
+                        Log.d(TAG, "CallHandlerService not connected. Skipping "
+                                + "onSuppServiceFailed().");
+                    }
+                    return;
+                }
+            }
+
+            mCallHandlerServiceGuarded.onSuppServiceFailed(service);
+        } catch (Exception e) {
+            Log.e(TAG, "Remote exception handling onSuppServiceFailed", e);
+        }
+    }
+
+    @Override
     public void onActiveSubChanged(int activeSub) {
         try {
             synchronized (mServiceAndQueueLock) {

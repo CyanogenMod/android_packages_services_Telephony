@@ -432,6 +432,20 @@ public class PhoneUtils {
         return answered;
     }
 
+    public static void deflectCall(Connection conn, String number) {
+        Log.d(LOG_TAG, "deflectCall");
+        final Phone phone = conn.getCall().getPhone();
+        Message msg = null; // palceholder to respond back to UI
+        if (phone != null && phone.getPhoneType() == PhoneConstants.PHONE_TYPE_IMS) {
+            try {
+                int index = conn.getIndex();
+                phone.deflectCall(index, number, msg);
+            } catch (CallStateException e) {
+                Log.e(LOG_TAG, "Exception in deflectCall" + e);
+            }
+        }
+    }
+
     public static void modifyCallInitiate(Connection conn, int newCallType, String[] newExtras) {
         Phone phone = conn.getCall().getPhone();
         Message msg = null;// TODO : Need to write generic error

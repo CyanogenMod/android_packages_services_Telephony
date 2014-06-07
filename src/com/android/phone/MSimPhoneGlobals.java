@@ -682,11 +682,19 @@ public class MSimPhoneGlobals extends PhoneGlobals {
     }
 
     /*
-     * Gets User preferred Data subscription setting
+     * Gets current Data subscription setting
      */
     @Override
     public int getDataSubscription() {
         return MSimPhoneFactory.getDataSubscription();
+    }
+
+    /*
+     * Gets default/user preferred Data subscription setting
+     */
+    @Override
+    public int getDefaultDataSubscription() {
+        return MSimPhoneFactory.getDefaultDataSubscription();
     }
 
     /*

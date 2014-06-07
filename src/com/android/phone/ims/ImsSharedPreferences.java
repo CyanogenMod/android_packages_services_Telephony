@@ -21,6 +21,7 @@ package com.android.phone.ims;
 
 import com.android.internal.telephony.Phone;
 import com.android.phone.PhoneUtils;
+import com.android.phone.R;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -40,7 +41,13 @@ public class ImsSharedPreferences {
     private static final String KEY_IMS_IS_CALL_TYPE_ENABLED = "ims_is_call_type_enabled";
     private static final String KEY_IMS_IS_CALL_TYPE_SELECTABLE = "ims_is_call_type_selectable";
 
+    public final static int VT_QUALITY_UNKNOWN = -1;
+    public final static int VT_QUALITY_LOW = 0;
+    public final static int VT_QUALITY_HIGH = 1;
+
+
     private SharedPreferences mPreferences;
+    private Context mContext;
 
     // Check if the tag is loggable
     private static final boolean DBG = Log.isLoggable("IMS", Log.DEBUG);
@@ -48,6 +55,7 @@ public class ImsSharedPreferences {
     public ImsSharedPreferences(Context context) {
         mPreferences = context.getSharedPreferences(
                 IMS_SHARED_PREFERENCES, Context.MODE_WORLD_READABLE);
+        mContext = context;
     }
 
     public void setCallType(int callType) {
@@ -157,4 +165,23 @@ public class ImsSharedPreferences {
                 || (status == PhoneUtils.IMS_SRV_STATUS_PARTIALLY_DISABLED);
     }
 
+    public int readVideoCallQuality() {
+        final String key = mContext.getString(R.string.ims_vt_call_quality);
+        return mPreferences.getInt(key, VT_QUALITY_UNKNOWN);
+    }
+
+    public void saveVideoCallQuality(int quality) {
+        if (isValidVideoCallQuality(quality)) {
+            SharedPreferences.Editor editor = mPreferences.edit();
+            final String key = mContext.getString(R.string.ims_vt_call_quality);
+            editor.putInt(key, quality);
+            editor.apply();
+        } else {
+            Log.e(TAG, "VideoCallQuality: invalid quality value, " + quality);
+        }
+    }
+
+    private static boolean isValidVideoCallQuality(int value) {
+        return value == VT_QUALITY_LOW || value == VT_QUALITY_HIGH;
+    }
 }

@@ -607,6 +607,12 @@ public class OutgoingCallBroadcaster extends Activity
                 finish();
                 return;
             }
+            if (PhoneUtils.isAnyOtherSubActive(mSubscription) && MSimTelephonyManager.getDefault()
+                    .getMultiSimConfiguration() != MSimTelephonyManager.MultiSimVariants.DSDA) {
+                Log.d(TAG, "Call not allowed, as other sub is already active" + mSubscription);
+                handleNonVoiceCapable(intent);
+                return;
+            }
             intent.putExtra(SUBSCRIPTION_KEY, mSubscription);
             Log.d(TAG, "for non emergency call,sub is  :" + mSubscription);
             callNow = false;

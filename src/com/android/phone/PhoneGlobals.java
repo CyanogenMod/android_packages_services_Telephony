@@ -1509,9 +1509,16 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     }
 
     /*
-     * Gets User preferred Data subscription setting
+     * Gets current Data subscription setting
      */
     public int getDataSubscription() {
+        return DEFAULT_SUBSCRIPTION;
+    }
+
+    /*
+     * Gets default/user preferred Data subscription setting
+     */
+    public int getDefaultDataSubscription() {
         return DEFAULT_SUBSCRIPTION;
     }
 }

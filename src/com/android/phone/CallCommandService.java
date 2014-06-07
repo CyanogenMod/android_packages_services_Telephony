@@ -84,6 +84,16 @@ class CallCommandService extends ICallCommandService.Stub {
         }
     }
 
+    public void deflectCall(int callId, String number) {
+        Log.v(TAG, "deflectCall connId" + callId + "to number" + number);
+        try {
+            CallResult result = mCallModeler.getCallWithId(callId);
+            PhoneUtils.deflectCall(result.getConnection(), number);
+        } catch (Exception e) {
+            Log.e(TAG, "Error during deflectCall().", e);
+        }
+    }
+
     public void modifyCallInitiate(int callId, int callType) {
         Log.v(TAG, "modifyCallInitiate: callId=" + callId + "callType=" + callType);
         try {
