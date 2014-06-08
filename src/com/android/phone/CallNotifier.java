@@ -80,7 +80,7 @@ public class CallNotifier extends Handler
             (PhoneGlobals.DBG_LEVEL >= 1) && (SystemProperties.getInt("ro.debuggable", 0) == 1);
     private static final boolean VDBG = (PhoneGlobals.DBG_LEVEL >= 2);
 
-    // Maximum time we allow the CallerInfo query to run,
+    // Maximum time we allow the CallerInfo query to run,;
     // before giving up and falling back to the default ringtone.
     private static final int RINGTONE_QUERY_WAIT_TIME = 500;  // msec
 
@@ -183,6 +183,8 @@ public class CallNotifier extends Handler
     private AudioManager mAudioManager;
     private Vibrator mVibrator;
 
+    private FlipDetector mFlipDetector = null;
+
     protected final BluetoothManager mBluetoothManager;
 
     // Blacklist handling
@@ -224,12 +226,14 @@ public class CallNotifier extends Handler
         createSignalInfoToneGenerator();
 
         mRinger = ringer;
+
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
         if (adapter != null) {
             adapter.getProfileProxy(mApplication.getApplicationContext(),
                                     mBluetoothProfileServiceListener,
                                     BluetoothProfile.HEADSET);
         }
+
         listen();
     }
 
@@ -533,6 +537,12 @@ public class CallNotifier extends Handler
                     silenceRinger();
                     break;
             }
+        }
+
+        // Now, start the flip detector if the option is turned on
+        if (PhoneUtils.PhoneSettings.muteWhenFlipped(mApplication) > 0) {
+            mFlipDetector = new FlipDetector(mApplication, this, c.getCall());
+            mFlipDetector.start();
         }
 
         if (VDBG) log("- onNewRingingConnection() done.");
@@ -1092,6 +1102,11 @@ public class CallNotifier extends Handler
 
         // Stop 45-second vibration
         removeMessages(VIBRATE_45_SEC);
+
+        // Stops flip detector
+        if (mFlipDetector != null) {
+            mFlipDetector.stop();
+        }
 
         if ((c != null) && (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA)) {
             // Resetting the CdmaPhoneCallState members

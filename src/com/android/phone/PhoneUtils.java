@@ -3422,6 +3422,10 @@ public class PhoneUtils {
             return getPrefs(context).getBoolean("button_vibrate_call_waiting", false);
         }
 
+        static int muteWhenFlipped(Context context) {
+            return Integer.parseInt(getPrefs(context).getString("button_flip_while_ringing", "0"));
+        }
+
         /* misc. UI and behaviour preferences */
         static boolean showInCallEvents(Context context) {
             return getPrefs(context).getBoolean("button_show_ssn_key", false);
