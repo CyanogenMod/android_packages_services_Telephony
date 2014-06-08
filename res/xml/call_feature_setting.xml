@@ -34,6 +34,15 @@
             android:title="@string/vibrate_on_ring_title"
             android:persistent="false"
             android:defaultValue="false" />
+
+        <ListPreference
+            android:key="button_flip_while_ringing"
+            android:title="@string/flip_while_ringing"
+            android:dialogTitle="@string/flip_while_ringing"
+            android:entries="@array/flip_while_ringing_entries"
+            android:entryValues="@array/flip_while_ringing_values"
+            android:persistent="true"
+            android:defaultValue="0" />
     </PreferenceCategory>
 
   <PreferenceCategory

@@ -183,6 +183,8 @@ public class CallNotifier extends Handler
     private AudioManager mAudioManager;
     private Vibrator mVibrator;
 
+    private FlipDetector mFlipDetector = null;
+
     protected final BluetoothManager mBluetoothManager;
 
     // Blacklist handling
@@ -493,6 +495,12 @@ public class CallNotifier extends Handler
 
         // Finally, do the Quiet Hours ringer handling
         checkInQuietHours(c);
+
+        // Now, start the flip detector if the option is turned on
+        if (PhoneUtils.PhoneSettings.flipAction(mApplication) > 0) {
+            mFlipDetector = new FlipDetector(mApplication, this, c.getCall());
+            mFlipDetector.start();
+        }
 
         if (VDBG) log("- onNewRingingConnection() done.");
     }
@@ -891,6 +899,10 @@ public class CallNotifier extends Handler
             // remove it!
             if (DBG) log("stopRing()... (OFFHOOK state)");
             mRinger.stopRing();
+
+            if (mFlipDetector != null) {
+                mFlipDetector.stop();
+            }
         }
 
         if (c != null && !c.isIncoming() && c.getState() == Call.State.ACTIVE) {
@@ -1105,6 +1117,11 @@ public class CallNotifier extends Handler
 
         // Stop 45-second vibration
         removeMessages(VIBRATE_45_SEC);
+
+        // Stop the flip detector
+        if (mFlipDetector != null) {
+            mFlipDetector.stop();
+        }
 
         if ((c != null) && (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA)) {
             // Resetting the CdmaPhoneCallState members
