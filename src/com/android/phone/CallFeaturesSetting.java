@@ -75,12 +75,7 @@ import com.android.internal.telephony.cdma.TtyIntent;
 import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.phone.sip.SipSharedPreferences;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Top level "Call settings" UI; see res/xml/call_feature_setting.xml
@@ -1733,6 +1728,24 @@ public class CallFeaturesSetting extends PreferenceActivity
         mChooseForwardLookupProvider.setOnPreferenceChangeListener(this);
         mChoosePeopleLookupProvider.setOnPreferenceChangeListener(this);
         mChooseReverseLookupProvider.setOnPreferenceChangeListener(this);
+
+        if (PhoneUtils.isPackageInstalled(this, getString(R.string.cyngn_reverse_lookup_provider_package))) {
+            List<String> reverseLookupProviders = new LinkedList<String>(Arrays.asList(getResources().getStringArray(R.array.reverse_lookup_provider_names)));
+            List<String> reverseLookupProvidersValues = new LinkedList<String>(Arrays.asList(getResources().getStringArray(R.array.reverse_lookup_providers)));
+
+            reverseLookupProviders.add(getString(R.string.cyngn_reverse_lookup_provider_name));
+            reverseLookupProvidersValues.add(getString(R.string.cyngn_reverse_lookup_provider_value));
+
+            String[] reverseLookupArray = new String[reverseLookupProviders.size()];
+            String[] reverseLookupNameArray = new String[reverseLookupProvidersValues.size()];
+            reverseLookupArray = reverseLookupProviders.toArray(reverseLookupArray);
+            reverseLookupNameArray = reverseLookupProvidersValues.toArray(reverseLookupNameArray);
+            mChooseReverseLookupProvider.setEntries(reverseLookupArray);
+            mChooseReverseLookupProvider.setEntryValues(reverseLookupNameArray);
+        } else {
+            mChooseReverseLookupProvider.setEntries(getResources().getStringArray(R.array.reverse_lookup_provider_names));
+            mChooseReverseLookupProvider.setEntryValues(getResources().getStringArray(R.array.reverse_lookup_providers));
+        }
 
         restoreLookupProviders();
 
