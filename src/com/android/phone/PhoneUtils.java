@@ -853,6 +853,11 @@ public class PhoneUtils {
             PhoneUtils.isRoutableViaGateway(number)) {  // Filter out MMI, OTA and other codes.
             useGateway = true;
         }
+        if(isCsvtCallActive())
+        {
+            Log.e(LOG_TAG, "Unsupported another CALL when background CSVT active");
+            return CALL_STATUS_FAILED;
+        }
 
         int status = CALL_STATUS_DIALED;
         Connection connection;
