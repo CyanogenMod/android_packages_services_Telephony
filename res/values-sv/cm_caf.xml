@@ -55,7 +55,6 @@
   <string name="sub3_summary">Hantera abonnemang 3</string>
   <string name="prompt">Fråga</string>
   <string name="prompt_user">Fråga användaren</string>
-  <string name="tty_mode_not_allowed_vt_call">Ändring av TTY-läge är inte tillåtet under ett VT-samtal</string>
   <string name="fdn_service_unavailable">FDN-tjänst är ej tillgänglig.</string>
   <string name="exportContacts">Exporterar kontakter till SIM-kort\u2026</string>
   <string name="onscreenSwitchText">Växla abonnemang</string>
@@ -84,6 +83,11 @@
   <string name="ims_menu_save">Spara</string>
   <string name="ims_menu_discard">Förkasta</string>
   <string name="remove_ims_account">Ta bort konto</string>
+  <string name="ims_vt_call_quality_title">Kvalitet för videosamtal</string>
+  <string name="ims_vt_call_quality_low">Låg</string>
+  <string name="ims_vt_call_quality_high">Hög</string>
+  <string name="ims_vt_call_quality_unknown">Okänd</string>
+  <string name="ims_vt_call_quality_set_failed">Kunde inte ställa in videokvalitet</string>
   <string name="contactScreen">Hantera SIM-kontakter</string>
   <string name="exportContactScreen">Exportera telefonkontakter till SIM</string>
   <string name="addSimEntries">Lägg till SIM-kontakt</string>

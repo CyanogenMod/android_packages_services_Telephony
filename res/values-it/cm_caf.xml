@@ -89,7 +89,7 @@
   <string name="sub3_summary">Gestione abbonamento 3</string>
   <string name="prompt">Chiedere</string>
   <string name="prompt_user">Chiedere all\'utente</string>
-  <string name="tty_mode_not_allowed_vt_call">Il cambiamento di modalità TTY non è consentito durante una chiamata VT</string>
+  <string name="tty_mode_not_allowed_vt_call">Il cambiamento di modalità TTY non è consentito durante una video chiamata</string>
   <string name="fdn_service_unavailable">Servizio FDN non disponibile.</string>
   <string name="exportContacts">Esportazione dei contatti alla SIM\u2026</string>
   <string name="onscreenSwitchText">Cambia abbonamento</string>
@@ -120,6 +120,11 @@
   <string name="ims_menu_save">Salva</string>
   <string name="ims_menu_discard">Annulla</string>
   <string name="remove_ims_account">Rimuovi account</string>
+  <string name="ims_vt_call_quality_title">Qualità videochiamata</string>
+  <string name="ims_vt_call_quality_low">Bassa</string>
+  <string name="ims_vt_call_quality_high">Alta</string>
+  <string name="ims_vt_call_quality_unknown">Sconosciuta</string>
+  <string name="ims_vt_call_quality_set_failed">Impossibile impostare la qualità video</string>
   <string name="contactScreen">Gestisci contatti SIM</string>
   <string name="exportContactScreen">Esporta i contatti del dispositivo sulla SIM</string>
   <string name="addSimEntries">Aggiungi un contatto alla SIM</string>

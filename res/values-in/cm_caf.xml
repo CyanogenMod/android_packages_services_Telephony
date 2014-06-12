@@ -89,7 +89,7 @@
   <string name="sub3_summary">Kelola langganan 3</string>
   <string name="prompt">Tampilkan</string>
   <string name="prompt_user">Tanya pengguna</string>
-  <string name="tty_mode_not_allowed_vt_call">Perubahan modus TTY tidak diperbolehkan selama panggilan VT</string>
+  <string name="tty_mode_not_allowed_vt_call">Perubahan mode TTY tidak diperbolehkan selama panggilan VT</string>
   <string name="fdn_service_unavailable">Layanan FDN ini tidak tersedia.</string>
   <string name="exportContacts">Mengekspor kontak ke kartu SIM\u2026</string>
   <string name="onscreenSwitchText">Beralih langganan</string>
@@ -120,6 +120,11 @@
   <string name="ims_menu_save">Simpan</string>
   <string name="ims_menu_discard">Hapus</string>
   <string name="remove_ims_account">Hapus akun</string>
+  <string name="ims_vt_call_quality_title">Kualitas panggilan video</string>
+  <string name="ims_vt_call_quality_low">Rendah</string>
+  <string name="ims_vt_call_quality_high">Tinggi</string>
+  <string name="ims_vt_call_quality_unknown">Tidak diketahui</string>
+  <string name="ims_vt_call_quality_set_failed">Gagal untuk mengatur kualitas video</string>
   <string name="contactScreen">Kelola kontak SIM</string>
   <string name="exportContactScreen">Ekspor kontak telepon ke SIM</string>
   <string name="addSimEntries">Tambahkan kontak SIM</string>

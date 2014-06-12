@@ -121,6 +121,11 @@
   <string name="ims_menu_save">حفظ</string>
   <string name="ims_menu_discard">إزالة</string>
   <string name="remove_ims_account">إزالة الحساب</string>
+  <string name="ims_vt_call_quality_title">نوعية مكالمة فيديو</string>
+  <string name="ims_vt_call_quality_low">منخفض</string>
+  <string name="ims_vt_call_quality_high">عالي</string>
+  <string name="ims_vt_call_quality_unknown">غير معروف</string>
+  <string name="ims_vt_call_quality_set_failed">فشل في تعيين جودة الفيديو</string>
   <string name="contactScreen">إدارة جهات الاتصال من SIM</string>
   <string name="exportContactScreen">تصدير جهات الاتصال من الهاتف إلى بطاقة SIM</string>
   <string name="addSimEntries">إضافة جهة اتصال SIM</string>

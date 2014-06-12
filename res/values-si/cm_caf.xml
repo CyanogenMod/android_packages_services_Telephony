@@ -89,7 +89,7 @@
   <string name="sub3_summary">දායකත්වය 3 කළමනාකරණය</string>
   <string name="prompt">ඉඟි කරන්න</string>
   <string name="prompt_user">පරිශීලකට ඉඟි කරන්න</string>
-  <string name="tty_mode_not_allowed_vt_call">VT ඇමතුමක් අතරතුර TTY ප්‍රකාරය වෙනස් කිරීම අනුමත නැත</string>
+  <string name="tty_mode_not_allowed_vt_call">වීඩියෝ ඇමතුමක් අතරතුර TTY ප්‍රකාරය වෙනස් කිරීම අනුමත නැත</string>
   <string name="fdn_service_unavailable">FDN සේවාව ලබා ගත නොහැක.</string>
   <string name="exportContacts">සම්බන්ධතා SIM කාඩ්පතට නිර්යාත කරමින්\u2026</string>
   <string name="onscreenSwitchText">දායකත්වය මාරු කරන්න</string>
@@ -120,6 +120,11 @@
   <string name="ims_menu_save">සුරකින්න</string>
   <string name="ims_menu_discard">ඉවත ලන්න</string>
   <string name="remove_ims_account">ගිණුම ඉවත් කරන්න</string>
+  <string name="ims_vt_call_quality_title">වීඩියෝ ඇමතුම් ගුණාත්මකබව</string>
+  <string name="ims_vt_call_quality_low">අඩු</string>
+  <string name="ims_vt_call_quality_high">ඉහළ</string>
+  <string name="ims_vt_call_quality_unknown">නොදනී</string>
+  <string name="ims_vt_call_quality_set_failed">වීඩියෝ ගුණාත්මකබව සැකසීමට අසමත්විය</string>
   <string name="contactScreen">SIM සම්බන්ධතා කළමනාකරණය</string>
   <string name="exportContactScreen">දුරකථන සම්බන්ධතා SIM පතට නිර්යාත කරන්න</string>
   <string name="addSimEntries">SIM සම්බන්ධතාවක් එකතු කරන්න</string>

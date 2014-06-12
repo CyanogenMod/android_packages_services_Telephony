@@ -52,7 +52,6 @@
   <string name="sub3_summary">SIM 3 verwalten</string>
   <string name="prompt">Nachfragen</string>
   <string name="prompt_user">Bei jedem Anruf nachfragen</string>
-  <string name="tty_mode_not_allowed_vt_call">TTY-Moduswechsel während eines VT-Anrufes nicht erlaubt</string>
   <string name="fdn_service_unavailable">FDN-Dienst ist nicht verfügbar.</string>
   <string name="exportContacts">Kontakte werden auf die SD-Karte exportiert\u2026</string>
   <string name="onscreenSwitchText">Aktive SIM ändern</string>

@@ -82,4 +82,5 @@
   <string name="sub_no_sim">SIM yok</string>
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g> numarasını şununla ara:</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
+  <string name="cyngn_reverse_lookup_provider_name">Cyngn Çince (CN)</string>
 </resources>

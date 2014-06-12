@@ -118,8 +118,13 @@
   <string name="ims_service_capability_title">Mogelijkheid IMS-service</string>
   <string name="use_ims_default_summary">IMS gebruiken voor alle geluidsgesprekken</string>
   <string name="ims_menu_save">Opslaan</string>
-  <string name="ims_menu_discard">Weggooien</string>
+  <string name="ims_menu_discard">Sluiten</string>
   <string name="remove_ims_account">Account verwijderen</string>
+  <string name="ims_vt_call_quality_title">Kwaliteit videogesprek</string>
+  <string name="ims_vt_call_quality_low">Laag</string>
+  <string name="ims_vt_call_quality_high">Hoog</string>
+  <string name="ims_vt_call_quality_unknown">Onbekend</string>
+  <string name="ims_vt_call_quality_set_failed">Fout bij instellen videokwaliteit</string>
   <string name="contactScreen">SIM-contacten beheren</string>
   <string name="exportContactScreen">Telefooncontacten exporteren naar SIM</string>
   <string name="addSimEntries">SIM-contact toevoegen</string>

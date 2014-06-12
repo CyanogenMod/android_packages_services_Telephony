@@ -89,7 +89,6 @@
   <string name="sub3_summary">Administrere abonnement 3</string>
   <string name="prompt">Spør</string>
   <string name="prompt_user">Spør brukeren</string>
-  <string name="tty_mode_not_allowed_vt_call">TTY modusendring er ikke tillatt under VT samtale</string>
   <string name="fdn_service_unavailable">FDN tjenesten er ikke tilgjengelig.</string>
   <string name="exportContacts">Eksporterer kontakter til SIMkort\u2026</string>
   <string name="onscreenSwitchText">Bytt abonnement</string>

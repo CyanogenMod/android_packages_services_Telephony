@@ -89,7 +89,6 @@
   <string name="sub3_summary">管理订阅 3</string>
   <string name="prompt">提示</string>
   <string name="prompt_user">提示用户</string>
-  <string name="tty_mode_not_allowed_vt_call">VT 通话期间不允许更改 TTY 模式</string>
   <string name="fdn_service_unavailable">FDN 服务不可用。</string>
   <string name="exportContacts">正在将联系人导出至 SIM 卡\u2026</string>
   <string name="onscreenSwitchText">切换订阅</string>
@@ -120,6 +119,9 @@
   <string name="ims_menu_save">保存</string>
   <string name="ims_menu_discard">取消</string>
   <string name="remove_ims_account">删除帐户</string>
+  <string name="ims_vt_call_quality_low">低</string>
+  <string name="ims_vt_call_quality_high">高</string>
+  <string name="ims_vt_call_quality_unknown">未知</string>
   <string name="contactScreen">管理 SIM 卡联系人</string>
   <string name="exportContactScreen">将联系人导出至 SIM 卡</string>
   <string name="addSimEntries">添加 SIM 卡联系人</string>

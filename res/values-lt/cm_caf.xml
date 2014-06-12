@@ -89,7 +89,7 @@
   <string name="sub3_summary">Tvarkyti prenumeratą 3</string>
   <string name="prompt">Klausti</string>
   <string name="prompt_user">Klausti vartotojo</string>
-  <string name="tty_mode_not_allowed_vt_call">TTY režimo pasikeitimas neleidžiamas VP skambučio metu</string>
+  <string name="tty_mode_not_allowed_vt_call">TTY režimo keitimas neleidžiamas vaizdo skambučio metu</string>
   <string name="fdn_service_unavailable">Fiksuoto rinkimo paslaugos neteikiamos.</string>
   <string name="exportContacts">Eksportuojami kontaktai į SIM kortelę\u2026</string>
   <string name="onscreenSwitchText">Perjungti prenumeratą</string>
@@ -120,6 +120,11 @@
   <string name="ims_menu_save">Išsaugoti</string>
   <string name="ims_menu_discard">Atmesti</string>
   <string name="remove_ims_account">Pašalinti paskyrą</string>
+  <string name="ims_vt_call_quality_title">Vaizdo skambučio kokybė</string>
+  <string name="ims_vt_call_quality_low">Žema</string>
+  <string name="ims_vt_call_quality_high">Aukšta</string>
+  <string name="ims_vt_call_quality_unknown">Nežinoma</string>
+  <string name="ims_vt_call_quality_set_failed">Nepavyko nustatyti vaizdo kokybės</string>
   <string name="contactScreen">Tvarkyti SIM kontaktus</string>
   <string name="exportContactScreen">Eksportuoti telefono kontaktus į SIM</string>
   <string name="addSimEntries">Pridėti SIM kontaktą</string>
@@ -164,4 +169,5 @@
   <string name="config_sub_title">Konfigūruoti prenumeratas</string>
   <string name="deact_all_sub_not_supported">Išjungti visas nepalaikomas prenumeratas.</string>
   <string name="set_sub_not_supported_phone_in_call">Pokalbio metu prenumeratos aktyvuoti arba išjungti negalima.</string>
+  <string name="disconnect_data_confirm">Duomenų paslaugos turi būti laikinai atjungtos. Ar tikrai norite tęsti?</string>
 </resources>

@@ -89,7 +89,7 @@
   <string name="sub3_summary">Abonelik 3\'ü yönet</string>
   <string name="prompt">Sor</string>
   <string name="prompt_user">Kullanıcıya sor</string>
-  <string name="tty_mode_not_allowed_vt_call">TTY modu değişimine VT çağrısı esnasında izin verilmiyor</string>
+  <string name="tty_mode_not_allowed_vt_call">TTY modu değişimine görüntülü arama esnasında izin verilmiyor</string>
   <string name="fdn_service_unavailable">FDN hizmeti kullanılabilir değil.</string>
   <string name="exportContacts">Kişiler SIM karta aktarılıyor\u2026</string>
   <string name="onscreenSwitchText">Aboneliği değiştir</string>
@@ -120,6 +120,11 @@
   <string name="ims_menu_save">Kaydet</string>
   <string name="ims_menu_discard">İptal et</string>
   <string name="remove_ims_account">Hesabı kaldır</string>
+  <string name="ims_vt_call_quality_title">Görüntülü arama kalitesi</string>
+  <string name="ims_vt_call_quality_low">Düşük</string>
+  <string name="ims_vt_call_quality_high">Yüksek</string>
+  <string name="ims_vt_call_quality_unknown">Bilinmiyor</string>
+  <string name="ims_vt_call_quality_set_failed">Video kalitesi ayarlanamadı</string>
   <string name="contactScreen">SIM kişilerini yönet</string>
   <string name="exportContactScreen">Telefon kişilerini SIM\'e kaydet</string>
   <string name="addSimEntries">SIM kişisi ekle</string>

@@ -89,7 +89,6 @@
   <string name="sub3_summary">管理訂閱 3</string>
   <string name="prompt">提示</string>
   <string name="prompt_user">提示使用者</string>
-  <string name="tty_mode_not_allowed_vt_call">VT 通话期间不允许更改 TTY 模式</string>
   <string name="fdn_service_unavailable">FDN 服務無法使用。</string>
   <string name="exportContacts">匯出電話通訊錄到 SIM 卡\u2026</string>
   <string name="onscreenSwitchText">切換訂閱</string>

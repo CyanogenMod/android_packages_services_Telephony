@@ -89,7 +89,6 @@
   <string name="sub3_summary">Bestuur Inskrywing 3</string>
   <string name="prompt">Por</string>
   <string name="prompt_user">Por gebruiker</string>
-  <string name="tty_mode_not_allowed_vt_call">TTY Modus verandering word nie toegelaat tydens \'n VT oproep</string>
   <string name="fdn_service_unavailable">FDN diens is nie beskikbaar nie.</string>
   <string name="exportContacts">Uitvoer kontakte na SIM-kaart\u2026</string>
   <string name="onscreenSwitchText">Wissel inskrywing</string>

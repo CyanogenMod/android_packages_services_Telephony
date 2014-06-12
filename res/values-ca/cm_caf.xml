@@ -89,7 +89,7 @@
   <string name="sub3_summary">Gestiona subscripció 3</string>
   <string name="prompt">Pregunta</string>
   <string name="prompt_user">Pregunta a l\'usuari</string>
-  <string name="tty_mode_not_allowed_vt_call">No es permet el canvi de modalitat TTY durant una Vídeo-trucada</string>
+  <string name="tty_mode_not_allowed_vt_call">No es permet el canvi de modalitat TTY durant una vídeo-trucada</string>
   <string name="fdn_service_unavailable">El servei FDN no està disponible.</string>
   <string name="exportContacts">Exportant els contactes a la targeta SIM\u2026</string>
   <string name="onscreenSwitchText">Canvia la subscripció</string>
@@ -120,6 +120,11 @@
   <string name="ims_menu_save">Desa</string>
   <string name="ims_menu_discard">Descarta</string>
   <string name="remove_ims_account">Esborra el compte</string>
+  <string name="ims_vt_call_quality_title">Qualitat de la vídeo-trucada</string>
+  <string name="ims_vt_call_quality_low">Baixa</string>
+  <string name="ims_vt_call_quality_high">Alta</string>
+  <string name="ims_vt_call_quality_unknown">Desconeguda</string>
+  <string name="ims_vt_call_quality_set_failed">No s\'ha pogut establir la qualitat de vídeo</string>
   <string name="contactScreen">Gestiona els contactes SIM</string>
   <string name="exportContactScreen">Exporta els contactes del telèfon a la SIM</string>
   <string name="addSimEntries">Afegeix contacte SIM</string>
@@ -164,4 +169,5 @@
   <string name="config_sub_title">Configura les subscripcions</string>
   <string name="deact_all_sub_not_supported">La desactivació de totes les subscripcions no està suportada.</string>
   <string name="set_sub_not_supported_phone_in_call">Activant o desactivant les subscripcions que no estan permeses durant una trucada.</string>
+  <string name="disconnect_data_confirm">El servei de dades necessita desconnectar-se temporalment. Estàs segur que vols continuar?</string>
 </resources>

@@ -70,7 +70,7 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred">首選 GSM/WCDMA</string>
   <string name="number_lookup">電話號碼查詢</string>
   <string name="enable_forward_lookup_title">轉駁查詢</string>
-  <string name="enable_forward_lookup_summary">在撥號器中搜索時顯示附近的地點</string>
+  <string name="enable_forward_lookup_summary">當撥號器中搜索時顯示附近的地點</string>
   <string name="enable_people_lookup_title">聯絡人查詢</string>
   <string name="enable_people_lookup_summary">在撥號器中搜索時，即時顯示搜索聯絡人結果</string>
   <string name="enable_reverse_lookup_title">反向查詢</string>

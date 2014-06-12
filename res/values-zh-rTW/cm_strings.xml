@@ -19,7 +19,12 @@
   <string name="call_notif_unconditionalCF">無限制來電轉接啟用中</string>
   <string name="call_notif_conditionalCF">限制來電轉接啟用中</string>
   <string name="incall_vibration">通話震動</string>
+  <string name="blacklist_title">黑名單</string>
   <string name="blacklist_summary_disabled">已停用</string>
+  <string name="blacklist_call_notification">已阻擋來自 %s 的來電</string>
+  <string name="blacklist_call_notification_private_number">已阻擋來自私人號碼的來電</string>
+  <string name="blacklist_call_notification_unknown_number">已阻擋來自 %s 的不明號碼來電</string>
+  <string name="blacklist_notification_list_private">私人</string>
   <string name="noise_suppression_summary">通話時啟用噪音抑制</string>
   <string name="enable_forward_lookup_summary">在撥號器中搜索時顯示附近的地點</string>
   <string name="enable_people_lookup_title">聯絡人查詢</string>

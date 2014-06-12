@@ -16,18 +16,18 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="call_notif_unconditionalCF">Безусловно преусмерење позива је активно</string>
-  <string name="call_notif_conditionalCF">Условно преусмерење позива је активно</string>
+  <string name="call_notif_unconditionalCF">Безусловно прослеђивање позива је активно</string>
+  <string name="call_notif_conditionalCF">Условно прослеђивање позива је активно</string>
   <string name="call_notif_MOcall_forwarding">Одлазни позив се прослеђује</string>
   <string name="call_notif_cugcall">Позив у затвореној групи корисника</string>
   <string name="call_notif_outgoing_barred">Одлазни позиви су забрањени</string>
-  <string name="call_notif_incoming_barred">Долазни позиви су забрањени на даљинској основи</string>
+  <string name="call_notif_incoming_barred">Долазни позиви су забрањени од удаљене странке</string>
   <string name="call_notif_clir_suppression_rejected">Сопствени број је сузбијен од мреже</string>
   <string name="call_notif_call_deflected">Позив је прослеђен од удаљене странке</string>
   <string name="call_notif_MTcall_forwarding">Долазни позив је прослеђен</string>
-  <string name="call_notif_multipartycall">Вишебројни позив</string>
+  <string name="call_notif_multipartycall">Конференцијски позив</string>
   <string name="call_notif_callonhold_released">Позив је пуштен на даљину</string>
-  <string name="call_notif_forwardcheckreceived">Позив је упућен</string>
+  <string name="call_notif_forwardcheckreceived">Позив је прослеђен</string>
   <string name="call_notif_callconnectingect">Успоствљање позива преко експлицитног трансфера позива</string>
   <string name="call_notif_callconnectedect">Веза је успостављена преко експлицитног трансфера позива</string>
   <string name="incall_vibration">Вибрација у току позива</string>
@@ -35,12 +35,12 @@
   <string name="vibrate_call_waiting">Вибрација при позиву на чекању</string>
   <string name="vibrate_hangup">Вибрација у току јављања</string>
   <string name="vibrate_45">Вибрација сваког минута</string>
-  <string name="vibrate_45_sum">Вибрација сваке 45 секунде у минути током одлазног позива</string>
-  <string name="show_ssn_label">Обавештења о догађајима</string>
-  <string name="show_ssn_summary">Покажи обавештење за разне мрежне догађаје везане за управљање позивима</string>
+  <string name="vibrate_45_sum">Вибрација сваке 45 секунде у минути током одлазних позива</string>
+  <string name="show_ssn_label">Обавештење о догађају</string>
+  <string name="show_ssn_summary">Прикажи обавештење за разне мрежне догађаје везане за управљање позивима</string>
   <string name="blacklist_title">Црна листа</string>
   <string name="blacklist_summary_disabled">Онемогућено</string>
-  <string name="blacklist_summary">Долазни позиви са телефонских бројева у црној листи биће блокирани</string>
+  <string name="blacklist_summary">Долазни позиви са телефонских бројева у црној листи ће бити блокирани</string>
   <string name="blacklist_call_notification"> Блокирај позив од %s</string>
   <string name="blacklist_call_notification_private_number">Блокирај позив са приватног броја</string>
   <string name="blacklist_call_notification_unknown_number">Блокирај позив са непознатог броја %s</string>
@@ -56,7 +56,7 @@
   <string name="perm_change_mobile_network">Промени режим мреже (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Омогућава апликацији да промени између 2G и 3G података у било ком тренутку. 3G је бржи, али троши више батерију и може изазвати додатне трошкове.</string>
   <string name="phone_number_label">Мој телефонски број</string>
-  <string name="phone_number_summary">Подесите телефонски број за овај уређај</string>
+  <string name="phone_number_summary">Подеси телефонски број за овај уређај</string>
   <string name="noise_suppression_title">Потискивање буке</string>
   <string name="noise_suppression_summary">Омогући потискивање буке за позиве</string>
   <string name="preferred_network_mode_td_scdma_only">Само TD-SCDMA </string>
@@ -70,16 +70,17 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred">Преферирај GSM/WCDMA</string>
   <string name="number_lookup">Проналажење телефонског броја</string>
   <string name="enable_forward_lookup_title">Напредно проналажење</string>
-  <string name="enable_forward_lookup_summary">Прикажи околна места када се тражи на бројчанику</string>
+  <string name="enable_forward_lookup_summary">Прикажи околна места када се тражи у бројчанику</string>
   <string name="enable_people_lookup_title">Проналажење људи</string>
-  <string name="enable_people_lookup_summary">Прикажи резултате на мрежи за људе када се тражи на бројчанику</string>
+  <string name="enable_people_lookup_summary">Прикажи резултате на мрежи за људе када се тражи у бројчанику</string>
   <string name="enable_reverse_lookup_title">Обрнуто проналажење</string>
-  <string name="enable_reverse_lookup_summary">Потражи информације о особи или месту за непознате бројеве на долазне позиве</string>
-  <string name="choose_lookup_providers">Изаберите провајдере проналажења</string>
+  <string name="enable_reverse_lookup_summary">Потражи информације о особи или месту за непознате бројеве на долазним позивима</string>
+  <string name="choose_lookup_providers">Изабери провајдере проналажења</string>
   <string name="choose_forward_lookup_provider_title">Провајдер напредног проналажења</string>
   <string name="choose_people_lookup_provider_title">Провајдер проналажења људи</string>
   <string name="choose_reverse_lookup_provider_title">Провајдер обрнутог проналажења</string>
   <string name="sub_no_sim">Нема SIM картице</string>
   <string name="msim_call_selector_title">Позив <xliff:g id="number">%s</xliff:g> преко</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
+  <string name="cyngn_reverse_lookup_provider_name">Cyngn Кинески (CN)</string>
 </resources>
