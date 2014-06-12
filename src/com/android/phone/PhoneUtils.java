@@ -3592,6 +3592,25 @@ public class PhoneUtils {
         return otherSub;
     }
 
+    /**
+     * Check whether any sub is in active state.
+     * @return if any sub is active, return true. if no sub is in
+     * active state return false.
+     */
+    static boolean isAnySubActive() {
+        int count = MSimTelephonyManager.getDefault().getPhoneCount();
+        CallManager cm = MSimPhoneGlobals.getInstance().mCM;
+
+        if (DBG) Log.d(LOG_TAG, "isAnySubActive");
+        for (int i = 0; i < count; i++) {
+            if (cm.getState(i) != PhoneConstants.State.IDLE) {
+                Log.d(LOG_TAG, "isAnySubActive: active sub  = " + i );
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean isCsvtCallActive() {
         boolean isActive = false;
         try {
