@@ -804,9 +804,9 @@ public class MSimCallNotifier extends CallNotifier {
     protected void resetAudioStateAfterDisconnect() {
         if (VDBG) log("resetAudioStateAfterDisconnect()...");
 
-        // If other subscription has active voice call, do not reset the audio.
-        if (PhoneUtils.isAnyOtherSubActive(PhoneUtils.getActiveSubscription())) {
-            if (DBG) log(" Other sub has active call, Do not reset audio ");
+        // If any subscription has active voice call, do not reset the audio.
+        if (PhoneUtils.isAnySubActive()) {
+            if (DBG) log("there is a sub which has active call, Do not reset audio ");
             return;
         }
 
