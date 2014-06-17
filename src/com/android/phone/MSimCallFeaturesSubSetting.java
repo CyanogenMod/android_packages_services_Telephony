@@ -1605,7 +1605,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             int phoneType = mPhone.getPhoneType();
             if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
                 Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
-                if (fdnButton != null)
+                if (fdnButton != null && getResources().getBoolean(R.bool.config_fdn_disable))
                     prefSet.removePreference(fdnButton);
                 if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
                     addPreferencesFromResource(R.xml.cdma_call_privacy);
