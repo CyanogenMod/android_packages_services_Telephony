@@ -185,4 +185,7 @@
 
     <!-- whether show emergency call list -->
     <bool name="show_emergency_call_list">false</bool>
+
+    <!-- whether show toast when dialing-->
+    <bool name="config_show_toast_when_dialing">false</bool>
 </resources>
