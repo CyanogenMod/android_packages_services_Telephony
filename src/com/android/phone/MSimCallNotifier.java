@@ -77,6 +77,9 @@ public class MSimCallNotifier extends CallNotifier {
     private static final boolean sLocalCallHoldToneEnabled =
             SystemProperties.getBoolean("persist.radio.lch_inband_tone", false);
 
+    private boolean[] mIsPermDiscCauseReceived = new
+            boolean[MSimTelephonyManager.getDefault().getPhoneCount()];
+
     /**
      * Initialize the singleton CallNotifier instance.
      * This is only done once, at startup, from PhoneApp.onCreate().
@@ -615,11 +618,32 @@ public class MSimCallNotifier extends CallNotifier {
             if (isEmergencyNumber &&
                     (cause == Connection.DisconnectCause.EMERGENCY_TEMP_FAILURE
                     || cause == Connection.DisconnectCause.EMERGENCY_PERM_FAILURE)) {
-                int subToCall = PhoneUtils.getNextSubscriptionId(phone.getSubscription());
-                log("Redial emergency call on subscription " + subToCall);
-                PhoneUtils.placeCall(mApplication,
-                        mApplication.getPhone(subToCall), number, null, false);
-                return;
+                int subToCall = phone.getSubscription();
+                if (cause == Connection.DisconnectCause.EMERGENCY_PERM_FAILURE) {
+                    log("EMERGENCY_PERM_FAILURE received on sub:" +
+                            phone.getSubscription());
+                    // update mIsPermDiscCauseReceived so that next redial doesn't occur
+                    // on this sub
+                    mIsPermDiscCauseReceived[phone.getSubscription()] = true;
+                    subToCall = MSimConstants.INVALID_SUBSCRIPTION;
+                }
+                // Check for any subscription on which EMERGENCY_PERM_FAILURE is received
+                // if no such sub, then redial should be stopped.
+                for (int i = PhoneUtils.getNextSubscriptionId(phone.getSubscription());
+                        i != phone.getSubscription(); i = PhoneUtils.getNextSubscriptionId(i)) {
+                    if (mIsPermDiscCauseReceived[i] == false) {
+                        subToCall = i;
+                        break;
+                    }
+                }
+                if (subToCall == MSimConstants.INVALID_SUBSCRIPTION) {
+                    log("EMERGENCY_PERM_FAILURE recieved on all subs, abort redial");
+                } else {
+                    log("Redial emergency call on subscription " + subToCall);
+                    PhoneUtils.placeCall(mApplication,
+                            mApplication.getPhone(subToCall), number, null, false);
+                    return;
+                }
             }
         }
         // If this is the end of an OTASP call, pass it on to the PhoneApp.
@@ -794,6 +818,15 @@ public class MSimCallNotifier extends CallNotifier {
                 log("Set active sub to conversation sub " + ConversationSub);
                 PhoneUtils.setActiveSubscription(ConversationSub);
             }
+        }
+    }
+
+    /**
+     * Resets mIsPermDiscCauseReceived array elements to false.
+     */
+    void onEmergencyCallDialed() {
+        for (int i = 0; i < mIsPermDiscCauseReceived.length; i++) {
+            mIsPermDiscCauseReceived[i] = false;
         }
     }
 
