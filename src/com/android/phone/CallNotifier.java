@@ -983,6 +983,15 @@ public class CallNotifier extends Handler
                 }
             }
         }
+
+        if (mApplication.getResources().getBoolean(R.bool.config_show_toast_when_dialing)) {
+            Call.State callState = mCM.getActiveFgCallState();
+            if (callState.isDialing()) {
+                Toast toast = Toast.makeText(mApplication, R.string.dialing,
+                        Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        }
     }
 
     protected void vibrateAfterCallConnected(Phone phone) {

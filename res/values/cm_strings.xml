@@ -300,4 +300,7 @@
 
     <!-- Prompt toast message string for the "Respond via SMS" feature. [CHAR LIMIT=40] -->
     <string name="respond_via_sms_cannot_be_empty">Quick response cannot be empty</string>
+
+    <!-- Dialing toast -->
+    <string name="dialing">Calling</string>
 </resources>

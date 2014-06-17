@@ -35,6 +35,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.EventLog;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallerInfo;
@@ -492,6 +493,15 @@ public class MSimCallNotifier extends CallNotifier {
                     mInCallRingbackTonePlayer.stopTone();
                     mInCallRingbackTonePlayer = null;
                 }
+            }
+        }
+
+        if (mApplication.getResources().getBoolean(R.bool.config_show_toast_when_dialing)) {
+            Call.State callState = mCM.getActiveFgCallState(subscription);
+            if (callState.isDialing()) {
+                Toast toast = Toast.makeText(mApplication, R.string.dialing,
+                        Toast.LENGTH_SHORT);
+                toast.show();
             }
         }
     }
