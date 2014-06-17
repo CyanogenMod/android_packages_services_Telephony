@@ -477,7 +477,14 @@ public class FdnSetting extends PreferenceActivity
 
         // Only reset the pin change dialog if we're not in the middle of changing it.
         if (icicle == null) {
-            resetPinChangeState();
+            if (mPhone.getIccCard().getIccPin2Blocked()) {
+                // If the pin2 is blocked, the state of the change pin2 dialog
+                // should be set for puk2 use (that is, the user should be prompted
+                // to enter puk2 code instead of old pin2).
+                resetPinChangeStateForPUK2();
+            } else {
+                resetPinChangeState();
+            }
         } else {
             mIsPuk2Locked = icicle.getBoolean(SKIP_OLD_PIN_KEY);
             mPinChangeState = icicle.getInt(PIN_CHANGE_STATE_KEY);
