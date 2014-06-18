@@ -192,7 +192,8 @@ public class MSimNotificationMgr extends NotificationMgr {
             Uri ringtoneUri;
 
             String uriString = prefs.getString(
-                    CallFeaturesSetting.BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY, null);
+                    CallFeaturesSetting.BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY + subscription,
+                            null);
             if (!TextUtils.isEmpty(uriString)) {
                 ringtoneUri = Uri.parse(uriString);
             } else {
