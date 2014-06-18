@@ -192,6 +192,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private static final String BUTTON_CF_EXPAND_KEY = "button_cf_expand_key";
     private static final String BUTTON_MORE_EXPAND_KEY = "button_more_expand_key";
     private static final String BUTTON_IPPREFIX_KEY = "button_ipprefix_key";
+    private static final String BUTTON_CB_EXPAND_KEY = "button_callbarring_expand_key";
 
 
     private static final String VM_NUMBERS_SHARED_PREFERENCES_NAME = "vm_numbers";
@@ -1627,6 +1628,8 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                         (PreferenceScreen) findPreference(BUTTON_MORE_EXPAND_KEY);
                 mSubscriptionPrefEXPAND.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
                 mSubscriptionPrefMOREEXPAND.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
+                findPreference(BUTTON_CB_EXPAND_KEY).getIntent().putExtra(SUBSCRIPTION_KEY,
+                        mSubscription);
             } else {
                 throw new IllegalStateException("Unexpected phone type: " + phoneType);
             }
