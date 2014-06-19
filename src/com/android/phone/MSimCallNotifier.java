@@ -404,6 +404,24 @@ public class MSimCallNotifier extends CallNotifier {
                 .enableNotificationAlerts(state == PhoneConstants.State.IDLE);
 
         Phone fgPhone = mCM.getFgPhone(subscription);
+
+        // CTA require that UE should disconnect current foregroundCall if answering a MT call on
+        // other sub and current foregroundCall callstate is dialing
+        if (fgPhone.getForegroundCall().getState() == Call.State.ACTIVE &&
+                mApplication.getApplicationContext().getResources().getBoolean
+                (R.bool.config_disconnect_other_fgcall)) {
+            for (int i = 0; i < MSimTelephonyManager.getDefault().getPhoneCount(); i++) {
+                if (i != subscription) {
+                    Phone otherFgPhone = mCM.getFgPhone(i);
+                    if (DBG) log("otherFgPhoneState: " + otherFgPhone.getForegroundCall().
+                            getState());
+                    if (otherFgPhone.getForegroundCall().getState() == Call.State.DIALING ||
+                            otherFgPhone.getForegroundCall().getState() == Call.State.ALERTING) {
+                        PhoneUtils.hangupActiveCall(otherFgPhone.getForegroundCall());
+                    }
+                }
+            }
+        }
         if (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
             if ((fgPhone.getForegroundCall().getState() == Call.State.ACTIVE)
                     && ((mPreviousCdmaCallState == Call.State.DIALING)
