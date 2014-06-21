@@ -16,11 +16,14 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="label_cdp">קוד PIN לפתיחת SIM חברה</string>
   <string name="label_spdp">קוד הפתיחה של ספק הסים</string>
   <string name="label_sdp">קוד PIN לפתיחת SIM</string>
   <string name="label_rn1dp">קוד PIN לפתיחת רשת RUIM 1</string>
   <string name="label_rn2dp">קוד PIN לפתיחת רשת RUIM 2</string>
   <string name="label_rhrpd">קוד PIN לפתיחת RUIM HRPD</string>
+  <string name="label_rcdp">קוד PIN לפתיחת RUIM חברה</string>
+  <string name="label_rspdp">קוד PIN לפתיחת RUIM שירות</string>
   <string name="label_rdp">קוד PIN לפתיחת RUIM</string>
   <string name="label_puk">הזן PUK</string>
   <string name="requesting_sim_unlock">דרוש פתיחת SIM\u2026</string>

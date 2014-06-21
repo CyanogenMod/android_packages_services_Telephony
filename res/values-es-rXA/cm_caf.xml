@@ -89,6 +89,7 @@
   <string name="sub3_summary">Xestionar soscripción 3</string>
   <string name="prompt">Entrugar</string>
   <string name="prompt_user">Entrugar al usuariu</string>
+  <string name="tty_mode_not_allowed_vt_call">Nun se permite\'l cambéu de modalidá TTY mentanto una videollamada</string>
   <string name="fdn_service_unavailable">El serviciu FDN nun ta disponible.</string>
   <string name="exportContacts">Esportando contautos a la tarxeta SIM\u2026</string>
   <string name="onscreenSwitchText">Cambiar soscripción</string>
@@ -119,6 +120,11 @@
   <string name="ims_menu_save">Guardar</string>
   <string name="ims_menu_discard">Descartar</string>
   <string name="remove_ims_account">Desaniciar cuenta</string>
+  <string name="ims_vt_call_quality_title">Calidá de videollamada</string>
+  <string name="ims_vt_call_quality_low">Baxa</string>
+  <string name="ims_vt_call_quality_high">Alta</string>
+  <string name="ims_vt_call_quality_unknown">Desconocida</string>
+  <string name="ims_vt_call_quality_set_failed">Nun pudo afitase la calidá de videu</string>
   <string name="contactScreen">Xestionar los contautos de la SIM</string>
   <string name="exportContactScreen">Exportar contautos del teléfonu a la SIM</string>
   <string name="addSimEntries">Amestar contautu a la SIM</string>
@@ -163,4 +169,5 @@
   <string name="config_sub_title">Configurar les soscripciones</string>
   <string name="deact_all_sub_not_supported">La desactivación de toles soscripciones nun ta sofitada.</string>
   <string name="set_sub_not_supported_phone_in_call">L\'activación o desactivación de soscripciones nun ta permitida mentanto una llamada.</string>
+  <string name="disconnect_data_confirm">El serviciu de datos va desconeutase de mou temporal. ¿Daveres que quies siguir?</string>
 </resources>

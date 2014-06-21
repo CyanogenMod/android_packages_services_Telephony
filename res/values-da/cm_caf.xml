@@ -89,6 +89,7 @@
   <string name="sub3_summary">Administrér abonnement 3</string>
   <string name="prompt">Spørg</string>
   <string name="prompt_user">Spørg bruger</string>
+  <string name="tty_mode_not_allowed_vt_call">TTY-tilstandsændring er ikke tilladt under et video-opkald</string>
   <string name="fdn_service_unavailable">Faste Opkaldsnumre er ikke tilgængelig.</string>
   <string name="exportContacts">Eksporterer kontakter til SIM-kort\u2026</string>
   <string name="onscreenSwitchText">Skift abonnement</string>
@@ -119,6 +120,11 @@
   <string name="ims_menu_save">Gem</string>
   <string name="ims_menu_discard">Kassér</string>
   <string name="remove_ims_account">Fjern konto</string>
+  <string name="ims_vt_call_quality_title">Video-opkaldskvalitet</string>
+  <string name="ims_vt_call_quality_low">Lav</string>
+  <string name="ims_vt_call_quality_high">Høj</string>
+  <string name="ims_vt_call_quality_unknown">Ukendt</string>
+  <string name="ims_vt_call_quality_set_failed">Kunne ikke indstille video kvalitet</string>
   <string name="contactScreen">Administrér SIM-kort-kontakter</string>
   <string name="exportContactScreen">Eksportér telefonkontakter til SIM-kort </string>
   <string name="addSimEntries">Tilføj SIM-kort-kontakt</string>
@@ -163,4 +169,5 @@
   <string name="config_sub_title">Konfigurér abonnementer</string>
   <string name="deact_all_sub_not_supported">Deaktivering af alle abonnementerne understøttes ikke.</string>
   <string name="set_sub_not_supported_phone_in_call">Aktivering eller deaktivering af abonnementer er ikke tilladt under opkald.</string>
+  <string name="disconnect_data_confirm">Data service skal afbrydes midlertidigt. Vil du fortsætte?</string>
 </resources>

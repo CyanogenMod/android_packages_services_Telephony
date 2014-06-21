@@ -169,4 +169,5 @@
   <string name="config_sub_title">Configurazione abbonamenti</string>
   <string name="deact_all_sub_not_supported">La disattivazione di tutti gli abbonamenti non è supportata.</string>
   <string name="set_sub_not_supported_phone_in_call">Non è consentito attivare o disattivare abbonamenti durante una chiamata.</string>
+  <string name="disconnect_data_confirm">Il servizio dati deve essere disconnesso temporaneamente. Sei sicuro di voler continuare?</string>
 </resources>

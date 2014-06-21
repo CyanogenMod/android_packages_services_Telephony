@@ -119,6 +119,10 @@
   <string name="ims_menu_save">儲存</string>
   <string name="ims_menu_discard">丟棄</string>
   <string name="remove_ims_account">移除帳戶</string>
+  <string name="ims_vt_call_quality_low">低</string>
+  <string name="ims_vt_call_quality_high">高</string>
+  <string name="ims_vt_call_quality_unknown">不明</string>
+  <string name="ims_vt_call_quality_set_failed">未能設定視訊質素</string>
   <string name="contactScreen">管理 SIM 卡聯絡人</string>
   <string name="exportContactScreen">匯出聯絡人到 SIM 卡</string>
   <string name="addSimEntries">新增 SIM 卡聯絡人</string>

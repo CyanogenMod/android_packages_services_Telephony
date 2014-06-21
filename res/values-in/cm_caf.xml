@@ -169,4 +169,5 @@
   <string name="config_sub_title">Konfigurasi langganan</string>
   <string name="deact_all_sub_not_supported">Penonaktifan semua langganan tidak didukung.</string>
   <string name="set_sub_not_supported_phone_in_call">Mengaktifkan atau menonaktifkan langganan tidak diperbolehkan selama panggilan.</string>
+  <string name="disconnect_data_confirm">Layanan data perlu diputus sementara. Anda yakin ingin melanjutkan?</string>
 </resources>

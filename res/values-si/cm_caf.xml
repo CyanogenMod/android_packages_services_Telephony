@@ -169,4 +169,5 @@
   <string name="config_sub_title">දායකත්ව වින්‍යාස කරන්න</string>
   <string name="deact_all_sub_not_supported">සියලුම දායකත්ව අක්‍රිය කිරීම සහාය නොදක්වයි.</string>
   <string name="set_sub_not_supported_phone_in_call">ඇමතුමක් අතරතුර දායකත්ව අක්‍රිය කිරීම හෝ සක්‍රීය කිරීම අනුමත නැත.</string>
+  <string name="disconnect_data_confirm">දත්ත සේවාව තාවකාලිකව විසන්ධි කිරීමට අවශ්‍යවේ. ඔබට ඉදිරියට යාමට අවශ්‍ය බවට විශ්වාසද?</string>
 </resources>

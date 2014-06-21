@@ -170,4 +170,5 @@
   <string name="config_sub_title">تكوين الاشتراكات</string>
   <string name="deact_all_sub_not_supported">يتم تعطيل كافة الاشتراكات غير معتمد.</string>
   <string name="set_sub_not_supported_phone_in_call">غير مسموح بتنشيط أو إلغاء تنشيط الاشتراكات أثناء إجراء مكالمة.</string>
+  <string name="disconnect_data_confirm">خدمة البيانات تحتاج إلى قطع الاتصال مؤقتاً. هل أنت متأكد من أنك تريد الاستمرار؟</string>
 </resources>

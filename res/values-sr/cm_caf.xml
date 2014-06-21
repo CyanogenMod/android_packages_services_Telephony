@@ -53,10 +53,10 @@
   <string name="sp_unlock_success">SIM откључавање сервисног провајдера успешно.</string>
   <string name="corporate_unlock_success">SIM корпоративно откључавање успешно.</string>
   <string name="sim_unlock_success">SIM откључавање успешно.</string>
-  <string name="rnw1_unlock_success">RUIM мрежа 1 откључавање успешно.</string>
-  <string name="rnw2_unlock_success">RUIM мрежа 2 откључавање успешно.</string>
-  <string name="rhrpd_unlock_success">RUIM HRPD откључавање успешно.</string>
-  <string name="rsp_unlock_success">RUIM откључавање сервисног провајдера успешно.</string>
+  <string name="rnw1_unlock_success">Откључавање RUIM мреже 1 успешно.</string>
+  <string name="rnw2_unlock_success">Откључавање RUIM мреже 2 успешно.</string>
+  <string name="rhrpd_unlock_success">Откључавање RUIM HRPD успешно.</string>
+  <string name="rsp_unlock_success">Откључавање RUIM сервисног провајдера успешно.</string>
   <string name="rc_unlock_success">RUIM корпоративно откључавање успешно.</string>
   <string name="ruim_unlock_success">RUIM откључавање успешно.</string>
   <string name="puk_unlock_success">PUK откључавање успешно.</string>
@@ -98,8 +98,8 @@
   <string name="sub1LineNumber">SIM број 1:</string>
   <string name="sub2LineNumber">SIM број 2:</string>
   <string name="proceed">Приступи</string>
-  <string name="sum_xdivert_enabled">X-Divert омогућен</string>
-  <string name="sum_xdivert_disabled">X-Divert онемогућен</string>
+  <string name="sum_xdivert_enabled">X-Divert омогућено</string>
+  <string name="sum_xdivert_disabled">X-Divert онемогућено</string>
   <string name="xdivert_not_supported">X-Divert није подржан за CDMA</string>
   <string name="xdivert_enternumber_error">Унеси број телефона за обе претплате</string>
   <string name="xdivert_partial_set">X-Divert је постављен само за прву претплату</string>

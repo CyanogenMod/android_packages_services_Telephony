@@ -169,4 +169,5 @@
   <string name="config_sub_title">Abonelikleri yapılandırın</string>
   <string name="deact_all_sub_not_supported">Tüm aboneliklerin devre dışı bırakılması desteklenmiyor.</string>
   <string name="set_sub_not_supported_phone_in_call">Çağrı esnasında aboneliklerin etkinleştirilmesi veya devre dışı bırakılması desteklenmiyor.</string>
+  <string name="disconnect_data_confirm">Veri servisi bağlantısının geçici olarak kesilmesi gerekmekte. Devam etmek istediğinize emin misiniz?</string>
 </resources>

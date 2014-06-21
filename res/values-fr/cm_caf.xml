@@ -169,4 +169,5 @@
   <string name="config_sub_title">Configurer l\'abonnement</string>
   <string name="deact_all_sub_not_supported">La désactivation de tous les abonnements n\'est pas prise en charge.</string>
   <string name="set_sub_not_supported_phone_in_call">L\'activation ou la désactivation des abonnements n\'est pas autorisée pendant un appel.</string>
+  <string name="disconnect_data_confirm">Le service de donnés doit être déconnecté temporairement. Êtes-vous sûr de vouloir continuer\u00A0?</string>
 </resources>

@@ -32,7 +32,7 @@
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
   <string name="noise_suppression_title">ノイズの抑制</string>
-  <string name="noise_suppression_summary">通話のノイズ抑制を有効にする</string>
+  <string name="noise_suppression_summary">通話のノイズ抑制を有効化</string>
   <string name="preferred_network_mode_td_scdma_only">TD-SCDMAのみ</string>
   <string name="preferred_network_mode_global">Global</string>
   <string name="preferred_network_mode_evdo_only">EvDoのみ</string>

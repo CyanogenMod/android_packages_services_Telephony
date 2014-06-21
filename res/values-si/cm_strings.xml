@@ -82,4 +82,5 @@
   <string name="sub_no_sim">SIM කාඩ්පතක් නැත</string>
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g> ඇමතුම් මග</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
+  <string name="cyngn_reverse_lookup_provider_name">චීන Cyngn (CN)</string>
 </resources>
