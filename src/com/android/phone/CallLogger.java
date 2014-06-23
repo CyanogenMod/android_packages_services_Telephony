@@ -16,6 +16,8 @@
 
 package com.android.phone;
 
+import android.telephony.MSimTelephonyManager;
+import android.telephony.TelephonyManager;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallerInfo;
@@ -32,6 +34,8 @@ import android.provider.CallLog.Calls;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
+
+import static com.android.internal.telephony.MSimConstants.INVALID_SUBSCRIPTION;
 
 /**
  * Helper class for interacting with the call log.
@@ -119,8 +123,16 @@ class CallLogger {
             if (DBG) {
                 log("CallLogger: logCall: callLogType out =" + callLogType);
             }
-            logCall(ci, logNumber, presentation, callLogType, date, duration, c.getCall()
-                    .getPhone().getSubscription(), durationType);
+            // If calling sub is absent, use invalid card index to hide the
+            // card index indicator in calllog.
+            if (MSimTelephonyManager.getDefault().getSimState(c.getCall()
+                    .getPhone().getSubscription()) == TelephonyManager.SIM_STATE_ABSENT) {
+                logCall(ci, logNumber, presentation, callLogType, date, duration,
+                        INVALID_SUBSCRIPTION, durationType);
+            } else {
+                logCall(ci, logNumber, presentation, callLogType, date, duration, c.getCall()
+                        .getPhone().getSubscription(), durationType);
+            }
         }
     }
 
