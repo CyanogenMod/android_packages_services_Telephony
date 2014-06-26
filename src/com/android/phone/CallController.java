@@ -428,7 +428,8 @@ public class CallController extends Handler {
             if (DBG) log("==> UPDATING status to: " + okToCallStatus);
         }
 
-        if (isEmergencyNumber || isEmergencyIntent) {
+        if ((isEmergencyNumber || isEmergencyIntent) &&
+                (MSimTelephonyManager.getDefault().isMultiSimEnabled())) {
             final MSimCallNotifier notifier =
                     (MSimCallNotifier)PhoneGlobals.getInstance().notifier;
             notifier.onEmergencyCallDialed();
