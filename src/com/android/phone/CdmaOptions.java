@@ -43,6 +43,7 @@ public class CdmaOptions {
     private static final String BUTTON_CDMA_SYSTEM_SELECT_KEY = "cdma_system_select_key";
     private static final String BUTTON_CDMA_SUBSCRIPTION_KEY = "cdma_subscription_key";
     private static final String BUTTON_CDMA_ACTIVATE_DEVICE_KEY = "cdma_activate_device_key";
+    private static final String BUTTON_APN_EXPAND_KEY = "button_apn_key";
 
     private PreferenceActivity mPrefActivity;
     private PreferenceScreen mPrefScreen;
@@ -63,6 +64,11 @@ public class CdmaOptions {
 
         mButtonCdmaSubscription = (CdmaSubscriptionListPreference)mPrefScreen
                 .findPreference(BUTTON_CDMA_SUBSCRIPTION_KEY);
+
+        if (!mPrefActivity.getResources().getBoolean(R.bool.config_apn_expand)) {
+            mPrefScreen.removePreference(
+                    mPrefScreen.findPreference(BUTTON_APN_EXPAND_KEY));
+        }
 
         mButtonCdmaSystemSelect.setEnabled(true);
         if(deviceSupportsNvAndRuim()) {

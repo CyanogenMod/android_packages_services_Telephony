@@ -78,6 +78,11 @@ public class GsmUmtsOptions {
         if (mPhone.getPhoneType() != PhoneConstants.PHONE_TYPE_GSM) {
             log("Not a GSM phone, disabling GSM preferences (select operator)");
             mButtonOperatorSelectionExpand.setEnabled(false);
+
+            // CdmaOptions provides its own APN settings
+            if (mPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
+                mPrefScreen.removePreference(mPrefScreen.findPreference(BUTTON_APN_EXPAND_KEY));
+            }
         } else {
             log("Not a CDMA phone");
             Resources res = mPrefActivity.getResources();
