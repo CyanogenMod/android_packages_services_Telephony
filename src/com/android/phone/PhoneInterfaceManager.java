@@ -32,6 +32,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import android.os.ServiceManager;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
@@ -867,9 +868,9 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         // GSM and CDMA devices
         case Phone.NT_MODE_GLOBAL:
             // Wtf to do here?
-            network = Phone.NT_MODE_LTE_CMDA_EVDO_GSM_WCDMA;
+            network = Phone.NT_MODE_LTE_CDMA_EVDO_GSM_WCDMA;
             break;
-        case Phone.NT_MODE_LTE_CMDA_EVDO_GSM_WCDMA:
+        case Phone.NT_MODE_LTE_CDMA_EVDO_GSM_WCDMA:
             // Determine the correct network type
             if (isCdmaDevice) {
                 network = Phone.NT_MODE_CDMA;
@@ -879,7 +880,12 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             break;
         // CDMA Devices
         case Phone.NT_MODE_CDMA:
-            network = Phone.NT_MODE_LTE_CDMA_AND_EVDO;
+            if (SystemProperties.getInt("ro.telephony.default_network", 0) ==
+                        RILConstants.NETWORK_MODE_LTE_CDMA_EVDO_GSM_WCDMA) {
+                network = Phone.NT_MODE_LTE_CDMA_EVDO_GSM_WCDMA;
+            } else {
+                network = Phone.NT_MODE_LTE_CDMA_AND_EVDO;
+            }
             break;
         case Phone.NT_MODE_LTE_CDMA_AND_EVDO:
             network = Phone.NT_MODE_CDMA;
