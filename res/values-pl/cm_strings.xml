@@ -81,4 +81,6 @@
   <string name="choose_reverse_lookup_provider_title">Dostawca wyszukiwania wstecz</string>
   <string name="sub_no_sim">Brak karty SIM</string>
   <string name="msim_call_selector_title">Zadzwoń <xliff:g id="number">%s</xliff:g> poprzez</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
+  <string name="cyngn_reverse_lookup_provider_name">Cyngn Chiński (CN)</string>
 </resources>

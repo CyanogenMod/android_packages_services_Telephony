@@ -169,4 +169,5 @@
   <string name="config_sub_title">Nastavení poskytovatelů</string>
   <string name="deact_all_sub_not_supported">Deaktivace všech poskytovatelů není podporována.</string>
   <string name="set_sub_not_supported_phone_in_call">Aktivace nebo deaktivace poskytovatelů není možná při aktivním hovoru.</string>
+  <string name="disconnect_data_confirm">Je potřeba dočasně odpojit datové služby. Chcete pokračovat?</string>
 </resources>

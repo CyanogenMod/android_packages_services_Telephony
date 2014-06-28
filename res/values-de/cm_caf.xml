@@ -18,10 +18,17 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="label_puk">PUK eingeben</string>
   <string name="sim_unlock_failed">Entsperren der SIM fehlgeschlagen.</string>
+  <string name="rnw1_unlock_failed">Entsperren von RUIM 1 fehlgeschlagen.</string>
+  <string name="rnw2_unlock_failed">Entsperren von RUIM 2 fehlgeschlagen.</string>
   <string name="rhrpd_unlock_failed">RUIM-HRPD-Entsperren fehlgeschlagen.</string>
+  <string name="rsp_unlock_failed">Entsperren des RUIM-Diensteanbieters fehlgeschlagen.</string>
+  <string name="rc_unlock_failed">Firmen-RUIM-Entsperrung fehlgeschlagen.</string>
   <string name="ruim_unlock_failed">Entsperren der RUIM fehlgeschlagen.</string>
   <string name="puk_unlock_failed">PUK entsperren fehlgeschlagen.</string>
+  <string name="sp_unlock_success">Entsperren des SIM-Diensteanbieters erfolgreich.</string>
   <string name="sim_unlock_success">SIM erfolgreich entsperrt.</string>
+  <string name="rhrpd_unlock_success">Entsperren von RUIM-HRPD erfolgreich.</string>
+  <string name="rc_unlock_success">Entsperren der Firmen-RUIM erfolgreich.</string>
   <string name="ruim_unlock_success">RUIM erfolgreich entsperrt.</string>
   <string name="puk_unlock_success">PUK erfolgreich entsperrt.</string>
   <string name="stk_cc_ss_to_dial_error">SS-Anfrage wurde in DIAL-Anfrage umgewandelt.</string>
@@ -63,6 +70,7 @@
   <string name="proceed">Weiter</string>
   <string name="sum_xdivert_enabled">Umleitung aktiviert</string>
   <string name="sum_xdivert_disabled">Umleitung deaktiviert</string>
+  <string name="xdivert_not_supported">Umleitung nicht von CDMA unterstützt</string>
   <string name="xdivert_status">Umleitungs-Status</string>
   <string name="xdivert_active">Aktiviert</string>
   <string name="xdivert_not_active">Deaktiviert</string>
@@ -83,6 +91,7 @@
   <string name="ims_vt_call_quality_low">Niedrig</string>
   <string name="ims_vt_call_quality_high">Hoch</string>
   <string name="ims_vt_call_quality_unknown">Unbekannt</string>
+  <string name="ims_vt_call_quality_set_failed">Fehler beim Festlegen der Videoqualität</string>
   <string name="contactScreen">SIM-Kontakte verwalten</string>
   <string name="exportContactScreen">Telefonkontake auf SIM exportieren</string>
   <string name="addSimEntries">SIM-Kontakt hinzufügen</string>
@@ -96,7 +105,16 @@
   <string name="enterNumber">Telefonnummer eingeben:</string>
   <string name="contactAddSuccess">SIM-Kontakt erfolgreich hinzugefügt</string>
   <string name="contactAddFailed">SIM-Kontakt konnte nicht hinzugefügt werden</string>
+  <string name="contactUpdateSuccess">SIM-Kontakt erfolgreich aktualisiert</string>
+  <string name="contactUpdateFailed">SIM-Kontakt konnte nicht aktualisiert werden</string>
+  <string name="contactdeleteSuccess">SIM-Kontakt erfolgreich gelöscht</string>
   <string name="contactdeleteFailed">SIM-Kontakt konnte nicht gelöscht werden</string>
+  <string name="allContactdeleteSuccess">Alle SIM-Kontakte erfolgreich gelöscht</string>
+  <string name="allContactdeleteFailed">Es konnten nicht alle Kontakte von der SIM-Karte gelöscht werden</string>
+  <string name="exportAllcontatsSuccess">Alle Kontakte erfolgreich auf die SIM-Karte exportiert</string>
+  <string name="exportAllcontatsFailed">Export aller Kontakte auf die SIM-Karte fehlgeschlagen</string>
+  <string name="exportAllcontatsNoContacts">Keine Kontakte für den Export zur SIM-Karte gefunden</string>
+  <string name="cursorError">Ungültige Cursor-Daten</string>
   <string name="set_sub_1">SIM 1: </string>
   <string name="set_sub_2">SIM 2: </string>
   <string name="set_sub_3">SIM 3: </string>
@@ -110,4 +128,5 @@
   <string name="set_sub_deactivate_not_supported">Deaktivierung nicht unterstützt</string>
   <string name="new_cards_available">Neue SIM-Karte verfügbar. Bitte konfigurieren Sie Ihre SIM-Karten.</string>
   <string name="config_sub_title">SIM auswählen</string>
+  <string name="disconnect_data_confirm">Datendienst muss vorübergehend getrennt werden. Sind Sie sicher, dass Sie fortfahren möchten?</string>
 </resources>

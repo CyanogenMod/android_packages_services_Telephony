@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="call_notif_unconditionalCF">Redirecționarea necondiționată pentru apel este activă</string>
-  <string name="call_notif_conditionalCF">Redirecţionarea condiţionată pentru apel este activă</string>
+  <string name="call_notif_conditionalCF">Redirecționarea condiționată pentru apel este activă</string>
   <string name="call_notif_MOcall_forwarding">Apelul efectuat este redirecționat</string>
   <string name="call_notif_cugcall">Apel în grup închis de utilizatori</string>
   <string name="call_notif_outgoing_barred">Apelurile efectuate sunt blocate</string>
@@ -52,7 +52,7 @@
   <string name="blacklist_notification_list_private">Privat</string>
   <string name="unblock_number">Deblocare</string>
   <string name="mwi_notification_title">Indicator așteptare mesaj</string>
-  <string name="mwi_notification_summary">Arată mesajul indicator de aşteptare pentru notificări de poștă vocală</string>
+  <string name="mwi_notification_summary">Arată mesajul indicator de așteptare pentru notificări de poștă vocală</string>
   <string name="perm_change_mobile_network">schimbare mod rețea (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Permite aplicației să schimbe între date 2G și 3G în orice moment. 3G este mai rapid, dar bateria se consumă mai rapid și pot apare costuri suplimentare.</string>
   <string name="phone_number_label">Numărul meu de telefon</string>
