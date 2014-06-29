@@ -625,4 +625,6 @@
   <string name="dial_pad_autocomplete">Autocompletar con tecláu</string>
   <string name="preference_category_ringtone">Tonu y vibración</string>
   <string name="call_settings_title_font_family">sans-serif-light</string>
+  <string name="delete">Desaniciar</string>
+  <string name="dial">Llamar</string>
 </resources>
