@@ -16,6 +16,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="call_notif_unconditionalCF">無条件の着信転送が有効です</string>
+  <string name="call_notif_conditionalCF">条件付きの着信転送が有効です</string>
+  <string name="call_notif_MOcall_forwarding">通話の発信は転送されます</string>
+  <string name="call_notif_cugcall">クローズドユーザーグループでの通話</string>
+  <string name="call_notif_outgoing_barred">通話の発信を阻止しました</string>
+  <string name="call_notif_incoming_barred">リモートパーティの通話の着信を阻止しました</string>
+  <string name="call_notif_clir_suppression_rejected">発信者番号通知制限がネットワークによって拒否されました</string>
+  <string name="call_notif_call_deflected">通話はリモートパーティによって転送されました</string>
+  <string name="call_notif_MTcall_forwarding">着信は転送されます</string>
+  <string name="call_notif_multipartycall">グループ通話</string>
+  <string name="call_notif_callonhold_released">リモートで通話を終了しました</string>
+  <string name="call_notif_forwardcheckreceived">着信は転送されました</string>
+  <string name="call_notif_callconnectingect">特定呼転送経由で呼接続中</string>
+  <string name="call_notif_callconnectedect">特定呼転送経由で呼接続しました</string>
   <string name="incall_vibration">通話中のバイブレーション</string>
   <string name="vibrate_outgoing">応答時のバイブレーション</string>
   <string name="vibrate_call_waiting">割込通話時のバイブレーション</string>
@@ -25,10 +39,22 @@
   <string name="show_ssn_label">イベント通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
   <string name="blacklist_title">ブラックリスト</string>
+  <string name="blacklist_summary_disabled">無効</string>
   <string name="blacklist_summary">ブラックリストにある電話番号からの着信をブロックする</string>
   <string name="blacklist_call_notification">%sからの着信をブロックしました</string>
   <string name="blacklist_call_notification_private_number">非通知番号からの着信をブロックしました</string>
+  <string name="blacklist_call_notification_unknown_number">不明な番号%sからの着信をブロックしました</string>
+  <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g>回の着信がブロックされました</string>
+  <string name="blacklist_message_notification">%sからのメッセージをブロックしました</string>
+  <string name="blacklist_message_notification_private_number">非通知番号からのメッセージをブロックしました</string>
+  <string name="blacklist_message_notification_unknown_number">不明な番号%sからのメッセージをブロックしました</string>
+  <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g>通のメッセージがブロックされました</string>
+  <string name="blacklist_notification_list_private">非通知</string>
   <string name="unblock_number">ブロック解除</string>
+  <string name="mwi_notification_title">メッセージ待機インジケータ</string>
+  <string name="mwi_notification_summary">ボイスメール通知のメッセージ待機インジケータを表示する</string>
+  <string name="perm_change_mobile_network">ネットワークモード（2G/3G）の変更</string>
+  <string name="perm_change_mobile_network_desc">いつでも2Gデータと3Gデータ間を変更することをアプリに許可します。3Gは高速ですが、電池の消費が増えたり、追加の料金が発生する恐れがあります。</string>
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
   <string name="noise_suppression_title">ノイズの抑制</string>
@@ -53,4 +79,8 @@
   <string name="choose_forward_lookup_provider_title">前方検索プロバイダ</string>
   <string name="choose_people_lookup_provider_title">人物検索プロバイダ</string>
   <string name="choose_reverse_lookup_provider_title">逆引き検索プロバイダ</string>
+  <string name="sub_no_sim">SIMがありません</string>
+  <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g>経由で発信</string>
+  <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
+  <string name="cyngn_reverse_lookup_provider_name">Cyngn Chinese（CN）</string>
 </resources>

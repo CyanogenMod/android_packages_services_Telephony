@@ -26,7 +26,7 @@
   <string name="call_notif_call_deflected">Uzak taraf tarafından arama yönlendirildi</string>
   <string name="call_notif_MTcall_forwarding">Gelen çağrı yönlendirildi</string>
   <string name="call_notif_multipartycall">Çok taraflı arama</string>
-  <string name="call_notif_callonhold_released">Çağrı Yönlendirildi</string>
+  <string name="call_notif_callonhold_released">Görüşmeye geri dönüldü</string>
   <string name="call_notif_forwardcheckreceived">Arama yönlendirildi</string>
   <string name="call_notif_callconnectingect">Açık çağrı aktarımı üzerinden bağlanıyor</string>
   <string name="call_notif_callconnectedect">Açık çağrı aktarımı üzerinden bağlandı</string>
