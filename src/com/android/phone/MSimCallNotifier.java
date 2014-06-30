@@ -22,11 +22,14 @@ package com.android.phone;
 import android.app.ActivityManagerNative;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Message;
 import android.os.SystemProperties;
 import android.preference.PreferenceManager;
 import android.provider.CallLog.Calls;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
@@ -40,12 +43,15 @@ import com.android.internal.telephony.CallerInfo;
 import com.android.internal.telephony.cdma.CdmaCallWaitingNotification;
 import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaSignalInfoRec;
 import com.android.internal.telephony.cdma.SignalToneUtil;
+import com.android.internal.telephony.util.BlacklistUtils;
+import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.TelephonyCapabilities;
+import com.android.internal.util.cm.QuietHoursUtils;
 
 /**
  * Phone app module that listens for phone state changes and various other
@@ -69,6 +75,9 @@ public class MSimCallNotifier extends CallNotifier {
 
     private static final boolean sLocalCallHoldToneEnabled =
             SystemProperties.getBoolean("persist.radio.lch_inband_tone", false);
+
+    // Blacklist handling
+    private static final String BLACKLIST = "Blacklist";
 
     /**
      * Initialize the singleton CallNotifier instance.
@@ -255,6 +264,27 @@ public class MSimCallNotifier extends CallNotifier {
             return;
         }
 
+        // Blacklist handling
+        String number = c.getAddress();
+        if (DBG) log("Incoming number is: " + number);
+        // See if the number is in the blacklist
+        // Result is one of: MATCH_NONE, MATCH_LIST or MATCH_REGEX
+        int listType = BlacklistUtils.isListed(mApplication, number, BlacklistUtils.BLOCK_CALLS);
+        if (listType != BlacklistUtils.MATCH_NONE) {
+            // We have a match, set the user and hang up the call and notify
+            if (DBG) log("Incoming call from " + number + " blocked.");
+            c.setUserData(BLACKLIST);
+            try {
+                c.hangup();
+                silenceRinger();
+                mApplication.notificationMgr.notifyBlacklistedCall(number,
+                        c.getCreateTime(), listType);
+            } catch (CallStateException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
+
         // Stop any signalInfo tone being played on receiving a Call
         stopSignalInfoTone();
 
@@ -311,7 +341,86 @@ public class MSimCallNotifier extends CallNotifier {
         // InCallScreen) from the showIncomingCall() method, which runs
         // when the caller-id query completes or times out.
 
+        // Finally, do the Quiet Hours ringer handling
+        if (QuietHoursUtils.inQuietHours(mApplication, Settings.System.QUIET_HOURS_RINGER)) {
+            if (DBG) log("Incoming call from " + number + " received during Quiet Hours.");
+            // Determine what type of Quiet Hours we are in and act accordingly
+            int muteType = Settings.System.getInt(mApplication.getContentResolver(),
+                    Settings.System.QUIET_HOURS_RINGER,
+                    Settings.System.QUIET_HOURS_RINGER_ALLOW_ALL);
+
+            switch (muteType) {
+                case Settings.System.QUIET_HOURS_RINGER_CONTACTS_ONLY:
+                    if (!isContact(number, false)) {
+                        if (DBG) log("Muting ringer, caller not in contact list");
+                        silenceRinger();
+                    }
+                    break;
+                case Settings.System.QUIET_HOURS_RINGER_FAVORITES_ONLY:
+                    if (!isContact(number, true)) {
+                        if (DBG) log("Muting ringer, caller is not favorite");
+                        silenceRinger();
+                    }
+                    break;
+                case Settings.System.QUIET_HOURS_RINGER_DISABLED:
+                    if (DBG) log("Muting ringer");
+                    silenceRinger();
+                    break;
+            }
+        }
+
         if (VDBG) log("- onNewRingingConnection() done.");
+    }
+
+    private static final String[] FAVORITE_PROJECTION = new String[] {
+        ContactsContract.PhoneLookup.STARRED
+    };
+    private static final String[] CONTACT_PROJECTION = new String[] {
+        ContactsContract.PhoneLookup.NUMBER
+    };
+
+    /**
+     * Helper function used to determine if calling number is from person in the Contacts
+     * Optionally, it can also check if the contact is a 'Starred'or favourite contact
+     */
+    private boolean isContact(String number, boolean checkFavorite) {
+        if (DBG) log("isContact(): checking if " + number + " is in the contact list.");
+
+        Uri lookupUri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+                Uri.encode(number));
+        Cursor cursor = mApplication.getContentResolver().query(lookupUri,
+                checkFavorite ? FAVORITE_PROJECTION : CONTACT_PROJECTION,
+                ContactsContract.PhoneLookup.NUMBER + "=?",
+                new String[] { number }, null);
+
+        if (cursor == null) {
+            if (DBG) log("Couldn't query contacts provider");
+            return false;
+        }
+
+        try {
+            if (cursor.moveToFirst() && !checkFavorite) {
+                // All we care about is that the number is in the Contacts list
+                if (DBG) log("Number belongs to a contact");
+                return true;
+            }
+
+            // Either no result or we should check for favorite.
+            // In the former case the loop won't be entered.
+            while (!cursor.isAfterLast()) {
+                if (cursor.getInt(cursor.getColumnIndex(
+                        ContactsContract.PhoneLookup.STARRED)) == 1) {
+                    if (DBG) log("Number belongs to a favorite");
+                    return true;
+                }
+                cursor.moveToNext();
+            }
+        } finally {
+            cursor.close();
+        }
+
+        if (DBG) log("A match for the number wasn't found");
+        return false;
     }
 
     /**
