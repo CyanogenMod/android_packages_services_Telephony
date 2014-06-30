@@ -435,24 +435,8 @@ public class CallNotifier extends Handler
             return;
         }
 
-        // Blacklist handling
-        String number = c.getAddress();
-        if (DBG) log("Incoming number is: " + number);
-        // See if the number is in the blacklist
-        // Result is one of: MATCH_NONE, MATCH_LIST or MATCH_REGEX
-        int listType = BlacklistUtils.isListed(mApplication, number, BlacklistUtils.BLOCK_CALLS);
-        if (listType != BlacklistUtils.MATCH_NONE) {
-            // We have a match, set the user and hang up the call and notify
-            if (DBG) log("Incoming call from " + number + " blocked.");
-            c.setUserData(BLACKLIST);
-            try {
-                c.hangup();
-                silenceRinger();
-                mApplication.notificationMgr.notifyBlacklistedCall(number,
-                        c.getCreateTime(), listType);
-            } catch (CallStateException e) {
-                e.printStackTrace();
-            }
+        // Check if phone number is blacklisted
+        if (isConnectionBlacklisted(c)) {
             return;
         }
 
@@ -508,6 +492,45 @@ public class CallNotifier extends Handler
         // when the caller-id query completes or times out.
 
         // Finally, do the Quiet Hours ringer handling
+        checkInQuietHours(c);
+
+        if (VDBG) log("- onNewRingingConnection() done.");
+    }
+
+    private static final String[] FAVORITE_PROJECTION = new String[] {
+        ContactsContract.PhoneLookup.STARRED
+    };
+    private static final String[] CONTACT_PROJECTION = new String[] {
+        ContactsContract.PhoneLookup.NUMBER
+    };
+
+    protected boolean isConnectionBlacklisted(Connection c) {
+        final String number = c.getAddress();
+        if (DBG) log("Incoming number is: " + number);
+        // See if the number is in the blacklist
+        // Result is one of: MATCH_NONE, MATCH_LIST or MATCH_REGEX
+        int listType = BlacklistUtils.isListed(mApplication, number, BlacklistUtils.BLOCK_CALLS);
+        if (listType != BlacklistUtils.MATCH_NONE) {
+            // We have a match, set the user and hang up the call and notify
+            if (DBG) log("Incoming call from " + number + " blocked.");
+            c.setUserData(BLACKLIST);
+            try {
+                c.hangup();
+                silenceRinger();
+                mApplication.notificationMgr.notifyBlacklistedCall(number,
+                        c.getCreateTime(), listType);
+            } catch (CallStateException e) {
+                e.printStackTrace();
+                Log.w(LOG_TAG, "Invalid call state", e);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    protected void checkInQuietHours(Connection c) {
+        final String number = c.getAddress();
+
         if (QuietHoursUtils.inQuietHours(mApplication, Settings.System.QUIET_HOURS_RINGER)) {
             if (DBG) log("Incoming call from " + number + " received during Quiet Hours.");
             // Determine what type of Quiet Hours we are in and act accordingly
@@ -534,16 +557,7 @@ public class CallNotifier extends Handler
                     break;
             }
         }
-
-        if (VDBG) log("- onNewRingingConnection() done.");
     }
-
-    private static final String[] FAVORITE_PROJECTION = new String[] {
-        ContactsContract.PhoneLookup.STARRED
-    };
-    private static final String[] CONTACT_PROJECTION = new String[] {
-        ContactsContract.PhoneLookup.NUMBER
-    };
 
     /**
      * Helper function used to determine if calling number is from person in the Contacts
