@@ -107,8 +107,6 @@
       <ListPreference
           android:key="button_choose_reverse_lookup_provider"
           android:title="@string/choose_reverse_lookup_provider_title"
-          android:entries="@array/reverse_lookup_provider_names"
-          android:entryValues="@array/reverse_lookup_providers"
           android:persistent="false" />
 
   </PreferenceScreen>

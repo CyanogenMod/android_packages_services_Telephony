@@ -517,6 +517,10 @@
     <string name="roaming_reenable_message">You\'ve lost data connectivity because you left your home network with data roaming turned off.</string>
     <!-- Mobile network settings screen, dialog message when user selects the Data roaming check box -->
     <string name="roaming_warning">Allow data roaming? You may incur significant roaming charges!</string>
+
+    <!-- USSD aggregation dialog box: separator strings between messages (new-lines will be added before and after) -->
+    <string name="ussd_dialog_sep" translatable="false">----------</string>
+
     <string name="gsm_umts_options">GSM/UMTS Options</string>
     <string name="cdma_options">CDMA Options</string>
     <string name="mobile_network_setting">Mobile network settings</string>
@@ -840,7 +844,7 @@
     <string name="auto_retry_mode_title">Auto-retry</string>
     <string name="auto_retry_mode_summary">Enable Auto-retry mode</string>
     <!-- TTY Mode change is NOT allowed during a VT call -->
-    <string name="tty_mode_not_allowed_vt_call">TTY mode change is not allowed during a VT call</string>
+    <string name="tty_mode_not_allowed_vt_call">TTY mode change is not allowed during a video call</string>
 
     <!-- FDN list screen: menu item label -->
     <string name="menu_add">Add contact</string>
@@ -1553,6 +1557,13 @@
     <string name="ims_menu_discard">Discard</string>
     <!-- Title for the button to remove a IMS account. [CHAR LIMIT=NONE] -->
     <string name="remove_ims_account">Remove account</string>
+    <!-- VT call quality settings. -->
+    <string translatable="false" name="ims_vt_call_quality">VtCallQuality</string>
+    <string name="ims_vt_call_quality_title">Video call quality</string>
+    <string name="ims_vt_call_quality_low">Low</string>
+    <string name="ims_vt_call_quality_high">High</string>
+    <string name="ims_vt_call_quality_unknown">Unknown</string>
+    <string name="ims_vt_call_quality_set_failed">Failed to set video quality</string>
     <!-- End of IMS settings related strings -->
 
     <!-- Dialog title to notify user that Voice calling is not supported
@@ -1829,4 +1840,6 @@
     <!-- Set Subscription screen: Deactivate All subscription not supported -->
     <string name="set_sub_not_supported_phone_in_call">Activating or deactivating subscriptions is not allowed during a call.</string>
 
+    <!-- Manual PLMN scan data disconnect dialog text -->
+    <string name="disconnect_data_confirm">Data service needs to be disconnected temporarily. Are you sure you want to continue?</string>
 </resources>

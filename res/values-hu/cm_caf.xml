@@ -120,6 +120,11 @@
   <string name="ims_menu_save">Mentés</string>
   <string name="ims_menu_discard">Elvetés</string>
   <string name="remove_ims_account">Fiók eltávolítása</string>
+  <string name="ims_vt_call_quality_title">Videohívás minősége</string>
+  <string name="ims_vt_call_quality_low">Alacsony</string>
+  <string name="ims_vt_call_quality_high">Magas</string>
+  <string name="ims_vt_call_quality_unknown">Ismeretlen</string>
+  <string name="ims_vt_call_quality_set_failed">Nem sikerült beállítani a videó minőségét</string>
   <string name="contactScreen">SIM névjegyek kezelése</string>
   <string name="exportContactScreen">Névjegyek exportálása a SIM kártyára</string>
   <string name="addSimEntries">SIM névjegy hozzáadása</string>
@@ -164,4 +169,5 @@
   <string name="config_sub_title">Előfizetések konfigurálása</string>
   <string name="deact_all_sub_not_supported">Az összes előfizetés deaktiválása nem támogatott.</string>
   <string name="set_sub_not_supported_phone_in_call">Előfizetés módosítása nem engedélyezett hívás közben.</string>
+  <string name="disconnect_data_confirm">Adatszolgáltatást ideiglenesen le kell kapcsolni. Biztosan folytatni kívánja?</string>
 </resources>

@@ -25,14 +25,18 @@
   <string name="call_notif_call_deflected">Samtal vidarebefordrat av fjärrpart</string>
   <string name="call_notif_MTcall_forwarding">Inkommande samtal blir vidarebefordrat</string>
   <string name="call_notif_multipartycall">Flerpartssamtal</string>
+  <string name="call_notif_forwardcheckreceived">Samtalet vidarebefordrades</string>
   <string name="call_notif_callconnectingect">Samtal ansluter genom explicit samtalsöverföring</string>
   <string name="call_notif_callconnectedect">Samtal anslutet genom explicit samtalsöverföring</string>
+  <string name="incall_vibration">Vibration vid inkommande samtal</string>
   <string name="vibrate_outgoing">Vibrera vid svar</string>
   <string name="vibrate_call_waiting">Vibrera vid samtal väntar</string>
   <string name="vibrate_hangup">Vibrera vid avslutat samtal</string>
   <string name="vibrate_45">Vibrera varje minut</string>
   <string name="vibrate_45_sum">Vibrerar 45 sekunder in på varje minut under utgående samtal</string>
+  <string name="show_ssn_label">Händelsemeddelanden</string>
   <string name="show_ssn_summary">Visa en avisering för olika nätverkshändelser relaterade till samtalshantering</string>
+  <string name="blacklist_title">Svartlista</string>
   <string name="blacklist_summary_disabled">Inaktiverad</string>
   <string name="blacklist_summary">Inkommande samtal från telefonnummer i svartlistan kommer att blockeras</string>
   <string name="blacklist_call_notification">Blockerade samtal från %s</string>
@@ -45,22 +49,34 @@
   <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> meddelanden har blockerats</string>
   <string name="blacklist_notification_list_private">Hemligt</string>
   <string name="unblock_number">Häv blockering</string>
+  <string name="mwi_notification_title">Indikator för väntande meddelande</string>
   <string name="mwi_notification_summary">Visa meddelande väntar indikator som telefonsvararavisering</string>
+  <string name="perm_change_mobile_network">ändra nätverksläge (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Tillåter att appen ändrar mellan 2G och 3G data när som helst. 3G är snabbare, men förbrukar mer batteri och kan orsaka extra kostnad.</string>
   <string name="phone_number_label">Mitt telefonnummer</string>
+  <string name="phone_number_summary">Ställa in enhetens telefonnummer</string>
+  <string name="noise_suppression_title">Brusreducering</string>
   <string name="noise_suppression_summary">Aktivera brusreducering för samtal</string>
+  <string name="preferred_network_mode_td_scdma_only">Endast TD-SCDMA</string>
   <string name="preferred_network_mode_global">Global</string>
+  <string name="preferred_network_mode_evdo_only">Endast EvDo</string>
   <string name="preferred_network_mode_cdma_without_evdo">CDMA utan EvDo</string>
   <string name="preferred_network_mode_cdma_evdo_auto">CDMA/EvDo auto</string>
   <string name="preferred_network_mode_gsm_wcdma_auto">GSM/WCDMA auto</string>
+  <string name="preferred_network_mode_wcdma_only">Endast WCDMA</string>
+  <string name="preferred_network_mode_gsm_only">Endast GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA föredragen</string>
   <string name="number_lookup">Telefonnummersökning</string>
   <string name="enable_forward_lookup_title">Platssökning</string>
   <string name="enable_forward_lookup_summary">Visa platser i närheten vid sökning med knappsatsen</string>
+  <string name="enable_people_lookup_title">Personsökning</string>
   <string name="enable_people_lookup_summary">Visa resultat online för personer vid sökning med knappsatsen</string>
   <string name="enable_reverse_lookup_title">Omvänd sökning</string>
   <string name="enable_reverse_lookup_summary">Sök efter information om personen eller platsen för okända nummer vid inkommande samtal</string>
+  <string name="choose_lookup_providers">Välj leverantörer för sökning</string>
   <string name="choose_forward_lookup_provider_title">Platssökningstjänst</string>
+  <string name="choose_people_lookup_provider_title">Leverantör för personsökning</string>
+  <string name="choose_reverse_lookup_provider_title">Leverantör för omvänd sökning</string>
   <string name="sub_no_sim">Inget SIM</string>
   <string name="msim_call_selector_title">Ring <xliff:g id="number">%s</xliff:g> via</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>

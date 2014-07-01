@@ -89,7 +89,7 @@
   <string name="sub3_summary">จัดการติดตาม 3</string>
   <string name="prompt">เลือกเอง</string>
   <string name="prompt_user">เลือกโดยผู้ใช้</string>
-  <string name="tty_mode_not_allowed_vt_call">รูปแบบ TTY ไม่อนุญาตให้เปลี่ยนระหว่างใช้สาย VT</string>
+  <string name="tty_mode_not_allowed_vt_call">รูปแบบ TTY ไม่อนุญาตให้เปลี่ยนระหว่างใช้สายวิดีโอ</string>
   <string name="fdn_service_unavailable">ไม่มีบริการ FDN</string>
   <string name="exportContacts">กำลังส่งออกผู้ติดต่อไปยังซิม\u2026</string>
   <string name="onscreenSwitchText">สลับการติดตาม</string>
@@ -120,6 +120,11 @@
   <string name="ims_menu_save">บันทึก</string>
   <string name="ims_menu_discard">ละทิ้ง</string>
   <string name="remove_ims_account">นำบัญชีออก</string>
+  <string name="ims_vt_call_quality_title">คุณภาพสายวิดีโอ</string>
+  <string name="ims_vt_call_quality_low">ต่ำ</string>
+  <string name="ims_vt_call_quality_high">สูง</string>
+  <string name="ims_vt_call_quality_unknown">ไม่ทราบ</string>
+  <string name="ims_vt_call_quality_set_failed">ตั้งคุณภาพวิดีโอล้มเหลว</string>
   <string name="contactScreen">จัดการผู้ติดต่อในซิม</string>
   <string name="exportContactScreen">ส่งออกผู้ติดต่อโทรศัพท์ไปยังซิมการ์ด</string>
   <string name="addSimEntries">เพิ่มผู้ติดต่อในซิมการ์ด</string>
@@ -164,4 +169,5 @@
   <string name="config_sub_title">กำหนดค่าการติดตาม</string>
   <string name="deact_all_sub_not_supported">ไม่สนับสนุนการปิดใช้งานการติดตามทั้งหมด</string>
   <string name="set_sub_not_supported_phone_in_call">เปิดใช้งาน หรือปิดใช้งานการติดตามไม่ได้ในระหว่างโทร</string>
+  <string name="disconnect_data_confirm">จำเป็นต้องตัดการเชื่อมต่อเครือข่ายชั่วคราว คุณแน่ใจว่าจะทำต่อ?</string>
 </resources>

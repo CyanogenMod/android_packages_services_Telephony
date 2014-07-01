@@ -30,5 +30,8 @@
     <permission name="com.qti.permission.DIAG">
         <group gid="qcom_diag" />
     </permission>
+    <permission name="com.qti.permission.IMS">
+        <group gid="ims" />
+    </permission>
 </permissions>
 

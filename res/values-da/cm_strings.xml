@@ -82,4 +82,5 @@
   <string name="sub_no_sim">Intet SIM-kort</string>
   <string name="msim_call_selector_title">Ring til <xliff:g id="number">%s</xliff:g> via</string>
   <string name="msim_call_selector_item">SIM-kort <xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
+  <string name="cyngn_reverse_lookup_provider_name">Cyngn kinesisk (KN)</string>
 </resources>

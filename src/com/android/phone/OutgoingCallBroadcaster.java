@@ -58,29 +58,34 @@ import com.codeaurora.telephony.msim.SubscriptionManager;
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
 /**
- * OutgoingCallBroadcaster receives CALL and CALL_PRIVILEGED Intents, and
- * broadcasts the ACTION_NEW_OUTGOING_CALL intent which allows other
- * applications to monitor, redirect, or prevent the outgoing call.
-
+ * OutgoingCallBroadcaster receives CALL and CALL_PRIVILEGED Intents, and broadcasts the
+ * ACTION_NEW_OUTGOING_CALL intent. ACTION_NEW_OUTGOING_CALL is an ordered broadcast intent which
+ * contains the phone number being dialed. Applications can use this intent to (1) see which numbers
+ * are being dialed, (2) redirect a call (change the number being dialed), or (3) prevent a call
+ * from being placed.
+ *
  * After the other applications have had a chance to see the
  * ACTION_NEW_OUTGOING_CALL intent, it finally reaches the
  * {@link OutgoingCallReceiver}, which passes the (possibly modified)
  * intent on to the {@link SipCallOptionHandler}, which will
  * ultimately start the call using the CallController.placeCall() API.
  *
- * Emergency calls and calls where no number is present (like for a CDMA
- * "empty flash" or a nonexistent voicemail number) are exempt from being
- * broadcast.
+ * Calls where no number is present (like for a CDMA "empty flash" or a nonexistent voicemail
+ * number) are exempt from being broadcast.
+ * Calls to emergency numbers are still broadcast for informative purposes. The call is placed
+ * prior to sending ACTION_NEW_OUTGOING_CALL and cannot be redirected nor prevented.
  */
 public class OutgoingCallBroadcaster extends Activity
         implements DialogInterface.OnClickListener, DialogInterface.OnCancelListener {
 
-    private static final String PERMISSION = android.Manifest.permission.PROCESS_OUTGOING_CALLS;
     private static final String TAG = "OutgoingCallBroadcaster";
     private static final boolean DBG =
             (PhoneGlobals.DBG_LEVEL >= 1) && (SystemProperties.getInt("ro.debuggable", 0) == 1);
     // Do not check in with VDBG = true, since that may write PII to the system log.
     private static final boolean VDBG = false;
+
+    /** Required permission for any app that wants to consume ACTION_NEW_OUTGOING_CALL. */
+    private static final String PERMISSION = android.Manifest.permission.PROCESS_OUTGOING_CALLS;
 
     public static final String ACTION_SIP_SELECT_PHONE = "com.android.phone.SIP_SELECT_PHONE";
     public static final String EXTRA_ALREADY_CALLED = "android.phone.extra.ALREADY_CALLED";
@@ -509,7 +514,7 @@ public class OutgoingCallBroadcaster extends Activity
             launchedFromUid = -1;
             launchedFromPackage = null;
         }
-        if (appOps.noteOp(AppOpsManager.OP_CALL_PHONE, launchedFromUid, launchedFromPackage)
+        if (appOps.noteOpNoThrow(AppOpsManager.OP_CALL_PHONE, launchedFromUid, launchedFromPackage)
                 != AppOpsManager.MODE_ALLOWED) {
             Log.w(TAG, "Rejecting call from uid " + launchedFromUid + " package "
                     + launchedFromPackage);
@@ -600,6 +605,12 @@ public class OutgoingCallBroadcaster extends Activity
                                + invokeFrameworkDialer);
                 startActivity(invokeFrameworkDialer);
                 finish();
+                return;
+            }
+            if (PhoneUtils.isAnyOtherSubActive(mSubscription) && MSimTelephonyManager.getDefault()
+                    .getMultiSimConfiguration() != MSimTelephonyManager.MultiSimVariants.DSDA) {
+                Log.d(TAG, "Call not allowed, as other sub is already active" + mSubscription);
+                handleNonVoiceCapable(intent);
                 return;
             }
             intent.putExtra(SUBSCRIPTION_KEY, mSubscription);
@@ -718,6 +729,7 @@ public class OutgoingCallBroadcaster extends Activity
             broadcastIntent.putExtra(EXTRA_ORIGINAL_URI, uri.toString());
             broadcastIntent.putExtra(EXTRA_DIAL_CONFERENCE_URI,
                     intent.getBooleanExtra((EXTRA_DIAL_CONFERENCE_URI), false));
+            broadcastIntent.putExtra(SUBSCRIPTION_KEY, mSubscription);
 
             // Need to raise foreground in-call UI as soon as possible while allowing 3rd party app
             // to intercept the outgoing call.

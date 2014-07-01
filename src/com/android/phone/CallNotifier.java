@@ -789,7 +789,7 @@ public class CallNotifier extends Handler
      * ringtone. Otherwise we will play the call waiting tone instead.
      * @param c The new ringing connection.
      */
-    private void ringAndNotifyOfIncomingCall(Connection c) {
+    protected void ringAndNotifyOfIncomingCall(Connection c) {
         if (PhoneUtils.isRealIncomingCall(c.getState()) && !mSilentRingerRequested) {
             mRinger.ring();
         } else {
@@ -1064,6 +1064,12 @@ public class CallNotifier extends Handler
                   + ", date = " + c.getCreateTime());
         } else {
             Log.w(LOG_TAG, "onDisconnect: null connection");
+        }
+
+        //For SRVCC to be seamless, donot process Disconnect indication
+        if (c.getDisconnectCause() == Connection.DisconnectCause.SRVCC_CALL_DROP) {
+            log("SRVCC case so do not process onDisconnect");
+            return;
         }
 
         boolean disconnectedDueToBlacklist = false;

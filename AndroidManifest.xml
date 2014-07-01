@@ -46,6 +46,9 @@
     <permission
         android:name="com.qti.permission.DIAG"
         android:protectionLevel="signatureOrSystem" />
+    <permission
+        android:name="com.qti.permission.IMS"
+        android:protectionLevel="signatureOrSystem" />
 
     <uses-permission android:name="android.permission.BIND_CALL_SERVICE" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
@@ -715,7 +718,7 @@
         </receiver>
 
         <!-- BroadcastReceiver for receiving Intents from Notification mechanism. -->
-        <receiver android:name="PhoneGlobals$NotificationBroadcastReceiver" exported="false">
+        <receiver android:name="PhoneGlobals$NotificationBroadcastReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="com.android.phone.ACTION_HANG_UP_ONGOING_CALL" />
                 <action android:name="com.android.phone.ACTION_CALL_BACK_FROM_NOTIFICATION" />

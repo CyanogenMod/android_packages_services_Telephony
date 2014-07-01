@@ -89,7 +89,6 @@
   <string name="sub3_summary">Налаштування параметрів оператора 3</string>
   <string name="prompt">Запитувати</string>
   <string name="prompt_user">Запитувати користувача</string>
-  <string name="tty_mode_not_allowed_vt_call">Змінення режиму TTY заборонено під час дзвінка VT</string>
   <string name="fdn_service_unavailable">Служба FDN недоступна.</string>
   <string name="exportContacts">Експортування контактів на SIM-картку\u2026</string>
   <string name="onscreenSwitchText">Переключити оператора</string>

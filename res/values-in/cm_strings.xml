@@ -33,7 +33,7 @@
   <string name="incall_vibration">Getaran dalam panggilan</string>
   <string name="vibrate_outgoing">Getar saat menjawab</string>
   <string name="vibrate_call_waiting">Getar pada panggilan tunggu</string>
-  <string name="vibrate_hangup">Getar pada tutup telepon</string>
+  <string name="vibrate_hangup">Getar saat tutup telepon</string>
   <string name="vibrate_45">Getar setiap menit</string>
   <string name="vibrate_45_sum">Getar pada detik ke-45 menandai tiap menit selama panggilan keluar</string>
   <string name="show_ssn_label">Notifikasi acara</string>
@@ -54,11 +54,11 @@
   <string name="mwi_notification_title">Indikator pesan menunggu</string>
   <string name="mwi_notification_summary">Tampilkan notifikasi indikator pesan tunggu untuk pesan suara</string>
   <string name="perm_change_mobile_network">mengubah modus jaringan (2G / 3G)</string>
-  <string name="perm_change_mobile_network_desc">Memungkinkan aplikasi untuk mengubah antara data 2G dan 3G data setiap saat. 3G lebih cepat, tapi mengkonsumsi baterai lebih banyak dan dapat menyebabkan biaya tambahan.</string>
+  <string name="perm_change_mobile_network_desc">Izinkan aplikasi untuk mengubah antara data 2G dan data 3G setiap saat. 3G lebih cepat, tapi mengkonsumsi baterai lebih banyak dan dapat menyebabkan biaya tambahan.</string>
   <string name="phone_number_label">Nomor telepon saya</string>
   <string name="phone_number_summary">Tetapkan nomor telepon untuk perangkat ini</string>
-  <string name="noise_suppression_title">Penekanan suara</string>
-  <string name="noise_suppression_summary">Mengaktifkan penekanan suara untuk panggilan</string>
+  <string name="noise_suppression_title">Reduksi gangguan suara</string>
+  <string name="noise_suppression_summary">Aktifkan reduksi gangguan suara untuk panggilan</string>
   <string name="preferred_network_mode_td_scdma_only">Hanya TD-SCDMA</string>
   <string name="preferred_network_mode_global">Global</string>
   <string name="preferred_network_mode_evdo_only">Hanya EvDo</string>
@@ -67,7 +67,7 @@
   <string name="preferred_network_mode_gsm_wcdma_auto">GSM/WCDMA auto</string>
   <string name="preferred_network_mode_wcdma_only">Hanya WCDMA</string>
   <string name="preferred_network_mode_gsm_only">Hanya GSM</string>
-  <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA preferred</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA diutamakan</string>
   <string name="number_lookup">Pencarian nomor telepon</string>
   <string name="enable_forward_lookup_title">Pencarian maju</string>
   <string name="enable_forward_lookup_summary">Menunjukkan tempat terdekat saat mencari dalam dialer</string>
@@ -83,4 +83,5 @@
   <string name="msim_call_selector_title">Panggil <xliff:g id="number"> %s </xliff:g> melalui</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g>
 </string>
+  <string name="cyngn_reverse_lookup_provider_name">Cyngn China (CN)</string>
 </resources>

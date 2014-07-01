@@ -120,6 +120,11 @@
   <string name="ims_menu_save">Gravar</string>
   <string name="ims_menu_discard">Rejeitar</string>
   <string name="remove_ims_account">Remover conta</string>
+  <string name="ims_vt_call_quality_title">Qualidade de chamada de vídeo</string>
+  <string name="ims_vt_call_quality_low">Baixa</string>
+  <string name="ims_vt_call_quality_high">Alta</string>
+  <string name="ims_vt_call_quality_unknown">Desconhecida</string>
+  <string name="ims_vt_call_quality_set_failed">Falha ao definir a qualidade de vídeo</string>
   <string name="contactScreen">Gerir contactos SIM</string>
   <string name="exportContactScreen">Exportar contactos do telefone para o SIM</string>
   <string name="addSimEntries">Adicionar contacto ao SIM</string>
@@ -164,4 +169,5 @@
   <string name="config_sub_title">Configurar assinaturas</string>
   <string name="deact_all_sub_not_supported">A desativação de todas as subscrições não é suportada.</string>
   <string name="set_sub_not_supported_phone_in_call">Ativar ou desativar as assinaturas não é permitido durante uma chamada.</string>
+  <string name="disconnect_data_confirm">O serviço de dados tem de ser desligado temporariamente. Tem a certeza que deseja continuar?</string>
 </resources>
