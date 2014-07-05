@@ -255,6 +255,11 @@ public class MSimCallNotifier extends CallNotifier {
             return;
         }
 
+        // Check if phone number is blacklisted
+        if (isConnectionBlacklisted(c)) {
+            return;
+        }
+
         // Stop any signalInfo tone being played on receiving a Call
         stopSignalInfoTone();
 
@@ -310,6 +315,9 @@ public class MSimCallNotifier extends CallNotifier {
         // Instead, we update the notification (and potentially launch the
         // InCallScreen) from the showIncomingCall() method, which runs
         // when the caller-id query completes or times out.
+
+        // Finally, do the Quiet Hours ringer handling
+        checkInQuietHours(c);
 
         if (VDBG) log("- onNewRingingConnection() done.");
     }
