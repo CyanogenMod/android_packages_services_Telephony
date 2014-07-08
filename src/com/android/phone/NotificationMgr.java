@@ -589,15 +589,17 @@ public class NotificationMgr {
         // display the first line of the notification:
         // 1 missed call: call name
         // more than 1 missed call: <number of calls> + "missed calls" (+ list of calls)
-        if (mMissedCalls.size() == 1) {
+        int numberOfMissedCalls = mMissedCalls.size();
+        if (numberOfMissedCalls == 1) {
             builder.setContentTitle(mContext.getText(R.string.notification_missedCallTitle));
             builder.setContentText(callName);
         } else {
             String message = mContext.getString(R.string.notification_missedCallsMsg,
-                    mMissedCalls.size());
+                    numberOfMissedCalls);
 
             builder.setContentTitle(mContext.getText(R.string.notification_missedCallsTitle));
             builder.setContentText(message);
+            builder.setNumber(numberOfMissedCalls);
 
             Notification.InboxStyle style = new Notification.InboxStyle(builder);
 
@@ -643,7 +645,7 @@ public class NotificationMgr {
             }
         }
 
-        Notification notification = builder.getNotification();
+        Notification notification = builder.build();
         configureLedNotification(mContext, MISSED_CALL_NOTIFICATION, notification);
         mNotificationManager.notify(MISSED_CALL_NOTIFICATION, notification);
     }
