@@ -158,6 +158,7 @@
          tablets as well as regular phone devices.) -->
     <style name="Theme.Settings" parent="@android:style/Theme.Holo.DialogWhenLarge">
         <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:actionBarStyle">@android:style/Widget.Holo.ActionBar.Solid</item>
     </style>
 
     <style name="SettingsLight" parent="@android:style/Theme.Holo.Light">
