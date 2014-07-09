@@ -89,6 +89,7 @@
   <string name="sub3_summary">Налаштування параметрів оператора 3</string>
   <string name="prompt">Запитувати</string>
   <string name="prompt_user">Запитувати користувача</string>
+  <string name="tty_mode_not_allowed_vt_call">Змінення режиму TTY заборонено під час відео дзвінка</string>
   <string name="fdn_service_unavailable">Служба FDN недоступна.</string>
   <string name="exportContacts">Експортування контактів на SIM-картку\u2026</string>
   <string name="onscreenSwitchText">Переключити оператора</string>
@@ -119,6 +120,11 @@
   <string name="ims_menu_save">Зберегти</string>
   <string name="ims_menu_discard">Відхилити</string>
   <string name="remove_ims_account">Видалити обліковий запис</string>
+  <string name="ims_vt_call_quality_title">Якість відео виклику</string>
+  <string name="ims_vt_call_quality_low">Низька</string>
+  <string name="ims_vt_call_quality_high">Висока</string>
+  <string name="ims_vt_call_quality_unknown">Невідомо</string>
+  <string name="ims_vt_call_quality_set_failed">Не вдалося встановити якість відео</string>
   <string name="contactScreen">Керування контактами SIM-карти</string>
   <string name="exportContactScreen">Експортувати контакти телефону на SIM-картку</string>
   <string name="addSimEntries">Додати SIM-контакт</string>
@@ -163,4 +169,5 @@
   <string name="config_sub_title">Налаштування операторів</string>
   <string name="deact_all_sub_not_supported">Деактивація всіх операторів не підтримується.</string>
   <string name="set_sub_not_supported_phone_in_call">Під час дзвінка не допускається активація або деактивація оператора.</string>
+  <string name="disconnect_data_confirm">Служба даних тимчасово буде відключена. Справді продовжити?</string>
 </resources>

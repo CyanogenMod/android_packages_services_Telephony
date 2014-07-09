@@ -20,6 +20,8 @@
   <string name="label_rdp">PIN för RUIM-upplåsning</string>
   <string name="label_puk">Ange PUK</string>
   <string name="requesting_sim_unlock">Begär SIM-upplåsning\u2026</string>
+  <string name="requesting_rhrpd_unlock">Begär RUIM HRPD-upplåsning\u2026</string>
+  <string name="requesting_ruim_unlock">Begär RUIM-upplåsning\u2026</string>
   <string name="requesting_puk_unlock">Begär PUK-upplåsning\u2026</string>
   <string name="sim_unlock_failed">Begäran om SIM-upplåsning misslyckades.</string>
   <string name="puk_unlock_failed">PUK-upplåsning misslyckades.</string>
