@@ -75,7 +75,7 @@
   <string name="enable_people_lookup_summary">Mostra risultati online durante la ricerca nel tastierino</string>
   <string name="enable_reverse_lookup_title">Ricerca inversa</string>
   <string name="enable_reverse_lookup_summary">Cerca informazioni sulla persona o luogo per i numeri sconosciuti delle chiamate in ingresso</string>
-  <string name="choose_lookup_providers">Scegli i provider di ricerca</string>
+  <string name="choose_lookup_providers">Scegli provider ricerca</string>
   <string name="choose_forward_lookup_provider_title">Provider di ricerca diretta</string>
   <string name="choose_people_lookup_provider_title">Provider di ricerca persone</string>
   <string name="choose_reverse_lookup_provider_title">Provider di ricerca inversa</string>

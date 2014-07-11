@@ -16,7 +16,24 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="label_spdp">PIN zum Entsperren des SIM-Karten-Anbieters</string>
+  <string name="label_sdp">PIN zum Entsperren des SIM-Lock</string>
+  <string name="label_rn1dp">PIN zum Entsperren von RUIM-Netzwerk 1</string>
+  <string name="label_rn2dp">PIN zum Entsperren von RUIM-Netzwerk 2</string>
+  <string name="label_rhrpd">PIN zum Entsperren von RUIM-HRPD</string>
+  <string name="label_rcdp">PIN zum Entsperren der Firmen-RUIM</string>
+  <string name="label_rspdp">Entsperr-PIN der Provider-RUIM</string>
+  <string name="label_rdp">Entsperr-PIN der RUIM-Karte</string>
   <string name="label_puk">PUK eingeben</string>
+  <string name="requesting_corporate_unlock">Entsperren der Firmen-SIM anfordern\u2026</string>
+  <string name="requesting_sim_unlock">Entsperren der SIM anfordern\u2026</string>
+  <string name="requesting_rnw1_unlock">Entsperren des RUIM-Netzwerk 1 anfordern\u2026</string>
+  <string name="requesting_rnw2_unlock">Entsperren des RUIM-Netzwerk 2 anfordern\u2026</string>
+  <string name="requesting_rhrpd_unlock">Entsperren von RUIM-HRPD anfordern\u2026</string>
+  <string name="requesting_rsp_unlock">Entsperren des RUIM-Dienstanbieters anfordern\u2026</string>
+  <string name="requesting_rc_unlock">Entsperren der Firmen-RUIM anfordern\u2026</string>
+  <string name="requesting_ruim_unlock">Entsperren der RUIM anfordern\u2026</string>
+  <string name="requesting_puk_unlock">Entsperren der PUK anfordern\u2026</string>
   <string name="sim_unlock_failed">Entsperren der SIM fehlgeschlagen.</string>
   <string name="rnw1_unlock_failed">Entsperren von RUIM 1 fehlgeschlagen.</string>
   <string name="rnw2_unlock_failed">Entsperren von RUIM 2 fehlgeschlagen.</string>
@@ -27,6 +44,7 @@
   <string name="puk_unlock_failed">PUK entsperren fehlgeschlagen.</string>
   <string name="sp_unlock_success">Entsperren des SIM-Diensteanbieters erfolgreich.</string>
   <string name="sim_unlock_success">SIM erfolgreich entsperrt.</string>
+  <string name="rnw2_unlock_success">Entsperren von RUIM-Netzwerk 2 erfolgreich.</string>
   <string name="rhrpd_unlock_success">Entsperren von RUIM-HRPD erfolgreich.</string>
   <string name="rc_unlock_success">Entsperren der Firmen-RUIM erfolgreich.</string>
   <string name="ruim_unlock_success">RUIM erfolgreich entsperrt.</string>
@@ -71,6 +89,9 @@
   <string name="sum_xdivert_enabled">Umleitung aktiviert</string>
   <string name="sum_xdivert_disabled">Umleitung deaktiviert</string>
   <string name="xdivert_not_supported">Umleitung nicht von CDMA unterstützt</string>
+  <string name="xdivert_enternumber_error">Geben Sie die Telefonnummer für beide SIM-Karten ein</string>
+  <string name="xdivert_partial_set">Umleitung wurde nur für die erste SIM-Karte gesetzt</string>
+  <string name="xdivert_sub_absent">Beide SIM-Karten müssen aktiviert sein, um eine Umleitung einrichten zu können</string>
   <string name="xdivert_status">Umleitungs-Status</string>
   <string name="xdivert_active">Aktiviert</string>
   <string name="xdivert_not_active">Deaktiviert</string>
@@ -115,6 +136,8 @@
   <string name="exportAllcontatsFailed">Export aller Kontakte auf die SIM-Karte fehlgeschlagen</string>
   <string name="exportAllcontatsNoContacts">Keine Kontakte für den Export zur SIM-Karte gefunden</string>
   <string name="cursorError">Ungültige Cursor-Daten</string>
+  <string name="set_subscription">SIM auswählen</string>
+  <string name="set_subscription_error_atleast_one">Wählen Sie mindestens eine SIM-Karte aus</string>
   <string name="set_sub_1">SIM 1: </string>
   <string name="set_sub_2">SIM 2: </string>
   <string name="set_sub_3">SIM 3: </string>
@@ -128,5 +151,7 @@
   <string name="set_sub_deactivate_not_supported">Deaktivierung nicht unterstützt</string>
   <string name="new_cards_available">Neue SIM-Karte verfügbar. Bitte konfigurieren Sie Ihre SIM-Karten.</string>
   <string name="config_sub_title">SIM auswählen</string>
+  <string name="deact_all_sub_not_supported">Deaktivieren aller SIM-Karten ist nicht möglich.</string>
+  <string name="set_sub_not_supported_phone_in_call">Aktivieren oder Deaktivieren von SIM_Karten ist während eines Anrufs nicht möglich.</string>
   <string name="disconnect_data_confirm">Datendienst muss vorübergehend getrennt werden. Sind Sie sicher, dass Sie fortfahren möchten?</string>
 </resources>
