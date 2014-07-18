@@ -527,6 +527,8 @@ public class MSimCallNotifier extends CallNotifier {
             Log.w(LOG_TAG, "onDisconnect: null connection");
         }
 
+        boolean disconnectedDueToBlacklist = isDisconnectedDueToBlacklist(c);
+
         int autoretrySetting = 0;
         if ((c != null) && (c.getCall().getPhone().getPhoneType() ==
                 PhoneConstants.PHONE_TYPE_CDMA)) {
@@ -681,7 +683,9 @@ public class MSimCallNotifier extends CallNotifier {
         }
 
         if (c != null) {
-            mCallLogger.logCall(c);
+            if (!disconnectedDueToBlacklist) {
+                mCallLogger.logCall(c);
+            }
 
             final String number = c.getAddress();
             final Phone phone = c.getCall().getPhone();
