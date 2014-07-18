@@ -13,6 +13,28 @@
             android:targetClass="com.android.phone.CdmaCallForwardOptions"/>
     </PreferenceScreen>
 
+    <PreferenceScreen
+        android:key="button_cw_key"
+        android:title="@string/labelCW"
+        android:persistent="false">
+        <PreferenceScreen
+            android:key="button_cw_act_key"
+            android:title="@string/CFActivate">
+            <intent
+                android:action="android.intent.action.CALL_PRIVILEGED"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.OutgoingCallBroadcaster" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="button_cw_deact_key"
+            android:title="@string/CFDeactivate">
+            <intent
+                android:action="android.intent.action.CALL_PRIVILEGED"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.OutgoingCallBroadcaster" />
+        </PreferenceScreen>
+    </PreferenceScreen>
+
     <com.android.phone.CdmaVoicePrivacyCheckBoxPreference
         android:key="button_voice_privacy_key"
         android:title="@string/voice_privacy"
