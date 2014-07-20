@@ -75,7 +75,14 @@ import com.android.internal.telephony.cdma.TtyIntent;
 import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.phone.sip.SipSharedPreferences;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 /**
  * Top level "Call settings" UI; see res/xml/call_feature_setting.xml
@@ -237,14 +244,10 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final int VOICEMAIL_PROVIDER_CFG_ID = 2;
 
     // t9 search input locales that we have a custom overlay for
-    private static final List<Locale> t9SearchInputLocales = new ArrayList<Locale>();
-    static {
-        t9SearchInputLocales.add(new Locale("ko"));
-        t9SearchInputLocales.add(new Locale("el"));
-        t9SearchInputLocales.add(new Locale("ru"));
-        t9SearchInputLocales.add(new Locale("he"));
-        t9SearchInputLocales.add(new Locale("zh"));
-    }
+    private static final Locale[] T9_SEARCH_INPUT_LOCALES = new Locale[] {
+        new Locale("ko"), new Locale("el"), new Locale("ru"),
+        new Locale("he"), new Locale("zh")
+    };
 
     private Phone mPhone;
 
@@ -529,9 +532,9 @@ public class CallFeaturesSetting extends PreferenceActivity
             Settings.System.putInt(getContentResolver(), Settings.System.DTMF_TONE_WHEN_DIALING,
                     mPlayDtmfTone.isChecked() ? 1 : 0);
         } else if (preference == mMwiNotification) {
-            int mwi_notification = mMwiNotification.isChecked() ? 1 : 0;
+            int mwiNotification = mMwiNotification.isChecked() ? 1 : 0;
             Settings.System.putInt(mPhone.getContext().getContentResolver(),
-                    Settings.System.ENABLE_MWI_NOTIFICATION, mwi_notification);
+                    Settings.System.ENABLE_MWI_NOTIFICATION, mwiNotification);
             return true;
         } else if (preference == mButtonDTMF) {
             return true;
@@ -614,10 +617,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                     Settings.System.DTMF_TONE_TYPE_WHEN_DIALING, index);
         } else if (preference == mButtonTTY) {
             handleTTYChange(preference, objValue);
-        } else if (preference == mMwiNotification) {
-            int mwi_notification = mMwiNotification.isChecked() ? 1 : 0;
-            Settings.System.putInt(mPhone.getContext().getContentResolver(),
-                    Settings.System.ENABLE_MWI_NOTIFICATION, mwi_notification);
         } else if (preference == mVoicemailProviders) {
             final String newProviderKey = (String) objValue;
             if (DBG) {
@@ -1595,7 +1594,8 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         // get buttons
         PreferenceScreen prefSet = getPreferenceScreen();
-        mSubMenuVoicemailSettings = (EditPhoneNumberPreference)findPreference(BUTTON_VOICEMAIL_KEY);
+        mSubMenuVoicemailSettings =
+                (EditPhoneNumberPreference) findPreference(BUTTON_VOICEMAIL_KEY);
         if (mSubMenuVoicemailSettings != null) {
             mSubMenuVoicemailSettings.setParentActivity(this, VOICEMAIL_PREF_ID, this);
             mSubMenuVoicemailSettings.setDialogOnClosedListener(this);
@@ -1610,7 +1610,8 @@ public class CallFeaturesSetting extends PreferenceActivity
             if (getResources().getBoolean(R.bool.sprint_mwi_quirk)) {
                 mMwiNotification.setOnPreferenceChangeListener(this);
             } else {
-                PreferenceScreen voicemailCategory = (PreferenceScreen) findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
+                PreferenceScreen voicemailCategory =
+                        (PreferenceScreen) findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
                 voicemailCategory.removePreference(mMwiNotification);
                 mMwiNotification = null;
             }
@@ -1753,23 +1754,25 @@ public class CallFeaturesSetting extends PreferenceActivity
         mChoosePeopleLookupProvider.setOnPreferenceChangeListener(this);
         mChooseReverseLookupProvider.setOnPreferenceChangeListener(this);
 
-        if (PhoneUtils.isPackageInstalled(this, getString(R.string.cyngn_reverse_lookup_provider_package))) {
-            List<String> reverseLookupProviders = new LinkedList<String>(Arrays.asList(getResources().getStringArray(R.array.reverse_lookup_provider_names)));
-            List<String> reverseLookupProvidersValues = new LinkedList<String>(Arrays.asList(getResources().getStringArray(R.array.reverse_lookup_providers)));
+        String[] reverseLookupNames = getResources().getStringArray(
+                R.array.reverse_lookup_provider_names);
+        String[] reverseLookupProviders = getResources().getStringArray(
+                R.array.reverse_lookup_providers);
+        String cyngnProviderPackage = getString(R.string.cyngn_reverse_lookup_provider_package);
 
-            reverseLookupProviders.add(getString(R.string.cyngn_reverse_lookup_provider_name));
-            reverseLookupProvidersValues.add(getString(R.string.cyngn_reverse_lookup_provider_value));
+        if (PhoneUtils.isPackageInstalled(this, cyngnProviderPackage)) {
+            reverseLookupNames = Arrays.copyOf(reverseLookupNames, reverseLookupNames.length + 1);
+            reverseLookupProviders = Arrays.copyOf(reverseLookupProviders,
+                    reverseLookupProviders.length + 1);
 
-            String[] reverseLookupArray = new String[reverseLookupProviders.size()];
-            String[] reverseLookupNameArray = new String[reverseLookupProvidersValues.size()];
-            reverseLookupArray = reverseLookupProviders.toArray(reverseLookupArray);
-            reverseLookupNameArray = reverseLookupProvidersValues.toArray(reverseLookupNameArray);
-            mChooseReverseLookupProvider.setEntries(reverseLookupArray);
-            mChooseReverseLookupProvider.setEntryValues(reverseLookupNameArray);
-        } else {
-            mChooseReverseLookupProvider.setEntries(getResources().getStringArray(R.array.reverse_lookup_provider_names));
-            mChooseReverseLookupProvider.setEntryValues(getResources().getStringArray(R.array.reverse_lookup_providers));
+            reverseLookupNames[reverseLookupNames.length - 1] =
+                    getString(R.string.cyngn_reverse_lookup_provider_name);
+            reverseLookupProviders[reverseLookupProviders.length - 1] =
+                    getString(R.string.cyngn_reverse_lookup_provider_value);
         }
+
+        mChooseReverseLookupProvider.setEntries(reverseLookupNames);
+        mChooseReverseLookupProvider.setEntryValues(reverseLookupProviders);
 
         restoreLookupProviders();
 
@@ -1942,8 +1945,9 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
 
         if (mMwiNotification != null) {
-            int mwi_notification = Settings.System.getInt(getContentResolver(), Settings.System.ENABLE_MWI_NOTIFICATION, 0);
-            mMwiNotification.setChecked(mwi_notification != 0);
+            int mwiNotification = Settings.System.getInt(getContentResolver(),
+                    Settings.System.ENABLE_MWI_NOTIFICATION, 0);
+            mMwiNotification.setChecked(mwiNotification != 0);
         }
 
         if (mButtonDTMF != null) {
@@ -2044,13 +2048,12 @@ public class CallFeaturesSetting extends PreferenceActivity
     private void saveT9SearchInputLocale(Preference preference, String newT9Locale) {
         if (DBG) log("saveT9SearchInputLocale: requesting set t9 locale to " + newT9Locale);
 
-        String settingsT9Locale = android.provider.Settings.System.getString(
-                getContentResolver(),
-                android.provider.Settings.System.T9_SEARCH_INPUT_LOCALE);
+        String lastT9Locale = Settings.System.getString(getContentResolver(),
+                Settings.System.T9_SEARCH_INPUT_LOCALE);
 
-        if (settingsT9Locale == null || newT9Locale == null || !settingsT9Locale.equals(newT9Locale)) {
-            android.provider.Settings.System.putString(getContentResolver(),
-                    android.provider.Settings.System.T9_SEARCH_INPUT_LOCALE, newT9Locale);
+        if (!TextUtils.equals(lastT9Locale, newT9Locale)) {
+            Settings.System.putString(getContentResolver(),
+                    Settings.System.T9_SEARCH_INPUT_LOCALE, newT9Locale);
         }
     }
 
@@ -2316,7 +2319,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private void initT9SearchInputPreferenceList() {
-        int len = t9SearchInputLocales.size() + 1;
+        int len = T9_SEARCH_INPUT_LOCALES.length + 1;
         String[] entries = new String[len];
         String[] values = new String[len];
 
@@ -2324,22 +2327,21 @@ public class CallFeaturesSetting extends PreferenceActivity
         values[0] = "";
 
         // add locales programatically so we can use locale.getDisplayName
-        for (int i=0; i < t9SearchInputLocales.size(); ++i) {
-            Locale locale = t9SearchInputLocales.get(i);
-            entries[i+1] = locale.getDisplayName();
-            values[i+1] = locale.toString();
+        for (int i = 0; i < T9_SEARCH_INPUT_LOCALES.length; i++) {
+            Locale locale = T9_SEARCH_INPUT_LOCALES[i];
+            entries[i + 1] = locale.getDisplayName();
+            values[i + 1] = locale.toString();
         }
 
         // Set current entry from global system setting
-        String settingsT9Locale = android.provider.Settings.System.getString(
-                getContentResolver(),
-                android.provider.Settings.System.T9_SEARCH_INPUT_LOCALE);
-        if (settingsT9Locale != null)
+        String settingsT9Locale = Settings.System.getString(getContentResolver(),
+                Settings.System.T9_SEARCH_INPUT_LOCALE);
+        if (settingsT9Locale != null) {
             mT9SearchInputLocale.setValue(settingsT9Locale);
+        }
 
         mT9SearchInputLocale.setEntries(entries);
         mT9SearchInputLocale.setEntryValues(values);
-        mT9SearchInputLocale.setSummary("%s");
     }
 
     private String makeKeyForActivity(ActivityInfo ai) {
