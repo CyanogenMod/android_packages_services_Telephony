@@ -194,6 +194,14 @@
           android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
   </PreferenceScreen>
 
+  <ListPreference
+      android:key="button_incoming_call_style"
+      android:title="@string/incoming_call_style_title"
+      android:summary="%s"
+      android:entries="@array/incoming_call_style_entries"
+      android:entryValues="@array/incoming_call_style_values"
+      android:persistent="false" />
+
   <CheckBoxPreference
       android:key="button_play_dtmf_tone"
       android:title="@string/dtmf_tone_enable_title"

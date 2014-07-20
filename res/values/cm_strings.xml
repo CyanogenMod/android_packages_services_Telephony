@@ -145,4 +145,9 @@
     <string name="t9_search_input_locale">T9 search input</string>
     <string name="t9_search_input_locale_default">Default</string>
 
+    <!-- Incoming call style -->
+    <string name="incoming_call_style_title">Incoming call screen style</string>
+    <string name="incoming_call_style_classic">Classic</string>
+    <string name="incoming_call_style_fullscreen_photo">Fullscreen caller photo</string>
+
 </resources>
