@@ -18,6 +18,18 @@
     android:title="@string/call_settings">
 
     <PreferenceCategory
+            android:key="button_dialpad_t9_search_category_key"
+            android:title="@string/preference_category_t9_dialpad_search"
+            android:persistent="false">
+
+        <ListPreference
+                android:key="button_t9_search_input"
+                android:title="@string/t9_search_input_locale"
+                android:defaultValue=""
+                android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="button_ringtone_category_key"
         android:title="@string/preference_category_ringtone"
         android:persistent="false">
