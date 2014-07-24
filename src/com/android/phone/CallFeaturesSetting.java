@@ -164,6 +164,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_MWI_NOTIFICATION_KEY = "button_mwi_notification_key";
     private static final String BUTTON_VOICEMAIL_PROVIDER_KEY = "button_voicemail_provider_key";
     private static final String BUTTON_VOICEMAIL_SETTING_KEY = "button_voicemail_setting_key";
+    private static final String BUTTON_T9_SEARCH_INPUT_LOCALE = "button_t9_search_input";
     // New preference key for voicemail notification vibration
     /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY =
             "button_voicemail_notification_vibrate_key";
@@ -234,6 +235,16 @@ public class CallFeaturesSetting extends PreferenceActivity
     /** Handle to voicemail pref */
     private static final int VOICEMAIL_PREF_ID = 1;
     private static final int VOICEMAIL_PROVIDER_CFG_ID = 2;
+
+    // t9 search input locales that we have a custom overlay for
+    private static final List<Locale> t9SearchInputLocales = new ArrayList<Locale>();
+    static {
+        t9SearchInputLocales.add(new Locale("ko"));
+        t9SearchInputLocales.add(new Locale("el"));
+        t9SearchInputLocales.add(new Locale("ru"));
+        t9SearchInputLocales.add(new Locale("he"));
+        t9SearchInputLocales.add(new Locale("zh"));
+    }
 
     private Phone mPhone;
 
@@ -309,6 +320,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private ListPreference mChooseForwardLookupProvider;
     private ListPreference mChoosePeopleLookupProvider;
     private ListPreference mChooseReverseLookupProvider;
+    private ListPreference mT9SearchInputLocale;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -649,6 +661,8 @@ public class CallFeaturesSetting extends PreferenceActivity
                 || preference == mChoosePeopleLookupProvider
                 || preference == mChooseReverseLookupProvider) {
             saveLookupProviderSetting(preference, (String) objValue);
+        } else if (preference == mT9SearchInputLocale) {
+            saveT9SearchInputLocale(preference, (String) objValue);
         }
         // always let the preference setting proceed.
         return true;
@@ -1608,6 +1622,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButtonNoiseSuppression = (CheckBoxPreference) findPreference(BUTTON_NOISE_SUPPRESSION_KEY);
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         mButtonBlacklist = (PreferenceScreen) findPreference(BUTTON_BLACKLIST);
+        mT9SearchInputLocale = (ListPreference) findPreference(BUTTON_T9_SEARCH_INPUT_LOCALE);
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1617,6 +1632,10 @@ public class CallFeaturesSetting extends PreferenceActivity
             mVoicemailNotificationVibrate =
                     (CheckBoxPreference) findPreference(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY);
             initVoiceMailProviders();
+        }
+
+        if (mT9SearchInputLocale != null) {
+            initT9SearchInputPreferenceList();
         }
 
         if (mVibrateWhenRinging != null) {
@@ -1680,6 +1699,11 @@ public class CallFeaturesSetting extends PreferenceActivity
                 prefSet.removePreference(mButtonNoiseSuppression);
                 mButtonNoiseSuppression = null;
             }
+        }
+
+        if (mT9SearchInputLocale != null) {
+            // should this be enabled/disabled based on a flag?
+            mT9SearchInputLocale.setOnPreferenceChangeListener(this);
         }
 
         if (!getResources().getBoolean(R.bool.world_phone)) {
@@ -2017,6 +2041,19 @@ public class CallFeaturesSetting extends PreferenceActivity
                 Settings.System.AIRPLANE_MODE_ON, 0) != 0;
     }
 
+    private void saveT9SearchInputLocale(Preference preference, String newT9Locale) {
+        if (DBG) log("saveT9SearchInputLocale: requesting set t9 locale to " + newT9Locale);
+
+        String settingsT9Locale = android.provider.Settings.System.getString(
+                getContentResolver(),
+                android.provider.Settings.System.T9_SEARCH_INPUT_LOCALE);
+
+        if (settingsT9Locale == null || newT9Locale == null || !settingsT9Locale.equals(newT9Locale)) {
+            android.provider.Settings.System.putString(getContentResolver(),
+                    android.provider.Settings.System.T9_SEARCH_INPUT_LOCALE, newT9Locale);
+        }
+    }
+
     private void handleTTYChange(Preference preference, Object objValue) {
         int buttonTtyMode;
         buttonTtyMode = Integer.valueOf((String) objValue).intValue();
@@ -2276,6 +2313,33 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         // Finally update the preference texts.
         updateVMPreferenceWidgets(mPreviousVMProviderKey);
+    }
+
+    private void initT9SearchInputPreferenceList() {
+        int len = t9SearchInputLocales.size() + 1;
+        String[] entries = new String[len];
+        String[] values = new String[len];
+
+        entries[0] = getString(R.string.t9_search_input_locale_default);
+        values[0] = "";
+
+        // add locales programatically so we can use locale.getDisplayName
+        for (int i=0; i < t9SearchInputLocales.size(); ++i) {
+            Locale locale = t9SearchInputLocales.get(i);
+            entries[i+1] = locale.getDisplayName();
+            values[i+1] = locale.toString();
+        }
+
+        // Set current entry from global system setting
+        String settingsT9Locale = android.provider.Settings.System.getString(
+                getContentResolver(),
+                android.provider.Settings.System.T9_SEARCH_INPUT_LOCALE);
+        if (settingsT9Locale != null)
+            mT9SearchInputLocale.setValue(settingsT9Locale);
+
+        mT9SearchInputLocale.setEntries(entries);
+        mT9SearchInputLocale.setEntryValues(values);
+        mT9SearchInputLocale.setSummary("%s");
     }
 
     private String makeKeyForActivity(ActivityInfo ai) {
