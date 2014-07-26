@@ -109,7 +109,7 @@
   <string name="xdivert_not_active">비활성</string>
   <string name="xdivert_imsi_not_read">SIM이 초기화 중입니다. 잠시 후에 다시 시도하세요.</string>
   <string name="no_volte">IMS 전화를 할 수 없습니다.</string>
-  <string name="no_vt_allowed">영상통화를 하려면, TTY 모드를 꺼 주세요</string>
+  <string name="no_vt_allowed">영상통화를 하려면 TTY 모드를 꺼 주세요</string>
   <string name="ims_edit_title">IMS 계정 정보</string>
   <string name="ims_accounts_title">IMS 계정</string>
   <string name="ims_domain_address_title">IMS 서버</string>

@@ -432,6 +432,7 @@
   <string name="emergency_enable_radio_dialog_title">Llamada d\'emerxencia</string>
   <string name="emergency_enable_radio_dialog_message">Activando señal móvil\u2026</string>
   <string name="emergency_enable_radio_dialog_retry">Área fuera de serviciu; reintentando\u2026</string>
+  <string name="dial_emergency_error">Nun s\'unvió la llamada. <xliff:g id="NON_EMERGENCY_NUMBER">%s</xliff:g> nun ye un númberu d\'emerxencia!</string>
   <string name="dial_emergency_empty_error">La llamada nun s\'unvió. Marca un númberu d\'emerxencia!</string>
   <string name="dialerKeyboardHintText">Usar tecláu pa marcar</string>
   <string name="onscreenHoldText">Retener</string>
