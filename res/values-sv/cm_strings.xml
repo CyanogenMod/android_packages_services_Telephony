@@ -22,6 +22,7 @@
   <string name="call_notif_cugcall">Ring i sluten användargrupp</string>
   <string name="call_notif_outgoing_barred">Utgående samtal hindras</string>
   <string name="call_notif_incoming_barred">Inkommande samtal hindras vid fjärrpart</string>
+  <string name="call_notif_clir_suppression_rejected">Undertryckande av eget nummer nekades av nätverket</string>
   <string name="call_notif_call_deflected">Samtal vidarebefordrat av fjärrpart</string>
   <string name="call_notif_MTcall_forwarding">Inkommande samtal blir vidarebefordrat</string>
   <string name="call_notif_multipartycall">Flerpartssamtal</string>
@@ -80,4 +81,5 @@
   <string name="sub_no_sim">Inget SIM</string>
   <string name="msim_call_selector_title">Ring <xliff:g id="number">%s</xliff:g> via</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
+  <string name="cyngn_reverse_lookup_provider_name">Cyngn Kinesiska (CN)</string>
 </resources>

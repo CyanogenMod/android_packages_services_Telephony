@@ -21,9 +21,9 @@
   <string name="call_notif_MOcall_forwarding">通話の発信は転送されます</string>
   <string name="call_notif_cugcall">クローズドユーザーグループでの通話</string>
   <string name="call_notif_outgoing_barred">通話の発信を阻止しました</string>
-  <string name="call_notif_incoming_barred">リモートパーティの通話の着信を阻止しました</string>
+  <string name="call_notif_incoming_barred">リモートパーティーの通話の着信を阻止しました</string>
   <string name="call_notif_clir_suppression_rejected">発信者番号通知制限がネットワークによって拒否されました</string>
-  <string name="call_notif_call_deflected">通話はリモートパーティによって転送されました</string>
+  <string name="call_notif_call_deflected">通話はリモートパーティーによって転送されました</string>
   <string name="call_notif_MTcall_forwarding">着信は転送されます</string>
   <string name="call_notif_multipartycall">グループ通話</string>
   <string name="call_notif_callonhold_released">リモートで通話を終了しました</string>

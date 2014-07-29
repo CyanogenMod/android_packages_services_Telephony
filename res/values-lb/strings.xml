@@ -18,7 +18,21 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="phoneAppLabel" product="tablet">Mobil Daten</string>
+  <string name="phoneAppLabel" product="default">Telefon</string>
+  <string name="emergencyDialerIconLabel">Noutruff</string>
+  <string name="phoneIconLabel">Telefon</string>
+  <string name="fdnListLabel">Uruffbegrenzung</string>
+  <string name="unknown">Onbekannt</string>
+  <string name="private_num">Privat Nummer</string>
+  <string name="payphone">Telefonskabinn</string>
+  <string name="mmiStarted">MMI-Code gestart</string>
+  <string name="cancel">Ofbriechen</string>
+  <string name="manageConferenceLabel">Telefonskonferenz verwalten</string>
+  <string name="ok">OK</string>
   <string name="audio_mode_bluetooth">Bluetooth</string>
+  <string name="pause_prompt_yes">Jo</string>
+  <string name="pause_prompt_no">Nee</string>
   <string name="labelCW">Gespréich pauséiert</string>
   <string name="labelCF">Gespréich gëtt weidergeleet</string>
   <string name="close_dialog">OK</string>
@@ -49,12 +63,12 @@
   </string-array>
   <string-array name="list_language_entries">
     <item>English</item>
-    <item>French</item>
+    <item>Franséisch</item>
     <item>Spuenesch</item>
     <item>Japanese</item>
     <item>Korean</item>
     <item>Chinese</item>
-    <item>Hebrew</item>
+    <item>Hebräesch</item>
   </string-array>
   <string-array name="list_language_values">
     <item>"1"</item>
@@ -73,7 +87,9 @@
     <item>"0"</item>
     <item>"1"</item>
   </string-array>
+  <string name="manage_fdn_list">Uruffbegrenzung</string>
   <string name="save">Späicheren</string>
+  <string name="invalidPin">Tipp e PIN deen tëscht 4 an 8 Zifferen huet.</string>
   <string name="notification_missedCallTitle">Verpassten Uruff</string>
   <string name="ota_next">Weider</string>
   <string name="contactPhoto">Kontaktfoto</string>
