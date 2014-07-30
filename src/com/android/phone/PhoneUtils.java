@@ -3239,10 +3239,10 @@ public class PhoneUtils {
      */
     public static boolean isCallOnImsEnabled(int callType) {
         boolean isEnabled = false;
-        boolean isVoiceSupported = PhoneGlobals.getImsServiceStatus(Phone.CALL_TYPE_VOICE) !=
-                IMS_SRV_STATUS_NOT_SUPPORTED;
-        boolean isVideoSupported = PhoneGlobals.getImsServiceStatus(Phone.CALL_TYPE_VT) !=
-                IMS_SRV_STATUS_NOT_SUPPORTED;
+        boolean isVoiceSupported = PhoneGlobals.getImsServiceStatus(Phone.CALL_TYPE_VOICE) ==
+                IMS_SRV_STATUS_ENABLED;
+        boolean isVideoSupported = PhoneGlobals.getImsServiceStatus(Phone.CALL_TYPE_VT) ==
+                IMS_SRV_STATUS_ENABLED;
         switch (callType) {
             case Phone.CALL_TYPE_UNKNOWN:
                 isEnabled = isVoiceSupported | isVideoSupported;
