@@ -83,4 +83,7 @@
   <string name="msim_call_selector_title">โทร <xliff:g id="number">%s</xliff:g> จาก</string>
   <string name="msim_call_selector_item">ซิม<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn ภาษาจีน (CN)</string>
+  <string name="preference_category_t9_dialpad_search">แผงค้นหา T9</string>
+  <string name="t9_search_input_locale">ป้อนข้อมูลค้นหา T9</string>
+  <string name="t9_search_input_locale_default">ค่าเริ่มต้น</string>
 </resources>

@@ -20,5 +20,4 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="cancel">ரத்து</string>
   <string name="audio_mode_bluetooth">Bluetooth</string>
-  <string name="delete">நீக்கு</string>
 </resources>

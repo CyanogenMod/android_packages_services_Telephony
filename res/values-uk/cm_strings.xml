@@ -83,4 +83,10 @@
   <string name="msim_call_selector_title">Подзвонити: <xliff:g id="number">%s</xliff:g></string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Китай (CN)</string>
+  <string name="preference_category_t9_dialpad_search">T9-пошук в номеронабирачі</string>
+  <string name="t9_search_input_locale">Мова пошуку</string>
+  <string name="t9_search_input_locale_default">Мова системи</string>
+  <string name="incoming_call_style_title">Стиль екрану вхідного виклику</string>
+  <string name="incoming_call_style_classic">Класичний</string>
+  <string name="incoming_call_style_fullscreen_photo">Повноекранне фото обонента</string>
 </resources>

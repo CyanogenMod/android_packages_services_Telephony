@@ -83,4 +83,10 @@
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g> ඇමතුම් මග</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">චීන Cyngn (CN)</string>
+  <string name="preference_category_t9_dialpad_search">අංකිත මුහුණේ T9 සෙවීම</string>
+  <string name="t9_search_input_locale">T9 සෙවීම අදානය</string>
+  <string name="t9_search_input_locale_default">පෙරනිමි</string>
+  <string name="incoming_call_style_title">පැමිණෙන ඇමතුම් තිරයේ විලාසය</string>
+  <string name="incoming_call_style_classic">සම්භාව්‍ය</string>
+  <string name="incoming_call_style_fullscreen_photo">අමතන්නාගේ පුන්තිර ඡායාව</string>
 </resources>

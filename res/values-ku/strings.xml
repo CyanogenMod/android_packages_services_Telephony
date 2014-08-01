@@ -432,6 +432,7 @@
   <string name="emergency_enable_radio_dialog_title">تەلەفۆنی فریاگوزاری</string>
   <string name="emergency_enable_radio_dialog_message">کارپێکردنی ڕادیۆ\u2026</string>
   <string name="emergency_enable_radio_dialog_retry">له‌ ده‌ره‌وه‌ی خزمه‌تگوزاری شوێنه‌که‌ت. هه‌وڵدانه‌وه‌ \u2026</string>
+  <string name="dial_emergency_error">په‌یوه‌ندی نه‌ڕۆشت. <xliff:g id="non_emergency_number">%s</xliff:g> بریتی نییه‌ له‌ ژماره‌ی له‌ناکاو!</string>
   <string name="dial_emergency_empty_error">په‌یوه‌ندی نه‌ڕۆشت. تکایه‌ ژماره‌ی له‌ناکاو لێبده‌!</string>
   <string name="dialerKeyboardHintText">به‌کارهێنانی ته‌خته‌کلیل بۆ لێدانی ژماره‌</string>
   <string name="onscreenHoldText">هه‌ڵگرتن</string>

@@ -43,22 +43,22 @@
   <string name="blacklist_summary">블랙리스트에 등록된 번호에서 오는 전화는 차단됩니다</string>
   <string name="blacklist_call_notification">%s(으)로부터 온 전화 차단됨</string>
   <string name="blacklist_call_notification_private_number">발신번호 표시가 제한된 전화 차단됨</string>
-  <string name="blacklist_call_notification_unknown_number">알 수 없는 번호 %s에서 온 전화 차단됨</string>
+  <string name="blacklist_call_notification_unknown_number">알 수 없는 번호 %s(으)로부터 온 전화 차단됨</string>
   <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g>건의 전화가 차단됨</string>
   <string name="blacklist_message_notification">%s(으)로부터의 메시지 차단됨</string>
   <string name="blacklist_message_notification_private_number">발신번호 표시가 제한된 메시지 차단됨</string>
-  <string name="blacklist_message_notification_unknown_number">알 수 없는 번호 %s에서 전송된 메시지 차단됨</string>
+  <string name="blacklist_message_notification_unknown_number">알 수 없는 번호 %s(으)로부터의 메시지 차단됨</string>
   <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g>개의 메시지 차단됨</string>
   <string name="blacklist_notification_list_private">미공개</string>
   <string name="unblock_number">차단 해제</string>
   <string name="mwi_notification_title">메시지 대기 표시</string>
   <string name="mwi_notification_summary">음성메일 알림에 대한 메시지 대기 표시 보이기</string>
   <string name="perm_change_mobile_network">네트워크 모드 변경 (2G/3G)</string>
-  <string name="perm_change_mobile_network_desc">앱이 아무 때나 2G와 3G를 전환할 수 있도록 허용합니다. 3G는 더 빠르지만, 배터리도 더 빨리 소모하며 추가 요금이 부과될 수도 있습니다.</string>
+  <string name="perm_change_mobile_network_desc">앱이 아무 때나 2G와 3G를 전환할 수 있도록 허용합니다. 3G는 더 빠르지만, 배터리를 더 빨리 소모하며 추가 요금이 부과될 수도 있습니다.</string>
   <string name="phone_number_label">내 전화번호</string>
   <string name="phone_number_summary">이 장치의 전화번호 설정</string>
   <string name="noise_suppression_title">잡음 제거</string>
-  <string name="noise_suppression_summary">통화할 때 잡음 억제 사용</string>
+  <string name="noise_suppression_summary">통화할 때 잡음 제거 사용</string>
   <string name="preferred_network_mode_td_scdma_only">TD-SCDMA 전용</string>
   <string name="preferred_network_mode_global">글로벌</string>
   <string name="preferred_network_mode_evdo_only">EvDo 전용</string>
@@ -83,4 +83,10 @@
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g>(으)로 전화 걸기</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn 중국 (CN)</string>
+  <string name="preference_category_t9_dialpad_search">다이얼러 T9 검색</string>
+  <string name="t9_search_input_locale">T9 검색 입력</string>
+  <string name="t9_search_input_locale_default">기본</string>
+  <string name="incoming_call_style_title">전화 수신 화면 스타일</string>
+  <string name="incoming_call_style_classic">클래식</string>
+  <string name="incoming_call_style_fullscreen_photo">전체 화면 발신자 사진</string>
 </resources>

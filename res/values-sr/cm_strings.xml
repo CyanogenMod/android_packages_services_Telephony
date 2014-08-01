@@ -83,4 +83,10 @@
   <string name="msim_call_selector_title">Позив <xliff:g id="number">%s</xliff:g> преко</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Кинески (CN)</string>
+  <string name="preference_category_t9_dialpad_search">Бројчаник Т9 претрага</string>
+  <string name="t9_search_input_locale">Т9 претрага уноса</string>
+  <string name="t9_search_input_locale_default">Подразумевано</string>
+  <string name="incoming_call_style_title">Стил екрана за долазни позив</string>
+  <string name="incoming_call_style_classic">Класични</string>
+  <string name="incoming_call_style_fullscreen_photo">Слика позиваоца преко целог екрана</string>
 </resources>

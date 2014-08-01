@@ -343,6 +343,7 @@
   <string name="edit_fdn_contact">Editar númberu de marcación fixa</string>
   <string name="updating_fdn_contact">Anovando númberu de marcación fixa\u2026</string>
   <string name="fdn_contact_updated">Anovóse\'l númberu de marcación fixa.</string>
+  <string name="delete_fdn_contact">Desaniciando númberu de marcación fixa</string>
   <string name="deleting_fdn_contact">Desaniciando númberu de marcación fixa\u2026</string>
   <string name="fdn_contact_deleted">Desanicióse\'l númberu de marcación fixa.</string>
   <string name="pin2_invalid">Nun s\'anovó FDN porque\'l códigu PIN qu\'introduxisti ye incorreutu.</string>
@@ -432,6 +433,7 @@
   <string name="emergency_enable_radio_dialog_title">Llamada d\'emerxencia</string>
   <string name="emergency_enable_radio_dialog_message">Activando señal móvil\u2026</string>
   <string name="emergency_enable_radio_dialog_retry">Área fuera de serviciu; reintentando\u2026</string>
+  <string name="dial_emergency_error">Nun s\'unvió la llamada. <xliff:g id="NON_EMERGENCY_NUMBER">%s</xliff:g> nun ye un númberu d\'emerxencia!</string>
   <string name="dial_emergency_empty_error">La llamada nun s\'unvió. Marca un númberu d\'emerxencia!</string>
   <string name="dialerKeyboardHintText">Usar tecláu pa marcar</string>
   <string name="onscreenHoldText">Retener</string>

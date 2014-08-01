@@ -36,7 +36,7 @@
   <string name="vibrate_hangup">通話終了時のバイブレーション</string>
   <string name="vibrate_45">時間ごとのバイブレーション</string>
   <string name="vibrate_45_sum">通話発信中に45秒ごとに振動する</string>
-  <string name="show_ssn_label">イベント通知</string>
+  <string name="show_ssn_label">イベントの通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
   <string name="blacklist_title">ブラックリスト</string>
   <string name="blacklist_summary_disabled">無効</string>
@@ -83,4 +83,10 @@
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g>経由で発信</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Chinese（CN）</string>
+  <string name="preference_category_t9_dialpad_search">ダイアルパッドT9検索</string>
+  <string name="t9_search_input_locale">T9検索の入力</string>
+  <string name="t9_search_input_locale_default">デフォルト</string>
+  <string name="incoming_call_style_title">着信画面のスタイル</string>
+  <string name="incoming_call_style_classic">クラシック</string>
+  <string name="incoming_call_style_fullscreen_photo">発信者のフルスクリーン写真</string>
 </resources>

@@ -83,4 +83,10 @@
   <string name="msim_call_selector_title">Llamar <xliff:g id="number">%s</xliff:g> vía</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Chino (CN)</string>
+  <string name="preference_category_t9_dialpad_search">Teclado T9</string>
+  <string name="t9_search_input_locale">Buscar mediante teclado T9</string>
+  <string name="t9_search_input_locale_default">Por defecto</string>
+  <string name="incoming_call_style_title">Estilo de pantalla en llamada entrante</string>
+  <string name="incoming_call_style_classic">Clásico</string>
+  <string name="incoming_call_style_fullscreen_photo">Foto a pantalla completa</string>
 </resources>

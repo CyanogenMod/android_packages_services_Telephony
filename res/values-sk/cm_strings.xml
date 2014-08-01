@@ -83,4 +83,10 @@
   <string name="msim_call_selector_title">Hovor <xliff:g id="number">%s</xliff:g> cez</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Čínština (KN)</string>
+  <string name="preference_category_t9_dialpad_search"> T9 vyhľadávanie v číselníku</string>
+  <string name="t9_search_input_locale">Vstup T9 vyhľadávania</string>
+  <string name="t9_search_input_locale_default">Predvolený</string>
+  <string name="incoming_call_style_title">Štýl obrazovky prichádzajúceho hovoru</string>
+  <string name="incoming_call_style_classic">Klasický</string>
+  <string name="incoming_call_style_fullscreen_photo">Fotografia volajúceho na celú obrazovku</string>
 </resources>

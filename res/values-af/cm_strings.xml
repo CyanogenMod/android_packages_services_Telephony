@@ -83,4 +83,7 @@
   <string name="msim_call_selector_title">Skakel <xliff:g id="number">%s</xliff:g> met</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Sjinees (CN)</string>
+  <string name="preference_category_t9_dialpad_search">Nommerbord T9 soek</string>
+  <string name="t9_search_input_locale">T9 soek insette</string>
+  <string name="t9_search_input_locale_default">Normaal</string>
 </resources>

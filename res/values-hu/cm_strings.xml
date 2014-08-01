@@ -19,7 +19,7 @@
   <string name="call_notif_unconditionalCF">Feltétel nélküli hívásátirányítás aktív</string>
   <string name="call_notif_conditionalCF">Feltételes hívásátirányítás aktív</string>
   <string name="call_notif_MOcall_forwarding">Kimenő hívás átirányítva</string>
-  <string name="call_notif_cugcall">Hívás befejeződött a hívócsoport miatt</string>
+  <string name="call_notif_cugcall">Zárt felhasználói csoporton belüli hívás</string>
   <string name="call_notif_outgoing_barred">Kimenő hívások letiltva</string>
   <string name="call_notif_incoming_barred">Bejövő hívások letiltva a távoli fél által</string>
   <string name="call_notif_clir_suppression_rejected">Saját szám elrejtését a hálózat elutasította</string>
@@ -42,7 +42,7 @@
   <string name="blacklist_summary_disabled">Letiltva</string>
   <string name="blacklist_summary">Bejövő hívások blokkolása, melyek szerepelnek a tiltólistán</string>
   <string name="blacklist_call_notification">Blokkolt hívás a következő számról: %s</string>
-  <string name="blacklist_call_notification_private_number">Blokkolt szám nélküli hívás</string>
+  <string name="blacklist_call_notification_private_number">Rejtett számról történt hívás blokkolva</string>
   <string name="blacklist_call_notification_unknown_number">Blokkolt ismeretlen szám: %s</string>
   <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> blokkolt hívás</string>
   <string name="blacklist_message_notification">Blokkolt üzenet a következő számról: %s</string>
@@ -68,7 +68,7 @@
   <string name="preferred_network_mode_wcdma_only">Csak WCDMA</string>
   <string name="preferred_network_mode_gsm_only">Csak GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA preferált</string>
-  <string name="number_lookup">Telefonszámot keresés</string>
+  <string name="number_lookup">Telefonszám keresés</string>
   <string name="enable_forward_lookup_title">Címkeresés</string>
   <string name="enable_forward_lookup_summary">Közeli helyek megjelenítése a tárcsázóban történő kereséskor</string>
   <string name="enable_people_lookup_title">Személy keresés</string>
@@ -83,4 +83,10 @@
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g> hívása ezen keresztül</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>:<xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Kínai (CN)</string>
+  <string name="preference_category_t9_dialpad_search">Tárcsázó T9 keresés</string>
+  <string name="t9_search_input_locale">T9 keresés bevitel</string>
+  <string name="t9_search_input_locale_default">Alapértelmezett</string>
+  <string name="incoming_call_style_title">Bejövő hívás stílusa</string>
+  <string name="incoming_call_style_classic">Klasszikus</string>
+  <string name="incoming_call_style_fullscreen_photo">Teljes képernyős fotó</string>
 </resources>
