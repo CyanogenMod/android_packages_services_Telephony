@@ -48,6 +48,7 @@ import android.os.UserHandle;
 import android.preference.PreferenceManager;
 import android.provider.Settings.System;
 import android.telephony.ServiceState;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import com.android.internal.telephony.Call;
@@ -58,6 +59,7 @@ import com.android.internal.telephony.MmiCode;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.android.internal.telephony.PhoneProxy;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.phone.common.CallLogAsync;
@@ -107,6 +109,8 @@ public class PhoneGlobals extends ContextWrapper {
     public static final int MMI_CANCEL = 53;
     // Don't use message codes larger than 99 here; those are reserved for
     // the individual Activities of the Phone UI.
+
+    private Phone[] mPhones = null;
 
     /**
      * Allowable values for the wake lock code.
@@ -336,6 +340,10 @@ public class PhoneGlobals extends ContextWrapper {
             mCM = CallManager.getInstance();
             mCM.registerPhone(phone);
 
+            int numPhones = TelephonyManager.getDefault().getPhoneCount();
+            mPhones = new PhoneProxy[numPhones];
+            mPhones = PhoneFactory.getPhones();
+
             // Create the NotificationMgr singleton, which is used to display
             // status bar icons and control other status bar behavior.
             notificationMgr = NotificationMgr.init(this);
@@ -484,6 +492,15 @@ public class PhoneGlobals extends ContextWrapper {
      */
     static Phone getPhone() {
         return getInstance().phone;
+    }
+
+    static Phone getPhone(int phoneId) {
+        Log.d(LOG_TAG, "getPhone phoneId:" + phoneId);
+        if ( phoneId >= 0 && phoneId < TelephonyManager.getDefault().getPhoneCount()) {
+            return getInstance().mPhones[phoneId];
+        } else {
+            return getPhone();
+        }
     }
 
     /* package */ BluetoothManager getBluetoothManager() {
@@ -785,7 +802,9 @@ public class PhoneGlobals extends ContextWrapper {
             if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED)) {
                 boolean enabled = System.getInt(getContentResolver(),
                         System.AIRPLANE_MODE_ON, 0) == 0;
-                phone.setRadioPower(enabled);
+                for (Phone ph : mPhones) {
+                    ph.setRadioPower(enabled);
+                }
             } else if (action.equals(TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED)) {
                 if (VDBG) Log.d(LOG_TAG, "mReceiver: ACTION_ANY_DATA_CONNECTION_STATE_CHANGED");
                 if (VDBG) Log.d(LOG_TAG, "- state: " + intent.getStringExtra(PhoneConstants.STATE_KEY));

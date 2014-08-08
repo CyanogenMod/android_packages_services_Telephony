@@ -709,9 +709,12 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     // returns phone associated with the subId.
     // getPhone(0) returns default phone in single SIM mode.
     private Phone getPhone(long subId) {
-        // FIXME: hack for the moment
-        return mPhone;
-        // return PhoneUtils.getPhoneForSubscriber(subId);
+        int phoneId = SubscriptionManager.getPhoneId(subId);
+        return getPhone(phoneId);
+    }
+
+    private Phone getPhone(int phoneId) {
+        return PhoneUtils.getPhoneUsingPhoneId(phoneId);
     }
     //
     // Implementation of the ITelephony interface.
@@ -1231,6 +1234,11 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
     @Override
     public List<CellInfo> getAllCellInfo() {
+        return getAllCellInfoUsingSubId(getDefaultSubscription());
+    }
+
+    @Override
+    public List<CellInfo> getAllCellInfoUsingSubId(long subId) {
         try {
             mApp.enforceCallingOrSelfPermission(
                 android.Manifest.permission.ACCESS_FINE_LOCATION, null);
@@ -1244,7 +1252,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
         if (checkIfCallerIsSelfOrForegroundUser()) {
             if (DBG_LOC) log("getAllCellInfo: is active user");
-            return mPhone.getAllCellInfo();
+            return getPhone(subId).getAllCellInfo();
         } else {
             if (DBG_LOC) log("getAllCellInfo: suppress non-active user");
             return null;

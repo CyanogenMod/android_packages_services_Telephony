@@ -2427,4 +2427,8 @@ public class PhoneUtils {
         return context.getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
     }
+
+    static Phone getPhoneUsingPhoneId(int phoneId) {
+        return PhoneGlobals.getPhone(phoneId);
+    }
 }
