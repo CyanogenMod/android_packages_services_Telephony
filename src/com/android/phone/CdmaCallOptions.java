@@ -43,8 +43,11 @@ public class CdmaCallOptions extends PreferenceActivity {
 
         addPreferencesFromResource(R.xml.cdma_call_privacy);
 
+        Phone phone = PhoneUtils.getPhoneFromIntent(getIntent());
+        Log.d(LOG_TAG, "Get CDMACallOptions phoneId = " + phone.getPhoneId());
+
         mButtonVoicePrivacy = (CheckBoxPreference) findPreference(BUTTON_VP_KEY);
-        if (PhoneGlobals.getPhone().getPhoneType() != PhoneConstants.PHONE_TYPE_CDMA
+        if (phone.getPhoneType() != PhoneConstants.PHONE_TYPE_CDMA
                 || getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
             //disable the entire screen
             getPreferenceScreen().setEnabled(false);

@@ -166,6 +166,14 @@ public class NetworkQueryService extends Service {
     @Override
     public void onStart(Intent intent, int startId) {
     }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        mPhone = PhoneUtils.getPhoneFromIntent(intent);
+
+        log("onStart phoneId :" + mPhone.getPhoneId());
+        return START_REDELIVER_INTENT;
+    }
     
     /**
      * Handle the bind request.

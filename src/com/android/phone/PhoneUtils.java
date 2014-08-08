@@ -35,6 +35,8 @@ import android.os.SystemProperties;
 import android.telecom.PhoneAccount;
 import android.telecom.VideoProfile;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -53,6 +55,7 @@ import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.MmiCode;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
+import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.TelephonyProperties;
 import com.android.internal.telephony.sip.SipPhone;
@@ -2430,5 +2433,34 @@ public class PhoneUtils {
 
     static Phone getPhoneUsingPhoneId(int phoneId) {
         return PhoneGlobals.getPhone(phoneId);
+    }
+
+    public static Phone getPhoneFromIntent(Intent intent) {
+        return getPhoneFromSubId(getSubIdFromIntent(intent));
+    }
+
+    public static Phone getPhoneFromSubId(long subId) {
+        return getPhoneFromPhoneId(getPhoneId(subId));
+    }
+
+    public static Phone getPhoneFromPhoneId(int phoneId) {
+        return PhoneFactory.getPhone(phoneId);
+    }
+
+    public static int getPhoneId(long subId) {
+        return SubscriptionManager.getPhoneId(subId);
+    }
+
+    public static Uri getUri(Uri uri, long subId) {
+        return Uri.withAppendedPath(uri, "/subId/" + subId);
+    }
+
+    public static long getSubIdFromIntent(Intent intent) {
+        return intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                SubscriptionManager.getDefaultSubId());
+    }
+
+    public static boolean isMultiSimEnabled() {
+        return TelephonyManager.getDefault().getPhoneCount() > 1;
     }
 }

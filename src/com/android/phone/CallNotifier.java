@@ -49,6 +49,7 @@ import android.provider.Settings;
 import android.telephony.DisconnectCause;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.EventLog;
 import android.util.Log;
@@ -149,11 +150,17 @@ public class CallNotifier extends Handler {
                                     BluetoothProfile.HEADSET);
         }
 
-        TelephonyManager telephonyManager = (TelephonyManager)app.getSystemService(
+        listen();
+    }
+
+    private void listen() {
+        TelephonyManager telephonyManager = (TelephonyManager)mApplication.getSystemService(
                 Context.TELEPHONY_SERVICE);
-        telephonyManager.listen(mPhoneStateListener,
-                PhoneStateListener.LISTEN_MESSAGE_WAITING_INDICATOR
-                | PhoneStateListener.LISTEN_CALL_FORWARDING_INDICATOR);
+        for (int i = 0; i < TelephonyManager.getDefault().getPhoneCount(); i++) {
+            telephonyManager.listen(getPhoneStateListener(i),
+                    PhoneStateListener.LISTEN_MESSAGE_WAITING_INDICATOR
+                    | PhoneStateListener.LISTEN_CALL_FORWARDING_INDICATOR);
+        }
     }
 
     private void createSignalInfoToneGenerator() {
@@ -198,7 +205,8 @@ public class CallNotifier extends Handler {
                 break;
 
             case PHONE_MWI_CHANGED:
-                onMwiChanged(mApplication.phone.getMessageWaitingIndicator());
+                Phone phone = (Phone)msg.obj;
+                onMwiChanged(phone.getMessageWaitingIndicator(), phone);
                 break;
 
             case CallStateMonitor.PHONE_STATE_DISPLAYINFO:
@@ -244,17 +252,24 @@ public class CallNotifier extends Handler {
         }
     }
 
-    PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
-        @Override
-        public void onMessageWaitingIndicatorChanged(boolean mwi) {
-            onMwiChanged(mwi);
-        }
+    private PhoneStateListener getPhoneStateListener(int phoneId) {
+        long[] subId = SubscriptionManager.getSubId(phoneId);
 
-        @Override
-        public void onCallForwardingIndicatorChanged(boolean cfi) {
-            onCfiChanged(cfi);
-        }
-    };
+        PhoneStateListener phoneStateListener = new PhoneStateListener(subId[0]) {
+            @Override
+            public void onMessageWaitingIndicatorChanged(boolean mwi) {
+                Phone phone = PhoneUtils.getPhoneFromSubId(mSubId);
+                onMwiChanged(mwi, phone);
+            }
+
+            @Override
+            public void onCallForwardingIndicatorChanged(boolean cfi) {
+                Phone phone = PhoneUtils.getPhoneFromSubId(mSubId);
+                onCfiChanged(cfi, phone);
+            }
+        };
+        return phoneStateListener;
+    }
 
     /**
      * Handles a "new ringing connection" event from the telephony layer.
@@ -609,8 +624,8 @@ public class CallNotifier extends Handler {
         PhoneUtils.setAudioMode(mCM);
     }
 
-    private void onMwiChanged(boolean visible) {
-        if (VDBG) log("onMwiChanged(): " + visible);
+    private void onMwiChanged(boolean visible, Phone phone) {
+        if (VDBG) log("onMwiChanged(): " + visible + " phoneId = " + phone.getPhoneId());
 
         // "Voicemail" is meaningless on non-voice-capable devices,
         // so ignore MWI events.
@@ -624,21 +639,21 @@ public class CallNotifier extends Handler {
             return;
         }
 
-        mApplication.notificationMgr.updateMwi(visible);
+        mApplication.notificationMgr.updateMwi(visible, phone);
     }
 
     /**
      * Posts a delayed PHONE_MWI_CHANGED event, to schedule a "retry" for a
      * failed NotificationMgr.updateMwi() call.
      */
-    /* package */ void sendMwiChangedDelayed(long delayMillis) {
-        Message message = Message.obtain(this, PHONE_MWI_CHANGED);
+    /* package */ void sendMwiChangedDelayed(long delayMillis, Phone phone) {
+        Message message = Message.obtain(this, PHONE_MWI_CHANGED, phone);
         sendMessageDelayed(message, delayMillis);
     }
 
-    private void onCfiChanged(boolean visible) {
+    private void onCfiChanged(boolean visible, Phone phone) {
         if (VDBG) log("onCfiChanged(): " + visible);
-        mApplication.notificationMgr.updateCfi(visible);
+        mApplication.notificationMgr.updateCfi(visible, phone);
     }
 
     /**

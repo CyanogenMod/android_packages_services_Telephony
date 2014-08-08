@@ -23,9 +23,10 @@ import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.telephony.SubscriptionManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -57,9 +58,11 @@ public class FdnSetting extends PreferenceActivity
     // Preference is handled solely in xml.
     private static final String BUTTON_FDN_ENABLE_KEY = "button_fdn_enable_key";
     private static final String BUTTON_CHANGE_PIN2_KEY = "button_change_pin2_key";
+    private static final String BUTTON_FDN_KEY = "button_fdn_list_key";
 
     private EditPinPreference mButtonEnableFDN;
     private EditPinPreference mButtonChangePin2;
+    private PreferenceScreen mSubscriptionPrefFDN;
 
     // State variables
     private String mOldPin;
@@ -462,7 +465,12 @@ public class FdnSetting extends PreferenceActivity
 
         addPreferencesFromResource(R.xml.fdn_setting);
 
-        mPhone = PhoneGlobals.getPhone();
+        mPhone = PhoneUtils.getPhoneFromIntent(getIntent());
+        log("Get FDNSetting phoneId =" + mPhone.getPhoneId());
+
+        mSubscriptionPrefFDN  = (PreferenceScreen) findPreference(BUTTON_FDN_KEY);
+        SubscriptionManager.putPhoneIdAndSubIdExtra(mSubscriptionPrefFDN.getIntent(),
+                mPhone.getPhoneId(), mPhone.getSubId());
 
         //get UI object references
         PreferenceScreen prefSet = getPreferenceScreen();
@@ -504,7 +512,6 @@ public class FdnSetting extends PreferenceActivity
     @Override
     protected void onResume() {
         super.onResume();
-        mPhone = PhoneGlobals.getPhone();
         updateEnableFDN();
     }
 

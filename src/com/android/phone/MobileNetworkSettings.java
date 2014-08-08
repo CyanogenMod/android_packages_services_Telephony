@@ -207,7 +207,9 @@ public class MobileNetworkSettings extends PreferenceActivity
         setTheme(R.style.Theme_Material_Settings);
         super.onCreate(icicle);
 
-        mPhone = PhoneGlobals.getPhone();
+        mPhone = PhoneUtils.getPhoneFromIntent(getIntent());
+        log("Settings onCreate phoneId =" + mPhone.getPhoneId());
+
         mHandler = new MyHandler();
         mUm = (UserManager) getSystemService(Context.USER_SERVICE);
 

@@ -23,13 +23,15 @@ public class GsmUmtsAdditionalCallOptions extends
 
     private final ArrayList<Preference> mPreferences = new ArrayList<Preference>();
     private int mInitIndex= 0;
+    private int mPhoneId;
 
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.gsm_umts_additional_options);
-
+        mPhoneId = PhoneUtils.getPhoneId(PhoneUtils.getSubIdFromIntent(getIntent()));
+        if (DBG) Log.d(LOG_TAG, "GsmUmtsAdditionalCallOptions onCreate, phoneId: " + mPhoneId);
         PreferenceScreen prefSet = getPreferenceScreen();
         mCLIRButton = (CLIRListPreference) prefSet.findPreference(BUTTON_CLIR_KEY);
         mCWButton = (CallWaitingCheckBoxPreference) prefSet.findPreference(BUTTON_CW_KEY);
@@ -39,19 +41,19 @@ public class GsmUmtsAdditionalCallOptions extends
 
         if (icicle == null) {
             if (DBG) Log.d(LOG_TAG, "start to init ");
-            mCLIRButton.init(this, false);
+            mCLIRButton.init(this, false, mPhoneId);
         } else {
             if (DBG) Log.d(LOG_TAG, "restore stored states");
             mInitIndex = mPreferences.size();
-            mCLIRButton.init(this, true);
-            mCWButton.init(this, true);
+            mCLIRButton.init(this, true, mPhoneId);
+            mCWButton.init(this, true, mPhoneId);
             int[] clirArray = icicle.getIntArray(mCLIRButton.getKey());
             if (clirArray != null) {
                 if (DBG) Log.d(LOG_TAG, "onCreate:  clirArray[0]="
                         + clirArray[0] + ", clirArray[1]=" + clirArray[1]);
                 mCLIRButton.handleGetCLIRResult(clirArray);
             } else {
-                mCLIRButton.init(this, false);
+                mCLIRButton.init(this, false, mPhoneId);
             }
         }
 
@@ -77,7 +79,7 @@ public class GsmUmtsAdditionalCallOptions extends
             mInitIndex++;
             Preference pref = mPreferences.get(mInitIndex);
             if (pref instanceof CallWaitingCheckBoxPreference) {
-                ((CallWaitingCheckBoxPreference) pref).init(this, false);
+                ((CallWaitingCheckBoxPreference) pref).init(this, false, mPhoneId);
             }
         }
         super.onFinished(preference, reading);

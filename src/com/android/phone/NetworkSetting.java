@@ -45,6 +45,8 @@ import com.android.internal.telephony.OperatorInfo;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
+
 /**
  * "Networks" settings UI for the Phone app.
  */
@@ -242,7 +244,10 @@ public class NetworkSetting extends PreferenceActivity
 
         addPreferencesFromResource(R.xml.carrier_select);
 
-        mPhone = PhoneGlobals.getPhone();
+        mPhone = PhoneUtils.getPhoneFromIntent(getIntent());
+        log("onCreate subId :" + mPhone.getSubId());
+        Intent intent = new Intent(this, NetworkQueryService.class);
+        intent.putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
 
         mNetworkList = (PreferenceGroup) getPreferenceScreen().findPreference(LIST_NETWORKS_KEY);
         mNetworkMap = new HashMap<Preference, OperatorInfo>();
@@ -257,7 +262,7 @@ public class NetworkSetting extends PreferenceActivity
         // long as startService is called) until a stopservice request is made.  Since
         // we want this service to just stay in the background until it is killed, we
         // don't bother stopping it from our end.
-        startService (new Intent(this, NetworkQueryService.class));
+        startService (intent);
         bindService (new Intent(this, NetworkQueryService.class), mNetworkQueryServiceConnection,
                 Context.BIND_AUTO_CREATE);
     }

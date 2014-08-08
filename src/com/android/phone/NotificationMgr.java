@@ -40,6 +40,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.TelephonyCapabilities;
 
@@ -69,11 +70,12 @@ public class NotificationMgr {
     static final int DATA_DISCONNECTED_ROAMING_NOTIFICATION = 5;
     static final int SELECTED_OPERATOR_FAIL_NOTIFICATION = 6;
 
+    static final int NOTIFICATION_ID_OFFSET = 50;
+
     /** The singleton NotificationMgr instance. */
     private static NotificationMgr sInstance;
 
     private PhoneGlobals mApp;
-    private Phone mPhone;
 
     private Context mContext;
     private NotificationManager mNotificationManager;
@@ -103,7 +105,6 @@ public class NotificationMgr {
         mStatusBarManager =
                 (StatusBarManager) app.getSystemService(Context.STATUS_BAR_SERVICE);
         mUserManager = (UserManager) app.getSystemService(Context.USER_SERVICE);
-        mPhone = app.phone;  // TODO: better style to use mCM.getDefaultPhone() everywhere instead
         statusBarHelper = new StatusBarHelper();
     }
 
@@ -233,11 +234,19 @@ public class NotificationMgr {
      *
      * @param visible true if there are messages waiting
      */
-    /* package */ void updateMwi(boolean visible) {
-        if (DBG) log("updateMwi(): " + visible);
+    /* package */ void updateMwi(boolean visible, Phone phone) {
+        int phoneId = phone.getPhoneId();
+        if (DBG) log("updateMwi(): " + visible + " phoneId = " + phoneId);
+        int [] mwiIcon = {R.drawable.stat_notify_voicemail_sub1,
+                R.drawable.stat_notify_voicemail_sub2,
+                R.drawable.stat_notify_voicemail_sub3};
 
+        int notificationId = getNotificationId(VOICEMAIL_NOTIFICATION, phoneId);
         if (visible) {
             int resId = android.R.drawable.stat_notify_voicemail;
+            if (PhoneUtils.isMultiSimEnabled()) {
+                resId = mwiIcon[phoneId];
+            }
 
             // This Notification can get a lot fancier once we have more
             // information about the current voicemail messages.
@@ -250,7 +259,7 @@ public class NotificationMgr {
             // notification.
 
             String notificationTitle = mContext.getString(R.string.notification_voicemail_title);
-            String vmNumber = mPhone.getVoiceMailNumber();
+            String vmNumber = phone.getVoiceMailNumber();
             if (DBG) log("- got vm number: '" + vmNumber + "'");
 
             // Watch out: vmNumber may be null, for two possible reasons:
@@ -268,7 +277,7 @@ public class NotificationMgr {
             // So handle case (2) by retrying the lookup after a short
             // delay.
 
-            if ((vmNumber == null) && !mPhone.getIccRecordsLoaded()) {
+            if ((vmNumber == null) && !phone.getIccRecordsLoaded()) {
                 if (DBG) log("- Null vm number: SIM records not loaded (yet)...");
 
                 // TODO: rather than retrying after an arbitrary delay, it
@@ -284,7 +293,7 @@ public class NotificationMgr {
                 // or missing and can *never* load successfully.)
                 if (mVmNumberRetriesRemaining-- > 0) {
                     if (DBG) log("  - Retrying in " + VM_NUMBER_RETRY_DELAY_MILLIS + " msec...");
-                    mApp.notifier.sendMwiChangedDelayed(VM_NUMBER_RETRY_DELAY_MILLIS);
+                    mApp.notifier.sendMwiChangedDelayed(VM_NUMBER_RETRY_DELAY_MILLIS, phone);
                     return;
                 } else {
                     Log.w(LOG_TAG, "NotificationMgr.updateMwi: getVoiceMailNumber() failed after "
@@ -294,8 +303,8 @@ public class NotificationMgr {
                 }
             }
 
-            if (TelephonyCapabilities.supportsVoiceMessageCount(mPhone)) {
-                int vmCount = mPhone.getVoiceMessageCount();
+            if (TelephonyCapabilities.supportsVoiceMessageCount(phone)) {
+                int vmCount = phone.getVoiceMessageCount();
                 String titleFormat = mContext.getString(R.string.notification_voicemail_title_count);
                 notificationTitle = String.format(titleFormat, vmCount);
             }
@@ -334,7 +343,7 @@ public class NotificationMgr {
                     .setColor(mContext.getResources().getColor(R.color.dialer_theme_color))
                     .setOngoing(true);
 
-            CallFeaturesSetting.migrateVoicemailVibrationSettingsIfNeeded(prefs);
+            CallFeaturesSetting.migrateVoicemailVibrationSettingsIfNeeded(prefs, phoneId);
             final boolean vibrate = prefs.getBoolean(
                     CallFeaturesSetting.BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, false);
             if (vibrate) {
@@ -350,12 +359,12 @@ public class NotificationMgr {
                         UserManager.DISALLOW_OUTGOING_CALLS, userHandle)
                             && !user.isManagedProfile()) {
                     mNotificationManager.notifyAsUser(
-                            null /* tag */, VOICEMAIL_NOTIFICATION, notification, userHandle);
+                            null /* tag */, notificationId, notification, userHandle);
                 }
             }
         } else {
             mNotificationManager.cancelAsUser(
-                    null /* tag */, VOICEMAIL_NOTIFICATION, UserHandle.ALL);
+                    null /* tag */, notificationId, UserHandle.ALL);
         }
     }
 
@@ -364,8 +373,14 @@ public class NotificationMgr {
      *
      * @param visible true if there are messages waiting
      */
-    /* package */ void updateCfi(boolean visible) {
-        if (DBG) log("updateCfi(): " + visible);
+    /* package */ void updateCfi(boolean visible, Phone phone) {
+        int phoneId = phone.getPhoneId();
+        if (DBG) log("updateCfi(): " + visible + " phoneId = " + phoneId);
+        int [] callfwdIcon = {R.drawable.stat_sys_phone_call_forward_sub1,
+                R.drawable.stat_sys_phone_call_forward_sub2,
+                R.drawable.stat_sys_phone_call_forward_sub3};
+
+        int notificationId = getNotificationId(CALL_FORWARD_NOTIFICATION, phoneId);
         if (visible) {
             // If Unconditional Call Forwarding (forward all calls) for VOICE
             // is enabled, just show a notification.  We'll default to expanded
@@ -377,9 +392,13 @@ public class NotificationMgr {
             // display the target to forward calls to.  This will require some
             // effort though, since there are multiple layers of messages that
             // will need to propagate that information.
+            int resId = R.drawable.stat_sys_phone_call_forward;
+            if (PhoneUtils.isMultiSimEnabled()) {
+                resId = callfwdIcon[phoneId];
+            }
 
             Notification.Builder builder = new Notification.Builder(mContext)
-                    .setSmallIcon(R.drawable.stat_sys_phone_call_forward)
+                    .setSmallIcon(resId)
                     .setContentTitle(mContext.getString(R.string.labelCF))
                     .setContentText(mContext.getString(R.string.sum_cfu_enabled_indicator))
                     .setShowWhen(false)
@@ -395,11 +414,11 @@ public class NotificationMgr {
                 UserHandle userHandle = users.get(i).getUserHandle();
                 builder.setContentIntent(userHandle.isOwner() ? contentIntent : null);
                     mNotificationManager.notifyAsUser(
-                            null /* tag */, CALL_FORWARD_NOTIFICATION, builder.build(), userHandle);
+                            null /* tag */, notificationId, builder.build(), userHandle);
             }
         } else {
             mNotificationManager.cancelAsUser(
-                    null /* tag */, CALL_FORWARD_NOTIFICATION, UserHandle.ALL);
+                    null /* tag */, notificationId, UserHandle.ALL);
         }
     }
 
@@ -492,8 +511,8 @@ public class NotificationMgr {
      *
      * @param serviceState Phone service state
      */
-    void updateNetworkSelection(int serviceState) {
-        if (TelephonyCapabilities.supportsNetworkSelection(mPhone)) {
+    void updateNetworkSelection(int serviceState, Phone phone) {
+        if (TelephonyCapabilities.supportsNetworkSelection(phone)) {
             // get the shared preference of network_selection.
             // empty is auto mode, otherwise it is the operator alpha name
             // in case there is no operator name, check the operator numeric
@@ -531,6 +550,10 @@ public class NotificationMgr {
 
         mToast = Toast.makeText(mContext, msg, Toast.LENGTH_LONG);
         mToast.show();
+    }
+
+    private int getNotificationId(int notificationId, int slotId) {
+        return notificationId + (slotId * NOTIFICATION_ID_OFFSET);
     }
 
     private void log(String msg) {

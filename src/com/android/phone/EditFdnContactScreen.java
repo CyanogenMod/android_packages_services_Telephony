@@ -49,6 +49,7 @@ import android.widget.Toast;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
+import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
 
 /**
  * Activity to let the user add or edit an FDN contact.
@@ -79,6 +80,8 @@ public class EditFdnContactScreen extends Activity {
     private EditText mNumberField;
     private LinearLayout mPinFieldContainer;
     private Button mButton;
+
+    private long mSubId;
 
     private Handler mHandler = new Handler();
 
@@ -218,6 +221,7 @@ public class EditFdnContactScreen extends Activity {
         mName =  intent.getStringExtra(INTENT_EXTRA_NAME);
         mNumber =  intent.getStringExtra(INTENT_EXTRA_NUMBER);
 
+        mSubId = PhoneUtils.getSubIdFromIntent(intent);
         mAddContact = TextUtils.isEmpty(mNumber);
     }
 
@@ -268,7 +272,7 @@ public class EditFdnContactScreen extends Activity {
     }
 
     private Uri getContentURI() {
-        return Uri.parse("content://icc/fdn");
+        return PhoneUtils.getUri(Uri.parse("content://icc/fdn"), mSubId);
     }
 
     /**
@@ -298,6 +302,7 @@ public class EditFdnContactScreen extends Activity {
         bundle.put("tag", getNameFromTextField());
         bundle.put("number", number);
         bundle.put("pin2", mPin2);
+        bundle.put(SUBSCRIPTION_KEY, mSubId);
 
         mQueryHandler = new QueryHandler(getContentResolver());
         mQueryHandler.startInsert(0, null, uri, bundle);
@@ -323,6 +328,7 @@ public class EditFdnContactScreen extends Activity {
         bundle.put("newTag", name);
         bundle.put("newNumber", number);
         bundle.put("pin2", mPin2);
+        bundle.put(SUBSCRIPTION_KEY, mSubId);
 
         mQueryHandler = new QueryHandler(getContentResolver());
         mQueryHandler.startUpdate(0, null, uri, bundle, null, null);
@@ -340,6 +346,7 @@ public class EditFdnContactScreen extends Activity {
             intent.setClass(this, DeleteFdnContactScreen.class);
             intent.putExtra(INTENT_EXTRA_NAME, mName);
             intent.putExtra(INTENT_EXTRA_NUMBER, mNumber);
+            intent.putExtra(SUBSCRIPTION_KEY, mSubId);
             startActivity(intent);
         }
         finish();
@@ -383,9 +390,10 @@ public class EditFdnContactScreen extends Activity {
             if (invalidNumber) {
                 showStatus(getResources().getText(R.string.fdn_invalid_number));
             } else {
-               if (PhoneFactory.getDefaultPhone().getIccCard().getIccPin2Blocked()) {
+               int phoneId = PhoneUtils.getPhoneId(mSubId);
+               if (PhoneFactory.getPhone(phoneId).getIccCard().getIccPin2Blocked()) {
                     showStatus(getResources().getText(R.string.fdn_enable_puk2_requested));
-                } else if (PhoneFactory.getDefaultPhone().getIccCard().getIccPuk2Blocked()) {
+                } else if (PhoneFactory.getPhone(phoneId).getIccCard().getIccPuk2Blocked()) {
                     showStatus(getResources().getText(R.string.puk2_blocked));
                 } else {
                     // There's no way to know whether the failure is due to incorrect PIN2 or

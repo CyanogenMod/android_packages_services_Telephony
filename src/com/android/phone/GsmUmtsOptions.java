@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2011-2014 The Linux Foundation. All rights reserved.
+ * Not a Contribution.
+ *
  * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,8 +26,11 @@ import android.preference.PreferenceScreen;
 import android.content.res.Resources;
 
 import android.provider.Settings;
+import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+
+import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
 
 /**
  * List of Network-specific settings screens.
@@ -40,10 +46,19 @@ public class GsmUmtsOptions {
     private static final String BUTTON_CARRIER_SETTINGS_KEY = "carrier_settings_key";
     private PreferenceActivity mPrefActivity;
     private PreferenceScreen mPrefScreen;
+    private Phone mPhone;
 
     public GsmUmtsOptions(PreferenceActivity prefActivity, PreferenceScreen prefScreen) {
+        this(prefActivity,  prefScreen, 0);
+    }
+
+    public GsmUmtsOptions(PreferenceActivity prefActivity,
+            PreferenceScreen prefScreen, int phoneId) {
         mPrefActivity = prefActivity;
         mPrefScreen = prefScreen;
+        mPhone = PhoneUtils.getPhoneFromPhoneId(phoneId);
+        log("GsmUmtsOptions onCreate, phoneId = " + phoneId);
+
         create();
     }
 
@@ -51,10 +66,20 @@ public class GsmUmtsOptions {
         mPrefActivity.addPreferencesFromResource(R.xml.gsm_umts_options);
         mButtonAPNExpand = (PreferenceScreen) mPrefScreen.findPreference(BUTTON_APN_EXPAND_KEY);
         boolean removedAPNExpand = false;
+        mButtonAPNExpand.getIntent().putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
         mButtonOperatorSelectionExpand =
                 (PreferenceScreen) mPrefScreen.findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY);
-        if (PhoneFactory.getDefaultPhone().getPhoneType() != PhoneConstants.PHONE_TYPE_GSM) {
-            log("Not a GSM phone");
+        mButtonOperatorSelectionExpand.getIntent().putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
+        enableScreen();
+    }
+
+    public void onResume() {
+        updateOperatorSelectionVisibility();
+    }
+
+    public void enableScreen() {
+        if (mPhone.getPhoneType() != PhoneConstants.PHONE_TYPE_GSM) {
+            log("Not a GSM phone, disabling GSM preferences (apn, select operator)");
             mButtonOperatorSelectionExpand.setEnabled(false);
         } else {
             log("Not a CDMA phone");
@@ -69,19 +94,22 @@ public class GsmUmtsOptions {
                 removedAPNExpand = true;
             }
             if (!res.getBoolean(R.bool.config_operator_selection_expand)) {
-                mPrefScreen.removePreference(mPrefScreen
-                        .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
+                mPrefScreen.removePreference(mButtonOperatorSelectionExpand);
             }
+        }
+        updateOperatorSelectionVisibility();
+    }
 
-            if (res.getBoolean(R.bool.csp_enabled)) {
-                if (PhoneFactory.getDefaultPhone().isCspPlmnEnabled()) {
-                    log("[CSP] Enabling Operator Selection menu.");
-                    mButtonOperatorSelectionExpand.setEnabled(true);
-                } else {
-                    log("[CSP] Disabling Operator Selection menu.");
-                    mPrefScreen.removePreference(mPrefScreen
-                          .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
-                }
+    private void updateOperatorSelectionVisibility() {
+        log("updateOperatorSelectionVisibility. mPhone = " + mPhone.getPhoneName());
+        Resources res = mPrefActivity.getResources();
+        if (res.getBoolean(R.bool.csp_enabled)) {
+            if (mPhone.isCspPlmnEnabled()) {
+                log("[CSP] Enabling Operator Selection menu.");
+                mButtonOperatorSelectionExpand.setEnabled(true);
+            } else {
+                log("[CSP] Disabling Operator Selection menu.");
+                mPrefScreen.removePreference(mButtonOperatorSelectionExpand);
             }
 
             // Read platform settings for carrier settings

@@ -36,14 +36,14 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
     private int mServiceClass;
     private MyHandler mHandler = new MyHandler();
     int reason;
-    Phone phone;
+    Phone mPhone;
     CallForwardInfo callForwardInfo;
     TimeConsumingPreferenceListener tcpListener;
 
     public CallForwardEditPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        phone = PhoneGlobals.getPhone();
+        mPhone = PhoneGlobals.getPhone();
         mSummaryOnTemplate = this.getSummaryOn();
 
         TypedArray a = context.obtainStyledAttributes(attrs,
@@ -61,10 +61,15 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
         this(context, null);
     }
 
-    void init(TimeConsumingPreferenceListener listener, boolean skipReading) {
+    void init(TimeConsumingPreferenceListener listener, boolean skipReading, int phoneId) {
+
+        // getting selected subscription
+        if (DBG) Log.d(LOG_TAG, "Getting CallForwardEditPreference phoneId = " + phoneId);
+        mPhone = PhoneUtils.getPhoneFromPhoneId(phoneId);
+
         tcpListener = listener;
         if (!skipReading) {
-            phone.getCallForwardingOption(reason,
+            mPhone.getCallForwardingOption(reason,
                     mHandler.obtainMessage(MyHandler.MESSAGE_GET_CF,
                             // unused in this case
                             CommandsInterface.CF_ACTION_DISABLE,
@@ -122,7 +127,7 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
 
                 // the interface of Phone.setCallForwardingOption has error:
                 // should be action, reason...
-                phone.setCallForwardingOption(action,
+                mPhone.setCallForwardingOption(action,
                         reason,
                         number,
                         time,
@@ -258,7 +263,7 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
                 // setEnabled(false);
             }
             if (DBG) Log.d(LOG_TAG, "handleSetCFResponse: re get");
-            phone.getCallForwardingOption(reason,
+            mPhone.getCallForwardingOption(reason,
                     obtainMessage(MESSAGE_GET_CF, msg.arg1, MESSAGE_SET_CF, ar.exception));
         }
     }

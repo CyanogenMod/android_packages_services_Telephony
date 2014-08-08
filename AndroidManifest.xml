@@ -439,6 +439,41 @@
             </intent-filter>
         </activity>
 
+        <!-- MSim Call Feature Sub Settings -->
+        <activity android:name="MSimCallFeaturesSubSetting"
+            android:label="@string/call_settings"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/SettingsLight">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+       <!-- MSim Mobile Network Settings per subscription -->
+       <activity android:name="MSimMobileNetworkSubSettings"
+                android:label="@string/settings_label"
+                android:theme="@style/SettingsLight">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Select Subscription -->
+        <activity android:name="SelectSubscription"
+            android:label="@string/callind_multi_sim"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/SettingsLight">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <!-- "Call settings" UI, used only on voice-capable phone devices. -->
         <activity android:name="CallFeaturesSetting"
                 android:label="@string/call_settings"

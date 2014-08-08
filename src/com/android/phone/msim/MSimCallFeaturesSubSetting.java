@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2011-2014 The Linux Foundation. All rights reserved.
+ * Not a Contribution.
+ *
  * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,11 +21,9 @@ package com.android.phone;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -32,24 +33,26 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.UserHandle;
+import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.ContactsContract.CommonDataKinds;
+import android.provider.MediaStore;
 import android.provider.Settings;
-import android.telecom.PhoneAccountHandle;
-import android.telecom.TelecomManager;
-import android.telephony.TelephonyManager;
+import android.provider.Settings.SettingNotFoundException;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
@@ -61,11 +64,7 @@ import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
-import com.android.phone.common.util.SettingsUtil;
-import com.android.phone.settings.AccountSelectionPreference;
-import com.android.services.telephony.sip.SipUtil;
 
-import java.lang.String;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -73,31 +72,29 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
+
 /**
- * Top level "Call settings" UI; see res/xml/call_feature_setting.xml
+ * Top level "MSim Call settings" UI; see res/xml/call_feature_setting_msim.xml
  *
- * This preference screen is the root of the "Call settings" hierarchy available from the Phone
- * app; the settings here let you control various features related to phone calls (including
- * voicemail settings, the "Respond via SMS" feature, and others.)  It's used only on
- * voice-capable phone devices.
+ * This preference screen is the root of the "MSim Call settings" hierarchy
+ * available from the Phone app; the settings here let you control various
+ * features related to phone calls (including voicemail settings
+ * and others.)  It's used only on voice-capable phone devices.
  *
  * Note that this activity is part of the package com.android.phone, even
  * though you reach it from the "Phone" app (i.e. DialtactsActivity) which
  * is from the package com.android.contacts.
  *
- * For the "Mobile network settings" screen under the main Settings app,
- * See {@link MobileNetworkSettings}.
- *
- * TODO: Settings should be split into PreferenceFragments where possible (ie. voicemail).
- *
- * @see com.android.phone.MobileNetworkSettings
+ * For the "MSim Mobile network settings" screen under the main Settings app,
+ * see apps/Phone/src/com/android/phone/Settings.java.
  */
-public class CallFeaturesSetting extends PreferenceActivity
+public class MSimCallFeaturesSubSetting extends PreferenceActivity
         implements DialogInterface.OnClickListener,
-                Preference.OnPreferenceChangeListener,
-                EditPhoneNumberPreference.OnDialogClosedListener,
-                EditPhoneNumberPreference.GetDefaultNumberListener {
-    private static final String LOG_TAG = "CallFeaturesSetting";
+        Preference.OnPreferenceChangeListener,
+        EditPhoneNumberPreference.OnDialogClosedListener,
+        EditPhoneNumberPreference.GetDefaultNumberListener{
+    private static final String LOG_TAG = "MSimCallFeaturesSubSetting";
     private static final boolean DBG = (PhoneGlobals.DBG_LEVEL >= 2);
 
     /**
@@ -105,87 +102,89 @@ public class CallFeaturesSetting extends PreferenceActivity
      *
      * @see #IGNORE_PROVIDER_EXTRA
      */
-    public static final String ACTION_ADD_VOICEMAIL =
+    private static final String ACTION_ADD_VOICEMAIL =
             "com.android.phone.CallFeaturesSetting.ADD_VOICEMAIL";
     // intent action sent by this activity to a voice mail provider
     // to trigger its configuration UI
-    public static final String ACTION_CONFIGURE_VOICEMAIL =
+    private static final String ACTION_CONFIGURE_VOICEMAIL =
             "com.android.phone.CallFeaturesSetting.CONFIGURE_VOICEMAIL";
+
     // Extra put in the return from VM provider config containing voicemail number to set
-    public static final String VM_NUMBER_EXTRA = "com.android.phone.VoicemailNumber";
+    private static final String VM_NUMBER_EXTRA = "com.android.phone.VoicemailNumber";
     // Extra put in the return from VM provider config containing call forwarding number to set
-    public static final String FWD_NUMBER_EXTRA = "com.android.phone.ForwardingNumber";
+    private static final String FWD_NUMBER_EXTRA = "com.android.phone.ForwardingNumber";
     // Extra put in the return from VM provider config containing call forwarding number to set
-    public static final String FWD_NUMBER_TIME_EXTRA = "com.android.phone.ForwardingNumberTime";
+    private static final String FWD_NUMBER_TIME_EXTRA = "com.android.phone.ForwardingNumberTime";
     // If the VM provider returns non null value in this extra we will force the user to
     // choose another VM provider
-    public static final String SIGNOUT_EXTRA = "com.android.phone.Signout";
+    private static final String SIGNOUT_EXTRA = "com.android.phone.Signout";
+
     //Information about logical "up" Activity
-    private static final String UP_ACTIVITY_PACKAGE = "com.android.dialer";
+    private static final String UP_ACTIVITY_PACKAGE = "com.android.contacts";
     private static final String UP_ACTIVITY_CLASS =
-            "com.android.dialer.DialtactsActivity";
+            "com.android.contacts.activities.DialtactsActivity";
 
     // Used to tell the saving logic to leave forwarding number as is
-    public static final CallForwardInfo[] FWD_SETTINGS_DONT_TOUCH = null;
+    private static final CallForwardInfo[] FWD_SETTINGS_DONT_TOUCH = null;
+
     // Suffix appended to provider key for storing vm number
-    public static final String VM_NUMBER_TAG = "#VMNumber";
+    private static final String VM_NUMBER_TAG = "#VMNumber";
     // Suffix appended to provider key for storing forwarding settings
-    public static final String FWD_SETTINGS_TAG = "#FWDSettings";
+    private static final String FWD_SETTINGS_TAG = "#FWDSettings";
     // Suffix appended to forward settings key for storing length of settings array
-    public static final String FWD_SETTINGS_LENGTH_TAG = "#Length";
+    private static final String FWD_SETTINGS_LENGTH_TAG = "#Length";
     // Suffix appended to forward settings key for storing an individual setting
-    public static final String FWD_SETTING_TAG = "#Setting";
+    private static final String FWD_SETTING_TAG = "#Setting";
     // Suffixes appended to forward setting key for storing an individual setting properties
-    public static final String FWD_SETTING_STATUS = "#Status";
-    public static final String FWD_SETTING_REASON = "#Reason";
-    public static final String FWD_SETTING_NUMBER = "#Number";
-    public static final String FWD_SETTING_TIME = "#Time";
+    private static final String FWD_SETTING_STATUS = "#Status";
+    private static final String FWD_SETTING_REASON = "#Reason";
+    private static final String FWD_SETTING_NUMBER = "#Number";
+    private static final String FWD_SETTING_TIME = "#Time";
 
     // Key identifying the default vocie mail provider
-    public static final String DEFAULT_VM_PROVIDER_KEY = "";
+    private static final String DEFAULT_VM_PROVIDER_KEY = "";
 
     /**
      * String Extra put into ACTION_ADD_VOICEMAIL call to indicate which provider should be hidden
      * in the list of providers presented to the user. This allows a provider which is being
      * disabled (e.g. GV user logging out) to force the user to pick some other provider.
      */
-    public static final String IGNORE_PROVIDER_EXTRA = "com.android.phone.ProviderToIgnore";
+    private static final String IGNORE_PROVIDER_EXTRA = "com.android.phone.ProviderToIgnore";
 
     // string constants
     private static final String NUM_PROJECTION[] = {CommonDataKinds.Phone.NUMBER};
 
     // String keys for preference lookup
     // TODO: Naming these "BUTTON_*" is confusing since they're not actually buttons(!)
-    private static final String VOICEMAIL_SETTING_SCREEN_PREF_KEY = "button_voicemail_category_key";
     private static final String BUTTON_VOICEMAIL_KEY = "button_voicemail_key";
     private static final String BUTTON_VOICEMAIL_PROVIDER_KEY = "button_voicemail_provider_key";
     private static final String BUTTON_VOICEMAIL_SETTING_KEY = "button_voicemail_setting_key";
+
     // New preference key for voicemail notification vibration
     /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY =
             "button_voicemail_notification_vibrate_key";
     // Old preference key for voicemail notification vibration. Used for migration to the new
     // preference key only.
+
     /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY =
             "button_voicemail_notification_vibrate_when_key";
     /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY =
             "button_voicemail_notification_ringtone_key";
     private static final String BUTTON_FDN_KEY   = "button_fdn_key";
+    private static final String BUTTON_RESPOND_VIA_SMS_KEY   = "button_respond_via_sms_key";
 
-    private static final String BUTTON_DTMF_KEY        = "button_dtmf_settings";
-    private static final String BUTTON_RETRY_KEY       = "button_auto_retry_key";
-    private static final String BUTTON_TTY_KEY         = "button_tty_mode_key";
-    private static final String BUTTON_HAC_KEY         = "button_hac_key";
+    private static final String BUTTON_RINGTONE_KEY    = "button_ringtone_key";
+    private static final String BUTTON_VIBRATE_ON_RING = "button_vibrate_on_ring";
 
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
 
+    private static final String BUTTON_CF_EXPAND_KEY = "button_cf_expand_key";
+    private static final String BUTTON_MORE_EXPAND_KEY = "button_more_expand_key";
+
+
     private static final String VM_NUMBERS_SHARED_PREFERENCES_NAME = "vm_numbers";
 
-    private static final String DEFAULT_OUTGOING_ACCOUNT_KEY = "default_outgoing_account";
-    private static final String PHONE_ACCOUNT_SETTINGS_KEY =
-            "phone_account_settings_preference_screen";
-
-    private static final String BUTTON_SELECT_SUB_KEY  = "button_call_independent_serv";
     private Intent mContactListIntent;
 
     /** Event for Async voicemail change call */
@@ -193,11 +192,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final int EVENT_FORWARDING_CHANGED       = 501;
     private static final int EVENT_FORWARDING_GET_COMPLETED = 502;
 
-    private static final int MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY = 1;
-
-    public static final String HAC_KEY = "HACSetting";
-    public static final String HAC_VAL_ON = "ON";
-    public static final String HAC_VAL_OFF = "OFF";
+    private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
+    private static final int MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY = 2;
 
     /** Handle to voicemail pref */
     private static final int VOICEMAIL_PREF_ID = 1;
@@ -233,32 +229,37 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String VOICEMAIL_VIBRATION_ALWAYS = "always";
     private static final String VOICEMAIL_VIBRATION_NEVER = "never";
 
+    private PreferenceScreen mSubscriptionPrefFDN;
+    private PreferenceScreen mSubscriptionPrefGSM;
+    private PreferenceScreen mSubscriptionPrefCDMA;
+    private PreferenceScreen mSubscriptionPrefEXPAND;
+    private PreferenceScreen mSubscriptionPrefMOREEXPAND;
+
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
-    private Runnable mVoicemailRingtoneLookupRunnable;
-    private final Handler mVoicemailRingtoneLookupComplete = new Handler() {
+    private Runnable mRingtoneLookupRunnable;
+    private final Handler mRingtoneLookupComplete = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY:
-                    mVoicemailNotificationRingtone.setSummary((CharSequence) msg.obj);
-                    break;
+            case MSG_UPDATE_RINGTONE_SUMMARY:
+                mRingtonePreference.setSummary((CharSequence) msg.obj);
+                break;
+            case MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY:
+                mVoicemailNotificationRingtone.setSummary((CharSequence) msg.obj);
+                break;
             }
         }
     };
 
-    /** Whether dialpad plays DTMF tone or not. */
-    private CheckBoxPreference mButtonAutoRetry;
-    private CheckBoxPreference mButtonHAC;
-    private ListPreference mButtonDTMF;
-    private ListPreference mButtonTTY;
-    private Preference mPhoneAccountSettingsPreference;
+    private Preference mRingtonePreference;
+    private CheckBoxPreference mVibrateWhenRinging;
     private ListPreference mVoicemailProviders;
-    private PreferenceScreen mVoicemailSettingsScreen;
     private PreferenceScreen mVoicemailSettings;
     private Preference mVoicemailNotificationRingtone;
     private CheckBoxPreference mVoicemailNotificationVibrate;
-    private AccountSelectionPreference mDefaultOutgoingAccount;
+
+    private long mSubId;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -454,11 +455,6 @@ public class CallFeaturesSetting extends PreferenceActivity
      */
     private boolean mReadingSettingsForDefaultProvider = false;
 
-    /**
-     * Used to indicate that the voicemail preference should be shown.
-     */
-    private boolean mShowVoicemailPreference = false;
-
     /*
      * Click Listeners, handle click based on objects attached to UI.
      */
@@ -468,29 +464,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSubMenuVoicemailSettings) {
             return true;
-        } else if (preference == mButtonDTMF) {
-            return true;
-        } else if (preference == mButtonTTY) {
-            return true;
-        } else if (preference == mButtonAutoRetry) {
-            android.provider.Settings.Global.putInt(mPhone.getContext().getContentResolver(),
-                    android.provider.Settings.Global.CALL_AUTO_RETRY,
-                    mButtonAutoRetry.isChecked() ? 1 : 0);
-            return true;
-        } else if (preference == mButtonHAC) {
-            int hac = mButtonHAC.isChecked() ? 1 : 0;
-            // Update HAC value in Settings database
-            Settings.System.putInt(mPhone.getContext().getContentResolver(),
-                    Settings.System.HEARING_AID, hac);
-
-            // Update HAC Value in AudioManager
-            mAudioManager.setParameter(HAC_KEY, hac != 0 ? HAC_VAL_ON : HAC_VAL_OFF);
-            return true;
         } else if (preference == mVoicemailSettings) {
-            final Dialog dialog = mVoicemailSettings.getDialog();
-            if (dialog != null) {
-                dialog.getActionBar().setDisplayHomeAsUpEnabled(false);
-            }
             if (DBG) log("onPreferenceTreeClick: Voicemail Settings Preference is clicked.");
             if (preference.getIntent() != null) {
                 if (DBG) {
@@ -515,12 +489,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                 // This should let the preference use default behavior in the xml.
                 return false;
             }
-        } else if (preference == mVoicemailSettingsScreen) {
-            final Dialog dialog = mVoicemailSettingsScreen.getDialog();
-            if (dialog != null) {
-                dialog.getActionBar().setDisplayHomeAsUpEnabled(false);
-            }
-            return false;
         }
         return false;
     }
@@ -539,13 +507,10 @@ public class CallFeaturesSetting extends PreferenceActivity
             log("onPreferenceChange(). preferenece: \"" + preference + "\""
                     + ", value: \"" + objValue + "\"");
         }
-
-        if (preference == mButtonDTMF) {
-            int index = mButtonDTMF.findIndexOfValue((String) objValue);
+        if (preference == mVibrateWhenRinging) {
+            boolean doVibrate = (Boolean) objValue;
             Settings.System.putInt(mPhone.getContext().getContentResolver(),
-                    Settings.System.DTMF_TONE_TYPE_WHEN_DIALING, index);
-        } else if (preference == mButtonTTY) {
-            handleTTYChange(preference, objValue);
+                    Settings.System.VIBRATE_WHEN_RINGING, doVibrate ? 1 : 0);
         } else if (preference == mVoicemailProviders) {
             final String newProviderKey = (String) objValue;
             if (DBG) {
@@ -579,6 +544,12 @@ public class CallFeaturesSetting extends PreferenceActivity
                 mChangingVMorFwdDueToProviderChange = true;
                 saveVoiceMailAndForwardingNumber(newProviderKey, newProviderSettings);
             }
+        } else if (preference == mVoicemailNotificationVibrate) {
+            PreferenceManager
+            .getDefaultSharedPreferences(this)
+            .edit()
+            .putBoolean(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + mPhone.getPhoneId(),
+                    mVoicemailNotificationVibrate.isChecked()).commit();
         }
         // always let the preference setting proceed.
         return true;
@@ -778,7 +749,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             mChangingVMorFwdDueToProviderChange = isVMProviderSettingsForced;
             final String fwdNum = data.getStringExtra(FWD_NUMBER_EXTRA);
 
-            // TODO: It would be nice to load the current network setting for this and
+            // TODO(iliat): It would be nice to load the current network setting for this and
             // send it to the provider when it's config is invoked so it can use this as default
             final int fwdNumTime = data.getIntExtra(FWD_NUMBER_TIME_EXTRA, 20);
 
@@ -798,7 +769,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             Cursor cursor = null;
             try {
                 cursor = getContentResolver().query(data.getData(),
-                    NUM_PROJECTION, null, null, null);
+                        NUM_PROJECTION, null, null, null);
                 if ((cursor == null) || (!cursor.moveToFirst())) {
                     if (DBG) log("onActivityResult: bad contact data, no results found.");
                     return;
@@ -825,8 +796,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         saveVoiceMailAndForwardingNumber(
                 getCurrentVoicemailProviderKey(),
                 new VoiceMailProviderSettings(mSubMenuVoicemailSettings.getPhoneNumber(),
-                        FWD_SETTINGS_DONT_TOUCH)
-        );
+                        FWD_SETTINGS_DONT_TOUCH));
     }
 
 
@@ -1489,70 +1459,24 @@ public class CallFeaturesSetting extends PreferenceActivity
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        mPhone = PhoneGlobals.getPhone();
+        if (DBG) log("onCreate(). Intent: " + getIntent());
+
+        addPreferencesFromResource(R.xml.msim_call_feature_sub_setting);
+
+        // getting selected subscription
+        mSubId = PhoneUtils.getSubIdFromIntent(getIntent());
+
+        mSubscriptionPrefFDN  = (PreferenceScreen) findPreference(BUTTON_FDN_KEY);
+        mSubscriptionPrefGSM  = (PreferenceScreen) findPreference(BUTTON_GSM_UMTS_OPTIONS);
+        mSubscriptionPrefCDMA = (PreferenceScreen) findPreference(BUTTON_CDMA_OPTIONS);
+        mSubscriptionPrefFDN.getIntent().putExtra(SUBSCRIPTION_KEY, mSubId);
+        mSubscriptionPrefGSM.getIntent().putExtra(SUBSCRIPTION_KEY, mSubId);
+        mSubscriptionPrefCDMA.getIntent().putExtra(SUBSCRIPTION_KEY, mSubId);
+
+        log("settings onCreate subscription =" + mSubId);
+        mPhone = PhoneUtils.getPhoneFromSubId(mSubId);
+
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-
-        // create intent to bring up contact list
-        mContactListIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        mContactListIntent.setType(android.provider.Contacts.Phones.CONTENT_ITEM_TYPE);
-        boolean isMsim = PhoneUtils.isMultiSimEnabled();
-        if (DBG) log("onCreate(). Intent: " + getIntent() +
-                " phoneId = " + mPhone.getPhoneId() + " isMSim = " + isMsim);
-        if (isMsim) {
-            addPreferencesFromResource(R.xml.call_feature_setting_msim);
-        } else {
-            addPreferencesFromResource(R.xml.call_feature_setting);
-        }
-
-        mVoicemailRingtoneLookupRunnable = new Runnable() {
-            @Override
-            public void run() {
-                if (mVoicemailNotificationRingtone != null) {
-                    SettingsUtil.updateRingtoneName(
-                            mPhone.getContext(),
-                            mVoicemailRingtoneLookupComplete,
-                            RingtoneManager.TYPE_NOTIFICATION,
-                            mVoicemailNotificationRingtone,
-                            MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY);
-                }
-            }
-        };
-
-        // Show the voicemail preference in onResume if the calling intent specifies the
-        // ACTION_ADD_VOICEMAIL action.
-        mShowVoicemailPreference = (icicle == null) &&
-                getIntent().getAction().equals(ACTION_ADD_VOICEMAIL);
-    }
-
-    private void initPhoneAccountPreferences() {
-        mPhoneAccountSettingsPreference = findPreference(PHONE_ACCOUNT_SETTINGS_KEY);
-
-        TelecomManager telecomManager = TelecomManager.from(this);
-
-        if (telecomManager.getAllPhoneAccountsCount() <= 1
-                && telecomManager.getSimCallManagers().isEmpty()
-                && !SipUtil.isVoipSupported(this)) {
-            getPreferenceScreen().removePreference(mPhoneAccountSettingsPreference);
-        }
-    }
-
-    private boolean canLaunchIntent(Intent intent) {
-        PackageManager pm = getPackageManager();
-        return pm.resolveActivity(intent, PackageManager.GET_ACTIVITIES) != null;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mForeground = true;
-
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-        if (preferenceScreen != null) {
-            preferenceScreen.removeAll();
-        }
-
-        addPreferencesFromResource(R.xml.call_feature_setting);
-        initPhoneAccountPreferences();
 
         // get buttons
         PreferenceScreen prefSet = getPreferenceScreen();
@@ -1563,230 +1487,220 @@ public class CallFeaturesSetting extends PreferenceActivity
             mSubMenuVoicemailSettings.setDialogTitle(R.string.voicemail_settings_number_label);
         }
 
-        mButtonDTMF = (ListPreference) findPreference(BUTTON_DTMF_KEY);
-        mButtonAutoRetry = (CheckBoxPreference) findPreference(BUTTON_RETRY_KEY);
-        mButtonHAC = (CheckBoxPreference) findPreference(BUTTON_HAC_KEY);
-        mButtonTTY = (ListPreference) findPreference(BUTTON_TTY_KEY);
+        mRingtonePreference = findPreference(BUTTON_RINGTONE_KEY);
+        mVibrateWhenRinging = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_ON_RING);
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
-
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
-            mVoicemailSettingsScreen =
-                    (PreferenceScreen) findPreference(VOICEMAIL_SETTING_SCREEN_PREF_KEY);
             mVoicemailSettings = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
             mVoicemailNotificationRingtone =
                     findPreference(BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY);
             mVoicemailNotificationVibrate =
                     (CheckBoxPreference) findPreference(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY);
+            mVoicemailNotificationVibrate.setOnPreferenceChangeListener(this);
+
             initVoiceMailProviders();
         }
 
-
-        if (mButtonDTMF != null) {
-            if (getResources().getBoolean(R.bool.dtmf_type_enabled)) {
-                mButtonDTMF.setOnPreferenceChangeListener(this);
+        if (mVibrateWhenRinging != null) {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator != null && vibrator.hasVibrator()) {
+                mVibrateWhenRinging.setOnPreferenceChangeListener(this);
             } else {
-                prefSet.removePreference(mButtonDTMF);
-                mButtonDTMF = null;
+                prefSet.removePreference(mVibrateWhenRinging);
+                mVibrateWhenRinging = null;
             }
         }
 
-        if (mButtonAutoRetry != null) {
-            if (getResources().getBoolean(R.bool.auto_retry_enabled)) {
-                mButtonAutoRetry.setOnPreferenceChangeListener(this);
-            } else {
-                prefSet.removePreference(mButtonAutoRetry);
-                mButtonAutoRetry = null;
-            }
-        }
-
-        if (mButtonHAC != null) {
-            if (getResources().getBoolean(R.bool.hac_enabled)) {
-
-                mButtonHAC.setOnPreferenceChangeListener(this);
-            } else {
-                prefSet.removePreference(mButtonHAC);
-                mButtonHAC = null;
-            }
-        }
-
-        if (mButtonTTY != null) {
-            TelecomManager telecomManager = TelecomManager.from(this);
-            if (telecomManager != null && telecomManager.isTtySupported()) {
-                mButtonTTY.setOnPreferenceChangeListener(this);
-            } else {
-                prefSet.removePreference(mButtonTTY);
-                mButtonTTY = null;
-            }
-        }
-
-        if (!getResources().getBoolean(R.bool.world_phone) && (!isMsim)) {
+        if (!getResources().getBoolean(R.bool.world_phone)) {
             Preference options = prefSet.findPreference(BUTTON_CDMA_OPTIONS);
-            if (options != null) {
+            if (options != null)
                 prefSet.removePreference(options);
-            }
             options = prefSet.findPreference(BUTTON_GSM_UMTS_OPTIONS);
-            if (options != null) {
+            if (options != null)
                 prefSet.removePreference(options);
-            }
 
             int phoneType = mPhone.getPhoneType();
             if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
                 Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
-                if (fdnButton != null) {
+                if (fdnButton != null)
                     prefSet.removePreference(fdnButton);
-                }
                 if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
                     addPreferencesFromResource(R.xml.cdma_call_privacy);
                 }
             } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
-                if (getResources().getBoolean(R.bool.config_additional_call_setting)) {
-                    addPreferencesFromResource(R.xml.gsm_umts_call_options);
-                }
+                addPreferencesFromResource(R.xml.gsm_umts_call_options);
+                mSubscriptionPrefEXPAND = (PreferenceScreen) findPreference(BUTTON_CF_EXPAND_KEY);
+                mSubscriptionPrefMOREEXPAND =
+                        (PreferenceScreen) findPreference(BUTTON_MORE_EXPAND_KEY);
+                mSubscriptionPrefEXPAND.getIntent().putExtra(SUBSCRIPTION_KEY, mSubId);
+                mSubscriptionPrefMOREEXPAND.getIntent().putExtra(SUBSCRIPTION_KEY, mSubId);
             } else {
                 throw new IllegalStateException("Unexpected phone type: " + phoneType);
             }
         }
+
+        // create intent to bring up contact list
+        mContactListIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        mContactListIntent.setType(android.provider.Contacts.Phones.CONTENT_ITEM_TYPE);
 
         // check the intent that started this activity and pop up the voicemail
         // dialog if we've been asked to.
         // If we have at least one non default VM provider registered then bring up
         // the selection for the VM provider, otherwise bring up a VM number dialog.
         // We only bring up the dialog the first time we are called (not after orientation change)
-        if (mShowVoicemailPreference && mVoicemailProviders != null) {
-            if (DBG) {
-                log("ACTION_ADD_VOICEMAIL Intent is thrown. current VM data size: "
-                        + mVMProvidersData.size());
+        if (icicle == null) {
+            if (getIntent().getAction().equals(ACTION_ADD_VOICEMAIL) &&
+                    mVoicemailProviders != null) {
+                if (DBG) {
+                    log("ACTION_ADD_VOICEMAIL Intent is thrown. current VM data size: "
+                            + mVMProvidersData.size());
+                }
+                if (mVMProvidersData.size() > 1) {
+                    simulatePreferenceClick(mVoicemailProviders);
+                } else {
+                    onPreferenceChange(mVoicemailProviders, DEFAULT_VM_PROVIDER_KEY);
+                    mVoicemailProviders.setValue(DEFAULT_VM_PROVIDER_KEY);
+                }
             }
-            if (mVMProvidersData.size() > 1) {
-                simulatePreferenceClick(mVoicemailProviders);
-            } else {
-                onPreferenceChange(mVoicemailProviders, DEFAULT_VM_PROVIDER_KEY);
-                mVoicemailProviders.setValue(DEFAULT_VM_PROVIDER_KEY);
-            }
-            mShowVoicemailPreference = false;
         }
-
         updateVoiceNumberField();
         mVMProviderSettingsForced = false;
 
-        PreferenceScreen selectSub = (PreferenceScreen) findPreference(BUTTON_SELECT_SUB_KEY);
-        if (selectSub != null) {
-            Intent intent = selectSub.getIntent();
-            intent.putExtra(SelectSubscription.PACKAGE, "com.android.phone");
-            intent.putExtra(SelectSubscription.TARGET_CLASS,
-                    "com.android.phone.MSimCallFeaturesSubSetting");
+        mRingtoneLookupRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (mRingtonePreference != null) {
+                    updateRingtoneName(RingtoneManager.TYPE_RINGTONE, mRingtonePreference,
+                            MSG_UPDATE_RINGTONE_SUMMARY);
+                }
+                if (mVoicemailNotificationRingtone != null) {
+                    updateRingtoneName(RingtoneManager.TYPE_NOTIFICATION,
+                            mVoicemailNotificationRingtone, MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY);
+                }
+            }
+        };
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    /**
+     * Updates ringtone name. This is a method copied from com.android.settings.SoundSettings
+     *
+     * @see com.android.settings.SoundSettings
+     */
+    private void updateRingtoneName(int type, Preference preference, int msg) {
+        if (preference == null) return;
+        final Uri ringtoneUri;
+        boolean defaultRingtone = false;
+        if (type == RingtoneManager.TYPE_NOTIFICATION) {
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                    mPhone.getContext());
+            // for voicemail notifications, we use the value saved in Phone's shared preferences.
+            String uriString = prefs.getString(preference.getKey(), null);
+            if (TextUtils.isEmpty(uriString)) {
+                // silent ringtone
+                ringtoneUri = null;
+            } else {
+                if (uriString.equals(Settings.System.DEFAULT_NOTIFICATION_URI.toString())) {
+                    // If it turns out that the voicemail notification is set to the system
+                    // default notification, we retrieve the actual URI to prevent it from showing
+                    // up as "Unknown Ringtone".
+                    defaultRingtone = true;
+                    ringtoneUri = RingtoneManager.getActualDefaultRingtoneUri(this, type);
+                } else {
+                    ringtoneUri = Uri.parse(uriString);
+                }
+            }
+        } else {
+            // For ringtones, we can just lookup the system default because changing the settings
+            // in Call Settings changes the system default.
+            ringtoneUri = RingtoneManager.getActualDefaultRingtoneUri(this, type);
         }
 
-        if (mButtonDTMF != null) {
-            int dtmf = Settings.System.getInt(getContentResolver(),
-                    Settings.System.DTMF_TONE_TYPE_WHEN_DIALING, Constants.DTMF_TONE_TYPE_NORMAL);
-            mButtonDTMF.setValueIndex(dtmf);
+        CharSequence summary = getString(com.android.internal.R.string.ringtone_unknown);
+        // Is it a silent ringtone?
+        if (ringtoneUri == null) {
+            summary = getString(com.android.internal.R.string.ringtone_silent);
+        } else {
+            // Fetch the ringtone title from the media provider
+            try {
+                Cursor cursor = getContentResolver().query(ringtoneUri,
+                        new String[] { MediaStore.Audio.Media.TITLE }, null, null, null);
+                if (cursor != null) {
+                    if (cursor.moveToFirst()) {
+                        summary = cursor.getString(0);
+                    }
+                    cursor.close();
+                }
+            } catch (SQLiteException sqle) {
+                // Unknown title for the ringtone
+            }
         }
-
-        if (mButtonAutoRetry != null) {
-            int autoretry = Settings.Global.getInt(getContentResolver(),
-                    Settings.Global.CALL_AUTO_RETRY, 0);
-            mButtonAutoRetry.setChecked(autoretry != 0);
+        if (defaultRingtone) {
+            summary = mPhone.getContext().getString(
+                    R.string.default_notification_description, summary);
         }
+        mRingtoneLookupComplete.sendMessage(mRingtoneLookupComplete.obtainMessage(msg, summary));
+    }
 
-        if (mButtonHAC != null) {
-            int hac = Settings.System.getInt(getContentResolver(), Settings.System.HEARING_AID, 0);
-            mButtonHAC.setChecked(hac != 0);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mForeground = true;
+
+        if (isAirplaneModeOn()) {
+            PreferenceScreen screen = getPreferenceScreen();
+            int count = screen.getPreferenceCount();
+            for (int i = 0 ; i < count ; ++i) {
+                Preference pref = screen.getPreference(i);
+            }
+            return;
         }
-
-        if (mButtonTTY != null) {
-            int settingsTtyMode = Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.PREFERRED_TTY_MODE,
-                    TelecomManager.TTY_MODE_OFF);
-            mButtonTTY.setValue(Integer.toString(settingsTtyMode));
-            updatePreferredTtyModeSummary(settingsTtyMode);
+        if (mVibrateWhenRinging != null) {
+            mVibrateWhenRinging.setChecked(getVibrateWhenRinging(this));
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
                 mPhone.getContext());
-        if (migrateVoicemailVibrationSettingsIfNeeded(prefs, mPhone.getPhoneId())
-                && mVoicemailNotificationVibrate != null) {
+        if (CallFeaturesSetting.migrateVoicemailVibrationSettingsIfNeeded(prefs,
+                mPhone.getPhoneId())) {
             mVoicemailNotificationVibrate.setChecked(prefs.getBoolean(
                     BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + mPhone.getPhoneId(), false));
         }
 
-        // Look up the voicemail ringtone name asynchronously and update its preference.
-        new Thread(mVoicemailRingtoneLookupRunnable).start();
+        lookupRingtoneName();
     }
 
-    // Migrate settings from BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY to
-    // BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, if the latter does not exist.
-    // Returns true if migration was performed.
-    public static boolean migrateVoicemailVibrationSettingsIfNeeded(SharedPreferences prefs,
-            int phoneId) {
-        if (!prefs.contains(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + phoneId)) {
-            String vibrateWhen = prefs.getString(
-                    BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY + phoneId,
-                    VOICEMAIL_VIBRATION_NEVER);
-            // If vibrateWhen is always, then voicemailVibrate should be True.
-            // otherwise if vibrateWhen is "only in silent mode", or "never", then
-            // voicemailVibrate = False.
-            boolean voicemailVibrate = vibrateWhen.equals(VOICEMAIL_VIBRATION_ALWAYS);
-            final SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + phoneId,
-                    voicemailVibrate);
-            editor.commit();
-            return true;
+    /**
+     * Obtain the setting for "vibrate when ringing" setting.
+     *
+     * Watch out: if the setting is missing in the device, this will try obtaining the old
+     * "vibrate on ring" setting from AudioManager, and save the previous setting to the new one.
+     */
+    public static boolean getVibrateWhenRinging(Context context) {
+        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator == null || !vibrator.hasVibrator()) {
+            return false;
         }
-        return false;
+        return Settings.System.getInt(context.getContentResolver(),
+                Settings.System.VIBRATE_WHEN_RINGING, 0) != 0;
+    }
+
+    /**
+     * Lookups ringtone name asynchronously and updates the relevant Preference.
+     */
+    private void lookupRingtoneName() {
+        new Thread(mRingtoneLookupRunnable).start();
     }
 
     private boolean isAirplaneModeOn() {
         return Settings.System.getInt(getContentResolver(),
                 Settings.System.AIRPLANE_MODE_ON, 0) != 0;
-    }
-
-    private void handleTTYChange(Preference preference, Object objValue) {
-        int buttonTtyMode;
-        buttonTtyMode = Integer.valueOf((String) objValue).intValue();
-        int settingsTtyMode = android.provider.Settings.Secure.getInt(
-                getContentResolver(),
-                android.provider.Settings.Secure.PREFERRED_TTY_MODE,
-                TelecomManager.TTY_MODE_OFF);
-        if (DBG) log("handleTTYChange: requesting set TTY mode enable (TTY) to" +
-                Integer.toString(buttonTtyMode));
-
-        if (buttonTtyMode != settingsTtyMode) {
-            switch(buttonTtyMode) {
-            case TelecomManager.TTY_MODE_OFF:
-            case TelecomManager.TTY_MODE_FULL:
-            case TelecomManager.TTY_MODE_HCO:
-            case TelecomManager.TTY_MODE_VCO:
-                android.provider.Settings.Secure.putInt(getContentResolver(),
-                        android.provider.Settings.Secure.PREFERRED_TTY_MODE, buttonTtyMode);
-                break;
-            default:
-                buttonTtyMode = TelecomManager.TTY_MODE_OFF;
-            }
-
-            mButtonTTY.setValue(Integer.toString(buttonTtyMode));
-            updatePreferredTtyModeSummary(buttonTtyMode);
-            Intent ttyModeChanged = new Intent(TelecomManager.ACTION_TTY_PREFERRED_MODE_CHANGED);
-            ttyModeChanged.putExtra(TelecomManager.EXTRA_TTY_PREFERRED_MODE, buttonTtyMode);
-            sendBroadcastAsUser(ttyModeChanged, UserHandle.ALL);
-        }
-    }
-
-    private void updatePreferredTtyModeSummary(int TtyMode) {
-        String [] txts = getResources().getStringArray(R.array.tty_mode_entries);
-        switch(TtyMode) {
-            case TelecomManager.TTY_MODE_OFF:
-            case TelecomManager.TTY_MODE_HCO:
-            case TelecomManager.TTY_MODE_VCO:
-            case TelecomManager.TTY_MODE_FULL:
-                mButtonTTY.setSummary(txts[TtyMode]);
-                break;
-            default:
-                mButtonTTY.setEnabled(false);
-                mButtonTTY.setSummary(txts[TelecomManager.TTY_MODE_OFF]);
-                break;
-        }
     }
 
     private static void log(String msg) {
@@ -1934,7 +1848,7 @@ public class CallFeaturesSetting extends PreferenceActivity
      * Simulates user clicking on a passed preference.
      * Usually needed when the preference is a dialog preference and we want to invoke
      * a dialog for this preference programmatically.
-     * TODO: figure out if there is a cleaner way to cause preference dlg to come up
+     * TODO(iliat): figure out if there is a cleaner way to cause preference dlg to come up
      */
     private void simulatePreferenceClick(Preference preference) {
         // Go through settings until we find our setting
@@ -2056,11 +1970,16 @@ public class CallFeaturesSetting extends PreferenceActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         final int itemId = item.getItemId();
         if (itemId == android.R.id.home) {  // See ActionBar#setDisplayHomeAsUpEnabled()
-            onBackPressed();
+            Intent intent = new Intent();
+            intent.setClassName(UP_ACTIVITY_PACKAGE, UP_ACTIVITY_CLASS);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
     /**
      * Finish current Activity and go up to the top level Settings ({@link CallFeaturesSetting}).
      * This is useful for implementing "HomeAsUp" capability for second-level Settings.

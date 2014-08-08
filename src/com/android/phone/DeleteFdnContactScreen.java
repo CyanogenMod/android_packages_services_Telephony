@@ -48,6 +48,8 @@ public class DeleteFdnContactScreen extends Activity {
     private String mNumber;
     private String mPin2;
 
+    private long mSubId;
+
     protected QueryHandler mQueryHandler;
 
     private Handler mHandler = new Handler();
@@ -92,6 +94,7 @@ public class DeleteFdnContactScreen extends Activity {
         mName =  intent.getStringExtra(INTENT_EXTRA_NAME);
         mNumber =  intent.getStringExtra(INTENT_EXTRA_NUMBER);
 
+        mSubId = PhoneUtils.getSubIdFromIntent(intent);
         if (TextUtils.isEmpty(mNumber)) {
             finish();
         }
@@ -111,7 +114,7 @@ public class DeleteFdnContactScreen extends Activity {
         buf.append(mPin2);
         buf.append("'");
 
-        Uri uri = Uri.parse("content://icc/fdn");
+        Uri uri = PhoneUtils.getUri(Uri.parse("content://icc/fdn"), mSubId);
 
         mQueryHandler = new QueryHandler(getContentResolver());
         mQueryHandler.startDelete(0, null, uri, buf.toString(), null);

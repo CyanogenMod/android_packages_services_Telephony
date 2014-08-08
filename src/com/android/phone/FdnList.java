@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
+import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
 /**
  * Fixed Dialing Number (FDN) List UI for the Phone app. FDN is a feature of the service provider
  * that allows a user to specify a limited set of phone numbers that the SIM can dial.
@@ -37,6 +38,8 @@ public class FdnList extends ADNList {
 
     private static final String INTENT_EXTRA_NAME = "name";
     private static final String INTENT_EXTRA_NUMBER = "number";
+
+    private long mSubId;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -52,7 +55,9 @@ public class FdnList extends ADNList {
     @Override
     protected Uri resolveIntent() {
         Intent intent = getIntent();
-        intent.setData(Uri.parse("content://icc/fdn"));
+        mSubId = PhoneUtils.getSubIdFromIntent(intent);
+
+        intent.setData(PhoneUtils.getUri(Uri.parse("content://icc/fdn"), mSubId));
         return intent.getData();
     }
 
@@ -121,6 +126,7 @@ public class FdnList extends ADNList {
         // if we don't put extras "name" when starting this activity, then
         // EditFdnContactScreen treats it like add contact.
         Intent intent = new Intent();
+        intent.putExtra(SUBSCRIPTION_KEY, mSubId);
         intent.setClass(this, EditFdnContactScreen.class);
         startActivity(intent);
     }
@@ -147,6 +153,7 @@ public class FdnList extends ADNList {
             intent.setClass(this, EditFdnContactScreen.class);
             intent.putExtra(INTENT_EXTRA_NAME, name);
             intent.putExtra(INTENT_EXTRA_NUMBER, number);
+            intent.putExtra(SUBSCRIPTION_KEY, mSubId);
             startActivity(intent);
         }
     }
@@ -160,6 +167,7 @@ public class FdnList extends ADNList {
             intent.setClass(this, DeleteFdnContactScreen.class);
             intent.putExtra(INTENT_EXTRA_NAME, name);
             intent.putExtra(INTENT_EXTRA_NUMBER, number);
+            intent.putExtra(SUBSCRIPTION_KEY, mSubId);
             startActivity(intent);
         }
     }
