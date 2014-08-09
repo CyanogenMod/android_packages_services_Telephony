@@ -83,4 +83,10 @@
   <string name="msim_call_selector_title">Apelează <xliff:g id="number">%s</xliff:g> prin</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Chineză (CN)</string>
+  <string name="preference_category_t9_dialpad_search">Căutare Dialpad T9</string>
+  <string name="t9_search_input_locale">Căutare T9</string>
+  <string name="t9_search_input_locale_default">Implcit</string>
+  <string name="incoming_call_style_title">Stilul ecranului unui apel în desfășurare</string>
+  <string name="incoming_call_style_classic">Clasic</string>
+  <string name="incoming_call_style_fullscreen_photo">Fotografia apelantului pe tot ecranul</string>
 </resources>

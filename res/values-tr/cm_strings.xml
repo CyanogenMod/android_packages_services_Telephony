@@ -86,4 +86,7 @@
   <string name="preference_category_t9_dialpad_search">Tuş takımı T9 arama</string>
   <string name="t9_search_input_locale">T9 arama girişi</string>
   <string name="t9_search_input_locale_default">Varsayılan</string>
+  <string name="incoming_call_style_title">Gelen arama ekranı stili</string>
+  <string name="incoming_call_style_classic">Klasik</string>
+  <string name="incoming_call_style_fullscreen_photo">Arayanın tam ekran fotoğrafı</string>
 </resources>

@@ -35,7 +35,7 @@
   <string name="vibrate_call_waiting">Вибрација при позиву на чекању</string>
   <string name="vibrate_hangup">Вибрација у току јављања</string>
   <string name="vibrate_45">Вибрација сваког минута</string>
-  <string name="vibrate_45_sum">Вибрација сваке 45 секунде у минути током одлазних позива</string>
+  <string name="vibrate_45_sum">Вибрације сваке 45 секунде у минути током одлазних позива</string>
   <string name="show_ssn_label">Обавештење о догађају</string>
   <string name="show_ssn_summary">Прикажи обавештење за разне мрежне догађаје везане за управљање позивима</string>
   <string name="blacklist_title">Црна листа</string>
@@ -83,7 +83,7 @@
   <string name="msim_call_selector_title">Позив <xliff:g id="number">%s</xliff:g> преко</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Кинески (CN)</string>
-  <string name="preference_category_t9_dialpad_search">Бројчаник Т9 претрага</string>
+  <string name="preference_category_t9_dialpad_search">Т9 претрага на бројчанику</string>
   <string name="t9_search_input_locale">Т9 претрага уноса</string>
   <string name="t9_search_input_locale_default">Подразумевано</string>
   <string name="incoming_call_style_title">Стил екрана за долазни позив</string>

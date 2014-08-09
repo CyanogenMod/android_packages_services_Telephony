@@ -86,4 +86,7 @@
   <string name="preference_category_t9_dialpad_search">แผงค้นหา T9</string>
   <string name="t9_search_input_locale">ป้อนข้อมูลค้นหา T9</string>
   <string name="t9_search_input_locale_default">ค่าเริ่มต้น</string>
+  <string name="incoming_call_style_title">รูปแบบหน้าจอสายเข้า</string>
+  <string name="incoming_call_style_classic">คลาสสิค</string>
+  <string name="incoming_call_style_fullscreen_photo">รูปผู้โทรเข้าเต็มจอ</string>
 </resources>

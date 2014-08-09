@@ -27,15 +27,35 @@
   <string name="private_num">Privat Nummer</string>
   <string name="payphone">Telefonskabinn</string>
   <string name="mmiStarted">MMI-Code gestart</string>
+  <string name="mmiCancelled">MMI-Code ofgebrach</string>
   <string name="cancel">Ofbriechen</string>
+  <string name="enter_input">Den USSD-Message muss <xliff:g id="min_len">%d</xliff:g> bis <xliff:g id="max_len">%d</xliff:g> Zeeche laang sinn. Probéier w.e.g. nees.</string>
   <string name="manageConferenceLabel">Telefonskonferenz verwalten</string>
   <string name="ok">OK</string>
   <string name="audio_mode_bluetooth">Bluetooth</string>
+  <string name="send_button">Schécken</string>
   <string name="pause_prompt_yes">Jo</string>
   <string name="pause_prompt_no">Nee</string>
+  <string name="add_vm_number_str">Nummer dobäisetzen</string>
   <string name="labelCW">Gespréich pauséiert</string>
-  <string name="labelCF">Gespréich gëtt weidergeleet</string>
   <string name="close_dialog">OK</string>
+  <string name="register_automatically">Automatesch Registréierung\u2026</string>
+  <string name="preferred_network_mode_title">Preferéierten Netzwierktyp</string>
+  <string name="preferred_network_mode_dialogtitle">Preferéierten Netzwierktyp</string>
+  <string name="preferred_network_mode_wcdma_perf_summary">Preferéierten Netzwierktyp: WCDMA preferéiert</string>
+  <string name="preferred_network_mode_gsm_only_summary">Preferéierten Netzwierktyp: just GSM</string>
+  <string name="preferred_network_mode_wcdma_only_summary">Preferéierten Netzwierktyp: just WCDMA</string>
+  <string name="preferred_network_mode_gsm_wcdma_summary">Preferéierten Netzwierktyp: GSM / WCDMA</string>
+  <string name="preferred_network_mode_cdma_summary">Preferéierten Netzwierktyp: CDMA</string>
+  <string name="preferred_network_mode_cdma_evdo_summary">Preferéierten Netzwierktyp: CDMA / EvDo</string>
+  <string name="preferred_network_mode_cdma_only_summary">Preferéierten Netzwierktyp: just CDMA</string>
+  <string name="preferred_network_mode_evdo_only_summary">Preferéierten Netzwierktyp: just EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_summary">Preferéierten Netzwierktyp: CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_lte_summary">Preferéierten Netzwierktyp: LTE</string>
+  <string name="preferred_network_mode_lte_gsm_wcdma_summary">Preferéierten Netzwierktyp: GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_lte_cdma_evdo_summary">Preferéierten Netzwierktyp: CDMA+LTE/EVDO</string>
+  <string name="preferred_network_mode_global_summary">Preferéierten Netzwierktyp: Global (CDMA/EVDO/LTE/GSM/WCDMA)</string>
+  <string name="preferred_network_mode_lte_wcdma_summary">Preferéierten Netzwierktyp: LTE / WCDMA</string>
   <string-array name="preferred_network_mode_choices">
     <item>TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO </item>
     <item>TD-SCDMA/GSM/WCDMA/CDMA/EVDO </item>
@@ -90,8 +110,12 @@
   <string name="manage_fdn_list">Uruffbegrenzung</string>
   <string name="save">Späicheren</string>
   <string name="invalidPin">Tipp e PIN deen tëscht 4 an 8 Zifferen huet.</string>
+  <string name="enable_in_progress">Waart w.e.g.\u2026</string>
+  <string name="card_title_on_hold">Gehalen</string>
   <string name="notification_missedCallTitle">Verpassten Uruff</string>
+  <string name="notification_on_hold">Gehalen</string>
   <string name="ota_next">Weider</string>
+  <string name="ecm_exit_dialog">EcmExitDialog</string>
   <string name="contactPhoto">Kontaktfoto</string>
   <string name="sip_menu_save">Späicheren</string>
   <string name="respond_via_sms_setting_title">Séier Äntwerten</string>
@@ -104,5 +128,6 @@
   <string name="description_image_button_eight">aacht</string>
   <string name="description_image_button_nine">néng</string>
   <string name="description_image_button_zero">null</string>
+  <string name="accessibility_call_muted">Uruff stomm geschalt.</string>
   <string name="call_settings_title_font_family">sans-serif-light</string>
 </resources>

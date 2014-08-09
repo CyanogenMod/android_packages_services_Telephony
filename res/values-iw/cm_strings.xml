@@ -86,4 +86,7 @@
   <string name="preference_category_t9_dialpad_search">חיפוש לוח T9</string>
   <string name="t9_search_input_locale">חיפוש עם קלט T9</string>
   <string name="t9_search_input_locale_default">ברירת מחדל</string>
+  <string name="incoming_call_style_title">סגנון מסך לשיחות נכנסות</string>
+  <string name="incoming_call_style_classic">קלאסי</string>
+  <string name="incoming_call_style_fullscreen_photo">תמונת המתקשר במסך מלא</string>
 </resources>

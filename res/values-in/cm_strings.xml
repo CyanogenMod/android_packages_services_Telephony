@@ -87,4 +87,7 @@
   <string name="preference_category_t9_dialpad_search">Pencarian dialpad T9</string>
   <string name="t9_search_input_locale">Masukan pencarian T9</string>
   <string name="t9_search_input_locale_default">Standar</string>
+  <string name="incoming_call_style_title">Gaya layar panggilan masuk</string>
+  <string name="incoming_call_style_classic">Klasik</string>
+  <string name="incoming_call_style_fullscreen_photo">Foto pemanggil layar penuh</string>
 </resources>

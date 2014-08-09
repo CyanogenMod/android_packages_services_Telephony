@@ -86,4 +86,7 @@
   <string name="preference_category_t9_dialpad_search">T9-søgning på tastatur</string>
   <string name="t9_search_input_locale">Søgeinput med T9</string>
   <string name="t9_search_input_locale_default">Standard</string>
+  <string name="incoming_call_style_title">Udseende på skærm ved indgående opkald</string>
+  <string name="incoming_call_style_classic">Klassisk</string>
+  <string name="incoming_call_style_fullscreen_photo">Billede fylder hele skærmen</string>
 </resources>

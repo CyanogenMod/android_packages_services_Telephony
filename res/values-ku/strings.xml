@@ -461,7 +461,7 @@
   <string name="dtmf_tones_title">زەنگەکانی DTMF</string>
   <string name="dtmf_tones_summary">ماوەی زەنگەکانی DTMF دیاری بکە</string>
   <string-array name="dtmf_tone_entries">
-    <item>ئاسای</item>
+    <item>ئاسایی</item>
     <item>درێژ</item>
   </string-array>
   <string name="network_message">نامەی تۆڕ</string>
@@ -622,7 +622,7 @@
   <string name="voicemail_notification_vibrate_when_title" msgid="8731372580674292759">له‌رینه‌وه‌</string>
   <string name="voicemail_notification_vibarte_when_dialog_title" msgid="8995274609647451109">له‌رینه‌وه‌</string>
   <string name="voicemail_notification_ringtone_title">دەنگ</string>
-  <string name="default_notification_description">ئاوازی بنه‌ڕه‌ت  (<xliff:g id="default_sound_title">%1$s</xliff:g>)</string>
+  <string name="default_notification_description">ئاوازی بنێڕه‌ت  (<xliff:g id="default_sound_title">%1$s</xliff:g>)</string>
   <string name="ringtone_title" msgid="5379026328015343686">زەنگی مۆبایل</string>
   <string name="vibrate_on_ring_title">له‌رینه‌وه‌ کاتێک زه‌نگ لێده‌دات</string>
   <string name="dtmf_tone_enable_title">دەنگەکانی لێدانی ژمارەگر</string>

@@ -86,4 +86,7 @@
   <string name="preference_category_t9_dialpad_search">إنشاء بحث T9</string>
   <string name="t9_search_input_locale">إدخال بحث T9</string>
   <string name="t9_search_input_locale_default">الافتراضي</string>
+  <string name="incoming_call_style_title">نمط الشاشة مكالمة واردة</string>
+  <string name="incoming_call_style_classic">الافتراضي</string>
+  <string name="incoming_call_style_fullscreen_photo">صور المتصل تملء الشاشة</string>
 </resources>

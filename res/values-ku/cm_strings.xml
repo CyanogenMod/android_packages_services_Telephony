@@ -84,4 +84,10 @@
   <string name="msim_call_selector_title">پەیوەندیکردن بە <xliff:g id="number">%s</xliff:g> بەهۆی</string>
   <string name="msim_call_selector_item">سیمکارتی<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Chinese (CN)</string>
+  <string name="preference_category_t9_dialpad_search">گه‌ڕانی ته‌خته‌لێدانی T9</string>
+  <string name="t9_search_input_locale">نوسینی گه‌ڕان بۆ T9</string>
+  <string name="t9_search_input_locale_default">بنەڕەتی</string>
+  <string name="incoming_call_style_title">شێوازی ڕوونما له‌کاتی په‌یوه‌ندی هاتن</string>
+  <string name="incoming_call_style_classic">کلاسیک</string>
+  <string name="incoming_call_style_fullscreen_photo">وێنه‌ی په‌یوه‌ندیکه‌ر پڕ ڕوونما</string>
 </resources>
