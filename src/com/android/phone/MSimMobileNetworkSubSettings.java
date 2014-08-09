@@ -110,6 +110,18 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
     private boolean mShow4GForLTE;
     private boolean mIsGlobalCdma;
 
+    // These should match the default values for the overlay values they override
+    private static boolean sWorldPhone = "true".equals(SystemProperties.get(
+                "persist.telephony.worldphone"));
+    private static boolean sEnabledCdma = "true".equals(SystemProperties.get(
+                "persist.telephony.enabled_cdma"));
+    private static boolean sEnabled2g = "false".equals(SystemProperties.get(
+                "persist.telephony.enabled_2g"));
+    private static boolean sEnabledLte = "true".equals(SystemProperties.get(
+                "persist.telephony.enabled_lte"));
+    private static boolean sEnabledTdScdma = "true".equals(SystemProperties.get(
+                "persist.telephony.enabled_tdscdma"));
+
     /**
      * This is a method implemented for DialogInterface.OnClickListener.
      * Used to dismiss the dialogs when they come up.
@@ -232,9 +244,14 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         mButtonEnabledNetworks = (ListPreference) prefSet.findPreference(
                 BUTTON_ENABLED_NETWORKS_KEY);
 
+        boolean mWorldPhone = sWorldPhone ? true : getResources().getBoolean(R.bool.world_phone);
+        boolean mEnabledCdma = sEnabledCdma ? true : getResources().getBoolean(R.bool.config_show_cdma);
+        boolean mEnabled2g = !sEnabled2g ? false : getResources().getBoolean(R.bool.config_prefer_2g);
+        boolean mEnabledLte = sEnabledLte ? true : getResources().getBoolean(R.bool.config_enabled_lte);
+        boolean mEnabledTdScdma = sEnabledTdScdma ? true : getResources().getBoolean(R.bool.config_enabled_tdscdma);
         boolean isLteOnCdma = mPhone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE;
-        mIsGlobalCdma = isLteOnCdma && getResources().getBoolean(R.bool.config_show_cdma);
-        if (getResources().getBoolean(R.bool.world_phone) == true) {
+        mIsGlobalCdma = isLteOnCdma && mEnabledCdma;
+        if (mWorldPhone) {
             prefSet.removePreference(mButtonEnabledNetworks);
             // mButtonEnabledNetworks = null as it is not needed anymore
             mButtonEnabledNetworks = null;
@@ -261,23 +278,22 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 }
                 mCdmaOptions = new CdmaOptions(this, prefSet, mPhone);
             } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
-                if (!getResources().getBoolean(R.bool.config_prefer_2g)
-                        && !getResources().getBoolean(R.bool.config_enabled_lte)) {
+                if (!mEnabled2g && !mEnabledLte) {
                     mButtonEnabledNetworks.setEntries(
                             R.array.enabled_networks_except_gsm_lte_choices);
                     mButtonEnabledNetworks.setEntryValues(
                             R.array.enabled_networks_except_gsm_lte_values);
-                } else if (!getResources().getBoolean(R.bool.config_prefer_2g)) {
+                } else if (!mEnabled2g) {
                     int select = (mShow4GForLTE == true) ?
                         R.array.enabled_networks_except_gsm_4g_choices
                         : R.array.enabled_networks_except_gsm_choices;
                     mButtonEnabledNetworks.setEntries(select);
                     mButtonEnabledNetworks.setEntryValues(
                             R.array.enabled_networks_except_gsm_values);
-                } else if (!getResources().getBoolean(R.bool.config_enabled_lte)) {
+                } else if (!mEnabledLte) {
                     mButtonEnabledNetworks.setEntries(
                             R.array.enabled_networks_except_lte_choices);
-                    if (getResources().getBoolean(R.bool.config_enabled_tdscdma)) {
+                    if (mEnabledTdScdma) {
                         mButtonEnabledNetworks.setEntryValues(
                                 R.array.enabled_networks_tdscdma_except_lte_values);
                     } else {
@@ -293,7 +309,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                     int select = (mShow4GForLTE == true) ? R.array.enabled_networks_4g_choices
                         : R.array.enabled_networks_choices;
                     mButtonEnabledNetworks.setEntries(select);
-                    if (getResources().getBoolean(R.bool.config_enabled_tdscdma)) {
+                    if (mEnabledTdScdma) {
                         mButtonEnabledNetworks.setEntryValues(
                                 R.array.enabled_networks_tdscdma_values);
                     } else {
