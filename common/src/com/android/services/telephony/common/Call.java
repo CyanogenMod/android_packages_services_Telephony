@@ -266,6 +266,9 @@ public final class Call implements Parcelable {
     // Whether the call is held remotely
     private boolean mHeldRemotely;
 
+    // Whether the dialing state is waiting for the busy remote side
+    private boolean mDialingIsWaiting;
+
     // Supplementary Service notification for GSM calls
     private SsNotification mSsNotification;
 
@@ -291,6 +294,7 @@ public final class Call implements Parcelable {
         mGatewayPackage = call.mGatewayPackage;
         mForwarded = call.mForwarded;
         mHeldRemotely = call.mHeldRemotely;
+        mDialingIsWaiting = call.mDialingIsWaiting;
         mCallDetails = new CallDetails();
         mCallModifyDetails = new CallDetails();
         copyDetails(call.mCallDetails, mCallDetails);
@@ -415,6 +419,10 @@ public final class Call implements Parcelable {
         return mHeldRemotely;
     }
 
+    public boolean isDialingWaiting() {
+        return mDialingIsWaiting;
+    }
+
     public void removeChildId(int id) {
         mChildCallIds.remove(id);
     }
@@ -459,6 +467,10 @@ public final class Call implements Parcelable {
         mHeldRemotely = heldRemotely;
     }
 
+    public void setDialingIsWaiting(boolean dialingIsWaiting) {
+        mDialingIsWaiting = dialingIsWaiting;
+    }
+
     public SsNotification getSuppServNotification() {
         return mSsNotification;
     }
@@ -492,6 +504,7 @@ public final class Call implements Parcelable {
         dest.writeParcelable(mIdentification, 0);
         dest.writeInt(mForwarded ? 1 : 0);
         dest.writeInt(mHeldRemotely ? 1 : 0);
+        dest.writeInt(mDialingIsWaiting ? 1 : 0);
         int hasSuppServNotification = 0;
         if (mSsNotification != null) hasSuppServNotification = 1;
         dest.writeInt(hasSuppServNotification);
@@ -522,6 +535,7 @@ public final class Call implements Parcelable {
         mIdentification = in.readParcelable(CallIdentification.class.getClassLoader());
         mForwarded = in.readInt() != 0;
         mHeldRemotely = in.readInt() != 0;
+        mDialingIsWaiting = in.readInt() != 0;
         int hasSuppServNotification = in.readInt();
         if (hasSuppServNotification == 1) {
             mSsNotification = new SsNotification();
@@ -572,6 +586,7 @@ public final class Call implements Parcelable {
                 .add("mIdentification", mIdentification)
                 .add("mForwarded", mForwarded)
                 .add("mHeldRemotely", mHeldRemotely)
+                .add("mDialingIsWaiting", mDialingIsWaiting)
                 .add("mSsNotification", mSsNotification)
                 .add("mCallDetails", mCallDetails)
                 .add("mCallModifyDetails", mCallModifyDetails)
