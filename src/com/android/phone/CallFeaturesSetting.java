@@ -186,6 +186,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             "phone_account_settings_preference_screen";
 
     private static final String BUTTON_SELECT_SUB_KEY  = "button_call_independent_serv";
+    private static final String BUTTON_XDIVERT_KEY = "button_xdivert";
     private Intent mContactListIntent;
 
     /** Event for Async voicemail change call */
@@ -1676,6 +1677,15 @@ public class CallFeaturesSetting extends PreferenceActivity
             intent.putExtra(SelectSubscription.PACKAGE, "com.android.phone");
             intent.putExtra(SelectSubscription.TARGET_CLASS,
                     "com.android.phone.MSimCallFeaturesSubSetting");
+        }
+
+        if (isMsim && TelephonyManager.getDefault().getMultiSimConfiguration() !=
+                TelephonyManager.MultiSimVariants.DSDS) {
+            PreferenceScreen mXDivertPref = (PreferenceScreen) findPreference(BUTTON_XDIVERT_KEY);
+            if (mXDivertPref != null) {
+                log("Remove xdivert preference");
+                prefSet.removePreference(mXDivertPref);
+            }
         }
 
         if (mButtonDTMF != null) {
