@@ -32,22 +32,4 @@
             android:targetClass="com.android.phone.SelectSubscription" />
     </PreferenceScreen>
 
-    <PreferenceScreen
-        android:key="cdma_lte_data_service_key"
-        android:title="@string/cdma_lte_data_service">
-    </PreferenceScreen>
-
-    <CheckBoxPreference
-        android:key="button_data_enabled_key"
-        android:title="@string/data_enabled"
-        android:persistent="false"
-        android:summary="@string/data_enable_summary"/>
-
-    <CheckBoxPreference
-        android:key="button_roaming_key"
-        android:title="@string/roaming"
-        android:persistent="false"
-        android:summaryOn="@string/roaming_enable"
-        android:summaryOff="@string/roaming_disable"/>
-
 </PreferenceScreen>

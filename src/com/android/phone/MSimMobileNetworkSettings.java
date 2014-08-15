@@ -64,44 +64,22 @@ public class MSimMobileNetworkSettings extends PreferenceActivity
 
     //String keys for preference lookup
     private static final String BUTTON_MANAGE_SUB_KEY = "button_settings_manage_sub";
-    private static final String BUTTON_DATA_ENABLED_KEY = "button_data_enabled_key";
-    private static final String BUTTON_ROAMING_KEY = "button_roaming_key";
-    private static final String BUTTON_CDMA_LTE_DATA_SERVICE_KEY = "cdma_lte_data_service_key";
 
     //Information about logical "up" Activity
     private static final String UP_ACTIVITY_PACKAGE = "com.android.settings";
     private static final String UP_ACTIVITY_CLASS =
             "com.android.settings.Settings$WirelessSettingsActivity";
 
-    //UI objects
-    private CheckBoxPreference mButtonDataRoam;
-    private CheckBoxPreference mButtonDataEnabled;
-    private Preference mLteDataServicePref;
-
-    private static final String iface = "rmnet0"; //TODO: this will go away
-
     private Phone mPhone;
-    private boolean mOkClicked;
 
-    private Preference mClickedPreference;
-
-    //This is a method implemented for DialogInterface.OnClickListener.
-    //  Used to dismiss the dialogs when they come up.
+    // This is a method implemented for DialogInterface.OnClickListener.
+    // Used to dismiss the dialogs when they come up.
+    @Override
     public void onClick(DialogInterface dialog, int which) {
-        if (which == DialogInterface.BUTTON_POSITIVE) {
-            mPhone.setDataRoamingEnabled(true);
-            mOkClicked = true;
-        } else {
-            // Reset the toggle
-            mButtonDataRoam.setChecked(false);
-        }
     }
 
+    @Override
     public void onDismiss(DialogInterface dialog) {
-        // Assuming that onClick gets called first
-        if (!mOkClicked) {
-            mButtonDataRoam.setChecked(false);
-        }
     }
 
     /**
@@ -111,58 +89,12 @@ public class MSimMobileNetworkSettings extends PreferenceActivity
      */
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mButtonDataRoam) {
-            if (DBG) log("onPreferenceTreeClick: preference = mButtonDataRoam");
-
-            //normally called on the toggle click
-            if (mButtonDataRoam.isChecked()) {
-                // First confirm with a warning dialog about charges
-                mOkClicked = false;
-                new AlertDialog.Builder(this).setMessage(
-                        getResources().getString(R.string.roaming_warning))
-                        .setTitle(android.R.string.dialog_alert_title)
-                        .setIconAttribute(android.R.attr.alertDialogIcon)
-                        .setPositiveButton(android.R.string.yes, this)
-                        .setNegativeButton(android.R.string.no, this)
-                        .show()
-                        .setOnDismissListener(this);
-            } else {
-                mPhone.setDataRoamingEnabled(false);
-            }
-            return true;
-        } else if (preference == mButtonDataEnabled) {
-            if (DBG) log("onPreferenceTreeClick: preference == mButtonDataEnabled.");
-            ConnectivityManager cm =
-                    (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-
-            cm.setMobileDataEnabled(mButtonDataEnabled.isChecked());
-            return true;
-        } else if (preference == mLteDataServicePref) {
-            String tmpl = android.provider.Settings.Global.getString(getContentResolver(),
-                        android.provider.Settings.Global.SETUP_PREPAID_DATA_SERVICE_URL);
-            if (!TextUtils.isEmpty(tmpl)) {
-                TelephonyManager tm = (TelephonyManager) getSystemService(
-                        Context.TELEPHONY_SERVICE);
-                String imsi = tm.getSubscriberId();
-                if (imsi == null) {
-                    imsi = "";
-                }
-                final String url = TextUtils.isEmpty(tmpl) ? null
-                        : TextUtils.expandTemplate(tmpl, imsi).toString();
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
-            } else {
-                android.util.Log.e(LOG_TAG, "Missing SETUP_PREPAID_DATA_SERVICE_URL");
-            }
-            return true;
-        } else {
-            // if the button is anything but the simple toggle preference,
-            // we'll need to disable all preferences to reject all click
-            // events until the sub-activity's UI comes up.
-            preferenceScreen.setEnabled(false);
-            // Let the intents be launched by the Preference manager
-            return false;
-        }
+        // if the button is anything but the simple toggle preference,
+        // we'll need to disable all preferences to reject all click
+        // events until the sub-activity's UI comes up.
+        preferenceScreen.setEnabled(false);
+        // Let the intents be launched by the Preference manager
+        return false;
     }
 
     @Override
@@ -180,12 +112,6 @@ public class MSimMobileNetworkSettings extends PreferenceActivity
         //get UI object references
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mButtonDataEnabled = (CheckBoxPreference) prefSet.findPreference(BUTTON_DATA_ENABLED_KEY);
-        mButtonDataRoam = (CheckBoxPreference) prefSet.findPreference(BUTTON_ROAMING_KEY);
-        mLteDataServicePref = prefSet.findPreference(BUTTON_CDMA_LTE_DATA_SERVICE_KEY);
-
-        boolean isLteOnCdma = mPhone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE;
-
         PreferenceScreen manageSub = (PreferenceScreen) prefSet.findPreference(
                 BUTTON_MANAGE_SUB_KEY);
         if (manageSub != null) {
@@ -193,15 +119,6 @@ public class MSimMobileNetworkSettings extends PreferenceActivity
             intent.putExtra(SelectSubscription.PACKAGE, "com.android.phone");
             intent.putExtra(SelectSubscription.TARGET_CLASS,
                     "com.android.phone.MSimMobileNetworkSubSettings");
-        }
-
-        final boolean missingDataServiceUrl = TextUtils.isEmpty(
-                android.provider.Settings.Global.getString(getContentResolver(),
-                        android.provider.Settings.Global.SETUP_PREPAID_DATA_SERVICE_URL));
-        if (!isLteOnCdma || missingDataServiceUrl) {
-            prefSet.removePreference(mLteDataServicePref);
-        } else {
-            android.util.Log.d(LOG_TAG, "keep ltePref");
         }
 
         ActionBar actionBar = getActionBar();
@@ -218,25 +135,6 @@ public class MSimMobileNetworkSettings extends PreferenceActivity
         // upon resumption from the sub-activity, make sure we re-enable the
         // preferences.
         getPreferenceScreen().setEnabled(true);
-
-        ConnectivityManager cm =
-                (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        mButtonDataEnabled.setChecked(cm.getMobileDataEnabled());
-
-        // Set UI state in onResume because a user could go home, launch some
-        // app to change this setting's backend, and re-launch this settings app
-        // and the UI state would be inconsistent with actual state
-        mButtonDataRoam.setChecked(mPhone.getDataRoamingEnabled());
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    private static void log(String msg) {
-        Log.d(LOG_TAG, msg);
     }
 
     @Override
