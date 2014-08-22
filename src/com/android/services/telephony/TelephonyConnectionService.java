@@ -27,6 +27,7 @@ import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.ServiceState;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
@@ -376,7 +377,7 @@ public class TelephonyConnectionService extends ConnectionService {
 
     private Phone getPhoneForAccount(PhoneAccountHandle accountHandle, boolean isEmergency) {
         if (isEmergency) {
-            return PhoneFactory.getDefaultPhone();
+            return PhoneFactory.getPhone(getPhoneIdForECall());
         }
 
         if (Objects.equals(mExpectedComponentName, accountHandle.getComponentName())) {
@@ -413,5 +414,54 @@ public class TelephonyConnectionService extends ConnectionService {
         }
 
         return true;
+    }
+
+    /**
+      * Pick the best possible phoneId for emergency call
+      * Following are the conditions applicable when deciding the sub/phone for dial
+      * 1. Place E911 call on a sub(i.e Phone) whichever is IN_SERVICE/Limited
+      *    Service(phoneId should be corresponds to user preferred voice sub)
+      * 2. If both subs are activated and out of service(i.e. other than limited/in service)
+      *    place call on voice pref sub.
+      * 3. If both subs are not activated(i.e NO SIM/PIN/PUK lock state) then choose
+      *    the first sub by default for placing E911 call.
+      */
+    public int getPhoneIdForECall() {
+        SubscriptionController scontrol = SubscriptionController.getInstance();
+        int voicePhoneId = scontrol.getPhoneId(scontrol.getDefaultVoiceSubId());
+
+        //Emergency Call should always go on 1st sub .i.e.0
+        //when both the subscriptions are out of service
+        int phoneId = -1;
+        TelephonyManager tm = TelephonyManager.from(this);
+        int phoneCount = tm.getPhoneCount();
+
+        for (int phId = 0; phId < phoneCount; phId++) {
+            Phone phone = PhoneFactory.getPhone(phId);
+            int ss = phone.getServiceState().getState();
+            if ((ss == ServiceState.STATE_IN_SERVICE)
+                    || (phone.getServiceState().isEmergencyOnly())) {
+                phoneId = phId;
+                if (phoneId == voicePhoneId) break;
+            }
+        }
+        Log.v(this, "Voice phoneId in service = "+ phoneId);
+
+        if (phoneId == -1) {
+            for (int phId = 0; phId < phoneCount; phId++) {
+                long[] subId = scontrol.getSubId(phId);
+                if ((tm.getSimState(phId) == TelephonyManager.SIM_STATE_READY) &&
+                        (scontrol.getSubState(subId[0]) == SubscriptionManager.ACTIVE)) {
+                    phoneId = phId;
+                    if (phoneId == voicePhoneId) break;
+                }
+            }
+            if (phoneId == -1)
+                phoneId = 0;
+        }
+        Log.d(this, "Voice phoneId in service = "+ phoneId +
+                " preferred phoneId =" + voicePhoneId);
+
+        return phoneId;
     }
 }
