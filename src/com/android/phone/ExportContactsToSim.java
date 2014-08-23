@@ -39,6 +39,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.ContactsContract;
+import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 import android.view.Window;
@@ -60,8 +62,14 @@ public class ExportContactsToSim extends Activity {
     private int mResult = SUCCESS;
     protected boolean mIsForeground = false;
     private boolean mSimContactsLoaded = false;
+    private static final String SIM_INDEX = "sim_index";
 
     private static final int CONTACTS_EXPORTED = 1;
+    private static final String[] COLUMN_NAMES = new String[] {
+            "name",
+            "number",
+            "emails"
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -197,6 +205,22 @@ public class ExportContactsToSim extends Activity {
     };
 
     private Uri getUri() {
-        return Uri.parse("content://icc/adn");
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        int slotId  = extras.getInt(SIM_INDEX);
+        Log.d("ExportContactsToSim"," on slot: " + slotId);
+
+        if (slotId < TelephonyManager.getDefault().getPhoneCount() && slotId >= 0) {
+            long[] subId = SubscriptionManager.getSubId(slotId);
+            if (subId != null) {
+                return Uri.parse("content://icc/adn/subId/" + subId[0]);
+            } else {
+                Log.e(TAG, "Invalid subId for slot:" + slotId);
+                return null;
+            }
+        } else {
+            Log.e(TAG, "Invalid slot:" + slotId);
+            return null;
+        }
     }
 }
