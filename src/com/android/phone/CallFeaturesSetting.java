@@ -20,6 +20,14 @@
 
 package com.android.phone;
 
+import com.android.internal.telephony.CallForwardInfo;
+import com.android.internal.telephony.CommandsInterface;
+import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneConstants;
+import com.android.internal.telephony.cdma.TtyIntent;
+import com.android.internal.telephony.util.BlacklistUtils;
+import com.android.phone.sip.SipSharedPreferences;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -57,12 +65,8 @@ import android.preference.PreferenceScreen;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 import android.telephony.PhoneNumberUtils;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.TypefaceSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -70,14 +74,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ListAdapter;
-
-import com.android.internal.telephony.CallForwardInfo;
-import com.android.internal.telephony.CommandsInterface;
-import com.android.internal.telephony.Phone;
-import com.android.internal.telephony.PhoneConstants;
-import com.android.internal.telephony.cdma.TtyIntent;
-import com.android.internal.telephony.util.BlacklistUtils;
-import com.android.phone.sip.SipSharedPreferences;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -177,27 +173,17 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_MWI_NOTIFICATION_KEY = "button_mwi_notification_key";
     private static final String BUTTON_VOICEMAIL_PROVIDER_KEY = "button_voicemail_provider_key";
     private static final String BUTTON_VOICEMAIL_SETTING_KEY = "button_voicemail_setting_key";
+    private static final String BUTTON_HAC_KEY         = "button_hac_key";
+    private static final String BUTTON_NOISE_SUPPRESSION_KEY = "button_noise_suppression_key";
     private static final String BUTTON_T9_SEARCH_INPUT_LOCALE = "button_t9_search_input";
-    // New preference key for voicemail notification vibration
-    /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY =
-            "button_voicemail_notification_vibrate_key";
-    // Old preference key for voicemail notification vibration. Used for migration to the new
-    // preference key only.
-    /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY =
-            "button_voicemail_notification_vibrate_when_key";
-    /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY =
-            "button_voicemail_notification_ringtone_key";
-    private static final String BUTTON_FDN_KEY   = "button_fdn_key";
     private static final String BUTTON_RESPOND_VIA_SMS_KEY   = "button_respond_via_sms_key";
+    private static final String BUTTON_SPEED_DIAL_KEY   = "speed_dial_settings";
 
     private static final String BUTTON_RINGTONE_KEY    = "button_ringtone_key";
     private static final String BUTTON_VIBRATE_ON_RING = "button_vibrate_on_ring";
     private static final String BUTTON_PLAY_DTMF_TONE  = "button_play_dtmf_tone";
     private static final String BUTTON_DTMF_KEY        = "button_dtmf_settings";
     private static final String BUTTON_RETRY_KEY       = "button_auto_retry_key";
-    private static final String BUTTON_TTY_KEY         = "button_tty_mode_key";
-    private static final String BUTTON_HAC_KEY         = "button_hac_key";
-    private static final String BUTTON_NOISE_SUPPRESSION_KEY = "button_noise_suppression_key";
 
     private static final String BUTTON_INCOMING_CALL_STYLE = "button_incoming_call_style";
 
@@ -207,8 +193,20 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_IPPREFIX_KEY = "button_ipprefix_key";
     private static final String BUTTON_EMERGENCY_CALL_KEY = "emergency_call_list";
 
-    private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
-    private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
+    protected static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
+    protected static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
+    protected static final String BUTTON_FDN_KEY   = "button_fdn_key";
+    protected static final String BUTTON_TTY_KEY       = "button_tty_mode_key";
+
+    // New preference key for voicemail notification vibration
+    /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY =
+            "button_voicemail_notification_vibrate_key";
+    // Old preference key for voicemail notification vibration. Used for migration to the new
+    // preference key only.
+    /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY =
+            "button_voicemail_notification_vibrate_when_key";
+    /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY =
+            "button_voicemail_notification_ringtone_key";
 
     private static final String VM_NUMBERS_SHARED_PREFERENCES_NAME = "vm_numbers";
 
@@ -264,7 +262,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     };
 
     // keys of preferences which should be disabled in airplane mode
-    private static final List<String> DISABLE_IN_AIRPLANE_MODE_PREFS = Arrays.asList(new String[] {
+    private static final List<String> DISABLE_IN_AIRPLANE_MODE_PREFS = Arrays.asList(
         BUTTON_VOICEMAIL_PROVIDER_KEY, BUTTON_VOICEMAIL_SETTING_KEY,
         BUTTON_GSM_UMTS_OPTIONS, BUTTON_CDMA_OPTIONS,
         BUTTON_TTY_KEY, BUTTON_FDN_KEY,
@@ -272,12 +270,12 @@ public class CallFeaturesSetting extends PreferenceActivity
         "button_cf_expand_key", "button_more_expand_key",
         // CDMA specific options
         "button_voice_privacy_key"
-    });
+    );
 
-    private Phone mPhone;
-
-    private AudioManager mAudioManager;
-    private SipManager mSipManager;
+    protected Phone mPhone;
+    protected AudioManager mAudioManager;
+    protected SipManager mSipManager;
+    protected int mSubscription = -1;
 
     private static final int VM_NOCHANGE_ERROR = 400;
     private static final int VM_RESPONSE_ERROR = 500;
@@ -326,9 +324,9 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
     };
 
-    private Preference mRingtonePreference;
+    private DefaultRingtonePreference mRingtonePreference;
     private PreferenceScreen mEmergencyCall;
-    private CheckBoxPreference mVibrateWhenRinging;
+    protected CheckBoxPreference mVibrateWhenRinging;
     private ListPreference mIncomingCallStyle;
     /** Whether dialpad plays DTMF tone or not. */
     private CheckBoxPreference mPlayDtmfTone;
@@ -356,6 +354,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private CheckBoxPreference mButtonProximity;
     private CheckBoxPreference mShowDurationCheckBox;
     private CheckBoxPreference mVibrateAfterConnected;
+    private Preference mSpeedDial;
 
     private boolean isSpeedDialListStarted = false;
 
@@ -569,7 +568,6 @@ public class CallFeaturesSetting extends PreferenceActivity
 
             new AlertDialog.Builder(this)
                     .setTitle(R.string.ipcall_dialog_title)
-                    .setIcon(android.R.drawable.ic_dialog_info)
                     .setView(v)
                     .setPositiveButton(android.R.string.ok,
                             new DialogInterface.OnClickListener() {
@@ -588,8 +586,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                             })
                     .setNegativeButton(android.R.string.cancel, null)
                     .show();
-            return true;
-        } else if (preference == mSubMenuVoicemailSettings) {
             return true;
         } else if (preference == mPlayDtmfTone) {
             Settings.System.putInt(getContentResolver(), Settings.System.DTMF_TONE_WHEN_DIALING,
@@ -643,22 +639,20 @@ public class CallFeaturesSetting extends PreferenceActivity
                 });
             }
             return true;
+        } else if (preference == mSubMenuVoicemailSettings) {
+            return true;
         } else if (preference == mVoicemailSettings) {
-            if (DBG) log("onPreferenceTreeClick: Voicemail Settings Preference is clicked.");
+            log("onPreferenceTreeClick: Voicemail Settings Preference is clicked.");
             if (preference.getIntent() != null) {
-                if (DBG) {
-                    log("onPreferenceTreeClick: Invoking cfg intent "
-                            + preference.getIntent().getPackage());
-                }
+                log("onPreferenceTreeClick: Invoking cfg intent "
+                        + preference.getIntent().getPackage());
 
                 // onActivityResult() will be responsible for resetting some of variables.
                 this.startActivityForResult(preference.getIntent(), VOICEMAIL_PROVIDER_CFG_ID);
                 return true;
             } else {
-                if (DBG) {
-                    log("onPreferenceTreeClick:"
-                            + " No Intent is available. Use default behavior defined in xml.");
-                }
+                log("onPreferenceTreeClick:"
+                        + " No Intent is available. Use default behavior defined in xml.");
 
                 // There's no onActivityResult(), so we need to take care of some of variables
                 // which should be reset here.
@@ -682,10 +676,8 @@ public class CallFeaturesSetting extends PreferenceActivity
      */
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (DBG) {
-            log("onPreferenceChange(). preferenece: \"" + preference + "\""
-                    + ", value: \"" + objValue + "\"");
-        }
+        log("onPreferenceChange(). preferenece: \"" + preference + "\""
+                + ", value: \"" + objValue + "\"");
         if (preference == mVibrateWhenRinging) {
             boolean doVibrate = (Boolean) objValue;
             Settings.System.putInt(mPhone.getContext().getContentResolver(),
@@ -718,13 +710,11 @@ public class CallFeaturesSetting extends PreferenceActivity
                     Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, doVibrate ? 1 : 0);
         } else if (preference == mVoicemailProviders) {
             final String newProviderKey = (String) objValue;
-            if (DBG) {
-                log("Voicemail Provider changes from \"" + mPreviousVMProviderKey
+            log("Voicemail Provider changes from \"" + mPreviousVMProviderKey
                     + "\" to \"" + newProviderKey + "\".");
-            }
             // If previous provider key and the new one is same, we don't need to handle it.
             if (mPreviousVMProviderKey.equals(newProviderKey)) {
-                if (DBG) log("No change is made toward VM provider setting.");
+                log("No change is made toward VM provider setting.");
                 return true;
             }
             updateVMPreferenceWidgets(newProviderKey);
@@ -744,7 +734,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                 mVMProviderSettingsForced = true;
                 simulatePreferenceClick(mVoicemailSettings);
             } else {
-                if (DBG) log("Saved preferences found - switching to them");
+                log("Saved preferences found - switching to them");
                 // Set this flag so if we get a failure we revert to previous provider
                 mChangingVMorFwdDueToProviderChange = true;
                 saveVoiceMailAndForwardingNumber(newProviderKey, newProviderSettings);
@@ -768,7 +758,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     @Override
     public void onDialogClosed(EditPhoneNumberPreference preference, int buttonClicked) {
-        if (DBG) log("onPreferenceClick: request preference click on dialog close: " +
+        log("onPreferenceClick: request preference click on dialog close: " +
                 buttonClicked);
         if (buttonClicked == DialogInterface.BUTTON_NEGATIVE) {
             return;
@@ -789,7 +779,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         if (preference == mSubMenuVoicemailSettings) {
             // update the voicemail number field, which takes care of the
             // mSubMenuVoicemailSettings itself, so we should return null.
-            if (DBG) log("updating default for voicemail dialog");
+            log("updating default for voicemail dialog");
             updateVoiceNumberField();
             return null;
         }
@@ -816,20 +806,18 @@ public class CallFeaturesSetting extends PreferenceActivity
             return;
         }
 
-        if (DBG) log("startSubActivity: starting requested subactivity");
+        log("startSubActivity: starting requested subactivity");
         super.startActivityForResult(intent, requestCode);
     }
 
     private void switchToPreviousVoicemailProvider() {
-        if (DBG) log("switchToPreviousVoicemailProvider " + mPreviousVMProviderKey);
+        log("switchToPreviousVoicemailProvider " + mPreviousVMProviderKey);
         if (mPreviousVMProviderKey != null) {
             if (mVMChangeCompletedSuccessfully || mFwdChangesRequireRollback) {
                 // we have to revert with carrier
-                if (DBG) {
-                    log("Needs to rollback."
-                            + " mVMChangeCompletedSuccessfully=" + mVMChangeCompletedSuccessfully
-                            + ", mFwdChangesRequireRollback=" + mFwdChangesRequireRollback);
-                }
+                log("Needs to rollback."
+                        + " mVMChangeCompletedSuccessfully=" + mVMChangeCompletedSuccessfully
+                        + ", mFwdChangesRequireRollback=" + mFwdChangesRequireRollback);
 
                 showDialogIfForeground(VOICEMAIL_REVERTING_DIALOG);
                 final VoiceMailProviderSettings prevSettings =
@@ -841,12 +829,12 @@ public class CallFeaturesSetting extends PreferenceActivity
                     if (DBG) {
                         Log.e(LOG_TAG,
                                 "mVMChangeCompletedSuccessfully: " + mVMChangeCompletedSuccessfully
-                                + ", mFwdChangesRequireRollback: " + mFwdChangesRequireRollback);
+                                        + ", mFwdChangesRequireRollback: " + mFwdChangesRequireRollback);
                     }
                 }
                 if (mVMChangeCompletedSuccessfully) {
                     mNewVMNumber = prevSettings.voicemailNumber;
-                    Log.i(LOG_TAG, "VM change is already completed successfully."
+                    log("VM change is already completed successfully."
                             + "Have to revert VM back to " + mNewVMNumber + " again.");
                     mPhone.setVoiceMailNumber(
                             mPhone.getVoiceMailAlphaTag().toString(),
@@ -854,16 +842,16 @@ public class CallFeaturesSetting extends PreferenceActivity
                             Message.obtain(mRevertOptionComplete, EVENT_VOICEMAIL_CHANGED));
                 }
                 if (mFwdChangesRequireRollback) {
-                    Log.i(LOG_TAG, "Requested to rollback Fwd changes.");
+                    log("Requested to rollback Fwd changes.");
                     final CallForwardInfo[] prevFwdSettings =
-                        prevSettings.forwardingSettings;
+                            prevSettings.forwardingSettings;
                     if (prevFwdSettings != null) {
                         Map<Integer, AsyncResult> results =
-                            mForwardingChangeResults;
+                                mForwardingChangeResults;
                         resetForwardingChangeState();
                         for (int i = 0; i < prevFwdSettings.length; i++) {
                             CallForwardInfo fi = prevFwdSettings[i];
-                            if (DBG) log("Reverting fwd #: " + i + ": " + fi.toString());
+                            log("Reverting fwd #: " + i + ": " + fi.toString());
                             // Only revert the settings for which the update
                             // succeeded
                             AsyncResult result = results.get(fi.reason);
@@ -883,14 +871,14 @@ public class CallFeaturesSetting extends PreferenceActivity
                     }
                 }
             } else {
-                if (DBG) log("No need to revert");
+                log("No need to revert");
                 onRevertDone();
             }
         }
     }
 
     private void onRevertDone() {
-        if (DBG) log("Flipping provider key back to " + mPreviousVMProviderKey);
+        log("Flipping provider key back to " + mPreviousVMProviderKey);
         mVoicemailProviders.setValue(mPreviousVMProviderKey);
         updateVMPreferenceWidgets(mPreviousVMProviderKey);
         updateVoiceNumberField();
@@ -902,38 +890,36 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (DBG) {
-            log("onActivityResult: requestCode: " + requestCode
-                    + ", resultCode: " + resultCode
-                    + ", data: " + data);
-        }
+        log("onActivityResult: requestCode: " + requestCode
+                + ", resultCode: " + resultCode
+                + ", data: " + data);
         // there are cases where the contact picker may end up sending us more than one
         // request.  We want to ignore the request if we're not in the correct state.
         if (requestCode == VOICEMAIL_PROVIDER_CFG_ID) {
             boolean failure = false;
 
             // No matter how the processing of result goes lets clear the flag
-            if (DBG) log("mVMProviderSettingsForced: " + mVMProviderSettingsForced);
+            log("mVMProviderSettingsForced: " + mVMProviderSettingsForced);
             final boolean isVMProviderSettingsForced = mVMProviderSettingsForced;
             mVMProviderSettingsForced = false;
 
             String vmNum = null;
             if (resultCode != RESULT_OK) {
-                if (DBG) log("onActivityResult: vm provider cfg result not OK.");
+                log("onActivityResult: vm provider cfg result not OK.");
                 failure = true;
             } else {
                 if (data == null) {
-                    if (DBG) log("onActivityResult: vm provider cfg result has no data");
+                    log("onActivityResult: vm provider cfg result has no data");
                     failure = true;
                 } else {
                     if (data.getBooleanExtra(SIGNOUT_EXTRA, false)) {
-                        if (DBG) log("Provider requested signout");
+                        log("Provider requested signout");
                         if (isVMProviderSettingsForced) {
-                            if (DBG) log("Going back to previous provider on signout");
+                            log("Going back to previous provider on signout");
                             switchToPreviousVoicemailProvider();
                         } else {
                             final String victim = getCurrentVoicemailProviderKey();
-                            if (DBG) log("Relaunching activity and ignoring " + victim);
+                            log("Relaunching activity and ignoring " + victim);
                             Intent i = new Intent(ACTION_ADD_VOICEMAIL);
                             i.putExtra(IGNORE_PROVIDER_EXTRA, victim);
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -943,17 +929,17 @@ public class CallFeaturesSetting extends PreferenceActivity
                     }
                     vmNum = data.getStringExtra(VM_NUMBER_EXTRA);
                     if (vmNum == null || vmNum.length() == 0) {
-                        if (DBG) log("onActivityResult: vm provider cfg result has no vmnum");
+                        log("onActivityResult: vm provider cfg result has no vmnum");
                         failure = true;
                     }
                 }
             }
             if (failure) {
-                if (DBG) log("Failure in return from voicemail provider");
+                log("Failure in return from voicemail provider");
                 if (isVMProviderSettingsForced) {
                     switchToPreviousVoicemailProvider();
                 } else {
-                    if (DBG) log("Not switching back the provider since this is not forced config");
+                    log("Not switching back the provider since this is not forced config");
                 }
                 return;
             }
@@ -964,7 +950,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             // send it to the provider when it's config is invoked so it can use this as default
             final int fwdNumTime = data.getIntExtra(FWD_NUMBER_TIME_EXTRA, 20);
 
-            if (DBG) log("onActivityResult: vm provider cfg result " +
+            log("onActivityResult: vm provider cfg result " +
                     (fwdNum != null ? "has" : " does not have") + " forwarding number");
             saveVoiceMailAndForwardingNumber(getCurrentVoicemailProviderKey(),
                     new VoiceMailProviderSettings(vmNum, fwdNum, fwdNumTime));
@@ -973,16 +959,16 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         if (requestCode == VOICEMAIL_PREF_ID) {
             if (resultCode != RESULT_OK) {
-                if (DBG) log("onActivityResult: contact picker result not OK.");
+                log("onActivityResult: contact picker result not OK.");
                 return;
             }
 
             Cursor cursor = null;
             try {
                 cursor = getContentResolver().query(data.getData(),
-                    NUM_PROJECTION, null, null, null);
+                        NUM_PROJECTION, null, null, null);
                 if ((cursor == null) || (!cursor.moveToFirst())) {
-                    if (DBG) log("onActivityResult: bad contact data, no results found.");
+                    log("onActivityResult: bad contact data, no results found.");
                     return;
                 }
                 mSubMenuVoicemailSettings.onPickActivityResult(cursor.getString(0));
@@ -1053,7 +1039,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private void saveVoiceMailAndForwardingNumber(String key,
             VoiceMailProviderSettings newSettings) {
-        if (DBG) log("saveVoiceMailAndForwardingNumber: " + newSettings.toString());
+        log("saveVoiceMailAndForwardingNumber: " + newSettings.toString());
         mNewVMNumber = newSettings.voicemailNumber;
         // empty vm number == clearing the vm number ?
         if (mNewVMNumber == null) {
@@ -1061,13 +1047,13 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
 
         mNewFwdSettings = newSettings.forwardingSettings;
-        if (DBG) log("newFwdNumber " +
+        log("newFwdNumber " +
                 String.valueOf((mNewFwdSettings != null ? mNewFwdSettings.length : 0))
                 + " settings");
 
         // No fwd settings on CDMA
         if (mPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
-            if (DBG) log("ignoring forwarding setting since this is CDMA phone");
+            log("ignoring forwarding setting since this is CDMA phone");
             mNewFwdSettings = FWD_SETTINGS_DONT_TOUCH;
         }
 
@@ -1084,12 +1070,13 @@ public class CallFeaturesSetting extends PreferenceActivity
         if (!key.equals(mPreviousVMProviderKey)) {
             mReadingSettingsForDefaultProvider =
                     mPreviousVMProviderKey.equals(DEFAULT_VM_PROVIDER_KEY);
-            if (DBG) log("Reading current forwarding settings");
+            log("Reading current forwarding settings");
             mForwardingReadResults = new CallForwardInfo[FORWARDING_SETTINGS_REASONS.length];
             for (int i = 0; i < FORWARDING_SETTINGS_REASONS.length; i++) {
                 mForwardingReadResults[i] = null;
-                mPhone.getCallForwardingOption(FORWARDING_SETTINGS_REASONS[i],
-                        mGetOptionComplete.obtainMessage(EVENT_FORWARDING_GET_COMPLETED, i, 0));
+                final int reason = FORWARDING_SETTINGS_REASONS[i];
+                mPhone.getCallForwardingOption(reason,
+                        mGetOptionComplete.obtainMessage(EVENT_FORWARDING_GET_COMPLETED, reason, 0));
             }
             showDialogIfForeground(VOICEMAIL_FWD_READING_DIALOG);
         } else {
@@ -1110,28 +1097,28 @@ public class CallFeaturesSetting extends PreferenceActivity
     };
 
     private void handleForwardingSettingsReadResult(AsyncResult ar, int idx) {
-        if (DBG) Log.d(LOG_TAG, "handleForwardingSettingsReadResult: " + idx);
+        log("handleForwardingSettingsReadResult: " + idx);
         Throwable error = null;
         if (ar.exception != null) {
-            if (DBG) Log.d(LOG_TAG, "FwdRead: ar.exception=" +
+            log("FwdRead: ar.exception=" +
                     ar.exception.getMessage());
             error = ar.exception;
         }
         if (ar.userObj instanceof Throwable) {
-            if (DBG) Log.d(LOG_TAG, "FwdRead: userObj=" +
+            log("FwdRead: userObj=" +
                     ((Throwable)ar.userObj).getMessage());
             error = (Throwable)ar.userObj;
         }
 
         // We may have already gotten an error and decided to ignore the other results.
         if (mForwardingReadResults == null) {
-            if (DBG) Log.d(LOG_TAG, "ignoring fwd reading result: " + idx);
+            log("ignoring fwd reading result: " + idx);
             return;
         }
 
         // In case of error ignore other results, show an error dialog
         if (error != null) {
-            if (DBG) Log.d(LOG_TAG, "Error discovered for fwd read : " + idx);
+            log("Error discovered for fwd read : " + idx);
             mForwardingReadResults = null;
             dismissDialogSafely(VOICEMAIL_FWD_READING_DIALOG);
             showVMDialog(MSG_FW_GET_EXCEPTION);
@@ -1142,8 +1129,13 @@ public class CallFeaturesSetting extends PreferenceActivity
         final CallForwardInfo cfInfoArray[] = (CallForwardInfo[]) ar.result;
         CallForwardInfo fi = null;
         for (int i = 0 ; i < cfInfoArray.length; i++) {
-            if ((cfInfoArray[i].serviceClass & CommandsInterface.SERVICE_CLASS_VOICE) != 0) {
+            if ((CommandsInterface.SERVICE_CLASS_VOICE & cfInfoArray[i].serviceClass) != 0) {
                 fi = cfInfoArray[i];
+                /*
+                 * XXX: The RIL often returns reason 0 for any request.
+                 * This causes errors when restoring a VM provider.
+                 */
+                fi.reason = idx;
                 break;
             }
         }
@@ -1151,7 +1143,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
             // In case we go nothing it means we need this reason disabled
             // so create a CallForwardInfo for capturing this
-            if (DBG) Log.d(LOG_TAG, "Creating default info for " + idx);
+            log("Creating default info for " + idx);
             fi = new CallForwardInfo();
             fi.status = 0;
             fi.reason = FORWARDING_SETTINGS_REASONS[idx];
@@ -1162,7 +1154,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                 fi.status = 0;
             }
 
-            if (DBG) Log.d(LOG_TAG, "Got  " + fi.toString() + " for " + idx);
+            log( "Got  " + fi.toString() + " for " + idx);
         }
         mForwardingReadResults[idx] = fi;
 
@@ -1175,7 +1167,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         }
         if (done) {
-            if (DBG) Log.d(LOG_TAG, "Done receiving fwd info");
+            log("Done receiving fwd info");
             dismissDialogSafely(VOICEMAIL_FWD_READING_DIALOG);
             if (mReadingSettingsForDefaultProvider) {
                 maybeSaveSettingsForVoicemailProvider(DEFAULT_VM_PROVIDER_KEY,
@@ -1185,7 +1177,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
             saveVoiceMailAndForwardingNumberStage2();
         } else {
-            if (DBG) Log.d(LOG_TAG, "Not done receiving fwd info");
+            log("Not done receiving fwd info");
         }
     }
 
@@ -1231,10 +1223,10 @@ public class CallFeaturesSetting extends PreferenceActivity
                 CallForwardInfo fi = mNewFwdSettings[i];
 
                 final boolean doUpdate = isUpdateRequired(infoForReason(
-                            mForwardingReadResults, fi.reason), fi);
+                        mForwardingReadResults, fi.reason), fi);
 
                 if (doUpdate) {
-                    if (DBG) log("Setting fwd #: " + i + ": " + fi.toString());
+                    log("Setting fwd #: " + i + ": " + fi.toString());
                     mExpectedChangeResultReasons.add(i);
 
                     mPhone.setCallForwardingOption(
@@ -1250,13 +1242,13 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
             showDialogIfForeground(VOICEMAIL_FWD_SAVING_DIALOG);
         } else {
-            if (DBG) log("Not touching fwd #");
+            log("Not touching fwd #");
             setVMNumberWithCarrier();
         }
     }
 
     private void setVMNumberWithCarrier() {
-        if (DBG) log("save voicemail #: " + mNewVMNumber);
+        log("save voicemail #: " + mNewVMNumber);
         mPhone.setVoiceMailNumber(
                 mPhone.getVoiceMailAlphaTag().toString(),
                 mNewVMNumber,
@@ -1275,7 +1267,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                 case EVENT_VOICEMAIL_CHANGED:
                     mVoicemailChangeResult = result;
                     mVMChangeCompletedSuccessfully = checkVMChangeSuccess() == null;
-                    if (DBG) log("VM change complete msg, VM change done = " +
+                    log("VM change complete msg, VM change done = " +
                             String.valueOf(mVMChangeCompletedSuccessfully));
                     done = true;
                     break;
@@ -1285,19 +1277,19 @@ public class CallFeaturesSetting extends PreferenceActivity
                         Log.w(LOG_TAG, "Error in setting fwd# " + msg.arg1 + ": " +
                                 result.exception.getMessage());
                     } else {
-                        if (DBG) log("Success in setting fwd# " + msg.arg1);
+                        log("Success in setting fwd# " + msg.arg1);
                     }
                     final boolean completed = checkForwardingCompleted();
                     if (completed) {
                         if (checkFwdChangeSuccess() == null) {
-                            if (DBG) log("Overall fwd changes completed ok, starting vm change");
+                            log("Overall fwd changes completed ok, starting vm change");
                             setVMNumberWithCarrier();
                         } else {
                             Log.w(LOG_TAG, "Overall fwd changes completed in failure. " +
                                     "Check if we need to try rollback for some settings.");
                             mFwdChangesRequireRollback = false;
                             Iterator<Map.Entry<Integer,AsyncResult>> it =
-                                mForwardingChangeResults.entrySet().iterator();
+                                    mForwardingChangeResults.entrySet().iterator();
                             while (it.hasNext()) {
                                 Map.Entry<Integer,AsyncResult> entry = it.next();
                                 if (entry.getValue().exception == null) {
@@ -1318,7 +1310,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                     // TODO: should never reach this, may want to throw exception
             }
             if (done) {
-                if (DBG) log("All VM provider related changes done");
+                log("All VM provider related changes done");
                 if (mForwardingChangeResults != null) {
                     dismissDialogSafely(VOICEMAIL_FWD_SAVING_DIALOG);
                 }
@@ -1337,26 +1329,26 @@ public class CallFeaturesSetting extends PreferenceActivity
             switch (msg.what) {
                 case EVENT_VOICEMAIL_CHANGED:
                     mVoicemailChangeResult = result;
-                    if (DBG) log("VM revert complete msg");
+                    log("VM revert complete msg");
                     break;
                 case EVENT_FORWARDING_CHANGED:
                     mForwardingChangeResults.put(msg.arg1, result);
                     if (result.exception != null) {
-                        if (DBG) log("Error in reverting fwd# " + msg.arg1 + ": " +
+                        log("Error in reverting fwd# " + msg.arg1 + ": " +
                                 result.exception.getMessage());
                     } else {
-                        if (DBG) log("Success in reverting fwd# " + msg.arg1);
+                        log("Success in reverting fwd# " + msg.arg1);
                     }
-                    if (DBG) log("FWD revert complete msg ");
+                    log("FWD revert complete msg ");
                     break;
                 default:
                     // TODO: should never reach this, may want to throw exception
             }
             final boolean done =
-                (!mVMChangeCompletedSuccessfully || mVoicemailChangeResult != null) &&
-                (!mFwdChangesRequireRollback || checkForwardingCompleted());
+                    (!mVMChangeCompletedSuccessfully || mVoicemailChangeResult != null) &&
+                            (!mFwdChangesRequireRollback || checkForwardingCompleted());
             if (done) {
-                if (DBG) log("All VM reverts done");
+                log("All VM reverts done");
                 dismissDialogSafely(VOICEMAIL_REVERTING_DIALOG);
                 onRevertDone();
             }
@@ -1419,9 +1411,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private void handleSetVMOrFwdMessage() {
-        if (DBG) {
-            log("handleSetVMMessage: set VM request complete");
-        }
+        log("handleSetVMMessage: set VM request complete");
         boolean success = true;
         boolean fwdFailure = false;
         String exceptionMessage = "";
@@ -1439,7 +1429,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         }
         if (success) {
-            if (DBG) log("change VM success!");
+            log("change VM success!");
             handleVMAndFwdSetSuccess(MSG_VM_OK);
         } else {
             if (fwdFailure) {
@@ -1476,10 +1466,8 @@ public class CallFeaturesSetting extends PreferenceActivity
      * This updates a bunch of variables and show "success" dialog.
      */
     private void handleVMAndFwdSetSuccess(int msg) {
-        if (DBG) {
-            log("handleVMAndFwdSetSuccess(). current voicemail provider key: "
-                    + getCurrentVoicemailProviderKey());
-        }
+        log("handleVMAndFwdSetSuccess(). current voicemail provider key: "
+                + getCurrentVoicemailProviderKey());
         mPreviousVMProviderKey = getCurrentVoicemailProviderKey();
         mChangingVMorFwdDueToProviderChange = false;
         showVMDialog(msg);
@@ -1490,9 +1478,7 @@ public class CallFeaturesSetting extends PreferenceActivity
      * Update the voicemail number from what we've recorded on the sim.
      */
     private void updateVoiceNumberField() {
-        if (DBG) {
-            log("updateVoiceNumberField(). mSubMenuVoicemailSettings=" + mSubMenuVoicemailSettings);
-        }
+        log("updateVoiceNumberField(). mSubMenuVoicemailSettings=" + mSubMenuVoicemailSettings);
         if (mSubMenuVoicemailSettings == null) {
             return;
         }
@@ -1620,10 +1606,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         dialog.dismiss();
         switch (which){
             case DialogInterface.BUTTON_NEUTRAL:
-                if (DBG) log("Neutral button");
+                log("Neutral button");
                 break;
             case DialogInterface.BUTTON_NEGATIVE:
-                if (DBG) log("Negative button");
+                log("Negative button");
                 if (mCurrentDialogId == FW_GET_RESPONSE_ERROR) {
                     // We failed to get current forwarding settings and the user
                     // does not wish to continue.
@@ -1631,7 +1617,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                 }
                 break;
             case DialogInterface.BUTTON_POSITIVE:
-                if (DBG) log("Positive button");
+                log("Positive button");
                 if (mCurrentDialogId == FW_GET_RESPONSE_ERROR) {
                     // We failed to get current forwarding settings but the user
                     // wishes to continue changing settings to the new vm provider
@@ -1677,51 +1663,28 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
     }
 
-    /*
-     * Activity class methods
-     */
-
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        if (DBG) log("onCreate(). Intent: " + getIntent());
-        mPhone = PhoneGlobals.getPhone();
-
-        addPreferencesFromResource(R.xml.call_feature_setting);
-
+        log("onCreate(). Intent: " + getIntent());
+        mPhone = getPhone();
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        addPreferencesFromResource(getPreferencesResource());
 
         // get buttons
         PreferenceScreen prefSet = getPreferenceScreen();
-        mVoicemailCategory = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
-        mSubMenuVoicemailSettings =
-                (EditPhoneNumberPreference) findPreference(BUTTON_VOICEMAIL_KEY);
-        if (mSubMenuVoicemailSettings != null) {
-            mSubMenuVoicemailSettings.setParentActivity(this, VOICEMAIL_PREF_ID, this);
-            mSubMenuVoicemailSettings.setDialogOnClosedListener(this);
-            mSubMenuVoicemailSettings.setDialogTitle(R.string.voicemail_settings_number_label);
-        }
 
-        mRingtonePreference = findPreference(BUTTON_RINGTONE_KEY);
-        mVibrateWhenRinging = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_ON_RING);
+        onCreateVoicemailPrefs(icicle);
+        onCreateRingtonePrefs(prefSet);
+
         mPlayDtmfTone = (CheckBoxPreference) findPreference(BUTTON_PLAY_DTMF_TONE);
-        mMwiNotification = (CheckBoxPreference) findPreference(BUTTON_MWI_NOTIFICATION_KEY);
-        if (mMwiNotification != null) {
-            if (getResources().getBoolean(R.bool.sprint_mwi_quirk)) {
-                mMwiNotification.setOnPreferenceChangeListener(this);
-            } else {
-                PreferenceScreen voicemailCategory =
-                        (PreferenceScreen) findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
-                voicemailCategory.removePreference(mMwiNotification);
-                mMwiNotification = null;
-            }
-        }
+
         mButtonDTMF = (ListPreference) findPreference(BUTTON_DTMF_KEY);
         mButtonAutoRetry = (CheckBoxPreference) findPreference(BUTTON_RETRY_KEY);
         mButtonHAC = (CheckBoxPreference) findPreference(BUTTON_HAC_KEY);
         mButtonTTY = (ListPreference) findPreference(BUTTON_TTY_KEY);
         mButtonNoiseSuppression = (CheckBoxPreference) findPreference(BUTTON_NOISE_SUPPRESSION_KEY);
-        mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
+
         mButtonBlacklist = (PreferenceScreen) findPreference(BUTTON_BLACKLIST);
         mT9SearchInputLocale = (ListPreference) findPreference(BUTTON_T9_SEARCH_INPUT_LOCALE);
         mIncomingCallStyle = (ListPreference) findPreference(BUTTON_INCOMING_CALL_STYLE);
@@ -1729,29 +1692,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
         mVibrateAfterConnected = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
         mIPPrefix = (PreferenceScreen) findPreference(BUTTON_IPPREFIX_KEY);
-
-        if (mVoicemailProviders != null) {
-            mVoicemailProviders.setOnPreferenceChangeListener(this);
-            mVoicemailSettings = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
-            mVoicemailNotificationRingtone =
-                    findPreference(BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY);
-            mVoicemailNotificationVibrate =
-                    (CheckBoxPreference) findPreference(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY);
-            initVoiceMailProviders();
-        }
+        mSpeedDial = findPreference(BUTTON_SPEED_DIAL_KEY);
 
         if (mT9SearchInputLocale != null) {
             initT9SearchInputPreferenceList();
-        }
-
-        if (mVibrateWhenRinging != null) {
-            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            if (vibrator != null && vibrator.hasVibrator()) {
-                mVibrateWhenRinging.setOnPreferenceChangeListener(this);
-            } else {
-                prefSet.removePreference(mVibrateWhenRinging);
-                mVibrateWhenRinging = null;
-            }
         }
 
         if (mIPPrefix != null) {
@@ -1767,9 +1711,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         final ContentResolver contentResolver = getContentResolver();
 
         mEmergencyCall = (PreferenceScreen) findPreference(BUTTON_EMERGENCY_CALL_KEY);
-        if (!getResources().getBoolean(R.bool.show_emergency_call_list)) {
-            prefSet.removePreference(mEmergencyCall);
-        }
 
         if (mPlayDtmfTone != null) {
             mPlayDtmfTone.setChecked(Settings.System.getInt(contentResolver,
@@ -1779,9 +1720,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         if (mButtonDTMF != null) {
             if (getResources().getBoolean(R.bool.dtmf_type_enabled)) {
                 mButtonDTMF.setOnPreferenceChangeListener(this);
-            } else {
-                prefSet.removePreference(mButtonDTMF);
-                mButtonDTMF = null;
             }
         }
 
@@ -1800,35 +1738,23 @@ public class CallFeaturesSetting extends PreferenceActivity
         if (mButtonAutoRetry != null) {
             if (getResources().getBoolean(R.bool.auto_retry_enabled)) {
                 mButtonAutoRetry.setOnPreferenceChangeListener(this);
-            } else {
-                prefSet.removePreference(mButtonAutoRetry);
-                mButtonAutoRetry = null;
             }
         }
 
         if (mButtonHAC != null) {
             if (getResources().getBoolean(R.bool.hac_enabled)) {
-
                 mButtonHAC.setOnPreferenceChangeListener(this);
-            } else {
-                prefSet.removePreference(mButtonHAC);
-                mButtonHAC = null;
             }
         }
 
         if (mButtonTTY != null) {
             if (getResources().getBoolean(R.bool.tty_enabled)) {
                 mButtonTTY.setOnPreferenceChangeListener(this);
-            } else {
-                prefSet.removePreference(mButtonTTY);
-                mButtonTTY = null;
             }
         }
 
         if (mButtonNoiseSuppression != null) {
             if (getResources().getBoolean(R.bool.has_in_call_noise_suppression)) {
-                mButtonNoiseSuppression.setOnPreferenceChangeListener(this);
-            } else {
                 prefSet.removePreference(mButtonNoiseSuppression);
                 mButtonNoiseSuppression = null;
             }
@@ -1839,120 +1765,17 @@ public class CallFeaturesSetting extends PreferenceActivity
             mT9SearchInputLocale.setOnPreferenceChangeListener(this);
         }
 
-        if (!getResources().getBoolean(R.bool.world_phone)) {
-            Preference options = prefSet.findPreference(BUTTON_CDMA_OPTIONS);
-            if (options != null)
-                prefSet.removePreference(options);
-            options = prefSet.findPreference(BUTTON_GSM_UMTS_OPTIONS);
-            if (options != null)
-                prefSet.removePreference(options);
+        removeOptionalPrefs(prefSet);
+        addOptionalPrefs(prefSet);
 
-            int phoneType = mPhone.getPhoneType();
-            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
-                Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
-                if (fdnButton != null && getResources().getBoolean(R.bool.config_fdn_disable))
-                    prefSet.removePreference(fdnButton);
-                if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
-                    addPreferencesFromResource(R.xml.cdma_call_privacy);
-                    PhoneGlobals.initCallWaitingPref(this, SUB1);
-                }
-            } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
-                addPreferencesFromResource(R.xml.gsm_umts_call_options);
-            } else {
-                throw new IllegalStateException("Unexpected phone type: " + phoneType);
-            }
-        }
-
-        mEnableForwardLookup = (CheckBoxPreference)
-                findPreference(SWITCH_ENABLE_FORWARD_LOOKUP);
-        mEnablePeopleLookup = (CheckBoxPreference)
-                findPreference(SWITCH_ENABLE_PEOPLE_LOOKUP);
-        mEnableReverseLookup = (CheckBoxPreference)
-                findPreference(SWITCH_ENABLE_REVERSE_LOOKUP);
-
-        mEnableForwardLookup.setOnPreferenceChangeListener(this);
-        mEnablePeopleLookup.setOnPreferenceChangeListener(this);
-        mEnableReverseLookup.setOnPreferenceChangeListener(this);
-
-        restoreLookupProviderSwitches();
-
-        mChooseForwardLookupProvider = (ListPreference)
-                findPreference(BUTTON_CHOOSE_FORWARD_LOOKUP_PROVIDER);
-        mChoosePeopleLookupProvider = (ListPreference)
-                findPreference(BUTTON_CHOOSE_PEOPLE_LOOKUP_PROVIDER);
-        mChooseReverseLookupProvider = (ListPreference)
-                findPreference(BUTTON_CHOOSE_REVERSE_LOOKUP_PROVIDER);
-
-        mChooseForwardLookupProvider.setOnPreferenceChangeListener(this);
-        mChoosePeopleLookupProvider.setOnPreferenceChangeListener(this);
-        mChooseReverseLookupProvider.setOnPreferenceChangeListener(this);
-
-        String[] reverseLookupNames = getResources().getStringArray(
-                R.array.reverse_lookup_provider_names);
-        String[] reverseLookupProviders = getResources().getStringArray(
-                R.array.reverse_lookup_providers);
-        String cyngnProviderPackage = getString(R.string.cyngn_reverse_lookup_provider_package);
-
-        if (PhoneUtils.isPackageInstalled(this, cyngnProviderPackage)) {
-            reverseLookupNames = Arrays.copyOf(reverseLookupNames, reverseLookupNames.length + 1);
-            reverseLookupProviders = Arrays.copyOf(reverseLookupProviders,
-                    reverseLookupProviders.length + 1);
-
-            reverseLookupNames[reverseLookupNames.length - 1] =
-                    getString(R.string.cyngn_reverse_lookup_provider_name);
-            reverseLookupProviders[reverseLookupProviders.length - 1] =
-                    getString(R.string.cyngn_reverse_lookup_provider_value);
-        }
-
-        mChooseReverseLookupProvider.setEntries(reverseLookupNames);
-        mChooseReverseLookupProvider.setEntryValues(reverseLookupProviders);
-
-        restoreLookupProviders();
+        onCreateLookupPrefs();
 
         // create intent to bring up contact list
         mContactListIntent = new Intent(Intent.ACTION_GET_CONTENT);
         mContactListIntent.setType(android.provider.Contacts.Phones.CONTENT_ITEM_TYPE);
 
-        // check the intent that started this activity and pop up the voicemail
-        // dialog if we've been asked to.
-        // If we have at least one non default VM provider registered then bring up
-        // the selection for the VM provider, otherwise bring up a VM number dialog.
-        // We only bring up the dialog the first time we are called (not after orientation change)
-        if (icicle == null) {
-            if (getIntent().getAction().equals(ACTION_ADD_VOICEMAIL) &&
-                    mVoicemailProviders != null) {
-                if (DBG) {
-                    log("ACTION_ADD_VOICEMAIL Intent is thrown. current VM data size: "
-                            + mVMProvidersData.size());
-                }
-                if (mVMProvidersData.size() > 1) {
-                    simulatePreferenceClick(mVoicemailProviders);
-                } else {
-                    onPreferenceChange(mVoicemailProviders, DEFAULT_VM_PROVIDER_KEY);
-                    mVoicemailProviders.setValue(DEFAULT_VM_PROVIDER_KEY);
-                    isSpeedDialListStarted = true;
-                    simulatePreferenceClick(mVoicemailCategory);
-                }
-            }
-        }
-        updateVoiceNumberField();
-        mVMProviderSettingsForced = false;
         createSipCallSettings();
         createImsSettings();
-
-        mRingtoneLookupRunnable = new Runnable() {
-            @Override
-            public void run() {
-                if (mRingtonePreference != null) {
-                    updateRingtoneName(RingtoneManager.TYPE_RINGTONE, mRingtonePreference,
-                            MSG_UPDATE_RINGTONE_SUMMARY);
-                }
-                if (mVoicemailNotificationRingtone != null) {
-                    updateRingtoneName(RingtoneManager.TYPE_NOTIFICATION,
-                            mVoicemailNotificationRingtone, MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY);
-                }
-            }
-        };
 
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
@@ -1963,20 +1786,11 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
     }
 
-    /**
-     * Updates ringtone name. This is a method copied from com.android.settings.SoundSettings
-     *
-     * @see com.android.settings.SoundSettings
-     */
     private void updateRingtoneName(int type, Preference preference, int msg) {
         if (preference == null) return;
         final Uri ringtoneUri;
         boolean defaultRingtone = false;
-        if (type == RingtoneManager.TYPE_RINGTONE) {
-            // For ringtones, we can just lookup the system default because changing the settings
-            // in Call Settings changes the system default.
-            ringtoneUri = RingtoneManager.getActualDefaultRingtoneUri(this, type);
-        } else {
+        if (type == RingtoneManager.TYPE_NOTIFICATION) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
                     mPhone.getContext());
             // for voicemail notifications, we use the value saved in Phone's shared preferences.
@@ -1995,7 +1809,16 @@ public class CallFeaturesSetting extends PreferenceActivity
                     ringtoneUri = Uri.parse(uriString);
                 }
             }
+        } else {
+            // For ringtones, we can just lookup the system default because changing the settings
+            // in Call Settings changes the system default.
+            if (mSubscription == -1) {
+                ringtoneUri = RingtoneManager.getActualDefaultRingtoneUri(this, type);
+            } else {
+                ringtoneUri = RingtoneManager.getActualRingtoneUriBySubId(this, mSubscription);
+            }
         }
+
         CharSequence summary = getString(com.android.internal.R.string.ringtone_unknown);
         // Is it a silent ringtone?
         if (ringtoneUri == null) {
@@ -2022,7 +1845,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mRingtoneLookupComplete.sendMessage(mRingtoneLookupComplete.obtainMessage(msg, summary));
     }
 
-    private void createSipCallSettings() {
+    protected void createSipCallSettings() {
         // Add Internet call settings.
         if (PhoneUtils.isVoipSupported(this)) {
             mSipManager = SipManager.newInstance(this);
@@ -2037,7 +1860,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
     }
 
-    private void createImsSettings() {
+    protected void createImsSettings() {
         addPreferencesFromResource(R.xml.ims_settings_category);
     }
 
@@ -2068,15 +1891,8 @@ public class CallFeaturesSetting extends PreferenceActivity
             disablePreferencesForAirplaneMode(getPreferenceScreen());
         }
 
-        if (mVibrateWhenRinging != null) {
-            mVibrateWhenRinging.setChecked(getVibrateWhenRinging(this));
-        }
-
-        if (mMwiNotification != null) {
-            int mwiNotification = Settings.System.getInt(getContentResolver(),
-                    Settings.System.ENABLE_MWI_NOTIFICATION, 0);
-            mMwiNotification.setChecked(mwiNotification != 0);
-        }
+        onResumeVoicemailPrefs();
+        onResumeRingtonePrefs();
 
         if (mButtonDTMF != null) {
             int dtmf = Settings.System.getInt(getContentResolver(),
@@ -2111,12 +1927,6 @@ public class CallFeaturesSetting extends PreferenceActivity
             updatePreferredTtyModeSummary(settingsTtyMode);
         }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
-                mPhone.getContext());
-        if (migrateVoicemailVibrationSettingsIfNeeded(prefs)) {
-            mVoicemailNotificationVibrate.setChecked(prefs.getBoolean(
-                    BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, false));
-        }
 
         if (mButtonProximity != null) {
             boolean checked = Settings.System.getInt(getContentResolver(),
@@ -2139,11 +1949,10 @@ public class CallFeaturesSetting extends PreferenceActivity
                     Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, 1) == 1;
             mVibrateAfterConnected.setChecked(checked);
         }
-        lookupRingtoneName();
+
         updateBlacklistSummary();
 
-        restoreLookupProviderSwitches();
-        restoreLookupProviders();
+        onResumeLookupPrefs();
     }
 
     private void disablePreferencesForAirplaneMode(PreferenceGroup group) {
@@ -2168,24 +1977,34 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
     }
 
+    public static boolean migrateVoicemailVibrationSettingsIfNeeded(SharedPreferences prefs) {
+        return migrateVoicemailVibrationSettingsIfNeeded(prefs, -1);
+    }
+
     // Migrate settings from BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY to
     // BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, if the latter does not exist.
     // Returns true if migration was performed.
-    public static boolean migrateVoicemailVibrationSettingsIfNeeded(SharedPreferences prefs) {
-        if (!prefs.contains(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY)) {
+    public static boolean migrateVoicemailVibrationSettingsIfNeeded(SharedPreferences prefs,
+            int subscripton) {
+        String vibrateKey =
+                getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, subscripton);
+        String vibrateWhenKey =
+                getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY, subscripton);
+        if (!prefs.contains(vibrateKey)) {
             String vibrateWhen = prefs.getString(
-                    BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY, VOICEMAIL_VIBRATION_NEVER);
+                    vibrateWhenKey, VOICEMAIL_VIBRATION_NEVER);
             // If vibrateWhen is always, then voicemailVibrate should be True.
             // otherwise if vibrateWhen is "only in silent mode", or "never", then
             // voicemailVibrate = False.
             boolean voicemailVibrate = vibrateWhen.equals(VOICEMAIL_VIBRATION_ALWAYS);
             final SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, voicemailVibrate);
+            editor.putBoolean(vibrateKey, voicemailVibrate);
             editor.commit();
             return true;
         }
         return false;
     }
+
 
     /**
      * Obtain the setting for "vibrate when ringing" setting.
@@ -2215,7 +2034,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private void saveT9SearchInputLocale(Preference preference, String newT9Locale) {
-        if (DBG) log("saveT9SearchInputLocale: requesting set t9 locale to " + newT9Locale);
+        log("saveT9SearchInputLocale: requesting set t9 locale to " + newT9Locale);
 
         String lastT9Locale = Settings.System.getString(getContentResolver(),
                 Settings.System.T9_SEARCH_INPUT_LOCALE);
@@ -2232,7 +2051,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         int settingsTtyMode = android.provider.Settings.Secure.getInt(
                 getContentResolver(),
                 android.provider.Settings.Secure.PREFERRED_TTY_MODE, preferredTtyMode);
-        if (DBG) log("handleTTYChange: requesting set TTY mode enable (TTY) to" +
+        log("handleTTYChange: requesting set TTY mode enable (TTY) to" +
                 Integer.toString(buttonTtyMode));
 
         if (buttonTtyMode != settingsTtyMode) {
@@ -2279,10 +2098,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
     }
 
-    private static void log(String msg) {
-        Log.d(LOG_TAG, msg);
-    }
-
     /**
      * Updates the look of the VM preference widgets based on current VM provider settings.
      * Note that the provider name is loaded form the found activity via loadLabel in
@@ -2297,31 +2112,26 @@ public class CallFeaturesSetting extends PreferenceActivity
          In this case we want to show the UI asking the user to select a voicemail provider as
          opposed to silently falling back to default one. */
         if (provider == null) {
-            if (DBG) {
-                log("updateVMPreferenceWidget: provider for the key \"" + key + "\" is null.");
-            }
+            log("updateVMPreferenceWidget: provider for the key \"" + key + "\" is null.");
             mVoicemailProviders.setSummary(getString(R.string.sum_voicemail_choose_provider));
             mVoicemailSettings.setEnabled(false);
             mVoicemailSettings.setIntent(null);
 
             mVoicemailNotificationVibrate.setEnabled(false);
         } else {
-            if (DBG) {
-                log("updateVMPreferenceWidget: provider for the key \"" + key + "\".."
-                        + "name: " + provider.name
-                        + ", intent: " + provider.intent);
-            }
+            log("updateVMPreferenceWidget: provider for the key \"" + key + "\".."
+                    + "name: " + provider.name
+                    + ", intent: " + provider.intent);
             final String providerName = provider.name;
             mVoicemailProviders.setSummary(providerName);
             mVoicemailSettings.setEnabled(true);
             mVoicemailSettings.setIntent(provider.intent);
-
             mVoicemailNotificationVibrate.setEnabled(true);
         }
     }
 
     private void saveLookupProviderSwitch(Preference pref, Boolean newValue) {
-        if (DBG) log("saveLookupProviderSwitch()");
+        log("saveLookupProviderSwitch()");
 
         String key;
 
@@ -2339,7 +2149,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private void restoreLookupProviderSwitches() {
-        if (DBG) log("restoreLookupProviderSwitches()");
+        log("restoreLookupProviderSwitches()");
 
         mEnableForwardLookup.setChecked(Settings.System.getInt(
                 getContentResolver(),
@@ -2363,7 +2173,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private void restoreLookupProviders() {
-        if (DBG) log("restoreLookupProviders()");
+        log("restoreLookupProviders()");
 
         restoreLookupProvider(mChooseForwardLookupProvider,
                 Settings.System.FORWARD_LOOKUP_PROVIDER);
@@ -2374,7 +2184,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private void saveLookupProviderSetting(Preference pref, String newValue) {
-        if (DBG) log("saveLookupProviderSetting()");
+        log("saveLookupProviderSetting()");
 
         String key;
 
@@ -2399,17 +2209,20 @@ public class CallFeaturesSetting extends PreferenceActivity
      * which should be hidden when we bring up the list of possible VM providers to choose.
      */
     private void initVoiceMailProviders() {
-        if (DBG) log("initVoiceMailProviders()");
+        log("initVoiceMailProviders()");
         mPerProviderSavedVMNumbers =
                 this.getApplicationContext().getSharedPreferences(
-                        VM_NUMBERS_SHARED_PREFERENCES_NAME, MODE_PRIVATE);
+                        mSubscription == -1 ?
+                                VM_NUMBERS_SHARED_PREFERENCES_NAME :
+                                VM_NUMBERS_SHARED_PREFERENCES_NAME + mSubscription,
+                        MODE_PRIVATE);
 
         String providerToIgnore = null;
         if (getIntent().getAction().equals(ACTION_ADD_VOICEMAIL)) {
             if (getIntent().hasExtra(IGNORE_PROVIDER_EXTRA)) {
                 providerToIgnore = getIntent().getStringExtra(IGNORE_PROVIDER_EXTRA);
             }
-            if (DBG) log("Found ACTION_ADD_VOICEMAIL. providerToIgnore=" + providerToIgnore);
+            log("Found ACTION_ADD_VOICEMAIL. providerToIgnore=" + providerToIgnore);
             if (providerToIgnore != null) {
                 // IGNORE_PROVIDER_EXTRA implies we want to remove the choice from the list.
                 deleteSettingsForVoicemailProvider(providerToIgnore);
@@ -2436,20 +2249,18 @@ public class CallFeaturesSetting extends PreferenceActivity
             final ActivityInfo currentActivityInfo = ri.activityInfo;
             final String key = makeKeyForActivity(currentActivityInfo);
             if (key.equals(providerToIgnore)) {
-                if (DBG) log("Ignoring key: " + key);
+                log("Ignoring key: " + key);
                 len--;
                 continue;
             }
-            if (DBG) log("Loading key: " + key);
+            log("Loading key: " + key);
             final String nameForDisplay = ri.loadLabel(pm).toString();
             Intent providerIntent = new Intent();
             providerIntent.setAction(ACTION_CONFIGURE_VOICEMAIL);
             providerIntent.setClassName(currentActivityInfo.packageName,
                     currentActivityInfo.name);
-            if (DBG) {
-                log("Store loaded VoiceMailProvider. key: " + key
-                        + " -> name: " + nameForDisplay + ", intent: " + providerIntent);
-            }
+            log("Store loaded VoiceMailProvider. key: " + key
+                    + " -> name: " + nameForDisplay + ", intent: " + providerIntent);
             mVMProvidersData.put(
                     key,
                     new VoiceMailProvider(nameForDisplay, providerIntent));
@@ -2481,7 +2292,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         // when we fail to update Voicemail Provider, which requires rollback.
         // We will update this when the VM Provider setting is successfully updated.
         mPreviousVMProviderKey = getCurrentVoicemailProviderKey();
-        if (DBG) log("Set up the first mPreviousVMProviderKey: " + mPreviousVMProviderKey);
+        log("Set up the first mPreviousVMProviderKey: " + mPreviousVMProviderKey);
 
         // Finally update the preference texts.
         updateVMPreferenceWidgets(mPreviousVMProviderKey);
@@ -2624,7 +2435,7 @@ public class CallFeaturesSetting extends PreferenceActivity
      * Deletes settings for the specified provider.
      */
     private void deleteSettingsForVoicemailProvider(String key) {
-        if (DBG) log("Deleting settings for" + key);
+        log("Deleting settings for" + key);
         if (mVoicemailProviders == null) {
             return;
         }
@@ -2649,6 +2460,253 @@ public class CallFeaturesSetting extends PreferenceActivity
         return super.onOptionsItemSelected(item);
     }
 
+    protected void onCreateVoicemailPrefs(Bundle savedInstanceState) {
+        mVoicemailCategory = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
+        mSubMenuVoicemailSettings =
+                (EditPhoneNumberPreference) findPreference(BUTTON_VOICEMAIL_KEY);
+        if (mSubMenuVoicemailSettings != null) {
+            mSubMenuVoicemailSettings.setParentActivity(this, VOICEMAIL_PREF_ID, this);
+            mSubMenuVoicemailSettings.setDialogOnClosedListener(this);
+            mSubMenuVoicemailSettings.setDialogTitle(R.string.voicemail_settings_number_label);
+        }
+        mMwiNotification = (CheckBoxPreference) findPreference(BUTTON_MWI_NOTIFICATION_KEY);
+        if (mMwiNotification != null) {
+            if (getResources().getBoolean(R.bool.sprint_mwi_quirk)) {
+                mMwiNotification.setOnPreferenceChangeListener(this);
+            } else {
+                PreferenceGroup voicemailCategory =
+                        (PreferenceGroup) findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
+                voicemailCategory.removePreference(mMwiNotification);
+                mMwiNotification = null;
+            }
+        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                mPhone.getContext());
+        mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
+        if (mVoicemailProviders != null) {
+            setPrefenceKeyForSubscription(mVoicemailProviders);
+            mVoicemailProviders.setValue(prefs.getString(mVoicemailProviders.getKey(),
+                    mVoicemailProviders.getValue()));
+            mVoicemailProviders.setOnPreferenceChangeListener(this);
+            mVoicemailSettings = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
+            mVoicemailNotificationRingtone =
+                    findPreference(BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY);
+            setPrefenceKeyForSubscription(mVoicemailNotificationRingtone);
+            mVoicemailNotificationVibrate =
+                    (CheckBoxPreference) findPreference(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY);
+            setPrefenceKeyForSubscription(mVoicemailNotificationVibrate);
+            initVoiceMailProviders();
+        }
+        // check the intent that started this activity and pop up the voicemail
+        // dialog if we've been asked to.
+        // If we have at least one non default VM provider registered then bring up
+        // the selection for the VM provider, otherwise bring up a VM number dialog.
+        // We only bring up the dialog the first time we are called (not after orientation change)
+        if (savedInstanceState == null) {
+            if (getIntent().getAction().equals(ACTION_ADD_VOICEMAIL) &&
+                    mVoicemailProviders != null) {
+                log("ACTION_ADD_VOICEMAIL Intent is thrown. current VM data size: "
+                        + mVMProvidersData.size());
+                if (mVMProvidersData.size() > 1) {
+                    simulatePreferenceClick(mVoicemailProviders);
+                } else {
+                    onPreferenceChange(mVoicemailProviders, DEFAULT_VM_PROVIDER_KEY);
+                    mVoicemailProviders.setValue(DEFAULT_VM_PROVIDER_KEY);
+                }
+            }
+        }
+        updateVoiceNumberField();
+        mVMProviderSettingsForced = false;
+    }
+
+    protected void onResumeVoicemailPrefs() {
+        if (mMwiNotification != null) {
+            int mwiNotification = Settings.System.getInt(getContentResolver(),
+                    Settings.System.ENABLE_MWI_NOTIFICATION, 0);
+            mMwiNotification.setChecked(mwiNotification != 0);
+        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                mPhone.getContext());
+        migrateVoicemailVibrationSettingsIfNeeded(prefs,mSubscription);
+        mVoicemailNotificationVibrate.setChecked(prefs.getBoolean(
+                getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, mSubscription), false));
+        lookupRingtoneName();
+    }
+
+    protected void onCreateRingtonePrefs(PreferenceScreen preferenceScreen) {
+        mRingtonePreference = (DefaultRingtonePreference)findPreference(BUTTON_RINGTONE_KEY);
+        if (mRingtonePreference != null && mSubscription != -1) {
+            mRingtonePreference.setSubId(mSubscription);
+        }
+        mVibrateWhenRinging = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_ON_RING);
+        if (mVibrateWhenRinging != null) {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator != null && vibrator.hasVibrator()) {
+                mVibrateWhenRinging.setOnPreferenceChangeListener(this);
+            } else {
+                preferenceScreen.removePreference(mVibrateWhenRinging);
+                mVibrateWhenRinging = null;
+            }
+        }
+        mRingtoneLookupRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (mRingtonePreference != null) {
+                    updateRingtoneName(RingtoneManager.TYPE_RINGTONE, mRingtonePreference,
+                            MSG_UPDATE_RINGTONE_SUMMARY);
+                }
+                if (mVoicemailNotificationRingtone != null) {
+                    updateRingtoneName(RingtoneManager.TYPE_NOTIFICATION,
+                            mVoicemailNotificationRingtone, MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY);
+                }
+            }
+        };
+    }
+
+    protected void onResumeRingtonePrefs() {
+        if (mVibrateWhenRinging != null) {
+            mVibrateWhenRinging.setChecked(getVibrateWhenRinging(this));
+        }
+        lookupRingtoneName();
+    }
+
+    protected void onCreateLookupPrefs() {
+        mEnableForwardLookup = (CheckBoxPreference)
+                findPreference(SWITCH_ENABLE_FORWARD_LOOKUP);
+        mEnablePeopleLookup = (CheckBoxPreference)
+                findPreference(SWITCH_ENABLE_PEOPLE_LOOKUP);
+        mEnableReverseLookup = (CheckBoxPreference)
+                findPreference(SWITCH_ENABLE_REVERSE_LOOKUP);
+
+        mEnableForwardLookup.setOnPreferenceChangeListener(this);
+        mEnablePeopleLookup.setOnPreferenceChangeListener(this);
+        mEnableReverseLookup.setOnPreferenceChangeListener(this);
+
+        restoreLookupProviderSwitches();
+
+        mChooseForwardLookupProvider = (ListPreference)
+                findPreference(BUTTON_CHOOSE_FORWARD_LOOKUP_PROVIDER);
+        mChoosePeopleLookupProvider = (ListPreference)
+                findPreference(BUTTON_CHOOSE_PEOPLE_LOOKUP_PROVIDER);
+        mChooseReverseLookupProvider = (ListPreference)
+                findPreference(BUTTON_CHOOSE_REVERSE_LOOKUP_PROVIDER);
+
+        mChooseForwardLookupProvider.setOnPreferenceChangeListener(this);
+        mChoosePeopleLookupProvider.setOnPreferenceChangeListener(this);
+        mChooseReverseLookupProvider.setOnPreferenceChangeListener(this);
+
+        String[] reverseLookupNames = getResources().getStringArray(
+                R.array.reverse_lookup_provider_names);
+        String[] reverseLookupProviders = getResources().getStringArray(
+                R.array.reverse_lookup_providers);
+        String cyngnProviderPackage = getString(R.string.cyngn_reverse_lookup_provider_package);
+
+        if (PhoneUtils.isPackageInstalled(this, cyngnProviderPackage)) {
+            reverseLookupNames = Arrays.copyOf(reverseLookupNames, reverseLookupNames.length + 1);
+            reverseLookupProviders = Arrays.copyOf(reverseLookupProviders,
+                    reverseLookupProviders.length + 1);
+
+            reverseLookupNames[reverseLookupNames.length - 1] =
+                    getString(R.string.cyngn_reverse_lookup_provider_name);
+            reverseLookupProviders[reverseLookupProviders.length - 1] =
+                    getString(R.string.cyngn_reverse_lookup_provider_value);
+        }
+
+        mChooseReverseLookupProvider.setEntries(reverseLookupNames);
+        mChooseReverseLookupProvider.setEntryValues(reverseLookupProviders);
+
+        restoreLookupProviders();
+    }
+
+    protected void onResumeLookupPrefs() {
+        restoreLookupProviderSwitches();
+        restoreLookupProviders();
+    }
+
+    protected int getPreferencesResource() {
+        return R.xml.call_feature_setting;
+    }
+
+    protected Phone getPhone() {
+        return PhoneGlobals.getPhone();
+    }
+
+    protected void removeOptionalPrefs(PreferenceScreen preferenceScreen) {
+        if (!getResources().getBoolean(R.bool.dtmf_type_enabled) && mButtonDTMF != null) {
+            preferenceScreen.removePreference(mButtonDTMF);
+            mButtonDTMF = null;
+        }
+        if (!getResources().getBoolean(R.bool.show_emergency_call_list) && mEmergencyCall != null) {
+            preferenceScreen.removePreference(mEmergencyCall);
+        }
+        if (!getResources().getBoolean(R.bool.auto_retry_enabled) && mButtonAutoRetry != null) {
+            preferenceScreen.removePreference(mButtonAutoRetry);
+            mButtonAutoRetry = null;
+        }
+        if (!getResources().getBoolean(R.bool.hac_enabled) && mButtonHAC != null) {
+            preferenceScreen.removePreference(mButtonHAC);
+            mButtonHAC = null;
+        }
+        if (!getResources().getBoolean(R.bool.tty_enabled) && mButtonTTY != null) {
+            preferenceScreen.removePreference(mButtonTTY);
+            mButtonTTY = null;
+        }
+        if (!getResources().getBoolean(R.bool.has_in_call_noise_suppression) &&
+                mButtonNoiseSuppression != null) {
+            preferenceScreen.removePreference(mButtonNoiseSuppression);
+            mButtonNoiseSuppression = null;
+        }
+        if (!getResources().getBoolean(R.bool.config_proximity_disable) &&
+                mButtonProximity != null) {
+            preferenceScreen.removePreference(mButtonProximity);
+            mButtonProximity = null;
+        }
+        if (!getResources().getBoolean(R.bool.config_speed_dial_disable) &&
+                mSpeedDial != null) {
+            preferenceScreen.removePreference(mSpeedDial);
+            mSpeedDial = null;
+        }
+        if (!getResources().getBoolean(R.bool.config_duration_disable) &&
+                mShowDurationCheckBox != null) {
+            preferenceScreen.removePreference(mShowDurationCheckBox);
+            mShowDurationCheckBox = null;
+        }
+        if (!getResources().getBoolean(R.bool.world_phone)) {
+            Preference options = preferenceScreen.findPreference(BUTTON_CDMA_OPTIONS);
+            if (options != null)
+                preferenceScreen.removePreference(options);
+            options = preferenceScreen.findPreference(BUTTON_GSM_UMTS_OPTIONS);
+            if (options != null)
+                preferenceScreen.removePreference(options);
+
+            int phoneType = mPhone.getPhoneType();
+            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                Preference fdnButton = preferenceScreen.findPreference(BUTTON_FDN_KEY);
+                if (fdnButton != null && getResources().getBoolean(R.bool.config_fdn_disable))
+                    preferenceScreen.removePreference(fdnButton);
+                if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
+                    addPreferencesFromResource(R.xml.cdma_call_privacy);
+                    PhoneGlobals.initCallWaitingPref(this, SUB1);
+                }
+            }
+        }
+    }
+
+    protected void addOptionalPrefs(PreferenceScreen preferenceScreen) {
+        if (!getResources().getBoolean(R.bool.world_phone)) {
+            int phoneType = mPhone.getPhoneType();
+            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
+                    addPreferencesFromResource(R.xml.cdma_call_privacy);
+                }
+            } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+                addPreferencesFromResource(R.xml.gsm_umts_call_options);
+            } else {
+                throw new IllegalStateException("Unexpected phone type: " + phoneType);
+            }
+        }
+    }
+
     /**
      * Finish current Activity and go up to the top level Settings ({@link CallFeaturesSetting}).
      * This is useful for implementing "HomeAsUp" capability for second-level Settings.
@@ -2659,5 +2717,20 @@ public class CallFeaturesSetting extends PreferenceActivity
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         activity.startActivity(intent);
         activity.finish();
+    }
+
+    private void setPrefenceKeyForSubscription(Preference preference) {
+        if (mSubscription == -1 || preference == null) return;
+        String key = preference.getKey() + mSubscription;
+        preference.setKey(key);
+    }
+
+    public static String getKeyForSubscription(String key, int subscription) {
+        if (subscription == -1) return key;
+        return key + subscription;
+    }
+
+    private static void log(String msg) {
+        if (DBG)  Log.d(LOG_TAG, msg);
     }
 }

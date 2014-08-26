@@ -46,15 +46,15 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
-    <PreferenceScreen
-        android:key="button_ipprefix_key"
-        android:title="@string/ipcall_sub_title"
-        android:summary="@string/ipcall_sub_summery"
-        android:persistent="false">
-    </PreferenceScreen>
-
   <PreferenceCategory
       android:title="@string/incall_vibration">
+
+      <CheckBoxPreference
+              android:key="button_vibrate_after_connected"
+              android:title="@string/vibrate_after_connected_title"
+              android:persistent="false"
+              android:defaultValue="true"
+              android:summary="@string/vibrate_after_connected_summary" />
 
       <CheckBoxPreference
           android:key="button_vibrate_outgoing"
@@ -211,6 +211,13 @@
           android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
   </PreferenceScreen>
 
+    <PreferenceScreen
+            android:key="button_ipprefix_key"
+            android:title="@string/ipcall_sub_title"
+            android:summary="@string/ipcall_sub_summery"
+            android:persistent="false">
+    </PreferenceScreen>
+
   <ListPreference
       android:key="button_incoming_call_style"
       android:title="@string/incoming_call_style_title"
@@ -218,13 +225,6 @@
       android:entries="@array/incoming_call_style_entries"
       android:entryValues="@array/incoming_call_style_values"
       android:persistent="false" />
-
-  <CheckBoxPreference
-      android:key="button_vibrate_after_connected"
-      android:title="@string/vibrate_after_connected_title"
-      android:persistent="false"
-      android:defaultValue="true"
-      android:summary="@string/vibrate_after_connected_summary" />
 
   <CheckBoxPreference
       android:key="button_play_dtmf_tone"

@@ -59,7 +59,7 @@ public class GsmUmtsAdditionalCallOptions extends
             mInitIndex = mPreferences.size();
             mCLIRButton.init(this, true, mSubscription);
             mCWButton.init(this, true, mSubscription);
-            mCWButton.init(this, true, mSubscription);
+            mMSISDNButton.init(this, true, mSubscription);
             int[] clirArray = icicle.getIntArray(mCLIRButton.getKey());
             if (clirArray != null) {
                 if (DBG) Log.d(LOG_TAG, "onCreate:  clirArray[0]="
@@ -94,7 +94,7 @@ public class GsmUmtsAdditionalCallOptions extends
             if (pref instanceof CallWaitingCheckBoxPreference) {
                 ((CallWaitingCheckBoxPreference) pref).init(this, false, mSubscription);
             } else if (pref instanceof MSISDNEditPreference) {
-                ((MSISDNEditPreference) pref).init(this, false);
+                ((MSISDNEditPreference) pref).init(this, false, mSubscription);
             }
         }
         super.onFinished(preference, reading);
