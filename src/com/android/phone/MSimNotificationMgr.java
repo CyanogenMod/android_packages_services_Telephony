@@ -233,7 +233,7 @@ public class MSimNotificationMgr extends NotificationMgr {
      * @param visible true if there are messages waiting
      */
     /* package */ void updateCfi(boolean visible, int subscription) {
-        if (DBG) log("updateCfi(): " + visible + "Sub: " + subscription);
+        if (DBG) log("updateCfi(): " + visible + " Sub: " + subscription);
         int [] callfwdIcon = {R.drawable.stat_sys_phone_call_forward_sub1,
                 R.drawable.stat_sys_phone_call_forward_sub2,
                 R.drawable.stat_sys_phone_call_forward_sub3};
