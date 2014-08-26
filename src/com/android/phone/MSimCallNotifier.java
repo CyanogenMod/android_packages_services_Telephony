@@ -58,7 +58,7 @@ import com.android.internal.telephony.TelephonyCapabilities;
 public class MSimCallNotifier extends CallNotifier {
     private static final String LOG_TAG = "MSimCallNotifier";
     private static final boolean DBG =
-            (MSimPhoneGlobals.DBG_LEVEL >= 1) && (SystemProperties.getInt("ro.debuggable", 0) == 1);
+            (MSimPhoneGlobals.DBG_LEVEL >= 2) && (SystemProperties.getInt("ro.debuggable", 0) == 1);
     private static final boolean VDBG = (MSimPhoneGlobals.DBG_LEVEL >= 2);
 
     private static final int PHONE_START_MSIM_INCALL_TONE = 55;

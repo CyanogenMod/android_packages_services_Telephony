@@ -110,7 +110,9 @@ public class MSISDNEditPreference extends EditTextPreference {
         }
     }
 
-    void init(TimeConsumingPreferenceListener listener, boolean skipReading) {
+    void init(TimeConsumingPreferenceListener listener, boolean skipReading, int subscription) {
+        if (DBG) Log.d(LOG_TAG, "Getting MSISDNEditPreference subscription =" + subscription);
+        mPhone = PhoneGlobals.getInstance().getPhone(subscription);
         mTcpListener = listener;
         if (!skipReading) {
             setText(mPhone.getLine1Number());

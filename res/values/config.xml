@@ -194,4 +194,13 @@
 
     <!-- config for CTA requirement -->
     <bool name="config_disconnect_other_fgcall">false</bool>
+
+    <!-- Flag whether to disable Proximity setting-->
+    <bool name="config_proximity_disable" translatable="false">false</bool>
+
+    <!-- Flag whether to disable speed dial setting-->
+    <bool name="config_speed_dial_disable" translatable="false">false</bool>
+
+    <!-- Flag whether to disable duration setting-->
+    <bool name="config_duration_disable" translatable="false">false</bool>
 </resources>
