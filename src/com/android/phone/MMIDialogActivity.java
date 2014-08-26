@@ -22,6 +22,7 @@ import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -70,12 +71,20 @@ public class MMIDialogActivity extends Activity {
     }
 
     private void showMMIDialog() {
-        final List<? extends MmiCode> codes = mPhone.getPendingMmiCodes();
-        if (codes.size() > 0) {
-            final MmiCode mmiCode = codes.get(0);
-            final Message message = Message.obtain(mHandler, PhoneGlobals.MMI_CANCEL);
-            mMMIDialog = PhoneUtils.displayMMIInitiate(this, mmiCode, message, mMMIDialog);
-        } else {
+        boolean isMMiPending = false;
+        int phoneCount = TelephonyManager.from(this).getPhoneCount();
+        for (int phoneId = 0; phoneId < phoneCount; phoneId++) {
+            Phone phone = PhoneGlobals.getPhone(phoneId);
+            final List<? extends MmiCode> codes = phone.getPendingMmiCodes();
+            if (codes.size() > 0) {
+                final MmiCode mmiCode = codes.get(0);
+                final Message message = Message.obtain(mHandler, PhoneGlobals.MMI_CANCEL);
+                mMMIDialog = PhoneUtils.displayMMIInitiate(this, mmiCode, message, mMMIDialog);
+                isMMiPending = true;
+                break;
+            }
+        }
+        if (!isMMiPending) {
             finish();
         }
     }
@@ -84,14 +93,15 @@ public class MMIDialogActivity extends Activity {
      * Handles an MMI_COMPLETE event, which is triggered by telephony
      */
     private void onMMIComplete(MmiCode mmiCode) {
+        Phone phone = mmiCode.getPhone();
         // Check the code to see if the request is ready to
         // finish, this includes any MMI state that is not
         // PENDING.
 
         // if phone is a CDMA phone display feature code completed message
-        int phoneType = mPhone.getPhoneType();
+        int phoneType = phone.getPhoneType();
         if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
-            PhoneUtils.displayMMIComplete(mPhone, this, mmiCode, null, null);
+            PhoneUtils.displayMMIComplete(phone, this, mmiCode, null, null);
         } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
             if (mmiCode.getState() != MmiCode.State.PENDING) {
                 Log.d(TAG, "Got MMI_COMPLETE, finishing dialog activity...");
@@ -107,9 +117,13 @@ public class MMIDialogActivity extends Activity {
      */
     private void onMMICancel() {
         Log.v(TAG, "onMMICancel()...");
+        int phoneCount = TelephonyManager.from(this).getPhoneCount();
 
         // First of all, cancel the outstanding MMI code (if possible.)
-        PhoneUtils.cancelMmiCode(mPhone);
+        for (int phoneId = 0; phoneId < phoneCount; phoneId++) {
+            Phone phone = PhoneGlobals.getPhone(phoneId);
+            PhoneUtils.cancelMmiCode(phone);
+        }
 
         // Regardless of whether the current MMI code was cancelable, the
         // PhoneApp will get an MMI_COMPLETE event very soon, which will

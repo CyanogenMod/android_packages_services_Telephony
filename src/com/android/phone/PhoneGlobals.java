@@ -337,12 +337,14 @@ public class PhoneGlobals extends ContextWrapper {
             Intent intent = new Intent(this, TelephonyDebugService.class);
             startService(intent);
 
-            mCM = CallManager.getInstance();
-            mCM.registerPhone(phone);
-
             int numPhones = TelephonyManager.getDefault().getPhoneCount();
             mPhones = new PhoneProxy[numPhones];
             mPhones = PhoneFactory.getPhones();
+
+            mCM = CallManager.getInstance();
+            for (Phone ph : mPhones) {
+                mCM.registerPhone(ph);
+            }
 
             // Create the NotificationMgr singleton, which is used to display
             // status bar icons and control other status bar behavior.
@@ -764,7 +766,7 @@ public class PhoneGlobals extends ContextWrapper {
     private void onMMIComplete(AsyncResult r) {
         if (VDBG) Log.d(LOG_TAG, "onMMIComplete()...");
         MmiCode mmiCode = (MmiCode) r.result;
-        PhoneUtils.displayMMIComplete(phone, getInstance(), mmiCode, null, null);
+        PhoneUtils.displayMMIComplete(mmiCode.getPhone(), getInstance(), mmiCode, null, null);
     }
 
     private void initForNewRadioTechnology() {
