@@ -747,7 +747,7 @@
 
     <activity android:name="CallBarring" android:label="@string/call_barring"
         android:configChanges="orientation|screenSize|keyboardHidden"
-        android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+        android:theme="@style/SettingsLight">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
         </intent-filter>

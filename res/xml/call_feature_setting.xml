@@ -46,13 +46,6 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
-    <PreferenceScreen
-        android:key="button_ipprefix_key"
-        android:title="@string/ipcall_sub_title"
-        android:summary="@string/ipcall_sub_summery"
-        android:persistent="false">
-    </PreferenceScreen>
-
   <PreferenceCategory
       android:title="@string/incall_vibration">
 
@@ -210,6 +203,13 @@
           android:targetPackage="com.android.settings"
           android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
   </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="button_ipprefix_key"
+        android:title="@string/ipcall_sub_title"
+        android:summary="@string/ipcall_sub_summery"
+        android:persistent="false">
+    </PreferenceScreen>
 
   <ListPreference
       android:key="button_incoming_call_style"
