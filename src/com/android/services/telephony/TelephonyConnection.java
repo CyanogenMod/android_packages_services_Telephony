@@ -21,6 +21,7 @@ import android.content.Context;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.AsyncResult;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.telecom.CallAudioState;
@@ -32,11 +33,15 @@ import android.telecom.StatusHints;
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection.PostDialListener;
+import com.android.internal.telephony.gsm.SuppServiceNotification;
+
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.imsphone.ImsPhoneConnection;
 import com.android.phone.R;
 
 import java.lang.Override;
+import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -53,12 +58,15 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_DISCONNECT = 4;
     private static final int MSG_MULTIPARTY_STATE_CHANGED = 5;
     private static final int MSG_CONFERENCE_MERGE_FAILED = 6;
+    private static final int MSG_SUPP_SERVICE_NOTIFY = 7;
     private static final int MSG_SET_VIDEO_STATE = 8;
     private static final int MSG_SET_LOCAL_VIDEO_CAPABILITY = 9;
     private static final int MSG_SET_REMOTE_VIDEO_CAPABILITY = 10;
     private static final int MSG_SET_VIDEO_PROVIDER = 11;
     private static final int MSG_SET_AUDIO_QUALITY = 12;
     private static final int MSG_SET_CONFERENCE_PARTICIPANTS = 13;
+
+    private SuppServiceNotification mSsNotification = null;
 
     private final Handler mHandler = new Handler() {
         @Override
@@ -114,6 +122,24 @@ abstract class TelephonyConnection extends Connection {
                 case MSG_CONFERENCE_MERGE_FAILED:
                     notifyConferenceMergeFailed();
                     break;
+                case MSG_SUPP_SERVICE_NOTIFY:
+                    Log.v(TelephonyConnection.this, "MSG_SUPP_SERVICE_NOTIFY on phoneId : "
+                            +getPhone().getPhoneId());
+                    if (msg.obj != null && ((AsyncResult) msg.obj).result != null) {
+                        mSsNotification =
+                                (SuppServiceNotification)((AsyncResult) msg.obj).result;
+                        if (mOriginalConnection != null && mSsNotification.history != null) {
+                            Bundle extras = mOriginalConnection.getExtras();
+                            if (extras != null) {
+                                Log.v(TelephonyConnection.this,
+                                        "Updating call history info in extras.");
+                                extras.putStringArrayList(EXTRA_CALL_HISTORY_INFO,
+                                        new ArrayList(Arrays.asList(mSsNotification.history)));
+                                setExtras(extras);
+                            }
+                        }
+                    }
+                break;
                 case MSG_SET_VIDEO_STATE:
                     int videoState = (int) msg.obj;
                     setVideoState(videoState);
@@ -599,6 +625,7 @@ abstract class TelephonyConnection extends Connection {
                 mHandler, MSG_HANDOVER_STATE_CHANGED, null);
         getPhone().registerForRingbackTone(mHandler, MSG_RINGBACK_TONE, null);
         getPhone().registerForDisconnect(mHandler, MSG_DISCONNECT, null);
+        getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
         mOriginalConnection.addPostDialListener(mPostDialListener);
         mOriginalConnection.addListener(mOriginalConnectionListener);
 
@@ -630,6 +657,7 @@ abstract class TelephonyConnection extends Connection {
                 getPhone().unregisterForRingbackTone(mHandler);
                 getPhone().unregisterForHandoverStateChanged(mHandler);
                 getPhone().unregisterForDisconnect(mHandler);
+                getPhone().unregisterForSuppServiceNotification(mHandler);
             }
             mOriginalConnection.removePostDialListener(mPostDialListener);
             mOriginalConnection.removeListener(mOriginalConnectionListener);
