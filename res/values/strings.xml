@@ -984,6 +984,8 @@
     <!-- Appears when user tries to import contacts in SIM during Airplane mode
       [CHAR LIMIT=NONE] -->
     <string name="simContacts_airplaneMode">To import contacts from the SIM card, first turn off Airplane mode.</string>
+    <!-- Call settings: title of the dialog shown for SIM contact related operations. -->
+    <string name="Result_title">Result...</string>
 
     <!-- SIM PIN strings -->
     <!-- Title of "Enable/disable SIM PIN" screen -->
@@ -1466,6 +1468,8 @@
     <string name="dial"> Dial</string>
     <string name="enterName"> Enter Name:</string>
     <string name="enterNumber"> Enter Phone Number:</string>
+    <string name="hintName">Name.</string>
+    <string name="hintPhonenumber">Phone Number.</string>
     <string name="contactAddSuccess"> Succesfully added contact to SIM </string>
     <string name="contactAddFailed"> Failed to add contact to SIM !!!</string>
     <string name="contactUpdateSuccess"> Succesfully updated contact in SIM </string>
