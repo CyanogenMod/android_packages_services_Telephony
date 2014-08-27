@@ -60,6 +60,7 @@
     </string-array>
 
     <string-array name="reverse_lookup_providers" translatable="false">
+        <item>DasTelefonbuch</item>
         <item>OpenCnam</item>
         <item>WhitePages</item>
         <item>WhitePages_CA</item>
@@ -69,6 +70,7 @@
     </string-array>
 
     <string-array name="reverse_lookup_provider_names" translatable="false">
+        <item>Das Telefonbuch (DE)</item>
         <item>OpenCnam (US)</item>
         <item>WhitePages (US)</item>
         <item>WhitePages (CA)</item>
