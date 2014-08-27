@@ -34,7 +34,7 @@ public class TelephonyGlobals {
     private static TelephonyGlobals sInstance;
 
     /** The application context. */
-    private final Context mContext;
+    private static  Context mContext;
 
     private TtyManager mTtyManager;
 
@@ -62,5 +62,9 @@ public class TelephonyGlobals {
         }
 
         TelecomAccountRegistry.getInstance(mContext).setupOnBoot();
+    }
+
+    public static Context getApplicationContext() {
+        return mContext;
     }
 }
