@@ -237,6 +237,19 @@ abstract class TelephonyConnection extends Connection {
     }
 
     @Override
+    public void onDeflect(String number) {
+        Log.v(this, "onDeflect: " + number);
+
+        if (isValidRingingCall() && getPhone() != null) {
+            try {
+                getPhone().deflectCall(number);
+            } catch (CallStateException e) {
+                Log.e(this, e, "Failed to deflect call.");
+            }
+        }
+    }
+
+    @Override
     public void onReject() {
         Log.v(this, "onReject");
         if (isValidRingingCall()) {
