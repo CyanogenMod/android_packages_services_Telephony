@@ -47,6 +47,7 @@ public class GsmUmtsOptions {
     private PreferenceActivity mPrefActivity;
     private PreferenceScreen mPrefScreen;
     private Phone mPhone;
+    private boolean mRemovedAPNExpand = false;
 
     public GsmUmtsOptions(PreferenceActivity prefActivity, PreferenceScreen prefScreen) {
         this(prefActivity,  prefScreen, 0);
@@ -65,8 +66,6 @@ public class GsmUmtsOptions {
     protected void create() {
         mPrefActivity.addPreferencesFromResource(R.xml.gsm_umts_options);
         mButtonAPNExpand = (PreferenceScreen) mPrefScreen.findPreference(BUTTON_APN_EXPAND_KEY);
-        boolean removedAPNExpand = false;
-        mButtonAPNExpand.getIntent().putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
         mButtonOperatorSelectionExpand =
                 (PreferenceScreen) mPrefScreen.findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY);
         mButtonOperatorSelectionExpand.getIntent().putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
@@ -91,7 +90,7 @@ public class GsmUmtsOptions {
             // specific resources or device specific overlays.
             if (!res.getBoolean(R.bool.config_apn_expand) && mButtonAPNExpand != null) {
                 mPrefScreen.removePreference(mButtonAPNExpand);
-                removedAPNExpand = true;
+                mRemovedAPNExpand = true;
             }
             if (!res.getBoolean(R.bool.config_operator_selection_expand)) {
                 mPrefScreen.removePreference(mButtonOperatorSelectionExpand);
@@ -122,7 +121,7 @@ public class GsmUmtsOptions {
                 }
             }
         }
-        if (!removedAPNExpand) {
+        if (!mRemovedAPNExpand) {
             mButtonAPNExpand.setOnPreferenceClickListener(
                     new Preference.OnPreferenceClickListener() {
                         @Override
