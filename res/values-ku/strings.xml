@@ -72,7 +72,7 @@
   <string name="sum_hide_caller_id">ژمارە شاردراوەیە لە ناو پەیوەندییە ڕۆیشتووەکان</string>
   <string name="sum_show_caller_id">ژمارە پیشاندرا لە ناو پەیوەندییە ڕۆیشتووەکان</string>
   <string name="sum_default_caller_id">ڕێکخستنەکانی بنەڕەتی کۆمپانیایی سیمکارت بەکار بهێنە بۆ پیشاندانی ژمارەکەم لە ناو پەیوەندییە ڕۆیشتووەکان</string>
-  <string name="labelCW">په‌یوه‌ندی وه‌ستان</string>
+  <string name="labelCW">په‌یوه‌ندیی چاوه‌ڕوان</string>
   <string name="sum_cw_enabled">لە کاتی پەیوەندی، لە پەیوەندییە هاتووەکان ئاگادارم بکەوە</string>
   <string name="sum_cw_disabled">لە کاتی پەیوەندی، لە پەیوەندییە هاتووەکان ئاگادارم بکەوە</string>
   <string name="call_forwarding_settings">ڕێکخستنەکانی ئاراستەکردنی پەیوەندی</string>
@@ -331,12 +331,12 @@
   <string name="auto_retry_mode_title">خۆکارانە هەوڵدانەوە</string>
   <string name="auto_retry_mode_summary">چالاککردنی شێوازی خۆکارانە هەوڵدانەوە</string>
   <string name="menu_add">زیادکردن بۆ پەیوەندەکان</string>
-  <string name="menu_edit">دەستکاریکردنی ناوە</string>
+  <string name="menu_edit">دەستکاریکردنی ناو</string>
   <string name="menu_delete">سڕینەوەی پەیوەندی</string>
   <string name="get_pin2">PIN2 بنووسە</string>
   <string name="name">ناو</string>
   <string name="number">ژمارە</string>
-  <string name="save">پاشەکەوتکردن</string>
+  <string name="save">پاشەکەوت</string>
   <string name="add_fdn_contact">زێدەکردنی ژمارەی جێگیرکراوی پەیوەندی کردن</string>
   <string name="adding_fdn_contact">زێدەکردنی ژمارەی جێگیرکراوی پەیوەندی کردن\u2026</string>
   <string name="fdn_contact_added">ژمارەی جێگیرکراوی پەیوەندی کردن زێدەکرا.</string>
@@ -387,7 +387,7 @@
   <string name="puk2_blocked">PUK2 بەیەکجاری داخرا.</string>
   <string name="pin2_attempts">\nبڕی <xliff:g id="number">%d</xliff:g> هەوڵدانت ماوە.</string>
   <string name="pin2_unblocked">PIN2 کرایەوە!</string>
-  <string name="doneButton">ئه‌نجامدرا</string>
+  <string name="doneButton">ئه‌نجام درا</string>
   <string name="caller_manage_header">په‌یوه‌ندی کۆنگره‌ <xliff:g id="conf_call_time">%s</xliff:g></string>
   <string name="voicemail_settings_number_label">ژماره‌ی ده‌نگه‌نامه‌</string>
   <string name="card_title_dialing">ژماره‌لێدان</string>
@@ -414,7 +414,7 @@
   <string name="notification_network_selection_title">خزمەتگوزاری نیە</string>
   <string name="notification_network_selection_text">تۆڕی هه‌ڵبژێردراو (<xliff:g id="operator_name">%s</xliff:g>) ئاماده‌نییه‌</string>
   <string name="notification_action_end_call">هه‌ڵگرتن</string>
-  <string name="notification_missedCall_call_back">زەنگ لێدەرەوە</string>
+  <string name="notification_missedCall_call_back">زه‌نگی بۆ لێده‌وه‌</string>
   <string name="notification_missedCall_message">نامه‌</string>
   <string name="incall_error_power_off">بۆ په‌یوه‌ندی. سه‌ره‌تا باری ناو فڕۆکه‌ بکوژێنه‌وه‌.</string>
   <string name="incall_error_emergency_only">تۆمارنه‌کراویت له‌سه‌ر تۆڕه‌که‌.</string>
@@ -543,7 +543,7 @@
   <string name="sip_account_list">هەژمارەکانی SIP</string>
   <string name="saving_account">پاشەکەوتکردنی هەژمار\u2026</string>
   <string name="removing_account">سڕینەوەی هەژمار\u2026</string>
-  <string name="sip_menu_save">پاشەکەوتکردن</string>
+  <string name="sip_menu_save">پاشەکەوت</string>
   <string name="sip_menu_discard">ڕەتکردنەوە</string>
   <string name="alert_dialog_close">پڕۆفایلەکە دابخە</string>
   <string name="alert_dialog_ok">باشه‌</string>

@@ -54,7 +54,7 @@
   <string name="mwi_notification_title">Indicatore di messaggio in attesa</string>
   <string name="mwi_notification_summary">Mostra le notifiche per i messaggi in attesa in segreteria</string>
   <string name="perm_change_mobile_network">cambia rete (2G/3G)</string>
-  <string name="perm_change_mobile_network_desc">Consente all\'applicazione di passare da 2G a 3G e viceversa in qualsiasi momento. Il 3G è più veloce, consuma più batteria e può anche farti spendere di più.</string>
+  <string name="perm_change_mobile_network_desc">Consente all\'app di passare da 2G a 3G e viceversa in qualsiasi momento. Il 3G è più veloce, consuma più batteria e può anche farti spendere di più.</string>
   <string name="phone_number_label">Numero di telefono</string>
   <string name="phone_number_summary">Imposta il numero di telefono di questo dispositivo</string>
   <string name="noise_suppression_title">Riduzione rumore</string>

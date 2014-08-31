@@ -33,5 +33,4 @@
   <string name="sub_no_sim">沒有 SIM 卡</string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn 中國（CN）</string>
   <string name="t9_search_input_locale_default">預設</string>
-  <string name="fdn_empty_number">"FDN 未更新：號碼不能為空。"</string>
 </resources>

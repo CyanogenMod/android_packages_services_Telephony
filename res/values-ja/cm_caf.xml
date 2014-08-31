@@ -149,7 +149,7 @@
   <string name="exportAllcontatsNoContacts">SIMにエクスポートする連絡先がありません</string>
   <string name="cursorError">無効なカーソルデータです</string>
   <string name="set_subscription">サブスクリプションを選択</string>
-  <string name="set_subscription_error_atleast_one">少なくとも一つのサブスクリプションを選択してください</string>
+  <string name="set_subscription_error_atleast_one">少なくとも1つのサブスクリプションを選択してください</string>
   <string name="set_uicc_subscription_progress">サブスクリプションを設定中\u2026</string>
   <string name="set_sub_success">サブスクリプションの設定が完了しました</string>
   <string name="set_sub_failed">サブスクリプションを設定できませんでした</string>

@@ -89,9 +89,4 @@
   <string name="incoming_call_style_title">来电屏幕样式</string>
   <string name="incoming_call_style_classic">经典</string>
   <string name="incoming_call_style_fullscreen_photo">全屏来电者照片</string>
-  <string name="title_sim_prompt_dlg">飞行模式</string>
-  <string name="msg_sim_prompt_dlg">飞行模式已开启，你想关闭飞行模式吗？</string>
-  <string name="msg_wait_prodlg">正在关闭飞行模式</string>
-  <string name="network_forbidden">(禁用)</string>
-  <string name="fdn_empty_number">"FDN 未更新：号码不能为空。"</string>
 </resources>

@@ -38,6 +38,11 @@
   <string name="pause_prompt_no">Nee</string>
   <string name="add_vm_number_str">Nummer dobäisetzen</string>
   <string name="labelCW">Gespréich pauséiert</string>
+  <string name="labelCFU">Ëmmer weiderleeden</string>
+  <string name="sum_cfu_disabled">Deaktivéiert</string>
+  <string name="sum_cfb_disabled">Deaktivéiert</string>
+  <string name="sum_cfnry_disabled">Deaktivéiert</string>
+  <string name="sum_cfnrc_disabled">Deaktivéiert</string>
   <string name="close_dialog">OK</string>
   <string name="register_automatically">Automatesch Registréierung\u2026</string>
   <string name="preferred_network_mode_title">Preferéierten Netzwierktyp</string>
