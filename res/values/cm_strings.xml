@@ -157,7 +157,4 @@
 
     <!-- Forbidden network title -->
     <string name="network_forbidden">(Forbidden)</string>
-
-    <!-- Empty FDN -->
-    <string name="fdn_empty_number">FDN not updated: number cannot be empty.</string>
 </resources>
