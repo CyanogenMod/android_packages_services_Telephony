@@ -287,7 +287,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 int modemNetworkMode = buttonNetworkMode;
                 // if new mode is invalid set mode to default preferred
                 if ((modemNetworkMode < Phone.NT_MODE_WCDMA_PREF)
-                        || (modemNetworkMode > Phone.NT_MODE_LTE_WCDMA)) {
+                        || (modemNetworkMode > Phone.NT_MODE_TD_SCDMA_LTE_CDMA_EVDO_GSM_WCDMA)) {
                     log("Invalid Network Mode (" + modemNetworkMode + ") Chosen. Ignore mode");
                     return true;
                 }
