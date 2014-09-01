@@ -61,16 +61,20 @@ public class TelephonyConnectionService extends ConnectionService {
     private static final Pattern CDMA_ACTIVATION_CODE_REGEX_PATTERN =
             Pattern.compile("\\*228[0-9]{0,2}");
 
-    private final TelephonyConferenceController mTelephonyConferenceController =
-            new TelephonyConferenceController(this);
-    private final CdmaConferenceController mCdmaConferenceController =
-            new CdmaConferenceController(this);
-    private final ImsConferenceController mImsConferenceController =
-            new ImsConferenceController(this);
+    private static final int sPhoneCount = TelephonyManager.getDefault().getPhoneCount();
+
+    private final TelephonyConferenceController[] mTelephonyConferenceController =
+            new TelephonyConferenceController[sPhoneCount];
+    private final CdmaConferenceController[] mCdmaConferenceController =
+            new CdmaConferenceController[sPhoneCount];
+    private final ImsConferenceController[] mImsConferenceController =
+            new ImsConferenceController[sPhoneCount];
 
     private ComponentName mExpectedComponentName = null;
     private EmergencyCallHelper mEmergencyCallHelper;
     private EmergencyTonePlayer mEmergencyTonePlayer;
+    private static boolean [] sLchState = new
+            boolean[sPhoneCount];
 
     /**
      * A listener to actionable events specific to the TelephonyConnection.
@@ -86,6 +90,12 @@ public class TelephonyConnectionService extends ConnectionService {
     @Override
     public void onCreate() {
         super.onCreate();
+        int size = sPhoneCount;
+        for (int i = 0; i < size; i++) {
+            mTelephonyConferenceController[i] = new TelephonyConferenceController(this);
+            mImsConferenceController[i] = new ImsConferenceController(this);
+            mCdmaConferenceController[i] = new CdmaConferenceController(this);
+        }
         mExpectedComponentName = new ComponentName(this, this.getClass());
         mEmergencyTonePlayer = new EmergencyTonePlayer(this);
         TelecomAccountRegistry.getInstance(this).setTelephonyConnectionService(this);
@@ -311,8 +321,11 @@ public class TelephonyConnectionService extends ConnectionService {
 
     @Override
     public void triggerConferenceRecalculate() {
-        if (mTelephonyConferenceController.shouldRecalculate()) {
-            mTelephonyConferenceController.recalculate();
+        int size = sPhoneCount;
+        for (int i = 0; i < size; i++) {
+            if (mTelephonyConferenceController[i].shouldRecalculate()) {
+                mTelephonyConferenceController[i].recalculate();
+            }
         }
     }
 
@@ -555,21 +568,43 @@ public class TelephonyConnectionService extends ConnectionService {
         // and triggering this callback multiple times for the same connection?
         // If that is the case, we might want to remove this connection from all
         // conference controllers first before re-adding it.
+        int phoneId;
+        if (connection.getPhone()!= null) {
+            phoneId = connection.getPhone().getPhoneId();
+        } else {
+            Log.w(this, "getPhone() has returned null, return from here." + connection);
+            return;
+        }
+
         if (connection.isImsConnection()) {
             Log.d(this, "Adding IMS connection to conference controller: " + connection);
-            mImsConferenceController.add(connection);
+            mImsConferenceController[phoneId].add(connection);
         } else {
             int phoneType = connection.getCall().getPhone().getPhoneType();
             if (phoneType == TelephonyManager.PHONE_TYPE_GSM) {
                 Log.d(this, "Adding GSM connection to conference controller: " + connection);
-                mTelephonyConferenceController.add(connection);
+                mTelephonyConferenceController[phoneId].add(connection);
             } else if (phoneType == TelephonyManager.PHONE_TYPE_CDMA &&
                     connection instanceof CdmaConnection) {
                 Log.d(this, "Adding CDMA connection to conference controller: " + connection);
-                mCdmaConferenceController.add((CdmaConnection)connection);
+                mCdmaConferenceController[phoneId].add((CdmaConnection)connection);
             }
             Log.d(this, "Removing connection from IMS conference controller: " + connection);
-            mImsConferenceController.remove(connection);
+            mImsConferenceController[phoneId].remove(connection);
         }
+    }
+
+    public static void setLocalCallHold(Phone ph, boolean lchStatus) {
+        int phoneId = ph.getPhoneId();
+        Log.d("setLocalCallHold", "lchStatus:" + lchStatus + " phoneId:"
+                + phoneId + " sLchState:" + sLchState);
+        if (sLchState[phoneId] != lchStatus) {
+            ph.setLocalCallHold(lchStatus);
+            sLchState[phoneId] = lchStatus;
+        }
+    }
+
+    public static boolean isLchActive(int phoneId) {
+        return sLchState[phoneId];
     }
 }
