@@ -94,6 +94,13 @@ final class CdmaConnection extends TelephonyConnection {
     public void onPlayDtmfTone(char digit) {
         if (useBurstDtmf()) {
             Log.i(this, "sending dtmf digit as burst");
+            if (getPhone() != null) {
+                // if LCH is on for this connection, that means that, this DTMF request is to play SCH
+                // tones at far end. Hence use # for playing SCH tones over CDMA.
+                if (TelephonyConnectionService.isLchActive(getPhone().getPhoneId())) {
+                    digit = '#';
+                }
+            }
             sendShortDtmfToNetwork(digit);
         } else {
             Log.i(this, "sending dtmf digit directly");

@@ -30,6 +30,7 @@ import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 import com.android.internal.telephony.Call;
+import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection.PostDialListener;
 import com.android.internal.telephony.gsm.SuppServiceNotification;
@@ -37,6 +38,7 @@ import com.android.internal.telephony.gsm.SuppServiceNotification;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.imsphone.ImsPhoneConnection;
 import com.android.phone.R;
+import com.android.internal.telephony.PhoneConstants;
 
 import java.lang.Override;
 import java.util.List;
@@ -436,6 +438,18 @@ abstract class TelephonyConnection extends Connection {
     }
 
     @Override
+    public void setLocalCallHold(int lchStatus) {
+        TelephonyConnectionService.setLocalCallHold(getPhone(), lchStatus);
+    }
+
+    @Override
+    public void setActiveSubscription() {
+        long subId = getPhone().getSubId();
+        Log.i(this, "setActiveSubscription subId:" + subId);
+        CallManager.getInstance().setActiveSubscription(subId);
+    }
+
+    @Override
     public void onHold() {
         performHold();
     }
@@ -787,6 +801,10 @@ abstract class TelephonyConnection extends Connection {
     private void close() {
         Log.v(this, "close");
         if (getPhone() != null) {
+            if (getPhone().getState() == PhoneConstants.State.IDLE) {
+                Log.i(this, "disable local call hold, if not already done by telecomm service");
+                setLocalCallHold(0);
+            }
             getPhone().unregisterForPreciseCallStateChanged(mHandler);
             getPhone().unregisterForRingbackTone(mHandler);
             getPhone().unregisterForHandoverStateChanged(mHandler);

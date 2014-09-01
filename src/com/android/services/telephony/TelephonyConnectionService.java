@@ -59,6 +59,7 @@ public class TelephonyConnectionService extends ConnectionService {
     private ComponentName mExpectedComponentName = null;
     private EmergencyCallHelper mEmergencyCallHelper;
     private EmergencyTonePlayer mEmergencyTonePlayer;
+    static int [] sLchState = new int[TelephonyManager.getDefault().getPhoneCount()];
 
     @Override
     public void onCreate() {
@@ -492,5 +493,19 @@ public class TelephonyConnectionService extends ConnectionService {
                 " preferred phoneId =" + voicePhoneId);
 
         return phoneId;
+    }
+
+    public static void setLocalCallHold(Phone ph, int lchStatus) {
+        int phoneId = ph.getPhoneId();
+        Log.i("setLocalCallHold", "lchStatus:" + lchStatus + " phoneId:"
+                + phoneId + " sLchState:" + sLchState);
+        if (sLchState[phoneId] != lchStatus) {
+            ph.setLocalCallHold(lchStatus);
+            sLchState[phoneId] = lchStatus;
+        }
+    }
+
+    public static boolean isLchActive(int phoneId) {
+        return (sLchState[phoneId] == 1);
     }
 }
