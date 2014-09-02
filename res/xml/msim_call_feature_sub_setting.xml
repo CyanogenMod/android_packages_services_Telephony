@@ -20,30 +20,6 @@
     xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
     android:title="@string/call_settings">
 
-    <PreferenceCategory
-        android:key="button_ringtone_category_key"
-        android:title="@string/preference_category_ringtone"
-        android:persistent="false">
-
-        <com.android.phone.DefaultRingtonePreference
-            android:key="button_ringtone_key"
-            android:title="@string/ringtone_title"
-            android:dialogTitle="@string/ringtone_title"
-            android:persistent="false"
-            android:ringtoneType="ringtone" />
-
-        <CheckBoxPreference
-            android:key="button_vibrate_on_ring"
-            android:title="@string/vibrate_on_ring_title"
-            android:persistent="false"
-            android:defaultValue="false" />
-    </PreferenceCategory>
-
-  <PreferenceCategory
-      android:key="button_misc_category_key"
-      android:title="@string/other_settings"
-      android:persistent="false" />
-
   <PreferenceScreen
       android:key="button_voicemail_category_key"
       android:title="@string/voicemail"
@@ -92,17 +68,6 @@
           android:persistent="false"
           />
 
-  </PreferenceScreen>
-
-  <PreferenceScreen
-      android:key="button_respond_via_sms_key"
-      android:title="@string/respond_via_sms_setting_title"
-      android:summary="@string/respond_via_sms_setting_summary"
-      android:persistent="false">
-      <intent
-          android:action="android.intent.action.MAIN"
-          android:targetPackage="com.android.telecomm"
-          android:targetClass="com.android.telecomm.RespondViaSmsSettings$Settings" />
   </PreferenceScreen>
 
   <PreferenceScreen

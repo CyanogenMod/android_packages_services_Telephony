@@ -44,12 +44,6 @@
                 android:targetPackage="com.android.telecomm" />
     </Preference>
 
-  <CheckBoxPreference
-      android:key="button_play_dtmf_tone"
-      android:title="@string/dtmf_tone_enable_title"
-      android:persistent="false"
-      android:defaultValue="true" />
-
     <CheckBoxPreference
         android:key="button_auto_retry_key"
         android:title="@string/auto_retry_mode_title"

@@ -33,24 +33,19 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.ContactsContract.CommonDataKinds;
-import android.provider.MediaStore;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.telephony.PhoneNumberUtils;
@@ -64,7 +59,9 @@ import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
+import com.android.phone.common.util.SettingsUtil;
 
+import java.lang.String;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -171,10 +168,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY =
             "button_voicemail_notification_ringtone_key";
     private static final String BUTTON_FDN_KEY   = "button_fdn_key";
-    private static final String BUTTON_RESPOND_VIA_SMS_KEY   = "button_respond_via_sms_key";
-
-    private static final String BUTTON_RINGTONE_KEY    = "button_ringtone_key";
-    private static final String BUTTON_VIBRATE_ON_RING = "button_vibrate_on_ring";
 
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
@@ -192,8 +185,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private static final int EVENT_FORWARDING_CHANGED       = 501;
     private static final int EVENT_FORWARDING_GET_COMPLETED = 502;
 
-    private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
-    private static final int MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY = 2;
+    private static final int MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY = 1;
 
     /** Handle to voicemail pref */
     private static final int VOICEMAIL_PREF_ID = 1;
@@ -237,14 +229,11 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
 
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
-    private Runnable mRingtoneLookupRunnable;
-    private final Handler mRingtoneLookupComplete = new Handler() {
+    private Runnable mVoicemailRingtoneLookupRunnable;
+    private final Handler mVoicemailRingtoneLookupComplete = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-            case MSG_UPDATE_RINGTONE_SUMMARY:
-                mRingtonePreference.setSummary((CharSequence) msg.obj);
-                break;
             case MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY:
                 mVoicemailNotificationRingtone.setSummary((CharSequence) msg.obj);
                 break;
@@ -252,8 +241,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         }
     };
 
-    private Preference mRingtonePreference;
-    private CheckBoxPreference mVibrateWhenRinging;
     private ListPreference mVoicemailProviders;
     private PreferenceScreen mVoicemailSettings;
     private Preference mVoicemailNotificationRingtone;
@@ -507,11 +494,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             log("onPreferenceChange(). preferenece: \"" + preference + "\""
                     + ", value: \"" + objValue + "\"");
         }
-        if (preference == mVibrateWhenRinging) {
-            boolean doVibrate = (Boolean) objValue;
-            Settings.System.putInt(mPhone.getContext().getContentResolver(),
-                    Settings.System.VIBRATE_WHEN_RINGING, doVibrate ? 1 : 0);
-        } else if (preference == mVoicemailProviders) {
+        if (preference == mVoicemailProviders) {
             final String newProviderKey = (String) objValue;
             if (DBG) {
                 log("Voicemail Provider changes from \"" + mPreviousVMProviderKey
@@ -1487,8 +1470,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             mSubMenuVoicemailSettings.setDialogTitle(R.string.voicemail_settings_number_label);
         }
 
-        mRingtonePreference = findPreference(BUTTON_RINGTONE_KEY);
-        mVibrateWhenRinging = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_ON_RING);
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1500,16 +1481,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             mVoicemailNotificationVibrate.setOnPreferenceChangeListener(this);
 
             initVoiceMailProviders();
-        }
-
-        if (mVibrateWhenRinging != null) {
-            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            if (vibrator != null && vibrator.hasVibrator()) {
-                mVibrateWhenRinging.setOnPreferenceChangeListener(this);
-            } else {
-                prefSet.removePreference(mVibrateWhenRinging);
-                mVibrateWhenRinging = null;
-            }
         }
 
         if (!getResources().getBoolean(R.bool.world_phone)) {
@@ -1567,16 +1538,16 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         updateVoiceNumberField();
         mVMProviderSettingsForced = false;
 
-        mRingtoneLookupRunnable = new Runnable() {
+        mVoicemailRingtoneLookupRunnable = new Runnable() {
             @Override
             public void run() {
-                if (mRingtonePreference != null) {
-                    updateRingtoneName(RingtoneManager.TYPE_RINGTONE, mRingtonePreference,
-                            MSG_UPDATE_RINGTONE_SUMMARY);
-                }
                 if (mVoicemailNotificationRingtone != null) {
-                    updateRingtoneName(RingtoneManager.TYPE_NOTIFICATION,
-                            mVoicemailNotificationRingtone, MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY);
+                    SettingsUtil.updateRingtoneName(
+                            mPhone.getContext(),
+                            mVoicemailRingtoneLookupComplete,
+                            RingtoneManager.TYPE_NOTIFICATION,
+                            mVoicemailNotificationRingtone,
+                            MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY);
                 }
             }
         };
@@ -1586,66 +1557,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             // android.R.id.home will be triggered in onOptionsItemSelected()
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-    }
-
-    /**
-     * Updates ringtone name. This is a method copied from com.android.settings.SoundSettings
-     *
-     * @see com.android.settings.SoundSettings
-     */
-    private void updateRingtoneName(int type, Preference preference, int msg) {
-        if (preference == null) return;
-        final Uri ringtoneUri;
-        boolean defaultRingtone = false;
-        if (type == RingtoneManager.TYPE_NOTIFICATION) {
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
-                    mPhone.getContext());
-            // for voicemail notifications, we use the value saved in Phone's shared preferences.
-            String uriString = prefs.getString(preference.getKey(), null);
-            if (TextUtils.isEmpty(uriString)) {
-                // silent ringtone
-                ringtoneUri = null;
-            } else {
-                if (uriString.equals(Settings.System.DEFAULT_NOTIFICATION_URI.toString())) {
-                    // If it turns out that the voicemail notification is set to the system
-                    // default notification, we retrieve the actual URI to prevent it from showing
-                    // up as "Unknown Ringtone".
-                    defaultRingtone = true;
-                    ringtoneUri = RingtoneManager.getActualDefaultRingtoneUri(this, type);
-                } else {
-                    ringtoneUri = Uri.parse(uriString);
-                }
-            }
-        } else {
-            // For ringtones, we can just lookup the system default because changing the settings
-            // in Call Settings changes the system default.
-            ringtoneUri = RingtoneManager.getActualDefaultRingtoneUri(this, type);
-        }
-
-        CharSequence summary = getString(com.android.internal.R.string.ringtone_unknown);
-        // Is it a silent ringtone?
-        if (ringtoneUri == null) {
-            summary = getString(com.android.internal.R.string.ringtone_silent);
-        } else {
-            // Fetch the ringtone title from the media provider
-            try {
-                Cursor cursor = getContentResolver().query(ringtoneUri,
-                        new String[] { MediaStore.Audio.Media.TITLE }, null, null, null);
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        summary = cursor.getString(0);
-                    }
-                    cursor.close();
-                }
-            } catch (SQLiteException sqle) {
-                // Unknown title for the ringtone
-            }
-        }
-        if (defaultRingtone) {
-            summary = mPhone.getContext().getString(
-                    R.string.default_notification_description, summary);
-        }
-        mRingtoneLookupComplete.sendMessage(mRingtoneLookupComplete.obtainMessage(msg, summary));
     }
 
     @Override
@@ -1661,9 +1572,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             }
             return;
         }
-        if (mVibrateWhenRinging != null) {
-            mVibrateWhenRinging.setChecked(getVibrateWhenRinging(this));
-        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
                 mPhone.getContext());
@@ -1673,29 +1581,8 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                     BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + mPhone.getPhoneId(), false));
         }
 
-        lookupRingtoneName();
-    }
-
-    /**
-     * Obtain the setting for "vibrate when ringing" setting.
-     *
-     * Watch out: if the setting is missing in the device, this will try obtaining the old
-     * "vibrate on ring" setting from AudioManager, and save the previous setting to the new one.
-     */
-    public static boolean getVibrateWhenRinging(Context context) {
-        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator == null || !vibrator.hasVibrator()) {
-            return false;
-        }
-        return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.VIBRATE_WHEN_RINGING, 0) != 0;
-    }
-
-    /**
-     * Lookups ringtone name asynchronously and updates the relevant Preference.
-     */
-    private void lookupRingtoneName() {
-        new Thread(mRingtoneLookupRunnable).start();
+        // Look up the voicemail ringtone name asynchronously and update its preference.
+        new Thread(mVoicemailRingtoneLookupRunnable).start();
     }
 
     private boolean isAirplaneModeOn() {
