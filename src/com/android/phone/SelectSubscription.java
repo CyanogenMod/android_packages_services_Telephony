@@ -29,6 +29,7 @@
 
 package com.android.phone;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -38,6 +39,7 @@ import android.provider.Settings;
 import android.telephony.MSimTelephonyManager;
 import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.app.TabActivity;
@@ -96,6 +98,12 @@ public class SelectSubscription extends  TabActivity {
             subscriptionPref.setContent(intent);
             tabHost.addTab(subscriptionPref);
         }
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -107,4 +115,13 @@ public class SelectSubscription extends  TabActivity {
         Log.d(LOG_TAG, msg);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

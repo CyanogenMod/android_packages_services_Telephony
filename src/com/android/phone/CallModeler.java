@@ -407,31 +407,42 @@ public class CallModeler extends Handler {
 
         Log.d(TAG, "SS Notification: " + notification);
 
-        if (notification.notificationType != SuppServiceNotification.NOTIFICATION_TYPE_MT) {
-            return;
-        }
-
-        if (notification.code == SuppServiceNotification.MT_CODE_FORWARDED_CALL
-                || notification.code == SuppServiceNotification.MT_CODE_DEFLECTED_CALL) {
-            com.android.internal.telephony.Call ringing = gsmPhone.getRingingCall();
-            if (ringing.getState().isRinging()) {
-                final Call call = getCallFromMap(mCallMap, ringing.getEarliestConnection(), false);
+        if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MT) {
+            if (notification.code == SuppServiceNotification.MT_CODE_FORWARDED_CALL
+                    || notification.code == SuppServiceNotification.MT_CODE_DEFLECTED_CALL) {
+                com.android.internal.telephony.Call ringing = gsmPhone.getRingingCall();
+                if (ringing.getState().isRinging()) {
+                    final Call call = getCallFromMap(mCallMap,
+                            ringing.getEarliestConnection(), false);
+                    if (call != null) {
+                        call.setForwarded(true);
+                        notifyUpdateListeners(call);
+                    }
+                } else {
+                    mNextGsmCallIsForwarded = true;
+                }
+            } else if (notification.code == SuppServiceNotification.MT_CODE_CALL_ON_HOLD
+                    || notification.code == SuppServiceNotification.MT_CODE_CALL_RETRIEVED) {
+                Connection conn = gsmPhone.getForegroundCall().getEarliestConnection();
+                final Call call = getCallFromMap(mCallMap, conn, false);
                 if (call != null) {
-                    call.setForwarded(true);
+                    boolean nowHeld = notification.code ==
+                            SuppServiceNotification.MT_CODE_CALL_ON_HOLD;
+                    call.setHeldRemotely(nowHeld);
                     notifyUpdateListeners(call);
                 }
-            } else {
-                mNextGsmCallIsForwarded = true;
             }
-        } else if (notification.code == SuppServiceNotification.MT_CODE_CALL_ON_HOLD
-                || notification.code == SuppServiceNotification.MT_CODE_CALL_RETRIEVED) {
-            Connection conn = gsmPhone.getForegroundCall().getEarliestConnection();
-            final Call call = getCallFromMap(mCallMap, conn, false);
-            if (call != null) {
-                boolean nowHeld = notification.code ==
-                        SuppServiceNotification.MT_CODE_CALL_ON_HOLD;
-                call.setHeldRemotely(nowHeld);
-                notifyUpdateListeners(call);
+        } else if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MO) {
+            if (notification.code == SuppServiceNotification.MO_CODE_CALL_IS_WAITING) {
+                com.android.internal.telephony.Call fgCall = gsmPhone.getForegroundCall();
+                if (fgCall.getState().isDialing()) {
+                    final Call call = getCallFromMap(mCallMap,
+                            fgCall.getEarliestConnection(), false);
+                    if (call != null) {
+                        call.setDialingIsWaiting(true);
+                        notifyUpdateListeners(call);
+                    }
+                }
             }
         }
     }
@@ -713,6 +724,9 @@ public class CallModeler extends Handler {
             call.setConnectTime(connection.getConnectTime());
             changed = true;
         }
+
+        // creation time should be fixed
+        call.setCreateTime(connection.getCreateTime());
 
         if (!isForConference) {
             // Number

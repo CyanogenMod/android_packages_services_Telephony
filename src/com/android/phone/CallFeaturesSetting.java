@@ -193,6 +193,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_HAC_KEY         = "button_hac_key";
     private static final String BUTTON_NOISE_SUPPRESSION_KEY = "button_noise_suppression_key";
 
+    private static final String BUTTON_INCOMING_CALL_STYLE = "button_incoming_call_style";
+
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
 
@@ -249,6 +251,17 @@ public class CallFeaturesSetting extends PreferenceActivity
         new Locale("he"), new Locale("zh")
     };
 
+    // keys of preferences which should be disabled in airplane mode
+    private static final List<String> DISABLE_IN_AIRPLANE_MODE_PREFS = Arrays.asList(new String[] {
+        BUTTON_VOICEMAIL_PROVIDER_KEY, BUTTON_VOICEMAIL_SETTING_KEY,
+        BUTTON_GSM_UMTS_OPTIONS, BUTTON_CDMA_OPTIONS,
+        BUTTON_TTY_KEY, BUTTON_FDN_KEY,
+        // GSM specific options
+        "button_cf_expand_key", "button_more_expand_key",
+        // CDMA specific options
+        "button_voice_privacy_key"
+    });
+
     private Phone mPhone;
 
     private AudioManager mAudioManager;
@@ -302,6 +315,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private Preference mRingtonePreference;
     private CheckBoxPreference mVibrateWhenRinging;
+    private ListPreference mIncomingCallStyle;
     /** Whether dialpad plays DTMF tone or not. */
     private CheckBoxPreference mPlayDtmfTone;
     private CheckBoxPreference mButtonAutoRetry;
@@ -615,6 +629,10 @@ public class CallFeaturesSetting extends PreferenceActivity
             int index = mButtonDTMF.findIndexOfValue((String) objValue);
             Settings.System.putInt(mPhone.getContext().getContentResolver(),
                     Settings.System.DTMF_TONE_TYPE_WHEN_DIALING, index);
+        } else if (preference == mIncomingCallStyle) {
+            int index = mIncomingCallStyle.findIndexOfValue((String) objValue);
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Settings.System.INCOMING_CALL_STYLE, index);
         } else if (preference == mButtonTTY) {
             handleTTYChange(preference, objValue);
         } else if (preference == mVoicemailProviders) {
@@ -1624,6 +1642,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         mButtonBlacklist = (PreferenceScreen) findPreference(BUTTON_BLACKLIST);
         mT9SearchInputLocale = (ListPreference) findPreference(BUTTON_T9_SEARCH_INPUT_LOCALE);
+        mIncomingCallStyle = (ListPreference) findPreference(BUTTON_INCOMING_CALL_STYLE);
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1930,14 +1949,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mForeground = true;
 
         if (isAirplaneModeOn()) {
-            Preference sipSettings = findPreference(SIP_SETTINGS_CATEGORY_KEY);
-            PreferenceScreen screen = getPreferenceScreen();
-            int count = screen.getPreferenceCount();
-            for (int i = 0 ; i < count ; ++i) {
-                Preference pref = screen.getPreference(i);
-                if (pref != sipSettings) pref.setEnabled(false);
-            }
-            return;
+            disablePreferencesForAirplaneMode(getPreferenceScreen());
         }
 
         if (mVibrateWhenRinging != null) {
@@ -1954,6 +1966,14 @@ public class CallFeaturesSetting extends PreferenceActivity
             int dtmf = Settings.System.getInt(getContentResolver(),
                     Settings.System.DTMF_TONE_TYPE_WHEN_DIALING, Constants.DTMF_TONE_TYPE_NORMAL);
             mButtonDTMF.setValueIndex(dtmf);
+        }
+
+        if (mIncomingCallStyle != null) {
+            int style = Settings.System.getInt(getContentResolver(),
+                    Settings.System.INCOMING_CALL_STYLE,
+                    Settings.System.INCOMING_CALL_STYLE_FULLSCREEN_PHOTO);
+            mIncomingCallStyle.setOnPreferenceChangeListener(this);
+            mIncomingCallStyle.setValueIndex(style);
         }
 
         if (mButtonAutoRetry != null) {
@@ -1987,6 +2007,18 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         restoreLookupProviderSwitches();
         restoreLookupProviders();
+    }
+
+    private void disablePreferencesForAirplaneMode(PreferenceGroup group) {
+        int count = group.getPreferenceCount();
+        for (int i = 0 ; i < count ; ++i) {
+            Preference pref = group.getPreference(i);
+            if (DISABLE_IN_AIRPLANE_MODE_PREFS.contains(pref.getKey())) {
+                pref.setEnabled(false);
+            } else if (pref instanceof PreferenceGroup) {
+                disablePreferencesForAirplaneMode((PreferenceGroup) pref);
+            }
+        }
     }
 
     private void updateBlacklistSummary() {
@@ -2041,8 +2073,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private boolean isAirplaneModeOn() {
-        return Settings.System.getInt(getContentResolver(),
-                Settings.System.AIRPLANE_MODE_ON, 0) != 0;
+        return Settings.Global.getInt(getContentResolver(),
+                Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
     }
 
     private void saveT9SearchInputLocale(Preference preference, String newT9Locale) {

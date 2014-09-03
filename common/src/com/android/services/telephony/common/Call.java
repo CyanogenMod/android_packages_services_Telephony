@@ -251,6 +251,9 @@ public final class Call implements Parcelable {
     // Time that this call transitioned into ACTIVE state from INCOMING, WAITING, or OUTGOING.
     private long mConnectTime = 0;
 
+    // Time at which the connection object was created
+    private long mCreateTime = 0;
+
     // List of call Ids for for this call.  (Used for managing conference calls).
     private SortedSet<Integer> mChildCallIds = Sets.newSortedSet();
 
@@ -265,6 +268,9 @@ public final class Call implements Parcelable {
 
     // Whether the call is held remotely
     private boolean mHeldRemotely;
+
+    // Whether the dialing state is waiting for the busy remote side
+    private boolean mDialingIsWaiting;
 
     // Supplementary Service notification for GSM calls
     private SsNotification mSsNotification;
@@ -286,11 +292,13 @@ public final class Call implements Parcelable {
         mDisconnectCause = call.mDisconnectCause;
         mCapabilities = call.mCapabilities;
         mConnectTime = call.mConnectTime;
+        mCreateTime = call.mCreateTime;
         mChildCallIds = new TreeSet<Integer>(call.mChildCallIds);
         mGatewayNumber = call.mGatewayNumber;
         mGatewayPackage = call.mGatewayPackage;
         mForwarded = call.mForwarded;
         mHeldRemotely = call.mHeldRemotely;
+        mDialingIsWaiting = call.mDialingIsWaiting;
         mCallDetails = new CallDetails();
         mCallModifyDetails = new CallDetails();
         copyDetails(call.mCallDetails, mCallDetails);
@@ -407,12 +415,24 @@ public final class Call implements Parcelable {
         return mConnectTime;
     }
 
+    public void setCreateTime(long createTime) {
+        mCreateTime = createTime;
+    }
+
+    public long getCreateTime() {
+        return mCreateTime;
+    }
+
     public boolean isForwarded() {
         return mForwarded;
     }
 
     public boolean isHeldRemotely() {
         return mHeldRemotely;
+    }
+
+    public boolean isDialingWaiting() {
+        return mDialingIsWaiting;
     }
 
     public void removeChildId(int id) {
@@ -459,6 +479,10 @@ public final class Call implements Parcelable {
         mHeldRemotely = heldRemotely;
     }
 
+    public void setDialingIsWaiting(boolean dialingIsWaiting) {
+        mDialingIsWaiting = dialingIsWaiting;
+    }
+
     public SsNotification getSuppServNotification() {
         return mSsNotification;
     }
@@ -485,6 +509,7 @@ public final class Call implements Parcelable {
         dest.writeInt(mState);
         dest.writeString(getDisconnectCause().toString());
         dest.writeInt(getCapabilities());
+        dest.writeLong(getCreateTime());
         dest.writeLong(getConnectTime());
         dest.writeIntArray(Ints.toArray(mChildCallIds));
         dest.writeString(getGatewayNumber());
@@ -492,6 +517,7 @@ public final class Call implements Parcelable {
         dest.writeParcelable(mIdentification, 0);
         dest.writeInt(mForwarded ? 1 : 0);
         dest.writeInt(mHeldRemotely ? 1 : 0);
+        dest.writeInt(mDialingIsWaiting ? 1 : 0);
         int hasSuppServNotification = 0;
         if (mSsNotification != null) hasSuppServNotification = 1;
         dest.writeInt(hasSuppServNotification);
@@ -515,6 +541,7 @@ public final class Call implements Parcelable {
         mState = in.readInt();
         mDisconnectCause = DisconnectCause.valueOf(in.readString());
         mCapabilities = in.readInt();
+        mCreateTime = in.readLong();
         mConnectTime = in.readLong();
         mChildCallIds.addAll(Ints.asList(in.createIntArray()));
         mGatewayNumber = in.readString();
@@ -522,6 +549,7 @@ public final class Call implements Parcelable {
         mIdentification = in.readParcelable(CallIdentification.class.getClassLoader());
         mForwarded = in.readInt() != 0;
         mHeldRemotely = in.readInt() != 0;
+        mDialingIsWaiting = in.readInt() != 0;
         int hasSuppServNotification = in.readInt();
         if (hasSuppServNotification == 1) {
             mSsNotification = new SsNotification();
@@ -566,12 +594,14 @@ public final class Call implements Parcelable {
                 .add("mDisconnectCause", mDisconnectCause)
                 .add("mCapabilities", mCapabilities)
                 .add("mConnectTime", mConnectTime)
+                .add("mCreateTime", mCreateTime)
                 .add("mChildCallIds", mChildCallIds)
                 .add("mGatewayNumber", MoreStrings.toSafeString(mGatewayNumber))
                 .add("mGatewayPackage", mGatewayPackage)
                 .add("mIdentification", mIdentification)
                 .add("mForwarded", mForwarded)
                 .add("mHeldRemotely", mHeldRemotely)
+                .add("mDialingIsWaiting", mDialingIsWaiting)
                 .add("mSsNotification", mSsNotification)
                 .add("mCallDetails", mCallDetails)
                 .add("mCallModifyDetails", mCallModifyDetails)
