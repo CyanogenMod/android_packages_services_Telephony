@@ -368,9 +368,13 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
         String message = null;
         switch (mDialogState) {
             case CB_OUTGOING_MODE:
-            case CB_INCOMING_MODE:
+                message = getResources().getString(R.string.input_password);
                 mDialogChangePSW.setDialogTitle(
-                        getResources().getString(R.string.input_password));
+                        getResources().getString(R.string.call_barring_outgoing));
+            case CB_INCOMING_MODE:
+                message = getResources().getString(R.string.input_password);
+                mDialogChangePSW.setDialogTitle(
+                        getResources().getString(R.string.call_barring_incoming));
                 break;
             case OLD_PSW_MODE:
                 message = getResources().getString(R.string.psw_enter_old);

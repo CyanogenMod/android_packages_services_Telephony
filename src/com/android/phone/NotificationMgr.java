@@ -740,7 +740,7 @@ public class NotificationMgr {
         // i.e. "Missed call from <caller name or number>"
         if (name != null && TextUtils.isGraphic(name)) {
             callName = name;
-        } else if (!TextUtils.isEmpty(number)){
+        } else if (!TextUtils.isEmpty(number)) {
             callName = number;
         } else {
             // use "unknown" if the caller is unidentifiable.
