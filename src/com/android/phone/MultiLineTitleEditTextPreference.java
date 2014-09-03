@@ -17,7 +17,6 @@
 package com.android.phone;
 
 import android.content.Context;
-import android.preference.EditTextPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
@@ -44,7 +43,7 @@ import android.widget.TextView;
  * elements don't have a "class" attribute, so you can't do something like
  * <view class="com.android.phone.Foo$Bar"> as you can with regular views.
  */
-public class MultiLineTitleEditTextPreference extends EditTextPreference {
+public class MultiLineTitleEditTextPreference extends EmptyWatchingEditTextPreference {
     public MultiLineTitleEditTextPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }

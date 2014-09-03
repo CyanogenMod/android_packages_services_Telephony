@@ -22,7 +22,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
-import android.preference.EditTextPreference;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
@@ -35,7 +34,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class EditPhoneNumberPreference extends EditTextPreference {
+public class EditPhoneNumberPreference extends EmptyWatchingEditTextPreference {
 
     //allowed modes for this preference.
     /** simple confirmation (OK / CANCEL) */
