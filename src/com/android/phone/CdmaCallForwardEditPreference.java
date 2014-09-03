@@ -77,6 +77,8 @@ public class CdmaCallForwardEditPreference extends EditPhoneNumberPreference {
         reason = a.getInt(R.styleable.CallForwardEditPreference_reason,
                 CommandsInterface.CF_REASON_UNCONDITIONAL);
         a.recycle();
+
+        setWatchedButton(DialogInterface.BUTTON_NEUTRAL);
     }
 
     public CdmaCallForwardEditPreference(Context context) {
@@ -107,10 +109,6 @@ public class CdmaCallForwardEditPreference extends EditPhoneNumberPreference {
         // A positive result is technically either button1 or button3.
         if (mButtonClicked == DialogInterface.BUTTON_NEUTRAL) {
             final String number = getEditText().getText().toString();
-            if (number.trim().length() == 0) {
-                Toast.makeText(mContext,R.string.null_phone_number,Toast.LENGTH_LONG).show();
-                return;
-            }
             Intent intent = new Intent(Intent.ACTION_CALL_PRIVILEGED);
             intent.setData(Uri.fromParts("tel", mPrefixNumber + number, null));
             intent.putExtra(CDMA_SUPP_CALL, true);

@@ -88,11 +88,10 @@ public class RespondViaSmsManager {
     // Since (for now at least) the number of messages is fixed at 4, and since
     // SharedPreferences can't deal with arrays anyway, just store the messages
     // as 4 separate strings.
-    private static final int NUM_CANNED_RESPONSES = 4;
-    private static final String KEY_CANNED_RESPONSE_PREF_1 = "canned_response_pref_1";
-    private static final String KEY_CANNED_RESPONSE_PREF_2 = "canned_response_pref_2";
-    private static final String KEY_CANNED_RESPONSE_PREF_3 = "canned_response_pref_3";
-    private static final String KEY_CANNED_RESPONSE_PREF_4 = "canned_response_pref_4";
+    private static final String[] CANNED_RESPONSE_KEYS = new String[] {
+        "canned_response_pref_1", "canned_response_pref_2",
+        "canned_response_pref_3", "canned_response_pref_4"
+    };
     private static final String KEY_PREFERRED_PACKAGE = "preferred_package_pref";
 
     /**
@@ -121,22 +120,13 @@ public class RespondViaSmsManager {
 
             addPreferencesFromResource(R.xml.respond_via_sms_settings);
 
-            EditTextPreference pref;
-            pref = (EditTextPreference) findPreference(KEY_CANNED_RESPONSE_PREF_1);
-            pref.setTitle(pref.getText());
-            pref.setOnPreferenceChangeListener(this);
-
-            pref = (EditTextPreference) findPreference(KEY_CANNED_RESPONSE_PREF_2);
-            pref.setTitle(pref.getText());
-            pref.setOnPreferenceChangeListener(this);
-
-            pref = (EditTextPreference) findPreference(KEY_CANNED_RESPONSE_PREF_3);
-            pref.setTitle(pref.getText());
-            pref.setOnPreferenceChangeListener(this);
-
-            pref = (EditTextPreference) findPreference(KEY_CANNED_RESPONSE_PREF_4);
-            pref.setTitle(pref.getText());
-            pref.setOnPreferenceChangeListener(this);
+            for (String key : CANNED_RESPONSE_KEYS) {
+                EmptyWatchingEditTextPreference pref =
+                        (EmptyWatchingEditTextPreference) findPreference(key);
+                pref.setTitle(pref.getText());
+                pref.setWatchedButton(DialogInterface.BUTTON_POSITIVE);
+                pref.setOnPreferenceChangeListener(this);
+            }
 
             ActionBar actionBar = getActionBar();
             if (actionBar != null) {
@@ -151,13 +141,6 @@ public class RespondViaSmsManager {
             if (DBG) log("onPreferenceChange: key = " + preference.getKey());
             if (VDBG) log("  preference = '" + preference + "'");
             if (VDBG) log("  newValue = '" + newValue + "'");
-
-            if (TextUtils.isEmpty((String) newValue)) {
-                // If the newValue is empty, we prompt a toast and do not save the newValue.
-                Toast.makeText(getApplicationContext(),
-                        R.string.respond_via_sms_cannot_be_empty, Toast.LENGTH_SHORT).show();
-                return false;
-            }
 
             EditTextPreference pref = (EditTextPreference) preference;
 
