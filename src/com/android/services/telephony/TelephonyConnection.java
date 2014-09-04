@@ -65,7 +65,10 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_SET_VIDEO_PROVIDER = 11;
     private static final int MSG_SET_AUDIO_QUALITY = 12;
     private static final int MSG_SET_CONFERENCE_PARTICIPANTS = 13;
+    private static final int MSG_PHONE_VP_ON = 14;
+    private static final int MSG_PHONE_VP_OFF = 15;
 
+    private boolean mIsVoicePrivacyOn = false;
     private SuppServiceNotification mSsNotification = null;
 
     private final Handler mHandler = new Handler() {
@@ -151,6 +154,20 @@ abstract class TelephonyConnection extends Connection {
                     boolean remoteVideoCapable = false;
                     remoteVideoCapable = (boolean) msg.obj;
                     setRemoteVideoCapable(remoteVideoCapable);
+                    break;
+
+                case MSG_PHONE_VP_ON:
+                    if (!mIsVoicePrivacyOn) {
+                        mIsVoicePrivacyOn = true;
+                        updateState();
+                    }
+                    break;
+
+                case MSG_PHONE_VP_OFF:
+                    if (mIsVoicePrivacyOn) {
+                        mIsVoicePrivacyOn = false;
+                        updateState();
+                    }
                     break;
 
                 case MSG_SET_VIDEO_PROVIDER:
@@ -579,6 +596,7 @@ abstract class TelephonyConnection extends Connection {
                 mIsVideoPauseSupported && mRemoteVideoCapable && mLocalVideoCapable);
 
         newCapabilities = applyConferenceTerminationCapabilities(newCapabilities);
+        newCapabilities = applyVoicePrivacyCapabilities(newCapabilities);
 
         if (getConnectionCapabilities() != newCapabilities) {
             setConnectionCapabilities(newCapabilities);
@@ -622,6 +640,8 @@ abstract class TelephonyConnection extends Connection {
         getPhone().registerForRingbackTone(mHandler, MSG_RINGBACK_TONE, null);
         getPhone().registerForDisconnect(mHandler, MSG_DISCONNECT, null);
         getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
+        getPhone().registerForInCallVoicePrivacyOn(mHandler, MSG_PHONE_VP_ON, null);
+        getPhone().registerForInCallVoicePrivacyOff(mHandler, MSG_PHONE_VP_OFF, null);
         mOriginalConnection.addPostDialListener(mPostDialListener);
         mOriginalConnection.addListener(mOriginalConnectionListener);
 
@@ -655,6 +675,8 @@ abstract class TelephonyConnection extends Connection {
                 getPhone().unregisterForHandoverStateChanged(mHandler);
                 getPhone().unregisterForDisconnect(mHandler);
                 getPhone().unregisterForSuppServiceNotification(mHandler);
+                getPhone().unregisterForInCallVoicePrivacyOn(mHandler);
+                getPhone().unregisterForInCallVoicePrivacyOff(mHandler);
             }
             mOriginalConnection.removePostDialListener(mPostDialListener);
             mOriginalConnection.removeListener(mOriginalConnectionListener);
@@ -905,6 +927,25 @@ abstract class TelephonyConnection extends Connection {
         if (!mWasImsConnection) {
             currentCapabilities |= CAPABILITY_DISCONNECT_FROM_CONFERENCE;
             currentCapabilities |= CAPABILITY_SEPARATE_FROM_CONFERENCE;
+        }
+
+        return currentCapabilities;
+    }
+
+    /**
+     * Applies the voice privacy capabilities to the {@code CallCapabilities} bit-mask.
+     *
+     * @param callCapabilities The {@code CallCapabilities} bit-mask.
+     * @return The capabilities with the voice privacy capabilities applied.
+     */
+    private int applyVoicePrivacyCapabilities(int callCapabilities) {
+        int currentCapabilities = callCapabilities;
+        if (mIsVoicePrivacyOn) {
+            currentCapabilities = changeCapability(currentCapabilities,
+                    CAPABILITY_VOICE_PRIVACY, mIsVoicePrivacyOn);
+        } else {
+            currentCapabilities = changeCapability(currentCapabilities,
+                    CAPABILITY_VOICE_PRIVACY, mIsVoicePrivacyOn);
         }
 
         return currentCapabilities;
