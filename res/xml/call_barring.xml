@@ -53,12 +53,6 @@
         android:dialogTitle="@string/call_barring_incoming" />
 
     <com.android.phone.EditPinPreference
-        android:key="call_barring_cancel_all_key"
-        android:persistent="false"
-        android:dialogMessage="@string/input_password"
-        android:title="@string/labelCbCancelAll"/>
-
-    <com.android.phone.EditPinPreference
         android:key="call_barring_change_psw_key"
         android:persistent="false"
         android:dialogMessage="@string/psw_enter_old"
