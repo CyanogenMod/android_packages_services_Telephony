@@ -51,8 +51,9 @@ import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.CommandsInterface;
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
-public class CallBarring extends PreferenceActivity implements DialogInterface.OnClickListener,
-        Preference.OnPreferenceChangeListener, EditPinPreference.OnPinEnteredListener {
+public class CallBarring extends TimeConsumingPreferenceActivity implements
+        DialogInterface.OnClickListener, Preference.OnPreferenceChangeListener,
+        EditPinPreference.OnPinEnteredListener {
 
     private static final String  LOG_TAG = "CallBarring";
     private static final boolean DBG = true;
@@ -93,9 +94,6 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
 
     // dialog id for create
     private static final int BUSY_DIALOG = 100;
-    private static final int EXCEPTION_ERROR = 200;
-    private static final int RESPONSE_ERROR = 300;
-    private static final int RADIO_OFF_ERROR = 400;
     private static final int INITIAL_BUSY_DIALOG = 500;
     private static final int INPUT_PSW_DIALOG = 600;
 
@@ -182,7 +180,7 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
 
         if (DBG) log("onResume");
@@ -194,8 +192,7 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
                 queryAllCBOptions();
             } else {
                 if (DBG) log("onResume: airplane mode on");
-                showDialog (RADIO_OFF_ERROR);
-                finish();
+                showDialog(RADIO_OFF_ERROR);
             }
         } else {
             mListOutgoing.setValue(String.valueOf(mOutgoingState));
@@ -247,7 +244,8 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
                     status = handleGetCBMessage(ar, msg.arg1);
                     if (status != MSG_OK) {
                         removeDialog(INITIAL_BUSY_DIALOG);
-                        Log.d("CallBarring","EXCEPTION_ERROR!");
+                        getPreferenceScreen().setEnabled(false);
+                        showDialog(EXCEPTION_ERROR);
                         return;
                     }
 
@@ -288,7 +286,8 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
 
     private int handleGetCBMessage(AsyncResult ar, int reason) {
         if (ar.exception != null) {
-            Log.e(LOG_TAG, "handleGetCBMessage: Error getting CB enable state.");
+            Log.e(LOG_TAG, "handleGetCBMessage: Error getting CB enable state (" + reason + ").",
+                    ar.exception);
             return MSG_EXCEPTION;
         } else if (ar.userObj instanceof Throwable) {
             Log.e(LOG_TAG, "handleGetCBMessage: Error during set call barring, reason: " + reason +
@@ -605,44 +604,8 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
 
             return dialog;
 
-        // Handle error dialog codes
-        } else if ((id == RESPONSE_ERROR) || (id == EXCEPTION_ERROR) || (id == RADIO_OFF_ERROR)) {
-            int msgId;
-            int titleId = R.string.error_updating_title;
-            AlertDialog.Builder b = new AlertDialog.Builder(this);
-
-            switch (id) {
-                case RESPONSE_ERROR:
-                    msgId = R.string.response_error;
-                    // Set Button 2, tells the activity that the error is
-                    // recoverable on dialog exit.
-                    b.setNegativeButton(R.string.close_dialog, this);
-                    break;
-                case RADIO_OFF_ERROR:
-                    msgId = R.string.radio_off_error;
-                    // Set Button 3
-                    b.setNeutralButton(R.string.close_dialog, this);
-                    break;
-                case EXCEPTION_ERROR:
-                default:
-                    msgId = R.string.exception_error;
-                    // Set Button 3, tells the activity that the error is
-                    // not recoverable on dialog exit.
-                    b.setNeutralButton(R.string.close_dialog, this);
-                    break;
-            }
-
-            b.setTitle(getText(titleId));
-            b.setMessage(getText(msgId));
-            b.setCancelable(false);
-            AlertDialog dialog = b.create();
-
-            // make the dialog more obvious by bluring the background.
-            dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-
-            return dialog;
         }
-        return null;
+        return super.onCreateDialog(id);
     }
 
     private final void dismissBusyDialog() {
