@@ -53,9 +53,13 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_HANDOVER_STATE_CHANGED = 3;
     private static final int MSG_DISCONNECT = 4;
     private static final int MSG_SUPP_SERVICE_NOTIFY = 5;
+    private static final int MSG_PHONE_VP_ON = 6;
+    private static final int MSG_PHONE_VP_OFF = 7;
+
     private SuppServiceNotification mSsNotification = null;
     private String[] mSubName = {"SUB 1", "SUB 2", "SUB 3"};
     private String mDisplayName;
+    private boolean mVoicePrivacyState = false;
 
     private final Handler mHandler = new Handler() {
         @Override
@@ -109,6 +113,18 @@ abstract class TelephonyConnection extends Connection {
                         }
                     }
                     setSsNotificationData(mSsNotification.notificationType, mSsNotification.code);
+                    break;
+                case MSG_PHONE_VP_ON:
+                    if (!mVoicePrivacyState) {
+                        mVoicePrivacyState = true;
+                        updateState();
+                    }
+                    break;
+                case MSG_PHONE_VP_OFF:
+                    if (mVoicePrivacyState) {
+                        mVoicePrivacyState = false;
+                        updateState();
+                    }
                     break;
             }
         }
@@ -583,6 +599,7 @@ abstract class TelephonyConnection extends Connection {
         newCallCapabilities = applyVideoCapabilities(newCallCapabilities);
         newCallCapabilities = applyAudioQualityCapabilities(newCallCapabilities);
         newCallCapabilities = applyConferenceTerminationCapabilities(newCallCapabilities);
+        newCallCapabilities = applyVoicePrivacyCapabilities(newCallCapabilities);
 
         if (getCallCapabilities() != newCallCapabilities) {
             setCallCapabilities(newCallCapabilities);
@@ -630,6 +647,8 @@ abstract class TelephonyConnection extends Connection {
         getPhone().registerForRingbackTone(mHandler, MSG_RINGBACK_TONE, null);
         getPhone().registerForDisconnect(mHandler, MSG_DISCONNECT, null);
         getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
+        getPhone().registerForInCallVoicePrivacyOn(mHandler, MSG_PHONE_VP_ON, null);
+        getPhone().registerForInCallVoicePrivacyOff(mHandler, MSG_PHONE_VP_OFF, null);
         mOriginalConnection.addPostDialListener(mPostDialListener);
         mOriginalConnection.addListener(mOriginalConnectionListener);
 
@@ -813,6 +832,8 @@ abstract class TelephonyConnection extends Connection {
             getPhone().unregisterForRingbackTone(mHandler);
             getPhone().unregisterForHandoverStateChanged(mHandler);
             getPhone().unregisterForSuppServiceNotification(mHandler);
+            getPhone().unregisterForInCallVoicePrivacyOn(mHandler);
+            getPhone().unregisterForInCallVoicePrivacyOff(mHandler);
         }
         mOriginalConnection = null;
         destroy();
@@ -881,6 +902,25 @@ abstract class TelephonyConnection extends Connection {
             currentCapabilities |=
                     PhoneCapabilities.DISCONNECT_FROM_CONFERENCE
                     | PhoneCapabilities.SEPARATE_FROM_CONFERENCE;
+        }
+
+        return currentCapabilities;
+    }
+
+    /**
+     * Applies the voice privacy capabilities to the {@code CallCapabilities} bit-mask.
+     *
+     * @param callCapabilities The {@code CallCapabilities} bit-mask.
+     * @return The capabilities with the voice privacy capabilities applied.
+     */
+    private int applyVoicePrivacyCapabilities(int callCapabilities) {
+        int currentCapabilities = callCapabilities;
+        if (mVoicePrivacyState) {
+            currentCapabilities = applyCapability(currentCapabilities,
+                    PhoneCapabilities.VOICE_PRIVACY);
+        } else {
+            currentCapabilities = removeCapability(currentCapabilities,
+                    PhoneCapabilities.VOICE_PRIVACY);
         }
 
         return currentCapabilities;
