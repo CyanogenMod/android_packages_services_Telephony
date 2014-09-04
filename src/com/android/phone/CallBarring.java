@@ -29,6 +29,7 @@
 
 package com.android.phone;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -43,7 +44,9 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.telephony.MSimTelephonyManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
 import com.android.internal.telephony.Phone;
@@ -138,6 +141,12 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
                  PhoneGlobals.getInstance().getDefaultSubscription());
         if (DBG) log("mSubscription: " + mSubscription);
         mPhone = PhoneGlobals.getInstance().getPhone(mSubscription);
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
@@ -538,6 +547,20 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {  // See ActionBar#setDisplayHomeAsUpEnabled()
+            if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+                MSimCallFeaturesSubSetting.goUpToTopLevelSetting(this);
+            } else {
+                CallFeaturesSetting.goUpToTopLevelSetting(this);
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
