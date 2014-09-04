@@ -60,7 +60,6 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
 
     private static final String  CALL_BARRING_OUTGOING_KEY = "call_barring_outgoing_key";
     private static final String  CALL_BARRING_INCOMING_KEY = "call_barring_incoming_key";
-    private static final String  CALL_BARRING_CANCEL_ALL_KEY = "call_barring_cancel_all_key";
     private static final String  CALL_BARRING_CHANGE_PSW_KEY = "call_barring_change_psw_key";
 
     private static final String  SETOUTGOING_KEY = "SETOUTGOING_KEY";
@@ -88,7 +87,6 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
 
     private static final int EVENT_CB_QUERY_ALL = 100;
     private static final int EVENT_CB_CANCEL_QUERY = 200;
-    private static final int EVENT_CB_CANCEL_ALL = 300;
     private static final int EVENT_CB_SET_COMPLETE = 400;
     private static final int EVENT_CB_CHANGE_PSW = 500;
 
@@ -126,7 +124,6 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
 
     private ListPreference mListOutgoing = null;
     private ListPreference mListIncoming = null;
-    private EditPinPreference mDialogCancelAll = null;
     private EditPinPreference mDialogChangePSW = null;
 
     @Override
@@ -149,9 +146,7 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
         mListOutgoing.setOnPreferenceChangeListener(this);
         mListIncoming.setOnPreferenceChangeListener(this);
 
-        mDialogCancelAll = (EditPinPreference) prefSet.findPreference(CALL_BARRING_CANCEL_ALL_KEY);
         mDialogChangePSW = (EditPinPreference) prefSet.findPreference(CALL_BARRING_CHANGE_PSW_KEY);
-        mDialogCancelAll.setOnPinEnteredListener(this);
         mDialogChangePSW.setOnPinEnteredListener(this);
 
         if (icicle != null) {
@@ -419,22 +414,7 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
         String tmpPsw = preference.getText();
         preference.setText("");
 
-        if (preference == mDialogCancelAll) {
-            if ((mOutgoingState == CB_CLOSE_OUT) && (mIncomingState == CB_CLOSE_IN)) {
-                showToast(getResources().getString(R.string.no_call_barring));
-                return;
-            }
-
-            if (!reasonablePSW(tmpPsw)) {
-                mError = getResources().getString(R.string.invalidPsw);
-                showCancelDialog();
-                return;
-            }
-
-            showDialog(BUSY_DIALOG);
-            mPhone.setCallBarringOption(CommandsInterface.CB_FACILITY_BA_ALL, false, tmpPsw,
-                    Message.obtain(mSetOptionComplete, EVENT_CB_CANCEL_ALL));
-        } else if (preference == mDialogChangePSW) {
+        if (preference == mDialogChangePSW) {
             switch (mDialogState) {
                 case CB_OUTGOING_MODE:
                 case CB_INCOMING_MODE:
@@ -457,8 +437,6 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
                         facility = getBarringFacility(lockState ? mSetIncoming : mIncomingState);
                     } else {
                         dismissBusyDialog();
-                        showToast(getResources().getString(R.string.no_call_barring));
-                        Log.e(LOG_TAG, "Call barring state error!");
                         return;
                     }
 
@@ -516,18 +494,6 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
             AsyncResult ar = (AsyncResult) msg.obj;
 
             switch (msg.what) {
-                case EVENT_CB_CANCEL_ALL:
-                    dismissBusyDialog();
-                    if (ar.exception != null) {
-                        finish();
-                        showToast(getResources().getString(R.string.response_error));
-                    } else {
-                        mOutgoingState = CB_CLOSE_OUT;
-                        mIncomingState = CB_CLOSE_IN;
-                        syncUiWithState();
-                        showToast(getResources().getString(R.string.operation_successfully));
-                    }
-                    break;
                 case EVENT_CB_SET_COMPLETE:
                     dismissBusyDialog();
                     if (ar.exception != null) {
@@ -557,12 +523,6 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
             }
         }
     };
-
-    private void showCancelDialog() {
-        mDialogCancelAll.setText(mPassword);
-        mDialogCancelAll.setDialogMessage(mError);
-        mDialogCancelAll.showPinDialog();
-    }
 
     private boolean reasonablePSW(String psw) {
         if (psw == null || psw.length() < MIN_PSW_LENGTH || psw.length() > MAX_PSW_LENGTH) {

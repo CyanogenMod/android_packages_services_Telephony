@@ -168,13 +168,11 @@
     <string name="call_barring_outgoing">Outgoing call blocking</string>
     <string name="call_barring_incoming">Incoming call blocking</string>
     <string name="input_password">Enter password</string>
-    <string name="labelCbCancelAll">Cancel all call blocking</string>
     <string name="psw_enter_old">Current password</string>
     <string name="labelCbChangePassword">Change password</string>
     <string name="psw_enter_new">New password</string>
     <string name="invalidPsw">Input your password (4 - 8 digits)</string>
     <string name="psw_reenter_new">Confirm new password</string>
-    <string name="no_call_barring">No call blocking</string>
     <string name="cb_psw_dont_match">Passwords do not match</string>
     <string name="operation_successfully">Operation completed successfully</string>
 
