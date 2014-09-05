@@ -38,6 +38,7 @@ import android.text.TextWatcher;
 import android.text.method.DialerKeyListener;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -81,6 +82,11 @@ public class EmergencyDialer extends Activity implements View.OnClickListener,
             R.id.four, R.id.five, R.id.six,
             R.id.seven, R.id.eight, R.id.nine,
             R.id.star, R.id.zero, R.id.pound };
+
+    private final int POLICE = 100;
+    private final int EMERGENCY = 101;
+    private final int FIRE = 102;
+    private final int AMBULANCE = 103;
 
     // Debug constants.
     private static final boolean DBG = false;
@@ -625,4 +631,40 @@ public class EmergencyDialer extends Activity implements View.OnClickListener,
 
         mDelete.setEnabled(notEmpty);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (getResources().getBoolean(R.bool.def_telephony_show_menu_enabled)) {
+            menu.add(0, POLICE, 0, "Policy 110");
+            menu.add(0, EMERGENCY, 0, "Emergency 112");
+            menu.add(0, FIRE, 0, "Fire Fighter 113");
+            menu.add(0, AMBULANCE, 0, "Ambulcance 118");
+        }
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case POLICE:
+            mDigits.setText("110");
+            mDigits.setSelection(mDigits.getText().length());
+            break;
+        case EMERGENCY:
+            mDigits.setText("112");
+            mDigits.setSelection(mDigits.getText().length());
+            break;
+        case FIRE:
+            mDigits.setText("113");
+            mDigits.setSelection(mDigits.getText().length());
+            break;
+        case AMBULANCE:
+            mDigits.setText("118");
+            mDigits.setSelection(mDigits.getText().length());
+            break;
+        }
+        return true;
+    }
+
 }

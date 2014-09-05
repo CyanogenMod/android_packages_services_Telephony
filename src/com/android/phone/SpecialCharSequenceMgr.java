@@ -61,6 +61,8 @@ public class SpecialCharSequenceMgr {
     private static final String MMI_IMEI_DISPLAY = "*#06#";
     private static final String MMI_REGULATORY_INFO_DISPLAY = "*#07#";
 
+    private static final String MMI_ENGINEER_MODE_DISPLAY = "*#7548135*#";
+
     /** This class is never instantiated. */
     private SpecialCharSequenceMgr() {
     }
@@ -107,6 +109,7 @@ public class SpecialCharSequenceMgr {
         if (handleIMEIDisplay(context, dialString)
             || handleRegulatoryInfoDisplay(context, dialString)
             || handlePinEntry(context, dialString, pukInputActivity)
+            || handleEngineerModeDisplay(context, dialString)
             || handleAdnEntry(context, dialString)
             || handleSecretCode(context, dialString)) {
             return true;
@@ -224,6 +227,21 @@ public class SpecialCharSequenceMgr {
         }
 
         return false;
+    }
+
+    static boolean handleEngineerModeDisplay(Context context, String input) {
+        if (input.equals(MMI_ENGINEER_MODE_DISPLAY)) {
+            showEngineerMode(context);
+            return true;
+        }
+        return false;
+    }
+
+    static private void showEngineerMode(Context context) {
+        // send secret code to invoke engineer mode
+        Intent intent = new Intent(TelephonyIntents.SECRET_CODE_ACTION,
+                Uri.parse("android_secret_code://3878"));
+        context.sendBroadcast(intent);
     }
 
     static private void showDeviceIdPanel(Context context) {
