@@ -48,9 +48,8 @@ import com.android.internal.telephony.TelephonyProperties;
 
 /**
  * "Mobile network settings" screen.  This preference screen lets you
- * enable/disable mobile data, and control data roaming and other
- * network-specific mobile data features.  It's used on non-voice-capable
- * tablets as well as regular phone devices.
+ * control data roaming and other network-specific mobile data features.
+ * It's used on non-voice-capable tablets as well as regular phone devices.
  *
  * Note that this PreferenceActivity is part of the phone app, even though
  * you reach it from the "Wireless & Networks" section of the main
@@ -69,7 +68,6 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
     public static final int REQUEST_CODE_EXIT_ECM = 17;
 
     //String keys for preference lookup
-    private static final String BUTTON_DATA_ENABLED_KEY = "button_data_enabled_key";
     private static final String BUTTON_ROAMING_KEY = "button_roaming_key";
     private static final String BUTTON_PREFERED_NETWORK_MODE = "preferred_network_mode_key";
 
@@ -83,7 +81,6 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
     //UI objects
     private ListPreference mButtonPreferredNetworkMode;
     private CheckBoxPreference mButtonDataRoam;
-    private CheckBoxPreference mButtonDataEnabled;
 
     private static final String iface = "rmnet0"; //TODO: this will go away
 
@@ -150,11 +147,6 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                  multiSimSetDataRoaming(false);
             }
             return true;
-        } else if (preference == mButtonDataEnabled) {
-            // Handles the click events for Mobile Data menu item.
-            if (DBG) log("onPreferenceTreeClick: preference == mButtonDataEnabled.");
-            multiSimSetMobileData(mButtonDataEnabled.isChecked());
-            return true;
         } else if (mCdmaOptions != null &&
                    mCdmaOptions.preferenceTreeClick(preference) == true) {
             if (Boolean.parseBoolean(
@@ -197,7 +189,6 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         //get UI object references
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mButtonDataEnabled = (CheckBoxPreference) prefSet.findPreference(BUTTON_DATA_ENABLED_KEY);
         mButtonDataRoam = (CheckBoxPreference) prefSet.findPreference(BUTTON_ROAMING_KEY);
         mButtonPreferredNetworkMode = (ListPreference) prefSet.findPreference(
                 BUTTON_PREFERED_NETWORK_MODE);
@@ -252,7 +243,6 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         // Set UI state in onResume because a user could go home, launch some
         // app to change this setting's backend, and re-launch this settings app
         // and the UI state would be inconsistent with actual state
-        mButtonDataEnabled.setChecked(multiSimGetMobileData());
         mButtonDataRoam.setChecked(multiSimGetDataRoaming());
 
         if (getPreferenceScreen().findPreference(BUTTON_PREFERED_NETWORK_MODE) != null)  {
@@ -603,17 +593,5 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         log("Set Data Roaming for phoneId-" + mPhone.getPhoneId() + " is " + enabled);
 
         mPhone.setDataRoamingEnabled(enabled);
-    }
-
-    private boolean multiSimGetMobileData() {
-        boolean enabled = mPhone.getDataEnabled();
-
-        log("Get Mobile Data for PhoneId-" + mPhone.getPhoneId() + " is " + enabled);
-        return enabled;
-    }
-
-    private void multiSimSetMobileData(boolean enabled) {
-        log("Set Mobile Data for SUB-" + mPhone.getPhoneId() + " is " + enabled);
-        mPhone.setDataEnabled(enabled);
     }
 }
