@@ -23,7 +23,7 @@
         android:title="@string/apn_settings" >
         <intent
             android:action="android.intent.action.MAIN"
-            android:targetClass="com.android.settings.ApnSettings"
+            android:targetClass="com.android.settings.Settings$ApnSettingsActivity"
             android:targetPackage="com.android.settings" />
     </PreferenceScreen>
 
