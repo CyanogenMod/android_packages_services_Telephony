@@ -89,9 +89,4 @@
   <string name="incoming_call_style_title">Στυλ εισερχόμενης κλήσης</string>
   <string name="incoming_call_style_classic">Κλασικό</string>
   <string name="incoming_call_style_fullscreen_photo">Φωτογραφία καλούντος σε πλήρη οθόνη</string>
-  <string name="title_sim_prompt_dlg">Λειτουργία πτήσης</string>
-  <string name="msg_sim_prompt_dlg">Η λειτουργία πτήσης είναι ενεργή. Απενεργοποίηση;</string>
-  <string name="msg_wait_prodlg">Απενεργοποίηση λειτουργίας πτήσης\u2026</string>
-  <string name="network_forbidden">(Απαγορευμένο)</string>
-  <string name="fdn_empty_number">Το FDN δεν ενημερώθηκε: ο αριθμός δεν μπορεί να είναι κενός.</string>
 </resources>

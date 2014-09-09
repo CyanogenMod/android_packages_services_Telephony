@@ -89,9 +89,4 @@
   <string name="incoming_call_style_title">Saapuvan puhelun näytön tyyli</string>
   <string name="incoming_call_style_classic">Klassinen</string>
   <string name="incoming_call_style_fullscreen_photo">Soittajan kuva koko näytöllä</string>
-  <string name="title_sim_prompt_dlg">Lentotila</string>
-  <string name="msg_sim_prompt_dlg">Lentotila käytössä. Poistetaanko käytöstä?</string>
-  <string name="msg_wait_prodlg">Poistetaan lentotilaa käytöstä\u2026</string>
-  <string name="network_forbidden">(Kielletty)</string>
-  <string name="fdn_empty_number">FDN ei päivitetty: numero ei voi olla tyhjä.</string>
 </resources>

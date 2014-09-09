@@ -89,9 +89,4 @@
   <string name="incoming_call_style_title">전화 수신 화면 스타일</string>
   <string name="incoming_call_style_classic">클래식</string>
   <string name="incoming_call_style_fullscreen_photo">전체 화면 발신자 사진</string>
-  <string name="title_sim_prompt_dlg">비행기 모드</string>
-  <string name="msg_sim_prompt_dlg">비행기 모드가 켜져 있습니다. 비활성화할까요?</string>
-  <string name="msg_wait_prodlg">비행기 모드를 비활성화하는 중\u2026</string>
-  <string name="network_forbidden">(금지됨)</string>
-  <string name="fdn_empty_number">FDN이 갱신되지 않았습니다. 전화번호는 비워둘 수 없습니다.</string>
 </resources>

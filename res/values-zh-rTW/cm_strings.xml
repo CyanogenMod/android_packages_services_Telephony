@@ -18,6 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="call_notif_unconditionalCF">無限制來電轉接啟用中</string>
   <string name="call_notif_conditionalCF">限制來電轉接啟用中</string>
+  <string name="call_notif_multipartycall">多方通話</string>
   <string name="incall_vibration">通話震動</string>
   <string name="blacklist_title">黑名單</string>
   <string name="blacklist_summary_disabled">已停用</string>
@@ -31,6 +32,9 @@
   <string name="enable_people_lookup_summary">在撥號器中搜索時，即時顯示搜索聯絡人結果</string>
   <string name="enable_reverse_lookup_summary">為未知來電號碼查詢聯絡人或地點資料</string>
   <string name="sub_no_sim">沒有 SIM 卡</string>
+  <string name="msim_call_selector_item">SIM卡<xliff:g id="index">%1$d</xliff:g>：<xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn 中國（CN）</string>
   <string name="t9_search_input_locale_default">預設</string>
+  <string name="incoming_call_style_classic">預設</string>
+  <string name="incoming_call_style_fullscreen_photo">全螢幕來電者相片</string>
 </resources>

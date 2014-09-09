@@ -89,9 +89,4 @@
   <string name="incoming_call_style_title">Стил екрана за долазни позив</string>
   <string name="incoming_call_style_classic">Класични</string>
   <string name="incoming_call_style_fullscreen_photo">Слика позиваоца преко целог екрана</string>
-  <string name="title_sim_prompt_dlg">Режим рада у авиону</string>
-  <string name="msg_sim_prompt_dlg">Режим рада у авиону омогућен. Онемогућити?</string>
-  <string name="msg_wait_prodlg">Онемогућавање режима рада у авиону\u2026</string>
-  <string name="network_forbidden">(Забрањено)</string>
-  <string name="fdn_empty_number">FDN није ажуриран: број не може бити празан.</string>
 </resources>

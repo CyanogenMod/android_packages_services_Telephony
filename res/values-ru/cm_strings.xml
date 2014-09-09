@@ -89,9 +89,4 @@
   <string name="incoming_call_style_title">Стиль экрана входящего вызова</string>
   <string name="incoming_call_style_classic">Классический</string>
   <string name="incoming_call_style_fullscreen_photo">Фото звонящего на весь экран</string>
-  <string name="title_sim_prompt_dlg">Режим полёта</string>
-  <string name="msg_sim_prompt_dlg">Включён режим полёта. Отключить его?</string>
-  <string name="msg_wait_prodlg">Отключение режима полёта\u2026</string>
-  <string name="network_forbidden">(Запрещено)</string>
-  <string name="fdn_empty_number">Список фикс. набора не изменён: номер не может быть пустым.</string>
 </resources>

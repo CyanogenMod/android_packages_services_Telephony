@@ -28,8 +28,8 @@
   <string name="call_notif_multipartycall">多方通話</string>
   <string name="call_notif_callonhold_released">通話被對方釋放</string>
   <string name="call_notif_forwardcheckreceived">通話被轉駁</string>
-  <string name="call_notif_callconnectingect">致電通過顯式的來電轉接進行連接</string>
-  <string name="call_notif_callconnectedect">致電通過顯式的來電轉接進行連接</string>
+  <string name="call_notif_callconnectingect">致電透過顯式的來電轉接進行連接</string>
+  <string name="call_notif_callconnectedect">致電透過顯式的來電轉接進行連接</string>
   <string name="incall_vibration">通話震動</string>
   <string name="vibrate_outgoing">當接聽時震動</string>
   <string name="vibrate_call_waiting">當通話等待時震動</string>

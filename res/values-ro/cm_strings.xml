@@ -89,9 +89,4 @@
   <string name="incoming_call_style_title">Stilul ecranului unui apel în desfășurare</string>
   <string name="incoming_call_style_classic">Clasic</string>
   <string name="incoming_call_style_fullscreen_photo">Fotografia apelantului pe tot ecranul</string>
-  <string name="title_sim_prompt_dlg">Mod avion</string>
-  <string name="msg_sim_prompt_dlg">Modul avion activat. Dezactivează?</string>
-  <string name="msg_wait_prodlg">Se dezactivează modul avion\u2026</string>
-  <string name="network_forbidden">(Interzis)</string>
-  <string name="fdn_empty_number">FDN nu este actualizat: numărul nu poate fi gol.</string>
 </resources>

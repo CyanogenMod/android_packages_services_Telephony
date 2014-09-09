@@ -89,9 +89,4 @@
   <string name="incoming_call_style_title">Estil de la pantalla de trucada entrant</string>
   <string name="incoming_call_style_classic">Clàssica</string>
   <string name="incoming_call_style_fullscreen_photo">Foto de la trucada en pantalla sencera</string>
-  <string name="title_sim_prompt_dlg">Mode avió</string>
-  <string name="msg_sim_prompt_dlg">El mode avió està activat. Vols desactivar-lo?</string>
-  <string name="msg_wait_prodlg">S\'està desactivant el mode avió\u2026</string>
-  <string name="network_forbidden">(Prohibit)</string>
-  <string name="fdn_empty_number">FDN no actualitzat: el número no pot estar buit.</string>
 </resources>
