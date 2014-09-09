@@ -249,6 +249,7 @@ public class MSimCallNotifier extends CallNotifier {
         Call ringing = c.getCall();
         Phone phone = ringing.getPhone();
 
+        PhoneUtils.maybeShowOrHideUssdDialog(false);
         // Check for a few cases where we totally ignore incoming calls.
         if (ignoreAllIncomingCalls(phone)||MSimPhoneGlobals.getInstance().isCsvtActive()) {
             // Immediately reject the call, without even indicating to the user
@@ -548,7 +549,7 @@ public class MSimCallNotifier extends CallNotifier {
     @Override
     protected void onDisconnect(AsyncResult r) {
         if (VDBG) log("onDisconnect()...  CallManager state: " + mCM.getState());
-
+        PhoneUtils.maybeShowOrHideUssdDialog(true);
         mVoicePrivacyState = false;
         Connection c = (Connection) r.result;
         int subscription = c.getCall().getPhone().getSubscription();
