@@ -100,8 +100,8 @@ abstract class TelephonyConnection extends Connection {
                         String callForwardText = getSuppSvcNotificationText(mSsNotification);
                         if (TelephonyManager.getDefault().getPhoneCount() > 1) {
                             List<SubInfoRecord> sub =
-                                    SubscriptionManager.getSubInfoUsingSlotId(TelephonyGlobals
-                                            .getApplicationContext(), getPhone().getPhoneId());
+                                    SubscriptionManager.getSubInfoUsingSlotId(
+                                            getPhone().getPhoneId());
                             String displayName = (sub == null) ? mSubName[getPhone()
                                     .getPhoneId()] : sub.get(0).displayName;
                             mDisplayName = displayName + ":" + callForwardText;
