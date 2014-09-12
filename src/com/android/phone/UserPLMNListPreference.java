@@ -41,6 +41,7 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.telephony.SubscriptionManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -137,7 +138,7 @@ public class UserPLMNListPreference extends TimeConsumingPreferenceActivity {
         addPreferencesFromResource(R.xml.uplmn_list);
         mUPLMNListContainer = (PreferenceScreen) findPreference(BUTTON_UPLMN_LIST_KEY);
         mSubscription = getIntent().getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
-                PhoneConstants.DEFAULT_SUBSCRIPTION);
+                SubscriptionManager.getPhoneId(SubscriptionManager.getDefaultSubId()));
         loadIccFileHandler();
 
         mIntentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
