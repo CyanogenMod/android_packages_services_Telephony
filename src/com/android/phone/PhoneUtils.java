@@ -1333,6 +1333,7 @@ public class PhoneUtils {
                                 @Override
                                 public void onDismiss(DialogInterface dialog) {
                                     sUssdMsg.setLength(0);
+                                    sUssdDialog = null;
                                 }
                             })
                             .create();
