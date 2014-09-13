@@ -157,6 +157,7 @@
   <string name="description_image_button_eight">aacht</string>
   <string name="description_image_button_nine">néng</string>
   <string name="description_image_button_zero">null</string>
+  <string name="description_delete_button">Récktast</string>
   <string name="accessibility_call_muted">Uruff stomm geschalt.</string>
   <string name="ringtone_title" msgid="5379026328015343686">Schelltoun</string>
   <string name="vibrate_on_ring_title">Vibréiere beim Schellen</string>
