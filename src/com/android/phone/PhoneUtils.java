@@ -63,6 +63,7 @@ import com.android.phone.CallGatewayManager.RawGatewayInfo;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Misc utilities for the Phone app.
@@ -1645,6 +1646,24 @@ public class PhoneUtils {
                 // the phone number being displayed, if applicable.
                 compactName = modifyForSpecialCnapCases(context, ci, ci.phoneNumber,
                                                         ci.numberPresentation);
+                if (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault())
+                        == View.LAYOUT_DIRECTION_RTL) {
+                    // Reverse the number to fix the notify title for RTL
+                    String [] tmpStrN = compactName.split(" ");
+                    if (tmpStrN.length > 0) {
+                        compactName = "";
+                        int index = tmpStrN[0].indexOf("+");
+                        if ((index == 0) && (tmpStrN[0].length() > 1)) {
+                            tmpStrN[0] = tmpStrN[0].substring(1) + "+";
+                        }
+                        for (int i = tmpStrN.length - 1; i >= 0; i--) {
+                            compactName += tmpStrN[i];
+                            if (i > 0) {
+                                compactName += " ";
+                            }
+                        }
+                    }
+                }
             } else {
                 // Don't call modifyForSpecialCnapCases on regular name. See b/2160795.
                 compactName = ci.name;
