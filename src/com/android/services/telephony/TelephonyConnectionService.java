@@ -40,10 +40,12 @@ import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.PhoneProxy;
 import com.android.internal.telephony.SubscriptionController;
 import com.android.internal.telephony.cdma.CDMAPhone;
+import com.android.internal.telephony.TelephonyProperties;
 import com.android.phone.MMIDialogActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.os.Bundle;
 import java.util.Objects;
 
 /**
@@ -323,12 +325,19 @@ public class TelephonyConnectionService extends ConnectionService {
             Log.i(this, "setPhoneAccountHandle, account = " + pHandle);
             connection.setPhoneAccountHandle(pHandle);
         }
+        Bundle bundle = request.getExtras();
+        boolean isAddParticipant = bundle.getBoolean(TelephonyProperties.ADD_PARTICIPANT_KEY,
+                false);
+        Log.d(this, "placeOutgoingConnection isAddParticipant = " + isAddParticipant);
 
         com.android.internal.telephony.Connection originalConnection;
         try {
-            originalConnection = phone.dial(number,
-                                            request.getVideoState(),
-                                            request.getExtras());
+            if (isAddParticipant) {
+                phone.addParticipant(number);
+                return;
+            } else {
+                originalConnection = phone.dial(number, request.getVideoState(), bundle);
+            }
         } catch (CallStateException e) {
             Log.e(this, e, "placeOutgoingConnection, phone.dial exception: " + e);
             connection.setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
