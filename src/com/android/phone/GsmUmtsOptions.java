@@ -105,6 +105,7 @@ public class GsmUmtsOptions {
                             final Intent intent = new Intent(Settings.ACTION_APN_SETTINGS);
                             // This will setup the Home and Search affordance
                             intent.putExtra(":settings:show_fragment_as_subsetting", true);
+                            intent.putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
                             mPrefActivity.startActivity(intent);
                             return true;
                         }
