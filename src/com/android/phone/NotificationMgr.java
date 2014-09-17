@@ -755,7 +755,7 @@ public class NotificationMgr {
             expandedText = callName;
         } else {
             titleResId = R.string.notification_missedVideoCallsTitle;
-            expandedText = mContext.getString(R.string.notification_missedCallsMsg,
+            expandedText = mContext.getString(R.string.notification_missedVideoCallsMsg,
                     mNumberMissedVideoCalls);
         }
 
