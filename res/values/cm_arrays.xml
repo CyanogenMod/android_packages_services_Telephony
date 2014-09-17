@@ -166,4 +166,16 @@
         <item><xliff:g>4</xliff:g></item>
         <item><xliff:g>3</xliff:g></item>
     </string-array>
+
+    <!-- TD-SCDMA uses a variation of the GSM combos -->
+    <string-array name="enabled_networks_tdscdma_values" translatable="false">
+        <item>"20"</item>
+        <item>"18"</item>
+        <item>"1"</item>
+    </string-array>
+    <string-array name="enabled_networks_tdscdma_except_lte_values" translatable="false">
+        <item>"18"</item>
+        <item>"1"</item>
+    </string-array>
+
 </resources>
