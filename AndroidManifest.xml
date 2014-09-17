@@ -489,6 +489,17 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".PrimarySubSetting"
+                android:label="@string/multi_sim_settings_title"
+                android:icon="@drawable/ic_settings_sim_display"
+                android:configChanges="orientation|screenSize|keyboardHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="com.android.phone.LTE_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
         <!-- Broadcast Receiver that will process BOOT Complete and launch OTA -->
         <receiver android:name="OtaStartupReceiver" android:exported="false"
                 androidprv:primaryUserOnly="true">

@@ -330,6 +330,9 @@ public class PhoneGlobals extends ContextWrapper {
             // Initialize the telephony framework
             PhoneFactory.makeDefaultPhones(this);
 
+            int numPhones = TelephonyManager.getDefault().getPhoneCount();
+            if(numPhones > 1) PrimarySubSelectionController.init(this);
+
             // Get the default phone
             phone = PhoneFactory.getDefaultPhone();
 
@@ -337,7 +340,6 @@ public class PhoneGlobals extends ContextWrapper {
             Intent intent = new Intent(this, TelephonyDebugService.class);
             startService(intent);
 
-            int numPhones = TelephonyManager.getDefault().getPhoneCount();
             mPhones = new PhoneProxy[numPhones];
             mPhones = PhoneFactory.getPhones();
 
