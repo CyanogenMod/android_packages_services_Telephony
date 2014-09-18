@@ -28,7 +28,10 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
+import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
@@ -251,6 +254,10 @@ public class CallFeaturesSetting extends PreferenceActivity
     private PreferenceScreen mButtonVideoCallFallback;
     private PreferenceScreen mButtonVideoCallForward;
     private PreferenceScreen mButtonVideoCallPictureSelect;
+
+    // Call recording format
+    private static final String CALL_RECORDING_FORMAT = "call_recording_format";
+    private ListPreference mCallRecordingFormat;
 
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
@@ -647,7 +654,12 @@ public class CallFeaturesSetting extends PreferenceActivity
                 mChangingVMorFwdDueToProviderChange = true;
                 saveVoiceMailAndForwardingNumber(newProviderKey, newProviderSettings);
             }
-        }
+        } else if (preference == mCallRecordingFormat) {
+            int value = Integer.valueOf((String) objValue);
+            int index = mCallRecordingFormat.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.CALL_RECORDING_FORMAT, value);
+            mCallRecordingFormat.setSummary(mCallRecordingFormat.getEntries()[index]);
+         }
         // always let the preference setting proceed.
         return true;
     }
@@ -1584,6 +1596,19 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         };
 
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        // Call recording Format
+        mCallRecordingFormat = (ListPreference) findPreference(CALL_RECORDING_FORMAT);
+        if (mCallRecordingFormat != null) {
+            int format = Settings.System.getInt(getContentResolver(), Settings.System.CALL_RECORDING_FORMAT, 0);
+            mCallRecordingFormat.setValue(String.valueOf(format));
+            mCallRecordingFormat.setSummary(mCallRecordingFormat.getEntry());
+            mCallRecordingFormat.setOnPreferenceChangeListener(this);
+        }
+
+        removeOptionalPrefs(prefSet);
+
         // Show the voicemail preference in onResume if the calling intent specifies the
         // ACTION_ADD_VOICEMAIL action.
         mShowVoicemailPreference = (icicle == null) &&
@@ -2224,6 +2249,28 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
         return super.onOptionsItemSelected(item);
     }
+
+    protected void removeOptionalPrefs(PreferenceScreen preferenceScreen) {
+        // Remove Call recording format preference if it's not enabled
+        boolean recordingEnabled = false;
+        try {
+            PackageManager pm = getPackageManager();
+            String phonePackage = "com.android.dialer";
+            Resources res;
+            res = pm.getResourcesForApplication(phonePackage);
+            int booleanID = res.getIdentifier(phonePackage + ":bool/call_recording_enabled", null, null);
+            recordingEnabled = res.getBoolean(booleanID);
+        } catch (NameNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (NotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (!recordingEnabled) {
+                preferenceScreen.removePreference(mCallRecordingFormat);
+            }
+        }
+    }
+
     /**
      * Finish current Activity and go up to the top level Settings ({@link CallFeaturesSetting}).
      * This is useful for implementing "HomeAsUp" capability for second-level Settings.
