@@ -204,6 +204,14 @@
           android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
   </PreferenceScreen>
 
+  <ListPreference
+      android:key="call_recording_format"
+      android:title="@string/call_recording_format"
+      android:summary="%s"
+      android:entries="@array/call_recording_encoder_entries"
+      android:entryValues="@array/call_recording_encoder_values"
+      android:persistent="false" />
+
     <PreferenceScreen
         android:key="button_ipprefix_key"
         android:title="@string/ipcall_sub_title"
