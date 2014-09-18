@@ -52,4 +52,153 @@
         <item>@string/china_unicom</item>
         <item>@string/china_telecom</item>
     </string-array>
+
+    <string-array name="forward_lookup_providers" translatable="false">
+        <item>Google</item>
+        <item>OpenStreetMap</item>
+    </string-array>
+
+    <string-array name="forward_lookup_provider_names" translatable="false">
+        <item>Google</item>
+        <item>OpenStreetMap</item>
+    </string-array>
+
+    <string-array name="people_lookup_providers" translatable="false">
+        <item>WhitePages</item>
+    </string-array>
+
+    <string-array name="people_lookup_provider_names" translatable="false">
+        <item>WhitePages (US)</item>
+    </string-array>
+
+    <string-array name="reverse_lookup_providers" translatable="false">
+        <item>DasTelefonbuch</item>
+        <item>OpenCnam</item>
+        <item>PagineBianche</item>
+        <item>WhitePages</item>
+        <item>WhitePages_CA</item>
+        <item>YellowPages</item>
+        <item>YellowPages_CA</item>
+        <item>ZabaSearch</item>
+    </string-array>
+
+    <string-array name="reverse_lookup_provider_names" translatable="false">
+        <item>Das Telefonbuch (DE)</item>
+        <item>OpenCnam (US)</item>
+        <item>PagineBianche (IT)</item>
+        <item>WhitePages (US)</item>
+        <item>WhitePages (CA)</item>
+        <item>YellowPages (US)</item>
+        <item>YellowPages (CA)</item>
+        <item>ZabaSearch (US)</item>
+    </string-array>
+
+    <string-array name="incoming_call_style_entries" translatable="false">
+        <item>@string/incoming_call_style_classic</item>
+        <item>@string/incoming_call_style_fullscreen_photo</item>
+    </string-array>
+
+    <string-array name="incoming_call_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="uplmn_prefer_network_mode_td_choices" translatable="false">
+        <item>@string/preferred_network_mode_gsm_only</item>
+        <item>@string/preferred_network_mode_td_scdma_only</item>
+        <item>@string/preferred_network_mode_lte</item>
+        <item>@string/preferred_network_mode_td_scdma_gsm_lte</item>
+    </string-array>
+
+    <string-array name="uplmn_prefer_network_mode_values" translatable="false">
+        <item>"0"</item>
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+    </string-array>
+
+   <string-array name="preferred_network_mode_choices_lte" translatable="false">
+        <item>@string/preferred_network_mode_lte</item>
+        <item>@string/preferred_network_mode_4g_3g_2g_auto_summary</item>
+        <item>@string/preferred_network_mode_3g_2g_auto_summary</item>
+        <item>@string/preferred_network_mode_td_scdma_only</item>
+        <item>@string/preferred_network_mode_gsm_only</item>
+    </string-array>
+
+    <string-array name="preferred_network_mode_values_lte" translatable="false">
+        <item>"11"</item>
+        <item>"20"</item>
+        <item>"18"</item>
+        <item>"13"</item>
+        <item>"1"</item>
+    </string-array>
+
+    <string-array name="preferred_network_mode_choices_tdscdma" translatable="false">
+        <item>@string/preferred_network_mode_td_scdma_only</item>
+        <item>@string/preferred_network_mode_gsm_only</item>
+        <item>@string/preferred_network_mode_3g_2g_auto_summary</item>
+    </string-array>
+
+    <string-array name="preferred_network_mode_values_tdscdma" translatable="false">
+        <item>"13"</item>
+        <item>"1"</item>
+        <item>"18"</item>
+    </string-array>
+
+    <string-array name="preferred_network_mode_choices_cmcc" translatable="false">
+        <item>@string/preferred_network_mode_4g_3g_2g_auto_summary</item>
+        <item>@string/preferred_network_mode_3g_2g_auto_summary</item>
+    </string-array>
+
+    <string-array name="preferred_network_mode_values_cmcc" translatable="false">
+        <item>"20"</item>
+        <item>"18"</item>
+    </string-array>
+
+    <string-array name="call_barring_outgoing_display_values" translatable="false">
+        <item>@string/call_barring_off</item>
+        <item>@string/call_barring_outgoing_international_roaming</item>
+        <item>@string/call_barring_outgoing_international</item>
+        <item>@string/call_barring_outgoing_all</item>
+    </string-array>
+
+    <string-array name="call_barring_outgoing_values" translatable="false">
+        <item><xliff:g>-1</xliff:g></item>
+        <item><xliff:g>2</xliff:g></item>
+        <item><xliff:g>1</xliff:g></item>
+        <item><xliff:g>0</xliff:g></item>
+    </string-array>
+
+    <string-array name="call_barring_incoming_display_values" translatable="false">
+        <item>@string/call_barring_off</item>
+        <item>@string/call_barring_incoming_roaming</item>
+        <item>@string/call_barring_incoming_all</item>
+    </string-array>
+
+    <string-array name="call_barring_incoming_values" translatable="false">
+        <item><xliff:g>-2</xliff:g></item>
+        <item><xliff:g>4</xliff:g></item>
+        <item><xliff:g>3</xliff:g></item>
+    </string-array>
+
+    <!-- TD-SCDMA uses a variation of the GSM combos -->
+    <string-array name="enabled_networks_tdscdma_values" translatable="false">
+        <item>"20"</item>
+        <item>"18"</item>
+        <item>"1"</item>
+    </string-array>
+    <string-array name="enabled_networks_tdscdma_except_lte_values" translatable="false">
+        <item>"18"</item>
+        <item>"1"</item>
+    </string-array>
+
+    <string-array name="call_recording_encoder_entries">
+        <item>@string/wb_amr_format</item>
+        <item>@string/aac_format</item>
+    </string-array>
+
+    <string-array name="call_recording_encoder_values" translatable="false">
+        <item>"0"</item>
+        <item>"1"</item>
+    </string-array>
 </resources>
