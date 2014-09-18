@@ -344,4 +344,10 @@
     <string name="msisdn_alpha_tag" translatable="false">Voice Line 1</string>
 
     <string name="msim_mobile_network_settings_title">SIM %d mobile network settings</string>
+
+    <!-- Call recording format -->
+    <string name="call_recording_format">Call recording format</string>
+    <string name="wb_amr_format" translatable="false">AMR-WB</string>
+    <string name="aac_format" translatable="false">AAC</string>
+
 </resources>
