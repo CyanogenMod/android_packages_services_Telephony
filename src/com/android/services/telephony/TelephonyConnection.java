@@ -444,7 +444,11 @@ abstract class TelephonyConnection extends Connection {
 
     @Override
     public void setActiveSubscription() {
-        long subId = getPhone().getSubId();
+        Phone ph = getPhone();
+        if (ph == null) {
+            return;
+        }
+        long subId = ph.getSubId();
         Log.i(this, "setActiveSubscription subId:" + subId);
         CallManager.getInstance().setActiveSubscription(subId);
     }
