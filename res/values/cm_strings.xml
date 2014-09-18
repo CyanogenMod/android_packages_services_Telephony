@@ -347,4 +347,10 @@
     <string name="phone_number_label">My phone number</string>
     <string name="phone_number_summary">Set the phone number for this device</string>
     <string name="msisdn_alpha_tag" translatable="false">Voice Line 1</string>
+
+    <!-- Call recording format -->
+    <string name="call_recording_format">Call recording format</string>
+    <string name="wb_amr_format" translatable="false">WB AMR</string>
+    <string name="aac_format" translatable="false">AAC</string>
+
 </resources>
