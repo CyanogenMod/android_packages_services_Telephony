@@ -28,7 +28,10 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
+import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
@@ -252,6 +255,9 @@ public class CallFeaturesSetting extends PreferenceActivity
     private PreferenceScreen mButtonVideoCallForward;
     private PreferenceScreen mButtonVideoCallPictureSelect;
 
+    // Call recording format
+    private static final String CALL_RECORDING_FORMAT = "call_recording_format";
+
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
     private Runnable mVoicemailRingtoneLookupRunnable;
@@ -281,6 +287,16 @@ public class CallFeaturesSetting extends PreferenceActivity
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private boolean isSpeedDialListStarted = false;
     private PreferenceScreen mButtonBlacklist;
+
+    private CheckBoxPreference mEnableForwardLookup;
+    private CheckBoxPreference mEnablePeopleLookup;
+    private CheckBoxPreference mEnableReverseLookup;
+    private ListPreference mChooseForwardLookupProvider;
+    private ListPreference mChoosePeopleLookupProvider;
+    private ListPreference mChooseReverseLookupProvider;
+    private ListPreference mT9SearchInputLocale;
+    private CheckBoxPreference mButtonProximity;
+    private ListPreference mCallRecordingFormat;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -647,6 +663,23 @@ public class CallFeaturesSetting extends PreferenceActivity
                 mChangingVMorFwdDueToProviderChange = true;
                 saveVoiceMailAndForwardingNumber(newProviderKey, newProviderSettings);
             }
+        } else if (preference == mButtonSipCallOptions) {
+            handleSipCallOptionsChange(objValue);
+        } else if (preference == mEnableForwardLookup
+                || preference == mEnablePeopleLookup
+                || preference == mEnableReverseLookup) {
+            saveLookupProviderSwitch(preference, (Boolean) objValue);
+        } else if (preference == mChooseForwardLookupProvider
+                || preference == mChoosePeopleLookupProvider
+                || preference == mChooseReverseLookupProvider) {
+            saveLookupProviderSetting(preference, (String) objValue);
+        } else if (preference == mT9SearchInputLocale) {
+            saveT9SearchInputLocale(preference, (String) objValue);
+        } else if (preference == mCallRecordingFormat) {
+            int value = Integer.valueOf((String) objValue);
+            int index = mCallRecordingFormat.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.CALL_RECORDING_FORMAT, value);
+            mCallRecordingFormat.setSummary(mCallRecordingFormat.getEntries()[index]);
         }
         // always let the preference setting proceed.
         return true;
@@ -1584,6 +1617,8 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         };
 
+        mCallRecordingFormat = (ListPreference) findPreference(CALL_RECORDING_FORMAT);
+
         // Show the voicemail preference in onResume if the calling intent specifies the
         // ACTION_ADD_VOICEMAIL action.
         mShowVoicemailPreference = (icicle == null) &&
@@ -1599,6 +1634,9 @@ public class CallFeaturesSetting extends PreferenceActivity
                 && telecomManager.getSimCallManagers().isEmpty()
                 && !SipUtil.isVoipSupported(this)) {
             getPreferenceScreen().removePreference(mPhoneAccountSettingsPreference);
+
+        if (mT9SearchInputLocale != null) {
+            initT9SearchInputPreferenceList();
         }
     }
 
@@ -1736,6 +1774,40 @@ public class CallFeaturesSetting extends PreferenceActivity
             if (options != null) {
                 prefSet.removePreference(options);
             }
+        }
+
+        if (mT9SearchInputLocale != null) {
+            // should this be enabled/disabled based on a flag?
+            mT9SearchInputLocale.setOnPreferenceChangeListener(this);
+        }
+
+        if (mCallRecordingFormat != null) {
+            int format = Settings.System.getInt(getContentResolver(), Settings.System.CALL_RECORDING_FORMAT, 0);
+            mCallRecordingFormat.setValue(String.valueOf(format));
+            mCallRecordingFormat.setSummary(mCallRecordingFormat.getEntry());
+            mCallRecordingFormat.setOnPreferenceChangeListener(this);
+        }
+
+        removeOptionalPrefs(prefSet);
+        addOptionalPrefs(prefSet);
+
+        onCreateLookupPrefs();
+
+        // create intent to bring up contact list
+        mContactListIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        mContactListIntent.setType(android.provider.Contacts.Phones.CONTENT_ITEM_TYPE);
+
+        createSipCallSettings();
+        createImsSettings();
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(true);
+        }
+    }
 
             int phoneType = mPhone.getPhoneType();
             if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
@@ -2224,6 +2296,270 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
         return super.onOptionsItemSelected(item);
     }
+
+    protected void onCreateVoicemailPrefs(Bundle savedInstanceState) {
+        mVoicemailCategory = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
+        mSubMenuVoicemailSettings =
+                (EditPhoneNumberPreference) findPreference(BUTTON_VOICEMAIL_KEY);
+        if (mSubMenuVoicemailSettings != null) {
+            mSubMenuVoicemailSettings.setParentActivity(this, VOICEMAIL_PREF_ID, this);
+            mSubMenuVoicemailSettings.setDialogOnClosedListener(this);
+            mSubMenuVoicemailSettings.setDialogTitle(R.string.voicemail_settings_number_label);
+        }
+        mMwiNotification = (CheckBoxPreference) findPreference(BUTTON_MWI_NOTIFICATION_KEY);
+        if (mMwiNotification != null) {
+            if (getResources().getBoolean(R.bool.sprint_mwi_quirk)) {
+                mMwiNotification.setOnPreferenceChangeListener(this);
+            } else {
+                PreferenceGroup voicemailCategory =
+                        (PreferenceGroup) findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
+                voicemailCategory.removePreference(mMwiNotification);
+                mMwiNotification = null;
+            }
+        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                mPhone.getContext());
+        mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
+        if (mVoicemailProviders != null) {
+            PhoneSettings.setPreferenceKeyForSubscription(mVoicemailProviders, mSubscription);
+            mVoicemailProviders.setValue(prefs.getString(mVoicemailProviders.getKey(),
+                    mVoicemailProviders.getValue()));
+            mVoicemailProviders.setOnPreferenceChangeListener(this);
+            mVoicemailSettings = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
+            mVoicemailNotificationRingtone =
+                    findPreference(BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY);
+            PhoneSettings.setPreferenceKeyForSubscription(mVoicemailNotificationRingtone, mSubscription);
+            mVoicemailNotificationVibrate =
+                    (CheckBoxPreference) findPreference(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY);
+            PhoneSettings.setPreferenceKeyForSubscription(mVoicemailNotificationVibrate, mSubscription);
+            initVoiceMailProviders();
+        }
+        // check the intent that started this activity and pop up the voicemail
+        // dialog if we've been asked to.
+        // If we have at least one non default VM provider registered then bring up
+        // the selection for the VM provider, otherwise bring up a VM number dialog.
+        // We only bring up the dialog the first time we are called (not after orientation change)
+        if (savedInstanceState == null) {
+            if (getIntent().getAction().equals(ACTION_ADD_VOICEMAIL) &&
+                    mVoicemailProviders != null) {
+                log("ACTION_ADD_VOICEMAIL Intent is thrown. current VM data size: "
+                        + mVMProvidersData.size());
+                if (mVMProvidersData.size() > 1) {
+                    simulatePreferenceClick(mVoicemailProviders);
+                } else {
+                    onPreferenceChange(mVoicemailProviders, DEFAULT_VM_PROVIDER_KEY);
+                    mVoicemailProviders.setValue(DEFAULT_VM_PROVIDER_KEY);
+                }
+            }
+        }
+        updateVoiceNumberField();
+        mVMProviderSettingsForced = false;
+    }
+
+    protected void onResumeVoicemailPrefs() {
+        if (mMwiNotification != null) {
+            int mwiNotification = Settings.System.getInt(getContentResolver(),
+                    Settings.System.ENABLE_MWI_NOTIFICATION, 0);
+            mMwiNotification.setChecked(mwiNotification != 0);
+        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                mPhone.getContext());
+        migrateVoicemailVibrationSettingsIfNeeded(prefs,mSubscription);
+        mVoicemailNotificationVibrate.setChecked(prefs.getBoolean(
+                PhoneSettings.getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY,
+                        mSubscription),
+                false));
+        lookupRingtoneName();
+    }
+
+    protected void onCreateRingtonePrefs(PreferenceScreen preferenceScreen) {
+        mRingtonePreference = (DefaultRingtonePreference)findPreference(BUTTON_RINGTONE_KEY);
+        if (mRingtonePreference != null && mSubscription != -1) {
+            mRingtonePreference.setSubId(mSubscription);
+        }
+        mVibrateWhenRinging = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_ON_RING);
+        if (mVibrateWhenRinging != null) {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator != null && vibrator.hasVibrator()) {
+                mVibrateWhenRinging.setOnPreferenceChangeListener(this);
+            } else {
+                preferenceScreen.removePreference(mVibrateWhenRinging);
+                mVibrateWhenRinging = null;
+            }
+        }
+        mRingtoneLookupRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (mRingtonePreference != null) {
+                    updateRingtoneName(RingtoneManager.TYPE_RINGTONE, mRingtonePreference,
+                            MSG_UPDATE_RINGTONE_SUMMARY);
+                }
+                if (mVoicemailNotificationRingtone != null) {
+                    updateRingtoneName(RingtoneManager.TYPE_NOTIFICATION,
+                            mVoicemailNotificationRingtone, MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY);
+                }
+            }
+        };
+    }
+
+    protected void onResumeRingtonePrefs() {
+        if (mVibrateWhenRinging != null) {
+            mVibrateWhenRinging.setChecked(getVibrateWhenRinging(this));
+        }
+        lookupRingtoneName();
+    }
+
+    protected void onCreateLookupPrefs() {
+        mEnableForwardLookup = (CheckBoxPreference)
+                findPreference(SWITCH_ENABLE_FORWARD_LOOKUP);
+        mEnablePeopleLookup = (CheckBoxPreference)
+                findPreference(SWITCH_ENABLE_PEOPLE_LOOKUP);
+        mEnableReverseLookup = (CheckBoxPreference)
+                findPreference(SWITCH_ENABLE_REVERSE_LOOKUP);
+
+        mEnableForwardLookup.setOnPreferenceChangeListener(this);
+        mEnablePeopleLookup.setOnPreferenceChangeListener(this);
+        mEnableReverseLookup.setOnPreferenceChangeListener(this);
+
+        restoreLookupProviderSwitches();
+
+        mChooseForwardLookupProvider = (ListPreference)
+                findPreference(BUTTON_CHOOSE_FORWARD_LOOKUP_PROVIDER);
+        mChoosePeopleLookupProvider = (ListPreference)
+                findPreference(BUTTON_CHOOSE_PEOPLE_LOOKUP_PROVIDER);
+        mChooseReverseLookupProvider = (ListPreference)
+                findPreference(BUTTON_CHOOSE_REVERSE_LOOKUP_PROVIDER);
+
+        mChooseForwardLookupProvider.setOnPreferenceChangeListener(this);
+        mChoosePeopleLookupProvider.setOnPreferenceChangeListener(this);
+        mChooseReverseLookupProvider.setOnPreferenceChangeListener(this);
+
+        String[] reverseLookupNames = getResources().getStringArray(
+                R.array.reverse_lookup_provider_names);
+        String[] reverseLookupProviders = getResources().getStringArray(
+                R.array.reverse_lookup_providers);
+        String cyngnProviderPackage = getString(R.string.cyngn_reverse_lookup_provider_package);
+
+        if (PhoneUtils.isPackageInstalled(this, cyngnProviderPackage)) {
+            reverseLookupNames = Arrays.copyOf(reverseLookupNames, reverseLookupNames.length + 1);
+            reverseLookupProviders = Arrays.copyOf(reverseLookupProviders,
+                    reverseLookupProviders.length + 1);
+
+            reverseLookupNames[reverseLookupNames.length - 1] =
+                    getString(R.string.cyngn_reverse_lookup_provider_name);
+            reverseLookupProviders[reverseLookupProviders.length - 1] =
+                    getString(R.string.cyngn_reverse_lookup_provider_value);
+        }
+
+        mChooseReverseLookupProvider.setEntries(reverseLookupNames);
+        mChooseReverseLookupProvider.setEntryValues(reverseLookupProviders);
+
+        restoreLookupProviders();
+    }
+
+    protected void onResumeLookupPrefs() {
+        restoreLookupProviderSwitches();
+        restoreLookupProviders();
+    }
+
+    protected int getPreferencesResource() {
+        return R.xml.call_feature_setting;
+    }
+
+    protected Phone getPhone() {
+        return PhoneGlobals.getPhone();
+    }
+
+    protected void removeOptionalPrefs(PreferenceScreen preferenceScreen) {
+        if (!getResources().getBoolean(R.bool.dtmf_type_enabled) && mButtonDTMF != null) {
+            preferenceScreen.removePreference(mButtonDTMF);
+            mButtonDTMF = null;
+        }
+        if (!getResources().getBoolean(R.bool.show_emergency_call_list) && mEmergencyCall != null) {
+            preferenceScreen.removePreference(mEmergencyCall);
+        }
+        if (!getResources().getBoolean(R.bool.auto_retry_enabled) && mButtonAutoRetry != null) {
+            preferenceScreen.removePreference(mButtonAutoRetry);
+            mButtonAutoRetry = null;
+        }
+        if (!getResources().getBoolean(R.bool.hac_enabled) && mButtonHAC != null) {
+            preferenceScreen.removePreference(mButtonHAC);
+            mButtonHAC = null;
+        }
+        if (!getResources().getBoolean(R.bool.tty_enabled) && mButtonTTY != null) {
+            preferenceScreen.removePreference(mButtonTTY);
+            mButtonTTY = null;
+        }
+        if (!getResources().getBoolean(R.bool.has_in_call_noise_suppression) &&
+                mButtonNoiseSuppression != null) {
+            preferenceScreen.removePreference(mButtonNoiseSuppression);
+            mButtonNoiseSuppression = null;
+        }
+        if (!getResources().getBoolean(R.bool.config_proximity_enable) &&
+                mButtonProximity != null) {
+            preferenceScreen.removePreference(mButtonProximity);
+            mButtonProximity = null;
+        }
+        if (!getResources().getBoolean(R.bool.config_ip_prefix_enable) &&
+                mIPPrefix != null) {
+            preferenceScreen.removePreference(mIPPrefix);
+            mIPPrefix = null;
+        }
+        if (!getResources().getBoolean(R.bool.world_phone)) {
+            Preference options = preferenceScreen.findPreference(BUTTON_CDMA_OPTIONS);
+            if (options != null)
+                preferenceScreen.removePreference(options);
+            options = preferenceScreen.findPreference(BUTTON_GSM_UMTS_OPTIONS);
+            if (options != null)
+                preferenceScreen.removePreference(options);
+
+            int phoneType = mPhone.getPhoneType();
+            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                Preference fdnButton = preferenceScreen.findPreference(BUTTON_FDN_KEY);
+                if (fdnButton != null && getResources().getBoolean(R.bool.config_fdn_disable))
+                    preferenceScreen.removePreference(fdnButton);
+                if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
+                    addPreferencesFromResource(R.xml.cdma_call_privacy);
+                    PhoneGlobals.initCallWaitingPref(this, SUB1);
+                }
+            }
+        }
+
+        // Remove Call recording format preference if it's not enabled
+        boolean recordingEnabled = false;
+        try {
+            PackageManager pm = getPackageManager();
+            String phonePackage = "com.android.dialer";
+            Resources res;
+            res = pm.getResourcesForApplication(phonePackage);
+            int booleanID = res.getIdentifier(phonePackage + ":bool/call_recording_enabled", null, null);
+            recordingEnabled = res.getBoolean(booleanID);
+        } catch (NameNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (NotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (!recordingEnabled) {
+                preferenceScreen.removePreference(mCallRecordingFormat);
+            }
+        }
+    }
+
+    protected void addOptionalPrefs(PreferenceScreen preferenceScreen) {
+        if (!getResources().getBoolean(R.bool.world_phone)) {
+            int phoneType = mPhone.getPhoneType();
+            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
+                    addPreferencesFromResource(R.xml.cdma_call_privacy);
+                }
+            } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+                addPreferencesFromResource(R.xml.gsm_umts_call_options);
+            } else {
+                throw new IllegalStateException("Unexpected phone type: " + phoneType);
+            }
+        }
+    }
+
     /**
      * Finish current Activity and go up to the top level Settings ({@link CallFeaturesSetting}).
      * This is useful for implementing "HomeAsUp" capability for second-level Settings.
