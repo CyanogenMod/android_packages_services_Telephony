@@ -124,6 +124,11 @@ public class Constants {
         EXITED_ECM
     }
 
+    /**
+     * enable proximity sensor or not. 0 = Off 1 = On
+     */
+    public static final String SETTINGS_PROXIMITY_SENSOR = "proximity_sensor";
+
     //
     // TODO: Move all the various EXTRA_* and intent action constants here too.
     // (Currently they're all over the place: InCallScreen,

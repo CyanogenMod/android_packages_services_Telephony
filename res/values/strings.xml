@@ -903,6 +903,10 @@
     <string name="auto_retry_mode_title">Auto-retry</string>
     <string name="auto_retry_mode_summary">Enable Auto-retry mode</string>
 
+    <string name="proximity_mode_title">Turn on proximity sensor</string>
+    <string name="proximity_on_summary">When you answer a call, the screen will be turned off to save power.</string>
+    <string name="proximity_off_summary">When you answer a call, the screen will be turned on always.</string>
+
     <!-- FDN list screen: menu item label -->
     <string name="menu_add">Add contact</string>
     <!-- FDN list screen: menu item label -->
