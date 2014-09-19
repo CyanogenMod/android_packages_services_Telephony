@@ -532,6 +532,9 @@
     <string name="proximity_off_summary">"接听电话时，屏幕保持开启状态"</string>
     <string name="vibrate_after_connected_title">"接通振动提示"</string>
     <string name="vibrate_after_connected_summary">"对方接通时振动"</string>
+    <string name="preferred_duration_title">挂机显示通话时长</string>
+    <string name="duration_enable_summary">挂机显示通话时长已开启</string>
+    <string name="duration_disable_summary">挂机显示通话时长已关闭</string>
 
     <!-- UPLMN Prefer -->
     <string name="uplmn_list_setting_title">偏好设置</string>

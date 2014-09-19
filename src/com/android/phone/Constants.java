@@ -131,6 +131,11 @@ public class Constants {
 
     public static final String SETTINGS_VIBRATE_WHEN_ACCEPTED = "vibrate_on_accepted";
 
+    /**
+     * display duration info after end call. 0 = Off 1 = On
+     */
+    public static final String SETTINGS_SHOW_CALL_DURATION = "show_call_duration";
+
     //
     // TODO: Move all the various EXTRA_* and intent action constants here too.
     // (Currently they're all over the place: InCallScreen,

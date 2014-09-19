@@ -161,6 +161,13 @@
     </PreferenceScreen>
 
     <CheckBoxPreference
+        android:key="duration_enable_key"
+        android:persistent="false"
+        android:title="@string/preferred_duration_title"
+        android:summaryOn="@string/duration_enable_summary"
+        android:summaryOff="@string/duration_disable_summary" />
+
+    <CheckBoxPreference
       android:key="button_proximity_key"
       android:title="@string/proximity_mode_title"
       android:persistent="false"
