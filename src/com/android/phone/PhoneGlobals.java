@@ -34,10 +34,12 @@ import android.content.ServiceConnection;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.AsyncResult;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.IPowerManager;
 import android.os.Message;
+import android.os.Messenger;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -214,6 +216,70 @@ public class PhoneGlobals extends ContextWrapper {
      */
     /*package*/void setRestoreMuteOnInCallResume (boolean mode) {
         mShouldRestoreMuteOnInCallResume = mode;
+    }
+
+    private static final Uri URI_PHONE_FEATURE = Uri
+            .parse("content://com.qualcomm.qti.phonefeature.FEATURE_PROVIDER");
+
+    private Bundle callBinder(String method, Bundle extras) {
+        if (!isPhoneFeatureEnabled()) {
+            return null;
+        }
+        return getContentResolver().call(URI_PHONE_FEATURE, method, null, extras);
+    }
+
+    /**
+     * Returns whether phonefeatures plugin available
+     *
+     * @return
+     */
+    public boolean isPhoneFeatureEnabled() {
+        return getContentResolver().acquireProvider(URI_PHONE_FEATURE) != null;
+    }
+
+    /**
+     * set preferred network by phonefeatures app， at the same time， the other sub will be set as
+     * GSM only if target network is not GSM only
+     *
+     * @param sub
+     * @param network
+     * @param callback
+     */
+    public void setPrefNetwork(int sub, int network, Message callback) {
+        if (callback != null) {
+            callback.replyTo = new Messenger(callback.getTarget());
+        }
+        Bundle params = new Bundle();
+        params.putInt(PhoneConstants.SUBSCRIPTION_KEY, sub);
+        params.putInt("network", network);
+        params.putParcelable("callback", callback);
+        callBinder("set_pref_network", params);
+    }
+
+    /**
+     * get primary sub, -1 will be got if no primary sub exists
+     *
+     * @return
+     */
+    public int getPrefPrimarySub() {
+        Bundle result = callBinder("get_pref_primary_sub", null);
+        if (result == null) {
+            return -1;
+        }
+        return result.getInt("result", -1);
+    }
+
+    /**
+     * get primary sub, -1 will be got if no primary sub exists
+     *
+     * @return
+     */
+    public int getPrimarySub() {
+        Bundle result = callBinder("get_primary_sub", null);
+        if (result == null) {
+            return -1;
+        }
+        return result.getInt("result", -1);
     }
 
     Handler mHandler = new Handler() {
