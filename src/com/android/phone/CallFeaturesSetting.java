@@ -179,6 +179,9 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_RETRY_KEY       = "button_auto_retry_key";
     private static final String BUTTON_TTY_KEY         = "button_tty_mode_key";
     private static final String BUTTON_HAC_KEY         = "button_hac_key";
+    private static final String BUTTON_PROXIMITY_KEY   = "button_proximity_key";
+    private static final String BUTTON_VIBRATE_CONNECTED_KEY = "button_vibrate_after_connected";
+    private static final String SHOW_DURATION_KEY      = "duration_enable_key";
 
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
@@ -284,6 +287,9 @@ public class CallFeaturesSetting extends PreferenceActivity
     private PreferenceScreen mVoicemailSettings;
     private Preference mVoicemailNotificationRingtone;
     private CheckBoxPreference mVoicemailNotificationVibrate;
+    private CheckBoxPreference mButtonProximity;
+    private CheckBoxPreference mVibrateAfterConnected;
+    private CheckBoxPreference mShowDurationCheckBox;
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private boolean isSpeedDialListStarted = false;
     private PreferenceScreen mButtonBlacklist;
@@ -580,6 +586,22 @@ public class CallFeaturesSetting extends PreferenceActivity
                     Settings.System.DTMF_TONE_TYPE_WHEN_DIALING, index);
         } else if (preference == mButtonTTY) {
             handleTTYChange(preference, objValue);
+        } else if (preference == mButtonProximity) {
+            boolean checked = (Boolean) objValue;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Constants.SETTINGS_PROXIMITY_SENSOR, checked ? 1 : 0);
+            mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
+                    : R.string.proximity_off_summary);
+        } else if (preference == mVibrateAfterConnected) {
+            boolean doVibrate = (Boolean) objValue;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, doVibrate ? 1 : 0);
+        } else if (preference == mShowDurationCheckBox) {
+            boolean checked = (Boolean) objValue;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Constants.SETTINGS_SHOW_CALL_DURATION, checked ? 1 : 0);
+            mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
+                    : R.string.duration_disable_summary);
         } else if (preference == mVoicemailProviders) {
             final String newProviderKey = (String) objValue;
             if (DBG) {
@@ -1609,6 +1631,9 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButtonHAC = (CheckBoxPreference) findPreference(BUTTON_HAC_KEY);
         mButtonTTY = (ListPreference) findPreference(BUTTON_TTY_KEY);
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
+        mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
+        mVibrateAfterConnected = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
+        mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1630,6 +1655,18 @@ public class CallFeaturesSetting extends PreferenceActivity
                 prefSet.removePreference(mButtonDTMF);
                 mButtonDTMF = null;
             }
+        }
+
+        if (mButtonProximity != null) {
+            mButtonProximity.setOnPreferenceChangeListener(this);
+        }
+
+        if (mVibrateAfterConnected != null) {
+            mVibrateAfterConnected.setOnPreferenceChangeListener(this);
+        }
+
+        if (mShowDurationCheckBox != null) {
+            mShowDurationCheckBox.setOnPreferenceChangeListener(this);
         }
 
         if (mButtonAutoRetry != null) {
@@ -1798,6 +1835,28 @@ public class CallFeaturesSetting extends PreferenceActivity
                     TelecomManager.TTY_MODE_OFF);
             mButtonTTY.setValue(Integer.toString(settingsTtyMode));
             updatePreferredTtyModeSummary(settingsTtyMode);
+        }
+
+        if (mButtonProximity != null) {
+            boolean checked = Settings.System.getInt(getContentResolver(),
+                    Constants.SETTINGS_PROXIMITY_SENSOR, 1) == 1;
+            mButtonProximity.setChecked(checked);
+            mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
+                    : R.string.proximity_off_summary);
+        }
+
+        if (mVibrateAfterConnected != null) {
+            boolean checked = Settings.System.getInt(getContentResolver(),
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, 1) == 1;
+            mVibrateAfterConnected.setChecked(checked);
+        }
+
+        if (mShowDurationCheckBox != null) {
+            boolean checked = Settings.System.getInt(getContentResolver(),
+                    Constants.SETTINGS_SHOW_CALL_DURATION, 1) == 1;
+            mShowDurationCheckBox.setChecked(checked);
+            mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
+                    : R.string.duration_disable_summary);
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
