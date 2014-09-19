@@ -907,6 +907,10 @@
     <string name="proximity_on_summary">When you answer a call, the screen will be turned off to save power.</string>
     <string name="proximity_off_summary">When you answer a call, the screen will be turned on always.</string>
 
+    <!-- Setting option name to enable or disable vibration after connected -->
+    <string name="vibrate_after_connected_title">Vibrating after connected</string>
+    <string name="vibrate_after_connected_summary">Vibrate when answers</string>
+
     <!-- FDN list screen: menu item label -->
     <string name="menu_add">Add contact</string>
     <!-- FDN list screen: menu item label -->

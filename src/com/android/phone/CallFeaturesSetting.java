@@ -176,6 +176,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_TTY_KEY         = "button_tty_mode_key";
     private static final String BUTTON_HAC_KEY         = "button_hac_key";
     private static final String BUTTON_PROXIMITY_KEY   = "button_proximity_key";
+    private static final String BUTTON_VIBRATE_CONNECTED_KEY = "button_vibrate_after_connected";
 
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
@@ -261,6 +262,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private Preference mVoicemailNotificationRingtone;
     private CheckBoxPreference mVoicemailNotificationVibrate;
     private CheckBoxPreference mButtonProximity;
+    private CheckBoxPreference mVibrateAfterConnected;
     private AccountSelectionPreference mDefaultOutgoingAccount;
 
     private class VoiceMailProvider {
@@ -555,6 +557,10 @@ public class CallFeaturesSetting extends PreferenceActivity
                     Constants.SETTINGS_PROXIMITY_SENSOR, checked ? 1 : 0);
             mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
                     : R.string.proximity_off_summary);
+        } else if (preference == mVibrateAfterConnected) {
+            boolean doVibrate = (Boolean) objValue;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, doVibrate ? 1 : 0);
         } else if (preference == mVoicemailProviders) {
             final String newProviderKey = (String) objValue;
             if (DBG) {
@@ -1577,6 +1583,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButtonTTY = (ListPreference) findPreference(BUTTON_TTY_KEY);
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
+        mVibrateAfterConnected = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1602,6 +1609,10 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         if (mButtonProximity != null) {
             mButtonProximity.setOnPreferenceChangeListener(this);
+        }
+
+        if (mVibrateAfterConnected != null) {
+            mVibrateAfterConnected.setOnPreferenceChangeListener(this);
         }
 
         if (mButtonAutoRetry != null) {
@@ -1731,6 +1742,12 @@ public class CallFeaturesSetting extends PreferenceActivity
             mButtonProximity.setChecked(checked);
             mButtonProximity.setSummary(checked ? R.string.proximity_on_summary
                     : R.string.proximity_off_summary);
+        }
+
+        if (mVibrateAfterConnected != null) {
+            boolean checked = Settings.System.getInt(getContentResolver(),
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, 1) == 1;
+            mVibrateAfterConnected.setChecked(checked);
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(

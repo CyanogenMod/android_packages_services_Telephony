@@ -166,4 +166,11 @@
       android:persistent="false"
       android:summary="@string/proximity_on_summary" />
 
+    <CheckBoxPreference
+      android:key="button_vibrate_after_connected"
+      android:title="@string/vibrate_after_connected_title"
+      android:persistent="false"
+      android:defaultValue="true"
+      android:summary="@string/vibrate_after_connected_summary" />
+
 </PreferenceScreen>
