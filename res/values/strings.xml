@@ -617,6 +617,43 @@
     <string name="network_settings_sel_sub">SUBS Settings</string>
     <string name="summary_manage_subscriptions">Manage Network settings of each subscriptions</string>
 
+    <string name="call_barring">Call barring</string>
+    <string name="call_barring_outgoing">Outgoing call barring</string>
+    <string-array name="call_barring_outgoing_display_values">
+        <item>Off</item>
+        <item>International roam call</item>
+        <item>International call</item>
+        <item>Outgoing call</item>
+    </string-array>
+    <string-array name="call_barring_outgoing_values">
+        <item><xliff:g>-1</xliff:g></item>
+        <item><xliff:g>2</xliff:g></item>
+        <item><xliff:g>1</xliff:g></item>
+        <item><xliff:g>0</xliff:g></item>
+    </string-array>
+    <string-array name="call_barring_incoming_display_values">
+        <item>Off</item>
+        <item>Roaming</item>
+        <item>All</item>
+    </string-array>
+    <string name="call_barring_incoming">Incoming call barring</string>
+    <string-array name="call_barring_incoming_values">
+        <item><xliff:g>-2</xliff:g></item>
+        <item><xliff:g>4</xliff:g></item>
+        <item><xliff:g>3</xliff:g></item>
+    </string-array>
+    <string name="count_down_timer">Second:</string>
+    <string name="input_password">Input password</string>
+    <string name="labelCbCancelAll">Cancel all callbarring</string>
+    <string name="psw_enter_old">Old password</string>
+    <string name="labelCbChangePassword">Change password</string>
+    <string name="psw_enter_new">New password</string>
+    <string name="invalidPsw">Input your password (4 - 8 number)</string>
+    <string name="psw_reenter_new">Reenter your password</string>
+    <string name="no_call_barring">No callbarring</string>
+    <string name="cb_psw_dont_match">Password do not match</string>
+    <string name="operation_successfully">Operation successfully!</string>
+
     <!-- Screen option on the mobile network settings to go into data usage settings -->
     <string name="throttle_data_usage">Data usage</string>
     <!-- Data usage settings screen option for checking the current usage -->
