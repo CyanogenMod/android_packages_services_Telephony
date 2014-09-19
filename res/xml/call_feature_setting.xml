@@ -180,4 +180,11 @@
       android:defaultValue="true"
       android:summary="@string/vibrate_after_connected_summary" />
 
+    <PreferenceScreen
+        android:key="button_ipprefix_key"
+        android:title="@string/ipcall_sub_title"
+        android:summary="@string/ipcall_sub_summery"
+        android:persistent="false">
+    </PreferenceScreen>
+
 </PreferenceScreen>

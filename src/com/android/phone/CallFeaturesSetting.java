@@ -54,7 +54,9 @@ import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 
 import com.android.internal.telephony.CallForwardInfo;
@@ -178,6 +180,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_PROXIMITY_KEY   = "button_proximity_key";
     private static final String BUTTON_VIBRATE_CONNECTED_KEY = "button_vibrate_after_connected";
     private static final String SHOW_DURATION_KEY      = "duration_enable_key";
+    private static final String BUTTON_IPPREFIX_KEY = "button_ipprefix_key";
 
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
@@ -236,6 +239,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     // voicemail notification vibration string constants
     private static final String VOICEMAIL_VIBRATION_ALWAYS = "always";
     private static final String VOICEMAIL_VIBRATION_NEVER = "never";
+
+    private PreferenceScreen mIPPrefixPreference;
 
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
@@ -492,6 +497,35 @@ public class CallFeaturesSetting extends PreferenceActivity
 
             // Update HAC Value in AudioManager
             mAudioManager.setParameter(HAC_KEY, hac != 0 ? HAC_VAL_ON : HAC_VAL_OFF);
+            return true;
+        } else if (preference == mIPPrefixPreference) {
+            View v = getLayoutInflater().inflate(R.layout.ip_prefix, null);
+            final EditText edit = (EditText) v.findViewById(R.id.ip_prefix_dialog_edit);
+            String ip_prefix = Settings.System.getString(getContentResolver(),
+                    Constants.SETTINGS_IP_PREFIX);
+            edit.setText(ip_prefix);
+
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.ipcall_dialog_title)
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .setView(v)
+                    .setPositiveButton(android.R.string.ok,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    String ip_prefix = edit.getText().toString();
+                                    Settings.System.putString(getContentResolver(),
+                                            Constants.SETTINGS_IP_PREFIX, ip_prefix);
+                                    if (TextUtils.isEmpty(ip_prefix)) {
+                                        mIPPrefixPreference.setSummary(
+                                                R.string.ipcall_sub_summery);
+                                    } else {
+                                        mIPPrefixPreference.setSummary(edit.getText());
+                                    }
+                                    onResume();
+                                }
+                            })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
             return true;
         } else if (preference == mVoicemailSettings) {
             final Dialog dialog = mVoicemailSettings.getDialog();
@@ -1593,6 +1627,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
         mVibrateAfterConnected = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
         mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
+        mIPPrefixPreference = (PreferenceScreen) findPreference(BUTTON_IPPREFIX_KEY);
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1769,6 +1804,16 @@ public class CallFeaturesSetting extends PreferenceActivity
             mShowDurationCheckBox.setChecked(checked);
             mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
                     : R.string.duration_disable_summary);
+        }
+
+        if (mIPPrefixPreference != null) {
+            String ip_prefix = Settings.System.getString(getContentResolver(),
+                    Constants.SETTINGS_IP_PREFIX);
+            if (TextUtils.isEmpty(ip_prefix)) {
+                mIPPrefixPreference.setSummary(R.string.ipcall_sub_summery);
+            } else {
+                mIPPrefixPreference.setSummary(ip_prefix);
+            }
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
