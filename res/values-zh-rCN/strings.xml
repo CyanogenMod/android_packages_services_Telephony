@@ -530,6 +530,11 @@
     <string name="enable_video_calling_dialog_msg" msgid="6547569773866546434">"要开启视频通话功能，您需要在系统设置中启用增强型4G LTE模式。"</string>
     <string name="enable_video_calling_dialog_settings" msgid="576528473599603249">"网络设置"</string>
     <string name="enable_video_calling_dialog_close" msgid="7411471282167927991">"关闭"</string>
+    <string name="ipcall">IP电话设置</string>
+    <string name="ipcall_sub_title">IP电话设置</string>
+    <string name="ipcall_sub_summery">修改IP电话前缀</string>
+    <string name="ipcall_dialog_title">IP电话设置</string>
+    <string name="ipcall_dialog_edit_hint">请输入IP电话前缀</string>
 
     <!-- UPLMN Prefer -->
     <string name="uplmn_list_setting_title">偏好设置</string>
