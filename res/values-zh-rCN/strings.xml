@@ -19,6 +19,14 @@
     <string name="phoneAppLabel" product="tablet" msgid="8576272342240415145">"移动数据"</string>
     <string name="phoneAppLabel" product="default" msgid="906161039445636857">"电话"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"紧急拨号器"</string>
+    <string name="delete">"删除"</string>
+    <string name="emergency_call_list_title">紧急电话</string>
+    <string name="emergency_call">拨打紧急电话</string>
+    <string name="new_emergency_number">添加紧急电话</string>
+    <string name="delete_emergency_number">删除紧急电话</string>
+    <string name="emergency_call_number">紧急电话号码</string>
+    <string name="emergency_number_exist">紧急电话已存在!</string>
+    <string name="emergency_number_save_error">紧急电话号码太长!</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"电话"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"固定拨号列表"</string>
     <string name="unknown" msgid="6878797917991465859">"未知"</string>

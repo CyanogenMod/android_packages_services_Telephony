@@ -28,6 +28,16 @@
 
     <!-- Screen title for Emergency Dialer UI -->
     <string name="emergencyDialerIconLabel">Emergency Dialer</string>
+
+    <string name="delete"> Delete</string>
+    <string name="emergency_call_list_title">Emergency Call List</string>
+    <string name="emergency_call">Call</string>
+    <string name="new_emergency_number">New Emergency Number</string>
+    <string name="delete_emergency_number">Delete Emergency Number</string>
+    <string name="emergency_call_number">Emergency Call Number</string>
+    <string name="emergency_number_exist">Emergency Number has existed !</string>
+    <string name="emergency_number_save_error">Emergency Number is too long !</string>
+
     <!-- Activity label for the in-call UI -->
     <string name="phoneIconLabel">Phone</string>
     <!-- Title of FDN list screen -->
