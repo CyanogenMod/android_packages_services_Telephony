@@ -44,6 +44,7 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
+import com.android.phone.R;
 
 
 /**
@@ -70,6 +71,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
     //String keys for preference lookup
     private static final String BUTTON_ROAMING_KEY = "button_roaming_key";
     private static final String BUTTON_PREFERED_NETWORK_MODE = "preferred_network_mode_key";
+    private static final String BUTTON_UPLMN_KEY = "button_uplmn_key";
 
     static final int preferredNetworkMode = Phone.PREFERRED_NT_MODE;
 
@@ -192,6 +194,15 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         mButtonDataRoam = (CheckBoxPreference) prefSet.findPreference(BUTTON_ROAMING_KEY);
         mButtonPreferredNetworkMode = (ListPreference) prefSet.findPreference(
                 BUTTON_PREFERED_NETWORK_MODE);
+
+
+        Preference mUPLMNPref = prefSet.findPreference(BUTTON_UPLMN_KEY);
+        if (!getResources().getBoolean(R.bool.config_uplmn_for_usim)) {
+            prefSet.removePreference(mUPLMNPref);
+            mUPLMNPref = null;
+        } else {
+            mUPLMNPref.getIntent().putExtra(PhoneConstants.SUBSCRIPTION_KEY, mPhone.getPhoneId());
+        }
 
         boolean isLteOnCdma = mPhone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE;
         if (getResources().getBoolean(R.bool.world_phone) == true) {
