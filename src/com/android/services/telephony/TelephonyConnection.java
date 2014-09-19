@@ -102,8 +102,9 @@ abstract class TelephonyConnection extends Connection {
                             List<SubInfoRecord> sub =
                                     SubscriptionManager.getSubInfoUsingSlotId(
                                             getPhone().getPhoneId());
-                            String displayName = (sub == null) ? mSubName[getPhone()
-                                    .getPhoneId()] : sub.get(0).displayName;
+                            String displayName =  ((sub != null) && (sub.size() > 0)) ?
+                                    sub.get(0).displayName : mSubName[getPhone().getPhoneId()];
+
                             mDisplayName = displayName + ":" + callForwardText;
                         } else {
                             mDisplayName = callForwardText;
