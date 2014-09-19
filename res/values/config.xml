@@ -147,6 +147,9 @@
     <!-- Show APN Settings for some CDMA carriers -->
     <bool name="config_show_apn_setting_cdma">false</bool>
 
+    <!-- Consolidate the unanswered and unreachable call forward -->
+    <bool name="join_call_forward">false</bool>
+
     <!-- Allows the telephony HFA logic to run even if we're not in setup wizard. -->
     <bool name="config_allow_hfa_outside_of_setup_wizard">true</bool>
     <!-- whether to show uplmn preference for usim -->
