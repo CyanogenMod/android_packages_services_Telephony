@@ -136,6 +136,13 @@ public class Constants {
      */
     public static final String SETTINGS_SHOW_CALL_DURATION = "show_call_duration";
 
+    public static final String SETTINGS_IP_PREFIX = "ipcall_prefix";
+
+    public static final String PERSIST_RADIO_NETWORK_FEATURE = "persist.radio.network_feature";
+    // network mode
+    public static final int NETWORK_MODE_DEFAULT = 0;
+    public static final int NETWORK_MODE_CMCC = 2;
+
     //
     // TODO: Move all the various EXTRA_* and intent action constants here too.
     // (Currently they're all over the place: InCallScreen,

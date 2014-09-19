@@ -929,6 +929,12 @@
     <string name="duration_enable_summary">Display duration is ON</string>
     <string name="duration_disable_summary">Display duration is OFF</string>
 
+    <string name="ipcall">IP call setting</string>
+    <string name="ipcall_sub_title">IP call setting</string>
+    <string name="ipcall_sub_summery">Edit the IP prefix for IP call</string>
+    <string name="ipcall_dialog_title">IP call setting</string>
+    <string name="ipcall_dialog_edit_hint">Please input the IP prefix</string>
+
     <!-- FDN list screen: menu item label -->
     <string name="menu_add">Add contact</string>
     <!-- FDN list screen: menu item label -->

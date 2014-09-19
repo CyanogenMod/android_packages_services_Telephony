@@ -538,6 +538,11 @@
     <string name="preferred_duration_title">挂机显示通话时长</string>
     <string name="duration_enable_summary">挂机显示通话时长已开启</string>
     <string name="duration_disable_summary">挂机显示通话时长已关闭</string>
+    <string name="ipcall">IP电话设置</string>
+    <string name="ipcall_sub_title">IP电话设置</string>
+    <string name="ipcall_sub_summery">修改IP电话前缀</string>
+    <string name="ipcall_dialog_title">IP电话设置</string>
+    <string name="ipcall_dialog_edit_hint">请输入IP电话前缀</string>
 
     <!-- UPLMN Prefer -->
     <string name="uplmn_list_setting_title">偏好设置</string>
