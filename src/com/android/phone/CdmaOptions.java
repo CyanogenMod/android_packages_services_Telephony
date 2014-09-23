@@ -80,6 +80,7 @@ public class CdmaOptions {
                             // does not allow to add an Intent with some extras into a Preference
                             // XML file
                             final Intent intent = new Intent(Settings.ACTION_APN_SETTINGS);
+                            intent.putExtra(PhoneConstants.SUBSCRIPTION_KEY, mPhone.getSubId());
                             // This will setup the Home and Search affordance
                             intent.putExtra(":settings:show_fragment_as_subsetting", true);
                             mPrefActivity.startActivity(intent);
