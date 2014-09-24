@@ -64,6 +64,7 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.dataconnection.DctController;
 import com.android.internal.telephony.uicc.AdnRecord;
 import com.android.internal.telephony.uicc.IccIoResult;
+import com.android.internal.telephony.uicc.IccRecords;
 import com.android.internal.telephony.uicc.IccUtils;
 import com.android.internal.telephony.uicc.UiccCard;
 import com.android.internal.telephony.uicc.UiccCarrierPrivilegeRules;
@@ -1571,6 +1572,35 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     public int getWhenToMakeWifiCalls() {
         return Settings.System.getInt(mPhone.getContext().getContentResolver(),
                 Settings.System.WHEN_TO_MAKE_WIFI_CALLS, getWhenToMakeWifiCallsDefaultPreference());
+    }
+
+    /**
+     * get operator numeric value from icc records
+     */
+    public String getIccOperatorNumeric(long subId) {
+        String iccOperatorNumeric = null;
+        int netType = getDataNetworkTypeForSubscriber(subId);
+        int family = UiccController.getFamilyFromRadioTechnology(netType);
+        if (UiccController.APP_FAM_UNKNOWN == family) {
+            int phoneType = getActivePhoneTypeForSubscriber(subId);
+            switch (phoneType) {
+                case TelephonyManager.PHONE_TYPE_GSM:
+                    family = UiccController.APP_FAM_3GPP;
+                    break;
+                case TelephonyManager.PHONE_TYPE_CDMA:
+                    family = UiccController.APP_FAM_3GPP2;
+                    break;
+            }
+        }
+
+        if (UiccController.APP_FAM_UNKNOWN != family) {
+            int slotId = SubscriptionManager.getPhoneId(subId);
+            IccRecords iccRecords = UiccController.getInstance().getIccRecords(slotId, family);
+            if (iccRecords != null) {
+                iccOperatorNumeric = iccRecords.getOperatorNumeric();
+            }
+        }
+        return iccOperatorNumeric;
     }
 
     /**
