@@ -33,6 +33,7 @@ import android.text.TextUtils;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
+import com.android.internal.telephony.ModemStackController;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
@@ -188,7 +189,8 @@ public class TelephonyConnectionService extends ConnectionService {
                                 // If the connection has already been disconnected, do nothing.
                             } else if (isRadioReady) {
                                 connection.setInitialized();
-                                placeOutgoingConnection(connection, phone, request);
+                                placeOutgoingConnection(connection,
+                                         PhoneFactory.getPhone(getPhoneIdForECall()), request);
                             } else {
                                 Log.d(this, "onCreateOutgoingConnection, failed to turn on radio");
                                 connection.setDisconnected(
@@ -311,6 +313,16 @@ public class TelephonyConnectionService extends ConnectionService {
     private void placeOutgoingConnection(
             TelephonyConnection connection, Phone phone, ConnectionRequest request) {
         String number = connection.getAddress().getSchemeSpecificPart();
+
+        PhoneAccountHandle pHandle = TelecommAccountRegistry.makePstnPhoneAccountHandle(phone);
+        // For ECall handling on MSIM, till the request reaches here(i.e PhoneApp)
+        // we dont know on which phone account ECall can be placed, once after deciding
+        // the phone account for ECall we should inform Telecomm so that
+        // the proper sub information will be displayed on InCallUI.
+        if (!Objects.equals(pHandle, request.getAccountHandle())) {
+            Log.i(this, "setPhoneAccountHandle, account = " + pHandle);
+            connection.setPhoneAccountHandle(pHandle);
+        }
 
         com.android.internal.telephony.Connection originalConnection;
         try {
@@ -458,8 +470,14 @@ public class TelephonyConnectionService extends ConnectionService {
                     if (phoneId == voicePhoneId) break;
                 }
             }
-            if (phoneId == -1)
-                phoneId = 0;
+            if (phoneId == -1) {
+                ModemStackController mdmStackContl = ModemStackController.getInstance();
+                if (mdmStackContl != null) {
+                    phoneId = mdmStackContl.getPrimarySub();
+                } else {
+                    phoneId = 0;
+                }
+            }
         }
         Log.d(this, "Voice phoneId in service = "+ phoneId +
                 " preferred phoneId =" + voicePhoneId);

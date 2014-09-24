@@ -30,7 +30,7 @@ final public class Log {
     private static final String TAG = "Telephony";
 
     public static final boolean FORCE_LOGGING = false; /* STOP SHIP if true */
-    public static final boolean DEBUG = isLoggable(android.util.Log.DEBUG);
+    public static final boolean DEBUG = true;
     public static final boolean INFO = isLoggable(android.util.Log.INFO);
     public static final boolean VERBOSE = isLoggable(android.util.Log.VERBOSE);
     public static final boolean WARN = isLoggable(android.util.Log.WARN);
