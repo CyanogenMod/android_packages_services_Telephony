@@ -342,7 +342,7 @@ public class PhoneUtils {
         return hungup;
     }
 
-    static boolean hangupRingingCall(Call ringing) {
+    public static boolean hangupRingingCall(Call ringing) {
         if (DBG) log("hangup ringing call");
         int phoneType = ringing.getPhone().getPhoneType();
         Call.State state = ringing.getState();

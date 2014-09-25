@@ -17,6 +17,7 @@
 package com.android.services.telephony;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -39,7 +40,7 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneProxy;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.cdma.CdmaCallWaitingNotification;
-
+import com.android.phone.PhoneUtils;
 import com.google.common.base.Preconditions;
 
 import java.util.Objects;
@@ -56,6 +57,11 @@ final class PstnIncomingCallNotifier {
 
     /** The phone proxy object to listen to. */
     private final PhoneProxy mPhoneProxy;
+
+    private static final Uri FIREWALL_PROVIDER_URI = Uri
+            .parse("content://com.android.firewall");
+    private static final String EXTRA_NUMBER = "phonenumber";
+    private static final String IS_FORBIDDEN = "isForbidden";
 
     /**
      * The base phone implementation behind phone proxy. The underlying phone implementation can
@@ -175,6 +181,12 @@ final class PstnIncomingCallNotifier {
 
             // Final verification of the ringing state before sending the intent to Telecom.
             if (call != null && call.getState().isRinging()) {
+                Phone phone = call.getPhone();
+                if (phone != null
+                        && isBlockedByFirewall(connection.getAddress(), phone.getPhoneId())) {
+                    PhoneUtils.hangupRingingCall(call);
+                    return;
+                }
                 sendIncomingCallIntent(connection);
             }
         }
@@ -188,6 +200,12 @@ final class PstnIncomingCallNotifier {
             Connection connection = call.getLatestConnection();
             if (connection != null) {
                 String number = connection.getAddress();
+                Phone phone = call.getPhone();
+                if (phone != null
+                        && isBlockedByFirewall(number, phone.getPhoneId())) {
+                    PhoneUtils.hangupRingingCall(call);
+                    return;
+                }
                 if (number != null && Objects.equals(number, ccwi.number)) {
                     sendIncomingCallIntent(connection);
                 }
@@ -220,6 +238,22 @@ final class PstnIncomingCallNotifier {
         }
         TelecomManager.from(mPhoneProxy.getContext()).addNewUnknownCall(
                 TelecomAccountRegistry.makePstnPhoneAccountHandle(mPhoneProxy), extras);
+    }
+
+    private boolean isBlockedByFirewall(String number, int sub) {
+        boolean isForbidden = false;
+        // Add to check the firewall when firewall provider is built.
+        final ContentResolver cr = mPhoneProxy.getContext().getContentResolver();
+        if (cr.acquireProvider(FIREWALL_PROVIDER_URI) != null) {
+            Bundle extras = new Bundle();
+            extras.putInt(PhoneConstants.SUBSCRIPTION_KEY, sub);
+            extras.putString(EXTRA_NUMBER, number);
+            extras = cr.call(FIREWALL_PROVIDER_URI, IS_FORBIDDEN, null, extras);
+            if (extras != null) {
+                isForbidden = extras.getBoolean(IS_FORBIDDEN);
+            }
+        }
+        return isForbidden;
     }
 
     /**
