@@ -1496,14 +1496,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         // create intent to bring up contact list
         mContactListIntent = new Intent(Intent.ACTION_GET_CONTENT);
         mContactListIntent.setType(android.provider.Contacts.Phones.CONTENT_ITEM_TYPE);
-        boolean isMsim = PhoneUtils.isMultiSimEnabled();
-        if (DBG) log("onCreate(). Intent: " + getIntent() +
-                " phoneId = " + mPhone.getPhoneId() + " isMSim = " + isMsim);
-        if (isMsim) {
-            addPreferencesFromResource(R.xml.call_feature_setting_msim);
-        } else {
-            addPreferencesFromResource(R.xml.call_feature_setting);
-        }
+        if (DBG) log("onCreate(). Intent: " + getIntent() + " phoneId = " + mPhone.getPhoneId());
 
         mVoicemailRingtoneLookupRunnable = new Runnable() {
             @Override
@@ -1552,7 +1545,13 @@ public class CallFeaturesSetting extends PreferenceActivity
             preferenceScreen.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.call_feature_setting);
+        boolean isMsim = PhoneUtils.isMultiSimEnabled();
+        if (DBG) log("onResume(). isMSim = " + isMsim);
+        if (isMsim) {
+            addPreferencesFromResource(R.xml.call_feature_setting_msim);
+        } else {
+            addPreferencesFromResource(R.xml.call_feature_setting);
+        }
         initPhoneAccountPreferences();
 
         // get buttons

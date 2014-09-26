@@ -317,7 +317,7 @@ public class TelephonyConnectionService extends ConnectionService {
             TelephonyConnection connection, Phone phone, ConnectionRequest request) {
         String number = connection.getAddress().getSchemeSpecificPart();
 
-        PhoneAccountHandle pHandle = TelecommAccountRegistry.makePstnPhoneAccountHandle(phone);
+        PhoneAccountHandle pHandle = TelecomAccountRegistry.makePstnPhoneAccountHandle(phone);
         // For ECall handling on MSIM, till the request reaches here(i.e PhoneApp)
         // we dont know on which phone account ECall can be placed, once after deciding
         // the phone account for ECall we should inform Telecomm so that
