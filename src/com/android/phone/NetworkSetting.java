@@ -35,6 +35,8 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.telephony.ServiceState;
+import android.telephony.TelephonyManager;
+import android.telephony.SubscriptionManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -64,6 +66,7 @@ public class NetworkSetting extends PreferenceActivity
     private static final int DIALOG_NETWORK_SELECTION = 100;
     private static final int DIALOG_NETWORK_LIST_LOAD = 200;
     private static final int DIALOG_NETWORK_AUTO_SELECT = 300;
+    private static final int EVENT_NETWORK_DATA_MANAGER_DONE = 500;
 
     //String keys for preference lookup
     private static final String LIST_NETWORKS_KEY = "list_networks_key";
@@ -77,6 +80,7 @@ public class NetworkSetting extends PreferenceActivity
     private HashMap<String, String> mRatMap;
 
     Phone mPhone;
+    NetworkSettingDataManager mDataManager = null;
     protected boolean mIsForeground = false;
 
     private UserManager mUm;
@@ -113,6 +117,14 @@ public class NetworkSetting extends PreferenceActivity
                         displayNetworkSelectionSucceeded();
                     }
                     break;
+                case EVENT_NETWORK_DATA_MANAGER_DONE:
+                    log("EVENT_NETWORK_DATA_MANAGER_DONE: " + msg.arg1);
+                    if (msg.arg1 == 1) {
+                        loadNetworksList();
+                    }
+                    mSearchButton.setEnabled(true);
+                    break;
+
                 case EVENT_AUTO_SELECT_DONE:
                     if (DBG) log("hideProgressPanel");
 
@@ -160,7 +172,13 @@ public class NetworkSetting extends PreferenceActivity
             if (DBG) log("connection created, binding local service.");
             mNetworkQueryService = ((NetworkQueryService.LocalBinder) service).getService();
             // as soon as it is bound, run a query.
-            loadNetworksList();
+            if (isDataDisableRequired()) {
+                mSearchButton.setEnabled(false);
+                Message onCompleteMsg = mHandler.obtainMessage(EVENT_NETWORK_DATA_MANAGER_DONE);
+                mDataManager.updateDataState(false, onCompleteMsg);
+            } else {
+                loadNetworksList();
+            }
         }
 
         /** Handle the task of cleaning up the local binding */
@@ -190,7 +208,13 @@ public class NetworkSetting extends PreferenceActivity
         boolean handled = false;
 
         if (preference == mSearchButton) {
-            loadNetworksList();
+            if (isDataDisableRequired()) {
+                mSearchButton.setEnabled(false);
+                Message onCompleteMsg = mHandler.obtainMessage(EVENT_NETWORK_DATA_MANAGER_DONE);
+                mDataManager.updateDataState(false, onCompleteMsg);
+            } else {
+                loadNetworksList();
+            }
             handled = true;
         } else if (preference == mAutoSelect) {
             selectNetworkAutomatic();
@@ -265,6 +289,9 @@ public class NetworkSetting extends PreferenceActivity
         startService (intent);
         bindService (new Intent(this, NetworkQueryService.class), mNetworkQueryServiceConnection,
                 Context.BIND_AUTO_CREATE);
+       if (isDataDisableRequired()) {
+            mDataManager = new NetworkSettingDataManager(getApplicationContext());
+        }
     }
 
     @Override
@@ -288,6 +315,9 @@ public class NetworkSetting extends PreferenceActivity
         if (!mUnavailable) {
             // unbind the service.
             unbindService(mNetworkQueryServiceConnection);
+        }
+        if (mDataManager != null) {
+            mDataManager.updateDataState(true, null);
         }
         super.onDestroy();
     }
@@ -429,7 +459,9 @@ public class NetworkSetting extends PreferenceActivity
             // connected after this activity is moved to background.
             if (DBG) log("Fail to dismiss network load list dialog");
         }
-
+        if (mDataManager != null) {
+            mDataManager.updateDataState(true, null);
+        }
         getPreferenceScreen().setEnabled(true);
         clearList();
 
@@ -459,7 +491,17 @@ public class NetworkSetting extends PreferenceActivity
             }
         }
     }
-
+    private boolean  isDataDisableRequired() {
+       boolean isRequired = getApplicationContext().getResources().getBoolean(
+                R.bool.config_disable_data_manual_plmn);
+       if ((TelephonyManager.getDefault()
+           .getMultiSimConfiguration()
+           == TelephonyManager.MultiSimVariants.DSDA) &&
+           (SubscriptionManager.getDefaultDataSubId() != mPhone.getSubId())) {
+           isRequired = false;
+       }
+       return isRequired;
+    }
     /**
      * Returns the title of the network obtained in the manual search.
      *

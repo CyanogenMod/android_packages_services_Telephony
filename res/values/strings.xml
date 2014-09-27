@@ -1521,4 +1521,6 @@
     <string name="china_mobile">China Mobile</string>
     <string name="china_unicom">China Unicom</string>
     <string name="china_telecom">China Telecom</string>
+ <!-- Manual PLMN scan data disconnect dialog text -->
+    <string name="disconnect_data_confirm">Data service temporarily would be disconnected. Are you sure?</string>
 </resources>

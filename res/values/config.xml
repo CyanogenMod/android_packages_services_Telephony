@@ -151,4 +151,6 @@
     <bool name="config_allow_hfa_outside_of_setup_wizard">true</bool>
     <!-- whether to show uplmn preference for usim -->
     <bool name="config_uplmn_for_usim">false</bool>
+    <!-- Disable data before manual PLMN scan if true-->
+    <bool name="config_disable_data_manual_plmn">true</bool>
 </resources>
