@@ -59,6 +59,7 @@ import android.os.Vibrator;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract;
 import android.provider.Settings;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -143,7 +144,7 @@ public class CallNotifier extends Handler
     protected static final int CALLWAITING_ADDCALL_DISABLE_TIMEOUT = 23;
     private static final int DISPLAYINFO_NOTIFICATION_DONE = 24;
     private static final int CDMA_CALL_WAITING_REJECT = 26;
-    private static final int VIBRATE_45_SEC = 28;
+    protected static final int VIBRATE_45_SEC = 28;
     private static final int UPDATE_IN_CALL_NOTIFICATION = 27;
 
     // Emergency call related defines:
@@ -913,13 +914,13 @@ public class CallNotifier extends Handler
         if (c != null && !c.isIncoming() && c.getState() == Call.State.ACTIVE) {
             long callDurationMsec = c.getDurationMillis();
             if (VDBG) Log.v(LOG_TAG, "duration is " + callDurationMsec);
+
             boolean vibOut = PhoneUtils.PhoneSettings.vibOutgoing(mApplication);
             if (vibOut && callDurationMsec < 200) {
                 vibrate(100, 0, 0);
             }
             boolean vib45 = PhoneUtils.PhoneSettings.vibOn45Secs(mApplication);
             if (vib45) {
-                callDurationMsec = callDurationMsec % 60000;
                 start45SecondVibration(callDurationMsec);
             }
         }
@@ -1326,7 +1327,8 @@ public class CallNotifier extends Handler
         }
     }
 
-    private void start45SecondVibration(long callDurationMsec) {
+    protected void start45SecondVibration(long callDurationMsec) {
+        callDurationMsec = callDurationMsec % 60000;
         if (VDBG) Log.v(LOG_TAG, "vibrate start @" + callDurationMsec);
 
         removeMessages(VIBRATE_45_SEC);
@@ -2124,19 +2126,22 @@ public class CallNotifier extends Handler
         SuppServiceNotification notification = (SuppServiceNotification) r.result;
 
         /* show a toast for transient notifications */
-        int toastResId = getSuppServiceToastTextResId(notification);
+        int toastResId = getSuppServiceToastTextResIdIfEnabled(notification);
         if (toastResId >= 0) {
             Toast.makeText(mApplication, mApplication.getString(toastResId),
                     Toast.LENGTH_LONG).show();
         }
     }
 
-    private int getSuppServiceToastTextResId(SuppServiceNotification notification) {
+    protected int getSuppServiceToastTextResIdIfEnabled(SuppServiceNotification notification) {
         if (!PhoneUtils.PhoneSettings.showInCallEvents(mApplication)) {
             /* don't show anything if the user doesn't want it */
             return -1;
         }
+        return getSuppServiceToastTextResId(notification);
+    }
 
+    protected int getSuppServiceToastTextResId(SuppServiceNotification notification) {
         if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MO) {
             switch (notification.code) {
                 case SuppServiceNotification.MO_CODE_UNCONDITIONAL_CF_ACTIVE :
