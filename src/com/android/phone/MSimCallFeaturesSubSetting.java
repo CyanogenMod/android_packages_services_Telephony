@@ -26,9 +26,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.MSimTelephonyManager;
@@ -71,6 +74,12 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
     private static final String BUTTON_IPPREFIX_KEY = "button_ipprefix_key";
     private static final String BUTTON_CB_EXPAND_KEY = "button_callbarring_expand_key";
 
+    private static final String BUTTON_VIBRATE_OUTGOING_KEY = "button_vibrate_outgoing";
+    private static final String BUTTON_VIBRATE_CALL_WAITING_KEY = "button_vibrate_call_waiting";
+    private static final String BUTTON_HANGUP_OUTGOING_KEY = "button_vibrate_hangup";
+    private static final String BUTTON_45_KEY = "button_vibrate_45";
+    private static final String BUTTON_SHOW_SSN_KEY = "button_show_ssn_key";
+
     private PreferenceScreen mSubscriptionPrefFDN;
     private PreferenceScreen mSubscriptionPrefGSM;
     private PreferenceScreen mSubscriptionPrefCDMA;
@@ -78,6 +87,11 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
     private PreferenceScreen mSubscriptionPrefMOREEXPAND;
     private PreferenceScreen mSubscriptionIPPrefix;
 
+    private CheckBoxPreference mVibrateOutgoingPref;
+    private CheckBoxPreference mVibrateCallWaitingPref;
+    private CheckBoxPreference mVibrateHangupPref;
+    private CheckBoxPreference mVibrate45Pref;
+    private CheckBoxPreference mShowSSNPref;
 
     /**
      * Receiver for Receiver for ACTION_AIRPLANE_MODE_CHANGED and ACTION_SIM_STATE_CHANGED.
@@ -171,7 +185,28 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
                 mSubscriptionIPPrefix.setSummary(ip_prefix);
             }
         }
-
+        //Change the pref keys to be per subscription
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mVibrateOutgoingPref = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_OUTGOING_KEY);
+        boolean initialState = prefs.getBoolean(mVibrateOutgoingPref.getKey(), false);
+        setPreferenceKeyForSubscription(mVibrateOutgoingPref);
+        mVibrateOutgoingPref.setChecked(prefs.getBoolean(mVibrateOutgoingPref.getKey(), initialState));
+        mVibrateCallWaitingPref = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CALL_WAITING_KEY);
+        initialState = prefs.getBoolean(mVibrateCallWaitingPref.getKey(), false);
+        setPreferenceKeyForSubscription(mVibrateCallWaitingPref);
+        mVibrateCallWaitingPref.setChecked(prefs.getBoolean(mVibrateCallWaitingPref.getKey(), initialState));
+        mVibrateHangupPref = (CheckBoxPreference) findPreference(BUTTON_HANGUP_OUTGOING_KEY);
+        initialState = prefs.getBoolean(mVibrateHangupPref.getKey(), false);
+        setPreferenceKeyForSubscription(mVibrateHangupPref);
+        mVibrateHangupPref.setChecked(prefs.getBoolean(mVibrateHangupPref.getKey(), initialState));
+        mVibrate45Pref = (CheckBoxPreference) findPreference(BUTTON_45_KEY);
+        initialState = prefs.getBoolean(mVibrate45Pref.getKey(), false);
+        setPreferenceKeyForSubscription(mVibrate45Pref);
+        mVibrate45Pref.setChecked(prefs.getBoolean(mVibrate45Pref.getKey(), initialState));
+        mShowSSNPref = (CheckBoxPreference) findPreference(BUTTON_SHOW_SSN_KEY);
+        initialState = prefs.getBoolean(mShowSSNPref.getKey(), false);
+        setPreferenceKeyForSubscription(mShowSSNPref);
+        mShowSSNPref.setChecked(prefs.getBoolean(mShowSSNPref.getKey(), initialState));
     }
 
     @Override
