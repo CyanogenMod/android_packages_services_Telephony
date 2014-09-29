@@ -1926,9 +1926,10 @@ public class CallFeaturesSetting extends PreferenceActivity
     public static boolean migrateVoicemailVibrationSettingsIfNeeded(SharedPreferences prefs,
             int subscripton) {
         String vibrateKey =
-                getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, subscripton);
+                PhoneUtils.getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY,
+                        subscripton);
         String vibrateWhenKey =
-                getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY, subscripton);
+                PhoneUtils.getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY, subscripton);
         if (!prefs.contains(vibrateKey)) {
             String vibrateWhen = prefs.getString(
                     vibrateWhenKey, VOICEMAIL_VIBRATION_NEVER);
@@ -2467,7 +2468,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                 mPhone.getContext());
         migrateVoicemailVibrationSettingsIfNeeded(prefs,mSubscription);
         mVoicemailNotificationVibrate.setChecked(prefs.getBoolean(
-                getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, mSubscription),
+                PhoneUtils.getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, mSubscription),
                 false));
         lookupRingtoneName();
     }
@@ -2653,15 +2654,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         activity.finish();
     }
 
-    private void setPrefenceKeyForSubscription(Preference preference) {
+    protected void setPrefenceKeyForSubscription(Preference preference) {
         if (mSubscription == -1 || preference == null) return;
         String key = preference.getKey() + mSubscription;
         preference.setKey(key);
-    }
-
-    public static String getKeyForSubscription(String key, int subscription) {
-        if (subscription == -1) return key;
-        return key + subscription;
     }
 
     private static void log(String msg) {

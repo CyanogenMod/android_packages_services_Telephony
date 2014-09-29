@@ -65,13 +65,13 @@
     <bool name="config_enable_dialer_key_vibration">true</bool>
 
     <!-- Flag indicating if the tty is enabled -->
-    <bool name="tty_enabled">false</bool>
+    <bool name="tty_enabled">true</bool>
 
     <!-- Flag indicating if hac is enabled -->
-    <bool name="hac_enabled">false</bool>
+    <bool name="hac_enabled">true</bool>
 
     <!-- Flag indicating if dtmf tone type is enabled -->
-    <bool name="dtmf_type_enabled">false</bool>
+    <bool name="dtmf_type_enabled">true</bool>
 
     <!-- Flag indicating if auto retry is enabled -->
     <bool name="auto_retry_enabled">false</bool>
@@ -183,10 +183,10 @@
     <string name="Lch_dtmf_key" translatable="false">D</string>
 
     <!-- whether show X-Divert settings-->
-    <bool name="config_show_xdivert">false</bool>
+    <bool name="config_show_xdivert">true</bool>
 
     <!-- whether show emergency call list -->
-    <bool name="show_emergency_call_list">false</bool>
+    <bool name="show_emergency_call_list">true</bool>
 
     <!-- Flag whether to disable FDN settings-->
     <bool name="config_fdn_disable">false</bool>
@@ -195,8 +195,8 @@
     <bool name="config_disconnect_other_fgcall">false</bool>
 
     <!-- Flag whether to enable Proximity setting-->
-    <bool name="config_proximity_enable" translatable="false">false</bool>
+    <bool name="config_proximity_enable" translatable="false">true</bool>
 
     <!-- Flag whether to enable IP Prefix setting-->
-    <bool name="config_ip_prefix_enable" translatable="false">false</bool>
+    <bool name="config_ip_prefix_enable" translatable="false">true</bool>
 </resources>

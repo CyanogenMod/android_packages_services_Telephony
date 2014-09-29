@@ -3438,21 +3438,41 @@ public class PhoneUtils {
     static class PhoneSettings {
         /* vibration preferences */
         static boolean vibOn45Secs(Context context) {
-            return getPrefs(context).getBoolean("button_vibrate_45", false);
+            return vibOn45Secs(context, -1);
+        }
+        static boolean vibOn45Secs(Context context, int subscription) {
+            return getPrefs(context).getBoolean(getKeyForSubscription("button_vibrate_45",
+                            subscription), false);
         }
         static boolean vibHangup(Context context) {
-            return getPrefs(context).getBoolean("button_vibrate_hangup", false);
+            return vibHangup(context, -1);
+        }
+        static boolean vibHangup(Context context, int subscription) {
+            return getPrefs(context).getBoolean(getKeyForSubscription("button_vibrate_hangup",
+                            subscription), false);
         }
         static boolean vibOutgoing(Context context) {
-            return getPrefs(context).getBoolean("button_vibrate_outgoing", false);
+            return vibOutgoing(context, -1);
+        }
+        static boolean vibOutgoing(Context context, int subscription) {
+            return getPrefs(context).getBoolean(getKeyForSubscription("button_vibrate_outgoing",
+                    subscription), false);
         }
         static boolean vibCallWaiting(Context context) {
-            return getPrefs(context).getBoolean("button_vibrate_call_waiting", false);
+            return vibOutgoing(context, -1);
+        }
+        static boolean vibCallWaiting(Context context, int subscription) {
+            return getPrefs(context).getBoolean(getKeyForSubscription("button_vibrate_call_waiting",
+                    subscription), false);
         }
 
         /* misc. UI and behaviour preferences */
         static boolean showInCallEvents(Context context) {
-            return getPrefs(context).getBoolean("button_show_ssn_key", false);
+            return showInCallEvents(context, -1);
+        }
+        static boolean showInCallEvents(Context context, int subscription) {
+            return getPrefs(context).getBoolean(getKeyForSubscription("button_show_ssn_key",
+                    subscription), false);
         }
 
         private static SharedPreferences getPrefs(Context context) {
@@ -3711,5 +3731,10 @@ public class PhoneUtils {
             sUssdDialog.show();
         }
 
+    }
+
+    public static String getKeyForSubscription(String key, int subscription) {
+        if (subscription == -1) return key;
+        return key + subscription;
     }
 }
