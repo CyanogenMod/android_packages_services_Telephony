@@ -46,6 +46,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.TelephonyCapabilities;
+import com.android.internal.telephony.gsm.SuppServiceNotification;
 
 /**
  * Phone app module that listens for phone state changes and various other
@@ -79,6 +80,8 @@ public class MSimCallNotifier extends CallNotifier {
     private boolean[] mIsPermDiscCauseReceived = new
             boolean[MSimTelephonyManager.getDefault().getPhoneCount()];
 
+    private Phone mPhone;
+
     /**
      * Initialize the singleton CallNotifier instance.
      * This is only done once, at startup, from PhoneApp.onCreate().
@@ -102,6 +105,7 @@ public class MSimCallNotifier extends CallNotifier {
             CallLogger callLogger,CallStateMonitor callStateMonitor,
             BluetoothManager bluetoothManager, CallModeler callModeler) {
         super(app, phone, ringer, callLogger, callStateMonitor, bluetoothManager, callModeler);
+        mPhone = phone;
     }
 
     @Override
@@ -347,6 +351,9 @@ public class MSimCallNotifier extends CallNotifier {
             int otherActiveSub = PhoneUtils.getOtherActiveSub(subscription);
             if ((MSimConstants.INVALID_SUBSCRIPTION == otherActiveSub)
                     && (mCallWaitingTonePlayer == null)) {
+                if (PhoneUtils.PhoneSettings.vibCallWaiting(mApplication, subscription)) {
+                    vibrate(200, 300, 500);
+                }
                 if (VDBG) log("- starting call waiting tone...");
                 mCallWaitingTonePlayer = new InCallTonePlayer(InCallTonePlayer.TONE_CALL_WAITING);
                 mCallWaitingTonePlayer.start();
@@ -402,6 +409,7 @@ public class MSimCallNotifier extends CallNotifier {
                 .enableNotificationAlerts(state == PhoneConstants.State.IDLE);
 
         Phone fgPhone = mCM.getFgPhone(subscription);
+        Connection c;
 
         // CTA require that UE should disconnect current foregroundCall if answering a MT call on
         // other sub and current foregroundCall callstate is dialing
@@ -432,6 +440,9 @@ public class MSimCallNotifier extends CallNotifier {
                 stopSignalInfoTone();
             }
             mPreviousCdmaCallState = fgPhone.getForegroundCall().getState();
+            c = fgPhone.getForegroundCall().getLatestConnection();
+        } else {
+            c = fgPhone.getForegroundCall().getEarliestConnection();
         }
 
         // Have the PhoneApp recompute its mShowBluetoothIndication
@@ -471,8 +482,21 @@ public class MSimCallNotifier extends CallNotifier {
 
         manageMSimInCallTones(false);
 
+        if (c != null && !c.isIncoming() && c.getState() == Call.State.ACTIVE) {
+            long callDurationMsec = c.getDurationMillis();
+            if (VDBG) Log.v(LOG_TAG, "duration is " + callDurationMsec);
+
+            boolean vibOut = PhoneUtils.PhoneSettings.vibOutgoing(mApplication, subscription);
+            if (vibOut && callDurationMsec < 200) {
+                vibrate(100, 0, 0);
+            }
+            boolean vib45 = PhoneUtils.PhoneSettings.vibOn45Secs(mApplication, subscription);
+            if (vib45) {
+                start45SecondVibration(callDurationMsec);
+            }
+        }
+
         if (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
-            Connection c = fgPhone.getForegroundCall().getLatestConnection();
             if ((c != null) && (PhoneNumberUtils.isLocalEmergencyNumber(c.getAddress(),
                                                                         mApplication))) {
                 if (VDBG) log("onPhoneStateChanged: it is an emergency call.");
@@ -563,6 +587,12 @@ public class MSimCallNotifier extends CallNotifier {
         }
 
         boolean disconnectedDueToBlacklist = isDisconnectedDueToBlacklist(c);
+        if (c != null) {
+            boolean vibHangup = PhoneUtils.PhoneSettings.vibHangup(mApplication, subscription);
+            if (!disconnectedDueToBlacklist && vibHangup && c.getDurationMillis() > 0) {
+                vibrate(50, 100, 50);
+            }
+        }
 
         int autoretrySetting = 0;
         if ((c != null) && (c.getCall().getPhone().getPhoneType() ==
@@ -573,6 +603,9 @@ public class MSimCallNotifier extends CallNotifier {
 
         // Stop any signalInfo tone being played when a call gets ended
         stopSignalInfoTone();
+
+        // Stop 45-second vibration
+        removeMessages(VIBRATE_45_SEC);
 
         if ((c != null) && (c.getCall().getPhone().getPhoneType() ==
                 PhoneConstants.PHONE_TYPE_CDMA)) {
@@ -1067,6 +1100,16 @@ public class MSimCallNotifier extends CallNotifier {
             mLocalCallWaitingTonePlayer.stopTone();
             mLocalCallWaitingTonePlayer = null;
         }
+    }
+
+    @Override
+    protected int getSuppServiceToastTextResIdIfEnabled(SuppServiceNotification notification) {
+        if (!PhoneUtils.PhoneSettings.showInCallEvents(mApplication,
+                mPhone.getSubscription())) {
+            /* don't show anything if the user doesn't want it */
+            return -1;
+        }
+        return getSuppServiceToastTextResId(notification);
     }
 
     private void log(String msg) {

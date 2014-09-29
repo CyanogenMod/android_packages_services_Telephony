@@ -71,6 +71,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.cdma.TtyIntent;
 import com.android.internal.telephony.util.BlacklistUtils;
+import com.android.phone.PhoneUtils.PhoneSettings;
 import com.android.phone.sip.SipSharedPreferences;
 
 import java.util.Arrays;
@@ -1926,9 +1927,11 @@ public class CallFeaturesSetting extends PreferenceActivity
     public static boolean migrateVoicemailVibrationSettingsIfNeeded(SharedPreferences prefs,
             int subscripton) {
         String vibrateKey =
-                getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, subscripton);
+                PhoneSettings.getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY,
+                                subscripton);
         String vibrateWhenKey =
-                getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY, subscripton);
+                PhoneSettings.getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY,
+                        subscripton);
         if (!prefs.contains(vibrateKey)) {
             String vibrateWhen = prefs.getString(
                     vibrateWhenKey, VOICEMAIL_VIBRATION_NEVER);
@@ -2422,17 +2425,17 @@ public class CallFeaturesSetting extends PreferenceActivity
                 mPhone.getContext());
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         if (mVoicemailProviders != null) {
-            setPrefenceKeyForSubscription(mVoicemailProviders);
+            setPreferenceKeyForSubscription(mVoicemailProviders);
             mVoicemailProviders.setValue(prefs.getString(mVoicemailProviders.getKey(),
                     mVoicemailProviders.getValue()));
             mVoicemailProviders.setOnPreferenceChangeListener(this);
             mVoicemailSettings = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
             mVoicemailNotificationRingtone =
                     findPreference(BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY);
-            setPrefenceKeyForSubscription(mVoicemailNotificationRingtone);
+            setPreferenceKeyForSubscription(mVoicemailNotificationRingtone);
             mVoicemailNotificationVibrate =
                     (CheckBoxPreference) findPreference(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY);
-            setPrefenceKeyForSubscription(mVoicemailNotificationVibrate);
+            setPreferenceKeyForSubscription(mVoicemailNotificationVibrate);
             initVoiceMailProviders();
         }
         // check the intent that started this activity and pop up the voicemail
@@ -2467,7 +2470,8 @@ public class CallFeaturesSetting extends PreferenceActivity
                 mPhone.getContext());
         migrateVoicemailVibrationSettingsIfNeeded(prefs,mSubscription);
         mVoicemailNotificationVibrate.setChecked(prefs.getBoolean(
-                getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, mSubscription),
+                PhoneSettings.getKeyForSubscription(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY,
+                        mSubscription),
                 false));
         lookupRingtoneName();
     }
@@ -2653,15 +2657,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         activity.finish();
     }
 
-    private void setPrefenceKeyForSubscription(Preference preference) {
+    protected void setPreferenceKeyForSubscription(Preference preference) {
         if (mSubscription == -1 || preference == null) return;
         String key = preference.getKey() + mSubscription;
         preference.setKey(key);
-    }
-
-    public static String getKeyForSubscription(String key, int subscription) {
-        if (subscription == -1) return key;
-        return key + subscription;
     }
 
     private static void log(String msg) {
