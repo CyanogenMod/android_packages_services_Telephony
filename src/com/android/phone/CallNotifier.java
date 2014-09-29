@@ -59,6 +59,7 @@ import android.os.Vibrator;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract;
 import android.provider.Settings;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -143,7 +144,7 @@ public class CallNotifier extends Handler
     protected static final int CALLWAITING_ADDCALL_DISABLE_TIMEOUT = 23;
     private static final int DISPLAYINFO_NOTIFICATION_DONE = 24;
     private static final int CDMA_CALL_WAITING_REJECT = 26;
-    private static final int VIBRATE_45_SEC = 28;
+    protected static final int VIBRATE_45_SEC = 28;
     private static final int UPDATE_IN_CALL_NOTIFICATION = 27;
 
     // Emergency call related defines:
@@ -189,6 +190,8 @@ public class CallNotifier extends Handler
     // Blacklist handling
     private static final String BLACKLIST = "Blacklist";
 
+    protected final Phone mPhone;
+
     /**
      * Initialize the singleton CallNotifier instance.
      * This is only done once, at startup, from PhoneApp.onCreate().
@@ -216,7 +219,7 @@ public class CallNotifier extends Handler
         mCallLogger = callLogger;
         mBluetoothManager = bluetoothManager;
         mCallModeler = callModeler;
-
+        mPhone = phone;
         mAudioManager = (AudioManager) mApplication.getSystemService(Context.AUDIO_SERVICE);
         mVibrator = (Vibrator) mApplication.getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -913,6 +916,7 @@ public class CallNotifier extends Handler
         if (c != null && !c.isIncoming() && c.getState() == Call.State.ACTIVE) {
             long callDurationMsec = c.getDurationMillis();
             if (VDBG) Log.v(LOG_TAG, "duration is " + callDurationMsec);
+
             boolean vibOut = PhoneUtils.PhoneSettings.vibOutgoing(mApplication);
             if (vibOut && callDurationMsec < 200) {
                 vibrate(100, 0, 0);
@@ -1326,7 +1330,7 @@ public class CallNotifier extends Handler
         }
     }
 
-    private void start45SecondVibration(long callDurationMsec) {
+    protected void start45SecondVibration(long callDurationMsec) {
         if (VDBG) Log.v(LOG_TAG, "vibrate start @" + callDurationMsec);
 
         removeMessages(VIBRATE_45_SEC);
@@ -2131,8 +2135,9 @@ public class CallNotifier extends Handler
         }
     }
 
-    private int getSuppServiceToastTextResId(SuppServiceNotification notification) {
-        if (!PhoneUtils.PhoneSettings.showInCallEvents(mApplication)) {
+    protected int getSuppServiceToastTextResId(SuppServiceNotification notification) {
+        if (!MSimTelephonyManager.getDefault().isMultiSimEnabled() &&
+                !PhoneUtils.PhoneSettings.showInCallEvents(mApplication)) {
             /* don't show anything if the user doesn't want it */
             return -1;
         }
