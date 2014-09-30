@@ -76,7 +76,7 @@ public class ADNList extends ListActivity {
     protected CursorAdapter mCursorAdapter;
     protected Cursor mCursor = null;
 
-    private TextView mEmptyText;
+    protected TextView mEmptyText;
 
     protected int mInitialSelection = -1;
 
@@ -181,7 +181,7 @@ public class ADNList extends ListActivity {
                 loading ? PROGRESS_VISIBILITY_ON : PROGRESS_VISIBILITY_OFF);
     }
 
-    private static boolean isAirplaneModeOn(Context context) {
+    protected static boolean isAirplaneModeOn(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.System.AIRPLANE_MODE_ON, 0) != 0;
     }

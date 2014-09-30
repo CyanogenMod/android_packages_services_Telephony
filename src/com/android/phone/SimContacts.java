@@ -52,11 +52,14 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+
+import com.android.internal.telephony.PhoneFactory;
 
 import java.util.ArrayList;
 
@@ -646,6 +649,34 @@ public class SimContacts extends ADNList {
             }
         }
     };
+
+    @Override
+    protected void displayProgress(boolean loading) {
+        if (DBG) log("displayProgress: " + loading);
+
+        mEmptyText.setText(loading ? R.string.simContacts_emptyLoading:
+            ((isAirplaneModeOn(this) && !isSimPresent())? R.string.simContacts_airplaneMode :
+                R.string.simContacts_empty));
+        getWindow().setFeatureInt(
+                Window.FEATURE_INDETERMINATE_PROGRESS,
+                loading ? Window.PROGRESS_VISIBILITY_ON : Window.PROGRESS_VISIBILITY_OFF);
+    }
+
+    private boolean isSimPresent() {
+        boolean isSimPresent = false;
+        if (mSimIndex == IMPORT_FROM_ALL) {
+            for (int i = 0; i < TelephonyManager.getDefault().getPhoneCount(); i++) {
+                if (PhoneFactory.getPhone(i).getIccCard().hasIccCard()) {
+                    isSimPresent = true;
+                    break;
+                }
+            }
+        } else {
+            isSimPresent = PhoneFactory.getPhone(mSimIndex).getIccCard().hasIccCard();
+        }
+        return isSimPresent;
+    }
+
 
     private boolean isImportFromAllSelection() {
         return (mSimIndex == IMPORT_FROM_ALL);
