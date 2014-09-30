@@ -96,7 +96,7 @@
         <item>Triple mode</item>
     </string-array>
 
-    <string-array name="uplmn_prefer_network_mode_values">
+    <string-array name="uplmn_prefer_network_mode_values" translatable="false">
         <item>"0"</item>
         <item>"1"</item>
         <item>"2"</item>
