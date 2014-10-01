@@ -291,7 +291,7 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
 
                 MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
                 String operatorName = tm.getSimState(k) != SIM_STATE_ABSENT
-                    ? tm.getNetworkOperatorName(k) : getString(R.string.sub_no_sim);
+                    ? tm.getSimOperatorName(k) : getString(R.string.sub_no_sim);
                 String subGroupTitle = getString(R.string.multi_sim_entry_format,
                     operatorName, k + 1);
 

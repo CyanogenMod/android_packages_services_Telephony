@@ -122,7 +122,7 @@ public class XDivertPhoneNumbers extends Activity {
             if (mLine1Numbers[i] != null && mLineNames[i] != null) {
                 MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
                 String operatorName = tm.getSimState(i) != SIM_STATE_ABSENT
-                    ? tm.getNetworkOperatorName(i) : getString(R.string.sub_no_sim);
+                    ? tm.getSimOperatorName(i) : getString(R.string.sub_no_sim);
                 String label = getString(R.string.multi_sim_entry_format, operatorName, i + 1);
                 mLineNames[i].setText(label);
                 mLine1Numbers[i].setText(subLine1Number[i]);
