@@ -99,7 +99,7 @@ public class SetSubscription extends PreferenceActivity implements View.OnClickL
     public void onCreate(Bundle icicle) {
         boolean newCardNotify = getIntent().getBooleanExtra("NOTIFY_NEW_CARD_AVAILABLE", false);
         if (!newCardNotify) {
-            setTheme(android.R.style.Theme_Holo);
+            setTheme(R.style.Theme_Settings);
         }
         super.onCreate(icicle);
 
