@@ -17,6 +17,16 @@
     xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
     android:title="@string/call_settings">
 
+    <PreferenceScreen
+        android:key="emergency_call_list"
+        android:title="@string/emergency_call_list_title"
+        android:persistent="false">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.EmergencyCallList" />
+    </PreferenceScreen>
+
     <PreferenceCategory
         android:key="button_ringtone_category_key"
         android:title="@string/preference_category_ringtone"
@@ -194,6 +204,13 @@
           android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
   </PreferenceScreen>
 
+    <PreferenceScreen
+        android:key="button_ipprefix_key"
+        android:title="@string/ipcall_sub_title"
+        android:summary="@string/ipcall_sub_summery"
+        android:persistent="false">
+    </PreferenceScreen>
+
   <ListPreference
       android:key="button_incoming_call_style"
       android:title="@string/incoming_call_style_title"
@@ -207,6 +224,12 @@
       android:title="@string/dtmf_tone_enable_title"
       android:persistent="false"
       android:defaultValue="true" />
+
+  <CheckBoxPreference
+      android:key="button_proximity_key"
+      android:title="@string/proximity_mode_title"
+      android:persistent="false"
+      android:summary="@string/proximity_on_summary" />
 
   <PreferenceScreen
       android:key="button_respond_via_sms_key"

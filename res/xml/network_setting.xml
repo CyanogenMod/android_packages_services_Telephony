@@ -35,6 +35,15 @@
         android:summaryOn="@string/roaming_enable"
         android:summaryOff="@string/roaming_disable"/>
 
+    <PreferenceScreen
+        android:key="button_uplmn_key"
+        android:title="@string/uplmn_list_setting_title"
+        android:persistent="false">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.UserPLMNListPreference" />
+    </PreferenceScreen>
+
     <ListPreference
         android:key="preferred_network_mode_key"
         android:title="@string/preferred_network_mode_title"

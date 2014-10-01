@@ -40,6 +40,7 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -87,13 +88,11 @@ public class RespondViaSmsManager {
     // Since (for now at least) the number of messages is fixed at 4, and since
     // SharedPreferences can't deal with arrays anyway, just store the messages
     // as 4 separate strings.
-    private static final int NUM_CANNED_RESPONSES = 4;
-    private static final String KEY_CANNED_RESPONSE_PREF_1 = "canned_response_pref_1";
-    private static final String KEY_CANNED_RESPONSE_PREF_2 = "canned_response_pref_2";
-    private static final String KEY_CANNED_RESPONSE_PREF_3 = "canned_response_pref_3";
-    private static final String KEY_CANNED_RESPONSE_PREF_4 = "canned_response_pref_4";
+    private static final String[] CANNED_RESPONSE_KEYS = new String[] {
+        "canned_response_pref_1", "canned_response_pref_2",
+        "canned_response_pref_3", "canned_response_pref_4"
+    };
     private static final String KEY_PREFERRED_PACKAGE = "preferred_package_pref";
-    private static final String KEY_INSTANT_TEXT_DEFAULT_COMPONENT = "instant_text_def_component";
 
     /**
      * Settings activity under "Call settings" to let you manage the
@@ -121,22 +120,13 @@ public class RespondViaSmsManager {
 
             addPreferencesFromResource(R.xml.respond_via_sms_settings);
 
-            EditTextPreference pref;
-            pref = (EditTextPreference) findPreference(KEY_CANNED_RESPONSE_PREF_1);
-            pref.setTitle(pref.getText());
-            pref.setOnPreferenceChangeListener(this);
-
-            pref = (EditTextPreference) findPreference(KEY_CANNED_RESPONSE_PREF_2);
-            pref.setTitle(pref.getText());
-            pref.setOnPreferenceChangeListener(this);
-
-            pref = (EditTextPreference) findPreference(KEY_CANNED_RESPONSE_PREF_3);
-            pref.setTitle(pref.getText());
-            pref.setOnPreferenceChangeListener(this);
-
-            pref = (EditTextPreference) findPreference(KEY_CANNED_RESPONSE_PREF_4);
-            pref.setTitle(pref.getText());
-            pref.setOnPreferenceChangeListener(this);
+            for (String key : CANNED_RESPONSE_KEYS) {
+                EmptyWatchingEditTextPreference pref =
+                        (EmptyWatchingEditTextPreference) findPreference(key);
+                pref.setTitle(pref.getText());
+                pref.setWatchedButton(DialogInterface.BUTTON_POSITIVE);
+                pref.setOnPreferenceChangeListener(this);
+            }
 
             ActionBar actionBar = getActionBar();
             if (actionBar != null) {
@@ -169,27 +159,17 @@ public class RespondViaSmsManager {
             switch (itemId) {
                 case android.R.id.home:
                     // See ActionBar#setDisplayHomeAsUpEnabled()
-                    CallFeaturesSetting.goUpToTopLevelSetting(this);
-                    return true;
-                case R.id.respond_via_message_reset:
-                    // Reset the preferences settings
-                    SharedPreferences prefs = getSharedPreferences(
-                            SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.remove(KEY_INSTANT_TEXT_DEFAULT_COMPONENT);
-                    editor.apply();
-
+                    if (MSimTelephonyManager.getDefault().isMultiSimEnabled()){
+                        MSimCallFeaturesSubSetting.goUpToTopLevelSetting(this);
+                    } else {
+                        CallFeaturesSetting.goUpToTopLevelSetting(this);
+                    }
                     return true;
                 default:
             }
             return super.onOptionsItemSelected(item);
         }
 
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            getMenuInflater().inflate(R.menu.respond_via_message_settings_menu, menu);
-            return super.onCreateOptionsMenu(menu);
-        }
     }
 
     private static void log(String msg) {

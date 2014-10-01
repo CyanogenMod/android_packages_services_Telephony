@@ -21,7 +21,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.MSimTelephonyManager;
 import android.util.Log;
+
+import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
 /**
  * Used to display an error dialog from within the Telephony service when an outgoing call fails
@@ -106,7 +109,16 @@ public class ErrorDialogActivity extends Activity {
 
         // navigate to the Voicemail setting in the Call Settings activity.
         Intent intent = new Intent(CallFeaturesSetting.ACTION_ADD_VOICEMAIL);
-        intent.setClass(this, CallFeaturesSetting.class);
+        if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+            intent.setClass(this, SelectSubscription.class);
+            int subscription = MSimPhoneGlobals.getInstance().callController.getVoiceMailSub();
+            intent.putExtra(SUBSCRIPTION_KEY, subscription);
+            intent.putExtra(SelectSubscription.PACKAGE, "com.android.phone");
+            intent.putExtra(SelectSubscription.TARGET_CLASS,
+                    "com.android.phone.MSimCallFeaturesSubSetting");
+        } else {
+            intent.setClass(this, CallFeaturesSetting.class);
+        }
         startActivity(intent);
         finish();
     }

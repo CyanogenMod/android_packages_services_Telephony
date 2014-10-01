@@ -30,20 +30,18 @@
 package com.android.phone;
 
 import android.app.ActionBar;
+import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.MSimTelephonyManager;
-import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
-import android.app.TabActivity;
 
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
+import static com.android.internal.telephony.MSimConstants.DEFAULT_SUBSCRIPTION;
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
 public class SelectSubscription extends  TabActivity {
@@ -69,19 +67,24 @@ public class SelectSubscription extends  TabActivity {
         super.onCreate(icicle);
         if (DBG) log("Creating activity");
 
-        setContentView(R.layout.multi_sim_setting);
-
-        TabHost tabHost = getTabHost();
-
         Intent intent =  getIntent();
         String pkg = intent.getStringExtra(PACKAGE);
         String targetClass = intent.getStringExtra(TARGET_CLASS);
 
         // Fixed value for public intent
         if (intent.getAction().equals(Settings.ACTION_DATA_ROAMING_SETTINGS)) {
+            setTheme(R.style.Theme_Settings);
             pkg = "com.android.phone";
             targetClass = "com.android.phone.MSimMobileNetworkSubSettings";
+            // Update title for mobile networks settings.
+            setTitle(getResources().getText(R.string.mobile_networks));
+        }  else {
+            setTheme(R.style.SettingsLight);
         }
+
+        setContentView(R.layout.multi_sim_setting);
+
+        TabHost tabHost = getTabHost();
 
         MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
 
@@ -98,6 +101,7 @@ public class SelectSubscription extends  TabActivity {
             subscriptionPref.setContent(intent);
             tabHost.addTab(subscriptionPref);
         }
+        tabHost.setCurrentTab(getIntent().getIntExtra(SUBSCRIPTION_KEY, DEFAULT_SUBSCRIPTION));
 
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {

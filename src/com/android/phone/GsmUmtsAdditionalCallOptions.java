@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.telephony.MSimTelephonyManager;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -58,7 +59,7 @@ public class GsmUmtsAdditionalCallOptions extends
             mInitIndex = mPreferences.size();
             mCLIRButton.init(this, true, mSubscription);
             mCWButton.init(this, true, mSubscription);
-            mCWButton.init(this, true, mSubscription);
+            mMSISDNButton.init(this, true, mSubscription);
             int[] clirArray = icicle.getIntArray(mCLIRButton.getKey());
             if (clirArray != null) {
                 if (DBG) Log.d(LOG_TAG, "onCreate:  clirArray[0]="
@@ -93,7 +94,7 @@ public class GsmUmtsAdditionalCallOptions extends
             if (pref instanceof CallWaitingCheckBoxPreference) {
                 ((CallWaitingCheckBoxPreference) pref).init(this, false, mSubscription);
             } else if (pref instanceof MSISDNEditPreference) {
-                ((MSISDNEditPreference) pref).init(this, false);
+                ((MSISDNEditPreference) pref).init(this, false, mSubscription);
             }
         }
         super.onFinished(preference, reading);
@@ -103,7 +104,11 @@ public class GsmUmtsAdditionalCallOptions extends
     public boolean onOptionsItemSelected(MenuItem item) {
         final int itemId = item.getItemId();
         if (itemId == android.R.id.home) {  // See ActionBar#setDisplayHomeAsUpEnabled()
-            CallFeaturesSetting.goUpToTopLevelSetting(this);
+            if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+                MSimCallFeaturesSubSetting.goUpToTopLevelSetting(this);
+            } else {
+                CallFeaturesSetting.goUpToTopLevelSetting(this);
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);

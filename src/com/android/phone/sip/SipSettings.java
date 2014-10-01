@@ -20,6 +20,7 @@ import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.phone.CallFeaturesSetting;
+import com.android.phone.MSimCallFeaturesSetting;
 import com.android.phone.R;
 import com.android.phone.SipUtil;
 
@@ -43,6 +44,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
+import android.telephony.MSimTelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -185,6 +187,10 @@ public class SipSettings extends PreferenceActivity {
     protected void onActivityResult(final int requestCode, final int resultCode,
             final Intent intent) {
         if (resultCode != RESULT_OK && resultCode != RESULT_FIRST_USER) return;
+        if (mSipProfileList == null) {
+            Log.v(TAG, "mSipProfileList is null");
+            return;
+        }
         new Thread() {
             @Override
             public void run() {
@@ -501,7 +507,11 @@ public class SipSettings extends PreferenceActivity {
         final int itemId = item.getItemId();
         switch (itemId) {
             case android.R.id.home: {
-                CallFeaturesSetting.goUpToTopLevelSetting(this);
+                if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+                    MSimCallFeaturesSetting.goUpToTopLevelSetting(this);
+                } else {
+                    CallFeaturesSetting.goUpToTopLevelSetting(this);
+                }
                 return true;
             }
             case MENU_ADD_ACCOUNT: {

@@ -22,12 +22,20 @@ package com.android.phone;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
+import android.telephony.MSimTelephonyManager;
 
+import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.codeaurora.telephony.msim.SubscriptionManager;
 
+import java.util.List;
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
 /**
@@ -63,11 +71,42 @@ public class GsmUmtsOptions {
     protected void create() {
         mPrefActivity.addPreferencesFromResource(R.xml.gsm_umts_options);
         mButtonAPNExpand = (PreferenceScreen) mPrefScreen.findPreference(BUTTON_APN_EXPAND_KEY);
-        mButtonAPNExpand.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
+
+        if (needDisableSub2Apn(mSubscription)) {
+            log("disable sub2 apn");
+            mPrefScreen.removePreference(mButtonAPNExpand);
+        } else {
+            mButtonAPNExpand.getIntent().putExtra(SUBSCRIPTION_KEY,
+                    mSubscription);
+        }
         mButtonOperatorSelectionExpand =
                 (PreferenceScreen) mPrefScreen.findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY);
         mButtonOperatorSelectionExpand.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
         enableScreen();
+    }
+
+    /**
+     * check whether NetworkSetting apk exist in system, if true, replace the
+     * intent of the NetworkSetting Activity with the intent of NetworkSetting
+     */
+    private void enablePlmnIncSearch() {
+        if (mButtonOperatorSelectionExpand != null) {
+            PackageManager pm = mButtonOperatorSelectionExpand.getContext().getPackageManager();
+
+            // check whether the target handler exist in system
+            Intent intent = new Intent("org.codeaurora.settings.NETWORK_OPERATOR_SETTINGS_ASYNC");
+            List<ResolveInfo> list = pm.queryIntentActivities(intent, 0);
+            for(ResolveInfo resolveInfo : list){
+                // check is it installed in system.img, exclude the application
+                // installed by user
+                if ((resolveInfo.activityInfo.applicationInfo.flags &
+                        ApplicationInfo.FLAG_SYSTEM) != 0) {
+                    // set the target intent
+                    intent.putExtra(SUBSCRIPTION_KEY, mSubscription);
+                    mButtonOperatorSelectionExpand.setIntent(intent);
+                }
+            }
+        }
     }
 
     public void onResume() {
@@ -92,7 +131,6 @@ public class GsmUmtsOptions {
             if (!res.getBoolean(R.bool.config_operator_selection_expand)) {
                 if (mButtonOperatorSelectionExpand != null) {
                     mPrefScreen.removePreference(mButtonOperatorSelectionExpand);
-                    mButtonOperatorSelectionExpand = null;
                }
             }
         }
@@ -106,6 +144,8 @@ public class GsmUmtsOptions {
             android.util.Log.e(LOG_TAG, "mButtonOperatorSelectionExpand is null");
             return;
         }
+
+        enablePlmnIncSearch();
         if (!mPhone.isManualNetSelAllowed()) {
             log("Manual network selection not allowed.Disabling Operator Selection menu.");
             mButtonOperatorSelectionExpand.setEnabled(false);
@@ -117,7 +157,6 @@ public class GsmUmtsOptions {
                 log("[CSP] Disabling Operator Selection menu.");
                 if (mButtonOperatorSelectionExpand != null) {
                     mPrefScreen.removePreference(mButtonOperatorSelectionExpand);
-                    mButtonOperatorSelectionExpand = null;
                 }
             }
         }
@@ -130,5 +169,16 @@ public class GsmUmtsOptions {
 
     protected void log(String s) {
         android.util.Log.d(LOG_TAG, s);
+    }
+
+    protected boolean needDisableSub2Apn(int sub) {
+        if (mPrefActivity.getResources().getBoolean(R.bool.disable_data_sub2)) {
+            //when current SUB is SUB2 , in DSDS mode, all 2 subscriptions are active , we need disable current apn option.
+            return MSimConstants.SUB2 == sub
+                    && MSimTelephonyManager.getDefault().getMultiSimConfiguration()
+                            .equals(MSimTelephonyManager.MultiSimVariants.DSDS)
+                    && 2 == SubscriptionManager.getInstance().getActiveSubscriptionsCount();
+        }
+        return false;
     }
 }

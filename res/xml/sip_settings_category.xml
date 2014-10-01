@@ -22,7 +22,7 @@
 
         <PreferenceScreen
                 android:key="sip_account_settings_key"
-                android:title="@string/sip_accounts_title"
+                android:title="@string/sip_accounts_title_cm"
                 android:persistent="false">
 
             <intent android:action="android.intent.action.MAIN"

@@ -23,6 +23,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 
 import android.content.DialogInterface;
+import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
@@ -53,6 +54,8 @@ public class CdmaCallOptions extends PreferenceActivity {
 
         Log.d(LOG_TAG, "Getting CDMACallOptions subscription =" + subscription);
         Phone phone = PhoneGlobals.getInstance().getPhone(subscription);
+
+        PhoneGlobals.initCallWaitingPref(this, subscription);
 
         mButtonVoicePrivacy = (CheckBoxPreference) findPreference(BUTTON_VP_KEY);
         if (phone.getPhoneType() != PhoneConstants.PHONE_TYPE_CDMA

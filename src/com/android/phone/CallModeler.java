@@ -134,15 +134,7 @@ public class CallModeler extends Handler {
                 break;
             case CallStateMonitor.PHONE_SUPP_SERVICE_NOTIFY:
                 if (DBG) Log.d(TAG, "Received Supplementary Notification");
-
-                if (msg.obj != null && ((AsyncResult) msg.obj).result != null) {
-                    mSuppSvcNotification =
-                            (SuppServiceNotification) (((AsyncResult) msg.obj).result);
-                    if (mSuppSvcNotification.code == SuppServiceNotification.MT_CODE_CALL_ON_HOLD
-                            || mSuppSvcNotification.code
-                            == SuppServiceNotification.MT_CODE_CALL_RETRIEVED) {
-                        onPhoneStateChanged(null);
-                    }
+                if (msg.obj != null) {
                     onSuppServiceNotification((AsyncResult) msg.obj);
                 }
                 break;
@@ -350,9 +342,17 @@ public class CallModeler extends Handler {
             }
 
             updateCallFromConnection(call, conn, false);
-
             for (int i = 0; i < mListeners.size(); ++i) {
                 mListeners.get(i).onIncoming(call);
+            }
+            if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+                int subscription = conn.getCall().getPhone().getSubscription();
+                Log.i(TAG, "Setting Active sub : '" + subscription + "'");
+                PhoneUtils.setActiveSubscription(subscription);
+                // if any local hold tones are playing then they need to be stoped.
+                final MSimCallNotifier notifier =
+                        (MSimCallNotifier) PhoneGlobals.getInstance().notifier;
+                notifier.manageLocalCallWaitingTone();
             }
         }
 
@@ -412,8 +412,7 @@ public class CallModeler extends Handler {
                     || notification.code == SuppServiceNotification.MT_CODE_DEFLECTED_CALL) {
                 com.android.internal.telephony.Call ringing = gsmPhone.getRingingCall();
                 if (ringing.getState().isRinging()) {
-                    final Call call = getCallFromMap(mCallMap,
-                            ringing.getEarliestConnection(), false);
+                    final Call call = getCallForEarliestConnection(ringing);
                     if (call != null) {
                         call.setForwarded(true);
                         notifyUpdateListeners(call);
@@ -423,28 +422,47 @@ public class CallModeler extends Handler {
                 }
             } else if (notification.code == SuppServiceNotification.MT_CODE_CALL_ON_HOLD
                     || notification.code == SuppServiceNotification.MT_CODE_CALL_RETRIEVED) {
-                Connection conn = gsmPhone.getForegroundCall().getEarliestConnection();
-                final Call call = getCallFromMap(mCallMap, conn, false);
+                final Call call = getCallForEarliestConnection(gsmPhone.getForegroundCall());
                 if (call != null) {
                     boolean nowHeld = notification.code ==
                             SuppServiceNotification.MT_CODE_CALL_ON_HOLD;
                     call.setHeldRemotely(nowHeld);
                     notifyUpdateListeners(call);
                 }
+            } else if (notification.code ==
+                    SuppServiceNotification.MT_CODE_ADDITIONAL_CALL_FORWARDED) {
+                com.android.internal.telephony.Call fgCall = gsmPhone.getForegroundCall();
+                if (fgCall.getState().isAlive()) {
+                    final Call call = getCallForEarliestConnection(fgCall);
+                    if (call != null) {
+                        call.setAdditionalCallForwarded(true);
+                        notifyUpdateListeners(call);
+                    }
+                }
             }
         } else if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MO) {
             if (notification.code == SuppServiceNotification.MO_CODE_CALL_IS_WAITING) {
                 com.android.internal.telephony.Call fgCall = gsmPhone.getForegroundCall();
                 if (fgCall.getState().isDialing()) {
-                    final Call call = getCallFromMap(mCallMap,
-                            fgCall.getEarliestConnection(), false);
+                    final Call call = getCallForEarliestConnection(fgCall);
                     if (call != null) {
                         call.setDialingIsWaiting(true);
                         notifyUpdateListeners(call);
                     }
                 }
+            } else if (notification.code ==
+                    SuppServiceNotification.MO_CODE_INCOMING_CALLS_BARRED) {
+                final Call call = getCallForEarliestConnection(gsmPhone.getForegroundCall());
+                if (call != null) {
+                    call.setRemoteIncomingCallBarringEnabled(true);
+                    notifyUpdateListeners(call);
+                }
             }
         }
+    }
+
+    private Call getCallForEarliestConnection(com.android.internal.telephony.Call call) {
+        return getCallFromMap(mCallMap, call.getEarliestConnection(), false);
     }
 
     private void notifyUpdateListeners(Call call) {
@@ -460,6 +478,12 @@ public class CallModeler extends Handler {
      */
     private void onPhoneStateChanged(AsyncResult r) {
         Log.i(TAG, "onPhoneStateChanged: ");
+        //csvt state changed, do not update phone UI.
+        if(PhoneGlobals.getInstance().isCsvtActive())
+        {
+            Log.d(TAG, "csvt is active, do not update phone UI.");
+            return;
+        }
         final List<Call> updatedCalls = Lists.newArrayList();
         doUpdate(false, updatedCalls);
 

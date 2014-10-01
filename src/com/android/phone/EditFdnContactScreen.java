@@ -35,9 +35,11 @@ import android.os.Handler;
 import android.provider.Contacts.PeopleColumns;
 import android.provider.Contacts.PhonesColumns;
 import android.telephony.PhoneNumberUtils;
+import android.text.Editable;
 import android.text.Selection;
 import android.text.Spannable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.method.DialerKeyListener;
 import android.util.Log;
 import android.view.Menu;
@@ -281,6 +283,7 @@ public class EditFdnContactScreen extends Activity {
             mNumberField.setKeyListener(DialerKeyListener.getInstance());
             mNumberField.setOnFocusChangeListener(mOnFocusChangeHandler);
             mNumberField.setOnClickListener(mClicked);
+            mNumberField.addTextChangedListener(mNumberTextWatcher);
         }
 
         if (!mAddContact) {
@@ -295,6 +298,8 @@ public class EditFdnContactScreen extends Activity {
         mButton = (Button) findViewById(R.id.button);
         if (mButton != null) {
             mButton.setOnClickListener(mClicked);
+            // will be enabled by text watcher
+            mButton.setEnabled(false);
         }
 
         mPinFieldContainer = (LinearLayout) findViewById(R.id.pinc);
@@ -320,7 +325,9 @@ public class EditFdnContactScreen extends Activity {
       * TODO: Fix this logic.
       */
      protected boolean isValidNumber(String number) {
-         return (number.length() <= 20);
+         // Although number is not empty(checked in method onClick), add null
+         // pointer check to ensure the robustness of the code
+         return (null != number) && (number.length() <= 20);
      }
 
 
@@ -458,6 +465,9 @@ public class EditFdnContactScreen extends Activity {
             } else if (v == mNumberField) {
                 mButton.requestFocus();
             } else if (v == mButton) {
+                if (TextUtils.isEmpty(mNameField.getText())) {
+                    mNameField.setText(getNumberFromTextField());
+                }
                 // Authenticate the pin AFTER the contact information
                 // is entered, and if we're not busy.
                 if (!mDataBusy) {
@@ -475,6 +485,19 @@ public class EditFdnContactScreen extends Activity {
                 TextView textView = (TextView) v;
                 Selection.selectAll((Spannable) textView.getText());
             }
+        }
+    };
+
+    private final TextWatcher mNumberTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        }
+        @Override
+        public void afterTextChanged(Editable s) {
+            mButton.setEnabled(!TextUtils.isEmpty(s));
         }
     };
 

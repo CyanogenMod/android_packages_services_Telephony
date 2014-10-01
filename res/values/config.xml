@@ -160,4 +160,43 @@
 
     <!-- Use TD-SDCMA 3G/4G technologies on this device -->
     <bool name="config_enabled_tdscdma" translatable="false">false</bool>
+
+    <!-- Consolidate the unanswered and unreachable call forward -->
+    <bool name="join_call_forward">false</bool>
+
+    <!-- Disable SUB0 APN in DSDS mode-->
+    <bool name="disable_data_sub2">false</bool>
+
+    <!-- whether disable CDMA subscription settings -->
+    <bool name="disable_cdma_subscription">false</bool>
+
+    <!-- Show different network mode list -->
+    <integer name="cmcc_network_mode">0</integer>
+
+    <!-- whether hide roaming settings -->
+    <bool name="hide_roaming">false</bool>
+
+    <!-- whether to show uplmn preference for cta test -->
+    <bool name="config_uplmn_for_cta_test">false</bool>
+
+    <!-- DTMF key to be used for LCH hold tone -->
+    <string name="Lch_dtmf_key" translatable="false">D</string>
+
+    <!-- whether show X-Divert settings-->
+    <bool name="config_show_xdivert">false</bool>
+
+    <!-- whether show emergency call list -->
+    <bool name="show_emergency_call_list">false</bool>
+
+    <!-- Flag whether to disable FDN settings-->
+    <bool name="config_fdn_disable">false</bool>
+
+    <!-- config for CTA requirement -->
+    <bool name="config_disconnect_other_fgcall">false</bool>
+
+    <!-- Flag whether to enable Proximity setting-->
+    <bool name="config_proximity_enable" translatable="false">false</bool>
+
+    <!-- Flag whether to enable IP Prefix setting-->
+    <bool name="config_ip_prefix_enable" translatable="false">false</bool>
 </resources>

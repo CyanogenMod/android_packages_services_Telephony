@@ -190,7 +190,6 @@ public class SipEditor extends PreferenceActivity
         Log.v(TAG, "SipEditor onPause(): finishing? " + isFinishing());
         if (!isFinishing()) {
             mHomeButtonClicked = true;
-            validateAndSetResult();
         }
         super.onPause();
     }
@@ -340,7 +339,12 @@ public class SipEditor extends PreferenceActivity
                             }
                     }
                 } else if (key == PreferenceKey.Port) {
-                    int port = Integer.parseInt(PreferenceKey.Port.getValue());
+                    int port = 0;
+                    try {
+                        port = Integer.parseInt(PreferenceKey.Port.getValue());
+                    } catch (NumberFormatException e) {
+                        Log.e(TAG, "Get port failed", e);
+                    }
                     if ((port < 1000) || (port > 65534)) {
                         showAlert(getString(R.string.not_a_valid_port));
                         return;

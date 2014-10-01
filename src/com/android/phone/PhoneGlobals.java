@@ -52,7 +52,9 @@ import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UpdateLock;
 import android.os.UserHandle;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.provider.Settings.System;
 import android.telephony.MSimTelephonyManager;
 import android.telephony.ServiceState;
@@ -83,7 +85,11 @@ import org.codeaurora.ims.IImsService;
 import org.codeaurora.ims.IImsServiceListener;
 
 import static com.android.internal.telephony.MSimConstants.DEFAULT_SUBSCRIPTION;
+import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
+import org.codeaurora.ims.csvt.CallForwardInfoP;
 import org.codeaurora.ims.csvt.ICsvtService;
+import org.codeaurora.ims.csvt.ICsvtServiceListener;
+import java.util.List;
 
 /**
  * Global state for the telephony subsystem when running in the primary
@@ -113,7 +119,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     private static final boolean DBG =
             (PhoneGlobals.DBG_LEVEL >= 1) && (SystemProperties.getInt("ro.debuggable", 0) == 1);
     private static final boolean VDBG = (PhoneGlobals.DBG_LEVEL >= 2);
-    private static final String PROPERTY_AIRPLANE_MODE_ON = "persist.radio.airplane_mode_on";
+    protected static final String PROPERTY_AIRPLANE_MODE_ON = "persist.radio.airplane_mode_on";
 
     // Message codes; see mHandler below.
     protected static final int EVENT_PERSO_LOCKED = 3;
@@ -132,6 +138,8 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     public static final int MMI_INITIATE = 51;
     public static final int MMI_COMPLETE = 52;
     public static final int MMI_CANCEL = 53;
+
+    public static final int CALL_WAITING = 7;
     // Don't use message codes larger than 99 here; those are reserved for
     // the individual Activities of the Phone UI.
 
@@ -717,6 +725,19 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         }
     };
 
+    public boolean isCsvtActive(){
+        boolean result = false;
+        if (mCsvtService != null){
+            try{
+                result = mCsvtService.isActive();
+                Log.d(LOG_TAG, "mCsvtService.isActive = " + result);
+            } catch (RemoteException e) {
+                Log.e(LOG_TAG, Log.getStackTraceString(new Throwable()));
+            }
+        }
+        return result;
+    }
+
     public void createCsvtService() {
         if (PhoneUtils.isCallOnCsvtEnabled()) {
             try {
@@ -736,12 +757,41 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         public void onServiceConnected(ComponentName name, IBinder service) {
             mCsvtService = ICsvtService.Stub.asInterface(service);
             Log.d(LOG_TAG,"Csvt Service Connected: " + mCsvtService);
+            if (mCsvtService != null) {
+                try{
+                    mCsvtService.registerListener(mCsvtServiceListener);
+                    Log.d(LOG_TAG, "Csvt Service register ICsvtServiceListener");
+                } catch (RemoteException e) {
+                    Log.e(LOG_TAG, Log.getStackTraceString(new Throwable()));
+                }
+            }
         }
 
         public void onServiceDisconnected(ComponentName arg0) {
             Log.w(LOG_TAG,"Csvt Service onServiceDisconnected");
             mCsvtService = null;
         }
+    };
+
+    private static ICsvtServiceListener mCsvtServiceListener = new ICsvtServiceListener.Stub() {
+        public void onPhoneStateChanged(int state) {
+            Log.d(LOG_TAG, "onPhoneStateChanged");
+            Intent intent = new Intent("intent.action.CSVT_PRECISE_CALL_STATE_CHANGED");
+            PhoneGlobals.getInstance().sendBroadcast(intent);
+        }
+
+        public void onCallStatus(int result) {
+        }
+
+        public void onCallWaiting(boolean enabled) {
+        }
+
+        public void onCallForwardingOptions(List<CallForwardInfoP> fi) {
+        }
+
+        public void onRingbackTone(boolean playTone) {
+        }
+
     };
 
 
@@ -857,6 +907,25 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
         intent.putExtra(EXTRA_FROM_NOTIFICATION, true);
         intent.putExtra(EXTRA_TYPE, type);
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    /* package */ static void initCallWaitingPref(PreferenceActivity activity, int subscription) {
+        PreferenceScreen prefCWAct = (PreferenceScreen)
+                activity.findPreference("button_cw_act_key");
+        PreferenceScreen prefCWDeact = (PreferenceScreen)
+                activity.findPreference("button_cw_deact_key");
+
+        CdmaCallOptionsSetting callOptionSettings = new CdmaCallOptionsSetting(activity,
+                CALL_WAITING, subscription);
+
+        prefCWAct.getIntent().putExtra(SUBSCRIPTION_KEY, subscription)
+                .setData(Uri.fromParts("tel", callOptionSettings.getActivateNumber(), null));
+        prefCWAct.setSummary(callOptionSettings.getActivateNumber());
+
+        prefCWDeact.getIntent().putExtra(SUBSCRIPTION_KEY, subscription)
+                .setData(Uri.fromParts("tel", callOptionSettings.getDeactivateNumber(), null));
+        prefCWDeact.setSummary(callOptionSettings.getDeactivateNumber());
+
     }
 
     boolean isSimPinEnabled() {

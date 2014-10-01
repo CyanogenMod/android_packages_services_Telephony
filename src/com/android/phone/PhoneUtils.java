@@ -358,6 +358,8 @@ public class PhoneUtils {
                         app.cdmaPhoneCallState.setCurrentCallState(
                                 CdmaPhoneCallState.PhoneCallState.SINGLE_ACTIVE);
                     } else {
+                        // As waiting call answered, remove any timers related to call waiting
+                        notifier.onCdmaCallWaitingAnswered();
                         // This is the CALL WAITING call being answered.
                         // Set the Phone Call State to CONF_CALL
                         app.cdmaPhoneCallState.setCurrentCallState(
@@ -716,6 +718,8 @@ public class PhoneUtils {
         // correctly, and that we wouldn't have started the ringer in the
         // first place.
 
+        // Set conversation sub to active sub, as user answered call
+        setSubInConversation(getActiveSubscription());
         // hanging up the active call also accepts the waiting call
         // while active call and waiting call are from the same phone
         // i.e. both from GSM phone
@@ -849,6 +853,11 @@ public class PhoneUtils {
             PhoneUtils.isRoutableViaGateway(number)) {  // Filter out MMI, OTA and other codes.
             useGateway = true;
         }
+        if(isCsvtCallActive())
+        {
+            Log.e(LOG_TAG, "Unsupported another CALL when background CSVT active");
+            return CALL_STATUS_FAILED;
+        }
 
         int status = CALL_STATUS_DIALED;
         Connection connection;
@@ -915,8 +924,8 @@ public class PhoneUtils {
             }
         } else {
             // The phone on whilch dial request for voice call is initiated
-            // set it as active subscription
-            setActiveSubscription(phone.getSubscription());
+            // set it as active & conversation subscription
+            setActiveAndConversationSub(phone.getSubscription());
 
             // Now that the call is successful, we can save the gateway info for the call
             if (callGateway != null) {
@@ -1324,6 +1333,7 @@ public class PhoneUtils {
                                 @Override
                                 public void onDismiss(DialogInterface dialog) {
                                     sUssdMsg.setLength(0);
+                                    sUssdDialog = null;
                                 }
                             })
                             .create();
@@ -2029,53 +2039,33 @@ public class PhoneUtils {
      * call is active (like displaying the label "Conference call", and
      * enabling the "Manage conference" UI.)
      *
-     * Watch out: This method simply checks the number of Connections,
-     * *not* their states.  So if a Call has (for example) one ACTIVE
-     * connection and one DISCONNECTED connection, this method will return
-     * true (which is unintuitive, since the Call isn't *really* a
-     * conference call any more.)
-     *
-     * @return true if the specified call has more than one connection (in any state.)
+     * @return true if the specified call has more than one ACTIVE connection.
      */
     static boolean isConferenceCall(Call call) {
-        // CDMA phones don't have the same concept of "conference call" as
-        // GSM phones do; there's no special "conference call" state of
-        // the UI or a "manage conference" function.  (Instead, when
-        // you're in a 3-way call, all we can do is display the "generic"
-        // state of the UI.)  So as far as the in-call UI is concerned,
-        // Conference corresponds to generic display.
-        final PhoneGlobals app = PhoneGlobals.getInstance();
-        int phoneType = call.getPhone().getPhoneType();
-        if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
-            CdmaPhoneCallState.PhoneCallState state = app.cdmaPhoneCallState.getCurrentCallState();
-            if ((state == CdmaPhoneCallState.PhoneCallState.CONF_CALL)
-                    || ((state == CdmaPhoneCallState.PhoneCallState.THRWAY_ACTIVE)
-                    && !app.cdmaPhoneCallState.IsThreeWayCallOrigStateDialing())) {
+        return call.isMultiparty() && isRealConferenceCall(call);
+    }
+
+    /**
+     * A given call is only really a conference call if the number
+     * of ACTIVE connections, not the total number of connections,
+     * is greater than one.
+     *
+     */
+    static boolean isRealConferenceCall(Call call) {
+        List<Connection> connections;
+        connections = call.getConnections();
+        if (connections == null) {
+               return false;
+        }
+        int numActiveConnections = 0;
+        for (Connection conn : connections) {
+            if (DBG) log("  - CONN: " + conn + ", state = " + conn.getState());
+            if (conn.getState() == Call.State.ACTIVE) numActiveConnections++;
+            if (numActiveConnections > 1) {
                 return true;
             }
-        } else {
-            return call.isMultiparty();
         }
         return false;
-
-        // TODO: We may still want to change the semantics of this method
-        // to say that a given call is only really a conference call if
-        // the number of ACTIVE connections, not the total number of
-        // connections, is greater than one.  (See warning comment in the
-        // javadoc above.)
-        // Here's an implementation of that:
-        //        if (connections == null) {
-        //            return false;
-        //        }
-        //        int numActiveConnections = 0;
-        //        for (Connection conn : connections) {
-        //            if (DBG) log("  - CONN: " + conn + ", state = " + conn.getState());
-        //            if (conn.getState() == Call.State.ACTIVE) numActiveConnections++;
-        //            if (numActiveConnections > 1) {
-        //                return true;
-        //            }
-        //        }
-        //        return false;
     }
 
     /**
@@ -2197,6 +2187,13 @@ public class PhoneUtils {
         }
     }
 
+    static void muteOnNewCall(boolean muted) {
+        CallManager cm = PhoneGlobals.getInstance().mCM;
+        if (cm.hasActiveFgCall()) {
+            setMuteInternal(cm.getActiveFgCall().getPhone(), muted);
+        }
+    }
+
     /**
      *
      * Mute / umute the foreground phone, which has the current foreground call
@@ -2215,14 +2212,16 @@ public class PhoneUtils {
         if (isInEmergencyCall(cm)) {
             muted = false;
         }
-
         int activeSub = getActiveSubscription();
-        if (cm.getLocalCallHoldStatus(activeSub) == true) {
+        if (cm.getLocalCallHoldStatus(activeSub) == true && cm.getSubInConversation() ==
+                MSimConstants.INVALID_SUBSCRIPTION) {
+            if (DBG) log("setMute: muted:" + muted);
             if (muted == false) {
                 // if the current active sub is in lch state and user
                 // has clicked the unmute button, deactivate this sub's
-                // lch state and set the audio mode accordingly.
-                cm.deactivateLchState(activeSub);
+                // lch state by setting SubInconversation to active sub
+                // and set the audio mode accordingly.
+                cm.setSubInConversation(activeSub);
                 cm.setAudioMode();
             }
 
@@ -2248,6 +2247,32 @@ public class PhoneUtils {
         // all the connections on conference calls.
         if (cm.hasActiveBgCall()) {
             for (Connection cn : cm.getFirstActiveBgCall().getConnections()) {
+                if (sConnectionMuteTable.get(cn) == null) {
+                    if (DBG) log("problem retrieving mute value for this connection.");
+                }
+                sConnectionMuteTable.put(cn, Boolean.valueOf(muted));
+            }
+        }
+    }
+
+    public static void updateMuteState(int sub, boolean muted) {
+        CallManager cm = PhoneGlobals.getInstance().mCM;
+
+        Phone phone = PhoneGlobals.getInstance().getPhone(sub);
+
+        // update the foreground connections to match.  This includes
+        // all the connections on conference calls.
+        for (Connection cn : phone.getForegroundCall().getConnections()) {
+            if (sConnectionMuteTable.get(cn) == null) {
+                if (DBG) log("problem retrieving mute value for this connection.");
+            }
+            sConnectionMuteTable.put(cn, Boolean.valueOf(muted));
+        }
+
+        // update the background connections to match.  This includes
+        // all the connections on conference calls.
+        if (cm.hasActiveBgCall(sub)) {
+            for (Connection cn : cm.getFirstActiveBgCall(sub).getConnections()) {
                 if (sConnectionMuteTable.get(cn) == null) {
                     if (DBG) log("problem retrieving mute value for this connection.");
                 }
@@ -3055,19 +3080,15 @@ public class PhoneUtils {
                 !PhoneGlobals.getInstance().mCM.hasActiveFgCallAnyPhone());
     }
 
-    private static boolean sVoipSupported = false;
-    static {
-        PhoneGlobals app = PhoneGlobals.getInstance();
-        sVoipSupported = SipManager.isVoipSupported(app)
-                && app.getResources().getBoolean(com.android.internal.R.bool.config_built_in_sip_phone)
-                && app.getResources().getBoolean(com.android.internal.R.bool.config_voice_capable);
-    }
-
     /**
      * @return true if this device supports voice calls using the built-in SIP stack.
      */
-    static boolean isVoipSupported() {
-        return sVoipSupported;
+    static boolean isVoipSupported(Context context) {
+        boolean builtInSip = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_built_in_sip_phone);
+        boolean voiceCapable = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_voice_capable);
+        return SipManager.isVoipSupported(context) && builtInSip && voiceCapable;
     }
 
     public static String getPresentationString(Context context, int presentation) {
@@ -3281,6 +3302,13 @@ public class PhoneUtils {
             log("IMS Conversion not required ");
         } else {
 
+            /*
+             * Initialize imsNumber if it's null to avoid Uri.fromParts() throws
+             * NullPointerException due to ssp scheme-specific-part is null.
+             */
+            if (imsNumber == null) {
+                imsNumber = "";
+            }
             intent.setData(Uri.fromParts(Constants.SCHEME_SIP, imsNumber, null));
             intent.putExtra(OutgoingCallBroadcaster.EXTRA_CALL_TYPE, callType);
 
@@ -3463,17 +3491,39 @@ public class PhoneUtils {
         int activeSub = getActiveSubscription();
 
         if (activeSub != subscription) {
+            cm.setActiveSubscription(subscription);
+        }
+    }
+
+    public static void setSubInConversation(int subscription) {
+        CallManager cm = PhoneGlobals.getInstance().mCM;
+        int conversationSub = cm.getSubInConversation();
+
+        if (conversationSub != subscription) {
+            log("setSubInConversation:" + subscription);
+            cm.setSubInConversation(subscription);
+            cm.setAudioMode();
+            // If there is a change in active subscription while both the
+            // subscriptions are in active state, need to switch the
+            // playing of LCH/SCH tone to new LCH subscription.
             if ((cm.getState(subscription) == PhoneConstants.State.OFFHOOK) &&
-                    (cm.getState(activeSub) == PhoneConstants.State.OFFHOOK)) {
-                // If there is a change in active subscription while both the
-                // subscriptions are in active state, need to siwtch the
-                // playing of LCH/SCH tone to new LCH subscription.
+                (cm.getState(conversationSub) == PhoneConstants.State.OFFHOOK)) {
                 final MSimCallNotifier notifier =
                         (MSimCallNotifier)PhoneGlobals.getInstance().notifier;
                 notifier.manageMSimInCallTones(true);
             }
-            cm.setActiveSubscription(subscription);
         }
+    }
+    /**
+     * Set the given subscription as current active subscription i.e currently on
+     * which voice call is active(with state OFFHOOK/RINGING) and which needs to be
+     * visible to user.
+     *
+     * @param subscription the sub id which needs to be active one.
+     */
+    public static void setActiveAndConversationSub(int subscription) {
+        setActiveSubscription(subscription);
+        setSubInConversation(subscription);
     }
 
     /**
@@ -3542,6 +3592,25 @@ public class PhoneUtils {
         return otherSub;
     }
 
+    /**
+     * Check whether any sub is in active state.
+     * @return if any sub is active, return true. if no sub is in
+     * active state return false.
+     */
+    static boolean isAnySubActive() {
+        int count = MSimTelephonyManager.getDefault().getPhoneCount();
+        CallManager cm = MSimPhoneGlobals.getInstance().mCM;
+
+        if (DBG) Log.d(LOG_TAG, "isAnySubActive");
+        for (int i = 0; i < count; i++) {
+            if (cm.getState(i) != PhoneConstants.State.IDLE) {
+                Log.d(LOG_TAG, "isAnySubActive: active sub  = " + i );
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean isCsvtCallActive() {
         boolean isActive = false;
         try {
@@ -3575,7 +3644,7 @@ public class PhoneUtils {
                 // While two subscriptions have active voice calls and if user
                 // rejects new waiting call on LCH subscription, bring back the
                 // subscription to foreground on which user currently speaking.
-                setActiveSubscription(otherActiveSub);
+                setActiveSubscription(cm.getSubInConversation());
             }
         }
     }
@@ -3632,5 +3701,15 @@ public class PhoneUtils {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    public static void maybeShowOrHideUssdDialog(boolean show) {
+        if (sUssdDialog == null) return;
+        if (sUssdDialog.isShowing() && !show) {
+            sUssdDialog.hide();
+        } else {
+            sUssdDialog.show();
+        }
+
     }
 }

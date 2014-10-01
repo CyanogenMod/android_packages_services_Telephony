@@ -27,6 +27,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import com.android.internal.telephony.MSimConstants;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyProperties;
@@ -37,9 +38,11 @@ import com.android.internal.telephony.TelephonyProperties;
 public class CdmaOptions {
     private static final String LOG_TAG = "CdmaOptions";
 
+    private PreferenceScreen mButtonAPNExpand;
     private CdmaSystemSelectListPreference mButtonCdmaSystemSelect;
     private CdmaSubscriptionListPreference mButtonCdmaSubscription;
 
+    private static final String BUTTON_APN_EXPAND_KEY = "button_apn_key";
     private static final String BUTTON_CDMA_SYSTEM_SELECT_KEY = "cdma_system_select_key";
     private static final String BUTTON_CDMA_SUBSCRIPTION_KEY = "cdma_subscription_key";
     private static final String BUTTON_CDMA_ACTIVATE_DEVICE_KEY = "cdma_activate_device_key";
@@ -47,16 +50,33 @@ public class CdmaOptions {
     private PreferenceActivity mPrefActivity;
     private PreferenceScreen mPrefScreen;
     private Phone mPhone;
+    private int mSubscription = 0;
 
     public CdmaOptions(PreferenceActivity prefActivity, PreferenceScreen prefScreen, Phone phone) {
         mPrefActivity = prefActivity;
         mPrefScreen = prefScreen;
         mPhone = phone;
+        mSubscription = 0;
+        create();
+    }
+
+    public CdmaOptions(PreferenceActivity prefActivity,
+            PreferenceScreen prefScreen, Phone phone, int subscription) {
+        mPrefActivity = prefActivity;
+        mPrefScreen = prefScreen;
+        mPhone = phone;
+        mSubscription = subscription;
         create();
     }
 
     protected void create() {
         mPrefActivity.addPreferencesFromResource(R.xml.cdma_options);
+
+        mButtonAPNExpand = (PreferenceScreen) mPrefScreen.findPreference(BUTTON_APN_EXPAND_KEY);
+        mButtonAPNExpand.getIntent().putExtra(MSimConstants.SUBSCRIPTION_KEY, mSubscription);
+        if (mPrefActivity.getResources().getBoolean(R.bool.world_phone) == true) {
+            mPrefScreen.removePreference(mButtonAPNExpand);
+        }
 
         mButtonCdmaSystemSelect = (CdmaSystemSelectListPreference)mPrefScreen
                 .findPreference(BUTTON_CDMA_SYSTEM_SELECT_KEY);
@@ -66,8 +86,13 @@ public class CdmaOptions {
 
         mButtonCdmaSystemSelect.setEnabled(true);
         if(deviceSupportsNvAndRuim()) {
-            log("Both NV and Ruim supported, ENABLE subscription type selection");
-            mButtonCdmaSubscription.setEnabled(true);
+            if (mPrefActivity.getResources().getBoolean(
+                                  R.bool.disable_cdma_subscription)) {
+                mButtonCdmaSubscription.setEnabled(false);
+            } else {
+                log("Both NV and Ruim supported, ENABLE subscription type selection");
+                mButtonCdmaSubscription.setEnabled(true);
+            }
         } else {
             log("Both NV and Ruim NOT supported, REMOVE subscription type selection");
             mPrefScreen.removePreference(mPrefScreen

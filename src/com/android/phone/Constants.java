@@ -143,4 +143,20 @@ public class Constants {
     // Dtmf tone type setting value for CDMA phone
     public static final int DTMF_TONE_TYPE_NORMAL = 0;
     public static final int DTMF_TONE_TYPE_LONG   = 1;
+
+    /**
+     * enable proximity sensor or not. 0 = Off 1 = On
+     */
+    public static final String SETTINGS_PROXIMITY_SENSOR = "proximity_sensor";
+
+    public static final String SETTINGS_IP_PREFIX = "ip_call_prefix_sub";
+
+    /**
+     * CMCC network modes
+     */
+    public static final int NETWORK_MODE_DEFAULT = 0;
+    public static final int NETWORK_MODE_HIDE = 1;
+    public static final int NETWORK_MODE_CMCC = 2;
+    public static final int NETWORK_MODE_TDCDMA = 3;
+    public static final int NETWORK_MODE_LTE = 4;
 }
