@@ -658,7 +658,7 @@
                 android:uiOptions="splitActionBarWhenNarrow">
         </activity>
         <activity android:name=".ims.ImsEditor"
-                android:theme="@style/Theme.Settings"
+                android:theme="@style/SettingsLight"
                 android:configChanges="orientation|screenSize|keyboardHidden"
                 android:uiOptions="splitActionBarWhenNarrow">
         </activity>

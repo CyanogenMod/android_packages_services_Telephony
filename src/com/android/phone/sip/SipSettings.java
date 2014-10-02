@@ -145,14 +145,13 @@ public class SipSettings extends PreferenceActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.sip_setting);
 
         mSipManager = SipManager.newInstance(this);
         mSipSharedPreferences = new SipSharedPreferences(this);
         mProfileDb = new SipProfileDb(this);
 
         mPackageManager = getPackageManager();
-        setContentView(R.layout.sip_settings_ui);
-        addPreferencesFromResource(R.xml.sip_setting);
         mSipListContainer = (PreferenceCategory) findPreference(PREF_SIP_LIST);
         registerForReceiveCallsCheckBox();
         mCallManager = CallManager.getInstance();
