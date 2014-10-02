@@ -157,14 +157,12 @@ public class SipEditor extends PreferenceActivity
     public void onCreate(Bundle savedInstanceState) {
         Log.v(TAG, "start profile editor");
         super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.sip_edit);
 
         mSipManager = SipManager.newInstance(this);
         mSharedPreferences = new SipSharedPreferences(this);
         mProfileDb = new SipProfileDb(this);
         mCallManager = CallManager.getInstance();
-
-        setContentView(R.layout.sip_settings_ui);
-        addPreferencesFromResource(R.xml.sip_edit);
 
         SipProfile p = mOldProfile = (SipProfile) ((savedInstanceState == null)
                 ? getIntent().getParcelableExtra(SipSettings.KEY_SIP_PROFILE)
