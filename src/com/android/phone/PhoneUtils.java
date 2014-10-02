@@ -2281,6 +2281,28 @@ public class PhoneUtils {
         }
     }
 
+    static void resetAudioStreamVolume() {
+        PhoneGlobals app = PhoneGlobals.getInstance();
+        BluetoothManager btManager = app.getBluetoothManager();
+        AudioManager audioManager = (AudioManager) app.getSystemService(Context.AUDIO_SERVICE);
+        // determine actual streamType
+        int streamType = AudioManager.STREAM_VOICE_CALL;
+        if (btManager.isBluetoothHeadsetAudioOn()) {
+            streamType = AudioManager.STREAM_BLUETOOTH_SCO;
+        }
+        // determine volume and 1 level lower volume (lowest level can be 0)
+        int volume = audioManager.getStreamVolume(streamType);
+        int lowerVolume = volume - 1;
+        if (lowerVolume < 0) {
+            lowerVolume = 0;
+        }
+        log("resetAudioStreamVolume (streamType=" + streamType + ", streamVolume=" + volume + ")...");
+        // It's important to change it to another volume before restoring the original volume,
+        // otherwise the volume change will NOT be triggered!!
+        audioManager.setStreamVolume(streamType, lowerVolume, 0);
+        audioManager.setStreamVolume(streamType, volume, 0);
+    }
+
     static boolean isInEmergencyCall(CallManager cm) {
         for (Connection cn : cm.getActiveFgCall().getConnections()) {
             if (PhoneNumberUtils.isLocalEmergencyNumber(cn.getAddress(),

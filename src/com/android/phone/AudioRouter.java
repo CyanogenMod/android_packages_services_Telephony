@@ -179,7 +179,10 @@ import java.util.List;
 
     public void onMuteChange(boolean muted) {
         logD("onMuteChange: " + muted);
+
         notifyListeners();
+
+        PhoneUtils.resetAudioStreamVolume();
     }
 
     /**
@@ -350,6 +353,9 @@ import java.util.List;
         if (doNotify) {
             notifyListeners();
         }
+
+        PhoneUtils.resetAudioStreamVolume();
+
     }
 
     /**
