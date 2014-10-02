@@ -161,8 +161,14 @@
 
     <!-- Call blocking -->
     <string name="call_barring">Call blocking</string>
+    <string name="call_barring_off">Off</string>
     <string name="call_barring_outgoing">Outgoing call blocking</string>
+    <string name="call_barring_outgoing_international_roaming">International roaming calls</string>
+    <string name="call_barring_outgoing_international">International calls</string>
+    <string name="call_barring_outgoing_all">All outgoing calls</string>
     <string name="call_barring_incoming">Incoming call blocking</string>
+    <string name="call_barring_incoming_roaming">While roaming</string>
+    <string name="call_barring_incoming_all">All incoming calls</string>
     <string name="input_password">Enter password</string>
     <string name="psw_enter_old">Current password</string>
     <string name="labelCbChangePassword">Change password</string>
