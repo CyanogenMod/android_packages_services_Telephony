@@ -460,7 +460,7 @@ public class UserPLMNListPreference extends TimeConsumingPreferenceActivity {
         }
         PriorityCompare pc = new PriorityCompare();
         int position = Collections.binarySearch(mUPLMNList, newInfo, pc);
-        if (position > 0)
+        if (position >= 0)
             list.add(position, newInfo);
         else
             list.add(newInfo);
