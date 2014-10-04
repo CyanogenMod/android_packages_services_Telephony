@@ -80,7 +80,8 @@
   <string name="choose_forward_lookup_provider_title">轉駁查詢提供商</string>
   <string name="choose_people_lookup_provider_title">聯絡人查詢供應商</string>
   <string name="choose_reverse_lookup_provider_title">反向查詢提供商</string>
-  <string name="sub_no_sim">沒有 SIM 卡</string>
+  <string name="sub_no_sim">沒有 SIM 咭</string>
   <string name="msim_call_selector_title">通話 <xliff:g id="number">%s</xliff:g> 透過</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
+  <string name="xdivert_imsi_not_read">SIM 咭初始化進行中。請稍後再試。</string>
 </resources>

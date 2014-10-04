@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Anvend nærhedssensoren til at slukke for skærmen under opkald</string>
   <string name="proximity_off_summary">Under opkald vil skærmen forblive tændt</string>
   <string name="call_barring">Opkaldsblokering</string>
+  <string name="call_barring_off">Fra</string>
   <string name="call_barring_outgoing">Blokér udgående opkald</string>
+  <string name="call_barring_outgoing_international_roaming">Internationale roaming-opkald</string>
+  <string name="call_barring_outgoing_international">Internationale opkald</string>
+  <string name="call_barring_outgoing_all">Alle udgående opkald</string>
   <string name="call_barring_incoming">Blokér indgående opkald</string>
+  <string name="call_barring_incoming_roaming">Under roaming</string>
+  <string name="call_barring_incoming_all">Alle indgående opkald</string>
   <string name="input_password">Indtast adgangskode</string>
   <string name="psw_enter_old">Nuværende adgangskode</string>
   <string name="labelCbChangePassword">Skift adgangskode</string>

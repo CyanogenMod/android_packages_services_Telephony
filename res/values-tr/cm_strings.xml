@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Arama sırasında, ekranı kapatmak için yakınlık sensörünü kullan</string>
   <string name="proximity_off_summary">Arama sırasında, ekran açık kalacak</string>
   <string name="call_barring">Arama engelleme</string>
+  <string name="call_barring_off">Kapalı</string>
   <string name="call_barring_outgoing">Giden arama engelleme</string>
+  <string name="call_barring_outgoing_international_roaming">Uluslararası dolaşım aramaları</string>
+  <string name="call_barring_outgoing_international">Uluslararası aramalar</string>
+  <string name="call_barring_outgoing_all">Tüm giden aramalar</string>
   <string name="call_barring_incoming">Gelen arama engelleme</string>
+  <string name="call_barring_incoming_roaming">Dolaşımdayken</string>
+  <string name="call_barring_incoming_all">Tüm gelen aramalar</string>
   <string name="input_password">Şifre girin</string>
   <string name="psw_enter_old">Mevcut şifre</string>
   <string name="labelCbChangePassword">Şifreyi değiştir</string>

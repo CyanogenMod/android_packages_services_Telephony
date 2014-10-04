@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Quando em ligação, use o sensor de proximidade para desativar tela</string>
   <string name="proximity_off_summary">Quando em ligação, a tela permanecerá ligada</string>
   <string name="call_barring">Bloqueio de chamada</string>
+  <string name="call_barring_off">Desligado</string>
   <string name="call_barring_outgoing">Bloqueio de chamadas realizadas</string>
+  <string name="call_barring_outgoing_international_roaming">Chamadas de roaming internacional</string>
+  <string name="call_barring_outgoing_international">Chamadas internacionais</string>
+  <string name="call_barring_outgoing_all">Todas as chamadas realizadas</string>
   <string name="call_barring_incoming">Bloqueio de chamadas recebidas</string>
+  <string name="call_barring_incoming_roaming">Enquanto em roaming</string>
+  <string name="call_barring_incoming_all">Todas chamadas recebidas em roaming</string>
   <string name="input_password">Insira a senha</string>
   <string name="psw_enter_old">Senha atual</string>
   <string name="labelCbChangePassword">Alterar senha</string>

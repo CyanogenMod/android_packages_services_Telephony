@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Во время вызова использовать датчик приближения для отключения экрана</string>
   <string name="proximity_off_summary">Во время вызова экран будет оставаться включённым</string>
   <string name="call_barring">Запрет вызовов</string>
+  <string name="call_barring_off">Выключен</string>
   <string name="call_barring_outgoing">Запрет исходящих вызовов</string>
+  <string name="call_barring_outgoing_international_roaming">Международные вызовы в роуминге</string>
+  <string name="call_barring_outgoing_international">Международные вызовы</string>
+  <string name="call_barring_outgoing_all">Все исходящие вызовы</string>
   <string name="call_barring_incoming">Запрет входящих вызовов</string>
+  <string name="call_barring_incoming_roaming">Входящие вызовы в роуминге</string>
+  <string name="call_barring_incoming_all">Все входящие вызовы</string>
   <string name="input_password">Введите пароль</string>
   <string name="psw_enter_old">Текущий пароль</string>
   <string name="labelCbChangePassword">Изменить пароль</string>

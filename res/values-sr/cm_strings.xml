@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Када је у позиву, користи сензор близине за искључивање екрана</string>
   <string name="proximity_off_summary">Када је у позиву, екран ће остати укључен</string>
   <string name="call_barring">Блокирање позива</string>
+  <string name="call_barring_off">Искључено</string>
   <string name="call_barring_outgoing">Блокирање одлазног позива</string>
+  <string name="call_barring_outgoing_international_roaming">Међународни роминг позиви</string>
+  <string name="call_barring_outgoing_international">Међународни позиви</string>
+  <string name="call_barring_outgoing_all">Сви одлазни позиви</string>
   <string name="call_barring_incoming">Блокирање долазног позива</string>
+  <string name="call_barring_incoming_roaming">У току роминга</string>
+  <string name="call_barring_incoming_all">Сви долазни позиви</string>
   <string name="input_password">Унеси лозинку</string>
   <string name="psw_enter_old">Тренутна лозинка</string>
   <string name="labelCbChangePassword">Промени лозинку</string>

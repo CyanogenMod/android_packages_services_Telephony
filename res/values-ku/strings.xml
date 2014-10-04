@@ -52,7 +52,7 @@
   <string name="labelCDMAMore">ڕێکخستنەکانی پەیوەندی CDMA</string>
   <string name="apn_settings">ناوی خاڵەکانی دەستپێگەیشتن</string>
   <string name="settings_label">ڕێکخستنەکانی تۆڕ</string>
-  <string name="voicemail">پۆستی دەنگی</string>
+  <string name="voicemail">دەنگەپۆست</string>
   <string name="voicemail_abbreviated">دەنگەنامە:</string>
   <string name="networks">به‌کارگێڕی سیمه‌که‌ت</string>
   <string name="call_settings">ڕێکخستنی تەلەفۆنکردنن</string>
@@ -66,7 +66,7 @@
   <string name="sum_hide_caller_id">ژمارە شاردراوەیە لە ناو پەیوەندییە ڕۆیشتووەکان</string>
   <string name="sum_show_caller_id">ژمارە پیشاندرا لە ناو پەیوەندییە ڕۆیشتووەکان</string>
   <string name="sum_default_caller_id">ڕێکخستنەکانی بنەڕەتی کۆمپانیایی سیمکارت بەکار بهێنە بۆ پیشاندانی ژمارەکەم لە ناو پەیوەندییە ڕۆیشتووەکان</string>
-  <string name="labelCW">چاوەڕوانکردنی پەیوەندی</string>
+  <string name="labelCW">چاوەڕوانیی پەیوەندی</string>
   <string name="sum_cw_enabled">لە کاتی پەیوەندی، لە پەیوەندییە هاتووەکان ئاگادارم بکەوە</string>
   <string name="sum_cw_disabled">لە کاتی پەیوەندی، لە پەیوەندییە هاتووەکان ئاگادارم بکەوە</string>
   <string name="call_forwarding_settings">ڕێکخستنەکانی ئاراستەکردنی پەیوەندی</string>

@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Durant la trucada, utilitza el sensor de proximitat per apagar la pantalla</string>
   <string name="proximity_off_summary">Durant la trucada, la pantalla es mantindrà encesa</string>
   <string name="call_barring">Bloqueig de trucades</string>
+  <string name="call_barring_off">Desactivat</string>
   <string name="call_barring_outgoing">Bloqueig de trucades sortints</string>
+  <string name="call_barring_outgoing_international_roaming">Trucades internacionals en itinerància</string>
+  <string name="call_barring_outgoing_international">Trucades internacionals</string>
+  <string name="call_barring_outgoing_all">Totes les trucades sortints</string>
   <string name="call_barring_incoming">Bloqueig de trucades entrants</string>
+  <string name="call_barring_incoming_roaming">En itinerància</string>
+  <string name="call_barring_incoming_all">Totes les trucades entrants</string>
   <string name="input_password">Introdueix la contrasenya</string>
   <string name="psw_enter_old">Contrasenya actual</string>
   <string name="labelCbChangePassword">Canvia la contrasenya</string>

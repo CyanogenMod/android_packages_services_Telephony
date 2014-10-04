@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Wanneer in \'n oproep, gebruik nabyheid sensor om skerm af te skakel</string>
   <string name="proximity_off_summary">Wanneer in \'n oproep, die skerm sal aangeskakel bly</string>
   <string name="call_barring">Oproep blokkering</string>
+  <string name="call_barring_off">Af</string>
   <string name="call_barring_outgoing">Uitgaande oproep blokkering</string>
+  <string name="call_barring_outgoing_international_roaming">Internasionale swerwing</string>
+  <string name="call_barring_outgoing_international">Internasionale oproepe</string>
+  <string name="call_barring_outgoing_all">Alle uitgaande oproepe</string>
   <string name="call_barring_incoming">Inkomende oproep blokkering</string>
+  <string name="call_barring_incoming_roaming">Terwyl swerf</string>
+  <string name="call_barring_incoming_all">Alle inkomende oproepe</string>
   <string name="input_password">Voer wagwoord in</string>
   <string name="psw_enter_old">Huidige wagwoord</string>
   <string name="labelCbChangePassword">Verander wagwoord</string>

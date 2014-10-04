@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Použít při hovoru čidlo přiblížení pro vypnutí obrazovky</string>
   <string name="proximity_off_summary">Při hovoru obrazovku nevypínat</string>
   <string name="call_barring">Blokování hovoru</string>
+  <string name="call_barring_off">Vypnuto</string>
   <string name="call_barring_outgoing">Blokování odchozích volání</string>
+  <string name="call_barring_outgoing_international_roaming">Mezinárodní hovory v rámci roamingu</string>
+  <string name="call_barring_outgoing_international">Mezinárodní hovory</string>
+  <string name="call_barring_outgoing_all">Všechny odchozí hovory</string>
   <string name="call_barring_incoming">Blokování příchozích volání</string>
+  <string name="call_barring_incoming_roaming">Při roamingu</string>
+  <string name="call_barring_incoming_all">Všechny příchozí hovory</string>
   <string name="input_password">Zadat heslo</string>
   <string name="psw_enter_old">Současné heslo</string>
   <string name="labelCbChangePassword">Změnit heslo</string>
