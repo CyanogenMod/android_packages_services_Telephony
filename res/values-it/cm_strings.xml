@@ -91,7 +91,7 @@
   <string name="incoming_call_style_classic">Classico</string>
   <string name="incoming_call_style_fullscreen_photo">Foto chiamante a schermo intero</string>
   <string name="network_forbidden">(vietato)</string>
-  <string name="proximity_mode_title">Attiva il sensore di prossimità</string>
+  <string name="proximity_mode_title">Attiva sensore di prossimità</string>
   <string name="proximity_on_summary">Quando si effettua una chiamata, usa il sensore di prossimità per spegnere lo schermo</string>
   <string name="proximity_off_summary">Quando si effettua una chiamata, lo schermo rimane acceso</string>
   <string name="call_barring">Blocco chiamata</string>
@@ -146,7 +146,7 @@
   <string name="requesting_nw_subset_unlock">Richiesta sblocco sottoinsieme rete SIM\u2026</string>
   <string name="requesting_sp_unlock">Richiesta sblocco operatore SIM\u2026</string>
   <string name="requesting_corporate_unlock">Richiesta sblocco aziendale SIM\u2026</string>
-  <string name="requesting_sim_unlock">Richiesta di sblocco SIM\u2026</string>
+  <string name="requesting_sim_unlock">Richiesta sblocco SIM\u2026</string>
   <string name="requesting_rnw1_unlock">Richiesta sblocco rete 1 RUIM\u2026</string>
   <string name="requesting_rnw2_unlock">Richiesta sblocco rete 2 RUIM\u2026</string>
   <string name="requesting_rhrpd_unlock">Richiesta sblocco HRPD RUIM\u2026</string>

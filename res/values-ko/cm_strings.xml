@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">통화 중에 얼굴이 가까이 오면 화면 끄기</string>
   <string name="proximity_off_summary">통화 중에 화면을 계속 켜두기</string>
   <string name="call_barring">통화 차단</string>
+  <string name="call_barring_off">꺼짐</string>
   <string name="call_barring_outgoing">발신 전화 차단</string>
+  <string name="call_barring_outgoing_international_roaming">국제 로밍 전화</string>
+  <string name="call_barring_outgoing_international">국제 전화</string>
+  <string name="call_barring_outgoing_all">모든 발신 전화</string>
   <string name="call_barring_incoming">수신 전화 차단</string>
+  <string name="call_barring_incoming_roaming">로밍 중일 때</string>
+  <string name="call_barring_incoming_all">모든 수신 전화</string>
   <string name="input_password">비밀번호 입력</string>
   <string name="psw_enter_old">현재 비밀번호</string>
   <string name="labelCbChangePassword">비밀번호 변경</string>

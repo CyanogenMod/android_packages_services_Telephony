@@ -48,6 +48,9 @@
   <string name="label_ndp">PIN de desbloquéu de rede de tarxeta SIM</string>
   <string name="sim_ndp_unlock_text">Desbloquiar</string>
   <string name="sim_ndp_dismiss_text">Descartar</string>
+  <string name="requesting_unlock">Solicitando desbloquéu de rede\u2026</string>
+  <string name="unlock_failed">La solicitú de desbloquéu de rede nun se fexo correcho.</string>
+  <string name="unlock_success">El desbloquéu de rede féxose correcho.</string>
   <string name="labelGSMMore">Axustes de llamaes GSM</string>
   <string name="labelCDMAMore">Axustes de llamaes CDMA</string>
   <string name="apn_settings">APN</string>
@@ -147,21 +150,22 @@
   <string name="preferred_network_mode_lte_summary">Mou de rede preferíu: LTE </string>
   <string name="preferred_network_mode_lte_gsm_wcdma_summary">Mou de rede preferíu: GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_lte_cdma_evdo_summary">Mou de rede preferíu: CDMA+LTE/EVDO</string>
+  <string name="preferred_network_mode_global_summary">Mou de rede preferíu: Global</string>
   <string name="preferred_network_mode_lte_wcdma_summary">Mou de rede preferíu: LTE/WCDMA</string>
   <string-array name="preferred_network_mode_choices">
-    <item>LTE / WCDMA</item>
+    <item>LTE/WCDMA</item>
     <item>LTE</item>
     <item>Global</item>
     <item>GSM/WCDMA/LTE</item>
     <item>CDMA + LTE/EvDo</item>
     <item>CDMA/EvDo/GSM/WCDMA</item>
-    <item>EvDo only</item>
-    <item>CDMA w/o EvDo</item>
-    <item>CDMA/EvDo auto</item>
-    <item>GSM/WCDMA auto</item>
-    <item>WCDMA only</item>
-    <item>GSM only</item>
-    <item>GSM/WCDMA preferred</item>
+    <item>Namái EvDo</item>
+    <item>CDMA ensin EvDo</item>
+    <item>Mou automáticu de CDMA/EvDo</item>
+    <item>GSM/WCDMA (mou automáticu)</item>
+    <item>Namái WCDMA</item>
+    <item>Namái GSM</item>
+    <item>Preferencia de GSM/WCDMA</item>
   </string-array>
   <string name="data_enabled">Habilitar datos</string>
   <string name="data_enable_summary">Permitir l\'accesu a los datos al traviés de la rede móvil</string>
@@ -335,6 +339,7 @@
   <string name="fdn_failed">Falló la operación FDN.</string>
   <string name="simContacts_emptyLoading">Lleendo dende tarxeta SIM\u2026</string>
   <string name="simContacts_empty">Nun hai nengún contautu na tarxeta SIM.</string>
+  <string name="simContacts_title">Seleicionar contautos pa importar</string>
   <string name="simContacts_airplaneMode">Pa importar contautos de la tarxeta SIM, desactiva\'l mou avión.</string>
   <string name="enable_pin">Habilitar/inhabilitar PIN de tarxeta SIM</string>
   <string name="change_pin">Camudar PIN de tarxeta SIM</string>

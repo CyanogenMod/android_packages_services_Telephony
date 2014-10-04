@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Χρήση του αισθητήρα εγγύτητας για την απενεργοποίηση της οθόνης κατά την κλήση</string>
   <string name="proximity_off_summary">Η οθόνη θα παραμένει ενεργή κατά την κλήση</string>
   <string name="call_barring">Φραγή κλήσεων</string>
+  <string name="call_barring_off">Ανενεργή</string>
   <string name="call_barring_outgoing">Φραγή εξερχόμενων κλήσεων</string>
+  <string name="call_barring_outgoing_international_roaming">Διεθνείς κλήσεις περιαγωγής</string>
+  <string name="call_barring_outgoing_international">Διεθνείς κλήσεις</string>
+  <string name="call_barring_outgoing_all">Όλες οι εξερχόμενες κλήσεις</string>
   <string name="call_barring_incoming">Φραγή εισερχόμενων κλήσεων</string>
+  <string name="call_barring_incoming_roaming">Κατά την περιαγωγή</string>
+  <string name="call_barring_incoming_all">Όλες οι εισερχόµενες κλήσεις</string>
   <string name="input_password">Εισάγετε κωδικό</string>
   <string name="psw_enter_old">Τρέχων κωδικός</string>
   <string name="labelCbChangePassword">Αλλαγή κωδικού</string>

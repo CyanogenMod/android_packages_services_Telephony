@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Durante uma chamada , usar o sensor de proximidade para desligar o ecrã</string>
   <string name="proximity_off_summary">Durante uma chamada , o ecrã permanecerá ligado</string>
   <string name="call_barring">Bloqueio de chamadas</string>
+  <string name="call_barring_off">Desligado</string>
   <string name="call_barring_outgoing">Chamadas efetuadas bloqueadas</string>
+  <string name="call_barring_outgoing_international_roaming">Chamadas internacionais em roaming</string>
+  <string name="call_barring_outgoing_international">Chamadas internacionais</string>
+  <string name="call_barring_outgoing_all">Todas as chamadas efetuadas</string>
   <string name="call_barring_incoming">Chamadas recebidas bloqueadas</string>
+  <string name="call_barring_incoming_roaming">Chamadas recebidas em roaming</string>
+  <string name="call_barring_incoming_all">Todas as chamadas recebidas</string>
   <string name="input_password">Introduza a senha</string>
   <string name="psw_enter_old">Senha atual</string>
   <string name="labelCbChangePassword">Alterar senha</string>

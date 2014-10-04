@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">ඇමතුමක් අතර තුර තිරය වැසීම සඳහා සන්නිකර්ෂණ සංවේදකය භාවිතාකරන්න</string>
   <string name="proximity_off_summary">ඇමතුමක් අතර තුර තිරය ඇහැරී තිබෙනු ඇත</string>
   <string name="call_barring">ඇමතුම් අවහිර කිරීම</string>
+  <string name="call_barring_off">අක්‍රීයයි</string>
   <string name="call_barring_outgoing">ලබාගන්නා ඇමතුම් අවහිර කිරීම</string>
+  <string name="call_barring_outgoing_international_roaming">අන්තර්ජාතික රෝමිං ඇමතුම්</string>
+  <string name="call_barring_outgoing_international">අන්තර්ජාතික ඇමතුම්</string>
+  <string name="call_barring_outgoing_all">සියලු ලබාගන්නා ඇමතුම්</string>
   <string name="call_barring_incoming">පැමිණෙන ඇමතුම් අවහිර කිරීම</string>
+  <string name="call_barring_incoming_roaming">රෝමිං අතරතුර</string>
+  <string name="call_barring_incoming_all">සියලු පැමිණෙන ඇමතුම්</string>
   <string name="input_password">මුර පදය ඇතුලත් කරන්න</string>
   <string name="psw_enter_old">වත්මන් මුරපදය</string>
   <string name="labelCbChangePassword">මුරපදය වෙනස් කරන්න</string>

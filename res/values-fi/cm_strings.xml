@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Käytä etäisyysanturia näytön sammuttamiseen puhelun aikana</string>
   <string name="proximity_off_summary">Näyttö pysyy päällä puhelun aikana</string>
   <string name="call_barring">Puhelunesto</string>
+  <string name="call_barring_off">Pois päältä</string>
   <string name="call_barring_outgoing">Lähtevien puhelujen esto</string>
+  <string name="call_barring_outgoing_international_roaming">Ulkomaiden roaming-puhelut</string>
+  <string name="call_barring_outgoing_international">Ulkomaanpuhelut</string>
+  <string name="call_barring_outgoing_all">Kaikki lähtevät puhelut</string>
   <string name="call_barring_incoming">Tulevien puhelujen esto</string>
+  <string name="call_barring_incoming_roaming">Verkkovierailun aikana</string>
+  <string name="call_barring_incoming_all">Kaikki saapuvat puhelut</string>
   <string name="input_password">Syötä salasana</string>
   <string name="psw_enter_old">Nykyinen salasana</string>
   <string name="labelCbChangePassword">Vaihda salasana</string>

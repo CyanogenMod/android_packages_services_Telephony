@@ -36,7 +36,7 @@
   <string name="vibrate_call_waiting">割込通話時のバイブレーション</string>
   <string name="vibrate_hangup">通話終了時のバイブレーション</string>
   <string name="vibrate_45">時間ごとのバイブレーション</string>
-  <string name="vibrate_45_sum">発信中に45秒ごとに振動する</string>
+  <string name="vibrate_45_sum">発信中に45秒ごとに振動させる</string>
   <string name="show_ssn_label">イベントの通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
   <string name="blacklist_title">ブラックリスト</string>
@@ -71,9 +71,9 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA優先</string>
   <string name="number_lookup">電話番号検索</string>
   <string name="enable_forward_lookup_title">前方検索</string>
-  <string name="enable_forward_lookup_summary">ダイアラで検索しているときに近くの場所を表示する</string>
+  <string name="enable_forward_lookup_summary">ダイヤル画面で検索しているときに近くの場所を表示する</string>
   <string name="enable_people_lookup_title">人物検索</string>
-  <string name="enable_people_lookup_summary">ダイアラで検索しているときに人物のオンラインの結果を表示する</string>
+  <string name="enable_people_lookup_summary">ダイヤル画面で検索しているときに人物のオンラインの結果を表示する</string>
   <string name="enable_reverse_lookup_title">逆引き検索</string>
   <string name="enable_reverse_lookup_summary">着信中の不明な番号の人物または場所の情報を検索する</string>
   <string name="choose_lookup_providers">検索プロバイダを選択</string>
@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">通話中、画面を消灯するために接近センサーを使用する</string>
   <string name="proximity_off_summary">通話中、画面は点灯したままになります</string>
   <string name="call_barring">通話のブロック</string>
+  <string name="call_barring_off">OFF</string>
   <string name="call_barring_outgoing">発信のブロック</string>
+  <string name="call_barring_outgoing_international_roaming">国際ローミング通話</string>
+  <string name="call_barring_outgoing_international">国際通話</string>
+  <string name="call_barring_outgoing_all">すべての発信</string>
   <string name="call_barring_incoming">着信のブロック</string>
+  <string name="call_barring_incoming_roaming">ローミング中</string>
+  <string name="call_barring_incoming_all">すべての着信</string>
   <string name="input_password">パスワードを入力</string>
   <string name="psw_enter_old">現在のパスワード</string>
   <string name="labelCbChangePassword">パスワードを変更</string>

@@ -17,6 +17,16 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="call_notif_unconditionalCF">Şərtsiz zəng yönləndirmə aktivdir</string>
+  <string name="call_notif_conditionalCF">Şərti zəng yönləndirmə aktivdir</string>
+  <string name="call_notif_MOcall_forwarding">Gedən zəng yönləndirildi</string>
+  <string name="call_notif_cugcall">Bağlı istifadəçi qrupu içində zəng</string>
+  <string name="call_notif_outgoing_barred">Gedən zənglərə qadağa qoyulub</string>
+  <string name="call_notif_incoming_barred">Uzaq yerdən gələn zənglərə qadağa qoyulub</string>
+  <string name="call_notif_clir_suppression_rejected">Öz nömrənizi gizlətmək şəbəkə tərəfindən rədd edildi</string>
+  <string name="call_notif_call_deflected">Zəng uzaq yer tərəfindən yönləndirildi</string>
+  <string name="call_notif_MTcall_forwarding">Gələn zəng yönləndirildi</string>
+  <string name="call_notif_multipartycall">Çox tərəfli zəng</string>
   <string name="vibrate_outgoing">Cavab verәrkәn vibrasiyalamaq</string>
   <string name="vibrate_call_waiting">Zәngi gözlәyәrkәn vibrasiyalamaq</string>
   <string name="blacklist_title">Qara siyahı</string>

@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">在通话时，使用距离传感器来关闭屏幕</string>
   <string name="proximity_off_summary">在通话时，屏幕将保持开启</string>
   <string name="call_barring">电话拦截</string>
+  <string name="call_barring_off">关</string>
   <string name="call_barring_outgoing">去电拦截</string>
+  <string name="call_barring_outgoing_international_roaming">国际漫游呼叫</string>
+  <string name="call_barring_outgoing_international">国际长途</string>
+  <string name="call_barring_outgoing_all">所有拨出呼叫</string>
   <string name="call_barring_incoming">来电拦截</string>
+  <string name="call_barring_incoming_roaming">在漫游时</string>
+  <string name="call_barring_incoming_all">所有传入呼叫</string>
   <string name="input_password">输入密码</string>
   <string name="psw_enter_old">当前密码</string>
   <string name="labelCbChangePassword">修改密码</string>

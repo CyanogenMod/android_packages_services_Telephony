@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Hívás alatt a bekapcsolt közelségérzékelő kikapcsolja a kijelzőt</string>
   <string name="proximity_off_summary">Hívás alatt a kijelző bekapcsolva marad</string>
   <string name="call_barring">Hívás blokkolás</string>
+  <string name="call_barring_off">Ki</string>
   <string name="call_barring_outgoing">Kimenő hívás blokkolása</string>
+  <string name="call_barring_outgoing_international_roaming">Nemzetközi roaming hívások</string>
+  <string name="call_barring_outgoing_international">Nemzetközi hívások</string>
+  <string name="call_barring_outgoing_all">Összes kimenő hívás</string>
   <string name="call_barring_incoming">Bejövő hívás blokkolása</string>
+  <string name="call_barring_incoming_roaming">Barangoláskor</string>
+  <string name="call_barring_incoming_all">Összes bejövő hívás</string>
   <string name="input_password">Adja meg a jelszót</string>
   <string name="psw_enter_old">Jelenlegi jelszó</string>
   <string name="labelCbChangePassword">Jelszó megváltoztatása</string>
