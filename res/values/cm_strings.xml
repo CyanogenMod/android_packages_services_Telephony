@@ -130,7 +130,8 @@
 
     <!-- Set Subscription screen: label no sim -->
     <string name="sub_no_sim">No SIM</string>
-    <string name="multi_sim_entry_format" translatable="false"><xliff:g id="operator">%1$s</xliff:g>-<xliff:g id="index">%2$d</xliff:g></string>
+    <string name="multi_sim_entry_format_no_carrier" translatable="false">SIM - <xliff:g id="index">%1$d</xliff:g></string>
+    <string name="multi_sim_entry_format" translatable="false"><xliff:g id="operator">%1$s</xliff:g> - <xliff:g id="index">%2$d</xliff:g></string>
 
     <!-- Multi-SIM dial target selection -->
     <string name="msim_call_selector_title">Call <xliff:g id="number">%s</xliff:g> via</string>
@@ -350,7 +351,7 @@
     <string name="summary_manage_subscriptions">Manage network settings of each subscription</string>
 
     <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
-    <string name="callind_multi_sim">Subscription settings</string>
+    <string name="callind_multi_sim">Multi SIM settings</string>
 
     <!-- TTY Mode change is NOT allowed during a VT call -->
     <string name="tty_mode_not_allowed_vt_call">TTY mode change is not allowed during a video call</string>
