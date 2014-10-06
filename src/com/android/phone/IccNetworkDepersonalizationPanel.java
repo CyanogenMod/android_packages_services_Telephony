@@ -20,6 +20,7 @@
 package com.android.phone;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
@@ -60,6 +61,9 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
 
     //events
     private static final int EVENT_ICC_DEPERSONALIZATION_RESULT = 100;
+
+    //boradcast
+    private static final String ACTION_TRIGGER = "com.qualcomm.qti.loadcarrier.trigger";
 
     private Phone mPhone;
     private int mPersoSubtype;
@@ -215,10 +219,16 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
                                         dismiss();
                                     }
                                 }, 3000);
+                    wakeupCarrierLoadService();
                 }
             }
         }
     };
+
+    private void wakeupCarrierLoadService() {
+        Intent startTriggerIntent = new Intent(ACTION_TRIGGER);
+        getContext().sendBroadcast(startTriggerIntent);
+    }
 
     //constructor
     public IccNetworkDepersonalizationPanel(Context context) {
