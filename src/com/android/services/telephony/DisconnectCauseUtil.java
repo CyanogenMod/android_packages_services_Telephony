@@ -134,6 +134,9 @@ public class DisconnectCauseUtil {
             case android.telephony.DisconnectCause.TIMED_OUT:
             case android.telephony.DisconnectCause.UNOBTAINABLE_NUMBER:
             case android.telephony.DisconnectCause.VOICEMAIL_NUMBER_MISSING:
+            case android.telephony.DisconnectCause.DIAL_MODIFIED_TO_USSD:
+            case android.telephony.DisconnectCause.DIAL_MODIFIED_TO_SS:
+            case android.telephony.DisconnectCause.DIAL_MODIFIED_TO_DIAL:
             case android.telephony.DisconnectCause.ERROR_UNSPECIFIED:
                 return DisconnectCause.ERROR;
 
@@ -282,6 +285,18 @@ public class DisconnectCauseUtil {
 
             case android.telephony.DisconnectCause.CS_RESTRICTED_NORMAL:
                 resourceId = R.string.callFailed_dsac_restricted_normal;
+                break;
+
+            case android.telephony.DisconnectCause.DIAL_MODIFIED_TO_USSD:
+                resourceId = R.string.callFailed_dialToUssd;
+                break;
+
+            case android.telephony.DisconnectCause.DIAL_MODIFIED_TO_SS:
+                resourceId = R.string.callFailed_dialToSs;
+                break;
+
+            case android.telephony.DisconnectCause.DIAL_MODIFIED_TO_DIAL:
+                resourceId = R.string.callFailed_dialToDial;
                 break;
 
             case android.telephony.DisconnectCause.OUTGOING_FAILURE:
