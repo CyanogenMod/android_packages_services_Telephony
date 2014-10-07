@@ -121,7 +121,7 @@ public class TelephonyConnectionService extends ConnectionService {
             }
 
             number = handle.getSchemeSpecificPart();
-            if (TextUtils.isEmpty(number)) {
+            if (!isSkipSchemaOrConfUri && TextUtils.isEmpty(number)) {
                 Log.d(this, "onCreateOutgoingConnection, unable to parse number");
                 return Connection.createFailedConnection(
                         DisconnectCauseUtil.toTelecomDisconnectCause(
