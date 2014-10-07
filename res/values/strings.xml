@@ -1602,4 +1602,9 @@
     <string name="ims_vt_call_quality_high">High</string>
     <string name="ims_vt_call_quality_unknown">Unknown</string>
     <string name="ims_vt_call_quality_set_failed">Failed to set video quality</string>
+
+    <string name="preferred_lte">"Enable 4G data only"</string>
+    <string name="preferred_lte_summary">"When enable 4G data only, voice and SMS will not work"</string>
+
+    <string name="speed_dial_setting">Speed dial settings</string>
 </resources>
