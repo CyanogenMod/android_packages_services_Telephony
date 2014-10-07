@@ -32,6 +32,7 @@ import android.telecom.PhoneAccount;
 import android.telecom.StatusHints;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
+import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 
 import com.android.internal.telephony.Call;
@@ -77,6 +78,7 @@ abstract class TelephonyConnection extends Connection {
     private SuppServiceNotification mSsNotification = null;
     private String[] mSubName = {"SIM1", "SIM2", "SIM3"};
     private String mDisplayName;
+    private boolean mIsEmergencyNumber = false;
 
     private final Handler mHandler = new Handler() {
         @Override
@@ -756,6 +758,20 @@ abstract class TelephonyConnection extends Connection {
         }
     }
 
+    public void performAddParticipant(String participant) {
+        Log.d(this, "performAddParticipant - %s", participant);
+        if (getPhone() != null) {
+            try {
+                // We should send AddParticipant request using connection.
+                // Basically, you can make call to conference with AddParticipant
+                // request on single normal call.
+                getPhone().addParticipant(participant);
+            } catch (CallStateException e) {
+                Log.e(this, e, "Failed to performAddParticipant.");
+            }
+        }
+    }
+
     /**
      * Builds call capabilities common to all TelephonyConnections. Namely, apply IMS-based
      * capabilities.
@@ -796,6 +812,7 @@ abstract class TelephonyConnection extends Connection {
 
         newCapabilities = applyConferenceTerminationCapabilities(newCapabilities);
         newCapabilities = applyVoicePrivacyCapabilities(newCapabilities);
+        newCapabilities = applyAddParticipantCapabilities(newCapabilities);
 
         if (getConnectionCapabilities() != newCapabilities) {
             setConnectionCapabilities(newCapabilities);
@@ -849,6 +866,13 @@ abstract class TelephonyConnection extends Connection {
         getPhone().registerForInCallVoicePrivacyOff(mHandler, MSG_PHONE_VP_OFF, null);
         mOriginalConnection.addPostDialListener(mPostDialListener);
         mOriginalConnection.addListener(mOriginalConnectionListener);
+
+        if (mOriginalConnection != null && mOriginalConnection.getAddress() != null) {
+            mIsEmergencyNumber = PhoneNumberUtils.isEmergencyNumber(mOriginalConnection.
+                    getAddress());
+        }
+
+        updateAddress();
 
         // Set video state and capabilities
         setVideoState(mOriginalConnection.getVideoState());
@@ -1223,6 +1247,37 @@ abstract class TelephonyConnection extends Connection {
         }
 
         return currentCapabilities;
+    }
+
+    /**
+     * Applies the add participant capabilities to the {@code CallCapabilities} bit-mask.
+     *
+     * @param callCapabilities The {@code CallCapabilities} bit-mask.
+     * @return The capabilities with the add participant capabilities applied.
+     */
+    private int applyAddParticipantCapabilities(int callCapabilities) {
+        int currentCapabilities = callCapabilities;
+        if (getPhone() != null &&
+                 getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_IMS &&
+                 !mIsEmergencyNumber) {
+            currentCapabilities = applyCapability(currentCapabilities,
+                    Connection.CAPABILITY_ADD_PARTICIPANT);
+        } else {
+            currentCapabilities = removeCapability(currentCapabilities,
+                    Connection.CAPABILITY_ADD_PARTICIPANT);
+        }
+
+        return currentCapabilities;
+    }
+
+    private int applyCapability(int capabilities, int capability) {
+        int newCapabilities = capabilities | capability;
+        return newCapabilities;
+    }
+
+    private int removeCapability(int capabilities, int capability) {
+        int newCapabilities = capabilities & ~capability;
+        return newCapabilities;
     }
 
     /**

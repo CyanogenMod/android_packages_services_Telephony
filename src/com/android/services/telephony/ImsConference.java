@@ -238,7 +238,8 @@ public class ImsConference extends Conference {
         setConferenceHost(conferenceHost);
 
         int capabilities = Connection.CAPABILITY_SUPPORT_HOLD | Connection.CAPABILITY_HOLD |
-                Connection.CAPABILITY_MUTE | Connection.CAPABILITY_CONFERENCE_HAS_NO_CHILDREN;
+                Connection.CAPABILITY_MUTE | Connection.CAPABILITY_CONFERENCE_HAS_NO_CHILDREN |
+                Connection.CAPABILITY_ADD_PARTICIPANT;
 
         capabilities = applyVideoCapabilities(capabilities, mConferenceHost.getConnectionCapabilities());
         setConnectionCapabilities(capabilities);
@@ -361,6 +362,26 @@ public class ImsConference extends Conference {
             }
         } catch (CallStateException e) {
             Log.e(this, e, "Exception thrown trying to merge call into a conference");
+        }
+    }
+
+    /**
+     * Invoked when the conference adds a participant to the conference call.
+     *
+     * @param participant The participant to be added with conference call.
+     */
+
+    @Override
+    public void onAddParticipant(String participant) {
+        try {
+            Phone phone = (mConferenceHost != null) ? mConferenceHost.getPhone() : null;
+            Log.d(this, "onAddParticipant mConferenceHost = " + mConferenceHost
+                    + " Phone = " + phone);
+            if (phone != null) {
+                phone.addParticipant(participant);
+            }
+        } catch (CallStateException e) {
+            Log.e(this, e, "Exception thrown trying to add a participant into conference");
         }
     }
 
