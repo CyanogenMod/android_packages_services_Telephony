@@ -74,6 +74,10 @@ public class TelephonyConnectionService extends ConnectionService {
             final ConnectionRequest request) {
         Log.i(this, "onCreateOutgoingConnection, request: " + request);
 
+        Bundle bundle = request.getExtras();
+        boolean isSkipSchemaOrConfUri = (bundle != null) && (bundle.getBoolean(
+                TelephonyProperties.EXTRA_SKIP_SCHEMA_PARSING, false) ||
+                bundle.getBoolean(TelephonyProperties.EXTRA_DIAL_CONFERENCE_URI, false));
         Uri handle = request.getAddress();
         if (handle == null) {
             Log.d(this, "onCreateOutgoingConnection, handle is null");
@@ -108,7 +112,7 @@ public class TelephonyConnectionService extends ConnectionService {
             // Convert voicemail: to tel:
             handle = Uri.fromParts(PhoneAccount.SCHEME_TEL, number, null);
         } else {
-            if (!PhoneAccount.SCHEME_TEL.equals(scheme)) {
+            if (!isSkipSchemaOrConfUri && !PhoneAccount.SCHEME_TEL.equals(scheme)) {
                 Log.d(this, "onCreateOutgoingConnection, Handle %s is not type tel", scheme);
                 return Connection.createFailedConnection(
                         DisconnectCauseUtil.toTelecomDisconnectCause(
@@ -327,8 +331,8 @@ public class TelephonyConnectionService extends ConnectionService {
             connection.setPhoneAccountHandle(pHandle);
         }
         Bundle bundle = request.getExtras();
-        boolean isAddParticipant = bundle.getBoolean(TelephonyProperties.ADD_PARTICIPANT_KEY,
-                false);
+        boolean isAddParticipant = (bundle != null) && bundle
+                .getBoolean(TelephonyProperties.ADD_PARTICIPANT_KEY, false);
         Log.d(this, "placeOutgoingConnection isAddParticipant = " + isAddParticipant);
 
         com.android.internal.telephony.Connection originalConnection;
