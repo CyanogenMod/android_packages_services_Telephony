@@ -16,9 +16,11 @@
 
 package com.android.services.telephony;
 
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.Settings.SettingNotFoundException;
 import android.telecom.Connection;
 import android.telecom.ConnectionRequest;
 import android.telecom.ConnectionService;
@@ -41,6 +43,7 @@ import com.android.internal.telephony.PhoneProxy;
 import com.android.internal.telephony.SubscriptionController;
 import com.android.internal.telephony.cdma.CDMAPhone;
 import com.android.internal.telephony.TelephonyProperties;
+import com.android.phone.Constants;
 import com.android.phone.MMIDialogActivity;
 
 import java.util.ArrayList;
@@ -139,6 +142,29 @@ public class TelephonyConnectionService extends ConnectionService {
             return Connection.createFailedConnection(
                     DisconnectCauseUtil.toTelecomDisconnectCause(
                             android.telephony.DisconnectCause.OUTGOING_FAILURE, "Phone is null"));
+        }
+
+        int band = Constants.NW_BAND_LTE_NV;
+        try {
+            band = TelephonyManager.getIntAtIndex(getContentResolver(), Constants.SETTING_NW_BAND,
+                    phone.getPhoneId());
+        } catch (SettingNotFoundException e) {
+            Log.d(this, "onCreateOutgoingConnection, unable to get band");
+        }
+        Log.d(this, "onCreateOutgoingConnection, band is " + band);
+        if (band == Constants.NW_BAND_LTE_TDD) {
+            try {
+                Intent intent = new Intent(Constants.ACTION_DISABLE_TDD_LTE);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra(PhoneConstants.SLOT_KEY, phone.getPhoneId());
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                Log.d(this, "onCreateOutgoingConnection, unable to disable tdd data only");
+            }
+            return Connection.createFailedConnection(
+                    DisconnectCauseUtil.toTelecomDisconnectCause(
+                            android.telephony.DisconnectCause.OUTGOING_FAILURE,
+                            "Phone is in tdd data only"));
         }
 
         int state = phone.getServiceState().getState();

@@ -2463,4 +2463,18 @@ public class PhoneUtils {
     public static boolean isMultiSimEnabled() {
         return TelephonyManager.getDefault().getPhoneCount() > 1;
     }
+
+    /**     * Check if the current mode is LTE mode.     */
+    public static boolean isLTE(int network) {
+        return (network == Phone.NT_MODE_TD_SCDMA_LTE_CDMA_EVDO_GSM_WCDMA
+            || network == Phone.NT_MODE_TD_SCDMA_GSM_WCDMA_LTE
+            || network == Phone.NT_MODE_TD_SCDMA_WCDMA_LTE
+            || network == Phone.NT_MODE_TD_SCDMA_GSM_LTE
+            || network == Phone.NT_MODE_TD_SCDMA_LTE
+            || network == Phone.NT_MODE_LTE_WCDMA
+            || network == Phone.NT_MODE_LTE_ONLY
+            || network == Phone.NT_MODE_LTE_CDMA_EVDO_GSM_WCDMA
+            || network == Phone.NT_MODE_LTE_GSM_WCDMA
+            || network == Phone.NT_MODE_LTE_CDMA_AND_EVDO);
+    }
 }

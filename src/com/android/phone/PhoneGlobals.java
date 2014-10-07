@@ -238,7 +238,7 @@ public class PhoneGlobals extends ContextWrapper {
     }
 
     /**
-     * set preferred network by phonefeatures app， at the same time， the other sub will be set as
+     * set preferred network by phonefeatures app, at the same time, the other sub will be set as
      * GSM only if target network is not GSM only
      *
      * @param sub
@@ -254,6 +254,28 @@ public class PhoneGlobals extends ContextWrapper {
         params.putInt("network", network);
         params.putParcelable("callback", callback);
         callBinder("set_pref_network", params);
+    }
+
+     /**
+     * set preferred network by phonefeatures app, at the same time, the other sub will be set as
+     * GSM only if target network is not GSM only. The band value decides whether to enable LTE
+     * only.
+     *
+     * @param sub
+     * @param network
+     * @param band
+     * @param callback
+     */
+    public void setPrefNetwork(int sub, int network, int band, Message callback) {
+            if (callback != null) {
+                callback.replyTo = new Messenger(callback.getTarget());
+            }
+            Bundle params = new Bundle();
+            params.putInt(PhoneConstants.SUBSCRIPTION_KEY, sub);
+            params.putInt("network", network);
+            params.putInt("band", band);
+            params.putParcelable("callback", callback);
+            callBinder("set_pref_network", params);
     }
 
     /**

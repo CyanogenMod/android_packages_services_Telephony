@@ -16,6 +16,8 @@
 
 package com.android.phone;
 
+import android.os.SystemProperties;
+
 /**
  * App-wide constants and enums for the phone app.
  *
@@ -124,6 +126,9 @@ public class Constants {
         EXITED_ECM
     }
 
+    public static final String SETTING_PRE_NW_MODE_DEFAULT = "preferred_network_mode_default";
+    public static final String SETTING_NW_BAND = "network_band";
+
     /**
      * enable proximity sensor or not. 0 = Off 1 = On
      */
@@ -151,4 +156,14 @@ public class Constants {
     // Dtmf tone type setting value for CDMA phone
     public static final int DTMF_TONE_TYPE_NORMAL = 0;
     public static final int DTMF_TONE_TYPE_LONG   = 1;
+
+    public static final int NW_BAND_LTE_FULL = 1;
+    public static final int NW_BAND_LTE_TDD = 2;
+    public static final int NW_BAND_LTE_FDD = 3;
+    public static final int NW_BAND_LTE_NV = NW_BAND_LTE_FULL;
+    public static final int NW_BAND_LTE_DEFAULT = SystemProperties.getInt("persist.radio.lte_band",
+            NW_BAND_LTE_NV);
+
+    public static final String ACTION_DISABLE_TDD_LTE =
+            "com.qualcomm.qti.phonefeature.DISABLE_TDD_LTE";
 }

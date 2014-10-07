@@ -37,6 +37,8 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Settings.SettingNotFoundException;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -74,6 +76,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
     //String keys for preference lookup
     private static final String BUTTON_ROAMING_KEY = "button_roaming_key";
     private static final String BUTTON_PREFERED_NETWORK_MODE = "preferred_network_mode_key";
+    private static final String KEY_PREFERRED_LTE = "toggle_preferred_lte";
     private static final String BUTTON_UPLMN_KEY = "button_uplmn_key";
 
     // Used for restoring the preference if APSS tune away is enabled
@@ -90,6 +93,8 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
     //UI objects
     private ListPreference mButtonPreferredNetworkMode;
     private CheckBoxPreference mButtonDataRoam;
+
+    private CheckBoxPreference mButtonPreferredLte;
 
     private static final String iface = "rmnet0"; //TODO: this will go away
 
@@ -156,6 +161,9 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                  multiSimSetDataRoaming(false);
             }
             return true;
+        } else if (preference == mButtonPreferredLte) {
+            multiSimSetPreferredLte(mButtonPreferredLte.isChecked());
+            return true;
         } else if (mCdmaOptions != null &&
                    mCdmaOptions.preferenceTreeClick(preference) == true) {
             if (Boolean.parseBoolean(
@@ -209,6 +217,14 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
             mUPLMNPref = null;
         } else {
             mUPLMNPref.getIntent().putExtra(PhoneConstants.SUBSCRIPTION_KEY, mPhone.getPhoneId());
+        }
+
+        mButtonPreferredLte = (CheckBoxPreference) prefSet.findPreference(KEY_PREFERRED_LTE);
+        if (Constants.NW_BAND_LTE_DEFAULT == Constants.NW_BAND_LTE_NV
+            || mPhone.getPhoneId()!= PhoneConstants.SUB1
+            || !PhoneGlobals.getInstance().isPhoneFeatureEnabled()) {
+            prefSet.removePreference(mButtonPreferredLte);
+            mButtonPreferredLte = null;
         }
 
         int networkFeature = SystemProperties.getInt(Constants.PERSIST_RADIO_NETWORK_FEATURE,
@@ -273,6 +289,29 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         }
     }
 
+    private void updateButtonPreferredLte() {
+        if (mButtonPreferredLte == null) {
+            return;
+        }
+        boolean checked = false;
+        boolean enabled = false;
+        try {
+            enabled = PhoneUtils.isLTE(TelephonyManager.getIntAtIndex(getContentResolver(),
+                    Settings.Global.PREFERRED_NETWORK_MODE, mPhone.getPhoneId()));
+        } catch (SettingNotFoundException e) {
+            Log.d(LOG_TAG, "failed to update lte button", e);
+        }
+
+        try {
+            checked = TelephonyManager.getIntAtIndex(getContentResolver(),
+                    Constants.SETTING_NW_BAND, mPhone.getPhoneId()) == Constants.NW_BAND_LTE_TDD;
+        } catch (SettingNotFoundException e) {
+            Log.d(LOG_TAG, "failed to update lte button", e);
+        }
+
+        mButtonPreferredLte.setEnabled(enabled);
+        mButtonPreferredLte.setChecked(checked);
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -285,6 +324,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         // app to change this setting's backend, and re-launch this settings app
         // and the UI state would be inconsistent with actual state
         mButtonDataRoam.setChecked(multiSimGetDataRoaming());
+        updateButtonPreferredLte();
 
         if (getPreferenceScreen().findPreference(BUTTON_PREFERED_NETWORK_MODE) != null)  {
             mPhone.getPreferredNetworkType(mHandler.obtainMessage(
@@ -372,6 +412,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         static final int MESSAGE_GET_PREFERRED_NETWORK_TYPE = 0;
         static final int MESSAGE_SET_PREFERRED_NETWORK_TYPE = 1;
         static final int MESSAGE_SET_PREFERRED_NETWORK_TYPE_BY_PLUGIN = 2;
+        static final int MESSAGE_SET_PREFERRED_LTE = 3;
 
         @Override
         public void handleMessage(Message msg) {
@@ -386,6 +427,16 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 case MESSAGE_SET_PREFERRED_NETWORK_TYPE_BY_PLUGIN:
                     handleSetPreferredNetworkTypePluginResponse(msg);
                     break;
+                case MESSAGE_SET_PREFERRED_LTE:
+                    handleSetPreferredLTEResponse();
+                    break;
+            }
+        }
+
+        private void handleSetPreferredLTEResponse() {
+            updateButtonPreferredLte();
+            if (mButtonPreferredNetworkMode != null) {
+                UpdatePreferredNetworkModeSummary(getPreferredNetworkMode());
             }
         }
 
@@ -393,6 +444,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
             if (mButtonPreferredNetworkMode != null) {
                 UpdatePreferredNetworkModeSummary(getPreferredNetworkMode());
             }
+            updateButtonPreferredLte();
         }
 
         private void handleGetPreferredNetworkTypeResponse(Message msg) {
@@ -465,6 +517,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                     if (DBG) log("handleGetPreferredNetworkTypeResponse: else: reset to default");
                     resetNetworkModeToDefault();
                 }
+                updateButtonPreferredLte();
             }
         }
 
@@ -476,6 +529,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                         mButtonPreferredNetworkMode.getValue()).intValue();
                 setPreferredNetworkMode(networkMode);
                 setPrefNetworkTypeInSp(networkMode);
+                updateButtonPreferredLte();
             } else {
                 mPhone.getPreferredNetworkType(obtainMessage(MESSAGE_GET_PREFERRED_NETWORK_TYPE));
             }
@@ -678,5 +732,20 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         editor.apply();
         log("updating network type : " + preNetworkType + " for phoneId : " + mPhone.getPhoneId() +
             " in shared preference" + " context is : " + mPhone.getContext());
+    }
+
+    // Set preferred LTE mode
+    private void multiSimSetPreferredLte(boolean mode) {
+        final Message msg = mHandler.obtainMessage(
+                    MyHandler.MESSAGE_SET_PREFERRED_LTE);
+        try {
+            int band = mode ? Constants.NW_BAND_LTE_TDD : Constants.NW_BAND_LTE_FDD;
+            int network = mode ? Phone.NT_MODE_LTE_ONLY :
+                    TelephonyManager.getIntAtIndex(getContentResolver(),
+                    Constants.SETTING_PRE_NW_MODE_DEFAULT, mPhone.getPhoneId());
+            PhoneGlobals.getInstance().setPrefNetwork(mPhone.getPhoneId(), network, band, msg);
+        } catch (SettingNotFoundException snfe) {
+            log("multiSimSetPreferredLte: Could not find PREFERRED_NETWORK_MODE!!!");
+        }
     }
 }
