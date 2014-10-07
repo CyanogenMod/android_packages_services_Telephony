@@ -87,6 +87,13 @@
         android:ringtoneType="ringtone" />
 
     <PreferenceScreen
+        android:key="button_ipprefix_key"
+        android:title="@string/ipcall_sub_title"
+        android:summary="@string/ipcall_sub_summery"
+        android:persistent="false">
+    </PreferenceScreen>
+
+    <PreferenceScreen
         android:key="button_gsm_more_expand_key"
         android:title="@string/labelGSMMore"
         android:summary="@string/sum_gsm_call_settings"

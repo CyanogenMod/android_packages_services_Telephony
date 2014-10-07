@@ -53,7 +53,9 @@ import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 
 import com.android.internal.telephony.CallForwardInfo;
@@ -181,6 +183,8 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private static final String BUTTON_CF_EXPAND_KEY = "button_cf_expand_key";
     private static final String BUTTON_MORE_EXPAND_KEY = "button_more_expand_key";
 
+    private static final String BUTTON_IPPREFIX_KEY = "button_ipprefix_key";
+
 
     private static final String VM_NUMBERS_SHARED_PREFERENCES_NAME = "vm_numbers";
 
@@ -264,6 +268,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private CheckBoxPreference mVoicemailNotificationVibrate;
 
     private long mSubId;
+    private int mSlotId;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -467,6 +472,35 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSubMenuVoicemailSettings) {
+            return true;
+        } else if (preference == mIPPrefixPreference) {
+            View v = getLayoutInflater().inflate(R.layout.ip_prefix, null);
+            final EditText edit = (EditText) v.findViewById(R.id.ip_prefix_dialog_edit);
+            String ip_prefix = Settings.System.getString(getContentResolver(),
+                    Constants.SETTINGS_IP_PREFIX + (mSlotId + 1));
+            edit.setText(ip_prefix);
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.ipcall_dialog_title)
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .setView(v)
+                    .setPositiveButton(android.R.string.ok,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    String ip_prefix = edit.getText().toString();
+                                    Settings.System.putString(getContentResolver(),
+                                            Constants.SETTINGS_IP_PREFIX + (mSlotId + 1),
+                                            ip_prefix);
+                                    if (TextUtils.isEmpty(ip_prefix)) {
+                                        mIPPrefixPreference.setSummary(
+                                                R.string.ipcall_sub_summery);
+                                    } else {
+                                        mIPPrefixPreference.setSummary(edit.getText());
+                                    }
+                                    onResume();
+                                }
+                            })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
             return true;
         } else if (preference == mVoicemailSettings) {
             if (DBG) log("onPreferenceTreeClick: Voicemail Settings Preference is clicked.");
@@ -1474,6 +1508,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
 
         // getting selected subscription
         mSubId = PhoneUtils.getSubIdFromIntent(getIntent());
+        mSlotId = getIntent().getIntExtra(PhoneConstants.SLOT_KEY, -1);
 
         mSubscriptionPrefFDN  = (PreferenceScreen) findPreference(BUTTON_FDN_KEY);
         mSubscriptionPrefGSM  = (PreferenceScreen) findPreference(BUTTON_GSM_UMTS_OPTIONS);
@@ -1500,6 +1535,9 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         if (mRingtonePreference != null) {
             mRingtonePreference.setSubId(mPhone.getPhoneId());
         }
+
+        mIPPrefixPreference = (PreferenceScreen) findPreference(BUTTON_IPPREFIX_KEY);
+
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
