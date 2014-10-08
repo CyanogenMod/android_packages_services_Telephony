@@ -78,7 +78,6 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
     private static final String BUTTON_VIBRATE_CALL_WAITING_KEY = "button_vibrate_call_waiting";
     private static final String BUTTON_HANGUP_OUTGOING_KEY = "button_vibrate_hangup";
     private static final String BUTTON_45_KEY = "button_vibrate_45";
-    private static final String BUTTON_SHOW_SSN_KEY = "button_show_ssn_key";
 
     private PreferenceScreen mSubscriptionPrefFDN;
     private PreferenceScreen mSubscriptionPrefGSM;
@@ -91,7 +90,6 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
     private CheckBoxPreference mVibrateCallWaitingPref;
     private CheckBoxPreference mVibrateHangupPref;
     private CheckBoxPreference mVibrate45Pref;
-    private CheckBoxPreference mShowSSNPref;
 
     /**
      * Receiver for Receiver for ACTION_AIRPLANE_MODE_CHANGED and ACTION_SIM_STATE_CHANGED.
@@ -203,10 +201,6 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
         initialState = prefs.getBoolean(mVibrate45Pref.getKey(), false);
         setPreferenceKeyForSubscription(mVibrate45Pref);
         mVibrate45Pref.setChecked(prefs.getBoolean(mVibrate45Pref.getKey(), initialState));
-        mShowSSNPref = (CheckBoxPreference) findPreference(BUTTON_SHOW_SSN_KEY);
-        initialState = prefs.getBoolean(mShowSSNPref.getKey(), false);
-        setPreferenceKeyForSubscription(mShowSSNPref);
-        mShowSSNPref.setChecked(prefs.getBoolean(mShowSSNPref.getKey(), initialState));
     }
 
     @Override
