@@ -203,10 +203,6 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
         initialState = prefs.getBoolean(mVibrate45Pref.getKey(), false);
         setPreferenceKeyForSubscription(mVibrate45Pref);
         mVibrate45Pref.setChecked(prefs.getBoolean(mVibrate45Pref.getKey(), initialState));
-        mShowSSNPref = (CheckBoxPreference) findPreference(BUTTON_SHOW_SSN_KEY);
-        initialState = prefs.getBoolean(mShowSSNPref.getKey(), false);
-        setPreferenceKeyForSubscription(mShowSSNPref);
-        mShowSSNPref.setChecked(prefs.getBoolean(mShowSSNPref.getKey(), initialState));
     }
 
     @Override
@@ -242,6 +238,11 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
                 mSubscriptionPrefMOREEXPAND.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
                 findPreference(BUTTON_CB_EXPAND_KEY).getIntent().putExtra(SUBSCRIPTION_KEY,
                         mSubscription);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                mShowSSNPref = (CheckBoxPreference) findPreference(BUTTON_SHOW_SSN_KEY);
+                boolean initialState = prefs.getBoolean(mShowSSNPref.getKey(), false);
+                setPreferenceKeyForSubscription(mShowSSNPref);
+                mShowSSNPref.setChecked(prefs.getBoolean(mShowSSNPref.getKey(), initialState));
             }
         }
     }
