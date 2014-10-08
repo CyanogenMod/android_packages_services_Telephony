@@ -141,6 +141,8 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     // Key identifying the default vocie mail provider
     private static final String DEFAULT_VM_PROVIDER_KEY = "";
 
+    private static final String BUTTON_RINGTONE_KEY = "button_ringtone_key";
+
     /**
      * String Extra put into ACTION_ADD_VOICEMAIL call to indicate which provider should be hidden
      * in the list of providers presented to the user. This allows a provider which is being
@@ -186,6 +188,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private static final int EVENT_FORWARDING_GET_COMPLETED = 502;
 
     private static final int MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY = 1;
+    private static final int MSG_UPDATE_RINGTONE_SUMMARY = 2;
 
     /** Handle to voicemail pref */
     private static final int VOICEMAIL_PREF_ID = 1;
@@ -229,18 +232,23 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
 
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
-    private Runnable mVoicemailRingtoneLookupRunnable;
-    private final Handler mVoicemailRingtoneLookupComplete = new Handler() {
+    private Runnable mRingtoneLookupRunnable;
+    private final Handler mRingtoneLookupComplete = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
             case MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY:
                 mVoicemailNotificationRingtone.setSummary((CharSequence) msg.obj);
                 break;
+            case MSG_UPDATE_RINGTONE_SUMMARY:
+                android.util.Log.i("saiqi","summary: " + ((CharSequence) msg.obj));
+                mRingtonePreference.setSummary((CharSequence) msg.obj);
+                break;
             }
         }
     };
 
+    private DefaultRingtonePreference mRingtonePreference;
     private ListPreference mVoicemailProviders;
     private PreferenceScreen mVoicemailSettings;
     private Preference mVoicemailNotificationRingtone;
@@ -1470,6 +1478,10 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             mSubMenuVoicemailSettings.setDialogTitle(R.string.voicemail_settings_number_label);
         }
 
+        mRingtonePreference = (DefaultRingtonePreference) findPreference(BUTTON_RINGTONE_KEY);
+        if (mRingtonePreference != null) {
+            mRingtonePreference.setSubId(mPhone.getPhoneId());
+        }
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1538,16 +1550,24 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         updateVoiceNumberField();
         mVMProviderSettingsForced = false;
 
-        mVoicemailRingtoneLookupRunnable = new Runnable() {
+        mRingtoneLookupRunnable = new Runnable() {
             @Override
             public void run() {
                 if (mVoicemailNotificationRingtone != null) {
                     SettingsUtil.updateRingtoneName(
                             mPhone.getContext(),
-                            mVoicemailRingtoneLookupComplete,
+                            mRingtoneLookupComplete,
                             RingtoneManager.TYPE_NOTIFICATION,
                             mVoicemailNotificationRingtone,
                             MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY);
+                }
+                if (mRingtonePreference != null) {
+                    SettingsUtil.updateRingtoneName(
+                            mPhone.getContext(),
+                            mRingtoneLookupComplete,
+                            RingtoneManager.TYPE_RINGTONE,
+                            mRingtonePreference,
+                            MSG_UPDATE_RINGTONE_SUMMARY, mPhone.getPhoneId());
                 }
             }
         };
@@ -1581,8 +1601,8 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                     BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + mPhone.getPhoneId(), false));
         }
 
-        // Look up the voicemail ringtone name asynchronously and update its preference.
-        new Thread(mVoicemailRingtoneLookupRunnable).start();
+        // Look up the default/voicemail ringtone name asynchronously and update its preference.
+        new Thread(mRingtoneLookupRunnable).start();
     }
 
     private boolean isAirplaneModeOn() {
