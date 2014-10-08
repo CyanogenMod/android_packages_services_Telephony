@@ -23,7 +23,12 @@ import android.telecom.DisconnectCause;
 import com.android.phone.PhoneGlobals;
 import com.android.phone.common.R;
 
+import com.android.internal.telephony.gsm.SuppServiceNotification;
+
 public class DisconnectCauseUtil {
+
+    public static int mNotificationCode = 0xFF;
+    public static int mNotificationType = 0xFF;
 
    /**
     * Converts from a disconnect code in {@link android.telephony.DisconnectCause} into a more generic
@@ -34,6 +39,13 @@ public class DisconnectCauseUtil {
     * @param telephonyDisconnectCause The code for the reason for the disconnect.
     */
     public static DisconnectCause toTelecomDisconnectCause(int telephonyDisconnectCause) {
+        return toTelecomDisconnectCause(telephonyDisconnectCause, null /* reason */);
+    }
+
+    public static DisconnectCause toTelecomDisconnectCause(int telephonyDisconnectCause,
+            int type, int code) {
+        mNotificationCode = code;
+        mNotificationType = type;
         return toTelecomDisconnectCause(telephonyDisconnectCause, null /* reason */);
     }
 
@@ -74,7 +86,11 @@ public class DisconnectCauseUtil {
                 return DisconnectCause.CANCELED;
 
             case android.telephony.DisconnectCause.INCOMING_MISSED:
-                return DisconnectCause.MISSED;
+                if ((mNotificationType == 0xFF) && (mNotificationCode == 0xFF)) {
+                    return DisconnectCause.MISSED;
+                } else {
+                    return DisconnectCause.RESTRICTED;
+                }
 
             case android.telephony.DisconnectCause.INCOMING_REJECTED:
                 return DisconnectCause.REJECTED;
@@ -221,9 +237,36 @@ public class DisconnectCauseUtil {
 
         Integer resourceId = null;
         switch (telephonyDisconnectCause) {
-            case android.telephony.DisconnectCause.CALL_BARRED:
-                resourceId = R.string.callFailed_cb_enabled;
+            case android.telephony.DisconnectCause.INCOMING_MISSED: {
+                // If the network sends SVC Notification then this dialog will be displayed
+                // in case of B when the incoming call at B is not answered and gets forwarded
+                // to C
+                if (mNotificationType == 1 &&
+                        mNotificationCode ==
+                        SuppServiceNotification.MT_CODE_ADDITIONAL_CALL_FORWARDED) {
+                    resourceId = R.string.callUnanswered_forwarded;
+                }
+                mNotificationCode = 0xFF;
+                mNotificationType = 0xFF;
                 break;
+            }
+
+            case android.telephony.DisconnectCause.CALL_BARRED:{
+                // When call is disconnected with this code then it can either be barring from
+                // MO side or MT side.
+                // In MT case, if network sends SVC Notification then this dialog will be
+                // displayed when A is calling B & incoming is barred on B.
+                if (mNotificationType == 0 &&
+                        mNotificationCode ==
+                        SuppServiceNotification.MO_CODE_INCOMING_CALLS_BARRED) {
+                    resourceId = R.string.callFailed_incoming_cb_enabled;
+                } else {
+                    resourceId = R.string.callFailed_cb_enabled;
+                }
+                mNotificationCode = 0xFF;
+                mNotificationType = 0xFF;
+                break;
+            }
 
             case android.telephony.DisconnectCause.FDN_BLOCKED:
                 resourceId = R.string.callFailed_fdn_only;

@@ -56,10 +56,11 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_PHONE_VP_ON = 6;
     private static final int MSG_PHONE_VP_OFF = 7;
 
-    private SuppServiceNotification mSsNotification = null;
     private String[] mSubName = {"SUB 1", "SUB 2", "SUB 3"};
     private String mDisplayName;
     private boolean mVoicePrivacyState = false;
+
+    protected static SuppServiceNotification mSsNotification = null;
 
     private final Handler mHandler = new Handler() {
         @Override
@@ -112,7 +113,6 @@ abstract class TelephonyConnection extends Connection {
                                     mDisplayName, Toast.LENGTH_LONG).show();
                         }
                     }
-                    setSsNotificationData(mSsNotification.notificationType, mSsNotification.code);
                     break;
                 case MSG_PHONE_VP_ON:
                     if (!mVoicePrivacyState) {
@@ -784,8 +784,16 @@ abstract class TelephonyConnection extends Connection {
                     setRinging();
                     break;
                 case DISCONNECTED:
-                    setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                            mOriginalConnection.getDisconnectCause()));
+                    if (mSsNotification != null) {
+                        setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                                mOriginalConnection.getDisconnectCause(),
+                                mSsNotification.notificationType,
+                                mSsNotification.code));
+                        mSsNotification = null;
+                    } else {
+                        setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                                mOriginalConnection.getDisconnectCause()));
+                    }
                     close();
                     break;
                 case DISCONNECTING:
