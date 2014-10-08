@@ -2425,17 +2425,17 @@ public class CallFeaturesSetting extends PreferenceActivity
                 mPhone.getContext());
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         if (mVoicemailProviders != null) {
-            setPreferenceKeyForSubscription(mVoicemailProviders);
+            PhoneSettings.setPreferenceKeyForSubscription(mVoicemailProviders, mSubscription);
             mVoicemailProviders.setValue(prefs.getString(mVoicemailProviders.getKey(),
                     mVoicemailProviders.getValue()));
             mVoicemailProviders.setOnPreferenceChangeListener(this);
             mVoicemailSettings = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
             mVoicemailNotificationRingtone =
                     findPreference(BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY);
-            setPreferenceKeyForSubscription(mVoicemailNotificationRingtone);
+            PhoneSettings.setPreferenceKeyForSubscription(mVoicemailNotificationRingtone, mSubscription);
             mVoicemailNotificationVibrate =
                     (CheckBoxPreference) findPreference(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY);
-            setPreferenceKeyForSubscription(mVoicemailNotificationVibrate);
+            PhoneSettings.setPreferenceKeyForSubscription(mVoicemailNotificationVibrate, mSubscription);
             initVoiceMailProviders();
         }
         // check the intent that started this activity and pop up the voicemail
@@ -2655,12 +2655,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         activity.startActivity(intent);
         activity.finish();
-    }
-
-    protected void setPreferenceKeyForSubscription(Preference preference) {
-        if (mSubscription == -1 || preference == null) return;
-        String key = preference.getKey() + mSubscription;
-        preference.setKey(key);
     }
 
     private static void log(String msg) {

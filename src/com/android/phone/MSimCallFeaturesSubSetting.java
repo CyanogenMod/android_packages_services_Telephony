@@ -47,6 +47,8 @@ import com.android.internal.telephony.TelephonyIntents;
 
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
+import com.android.phone.PhoneUtils.PhoneSettings;
+
 /**
  * Second level "MSim Call settings" UI; see res/xml/msim_call_feature_sub_setting.xml
  *
@@ -189,24 +191,20 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         mVibrateOutgoingPref = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_OUTGOING_KEY);
         boolean initialState = prefs.getBoolean(mVibrateOutgoingPref.getKey(), false);
-        setPreferenceKeyForSubscription(mVibrateOutgoingPref);
+        PhoneSettings.setPreferenceKeyForSubscription(mVibrateOutgoingPref, mSubscription);
         mVibrateOutgoingPref.setChecked(prefs.getBoolean(mVibrateOutgoingPref.getKey(), initialState));
         mVibrateCallWaitingPref = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CALL_WAITING_KEY);
         initialState = prefs.getBoolean(mVibrateCallWaitingPref.getKey(), false);
-        setPreferenceKeyForSubscription(mVibrateCallWaitingPref);
+        PhoneSettings.setPreferenceKeyForSubscription(mVibrateCallWaitingPref, mSubscription);
         mVibrateCallWaitingPref.setChecked(prefs.getBoolean(mVibrateCallWaitingPref.getKey(), initialState));
         mVibrateHangupPref = (CheckBoxPreference) findPreference(BUTTON_HANGUP_OUTGOING_KEY);
         initialState = prefs.getBoolean(mVibrateHangupPref.getKey(), false);
-        setPreferenceKeyForSubscription(mVibrateHangupPref);
+        PhoneSettings.setPreferenceKeyForSubscription(mVibrateHangupPref, mSubscription);
         mVibrateHangupPref.setChecked(prefs.getBoolean(mVibrateHangupPref.getKey(), initialState));
         mVibrate45Pref = (CheckBoxPreference) findPreference(BUTTON_45_KEY);
         initialState = prefs.getBoolean(mVibrate45Pref.getKey(), false);
-        setPreferenceKeyForSubscription(mVibrate45Pref);
+        PhoneSettings.setPreferenceKeyForSubscription(mVibrate45Pref, mSubscription);
         mVibrate45Pref.setChecked(prefs.getBoolean(mVibrate45Pref.getKey(), initialState));
-        mShowSSNPref = (CheckBoxPreference) findPreference(BUTTON_SHOW_SSN_KEY);
-        initialState = prefs.getBoolean(mShowSSNPref.getKey(), false);
-        setPreferenceKeyForSubscription(mShowSSNPref);
-        mShowSSNPref.setChecked(prefs.getBoolean(mShowSSNPref.getKey(), initialState));
     }
 
     @Override
@@ -242,6 +240,11 @@ public class MSimCallFeaturesSubSetting extends CallFeaturesSetting {
                 mSubscriptionPrefMOREEXPAND.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
                 findPreference(BUTTON_CB_EXPAND_KEY).getIntent().putExtra(SUBSCRIPTION_KEY,
                         mSubscription);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                mShowSSNPref = (CheckBoxPreference) findPreference(BUTTON_SHOW_SSN_KEY);
+                boolean initialState = prefs.getBoolean(mShowSSNPref.getKey(), false);
+                PhoneSettings.setPreferenceKeyForSubscription(mShowSSNPref, mSubscription);
+                mShowSSNPref.setChecked(prefs.getBoolean(mShowSSNPref.getKey(), initialState));
             }
         }
     }

@@ -41,6 +41,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
 import android.os.SystemProperties;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.telephony.MSimTelephonyManager;
@@ -3478,6 +3479,12 @@ public class PhoneUtils {
         public static String getKeyForSubscription(String key, int subscription) {
             if (subscription == -1) return key;
             return key + subscription;
+        }
+
+        static void setPreferenceKeyForSubscription(Preference preference, int subscription) {
+            if (subscription == -1 || preference == null) return;
+            String key = preference.getKey() + subscription;
+            preference.setKey(key);
         }
 
         private static SharedPreferences getPrefs(Context context) {
