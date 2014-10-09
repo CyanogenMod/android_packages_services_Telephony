@@ -561,12 +561,7 @@ public class PhoneGlobals extends ContextWrapper {
                                       CallFeaturesSetting.HAC_VAL_ON :
                                       CallFeaturesSetting.HAC_VAL_OFF);
         }
-        Intent pluginIntent = new Intent();
-
-        pluginIntent.setClassName("com.qualcomm.qti.phonefeature",
-                "com.qualcomm.qti.phonefeature.FeatureService");
-
-        startService(pluginIntent);
+        sendBroadcast(new Intent("com.android.phone.ACTION_PHONE_READY"));
     }
 
     /**
