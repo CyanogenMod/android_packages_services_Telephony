@@ -40,8 +40,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.telephony.MSimTelephonyManager;
 import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
+import static android.telephony.TelephonyManager.SIM_STATE_READY;
 import android.text.Selection;
 import android.text.Spannable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -121,9 +123,17 @@ public class XDivertPhoneNumbers extends Activity {
             mLineNames[i] = (TextView) findViewById(subTextId[i]);
             if (mLine1Numbers[i] != null && mLineNames[i] != null) {
                 MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
-                String operatorName = tm.getSimState(i) != SIM_STATE_ABSENT
-                    ? tm.getSimOperatorName(i) : getString(R.string.sub_no_sim);
-                String label = getString(R.string.multi_sim_entry_format, operatorName, i + 1);
+                String operatorName = tm.getSimOperatorName(i);
+                if (TextUtils.isEmpty(operatorName)) {
+                    operatorName = tm.getNetworkOperatorName(i);
+                }
+                String label;
+                if (tm.getSimState(i) == SIM_STATE_ABSENT || tm.getSimState(i) != SIM_STATE_READY ||
+                        TextUtils.isEmpty(operatorName)) {
+                    label = getString(R.string.multi_sim_entry_format_no_carrier, i + 1);
+                } else {
+                    label = getString(R.string.multi_sim_entry_format, operatorName, i + 1);
+                }
                 mLineNames[i].setText(label);
                 mLine1Numbers[i].setText(subLine1Number[i]);
                 mLine1Numbers[i].setOnFocusChangeListener(mOnFocusChangeHandler);

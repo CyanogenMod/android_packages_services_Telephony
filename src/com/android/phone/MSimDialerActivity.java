@@ -36,6 +36,7 @@ import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.KeyEvent;
@@ -203,11 +204,15 @@ public class MSimDialerActivity extends AlertActivity implements
                     continue;
                 }
 
+                String operatorName = tm.getSimOperatorName(i);
+                if (TextUtils.isEmpty(operatorName)) {
+                    operatorName = tm.getNetworkOperatorName(i);
+                }
                 Item item = new Item();
                 item.subscription = MSimPhoneFactory.getPhone(i).getSubscription();
                 item.isDefault = item.subscription == defaultSub;
                 item.label = context.getString(R.string.msim_call_selector_item,
-                        i + 1, tm.getSimOperatorName(i));
+                        i + 1, operatorName);
                 mItems.add(item);
             }
         }

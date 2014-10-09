@@ -53,7 +53,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.MSimTelephonyManager;
 import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
 import static android.telephony.TelephonyManager.SIM_STATE_READY;
-
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
@@ -282,9 +282,12 @@ public class SetSubscription extends PreferenceActivity implements
 
                 MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
                 String operatorName = tm.getSimOperatorName(k);
+                if (TextUtils.isEmpty(operatorName)) {
+                    operatorName = tm.getNetworkOperatorName(k);
+                }
                 String subGroupTitle;
                 if (tm.getSimState(k) == SIM_STATE_ABSENT || tm.getSimState(k) != SIM_STATE_READY ||
-                        operatorName == null || operatorName.length() == 0) {
+                        TextUtils.isEmpty(operatorName)) {
                     subGroupTitle = getString(R.string.multi_sim_entry_format_no_carrier, k + 1);
                 } else {
                     subGroupTitle = getString(R.string.multi_sim_entry_format, operatorName, k + 1);
