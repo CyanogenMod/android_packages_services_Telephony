@@ -203,11 +203,10 @@ public class MobileNetworkSettings extends PreferenceActivity
     }
 
     private void setIMS(boolean turnOn) {
-        SharedPreferences imsPref =
-            getSharedPreferences(ImsManager.IMS_SHARED_PREFERENCES, Context.MODE_WORLD_READABLE);
-
-        imsPref.edit().putBoolean(ImsManager.KEY_IMS_ON, turnOn).commit();
-        Settings.System.putInt(getContentResolver(), ImsManager.KEY_IMS_ON, turnOn ? 1: 0);
+        int value = (turnOn) ? 1:0;
+        android.provider.Settings.Global.putInt(
+                  mPhone.getContext().getContentResolver(),
+                  android.provider.Settings.Global.VOLTE_VT_ENABLED, value);
     }
 
     @Override
