@@ -27,9 +27,11 @@ import com.android.internal.telephony.uicc.UiccController;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
@@ -246,6 +248,12 @@ public class MobileNetworkSettings extends PreferenceActivity
             mShow4GForLTE = false;
         }
 
+        //Register for intent broadcasts
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        intentFilter.addAction(TelephonyIntents.ACTION_SIM_STATE_CHANGED);
+
+        registerReceiver(mReceiver, intentFilter);
+
         //get UI object references
         PreferenceScreen prefSet = getPreferenceScreen();
 
@@ -429,7 +437,7 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         // upon resumption from the sub-activity, make sure we re-enable the
         // preferences.
-        getPreferenceScreen().setEnabled(true);
+        setScreenState();
 
         // Set UI state in onResume because a user could go home, launch some
         // app to change this setting's backend, and re-launch this settings app
@@ -448,6 +456,27 @@ public class MobileNetworkSettings extends PreferenceActivity
                     MyHandler.MESSAGE_GET_PREFERRED_NETWORK_TYPE));
         }
     }
+
+    private void setScreenState() {
+        int simState = TelephonyManager.getDefault().getSimState();
+        getPreferenceScreen().setEnabled(simState == TelephonyManager.SIM_STATE_READY);
+    }
+
+    /**
+     * Receiver for ACTION_AIRPLANE_MODE_CHANGED and ACTION_SIM_STATE_CHANGED.
+     */
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED) ||
+                    action.equals(TelephonyIntents.ACTION_SIM_STATE_CHANGED)) {
+                setScreenState();
+            }
+        }
+    };
+
 
     @Override
     protected void onPause() {
