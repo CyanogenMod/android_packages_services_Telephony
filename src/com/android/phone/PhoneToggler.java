@@ -23,11 +23,13 @@ import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import android.telephony.MSimTelephonyManager;
 import android.util.Log;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.codeaurora.telephony.msim.MSimPhoneFactory;
 
 public class PhoneToggler extends BroadcastReceiver  {
 
@@ -52,8 +54,12 @@ public class PhoneToggler extends BroadcastReceiver  {
     private MyHandler mHandler;
 
     private Phone getPhone() {
-        if (mPhone == null) {
-            mPhone = PhoneFactory.getDefaultPhone();
+    	if (mPhone == null) {
+        	if (MSimTelephonyManager.getDefault().isMultiSimEnabled()) {
+                mPhone = MSimPhoneFactory.getPhone(MSimPhoneFactory.getDataSubscription());
+        	} else {
+        		mPhone = PhoneFactory.getDefaultPhone();
+        	}
         }
         return mPhone;
     }
