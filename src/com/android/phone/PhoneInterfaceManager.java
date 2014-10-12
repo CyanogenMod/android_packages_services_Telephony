@@ -948,7 +948,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub implements CallModele
     }
 
     @Override
-    public Bundle getCellLocation() {
+    public Bundle getCellLocation(String callingPackage) {
         try {
             mApp.enforceCallingOrSelfPermission(
                 android.Manifest.permission.ACCESS_FINE_LOCATION, null);
@@ -960,6 +960,10 @@ public class PhoneInterfaceManager extends ITelephony.Stub implements CallModele
                 android.Manifest.permission.ACCESS_COARSE_LOCATION, null);
         }
 
+        if (mAppOps.noteOp(AppOpsManager.OP_NEIGHBORING_CELLS, Binder.getCallingUid(),
+                callingPackage) != AppOpsManager.MODE_ALLOWED) {
+            return null;
+        }
         if (checkIfCallerIsSelfOrForegoundUser()) {
             if (DBG_LOC) log("getCellLocation: is active user");
             Bundle data = new Bundle();
