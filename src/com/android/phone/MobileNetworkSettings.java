@@ -415,6 +415,10 @@ public class MobileNetworkSettings extends PreferenceActivity
                 root.removePreference(ps);
             }
         }
+
+        if (this.getResources().getBoolean(R.bool.hide_roaming)) {
+            prefSet.removePreference(mButtonDataRoam);
+        }
     }
 
     private void updateButtonPreferredLte() {

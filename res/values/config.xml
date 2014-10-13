@@ -158,5 +158,7 @@
     <bool name="config_disable_data_manual_plmn">true</bool>
     <!-- config for 4G data only setting requirement -->
     <bool name="config_tdd_data_only">false</bool>
+    <!-- whether hide roaming settings -->
+    <bool name="hide_roaming">false</bool>
 </resources>
 </resources>
