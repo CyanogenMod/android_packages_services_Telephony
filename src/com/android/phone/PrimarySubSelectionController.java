@@ -90,11 +90,12 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
     ModemStackController mModemStackController;
     private boolean mAllCardsAbsent = true;
     private boolean mCardChanged = false;
-    private boolean mModemStackReady = false;
+    private boolean mNeedHandleModemReadyEvent = false;
     private boolean mRestoreDdsToPrimarySub = false;
     private boolean[] mIccLoaded;
 
     public static final String CONFIG_LTE_SUB_SELECT_MODE = "config_lte_sub_select_mode";
+    public static final String CONFIG_PRIMARY_SUB_SETABLE = "config_primary_sub_setable";
 
     private static final int MSG_ALL_CARDS_AVAILABLE = 1;
     private static final int MSG_CONFIG_LTE_DONE = 2;
@@ -140,18 +141,16 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                 final int slot = intent.getIntExtra(PhoneConstants.SLOT_KEY, 0);
                 final String stateExtra = intent
                         .getStringExtra(IccCardConstants.INTENT_KEY_ICC_STATE);
-                logd("ACTION_SIM_STATE_CHANGED intent received on slot = " + slot
-                        + "SIM STATE IS " + stateExtra);
                 mIccLoaded[slot] = false;
-                if (IccCardConstants.INTENT_VALUE_ICC_LOADED.equals(stateExtra)) {
+                if (IccCardConstants.INTENT_VALUE_ICC_LOADED.equals(stateExtra) ||
+                        IccCardConstants.INTENT_VALUE_ICC_IMSI.equals(stateExtra)) {
                     mIccLoaded[slot] = true;
                     int primarySlot = getPrimarySlot();
-                    logd("ACTION_SIM_STATE_CHANGED current defalut dds :"
-                            + SubscriptionManager.getSlotId(PhoneFactory.getDataSubscription()));
-                    logd("ACTION_SIM_STATE_CHANGED  primay slot is " + primarySlot
-                            + " , icc loaded slot is " + slot);
-                    if (SubscriptionManager.getSlotId(PhoneFactory.getDataSubscription())
-                            == primarySlot) {
+                    int currentDds = SubscriptionManager.getSlotId(PhoneFactory
+                            .getDataSubscription());
+                    logd("ACTION_SIM_STATE_CHANGED current defalut dds :" + currentDds
+                            + ", primary slot :" + primarySlot);
+                    if (currentDds == primarySlot) {
                         mRestoreDdsToPrimarySub = false;
                         return;
                     }
@@ -167,8 +166,8 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                         }
                     }
                 }
-                logd("ACTION_SIM_STATE_CHANGED intent received on slot = " + slot
-                        + "icc is loaded ? " + mIccLoaded[slot]);
+                logd("ACTION_SIM_STATE_CHANGED intent received SIM STATE is " + stateExtra
+                        + ", mIccLoaded[" + slot + "] = " + mIccLoaded[slot]);
             } else if(Intent.ACTION_LOCALE_CHANGED.equals(action)){
                 logd("Recieved EVENT ACTION_LOCALE_CHANGED");
                 if (mSIMChangedDialog != null && mSIMChangedDialog.isShowing()) {
@@ -192,6 +191,12 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         Settings.Global.putInt(
                 mContext.getContentResolver(),
                 CONFIG_LTE_SUB_SELECT_MODE, isManualConfigMode() ? 0 : 1);
+    }
+
+    private void savePrimarySetable() {
+        Settings.Global.putInt(
+                mContext.getContentResolver(),
+                CONFIG_PRIMARY_SUB_SETABLE, isPrimarySetable() ? 1 : 0);
     }
 
     private boolean isManualConfigMode() {
@@ -364,12 +369,13 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
 
     protected void onConfigLteDone(Message msg) {
         int primarySlot = getPrimarySlot();
+        int currentDds = SubscriptionManager.getSlotId(PhoneFactory.getDataSubscription());
         if (primarySlot != -1) {
-            logd("onConfigLteDone primary Slot " + primarySlot + " is icc loaded ? "
-                    + mIccLoaded[primarySlot]);
+            logd("onConfigLteDone primary Slot " + primarySlot + ", currentDds = " + currentDds
+                    + ", mIccLoaded[" + primarySlot
+                    + "] =" + mIccLoaded[primarySlot]);
             if (mIccLoaded[primarySlot]
-                    && SubscriptionManager.getSlotId(PhoneFactory.getDataSubscription())
-                    != primarySlot) {
+                    && currentDds != primarySlot) {
                 SubscriptionManager
                         .setDefaultDataSubId(SubscriptionManager.getSubId(primarySlot)[0]);
                 mRestoreDdsToPrimarySub = false;
@@ -390,29 +396,22 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         }
     }
 
-    private void setPrimarySub(){
-        if (mAllCardsAbsent) {
-            logd("all cards are absent, do not set primary sub.");
-            return;
-        }
-
-        if (!mModemStackReady) {
+    private void setPrimarySub() {
+        if (!mModemStackController.isStackReady()) {
             logd("modem stack is not ready, do not set primary sub.");
+            mNeedHandleModemReadyEvent = true;
             return;
         }
 
+        // reset states and load again by new card info
+        loadStates();
         if (isPrimaryLteSubEnabled()) {
             logd("primary sub config feature is enabled!");
             configPrimaryLteSub();
         }
         saveSubscriptions();
         saveLteSubSelectMode();
-
-        //just set NW mode once when all cards available and modem stack ready,
-        //so once set done, then reset the value to avoid to set NW mode again
-        //and again due to receive the modem stack ready events so many times.
-        mAllCardsAbsent = true;
-        mModemStackReady = false;
+        savePrimarySetable();
     }
 
     @Override
@@ -420,13 +419,13 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         switch (msg.what) {
             case MSG_MODEM_STACK_READY:
                 logd("on EVENT MSG_MODEM_STACK_READY");
-                mModemStackReady = true;
-                setPrimarySub();
+                if (mNeedHandleModemReadyEvent) {
+                    setPrimarySub();
+                    mNeedHandleModemReadyEvent = false;
+                }
                 break;
             case MSG_ALL_CARDS_AVAILABLE:
                 logd("on EVENT MSG_ALL_CARDS_AVAILABLE");
-                // reset states and load again by new card info
-                loadStates();
                 setPrimarySub();
                 break;
             case MSG_CONFIG_LTE_DONE:

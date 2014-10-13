@@ -496,7 +496,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="com.android.phone.LTE_CONFIGURE" />
+                <action android:name="codeaurora.intent.action.ACTION_LTE_CONFIGURE" />
             </intent-filter>
         </activity>
 

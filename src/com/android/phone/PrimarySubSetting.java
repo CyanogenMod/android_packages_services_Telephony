@@ -65,7 +65,7 @@ public class PrimarySubSetting extends Activity implements View.OnClickListener 
 
     private static final int SET_LTE_SUB_MSG = 1;
 
-    private static final String CONFIG_ACTION = "com.android.phone.LTE_CONFIGURE";
+    private static final String CONFIG_ACTION = "codeaurora.intent.action.ACTION_LTE_CONFIGURE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
