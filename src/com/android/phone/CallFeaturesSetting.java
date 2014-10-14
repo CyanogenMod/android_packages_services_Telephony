@@ -25,6 +25,7 @@ import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnKeyListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -53,6 +54,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -158,6 +160,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     // String keys for preference lookup
     // TODO: Naming these "BUTTON_*" is confusing since they're not actually buttons(!)
+    private static final String BUTTON_VOICEMAIL_CATEGORY_KEY = "button_voicemail_category_key";
     private static final String VOICEMAIL_SETTING_SCREEN_PREF_KEY = "button_voicemail_category_key";
     private static final String BUTTON_VOICEMAIL_KEY = "button_voicemail_key";
     private static final String BUTTON_VOICEMAIL_PROVIDER_KEY = "button_voicemail_provider_key";
@@ -262,6 +265,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private ListPreference mButtonDTMF;
     private ListPreference mButtonTTY;
     private Preference mPhoneAccountSettingsPreference;
+    private PreferenceScreen mVoicemailCategory;
     private ListPreference mVoicemailProviders;
     private PreferenceScreen mVoicemailSettingsScreen;
     private PreferenceScreen mVoicemailSettings;
@@ -271,6 +275,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private CheckBoxPreference mVibrateAfterConnected;
     private CheckBoxPreference mShowDurationCheckBox;
     private AccountSelectionPreference mDefaultOutgoingAccount;
+
+    private boolean isSpeedDialListStarted = false;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -497,6 +503,25 @@ public class CallFeaturesSetting extends PreferenceActivity
 
             // Update HAC Value in AudioManager
             mAudioManager.setParameter(HAC_KEY, hac != 0 ? HAC_VAL_ON : HAC_VAL_OFF);
+            return true;
+        } else if (preference == mVoicemailCategory) {
+            Dialog voicemailDialog = mVoicemailCategory.getDialog();
+            if (voicemailDialog != null) {
+                voicemailDialog.setOnKeyListener(new OnKeyListener() {
+                    @Override
+                    public boolean onKey(DialogInterface dialog, int keyCode,
+                            KeyEvent event) {
+                        if ((keyCode == KeyEvent.KEYCODE_BACK)
+                                && (isSpeedDialListStarted)
+                                && (ACTION_ADD_VOICEMAIL.equals(getIntent()
+                                        .getAction()))) {
+                            isSpeedDialListStarted = false;
+                            finish();
+                        }
+                        return false;
+                    }
+                });
+            }
             return true;
         } else if (preference == mIPPrefixPreference) {
             View v = getLayoutInflater().inflate(R.layout.ip_prefix, null);
@@ -1612,6 +1637,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         // get buttons
         PreferenceScreen prefSet = getPreferenceScreen();
+        mVoicemailCategory = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
         mSubMenuVoicemailSettings = (EditPhoneNumberPreference)findPreference(BUTTON_VOICEMAIL_KEY);
         if (mSubMenuVoicemailSettings != null) {
             mSubMenuVoicemailSettings.setParentActivity(this, VOICEMAIL_PREF_ID, this);
@@ -1735,6 +1761,8 @@ public class CallFeaturesSetting extends PreferenceActivity
             } else {
                 onPreferenceChange(mVoicemailProviders, DEFAULT_VM_PROVIDER_KEY);
                 mVoicemailProviders.setValue(DEFAULT_VM_PROVIDER_KEY);
+                isSpeedDialListStarted = true;
+                simulatePreferenceClick(mVoicemailCategory);
             }
             mShowVoicemailPreference = false;
         }
