@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Når du er i samtale, bruke nærhetssensor for å slå av skjermen</string>
   <string name="proximity_off_summary">Når du er i samtale forblir skjermen på</string>
   <string name="call_barring">Ringeblokkering</string>
+  <string name="call_barring_off">Av</string>
   <string name="call_barring_outgoing">Blokkering av utgående samtale</string>
+  <string name="call_barring_outgoing_international_roaming">Internasjonale roaming samtaler</string>
+  <string name="call_barring_outgoing_international">Internasjonale samtaler</string>
+  <string name="call_barring_outgoing_all">Utgående anrop</string>
   <string name="call_barring_incoming">Blokkering av innkommende samtale</string>
+  <string name="call_barring_incoming_roaming">Under roaming</string>
+  <string name="call_barring_incoming_all">Alle innkommende oppringinger</string>
   <string name="input_password">Skriv inn passord</string>
   <string name="psw_enter_old">Nåværende passord</string>
   <string name="labelCbChangePassword">Endre passord</string>
@@ -194,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Foretrukket nettverksmodus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Abonnementsinnstillinger</string>
   <string name="summary_manage_subscriptions">Administrere nettverksinnstillinger for hvert abonnement</string>
-  <string name="callind_multi_sim">Abonnementsinnstillinger</string>
+  <string name="callind_multi_sim">Multi SIM innstillinger</string>
   <string name="tty_mode_not_allowed_vt_call">TTY modusendring er ikke tillatt under en videosamtale</string>
   <string name="fdn_service_unavailable">FDN tjenesten er ikke tilgjengelig.</string>
   <string name="exportContacts">Eksporterer kontakter til SIMkort\u2026</string>

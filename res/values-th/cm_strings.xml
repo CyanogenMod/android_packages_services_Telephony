@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">ขณะโทร, ใช้เซนเซอร์วัดความใกล้ชิดเพื่อปิดหน้าจอ</string>
   <string name="proximity_off_summary">ขณะโทร, หน้าจอจะยังคงอยู่</string>
   <string name="call_barring">บล็อคการโทร</string>
+  <string name="call_barring_off">ปิด</string>
   <string name="call_barring_outgoing">บล็อคสายเรียกเข้า</string>
+  <string name="call_barring_outgoing_international_roaming">โทรข้ามแดนอัตโนมัติ</string>
+  <string name="call_barring_outgoing_international">โทรศัพท์ระหว่างประเทศ</string>
+  <string name="call_barring_outgoing_all">โทรออกทั้งหมด</string>
   <string name="call_barring_incoming">บล็อคสายโทรออก</string>
+  <string name="call_barring_incoming_roaming">ขณะที่โรมมิ่ง</string>
+  <string name="call_barring_incoming_all">สายเรียกเข้าทั้งหมด</string>
   <string name="input_password">ป้อนรหัสผ่าน</string>
   <string name="psw_enter_old">รหัสผ่านปัจจุบัน</string>
   <string name="labelCbChangePassword">เปลี่ยนรหัสผ่าน</string>
@@ -194,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">ตั้งค่าการติดตาม</string>
   <string name="summary_manage_subscriptions">จัดการการตั้งค่าเครือข่ายการติดตามแต่ละรายการ</string>
-  <string name="callind_multi_sim">ตั้งค่าการติดตาม</string>
+  <string name="callind_multi_sim">ตั้งค่าหลายซิม</string>
   <string name="tty_mode_not_allowed_vt_call">รูปแบบ TTY ไม่อนุญาตให้เปลี่ยนระหว่างใช้สายวิดีโอ</string>
   <string name="fdn_service_unavailable">ไม่มีบริการ FDN</string>
   <string name="exportContacts">กำลังส่งออกผู้ติดต่อไปยังซิม\u2026</string>

@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Voorkeur-modus: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Inskrywing instellings</string>
   <string name="summary_manage_subscriptions">Bestuur Netwerk instellings van elke inskrywing</string>
-  <string name="callind_multi_sim">Inskrywing instellings</string>
+  <string name="callind_multi_sim">Multi Sim Instellings</string>
   <string name="tty_mode_not_allowed_vt_call">TTY Modus verandering word nie toegelaat tydens \'n VT oproep</string>
   <string name="fdn_service_unavailable">FDN diens is nie beskikbaar nie.</string>
   <string name="exportContacts">Uitvoer kontakte na SIM-kaart\u2026</string>

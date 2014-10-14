@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Foretrukket netværkstilstand: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Abonnementsindstillinger</string>
   <string name="summary_manage_subscriptions">Administrér netværksindstillinger for hvert abonnement</string>
-  <string name="callind_multi_sim">Abonnementsindstillinger</string>
+  <string name="callind_multi_sim">Indstillinger for flere SIM-kort</string>
   <string name="tty_mode_not_allowed_vt_call">TTY-tilstandsændring er ikke tilladt under et video-opkald</string>
   <string name="fdn_service_unavailable">FDN-tjenesten er ikke tilgængelig.</string>
   <string name="exportContacts">Eksporterer kontakter til SIM-kort\u2026</string>

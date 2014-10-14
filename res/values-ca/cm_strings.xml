@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Mode de xarxa preferit: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Configuració de subscripció</string>
   <string name="summary_manage_subscriptions">Gestiona la configuració de xarxa de cada subscripció</string>
-  <string name="callind_multi_sim">Configuració de subscripció</string>
+  <string name="callind_multi_sim">Ajustaments Multi SIM</string>
   <string name="tty_mode_not_allowed_vt_call">No es permet el canvi de modalitat TTY durant una vídeo-trucada</string>
   <string name="fdn_service_unavailable">El servei FDN no està disponible.</string>
   <string name="exportContacts">Exportant els contactes a la targeta SIM\u2026</string>

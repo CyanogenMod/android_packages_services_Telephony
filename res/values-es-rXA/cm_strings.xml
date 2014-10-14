@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Mou de rede preferíu: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Axustes de soscripciones</string>
   <string name="summary_manage_subscriptions">Xestionar los axustes de rede de cada soscripción</string>
-  <string name="callind_multi_sim">Axustes de soscripciones</string>
+  <string name="callind_multi_sim">Axustes MultiSIM</string>
   <string name="tty_mode_not_allowed_vt_call">Nun se permite\'l cambéu de modalidá TTY mentanto una videollamada</string>
   <string name="fdn_service_unavailable">El serviciu FDN nun ta disponible.</string>
   <string name="exportContacts">Esportando contautos a la tarxeta SIM\u2026</string>

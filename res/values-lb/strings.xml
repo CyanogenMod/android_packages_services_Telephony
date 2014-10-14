@@ -29,11 +29,14 @@
   <string name="enter_input">Den USSD-Message muss <xliff:g id="min_len">%d</xliff:g> bis <xliff:g id="max_len">%d</xliff:g> Zeeche laang sinn. Probéier w.e.g. nees.</string>
   <string name="manageConferenceLabel">Telefonskonferenz verwalten</string>
   <string name="ok">OK</string>
+  <string name="audio_mode_speaker">Lautsprecher</string>
   <string name="audio_mode_bluetooth">Bluetooth</string>
   <string name="send_button">Schécken</string>
   <string name="pause_prompt_yes">Jo</string>
   <string name="pause_prompt_no">Nee</string>
+  <string name="wild_prompt_str">Plazhalter ersetzen duerch</string>
   <string name="add_vm_number_str">Nummer dobäisetzen</string>
+  <string name="voicemail">Sproochopnam</string>
   <string name="labelCW">Gespréich pauséiert</string>
   <string name="labelCFU">Ëmmer weiderleeden</string>
   <string name="sum_cfu_disabled">Deaktivéiert</string>
@@ -64,13 +67,13 @@
     <item>GSM/WCDMA/LTE</item>
     <item>CDMA + LTE/EvDo</item>
     <item>CDMA/EvDo/GSM/WCDMA</item>
-    <item>EvDo only</item>
-    <item>CDMA w/o EvDo</item>
+    <item>just EvDo</item>
+    <item>CDMA ouni EvDo</item>
     <item>CDMA/EvDo auto</item>
     <item>GSM/WCDMA auto</item>
-    <item>WCDMA only</item>
-    <item>GSM only</item>
-    <item>GSM/WCDMA preferred</item>
+    <item>just WCDMA</item>
+    <item>just GSM</item>
+    <item>GSM/WCDMA preferéiert</item>
   </string-array>
   <string-array name="list_language_entries">
     <item>English</item>
@@ -90,6 +93,7 @@
     <item>"6"</item>
     <item>"7"</item>
   </string-array>
+  <string name="network_global">Global</string>
   <string-array name="cdma_subscription_choices">
     <item>RUIM/SIM</item>
     <item>NV</item>
@@ -106,11 +110,18 @@
   <string name="pin2_changed">PIN2 erfollegräich geännert.</string>
   <string name="card_title_on_hold">Gehalen</string>
   <string name="notification_missedCallTitle">Verpassten Uruff</string>
+  <string name="notification_missedCallsTitle">Verpasst Uriff</string>
   <string name="notification_on_hold">Gehalen</string>
+  <string name="notification_voicemail_text_format"><xliff:g id="voicemail_number">%s</xliff:g> uruffen</string>
+  <string name="notification_voicemail_no_vm_number">Mailbox-Nummer onbekannt</string>
+  <string name="notification_network_selection_text">Ausgewielt Netzwierk (<xliff:g id="operator_name">%s</xliff:g>) net erreechbar</string>
+  <string name="incall_error_power_off">Deaktivéier de Fligermodus, fir unzeruffen.</string>
   <string name="incall_error_emergency_only">Net am Netzwierk registréiert.</string>
+  <string name="incall_error_out_of_service">Mobilt Netzwierk net disponibel.</string>
   <string name="incall_error_no_phone_number_supplied">Uruff net geschéckt, keng gëlteg Nummer.</string>
   <string name="incall_status_dialed_mmi">MMI-Sequenz gëtt gestartet\u2026</string>
   <string name="incall_error_supp_service_unknown">Net ënnerstëtze Service.</string>
+  <string name="incall_error_supp_service_switch">Wiesselen tëscht Uriff net méiglech.</string>
   <string name="incall_error_supp_service_separate">Uruff kann net getrennt ginn</string>
   <string name="incall_error_supp_service_transfer">Uruff kann net iwwerdroe ginn.</string>
   <string name="incall_error_supp_service_conference">Keng Telefonskonferenz méiglech.</string>
@@ -120,9 +131,11 @@
   <string name="emergency_enable_radio_dialog_retry">Plaz ouni Netzofdeckung; gëtt nees probéiert\u2026</string>
   <string name="dial_emergency_error">Uruff net geschéckt. <xliff:g id="non_emergency_number">%s</xliff:g> ass keng Noutruffnummer!</string>
   <string name="dial_emergency_empty_error">Uruff net geschéckt. Wiel eng Noutruffnummer!</string>
+  <string name="dialerKeyboardHintText">D\'Tastatur benotze fir ze wielen</string>
   <string name="onscreenHoldText">Halen</string>
   <string name="onscreenEndCallText">Anhänken</string>
   <string name="onscreenShowDialpadText">Wieltasten</string>
+  <string name="onscreenMergeCallsText">Uriff verbannen</string>
   <string name="onscreenManageCallsText">Uriff geréieren</string>
   <string name="onscreenManageConferenceText">Konferenz geréieren</string>
   <string name="onscreenVideoCallText">Videouruff</string>
@@ -131,8 +144,10 @@
   <string name="ecm_exit_dialog">EcmExitDialog</string>
   <string name="contactPhoto">Kontaktfoto</string>
   <string name="goPrivate">privat schwätzen</string>
+  <string name="sip_accounts_title">Konten</string>
   <string name="sip_menu_add">Dobäisetzen</string>
   <string name="sip_menu_save">Späicheren</string>
+  <string name="sip_menu_discard">Verwerfen</string>
   <string name="respond_via_sms_setting_title">Séier Äntwerten</string>
   <string name="respond_via_sms_setting_title_2">Séier Äntwerten änneren</string>
   <string name="description_image_button_three">dräi</string>

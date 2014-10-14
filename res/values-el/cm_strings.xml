@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Ρυθμίσεις συνδρομών</string>
   <string name="summary_manage_subscriptions">Διαχείριση ρυθμίσεων δικτύου για κάθε μια από τις συνδρομές</string>
-  <string name="callind_multi_sim">Ρυθμίσεις συνδρομών</string>
+  <string name="callind_multi_sim">Ρυθμίσεις πολλαπλών SIM</string>
   <string name="tty_mode_not_allowed_vt_call">Δεν επιτρέπεται η αλλαγή της λειτουργίας TTY κατά τη διάρκεια μιας βίντεο κλήσης</string>
   <string name="fdn_service_unavailable">Η υπηρεσία FDN δεν είναι διαθέσιμη.</string>
   <string name="exportContacts">Εξαγωγή επαφών στην κάρτα SIM\u2026</string>

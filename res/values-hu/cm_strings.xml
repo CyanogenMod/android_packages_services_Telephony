@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Preferált hálózati mód: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Előfizetés beállításai</string>
   <string name="summary_manage_subscriptions">Előfizetések hálózati beállításai</string>
-  <string name="callind_multi_sim">Előfizetések beállításai</string>
+  <string name="callind_multi_sim">Multi-SIM beállítások</string>
   <string name="tty_mode_not_allowed_vt_call">TTY mód változtatása nem lehetséges VT hívás közben</string>
   <string name="fdn_service_unavailable">FDN szolgáltatás nem elérhető.</string>
   <string name="exportContacts">Névjegyek exportálása a SIM kártyára\u2026</string>

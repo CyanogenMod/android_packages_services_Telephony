@@ -84,12 +84,12 @@
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g>に発信するSIM</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Chinese（CN）</string>
-  <string name="preference_category_t9_dialpad_search">ダイアルパッドT9検索</string>
+  <string name="preference_category_t9_dialpad_search">ダイヤルパッドT9検索</string>
   <string name="t9_search_input_locale">T9検索の入力</string>
   <string name="t9_search_input_locale_default">デフォルト</string>
   <string name="incoming_call_style_title">着信画面のスタイル</string>
   <string name="incoming_call_style_classic">クラシック</string>
-  <string name="incoming_call_style_fullscreen_photo">発信者のフルスクリーン写真</string>
+  <string name="incoming_call_style_fullscreen_photo">発信者の全画面写真</string>
   <string name="network_forbidden">（禁止）</string>
   <string name="proximity_mode_title">近接センサーを有効化</string>
   <string name="proximity_on_summary">通話中、画面を消灯するために接近センサーを使用する</string>
@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">優先ネットワークモード: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">サブスクリプションの設定</string>
   <string name="summary_manage_subscriptions">各サブスクリプションのネットワークの設定を管理する</string>
-  <string name="callind_multi_sim">サブスクリプションの設定</string>
+  <string name="callind_multi_sim">マルチSIMの設定</string>
   <string name="tty_mode_not_allowed_vt_call">ビデオ通話中のTTYモードの変更は許可されていません</string>
   <string name="fdn_service_unavailable">FDNサービスは利用できません。</string>
   <string name="exportContacts">SIMカードに連絡先をエクスポート中\u2026</string>

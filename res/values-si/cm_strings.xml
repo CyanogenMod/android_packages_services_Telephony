@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">දායකත්ව සැකසීම්</string>
   <string name="summary_manage_subscriptions">එක් එක් දායකත්වයේ ජාල සැකසීම් කළමනාකරණය</string>
-  <string name="callind_multi_sim">දායකත්ව සැකසීම්</string>
+  <string name="callind_multi_sim">බහු සිම් සැකසීම්</string>
   <string name="tty_mode_not_allowed_vt_call">වීඩියෝ ඇමතුමක් අතරතුර TTY ප්‍රකාරය වෙනස් කිරීම අනුමත නැත</string>
   <string name="fdn_service_unavailable">FDN සේවාව ලබා ගත නොහැක.</string>
   <string name="exportContacts">සම්බන්ධතා සිම් කාඩ්පතට නිර්යාත කරමින්\u2026</string>

@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Použiť snímač vzdialenosti pre vypnutie obrazovky počas hovoru</string>
   <string name="proximity_off_summary">Obrazovka zostane zapnutá počas hovoru</string>
   <string name="call_barring">Blokovanie hovorov</string>
+  <string name="call_barring_off">Vypnuté</string>
   <string name="call_barring_outgoing">Blokovanie odchádzajúcich hovorov</string>
+  <string name="call_barring_outgoing_international_roaming">Medzinárodné roamingové hovory</string>
+  <string name="call_barring_outgoing_international">Medzinárodné hovory</string>
+  <string name="call_barring_outgoing_all">Všetky odchádzajúce hovory</string>
   <string name="call_barring_incoming">Blokovanie prichádzajúcich hovorov</string>
+  <string name="call_barring_incoming_roaming">Pri roamingu</string>
+  <string name="call_barring_incoming_all">Všetky prichádzajúce hovory</string>
   <string name="input_password">Zadajte heslo</string>
   <string name="psw_enter_old">Aktuálne heslo</string>
   <string name="labelCbChangePassword">Zmeniť heslo</string>
@@ -194,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Uprednostňovaný režim siete: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Nastavenia poskytovateľa</string>
   <string name="summary_manage_subscriptions">Spravovať nastavenia siete pre každého poskytovateľa</string>
-  <string name="callind_multi_sim">Nastavenia poskytovateľa</string>
+  <string name="callind_multi_sim">Nastavenia viacerých SIM</string>
   <string name="tty_mode_not_allowed_vt_call">Počas videohovoru nie je možné zmeniť režim TTY</string>
   <string name="fdn_service_unavailable">Služba FDN nie je k dispozícii.</string>
   <string name="exportContacts">Export kontaktov na kartu SIM\u2026</string>

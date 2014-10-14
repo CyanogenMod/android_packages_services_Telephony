@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">首选网络模式：TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">订阅设置</string>
   <string name="summary_manage_subscriptions">管理每个订阅的网络设置</string>
-  <string name="callind_multi_sim">订阅设置</string>
+  <string name="callind_multi_sim">多 SIM 卡设置</string>
   <string name="tty_mode_not_allowed_vt_call">视频通话期间不允许更改 TTY 模式</string>
   <string name="fdn_service_unavailable">FDN 服务不可用。</string>
   <string name="exportContacts">正在将联系人导出至 SIM 卡\u2026</string>

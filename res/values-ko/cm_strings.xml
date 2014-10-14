@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">선호 네트워크 모드: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">회선 설정</string>
   <string name="summary_manage_subscriptions">회선별 네트워크 설정 관리</string>
-  <string name="callind_multi_sim">회선 설정</string>
+  <string name="callind_multi_sim">멀티 SIM 설정</string>
   <string name="tty_mode_not_allowed_vt_call">영상통화 중에는 TTY 모드를 변경할 수 없습니다</string>
   <string name="fdn_service_unavailable">FDN 서비스를 사용할 수 없습니다.</string>
   <string name="exportContacts">연락처를 SIM 카드로 내보내는 중\u2026</string>

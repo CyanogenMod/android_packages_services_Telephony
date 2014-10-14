@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Modo de rede preferida: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Definições da assinatura</string>
   <string name="summary_manage_subscriptions">Gerir as definições de rede de cada assinatura</string>
-  <string name="callind_multi_sim">Definições da assinatura</string>
+  <string name="callind_multi_sim">Definições dual SIM</string>
   <string name="tty_mode_not_allowed_vt_call">Alteração do modo TTY não é permitida durante uma chamada VT</string>
   <string name="fdn_service_unavailable">Serviço FDN não está disponível.</string>
   <string name="exportContacts">A exportar contactos para o cartão SIM\u2026</string>

@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Tilausasetukset</string>
   <string name="summary_manage_subscriptions">Hallitse kunkin tilauksen verkkoasetuksia</string>
-  <string name="callind_multi_sim">Tilausasetukset</string>
+  <string name="callind_multi_sim">Multi-SIM-asetukset</string>
   <string name="tty_mode_not_allowed_vt_call">TTY-tilamuutos ei ole sallittu videopuhelun aikana</string>
   <string name="fdn_service_unavailable">FDN palvelu ei ole käytettävissä.</string>
   <string name="exportContacts">Viedään yhteystiedot SIM-kortille\u2026</string>

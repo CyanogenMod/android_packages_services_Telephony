@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Voorkeursnetwerkmodus: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Instellingen abonnement</string>
   <string name="summary_manage_subscriptions">Netwerkinstellingen beheren van elk abonnement</string>
-  <string name="callind_multi_sim">Instellingen abonnement</string>
+  <string name="callind_multi_sim">Instellingen multi-SIM</string>
   <string name="tty_mode_not_allowed_vt_call">TTY-modus niet toegestaan tijdens videogesprek</string>
   <string name="fdn_service_unavailable">FDN-service niet beschikbaar.</string>
   <string name="exportContacts">Contacten exporteren naar simkaart\u2026</string>

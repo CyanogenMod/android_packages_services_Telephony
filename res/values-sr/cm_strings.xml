@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Жељени режим мреже: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Подешавања претплате</string>
   <string name="summary_manage_subscriptions">Управљање мрежним подешавањима сваке претплате</string>
-  <string name="callind_multi_sim">Подешавања претплате</string>
+  <string name="callind_multi_sim">Multi SIM подешавања</string>
   <string name="tty_mode_not_allowed_vt_call">TTY промена режима није дозвољена током видео позива</string>
   <string name="fdn_service_unavailable">FDN услуга није доступна.</string>
   <string name="exportContacts">Извоз контаката на SIM картицу\u2026</string>

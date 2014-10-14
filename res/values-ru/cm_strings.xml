@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Предпочтительный режим сети: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Настройки операторов</string>
   <string name="summary_manage_subscriptions">Управление настройками сети каждого оператора</string>
-  <string name="callind_multi_sim">Настройки операторов</string>
+  <string name="callind_multi_sim">Настройки SIM-карт</string>
   <string name="tty_mode_not_allowed_vt_call">Не допускается изменение режима TTY во время видеовызова</string>
   <string name="fdn_service_unavailable">Служба FDN недоступна.</string>
   <string name="exportContacts">Экспорт контактов на SIM-карту\u2026</string>

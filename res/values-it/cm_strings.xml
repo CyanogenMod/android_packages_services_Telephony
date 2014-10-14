@@ -95,8 +95,14 @@
   <string name="proximity_on_summary">Quando si effettua una chiamata, usa il sensore di prossimità per spegnere lo schermo</string>
   <string name="proximity_off_summary">Quando si effettua una chiamata, lo schermo rimane acceso</string>
   <string name="call_barring">Blocco chiamata</string>
+  <string name="call_barring_off">Disattivato</string>
   <string name="call_barring_outgoing">Blocco chiamate in uscita</string>
+  <string name="call_barring_outgoing_international_roaming">Chiamate roaming internazionale</string>
+  <string name="call_barring_outgoing_international">Chiamate internazionali</string>
+  <string name="call_barring_outgoing_all">Tutte le chiamate in uscita</string>
   <string name="call_barring_incoming">Blocco chiamate in entrata</string>
+  <string name="call_barring_incoming_roaming">Durante il roaming</string>
+  <string name="call_barring_incoming_all">Tutte le chiamate in arrivo</string>
   <string name="input_password">Inserisci la password</string>
   <string name="psw_enter_old">Password attuale</string>
   <string name="labelCbChangePassword">Cambia password</string>
@@ -194,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Modalità rete preferita: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Impostazioni abbonamento</string>
   <string name="summary_manage_subscriptions">Impostazioni rete per ciascun abbonamento</string>
-  <string name="callind_multi_sim">Impostazioni abbonamento</string>
+  <string name="callind_multi_sim">Impostazioni multi SIM</string>
   <string name="tty_mode_not_allowed_vt_call">Il cambiamento di modalità TTY non è consentito durante una videochiamata</string>
   <string name="fdn_service_unavailable">Servizio FDN non disponibile.</string>
   <string name="exportContacts">Esportazione dei contatti alla SIM\u2026</string>

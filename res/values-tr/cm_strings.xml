@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Tercih edilen şebeke modu: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Abonelik ayarları</string>
   <string name="summary_manage_subscriptions">Her abonelik için ağ ayarlarını yönet</string>
-  <string name="callind_multi_sim">Abonelik ayarları</string>
+  <string name="callind_multi_sim">Çoklu SIM ayarları</string>
   <string name="tty_mode_not_allowed_vt_call">TTY modu değişimine görüntülü arama esnasında izin verilmiyor</string>
   <string name="fdn_service_unavailable">FDN hizmeti kullanılabilir değil.</string>
   <string name="exportContacts">Kişiler SIM karta aktarılıyor\u2026</string>

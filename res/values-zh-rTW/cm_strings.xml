@@ -38,4 +38,6 @@
   <string name="t9_search_input_locale_default">預設</string>
   <string name="incoming_call_style_classic">預設</string>
   <string name="incoming_call_style_fullscreen_photo">全螢幕來電者相片</string>
+  <string name="labelCbChangePassword">變更密碼</string>
+  <string name="preferred_network_mode_dialogtitle_cmcc">網路模式</string>
 </resources>

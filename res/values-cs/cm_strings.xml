@@ -200,7 +200,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Nastavení poskytovatele</string>
   <string name="summary_manage_subscriptions">Spravovat nastavení sítě pro každého poskytovatele</string>
-  <string name="callind_multi_sim">Nastavení poskytovatele</string>
+  <string name="callind_multi_sim">Nastavení pro více SIM</string>
   <string name="tty_mode_not_allowed_vt_call">Při video-hovoru není možná změna režimu TTY</string>
   <string name="fdn_service_unavailable">Služba FDN není dostupná.</string>
   <string name="exportContacts">Export kontaktů na kartu SIM\u2026</string>
