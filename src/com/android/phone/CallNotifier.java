@@ -187,9 +187,6 @@ public class CallNotifier extends Handler
 
     protected final BluetoothManager mBluetoothManager;
 
-    // Blacklist handling
-    private static final String BLACKLIST = "Blacklist";
-
     /**
      * Initialize the singleton CallNotifier instance.
      * This is only done once, at startup, from PhoneApp.onCreate().
@@ -516,7 +513,7 @@ public class CallNotifier extends Handler
         if (listType != BlacklistUtils.MATCH_NONE) {
             // We have a match, set the user and hang up the call and notify
             if (DBG) log("Incoming call from " + number + " blocked.");
-            c.setUserData(BLACKLIST);
+            c.setUserData(new CallerInfo().markAsBlacklist());
             try {
                 c.hangup();
                 silenceRinger();
@@ -1253,7 +1250,9 @@ public class CallNotifier extends Handler
         }
 
         if (c != null) {
-            if (!disconnectedDueToBlacklist) {
+            if (disconnectedDueToBlacklist) {
+                mCallLogger.logCall(c, Calls.BLACKLIST_TYPE);
+            } else {
                 mCallLogger.logCall(c);
             }
 
@@ -2228,6 +2227,6 @@ public class CallNotifier extends Handler
         if (c == null) {
             return false;
         }
-        return BLACKLIST.equals(c.getUserData());
+        return ((CallerInfo) c.getUserData()).isBlacklistedNumber();
     }
 }
