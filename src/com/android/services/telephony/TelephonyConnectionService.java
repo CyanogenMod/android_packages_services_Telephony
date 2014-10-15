@@ -52,23 +52,37 @@ import java.util.Objects;
  * Service for making GSM and CDMA connections.
  */
 public class TelephonyConnectionService extends ConnectionService {
-    private GsmConferenceController[] mGsmConferenceController;
+    private TelephonyConferenceController[] mTelephonyConferenceController;
     private CdmaConferenceController[] mCdmaConferenceController;
+    private ImsConferenceController[] mImsConferenceController;
 
     private ComponentName mExpectedComponentName = null;
     private EmergencyCallHelper mEmergencyCallHelper;
     private EmergencyTonePlayer mEmergencyTonePlayer;
     static int [] sLchState = new int[TelephonyManager.getDefault().getPhoneCount()];
 
+    /**
+     * A listener to actionable events specific to the TelephonyConnection.
+     */
+    private final TelephonyConnection.TelephonyConnectionListener mTelephonyConnectionListener =
+            new TelephonyConnection.TelephonyConnectionListener() {
+        @Override
+        public void onOriginalConnectionConfigured(TelephonyConnection c) {
+            addConnectionToConferenceController(c);
+        }
+    };
+
     @Override
     public void onCreate() {
         super.onCreate();
         int size = TelephonyManager.getDefault().getPhoneCount();
-        mGsmConferenceController  = new GsmConferenceController[size];
+        mTelephonyConferenceController = new TelephonyConferenceController[size];
         mCdmaConferenceController = new CdmaConferenceController[size];
+        mImsConferenceController = new ImsConferenceController[size];
         for (int i = 0; i < size; i++) {
-            mGsmConferenceController[i] = new GsmConferenceController(this);
+            mTelephonyConferenceController[i] = new TelephonyConferenceController(this);
             mCdmaConferenceController[i] = new CdmaConferenceController(this);
+            mImsConferenceController [i] = new ImsConferenceController(this);
         }
         mExpectedComponentName = new ComponentName(this, this.getClass());
         mEmergencyTonePlayer = new EmergencyTonePlayer(this);
@@ -380,21 +394,20 @@ public class TelephonyConnectionService extends ConnectionService {
             Phone phone,
             com.android.internal.telephony.Connection originalConnection,
             boolean isOutgoing) {
+        TelephonyConnection returnConnection = null;
         int phoneType = phone.getPhoneType();
-        int phoneId = phone.getPhoneId();
         if (phoneType == TelephonyManager.PHONE_TYPE_GSM) {
-            GsmConnection connection = new GsmConnection(originalConnection);
-            mGsmConferenceController[phoneId].add(connection);
-            return connection;
+            returnConnection = new GsmConnection(originalConnection);
         } else if (phoneType == TelephonyManager.PHONE_TYPE_CDMA) {
             boolean allowMute = allowMute(phone);
-            CdmaConnection connection = new CdmaConnection(
+            returnConnection = new CdmaConnection(
                     originalConnection, mEmergencyTonePlayer, allowMute, isOutgoing);
-            mCdmaConferenceController[phoneId].add(connection);
-            return connection;
-        } else {
-            return null;
         }
+        if (returnConnection != null) {
+            // Listen to Telephony specific callbacks from the connection
+            returnConnection.addTelephonyConnectionListener(mTelephonyConnectionListener);
+        }
+        return returnConnection;
     }
 
     private boolean isOriginalConnectionKnown(
@@ -518,5 +531,42 @@ public class TelephonyConnectionService extends ConnectionService {
 
     public static boolean isLchActive(int phoneId) {
         return (sLchState[phoneId] == 1);
+    }
+
+    @Override
+    public void removeConnection(Connection connection) {
+        super.removeConnection(connection);
+        if (connection instanceof TelephonyConnection) {
+            TelephonyConnection telephonyConnection = (TelephonyConnection) connection;
+            telephonyConnection.removeTelephonyConnectionListener(mTelephonyConnectionListener);
+        }
+    }
+
+    /**
+     * When a {@link TelephonyConnection} has its underlying original connection configured,
+     * we need to add it to the correct conference controller.
+     *
+     * @param connection The connection to be added to the controller
+     */
+    public void addConnectionToConferenceController(TelephonyConnection connection) {
+        // TODO: Do we need to handle the case of the original connection changing
+        // and triggering this callback multiple times for the same connection?
+        // If that is the case, we might want to remove this connection from all
+        // conference controllers first before re-adding it.
+        int phoneId = connection.getCall().getPhone().getPhoneId();
+        if (connection.isImsConnection()) {
+            Log.d(this, "Adding IMS connection to conference controller: " + connection);
+            mImsConferenceController[phoneId].add(connection);
+        } else {
+            int phoneType = connection.getCall().getPhone().getPhoneType();
+            if (phoneType == TelephonyManager.PHONE_TYPE_GSM) {
+                Log.d(this, "Adding GSM connection to conference controller: " + connection);
+                mTelephonyConferenceController[phoneId].add(connection);
+            } else if (phoneType == TelephonyManager.PHONE_TYPE_CDMA &&
+                    connection instanceof CdmaConnection) {
+                Log.d(this, "Adding CDMA connection to conference controller: " + connection);
+                mCdmaConferenceController[phoneId].add((CdmaConnection)connection);
+            }
+        }
     }
 }

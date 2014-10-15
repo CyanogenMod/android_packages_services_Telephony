@@ -28,11 +28,12 @@ import com.android.internal.telephony.Phone;
 import java.util.List;
 
 /**
- * GSM-based conference call.
+ * TelephonyConnection-based conference call for GSM conferences and IMS conferences (which may
+ * be either GSM-based or CDMA-based).
  */
-public class GsmConference extends Conference {
+public class TelephonyConference extends Conference {
 
-    public GsmConference(PhoneAccountHandle phoneAccount) {
+    public TelephonyConference(PhoneAccountHandle phoneAccount) {
         super(phoneAccount);
         setCapabilities(
                 PhoneCapabilities.SUPPORT_HOLD |
@@ -48,17 +49,30 @@ public class GsmConference extends Conference {
     @Override
     public void onDisconnect() {
         for (Connection connection : getConnections()) {
-            Call call = getMultipartyCallForConnection(connection, "onDisconnect");
-            if (call != null) {
-                Log.d(this, "Found multiparty call to hangup for conference.");
-                try {
-                    call.hangup();
-                    break;
-                } catch (CallStateException e) {
-                    Log.e(this, e, "Exception thrown trying to hangup conference");
-                }
+            if (disconnectCall(connection)) {
+                break;
             }
         }
+    }
+
+    /**
+     * Disconnect the underlying Telephony Call for a connection.
+     *
+     * @param connection The connection.
+     * @return {@code True} if the call was disconnected.
+     */
+    private boolean disconnectCall(Connection connection) {
+        Call call = getMultipartyCallForConnection(connection, "onDisconnect");
+        if (call != null) {
+            Log.d(this, "Found multiparty call to hangup for conference.");
+            try {
+                call.hangup();
+                return true;
+            } catch (CallStateException e) {
+                Log.e(this, e, "Exception thrown trying to hangup conference");
+            }
+        }
+        return false;
     }
 
     /**
@@ -69,7 +83,7 @@ public class GsmConference extends Conference {
     @Override
     public void onSeparate(Connection connection) {
         com.android.internal.telephony.Connection radioConnection =
-                getOriginalConnection(connection, "onSeparate");
+                getOriginalConnection(connection);
         try {
             radioConnection.separate();
         } catch (CallStateException e) {
@@ -94,7 +108,7 @@ public class GsmConference extends Conference {
      */
     @Override
     public void onHold() {
-        final GsmConnection connection = getFirstConnection();
+        final TelephonyConnection connection = getFirstConnection();
         if (connection != null) {
             connection.performHold();
         }
@@ -105,7 +119,7 @@ public class GsmConference extends Conference {
      */
     @Override
     public void onUnhold() {
-        final GsmConnection connection = getFirstConnection();
+        final TelephonyConnection connection = getFirstConnection();
         if (connection != null) {
             connection.performUnhold();
         }
@@ -113,7 +127,7 @@ public class GsmConference extends Conference {
 
     @Override
     public void onPlayDtmfTone(char c) {
-        final GsmConnection connection = getFirstConnection();
+        final TelephonyConnection connection = getFirstConnection();
         if (connection != null) {
             connection.onPlayDtmfTone(c);
         }
@@ -121,15 +135,56 @@ public class GsmConference extends Conference {
 
     @Override
     public void onStopDtmfTone() {
-        final GsmConnection connection = getFirstConnection();
+        final TelephonyConnection connection = getFirstConnection();
         if (connection != null) {
             connection.onStopDtmfTone();
         }
     }
 
+    @Override
+    public void onConnectionAdded(Connection connection) {
+        // If the conference was an IMS connection currently or before, disable MANAGE_CONFERENCE
+        // as the default behavior. If there is a conference event package, this may be overridden.
+        // If a conference event package was received, do not attempt to remove manage conference.
+        if (connection instanceof TelephonyConnection &&
+                ((TelephonyConnection) connection).wasImsConnection()) {
+            int capabilities = getCapabilities();
+            if (PhoneCapabilities.can(capabilities, PhoneCapabilities.MANAGE_CONFERENCE)) {
+                int newCapabilities =
+                        PhoneCapabilities.remove(capabilities, PhoneCapabilities.MANAGE_CONFERENCE);
+                setCapabilities(newCapabilities);
+            }
+        }
+    }
+
+    @Override
+    public Connection getPrimaryConnection() {
+
+        List<Connection> connections = getConnections();
+        if (connections == null || connections.isEmpty()) {
+            return null;
+        }
+
+        // Default to the first connection.
+        Connection primaryConnection = connections.get(0);
+
+        // Otherwise look for a connection where the radio connection states it is multiparty.
+        for (Connection connection : connections) {
+            com.android.internal.telephony.Connection radioConnection =
+                    getOriginalConnection(connection);
+
+            if (radioConnection != null && radioConnection.isMultiparty()) {
+                primaryConnection = connection;
+                break;
+            }
+        }
+
+        return primaryConnection;
+    }
+
     private Call getMultipartyCallForConnection(Connection connection, String tag) {
         com.android.internal.telephony.Connection radioConnection =
-                getOriginalConnection(connection, tag);
+                getOriginalConnection(connection);
         if (radioConnection != null) {
             Call call = radioConnection.getCall();
             if (call != null && call.isMultiparty()) {
@@ -139,22 +194,21 @@ public class GsmConference extends Conference {
         return null;
     }
 
-    private com.android.internal.telephony.Connection getOriginalConnection(
-            Connection connection, String tag) {
+    protected com.android.internal.telephony.Connection getOriginalConnection(
+            Connection connection) {
 
-        if (connection instanceof GsmConnection) {
-            return ((GsmConnection) connection).getOriginalConnection();
+        if (connection instanceof TelephonyConnection) {
+            return ((TelephonyConnection) connection).getOriginalConnection();
         } else {
-            Log.e(this, null, "Non GSM connection found in a Gsm conference (%s)", tag);
             return null;
         }
     }
 
-    private GsmConnection getFirstConnection() {
+    private TelephonyConnection getFirstConnection() {
         final List<Connection> connections = getConnections();
         if (connections.isEmpty()) {
             return null;
         }
-        return (GsmConnection) connections.get(0);
+        return (TelephonyConnection) connections.get(0);
     }
 }

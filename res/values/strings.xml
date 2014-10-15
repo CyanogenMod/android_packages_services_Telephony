@@ -1274,7 +1274,9 @@
     </string-array>
 
     <!-- Title for the dialog used to display CDMA DisplayInfo -->
-    <string name="network_message">Network message</string>
+    <string name="network_info_message">Network message</string>
+    <!-- Title for the dialog used to display a network error message to the user -->
+    <string name="network_error_message">Error message</string>
 
     <!-- Shown in "Managed Roaming" dialog when registration is denied with rejCode 10. -->
     <string name="managed_roaming_title">Managed Roaming</string>
