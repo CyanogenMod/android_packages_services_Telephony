@@ -29,6 +29,7 @@
 
 package com.android.phone;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -38,6 +39,7 @@ import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.app.TabActivity;
@@ -100,6 +102,11 @@ public class SelectSubscription extends  TabActivity {
             subscriptionPref.setContent(intent);
             tabHost.addTab(subscriptionPref);
         }
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -109,6 +116,15 @@ public class SelectSubscription extends  TabActivity {
 
     private static void log(String msg) {
         Log.d(LOG_TAG, msg);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
