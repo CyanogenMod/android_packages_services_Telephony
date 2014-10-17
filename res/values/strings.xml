@@ -1523,4 +1523,18 @@
     <string name="china_telecom">China Telecom</string>
  <!-- Manual PLMN scan data disconnect dialog text -->
     <string name="disconnect_data_confirm">Data service temporarily would be disconnected. Are you sure?</string>
+
+    <!-- IMS settings related strings -->
+    <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
+    <string name="ims_edit_title">IMS account details</string>
+    <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+    <string name="ims_accounts_title">IMS Account</string>
+
+    <!-- VT call quality settings. -->
+    <string translatable="false" name="ims_vt_call_quality">VtCallQuality</string>
+    <string name="ims_vt_call_quality_title">VT Call Quality</string>
+    <string name="ims_vt_call_quality_low">Low</string>
+    <string name="ims_vt_call_quality_high">High</string>
+    <string name="ims_vt_call_quality_unknown">Unknown</string>
+    <string name="ims_vt_call_quality_set_failed">Failed to set video quality</string>
 </resources>
