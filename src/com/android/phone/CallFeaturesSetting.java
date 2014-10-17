@@ -211,6 +211,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private static final String BUTTON_SELECT_SUB_KEY  = "button_call_independent_serv";
     private static final String BUTTON_XDIVERT_KEY = "button_xdivert";
+    private static final String ENABLE_VIDEO_CALLING_KEY = "button_enable_video_calling";
 
     private Intent mContactListIntent;
 
@@ -298,6 +299,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private CheckBoxPreference mButtonProximity;
     private CheckBoxPreference mVibrateAfterConnected;
     private CheckBoxPreference mShowDurationCheckBox;
+    private CheckBoxPreference mEnableVideoCalling;
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private boolean isSpeedDialListStarted = false;
     private PreferenceScreen mButtonBlacklist;
@@ -644,7 +646,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (DBG) {
-            log("onPreferenceChange(). preferenece: \"" + preference + "\""
+            log("onPreferenceChange(). preference: \"" + preference + "\""
                     + ", value: \"" + objValue + "\"");
         }
 
@@ -716,6 +718,8 @@ public class CallFeaturesSetting extends PreferenceActivity
                     log("setAdvanced4GMode failed");
                 }
             }
+        } else if (preference == mEnableVideoCalling) {
+            PhoneGlobals.getInstance().phoneMgr.enableVideoCalling((boolean) objValue);
         }
         // always let the preference setting proceed.
         return true;
@@ -1761,6 +1765,8 @@ public class CallFeaturesSetting extends PreferenceActivity
                 prefSet.removePreference(pref);
             }
         }
+        CheckBoxPreference mEnableVideoCalling =
+                (CheckBoxPreference) findPreference(ENABLE_VIDEO_CALLING_KEY);
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -2004,6 +2010,11 @@ public class CallFeaturesSetting extends PreferenceActivity
             mVoicemailNotificationVibrate.setChecked(prefs.getBoolean(
                     BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + mPhone.getPhoneId(), false));
         }
+
+        mEnableVideoCalling.setChecked(PhoneGlobals.getInstance().phoneMgr.isVideoCallingEnabled());
+        mEnableVideoCalling.setOnPreferenceChangeListener(this);
+        // TODO: Perform checks to determine whether we should remove the preference.
+        prefSet.removePreference(mEnableVideoCalling);
 
         // Look up the voicemail ringtone name asynchronously and update its preference.
         new Thread(mVoicemailRingtoneLookupRunnable).start();
