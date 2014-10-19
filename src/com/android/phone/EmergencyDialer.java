@@ -644,7 +644,7 @@ public class EmergencyDialer extends Activity implements View.OnClickListener,
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
         case POLICE:
@@ -665,6 +665,6 @@ public class EmergencyDialer extends Activity implements View.OnClickListener,
             break;
         }
         return true;
-    }
+    } */
 
 }
