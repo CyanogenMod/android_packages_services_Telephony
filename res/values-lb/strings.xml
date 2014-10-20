@@ -23,7 +23,9 @@
   <string name="unknown">Onbekannt</string>
   <string name="private_num">Privat Nummer</string>
   <string name="payphone">Telefonskabinn</string>
+  <string name="onHold">Gehalenen Uruff</string>
   <string name="mmiStarted">MMI-Code gestart</string>
+  <string name="ussdRunning">USSD-Code gëtt ausgefouert\u2026</string>
   <string name="mmiCancelled">MMI-Code ofgebrach</string>
   <string name="cancel">Ofbriechen</string>
   <string name="enter_input">Den USSD-Message muss <xliff:g id="min_len">%d</xliff:g> bis <xliff:g id="max_len">%d</xliff:g> Zeeche laang sinn. Probéier w.e.g. nees.</string>
@@ -36,14 +38,42 @@
   <string name="pause_prompt_no">Nee</string>
   <string name="wild_prompt_str">Plazhalter ersetzen duerch</string>
   <string name="add_vm_number_str">Nummer dobäisetzen</string>
+  <string name="labelGSMMore">GSM-Uruffastellungen</string>
+  <string name="labelCDMAMore">CDMA-Uruffastellungen</string>
+  <string name="settings_label">Netzwierkastellungen</string>
   <string name="voicemail">Sproochopnam</string>
   <string name="labelCW">Gespréich pauséiert</string>
   <string name="labelCFU">Ëmmer weiderleeden</string>
-  <string name="sum_cfu_disabled">Deaktivéiert</string>
-  <string name="sum_cfb_disabled">Deaktivéiert</string>
-  <string name="sum_cfnry_disabled">Deaktivéiert</string>
-  <string name="sum_cfnrc_disabled">Deaktivéiert</string>
+  <string name="messageCFU">Ëmmer dës Nummer benotzen</string>
+  <string name="sum_cfu_enabled_indicator">Weiderleedung fir all d\'Uriff</string>
+  <string name="sum_cfu_enabled">Weiderleedung fir all d\'Uriff un <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
+  <string name="sum_cfu_enabled_no_number">D\'Nummer ass besat</string>
+  <string name="sum_cfu_disabled">Desaktivéiert</string>
+  <string name="labelCFB">Weiderleede wa besat</string>
+  <string name="messageCFB">Nummer wa besat</string>
+  <string name="sum_cfb_disabled">Desaktivéiert</string>
+  <string name="disable_cfb_forbidden">Däi Provider erlaabt et net d\'Weiderleedung auszeschalte wann deng Nummer besat ass.</string>
+  <string name="labelCFNRy">Weiderleede wann net beäntwert</string>
+  <string name="messageCFNRy">Nummer wann net beäntwert</string>
+  <string name="sum_cfnry_disabled">Desaktivéiert</string>
+  <string name="disable_cfnry_forbidden">Däi Provider erlaabt et net d\'Weiderleedung auszeschalte wann s du den Uruff net beäntwers.</string>
+  <string name="sum_cfnrc_disabled">Desaktivéiert</string>
   <string name="close_dialog">OK</string>
+  <string name="enable">Aktivéieren</string>
+  <string name="disable">Desaktivéieren</string>
+  <string name="change_num">Aktualiséieren</string>
+  <string-array name="clir_display_values">
+    <item>Netzwierkstandard</item>
+    <item>Nummer verstoppen</item>
+    <item>Nummer uweisen</item>
+  </string-array>
+  <string name="voicemail_default">Mäi Provider</string>
+  <string name="mobile_networks">Astellunge vum mobilen Netzwierk</string>
+  <string name="label_available">Disponibel Netzwierker</string>
+  <string name="load_networks_progress">Gëtt gesicht\u2026</string>
+  <string name="empty_networks_list">Keng Netzwierker fonnt.</string>
+  <string name="search_networks">Netzwierker sichen</string>
+  <string name="network_query_error">Feeler beim Sichen no Netzwierker.</string>
   <string name="register_automatically">Automatesch Registréierung\u2026</string>
   <string name="preferred_network_mode_title">Preferéierten Netzwierktyp</string>
   <string name="preferred_network_mode_dialogtitle">Preferéierten Netzwierktyp</string>
@@ -75,6 +105,18 @@
     <item>just GSM</item>
     <item>GSM/WCDMA preferéiert</item>
   </string-array>
+  <string name="data_enabled">Daten aktivéiert</string>
+  <string name="data_enable_summary">Datenzougrëff iwwer dat mobilt Netzwierk aktivéieren</string>
+  <string name="throttle_help">Méi gewuer ginn</string>
+  <string name="maintenance_enable">Maintenance aktivéiert</string>
+  <string name="maintenance_disable">Maintenance desaktivéiert</string>
+  <string name="general_news_settings">Allgemeng Noriichten</string>
+  <string name="bf_news_settings">Geschäfts- a Finanznoriichten</string>
+  <string name="sports_news_settings">Sportsnoriichten</string>
+  <string name="entertainment_news_settings">Ënnerhalungsnoriichten</string>
+  <string name="enable_disable_local">Lokal</string>
+  <string name="national_enable">National Noriichten aktivéiert</string>
+  <string name="national_disable">National Noriichten desaktivéiert</string>
   <string-array name="list_language_entries">
     <item>English</item>
     <item>Franséisch</item>
@@ -115,7 +157,7 @@
   <string name="notification_voicemail_text_format"><xliff:g id="voicemail_number">%s</xliff:g> uruffen</string>
   <string name="notification_voicemail_no_vm_number">Mailbox-Nummer onbekannt</string>
   <string name="notification_network_selection_text">Ausgewielt Netzwierk (<xliff:g id="operator_name">%s</xliff:g>) net erreechbar</string>
-  <string name="incall_error_power_off">Deaktivéier de Fligermodus, fir unzeruffen.</string>
+  <string name="incall_error_power_off">Desaktivéier de Fligermodus, fir unzeruffen.</string>
   <string name="incall_error_emergency_only">Net am Netzwierk registréiert.</string>
   <string name="incall_error_out_of_service">Mobilt Netzwierk net disponibel.</string>
   <string name="incall_error_no_phone_number_supplied">Uruff net geschéckt, keng gëlteg Nummer.</string>

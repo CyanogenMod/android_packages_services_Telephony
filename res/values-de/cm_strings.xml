@@ -92,10 +92,17 @@
   <string name="incoming_call_style_fullscreen_photo">Großes Anruferbild</string>
   <string name="network_forbidden">(Verboten)</string>
   <string name="proximity_mode_title">Näherungssensor aktivieren</string>
+  <string name="proximity_on_summary">Den Bildschirm während eines Anrufes mit Hilfe des Näherungssensors ggf. ausschalten</string>
+  <string name="proximity_off_summary">Den Bildschirm während eines Anrufes nicht ausschalten</string>
   <string name="call_barring">Anrufsperre</string>
   <string name="call_barring_off">Deaktiviert</string>
+  <string name="call_barring_outgoing">Ausgehende Anrufe</string>
+  <string name="call_barring_outgoing_international_roaming">Internationale Roaming-Anrufe</string>
   <string name="call_barring_outgoing_international">Internationale Anrufe</string>
   <string name="call_barring_outgoing_all">Alle abgehenden Anrufe</string>
+  <string name="call_barring_incoming">Eingehende Anrufe</string>
+  <string name="call_barring_incoming_roaming">Bei Roaming</string>
+  <string name="call_barring_incoming_all">Alle eingehenden Anrufe</string>
   <string name="input_password">Passwort eingeben</string>
   <string name="psw_enter_old">Aktuelles Passwort</string>
   <string name="labelCbChangePassword">Passwort ändern</string>
@@ -204,6 +211,7 @@
   <string name="sum_xdivert_enabled">Umleitung aktiviert</string>
   <string name="sum_xdivert_disabled">Umleitung deaktiviert</string>
   <string name="xdivert_not_supported">Umleitung nicht von CDMA unterstützt</string>
+  <string name="xdivert_enternumber_error">Geben Sie die Telefonnummer für beide SIM-Karten ein</string>
   <string name="xdivert_status">Umleitungs-Status</string>
   <string name="xdivert_active">Aktiviert</string>
   <string name="xdivert_not_active">Deaktiviert</string>
@@ -264,6 +272,7 @@
   <string name="set_sub_no_change">Keine Änderung der aktiven SIM-Karte</string>
   <string name="new_cards_available">Neue SIM-Karte verfügbar. Bitte konfigurieren Sie Ihre SIM-Karten.</string>
   <string name="config_sub_title">SIM auswählen</string>
+  <string name="deact_all_sub_not_supported">Deaktivierung aller SIM-Karten wird nicht unterstützt.</string>
   <string name="set_sub_not_supported_phone_in_call">Aktivieren oder Deaktivieren von SIM-Karten ist während eines Anrufs nicht möglich.</string>
   <string name="disconnect_data_confirm">Datendienst muss vorübergehend getrennt werden. Sind Sie sicher, dass Sie fortfahren möchten?</string>
   <string name="simContacts_title_cm">Kontakte auf SIM-Karte verwalten</string>
