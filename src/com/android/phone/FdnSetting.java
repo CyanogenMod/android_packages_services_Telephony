@@ -25,6 +25,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.telephony.TelephonyManager;
 import android.telephony.SubscriptionManager;
 import android.util.Log;
 import android.view.MenuItem;
@@ -279,40 +280,50 @@ public class FdnSetting extends PreferenceActivity
                             log("Handle EVENT_PIN2_CHANGE_COMPLETE");
                         AsyncResult ar = (AsyncResult) msg.obj;
                         if (ar.exception != null) {
-                            int attemptsRemaining = msg.arg1;
-                            log("Handle EVENT_PIN2_CHANGE_COMPLETE attemptsRemaining="
-                                    + attemptsRemaining);
-                            CommandException ce = (CommandException) ar.exception;
-                            if (ce.getCommandError() == CommandException.Error.SIM_PUK2) {
-                                // throw an alert dialog on the screen, displaying the
-                                // request for a PUK2.  set the cancel listener to
-                                // FdnSetting.onCancel().
-                                AlertDialog a = new AlertDialog.Builder(FdnSetting.this)
-                                    .setMessage(R.string.puk2_requested)
-                                    .setCancelable(true)
-                                    .setOnCancelListener(FdnSetting.this)
-                                    .setNeutralButton(android.R.string.ok,
-                                            new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialog,
-                                                        int which) {
-                                                    resetPinChangeStateForPUK2();
-                                                    displayPinChangeDialog(0,true);
-                                                }
-                                            })
-                                    .create();
-                                a.getWindow().addFlags(
-                                        WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                                a.show();
-                            } else {
-                                // set the correct error message depending upon the state.
-                                // Reset the state depending upon or knowledge of the PUK state.
-                                if (!mIsPuk2Locked) {
-                                    displayMessage(R.string.badPin2, attemptsRemaining);
-                                    resetPinChangeState();
+                            if (ar.exception instanceof RuntimeException) {
+                                int slotId = SubscriptionManager.getSlotId(mPhone.getSubId());
+                                int simState = TelephonyManager.getDefault().getSimState(slotId);
+                                if (simState == TelephonyManager.SIM_STATE_ABSENT) {
+                                    displayMessage(R.string.sim_absent);
                                 } else {
-                                    displayMessage(R.string.badPuk2, attemptsRemaining);
-                                    resetPinChangeStateForPUK2();
+                                    displayMessage(R.string.exception_error);
+                                }
+                            } else {
+                                int attemptsRemaining = msg.arg1;
+                                log("Handle EVENT_PIN2_CHANGE_COMPLETE attemptsRemaining="
+                                        + attemptsRemaining);
+                                CommandException ce = (CommandException) ar.exception;
+                                if (ce.getCommandError() == CommandException.Error.SIM_PUK2) {
+                                    // throw an alert dialog on the screen, displaying the
+                                    // request for a PUK2.  set the cancel listener to
+                                    // FdnSetting.onCancel().
+                                    AlertDialog a = new AlertDialog.Builder(FdnSetting.this)
+                                        .setMessage(R.string.puk2_requested)
+                                        .setCancelable(true)
+                                        .setOnCancelListener(FdnSetting.this)
+                                        .setNeutralButton(android.R.string.ok,
+                                                new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog,
+                                                            int which) {
+                                                        resetPinChangeStateForPUK2();
+                                                        displayPinChangeDialog(0,true);
+                                                    }
+                                                })
+                                        .create();
+                                    a.getWindow().addFlags(
+                                            WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                                    a.show();
+                                } else {
+                                    // set the correct error message depending upon the state.
+                                    // Reset the state depending upon or knowledge of the PUK state.
+                                    if (!mIsPuk2Locked) {
+                                        displayMessage(R.string.badPin2, attemptsRemaining);
+                                        resetPinChangeState();
+                                    } else {
+                                        displayMessage(R.string.badPuk2, attemptsRemaining);
+                                        resetPinChangeStateForPUK2();
+                                    }
                                 }
                             }
                         } else {
