@@ -347,11 +347,11 @@
     <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
 
-    <string name="network_settings_sel_sub">Subscription settings</string>
-    <string name="summary_manage_subscriptions">Manage network settings of each subscription</string>
+    <string name="network_settings_sel_sub">SIM card settings</string>
+    <string name="summary_manage_subscriptions">Manage network settings of each SIM card</string>
 
     <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
-    <string name="callind_multi_sim">Multi SIM settings</string>
+    <string name="callind_multi_sim">SIM card settings</string>
 
     <!-- TTY Mode change is NOT allowed during a VT call -->
     <string name="tty_mode_not_allowed_vt_call">TTY mode change is not allowed during a video call</string>
@@ -366,17 +366,17 @@
     <!-- Summary for the XDivert Feature displayed in Call Settings -->
     <string name="xdivert_summary">CFNRc Settings</string>
     <string name="phone_numbers">Enter phone numbers</string>
-    <string name="sub1LineNumber">Sub 1 number:</string>
-    <string name="sub2LineNumber">Sub 2 number:</string>
+    <string name="sub1LineNumber">SIM 1 number:</string>
+    <string name="sub2LineNumber">SIM 2 number:</string>
     <string name="proceed">Proceed</string>
     <string name="xdivert_button" translatable="false">X-Divert</string>
     <string name="xdivert_setting" translatable="false">X-Divert</string>
     <string name="sum_xdivert_enabled">X-Divert enabled</string>
     <string name="sum_xdivert_disabled">X-Divert disabled</string>
     <string name="xdivert_not_supported">X-Divert not supported for CDMA</string>
-    <string name="xdivert_enternumber_error">Enter phone number for both subscriptions</string>
-    <string name="xdivert_partial_set">X-Divert has been set only for the first subscription</string>
-    <string name="xdivert_sub_absent">Both subscriptions should be activated to process X-Divert</string>
+    <string name="xdivert_enternumber_error">Enter phone number for each SIM card</string>
+    <string name="xdivert_partial_set">X-Divert has been set only for the first SIM card</string>
+    <string name="xdivert_sub_absent">Each SIM card should be activated to process X-Divert</string>
     <string name="xdivert_status">X-Divert status</string>
     <string name="xdivert_active">Active</string>
     <string name="xdivert_not_active">Not active</string>
@@ -442,10 +442,10 @@
     <string name="exportAllcontatsNoContacts">No contacts found to export to SIM</string>
     <string name="cursorError">Invalid cursor data</string>
     <!-- Set Subscription screen: set subscription option name -->
-    <string name="set_subscription">Select subscription</string>
+    <string name="set_subscription">Select SIM card</string>
 
     <!-- Set Subscription screen: Message shown in error dialog -->
-    <string name="set_subscription_error_atleast_one">Select at least one subscription</string>
+    <string name="set_subscription_error_atleast_one">Select at least one SIM card</string>
     <!-- Set Subscription screen: Progress message -->
     <string name="set_uicc_subscription_progress">Setting subscription\u2026</string>
     <!-- Set Subscription screen: Set subscriptio success -->
@@ -453,11 +453,11 @@
     <!-- Set Subscription screen: Set subscriptio success -->
     <string name="set_sub_failed">Failed to set subscription</string>
     <!-- Set Subscription screen: Subscription 1 -->
-    <string name="set_sub_1">Subscription 1: </string>
+    <string name="set_sub_1">SIM card 1: </string>
     <!-- Set Subscription screen: Subscription 2 -->
-    <string name="set_sub_2">Subscription 2: </string>
+    <string name="set_sub_2">SIM card 2: </string>
     <!-- Set Subscription screen: Subscription 3 -->
-    <string name="set_sub_3">Subscription 3: </string>
+    <string name="set_sub_3">SIM card 3: </string>
     <!-- Set Subscription screen: Subscription activate success -->
     <string name="set_sub_activate_success">Activation successful</string>
     <!-- Set Subscription screen: Subscription deactivate success -->
