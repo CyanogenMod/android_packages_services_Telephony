@@ -609,4 +609,11 @@
     <string name="preferred_lte_summary">"启用4G单数据时，语音和短信功能将不能使用"</string>
 
     <string name="speed_dial_setting">快速拨号设置</string>
+
+    <string name="phone_account_settings">电话账户设置</string>
+    <string name="callind_multi_sim">Sim卡设置</string>
+    <string name="phone_account_wifi_calling">Wi-Fi呼叫</string>
+    <string name="phone_accounts_make_calls_with">呼叫通过</string>
+    <string name="xdivert_title">X-Divert设置</string>
+    <string name="xdivert_summary">CFNRc设置</string>
 </resources>
