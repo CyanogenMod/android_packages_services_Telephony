@@ -451,7 +451,7 @@
         <!-- MSim Call Feature Sub Settings -->
         <activity android:name="MSimCallFeaturesSubSetting"
             android:label="@string/call_settings"
-            android:configChanges="orientation|keyboardHidden"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/SettingsLight">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -474,7 +474,7 @@
         <!-- Select Subscription -->
         <activity android:name="SelectSubscription"
             android:label="@string/callind_multi_sim"
-            android:configChanges="orientation|keyboardHidden"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/SettingsLight">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
