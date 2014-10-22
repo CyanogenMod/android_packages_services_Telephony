@@ -327,32 +327,32 @@
     <!-- Call forwarding settings screen, Always forward is enabled but the number is unavailable -->
     <string name="sum_cfu_enabled_no_number">Number is unavailable</string>
     <!-- Call forwarding settings screen, setting summary text when Always forward is disabled -->
-    <string name="sum_cfu_disabled">Off</string>
+    <string name="sum_cfu_disabled">Disabled</string>
 
     <!-- Call forwarding settings screen, setting option name -->
-    <string name="labelCFB">When busy</string>
+    <string name="labelCFB">Forward when busy</string>
     <!-- Call forwarding dialog box, text field label -->
     <string name="messageCFB">Number when busy</string>
     <!-- Call forwarding settings screen, setting summary text when forwarding to specific number when busy -->
     <string name="sum_cfb_enabled">Forwarding to <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
     <!-- Call forwarding settings screen, setting summary text when forwarding when busy is disabled -->
-    <string name="sum_cfb_disabled">Off</string>
+    <string name="sum_cfb_disabled">Disabled</string>
     <!-- Error message displayed after failing to disable forwarding calls when the phone is busy -->
     <string name="disable_cfb_forbidden">Your operator doesn\'t support disabling call forwarding when your phone is busy.</string>
 
     <!-- Call forwarding settings screen, setting option name -->
-    <string name="labelCFNRy">When unanswered</string>
+    <string name="labelCFNRy">Forward when unanswered</string>
     <!-- Call forwarding dialog box, text field label -->
     <string name="messageCFNRy">Number when unanswered</string>
     <!-- Call forwarding settings screen, setting summary text when forwarding to a specific number when unanswered -->
     <string name="sum_cfnry_enabled">Forwarding to <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
     <!-- Call forwarding settings screen, setting summary text when Forward when unanswered is disabled -->
-    <string name="sum_cfnry_disabled">Off</string>
+    <string name="sum_cfnry_disabled">Disabled</string>
     <!-- Error message displayed after failing to disable forwarding calls when the phone does not answer -->
     <string name="disable_cfnry_forbidden">Your operator doesn\'t support disabling call forwarding when your phone doesn\'t answer.</string>
 
     <!-- Call forwarding settings screen, setting option name -->
-    <string name="labelCFNRc">When unreachable</string>
+    <string name="labelCFNRc">Forward when unreachable</string>
     <!-- Call forwarding dialog box, text field label -->
     <string name="messageCFNRc">Number when unreachable</string>
     <!-- Call forwarding settings screen, setting summary text when forwarding to a specific number when unreachable-->
