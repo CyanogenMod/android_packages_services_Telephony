@@ -271,7 +271,7 @@ public class PhoneGlobals extends ContextWrapper {
                 callback.replyTo = new Messenger(callback.getTarget());
             }
             Bundle params = new Bundle();
-            params.putInt(PhoneConstants.SUBSCRIPTION_KEY, sub);
+            params.putInt(PhoneConstants.SLOT_KEY, sub);
             params.putInt("network", network);
             params.putInt("band", band);
             params.putParcelable("callback", callback);
