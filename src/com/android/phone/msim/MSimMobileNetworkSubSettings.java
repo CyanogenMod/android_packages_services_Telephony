@@ -347,7 +347,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
 
     private void setScreenState() {
         int simState = TelephonyManager.getDefault().getSimState(mPhone.getPhoneId());
-        getPreferenceScreen().setEnabled(simState == TelephonyManager.SIM_STATE_READY);
+        getPreferenceScreen().setEnabled(simState != TelephonyManager.SIM_STATE_ABSENT);
     }
 
     /**
