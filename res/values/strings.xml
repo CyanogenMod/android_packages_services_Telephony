@@ -400,6 +400,30 @@
         <item><xliff:g>SHOW</xliff:g></item>
     </string-array>
 
+    <!-- Add VideoCall Setttings -->
+    <string name="videocall_settings">VideoCall Settings</string>
+    <string name="vt_fallback_setting">Redial via voice call</string>
+    <string name="vt_forward_setting">Video call forwarding</string>
+    <string name="vt_imagereplace_setting">Alternative picture</string>
+    <string name="fallback_setting_label">Redial via voice call</string>
+    <string name="image_replace_setting_label">Alternative picture setting</string>
+    <string name="labelVTCF">Video call forwarding</string>
+
+
+    <string name="vt_fallback_setting_sum">Redial manually</string>
+    <string name="vt_forward_setting_sum">Video call forward settings</string>
+    <string name="vt_imagereplace_setting_sum">Display when local camera is off</string>
+    <string-array name="videocall_fb_setting_entries">
+      <item>Redial manually</item>
+      <item>Redial automatically</item>
+      <item>No redial</item>
+    </string-array>
+    <string-array name="videocall_fb_setting_values" translatable="false">
+       <item>0</item>
+       <item>1</item>
+       <item>2</item>
+    </string-array>
+
     <!-- voicemail setting strings --><skip/>
     <!-- Call settings screen, Set voicemail number dialog text -->
     <string name="vm_changed">Voicemail number changed.</string>
