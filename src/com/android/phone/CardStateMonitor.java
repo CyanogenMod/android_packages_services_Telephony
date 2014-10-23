@@ -241,6 +241,12 @@ public class CardStateMonitor extends Handler {
 
     private void notifyCardAvailableIfNeed(int sub, UiccCard uiccCard) {
         if (uiccCard != null) {
+            if(CardState.CARDSTATE_ABSENT == uiccCard.getCardState()){
+                logd("notifyCardAvailableIfNeed sim hot swap");
+                mCards[sub].mLoadingIcc = false;
+                mCards[sub].mIccId = null;
+            }
+
             if (CardState.CARDSTATE_PRESENT == uiccCard.getCardState()
                     && TextUtils.isEmpty(mCards[sub].mIccId)) {
                 if (!mCards[sub].mLoadingIcc) {
