@@ -23,8 +23,6 @@ import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothHeadset;
-import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -41,14 +39,16 @@ import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UpdateLock;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.provider.Settings.System;
 import android.telephony.ServiceState;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 
 import android.telephony.TelephonyManager;
 import android.telephony.MSimTelephonyManager;
-import com.android.internal.telephony.Call;
+
 import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.IccCard;
 import com.android.internal.telephony.MmiCode;
@@ -58,14 +58,13 @@ import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.cdma.TtyIntent;
 import com.android.phone.common.CallLogAsync;
-import com.android.phone.OtaUtils.CdmaOtaScreenState;
 import com.android.internal.telephony.PhoneConstants;
 import com.codeaurora.telephony.msim.MSimPhoneFactory;
 import com.codeaurora.telephony.msim.SubscriptionManager;
 import com.codeaurora.telephony.msim.MSimTelephonyIntents;
 
-import java.util.ArrayList;
-
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
+import static android.telephony.TelephonyManager.SIM_STATE_READY;
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
 /**
@@ -94,6 +93,9 @@ public class MSimPhoneGlobals extends PhoneGlobals {
     private static final boolean DBG =
             (MSimPhoneGlobals.DBG_LEVEL >= 1) && (SystemProperties.getInt("ro.debuggable", 0) == 1);
     private static final boolean VDBG = (MSimPhoneGlobals.DBG_LEVEL >= 2);
+
+    // XXX: Misspelled everywhere
+    public static final String PREF_SUB_NAME = "perferred_name_sub";
 
     // Broadcast receiver for various intent broadcasts (see onCreate())
     private BroadcastReceiver mReceiver = new PhoneAppBroadcastReceiver();
@@ -467,14 +469,19 @@ public class MSimPhoneGlobals extends PhoneGlobals {
                     getPhone(i).setRadioPower(enabled);
                 }
 
-            } else if ((action.equals(TelephonyIntents.ACTION_SIM_STATE_CHANGED)) &&
-                    (mPUKEntryActivity != null)) {
-                // if an attempt to un-PUK-lock the device was made, while we're
-                // receiving this state change notification, notify the handler.
-                // NOTE: This is ONLY triggered if an attempt to un-PUK-lock has
-                // been attempted.
-                mHandler.sendMessage(mHandler.obtainMessage(EVENT_SIM_STATE_CHANGED,
-                        intent.getStringExtra(IccCardConstants.INTENT_KEY_ICC_STATE)));
+            } else if (action.equals(TelephonyIntents.ACTION_SIM_STATE_CHANGED)) {
+                MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
+                if (tm.getSimState(subscription) == SIM_STATE_READY) {
+                    maybeSetSubscriptionName(subscription);
+                }
+                if (mPUKEntryActivity != null) {
+                    // if an attempt to un-PUK-lock the device was made, while we're
+                    // receiving this state change notification, notify the handler.
+                    // NOTE: This is ONLY triggered if an attempt to un-PUK-lock has
+                    // been attempted.
+                    mHandler.sendMessage(mHandler.obtainMessage(EVENT_SIM_STATE_CHANGED,
+                            intent.getStringExtra(IccCardConstants.INTENT_KEY_ICC_STATE)));
+                }
             } else if (action.equals(TelephonyIntents.ACTION_RADIO_TECHNOLOGY_CHANGED)) {
                 String newPhone = intent.getStringExtra(PhoneConstants.PHONE_NAME_KEY);
                 Log.d(LOG_TAG, "Radio technology switched. Now " + newPhone + " is active.");
@@ -585,6 +592,58 @@ public class MSimPhoneGlobals extends PhoneGlobals {
             int state = ss.getState();
             notificationMgr.updateNetworkSelection(state, phone);
         }
+    }
+
+    private void maybeSetSubscriptionName(int subscription) {
+        ContentResolver cr = getContentResolver();
+        String imsi = MSimTelephonyManager.from(this).getSubscriberId(subscription);
+        if (imsi == null) return;
+        String prefKey = PREF_SUB_NAME + (subscription + 1);
+        String prefKeyImsi = imsi + "_" + prefKey;
+        String imsiSubName = Settings.System.getString(cr, prefKeyImsi);
+        String subName = Settings.System.getString(cr, prefKey);
+        if (TextUtils.isEmpty(imsiSubName)) {
+            String name = getOperatorNameForSubscription(subscription);
+            if (!TextUtils.isEmpty(name)) {
+                Settings.System.putString(cr, prefKeyImsi, name);
+                Settings.System.putString(cr, prefKey, name);
+            }
+        } else if (!imsiSubName.equals(subName)) {
+            Settings.System.putString(cr, prefKey, imsiSubName);
+        }
+    }
+
+    static void setSubscriptionName(Context context, int subscription, String name) {
+        String imsi = MSimTelephonyManager.from(context).getSubscriberId(subscription);
+        if (imsi == null) return;
+        String prefKey = PREF_SUB_NAME + (subscription + 1);
+        String prefKeyImsi = imsi + "_" + prefKey;
+        ContentResolver cr = context.getContentResolver();
+        Settings.System.putString(cr, prefKeyImsi, name);
+        Settings.System.putString(cr, prefKey, name);
+    }
+
+    static String generateDefaultNameForSubscription(Context context, int subscription) {
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
+        String operatorName = getOperatorNameForSubscription(subscription);
+        String name;
+        if (tm.getSimState(subscription) == SIM_STATE_ABSENT ||
+                TextUtils.isEmpty(operatorName)) {
+            name = context.getString(R.string.default_sim_name, subscription + 1);
+        } else {
+            name = operatorName;
+        }
+         setSubscriptionName(context, subscription, name);
+        return name;
+    }
+
+    private static String getOperatorNameForSubscription(int subscription) {
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
+        String operatorName = tm.getSimOperatorName(subscription);
+        if (TextUtils.isEmpty(operatorName)) {
+            return null;
+        }
+        return operatorName + " " + (subscription + 1);
     }
 
     // gets the MSPhone corresponding to a subscription

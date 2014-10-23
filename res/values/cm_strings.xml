@@ -129,9 +129,13 @@
     <string name="choose_reverse_lookup_provider_title">Reverse lookup provider</string>
 
     <!-- Set Subscription screen: label no sim -->
+    <string name="sim_name">SIM name</string>
     <string name="sub_no_sim">No SIM</string>
-    <string name="multi_sim_entry_format_no_carrier" translatable="false">SIM - <xliff:g id="index">%1$d</xliff:g></string>
+    <string name="default_sim_name" translatable="false">SIM <xliff:g id="index">%1$d</xliff:g></string>
+    <string name="multi_sim_entry_format_no_carrier" translatable="false">SIM card <xliff:g id="index">%1$d</xliff:g></string>
     <string name="multi_sim_entry_format" translatable="false"><xliff:g id="operator">%1$s</xliff:g> - <xliff:g id="index">%2$d</xliff:g></string>
+    <string name="sub_active">Active</string>
+    <string name="sub_not_active">Not active</string>
 
     <!-- Multi-SIM dial target selection -->
     <string name="msim_call_selector_title">Call <xliff:g id="number">%s</xliff:g> via</string>
@@ -442,7 +446,7 @@
     <string name="exportAllcontatsNoContacts">No contacts found to export to SIM</string>
     <string name="cursorError">Invalid cursor data</string>
     <!-- Set Subscription screen: set subscription option name -->
-    <string name="set_subscription">Select SIM card</string>
+    <string name="set_subscription">Configure SIM cards</string>
 
     <!-- Set Subscription screen: Message shown in error dialog -->
     <string name="set_subscription_error_atleast_one">Select at least one SIM card</string>
