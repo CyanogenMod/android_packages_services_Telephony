@@ -89,4 +89,48 @@
                       android:targetClass="com.qti.xdivert.XDivertSetting" />
       </PreferenceScreen>
 
+    <PreferenceScreen
+        android:key="speed_dial_settings"
+        android:title="@string/speed_dial_setting"
+        android:persistent="false">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.dialer"
+            android:targetClass="com.android.dialer.SpeedDialListActivity"/>
+    </PreferenceScreen>
+
+    <!-- Add videocall settings menu  -->
+    <PreferenceCategory
+        android:key="button_videocall_settings_key"
+        android:title="@string/videocall_settings"
+        android:persistent="false" />
+        <PreferenceScreen
+            android:key="videocall_setting_fb_key"
+            android:summary="@string/vt_fallback_setting_sum"
+            android:title="@string/vt_fallback_setting" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.borqs.videocall.FallBackSetting"
+                android:targetPackage="com.borqs.videocall" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="videocall_setting_fw_key"
+            android:summary="@string/vt_forward_setting_sum"
+            android:title="@string/vt_forward_setting"
+            android:persistent="false" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.borqs.videocall.VTCallForwardOptions"
+                android:targetPackage="com.borqs.videocall" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="vt_imageplacer"
+            android:persistent="false"
+            android:summary="@string/vt_imagereplace_setting_sum"
+            android:title="@string/vt_imagereplace_setting" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.borqs.videocall.VTImageReplaceSetting"
+                android:targetPackage="com.borqs.videocall" />
+        </PreferenceScreen>
 </PreferenceScreen>

@@ -166,6 +166,17 @@
     <string name="preferred_network_mode_gsm_only_choice">"仅 GSM"</string>
     <string name="preferred_network_mode_gsm_wcdma_preferred_choice">"首选 GSM/WCDMA"</string>
 
+    <string name="videocall_settings">视频通话设置</string>
+    <string name="vt_fallback_setting">自动回落</string>
+    <string name="vt_forward_setting">呼叫转移</string>
+    <string name="vt_imagereplace_setting">替换图片</string>
+    <string name="vt_fallback_setting_sum">转为语音通话设置</string>
+    <string name="vt_forward_setting_sum">呼叫转移设置</string>
+    <string name="vt_imagereplace_setting_sum">关闭相机时的照片显示</string>
+    <string name="fallback_setting_label">转语音设置</string>
+    <string name="labelVTCF">呼叫转移</string>
+    <string name="image_replace_setting_label">可视电话替代图片设置</string>
+
     <string name="data_enabled" msgid="5972538663568715366">"启用移动数据网络"</string>
     <!-- no translation found for data_enable_summary (2382798156640007971) -->
     <skip />

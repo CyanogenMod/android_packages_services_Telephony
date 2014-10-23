@@ -529,4 +529,16 @@
     <string name="enable_video_calling_dialog_msg" msgid="6547569773866546434">"如要開啟視像通話，您必須在系統設定中啟用強化 4G LTE 模式。"</string>
     <string name="enable_video_calling_dialog_settings" msgid="576528473599603249">"網絡設定"</string>
     <string name="enable_video_calling_dialog_close" msgid="7411471282167927991">"關閉"</string>
+
+    <string name="videocall_settings">視頻通話設置</string>
+    <string name="vt_fallback_setting">自動回落</string>
+    <string name="vt_forward_setting">呼叫轉移</string>
+    <string name="vt_imagereplace_setting">替換圖片</string>
+    <string name="vt_fallback_setting_sum">轉為語音通話設置</string>
+    <string name="vt_forward_setting_sum">呼叫轉移設置</string>
+    <string name="vt_imagereplace_setting_sum">關閉相機時的圖片顯示</string>
+    <string name="fallback_setting_label">轉語音設置</string>
+    <string name="labelVTCF">呼叫轉移</string>
+    <string name="image_replace_setting_label">可視電話替代圖片設置</string>
+
 </resources>
