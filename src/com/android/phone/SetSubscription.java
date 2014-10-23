@@ -43,21 +43,18 @@ import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.CheckBoxPreference;
+import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.telephony.MSimTelephonyManager;
-import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
-import static android.telephony.TelephonyManager.SIM_STATE_READY;
 
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codeaurora.telephony.msim.CardSubscriptionManager;
@@ -75,7 +72,7 @@ public class SetSubscription extends PreferenceActivity implements
     public static final int SUBSCRIPTION_INDEX_INVALID = 99999;
 
     private PreferenceScreen mPreferenceScreen;
-    CheckBoxPreference subArray[];
+    SwitchPreference subArray[];
     private boolean subErr = false;
     private SubscriptionData[] mCardSubscrInfo;
     private SubscriptionData mCurrentSelSub;
@@ -123,14 +120,14 @@ public class SetSubscription extends PreferenceActivity implements
 
             // To store the selected subscriptions
             // index 0 for sub0 and index 1 for sub1
-            subArray = new CheckBoxPreference[MAX_SUBSCRIPTIONS];
+            subArray = new SwitchPreference[MAX_SUBSCRIPTIONS];
 
             if(mCardSubscrInfo != null) {
                 populateList();
 
                 mUserSelSub = new SubscriptionData(MAX_SUBSCRIPTIONS);
 
-                updateCheckBoxes();
+                updateSwitches();
             } else {
                 Log.d(TAG, "onCreate: Card info not available: mCardSubscrInfo == NULL");
             }
@@ -223,17 +220,20 @@ public class SetSubscription extends PreferenceActivity implements
             .show();
     }
 
-    private void updateCheckBoxes() {
+    private void updateSwitches() {
         for (int i = 0; i < mCardSubscrInfo.length; i++) {
             PreferenceCategory subGroup = (PreferenceCategory) mPreferenceScreen
                    .findPreference("sub_group_" + i);
             if (subGroup != null) {
                 int count = subGroup.getPreferenceCount();
-                Log.d(TAG, "updateCheckBoxes count = " + count);
                 for (int j = 0; j < count; j++) {
-                    CheckBoxPreference checkBoxPref =
-                              (CheckBoxPreference) subGroup.getPreference(j);
-                    checkBoxPref.setChecked(false);
+                    Preference pref = subGroup.getPreference(j);
+                    if (pref instanceof SwitchPreference) {
+                        SwitchPreference switchPreference =
+                                (SwitchPreference) pref;
+                        switchPreference.setChecked(false);
+                        switchPreference.setTitle(getString(R.string.sub_not_active));
+                    }
                 }
             }
         }
@@ -246,7 +246,7 @@ public class SetSubscription extends PreferenceActivity implements
 
         if (mCurrentSelSub != null) {
             for (int i = 0; i < MAX_SUBSCRIPTIONS; i++) {
-                Log.d(TAG, "updateCheckBoxes: mCurrentSelSub.subscription[" + i + "] = "
+                Log.d(TAG, "updateSwitches: mCurrentSelSub.subscription[" + i + "] = "
                            + mCurrentSelSub.subscription[i]);
                 subArray[i] = null;
                 if (mCurrentSelSub.subscription[i].subStatus ==
@@ -254,15 +254,16 @@ public class SetSubscription extends PreferenceActivity implements
                     String key = "slot" + mCurrentSelSub.subscription[i].slotId
                                  + " index" + mCurrentSelSub.subscription[i].getAppIndex();
 
-                    Log.d(TAG, "updateCheckBoxes: key = " + key);
+                    Log.d(TAG, "updateSwitches: key = " + key);
 
                     PreferenceCategory subGroup = (PreferenceCategory) mPreferenceScreen
                            .findPreference("sub_group_" + mCurrentSelSub.subscription[i].slotId);
                     if (subGroup != null) {
-                        CheckBoxPreference checkBoxPref =
-                               (CheckBoxPreference) subGroup.findPreference(key);
-                        checkBoxPref.setChecked(true);
-                        subArray[i] = checkBoxPref;
+                        SwitchPreference switchPreference =
+                               (SwitchPreference) subGroup.findPreference(key);
+                        switchPreference.setChecked(true);
+                        switchPreference.setTitle(getString(R.string.sub_active));
+                        subArray[i] = switchPreference;
                     }
                 }
             }
@@ -280,33 +281,40 @@ public class SetSubscription extends PreferenceActivity implements
             if ((cardSub != null ) && (cardSub.getLength() > 0)) {
                 int i = 0;
 
-                MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
-                String operatorName = tm.getSimOperatorName(k);
-                String subGroupTitle;
-                if (tm.getSimState(k) == SIM_STATE_ABSENT || tm.getSimState(k) != SIM_STATE_READY ||
-                        operatorName == null || operatorName.length() == 0) {
-                    subGroupTitle = getString(R.string.multi_sim_entry_format_no_carrier, k + 1);
-                } else {
-                    subGroupTitle = getString(R.string.multi_sim_entry_format, operatorName, k + 1);
+                String subGroupTitle = getString(R.string.multi_sim_entry_format_no_carrier, k + 1);
+                String simName = Settings.System.getString(getContentResolver(),
+                        MSimPhoneGlobals.PREF_SUB_NAME + (k + 1));
+                if (TextUtils.isEmpty(simName)) {
+                    // This should get generated at boot or on sim swap.
+                    // But if not, do it now.
+                    simName = MSimPhoneGlobals.generateDefaultNameForSubscription(this, k);
                 }
 
                 // Create a subgroup for the apps in each card
                 PreferenceCategory subGroup = new PreferenceCategory(this);
                 subGroup.setKey("sub_group_" + k);
                 subGroup.setTitle(subGroupTitle);
-                mPreferenceScreen.addPreference(subGroup);
 
-                // Add each element as a CheckBoxPreference to the group
+                mPreferenceScreen.addPreference(subGroup);
+                EditTextPreference editTextPreference = new EditTextPreference(this);
+                editTextPreference.setPersistent(false);
+                editTextPreference.setKey(String.valueOf(k));
+                editTextPreference.setTitle(getString(R.string.sim_name));
+                editTextPreference.setSummary(simName);
+                editTextPreference.setDefaultValue(simName);
+                editTextPreference.setOnPreferenceChangeListener(mEditTextListener);
+                editTextPreference.setDialogTitle(R.string.sim_name);
+                subGroup.addPreference(editTextPreference);
+
+                // Add each element as a SwitchPreference to the group
                 for (Subscription sub : cardSub.subscription) {
                     if (sub != null && sub.appType != null) {
                         Log.d(TAG, "populateList:  mCardSubscrInfo[" + k + "].subscription["
                                 + i + "] = " + sub);
-                        CheckBoxPreference newCheckBox = new CheckBoxPreference(this);
-                        newCheckBox.setTitle((sub.appType).subSequence(0, (sub.appType).length()));
-                        // Key is the string : "slot<SlotId> index<IndexId>"
-                        newCheckBox.setKey(new String("slot" + k + " index" + i));
-                        newCheckBox.setOnPreferenceClickListener(mCheckBoxListener);
-                        subGroup.addPreference(newCheckBox);
+                        SwitchPreference switchPreference = new SwitchPreference(this);
+                        switchPreference.setKey(new String("slot" + k + " index" + i));
+                        switchPreference.setOnPreferenceChangeListener(mSwitchListener);
+                        subGroup.addPreference(switchPreference);
                     }
                     i++;
                 }
@@ -315,17 +323,19 @@ public class SetSubscription extends PreferenceActivity implements
         }
     }
 
-    Preference.OnPreferenceClickListener mCheckBoxListener =
-            new Preference.OnPreferenceClickListener() {
-        public boolean onPreferenceClick(Preference preference) {
-            CheckBoxPreference subPref = (CheckBoxPreference)preference;
+    Preference.OnPreferenceChangeListener mSwitchListener =
+            new Preference.OnPreferenceChangeListener() {
+        public boolean onPreferenceChange(Preference preference,
+                Object newValue) {
+            SwitchPreference subPref = (SwitchPreference)preference;
             String key = subPref.getKey();
+            boolean on = (Boolean)newValue;
             Log.d(TAG, "setSubscription: key = " + key);
             String splitKey[] = key.split(" ");
             String sSlotId = splitKey[0].substring(splitKey[0].indexOf("slot") + 4);
             int slotIndex = Integer.parseInt(sSlotId);
 
-            if (subPref.isChecked()) {
+            if (on) {
                 if (subArray[slotIndex] != null) {
                     subArray[slotIndex].setChecked(false);
                 }
@@ -337,6 +347,23 @@ public class SetSubscription extends PreferenceActivity implements
             return true;
         }
     };
+
+    Preference.OnPreferenceChangeListener mEditTextListener =
+            new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    EditTextPreference editTextPreference = (EditTextPreference)preference;
+                    String newVal = (String)newValue;
+                    String oldVal = editTextPreference.getText();
+                    if (!newVal.equals(oldVal)) {
+                        MSimPhoneGlobals.setSubscriptionName(getBaseContext(),
+                                Integer.valueOf(preference.getKey()), newVal);
+                        editTextPreference.setSummary(newVal);
+                        return true;
+                    }
+                    return false;
+                }
+            };
 
     private void setSubscription() {
         Log.d(TAG, "setSubscription");
@@ -359,6 +386,7 @@ public class SetSubscription extends PreferenceActivity implements
                     R.string.set_subscription_error_atleast_one,
                     Toast.LENGTH_SHORT);
             toast.show();
+            updateSwitches();
         } else if (isPhoneInCall()) {
             // User is not allowed to activate or deactivate the subscriptions
             // while in a voice call.
@@ -481,14 +509,14 @@ public class SetSubscription extends PreferenceActivity implements
             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Log.d(TAG, "errorMutipleDeactivate:  onClick");
-                        updateCheckBoxes();
+                        updateSwitches();
                     }
                 })
             .setOnDismissListener(new DialogInterface.OnDismissListener() {
                     public void onDismiss(DialogInterface dialog) {
                         Log.d(TAG, "errorMutipleDeactivate:  onDismiss");
                         mAlertDialog = null;
-                        updateCheckBoxes();
+                        updateSwitches();
                     }
                 })
             .show();
@@ -527,7 +555,7 @@ public class SetSubscription extends PreferenceActivity implements
                     }
                     mPreferenceScreen.removeAll();
                     populateList();
-                    updateCheckBoxes();
+                    updateSwitches();
                     break;
             }
         }
@@ -606,7 +634,7 @@ public class SetSubscription extends PreferenceActivity implements
 
         for (int i = 0; i < msg.length; i++) {
             if (msg[i] != null) {
-                dispMsg = dispMsg + getResources().getString(resSubId[i]) +
+                dispMsg = dispMsg + getResources().getString(resSubId[i]) + " " +
                                       setSubscriptionStatusToString(msg[i]) + "\n";
             }
         }
@@ -626,12 +654,7 @@ public class SetSubscription extends PreferenceActivity implements
 
     // This is a method implemented for DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialog) {
-        // If the setSubscription failed for any of the sub, then don'd dismiss the
-        // set subscription screen.
         mAlertDialog = null;
-        if(!subErr) {
-            finish();
-        }
     }
 
     // This is a method implemented for DialogInterface.OnClickListener.
@@ -643,7 +666,7 @@ public class SetSubscription extends PreferenceActivity implements
             //This can happen if the dialog is not currently showing.
             Log.w(TAG, "Exception dismissing dialog. Ex=" + e);
         }
-        updateCheckBoxes();
+        updateSwitches();
     }
 
     private void dismissDialogSafely(int id) {
