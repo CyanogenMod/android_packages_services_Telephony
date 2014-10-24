@@ -317,7 +317,10 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         if (uiccCard != null && uiccCard.getCardState() == CardState.CARDSTATE_ABSENT) {
             return mContext.getString(R.string.sim_absent);
         } else {
-            String carrierName = TelephonyManager.getDefault().getSimOperatorName(slot);
+            String carrierName = TelephonyManager.getDefault().getSimOperatorName(
+                    SubscriptionManager.getSubId(slot)[0]);
+            carrierName = NativeTextHelper.getInternalLocalString(mContext, carrierName,
+                    R.array.origin_carrier_names, R.array.locale_carrier_names);
             if (TextUtils.isEmpty(carrierName) || TextUtils.isDigitsOnly(carrierName)) {
                 String iccId = mCardStateMonitor.getIccId(slot);
                 String spn = IINList.getDefault(mContext).getSpn(iccId);
