@@ -344,7 +344,7 @@ public class MSimCallNotifier extends CallNotifier {
      */
     @Override
     protected void ringAndNotifyOfIncomingCall(Connection c) {
-        if (PhoneUtils.isRealIncomingCall(c.getState())) {
+        if (PhoneUtils.isRealIncomingCall(c.getState()) && !mSilentRingerRequested) {
             mRinger.ring();
         } else {
             int subscription = c.getCall().getPhone().getSubscription();
