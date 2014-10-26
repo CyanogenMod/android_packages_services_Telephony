@@ -3,23 +3,31 @@ package com.android.phone;
 import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.MenuItem;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import java.util.ArrayList;
 
 import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
 import static com.android.internal.telephony.PhoneConstants.SUB1;
 
-public class GsmUmtsCallForwardOptions extends TimeConsumingPreferenceActivity {
+public class GsmUmtsCallForwardOptions extends TimeConsumingPreferenceActivity
+        implements DialogInterface.OnClickListener, DialogInterface.OnCancelListener {
     private static final String LOG_TAG = "GsmUmtsCallForwardOptions";
     private final boolean DBG = (PhoneGlobals.DBG_LEVEL >= 2);
 
@@ -33,6 +41,10 @@ public class GsmUmtsCallForwardOptions extends TimeConsumingPreferenceActivity {
     private static final String KEY_TOGGLE = "toggle";
     private static final String KEY_STATUS = "status";
     private static final String KEY_NUMBER = "number";
+    private static final String KEY_STARTHOUR = "starthour";
+    private static final String KEY_STARTMINUTE = "startminute";
+    private static final String KEY_ENDHOUR = "endhour";
+    private static final String KEY_ENDMINUTE = "endminute";
 
     private CallForwardEditPreference mButtonCFU;
     private CallForwardEditPreference mButtonCFB;
@@ -47,9 +59,43 @@ public class GsmUmtsCallForwardOptions extends TimeConsumingPreferenceActivity {
     private Bundle mIcicle;
     private int mPhoneId;
 
+    static final int DIALOG_NO_INTERNET_ERROR = 0;
+    static final int DIALOG_SIZE = 1;
+    private Dialog[] mDialogs = new Dialog[DIALOG_SIZE];
+
     @Override
     protected void onCreate(Bundle icicle) {
+        Log.d(LOG_TAG, "onCreate");
         super.onCreate(icicle);
+
+        boolean isTestForUTInterface = SystemProperties.getBoolean(
+                "persist.radio.cfu.timer", false);
+        if (DBG){
+            Log.d(LOG_TAG, "networktype = " + getActiveNetworkType());
+            Log.d(LOG_TAG, "isTestForUTInterface = " + isTestForUTInterface);
+        }
+
+        if (getActiveNetworkType() != ConnectivityManager.TYPE_MOBILE
+                && getResources().getBoolean(R.bool.check_nw_for_ut)) {
+            if (isTestForUTInterface){
+                if (DBG) Log.d(LOG_TAG, "testing, ignore mobile network status!");
+                return;
+            }
+            if (DBG) Log.d(LOG_TAG, "pls open mobile network for UT settings!");
+            Dialog dialog = new AlertDialog.Builder(this)
+                        .setTitle("No Mobile Data Aviable")
+                        .setMessage(R.string.cf_mobile_date)
+                        .setIconAttribute(android.R.attr.alertDialogIcon)
+                        .setPositiveButton(android.R.string.ok, this)
+                        .setNegativeButton(android.R.string.cancel, this)
+                        .setOnCancelListener(this)
+                        .create();
+            if (dialog != null) {
+                mDialogs[DIALOG_NO_INTERNET_ERROR] = dialog;
+            }
+            dialog.show();
+            return;
+        }
 
         addPreferencesFromResource(R.xml.callforward_options);
 
@@ -98,6 +144,22 @@ public class GsmUmtsCallForwardOptions extends TimeConsumingPreferenceActivity {
                 TelephonyManager.getDefault().getCurrentPhoneType(subscription) :
                 TelephonyManager.getDefault().getCurrentPhoneType();
         return phoneType;
+    }
+    public void onClick(DialogInterface dialog, int id) {
+        if (id == DialogInterface.BUTTON_NEGATIVE) {
+            // button negative is cancel
+            finish();
+            return;
+        } else if (dialog == mDialogs[DIALOG_NO_INTERNET_ERROR]) {
+            if (id == DialogInterface.BUTTON_POSITIVE) {
+                // Redirect to data settings and drop call fowarding setting.
+                Intent newIntent = new Intent("android.settings.SETTINGS");
+                newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(newIntent);
+            }
+            finish();
+            return;
+        }
     }
 
     @Override
@@ -201,5 +263,18 @@ public class GsmUmtsCallForwardOptions extends TimeConsumingPreferenceActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private int getActiveNetworkType() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(
+                Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+            NetworkInfo ni = cm.getActiveNetworkInfo();
+            if ((ni == null) || !ni.isConnected()){
+                return ConnectivityManager.TYPE_NONE;
+            }
+            return ni.getType();
+        }
+        return ConnectivityManager.TYPE_NONE;
     }
 }
