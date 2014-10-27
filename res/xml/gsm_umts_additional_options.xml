@@ -30,6 +30,7 @@
         android:dialogMessage="@string/phone_number_summary"
         android:negativeButtonText="@string/cancel"
         android:positiveButtonText="@string/ok"
-        android:inputType="phone" />
+        android:inputType="phone"
+        android:enabled="false"/>
 
 </PreferenceScreen>
