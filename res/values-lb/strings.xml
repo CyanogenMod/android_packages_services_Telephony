@@ -38,10 +38,15 @@
   <string name="pause_prompt_no">Nee</string>
   <string name="wild_prompt_str">Plazhalter ersetzen duerch</string>
   <string name="add_vm_number_str">Nummer dobäisetzen</string>
+  <string name="sim_ndp_unlock_text">Entspären</string>
+  <string name="sim_ndp_dismiss_text">Verwerfen</string>
+  <string name="requesting_unlock">Netzwierkentspärung gëtt ugefrot\u2026</string>
   <string name="labelGSMMore">GSM-Uruffastellungen</string>
   <string name="labelCDMAMore">CDMA-Uruffastellungen</string>
   <string name="settings_label">Netzwierkastellungen</string>
   <string name="voicemail">Sproochopnam</string>
+  <string name="call_settings">Uruffastellungen</string>
+  <string name="additional_gsm_call_settings">Zousätzlech Astellungen</string>
   <string name="labelCW">Gespréich pauséiert</string>
   <string name="labelCFU">Ëmmer weiderleeden</string>
   <string name="messageCFU">Ëmmer dës Nummer benotzen</string>
@@ -58,6 +63,10 @@
   <string name="sum_cfnry_disabled">Desaktivéiert</string>
   <string name="disable_cfnry_forbidden">Däi Provider erlaabt et net d\'Weiderleedung auszeschalte wann s du den Uruff net beäntwers.</string>
   <string name="sum_cfnrc_disabled">Desaktivéiert</string>
+  <string name="updating_title">Uruffastellungen</string>
+  <string name="error_updating_title">Feeler bei den Uruffastellungen</string>
+  <string name="reading_settings">Astellunge gi gelies\u2026</string>
+  <string name="updating_settings">Astellunge ginn aktualiséiert\u2026</string>
   <string name="close_dialog">OK</string>
   <string name="enable">Aktivéieren</string>
   <string name="disable">Desaktivéieren</string>
@@ -67,6 +76,7 @@
     <item>Nummer verstoppen</item>
     <item>Nummer uweisen</item>
   </string-array>
+  <string name="no_change">Keng Ännerunge goufe gemaach.</string>
   <string name="voicemail_default">Mäi Provider</string>
   <string name="mobile_networks">Astellunge vum mobilen Netzwierk</string>
   <string name="label_available">Disponibel Netzwierker</string>
@@ -74,6 +84,7 @@
   <string name="empty_networks_list">Keng Netzwierker fonnt.</string>
   <string name="search_networks">Netzwierker sichen</string>
   <string name="network_query_error">Feeler beim Sichen no Netzwierker.</string>
+  <string name="registration_done">Um Netzwierk ugemellt.</string>
   <string name="register_automatically">Automatesch Registréierung\u2026</string>
   <string name="preferred_network_mode_title">Preferéierten Netzwierktyp</string>
   <string name="preferred_network_mode_dialogtitle">Preferéierten Netzwierktyp</string>
@@ -149,7 +160,10 @@
   <string name="invalidPin">Tipp e PIN deen tëscht 4 an 8 Zifferen huet.</string>
   <string name="enable_in_progress">Waart w.e.g.\u2026</string>
   <string name="pin_changed">SIM-PIN erfollegräich geännert.</string>
+  <string name="enter_pin2_text">PIN2</string>
+  <string name="oldPin2Label">Al PIN2</string>
   <string name="pin2_changed">PIN2 erfollegräich geännert.</string>
+  <string name="card_title_dialing">Gëtt gewielt</string>
   <string name="card_title_on_hold">Gehalen</string>
   <string name="notification_missedCallTitle">Verpassten Uruff</string>
   <string name="notification_missedCallsTitle">Verpasst Uriff</string>

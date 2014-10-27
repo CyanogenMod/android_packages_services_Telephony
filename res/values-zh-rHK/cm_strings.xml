@@ -85,5 +85,7 @@
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="t9_search_input_locale">T9 搜尋輸入</string>
   <string name="t9_search_input_locale_default">預設</string>
+  <string name="network_settings_sel_sub">SIM 咭設定</string>
+  <string name="callind_multi_sim">SIM 咭設定</string>
   <string name="xdivert_imsi_not_read">SIM 咭初始化進行中。請稍後再試。</string>
 </resources>

@@ -89,4 +89,8 @@
   <string name="incoming_call_style_title">Skärmstil för inkommande samtal</string>
   <string name="incoming_call_style_classic">Klassisk</string>
   <string name="incoming_call_style_fullscreen_photo">Kontaktbild i helskärm</string>
+  <string name="label_puk">Ange PUK</string>
+  <string name="ims_menu_save">Spara</string>
+  <string name="ims_menu_discard">Avbryt</string>
+  <string name="delete">Ta bort</string>
 </resources>

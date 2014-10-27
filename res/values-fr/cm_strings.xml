@@ -135,13 +135,9 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Mode réseau préféré : TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Mode réseau préféré : TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Mode réseau préféré : TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
-  <string name="network_settings_sel_sub">Paramètres d\'abonnement</string>
-  <string name="summary_manage_subscriptions">Gérer les paramètres réseau de chaque abonnement</string>
   <string name="tty_mode_not_allowed_vt_call">Le changement en mode TTY n\'est pas autorisé pendant un appel vidéo</string>
   <string name="fdn_service_unavailable">Le service FDN n\'est pas disponible.</string>
   <string name="xdivert_summary">Paramètres CFNRc</string>
-  <string name="sub1LineNumber">Numéro abonnement 1 :</string>
-  <string name="sub2LineNumber">Numéro abonnement 2 :</string>
   <string name="proceed">Continuer</string>
   <string name="sum_xdivert_enabled">X-Divert activé</string>
   <string name="sum_xdivert_disabled">X-Divert désactivé</string>
@@ -161,9 +157,6 @@
   <string name="ims_vt_call_quality_unknown">Inconnu</string>
   <string name="delete">Supprimer</string>
   <string name="dial">Appeler</string>
-  <string name="set_sub_1">Abonnement 1 : </string>
-  <string name="set_sub_2">Abonnement 2 : </string>
-  <string name="set_sub_3">Abonnement 3 : </string>
   <string name="set_sub_activate_success">Activation réussie</string>
   <string name="set_sub_deactivate_success">Désactivation réussie</string>
   <string name="set_sub_activate_failed">L\'activation a échoué</string>
