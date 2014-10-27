@@ -24,6 +24,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.net.Uri;
 import android.os.SystemProperties;
@@ -40,6 +43,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.TelephonyCapabilities;
@@ -62,6 +66,8 @@ public class NotificationMgr {
     // Do not check in with VDBG = true, since that may write PII to the system log.
     private static final boolean VDBG = false;
 
+    private static final String ACTION_NETWORK_OPERATOR_SETTINGS_ASYNC =
+                         "org.codeaurora.settings.NETWORK_OPERATOR_SETTINGS_ASYNC";
     // notification types
     static final int MMI_NOTIFICATION = 1;
     static final int NETWORK_SELECTION_NOTIFICATION = 2;
@@ -465,9 +471,10 @@ public class NotificationMgr {
      * Display the network selection "no service" notification
      * @param operator is the numeric operator number
      */
-    private void showNetworkSelection(String operator) {
+    private void showNetworkSelection(String operator, Phone phone) {
         if (DBG) log("showNetworkSelection(" + operator + ")...");
 
+        long subId = phone.getSubId();
         Notification.Builder builder = new Notification.Builder(mContext)
                 .setSmallIcon(android.R.drawable.stat_sys_warning)
                 .setContentTitle(mContext.getString(R.string.notification_network_selection_title))
@@ -477,14 +484,20 @@ public class NotificationMgr {
                 .setOngoing(true);
 
         // create the target network operators settings intent
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-        // Use NetworkSetting to handle the selection intent
-        intent.setComponent(new ComponentName("com.android.phone",
-                "com.android.phone.NetworkSetting"));
-        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
-
+        Intent intent;
+        if (isAppInstalled(ACTION_NETWORK_OPERATOR_SETTINGS_ASYNC)) {
+            intent = new Intent(ACTION_NETWORK_OPERATOR_SETTINGS_ASYNC);
+        } else {
+            intent = new Intent(Intent.ACTION_MAIN);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                    Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+            // Use NetworkSetting to handle the selection intent
+            intent.setComponent(new ComponentName("com.android.phone",
+                    "com.android.phone.NetworkSetting"));
+        }
+        intent.putExtra(PhoneConstants.SUBSCRIPTION_KEY, subId);
+        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
         List<UserInfo> users = mUserManager.getUsers(true);
         for (int i = 0; i < users.size(); i++) {
             UserHandle userHandle = users.get(i).getUserHandle();
@@ -495,6 +508,22 @@ public class NotificationMgr {
                     builder.build(),
                     userHandle);
         }
+    }
+
+    private boolean isAppInstalled(String action) {
+        boolean installed = false;
+        PackageManager pm = mContext.getPackageManager();
+        List<ResolveInfo> list = pm.queryIntentActivities(new Intent(action), 0);
+        int listSize = list.size();
+        for (int i = 0; i < listSize; i++) {
+            ResolveInfo resolveInfo = list.get(i);
+            if ((resolveInfo.activityInfo.applicationInfo.flags
+                    & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                installed = true;
+                break;
+            }
+        }
+        return installed;
     }
 
     /**
@@ -531,7 +560,7 @@ public class NotificationMgr {
             if (serviceState == ServiceState.STATE_OUT_OF_SERVICE
                     && !TextUtils.isEmpty(networkSelection)) {
                 if (!mSelectedUnavailableNotify) {
-                    showNetworkSelection(networkSelection);
+                    showNetworkSelection(networkSelection, phone);
                     mSelectedUnavailableNotify = true;
                 }
             } else {

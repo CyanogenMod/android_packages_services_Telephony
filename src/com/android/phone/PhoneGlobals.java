@@ -48,6 +48,7 @@ import android.os.UserHandle;
 import android.preference.PreferenceManager;
 import android.provider.Settings.System;
 import android.telephony.ServiceState;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -803,6 +804,8 @@ public class PhoneGlobals extends ContextWrapper {
     private class PhoneAppBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            long subId = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                    SubscriptionManager.getDefaultSubId());
             String action = intent.getAction();
             if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED)) {
                 boolean enabled = System.getInt(getContentResolver(),
@@ -840,7 +843,7 @@ public class PhoneGlobals extends ContextWrapper {
                 Log.d(LOG_TAG, "Radio technology switched. Now " + newPhone + " is active.");
                 initForNewRadioTechnology();
             } else if (action.equals(TelephonyIntents.ACTION_SERVICE_STATE_CHANGED)) {
-                handleServiceStateChanged(intent);
+                handleServiceStateChanged(intent, subId);
             } else if (action.equals(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED)) {
                 int phoneId = intent.getIntExtra(PhoneConstants.PHONE_KEY, 0);
                 phoneInEcm = getPhone(phoneId);
@@ -893,7 +896,7 @@ public class PhoneGlobals extends ContextWrapper {
         }
     }
 
-    private void handleServiceStateChanged(Intent intent) {
+    private void handleServiceStateChanged(Intent intent, long subId) {
         /**
          * This used to handle updating EriTextWidgetProvider this routine
          * and and listening for ACTION_SERVICE_STATE_CHANGED intents could
@@ -906,7 +909,8 @@ public class PhoneGlobals extends ContextWrapper {
 
         if (ss != null) {
             int state = ss.getState();
-            notificationMgr.updateNetworkSelection(state, phone);
+            notificationMgr.updateNetworkSelection(state,
+                    getPhone(SubscriptionManager.getPhoneId(subId)));
         }
     }
 
