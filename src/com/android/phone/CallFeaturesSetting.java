@@ -162,7 +162,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     // String keys for preference lookup
     // TODO: Naming these "BUTTON_*" is confusing since they're not actually buttons(!)
     private static final String BUTTON_VOICEMAIL_CATEGORY_KEY = "button_voicemail_category_key";
-    private static final String VOICEMAIL_SETTING_SCREEN_PREF_KEY = "button_voicemail_category_key";
     private static final String BUTTON_VOICEMAIL_KEY = "button_voicemail_key";
     private static final String BUTTON_VOICEMAIL_PROVIDER_KEY = "button_voicemail_provider_key";
     private static final String BUTTON_VOICEMAIL_SETTING_KEY = "button_voicemail_setting_key";
@@ -274,7 +273,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     private Preference mPhoneAccountSettingsPreference;
     private PreferenceScreen mVoicemailCategory;
     private ListPreference mVoicemailProviders;
-    private PreferenceScreen mVoicemailSettingsScreen;
     private PreferenceScreen mVoicemailSettings;
     private Preference mVoicemailNotificationRingtone;
     private CheckBoxPreference mVoicemailNotificationVibrate;
@@ -514,6 +512,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         } else if (preference == mVoicemailCategory) {
             Dialog voicemailDialog = mVoicemailCategory.getDialog();
             if (voicemailDialog != null) {
+                voicemailDialog.getActionBar().setDisplayHomeAsUpEnabled(false);
                 voicemailDialog.setOnKeyListener(new OnKeyListener() {
                     @Override
                     public boolean onKey(DialogInterface dialog, int keyCode,
@@ -588,12 +587,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                 // This should let the preference use default behavior in the xml.
                 return false;
             }
-        } else if (preference == mVoicemailSettingsScreen) {
-            final Dialog dialog = mVoicemailSettingsScreen.getDialog();
-            if (dialog != null) {
-                dialog.getActionBar().setDisplayHomeAsUpEnabled(false);
-            }
-            return false;
         } else if (preference == mButtonVideoCallFallback) {
             startActivity(getVTCallFBSettingsIntent());
             return true;
@@ -1680,8 +1673,6 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
-            mVoicemailSettingsScreen =
-                    (PreferenceScreen) findPreference(VOICEMAIL_SETTING_SCREEN_PREF_KEY);
             mVoicemailSettings = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
             mVoicemailNotificationRingtone =
                     findPreference(BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY);

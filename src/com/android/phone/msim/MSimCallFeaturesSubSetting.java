@@ -510,6 +510,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         } else if (preference == mVoicemailCategory) {
             Dialog voicemailDialog = mVoicemailCategory.getDialog();
             if (voicemailDialog != null) {
+                voicemailDialog.getActionBar().setDisplayHomeAsUpEnabled(false);
                 voicemailDialog.setOnKeyListener(new OnKeyListener() {
                     @Override
                     public boolean onKey(DialogInterface dialog, int keyCode,
@@ -528,6 +529,10 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             return true;
         } else if (preference == mVoicemailSettings) {
             if (DBG) log("onPreferenceTreeClick: Voicemail Settings Preference is clicked.");
+            final Dialog dialog = mVoicemailSettings.getDialog();
+            if (dialog != null) {
+                dialog.getActionBar().setDisplayHomeAsUpEnabled(false);
+            }
             if (preference.getIntent() != null) {
                 if (DBG) {
                     log("onPreferenceTreeClick: Invoking cfg intent "
