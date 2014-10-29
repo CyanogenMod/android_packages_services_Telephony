@@ -183,6 +183,17 @@ abstract class TelephonyConnection extends Connection {
         public void onAudioQualityChanged(int audioQuality) {
             setAudioQuality(audioQuality);
         }
+
+        /**
+         * Used by the {@link com.android.internal.telephony.Connection} to report a change in the
+         * substate of the current call
+         *
+         * @param callSubstate The call substate.
+         */
+        @Override
+        public void onCallSubstateChanged(int callSubstate) {
+            setCallSubstate(callSubstate);
+        }
     };
 
     /* package */ com.android.internal.telephony.Connection mOriginalConnection;
@@ -463,6 +474,7 @@ abstract class TelephonyConnection extends Connection {
         setRemoteVideoCapable(mOriginalConnection.isRemoteVideoCapable());
         setVideoProvider(mOriginalConnection.getVideoProvider());
         setAudioQuality(mOriginalConnection.getAudioQuality());
+        setCallSubstate(mOriginalConnection.getCallSubstate());
 
         updateAddress();
     }
