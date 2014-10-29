@@ -286,6 +286,13 @@ public class EditFdnContactScreen extends Activity {
             mNumberField.addTextChangedListener(mNumberTextWatcher);
         }
 
+        mButton = (Button) findViewById(R.id.button);
+        if (mButton != null) {
+            mButton.setOnClickListener(mClicked);
+            // will be enabled by text watcher
+            mButton.setEnabled(false);
+        }
+
         if (!mAddContact) {
             if (mNameField != null) {
                 mNameField.setText(mName);
@@ -293,13 +300,6 @@ public class EditFdnContactScreen extends Activity {
             if (mNumberField != null) {
                 mNumberField.setText(mNumber);
             }
-        }
-
-        mButton = (Button) findViewById(R.id.button);
-        if (mButton != null) {
-            mButton.setOnClickListener(mClicked);
-            // will be enabled by text watcher
-            mButton.setEnabled(false);
         }
 
         mPinFieldContainer = (LinearLayout) findViewById(R.id.pinc);
