@@ -40,6 +40,10 @@
     <protected-broadcast android:name="com.android.internal.telephony.data-restart-trysetup" />
     <protected-broadcast android:name="com.android.internal.telephony.data-stall" />
 
+    <permission
+        android:name="com.qti.permission.SELECT_SUBSCRIPTION"
+        android:protectionLevel="signatureOrSystem" />
+
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CALL_PRIVILEGED" />
@@ -467,6 +471,7 @@
         <activity android:name=".msim.SelectSubscription"
             android:label="@string/callind_multi_sim"
             android:configChanges="orientation|keyboardHidden"
+            android:permission="com.qti.permission.SELECT_SUBSCRIPTION"
             android:theme="@style/SettingsLight">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
