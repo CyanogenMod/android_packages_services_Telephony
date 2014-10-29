@@ -27,6 +27,7 @@ import android.provider.Settings;
 import android.telephony.ServiceState;
 
 import com.android.internal.os.SomeArgs;
+import com.android.internal.telephony.Call;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 
@@ -180,7 +181,9 @@ public class EmergencyCallHelper {
     private boolean isOkToCall(int serviceState, PhoneConstants.State phoneState) {
         // Once we reach either STATE_IN_SERVICE or STATE_EMERGENCY_ONLY, it's finally OK to place
         // the emergency call.
-        return ((phoneState == PhoneConstants.State.OFFHOOK)
+        Call.State callState = mPhone.getForegroundCall().getState();
+        return ((phoneState == PhoneConstants.State.OFFHOOK
+                && callState != Call.State.DIALING)
                 || (serviceState == ServiceState.STATE_IN_SERVICE)
                 || (serviceState == ServiceState.STATE_EMERGENCY_ONLY)) ||
 
