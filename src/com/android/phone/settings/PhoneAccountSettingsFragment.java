@@ -269,4 +269,18 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
             mConfigureCallAssistant.setEnabled(true);
         }
     }
+
+    private void initAccountList() {
+        for (SubInfoRecord subscription : SubscriptionManager.getActiveSubInfoList()) {
+            String label = subscription.getDisplayName().toString();
+            Intent intent = new Intent(TelecomManager.ACTION_SHOW_CALL_SETTINGS);
+            intent.putExtra(CallFeaturesSetting.SUB_ID_EXTRA, subscription.getSubscriptionId());
+            intent.putExtra(CallFeaturesSetting.SUB_LABEL_EXTRA, label);
+
+            Preference accountPreference = new Preference(mApplicationContext);
+            accountPreference.setTitle(label);
+            accountPreference.setIntent(intent);
+            mAccountList.addPreference(accountPreference);
+        }
+    }
 }

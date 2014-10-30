@@ -809,6 +809,18 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             return;
         }
 
+        boolean isValid = false;
+        List<SubInfoRecord> slist = SubscriptionManager.getActiveSubInfoList();
+        for (SubInfoRecord subInfoRecord : slist) {
+            if (subInfoRecord.getSubscriptionId() == subId) {
+                isValid = true;
+                break;
+            }
+        }
+        if (isValid == false) {
+            return;
+        }
+
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(url));
         intent.putExtra(SUBSCRIPTION_KEY, subId);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

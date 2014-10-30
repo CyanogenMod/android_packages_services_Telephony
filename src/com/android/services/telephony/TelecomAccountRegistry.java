@@ -124,8 +124,8 @@ final class TelecomAccountRegistry {
                 // slotId from the subId or the phoneId in all instances.
                 SubInfoRecord record = SubscriptionManager.getSubInfoForSubscriber(subId);
                 if (record != null) {
-                    subDisplayName = record.displayName;
-                    slotId = record.slotId;
+                    subDisplayName = record.getDisplayName().toString();
+                    slotId = record.getSubscriptionId();
 
                     // Assign a "fake" color while the underlying Telephony stuff is refactored
                     // Assign PhoneAccount.NO_COLOR to first slot so single-SIM phones are unchanged
