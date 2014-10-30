@@ -62,6 +62,8 @@ import com.codeaurora.telephony.msim.SubscriptionData;
 import com.codeaurora.telephony.msim.Subscription;
 import com.codeaurora.telephony.msim.SubscriptionManager;
 
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
+
 /**
  * Displays a dialer like interface to Set the Subscriptions.
  */
@@ -274,7 +276,7 @@ public class SetSubscription extends PreferenceActivity implements
     /** add radio buttons to the group */
     private void populateList() {
         Log.d(TAG, "populateList:  mCardSubscrInfo.length = " + mCardSubscrInfo.length);
-
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
         int k = 0;
         // Create PreferenceCatergory sub groups for each card.
         for (SubscriptionData cardSub : mCardSubscrInfo) {
@@ -282,12 +284,17 @@ public class SetSubscription extends PreferenceActivity implements
                 int i = 0;
 
                 String subGroupTitle = getString(R.string.multi_sim_entry_format_no_carrier, k + 1);
-                String simName = Settings.System.getString(getContentResolver(),
-                        MSimPhoneGlobals.PREF_SUB_NAME + (k + 1));
+                String simName = Settings.Global.getSimNameForSubscription(this, k, null);
                 if (TextUtils.isEmpty(simName)) {
                     // This should get generated at boot or on sim swap.
                     // But if not, do it now.
-                    simName = MSimPhoneGlobals.generateDefaultNameForSubscription(this, k);
+                    String operatorName = tm.getSimOperatorName(k);
+                    if (tm.getSimState(i) == SIM_STATE_ABSENT || TextUtils.isEmpty(operatorName)) {
+                        simName = getString(R.string.default_sim_name, k + 1);
+                    } else {
+                        simName = operatorName;
+                        Settings.Global.setSimNameForSubscription(this, k, operatorName);
+                    }
                 }
 
                 // Create a subgroup for the apps in each card
@@ -356,7 +363,7 @@ public class SetSubscription extends PreferenceActivity implements
                     String newVal = (String)newValue;
                     String oldVal = editTextPreference.getText();
                     if (!newVal.equals(oldVal)) {
-                        MSimPhoneGlobals.setSubscriptionName(getBaseContext(),
+                        Settings.Global.setSimNameForSubscription(getBaseContext(),
                                 Integer.valueOf(preference.getKey()), newVal);
                         editTextPreference.setSummary(newVal);
                         return true;
