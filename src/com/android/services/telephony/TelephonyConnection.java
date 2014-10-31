@@ -16,6 +16,7 @@
 
 package com.android.services.telephony;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Handler;
@@ -49,6 +50,9 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_DISCONNECT = 4;
     private static final int MSG_PHONE_VP_ON = 6;
     private static final int MSG_PHONE_VP_OFF = 7;
+    private static final int MSG_SUPP_SERVICE_FAILED = 8;
+    private static final String ACTION_SUPP_SERVICE_FAILURE =
+            "org.codeaurora.ACTION_SUPP_SERVICE_FAILURE";
 
     private String[] mSubName = {"SUB 1", "SUB 2", "SUB 3"};
     private String mDisplayName;
@@ -101,6 +105,16 @@ abstract class TelephonyConnection extends Connection {
                         mVoicePrivacyState = false;
                         updateState();
                     }
+                    break;
+                case MSG_SUPP_SERVICE_FAILED:
+                    Log.d(TelephonyConnection.this, "MSG_SUPP_SERVICE_FAILED");
+                    AsyncResult r = (AsyncResult) msg.obj;
+                    Phone.SuppService service = (Phone.SuppService) r.result;
+                    int val = service.ordinal();
+                    Intent failure = new Intent();
+                    failure.setAction(ACTION_SUPP_SERVICE_FAILURE);
+                    failure.putExtra("supp_serv_failure", val);
+                    TelephonyGlobals.getApplicationContext().sendBroadcast(failure);
                     break;
             }
         }
@@ -439,6 +453,7 @@ abstract class TelephonyConnection extends Connection {
         getPhone().registerForDisconnect(mHandler, MSG_DISCONNECT, null);
         getPhone().registerForInCallVoicePrivacyOn(mHandler, MSG_PHONE_VP_ON, null);
         getPhone().registerForInCallVoicePrivacyOff(mHandler, MSG_PHONE_VP_OFF, null);
+        getPhone().registerForSuppServiceFailed(mHandler, MSG_SUPP_SERVICE_FAILED, null);
         mOriginalConnection.addPostDialListener(mPostDialListener);
         mOriginalConnection.addListener(mOriginalConnectionListener);
 
