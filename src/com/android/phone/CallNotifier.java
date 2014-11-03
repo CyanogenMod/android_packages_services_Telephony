@@ -27,6 +27,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.TelephonyCapabilities;
+import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaDisplayInfoRec;
 import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaSignalInfoRec;
 import com.android.internal.telephony.cdma.SignalToneUtil;
@@ -37,7 +38,10 @@ import android.app.ActivityManagerNative;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothProfile;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
@@ -98,7 +102,7 @@ public class CallNotifier extends Handler {
     private static final int PHONE_MWI_CHANGED = 21;
     private static final int DISPLAYINFO_NOTIFICATION_DONE = 24;
     private static final int UPDATE_IN_CALL_NOTIFICATION = 27;
-
+    private static final int ACTION_SUBINFO_RECORD_UPDATED = 28;
 
     private PhoneGlobals mApplication;
     private CallManager mCM;
@@ -119,6 +123,8 @@ public class CallNotifier extends Handler {
     private AudioManager mAudioManager;
 
     private final BluetoothManager mBluetoothManager;
+
+    private PhoneStateListener[] mPhoneStateListener;
 
     /**
      * Initialize the singleton CallNotifier instance.
@@ -157,8 +163,31 @@ public class CallNotifier extends Handler {
                                     BluetoothProfile.HEADSET);
         }
 
+        int phoneCount = TelephonyManager.getDefault().getPhoneCount();
+        mPhoneStateListener = new PhoneStateListener[phoneCount];
         listen();
+        IntentFilter filter = new IntentFilter(TelephonyIntents.ACTION_SUBINFO_RECORD_UPDATED);
+        mApplication.getApplicationContext().registerReceiver(mBroadcastReceiver, filter);
     }
+
+    private void unRegisterPhoneStateListener() {
+        for (int i = 0 ; i < TelephonyManager.getDefault().getPhoneCount(); i++) {
+            if (mPhoneStateListener[i] != null) {
+                TelephonyManager.getDefault().listen(mPhoneStateListener[i],
+                        PhoneStateListener.LISTEN_NONE);
+            }
+        }
+    }
+
+    private final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (action.equals(TelephonyIntents.ACTION_SUBINFO_RECORD_UPDATED)) {
+                log("onReceive... ");
+                sendEmptyMessage(ACTION_SUBINFO_RECORD_UPDATED);
+            }
+        }
+    };
 
     private void listen() {
         TelephonyManager telephonyManager = (TelephonyManager)mApplication.getSystemService(
@@ -259,6 +288,11 @@ public class CallNotifier extends Handler {
                 onSuppServiceNotification((AsyncResult) msg.obj);
                 break;
 
+            case ACTION_SUBINFO_RECORD_UPDATED:
+                if (DBG) log("ACTION_SUBINFO_RECORD_UPDATED...");
+                unRegisterPhoneStateListener();
+                listen();
+
             default:
                 // super.handleMessage(msg);
         }
@@ -267,7 +301,7 @@ public class CallNotifier extends Handler {
     private PhoneStateListener getPhoneStateListener(int phoneId) {
         long[] subId = SubscriptionManager.getSubId(phoneId);
 
-        PhoneStateListener phoneStateListener = new PhoneStateListener(subId[0]) {
+        mPhoneStateListener[phoneId]  = new PhoneStateListener(subId[0]) {
             @Override
             public void onMessageWaitingIndicatorChanged(boolean mwi) {
                 Phone phone = PhoneUtils.getPhoneFromSubId(mSubId);
@@ -280,7 +314,7 @@ public class CallNotifier extends Handler {
                 onCfiChanged(cfi, phone);
             }
         };
-        return phoneStateListener;
+        return mPhoneStateListener[phoneId];
     }
 
     /**
