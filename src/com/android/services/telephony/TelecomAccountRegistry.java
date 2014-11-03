@@ -164,7 +164,7 @@ final class TelecomAccountRegistry {
                             Uri.fromParts(PhoneAccount.SCHEME_TEL, subNumber, null))
                     .setCapabilities(capabilities)
                     .setIconResId(getPhoneAccountIcon(slotId))
-                    .setColor(color)
+                    .setIcon(mContext, getPhoneAccountIcon(slotId), color)
                     .setShortDescription(description)
                     .setSupportedUriSchemes(Arrays.asList(
                             PhoneAccount.SCHEME_TEL, PhoneAccount.SCHEME_VOICEMAIL))
