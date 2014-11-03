@@ -181,6 +181,12 @@ public class SipEditor extends PreferenceActivity
         mPrimaryAccountSelector = new PrimaryAccountSelector(p);
 
         loadPreferencesFromProfile(p);
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -215,6 +221,8 @@ public class SipEditor extends PreferenceActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home: // See ActionBar#setDisplayHomeAsUpEnabled()
+                // This time just work as "back" or "save" capability.
             case MENU_SAVE:
                 validateAndSetResult();
                 return true;

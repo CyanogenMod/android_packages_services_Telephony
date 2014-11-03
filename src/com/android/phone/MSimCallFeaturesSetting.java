@@ -19,6 +19,7 @@
 
 package com.android.phone;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -229,6 +230,14 @@ public class MSimCallFeaturesSetting extends CallFeaturesSetting {
 
     protected int getPreferencesResource() {
         return R.xml.msim_call_feature_setting;
+    }
+
+    public static void goUpToTopLevelSetting(Activity activity) {
+        Intent intent = new Intent(activity, MSimCallFeaturesSetting.class);
+        intent.setAction(Intent.ACTION_MAIN);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        activity.startActivity(intent);
+        activity.finish();
     }
 
     private static void log(String msg) {
