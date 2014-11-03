@@ -118,7 +118,7 @@ public class SipUtil {
                 .setCapabilities(PhoneAccount.CAPABILITY_CALL_PROVIDER)
                 .setAddress(Uri.parse(profile.getUriString()))
                 .setShortDescription(profile.getDisplayName())
-                .setIconResId(R.drawable.ic_dialer_sip_black_24dp)
+                .setIcon(context, R.drawable.ic_dialer_sip_black_24dp)
                 .setSupportedUriSchemes(supportedUriSchemes);
 
         return builder.build();
