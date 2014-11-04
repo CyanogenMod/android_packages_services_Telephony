@@ -177,6 +177,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             "button_voicemail_notification_ringtone_key";
     private static final String BUTTON_FDN_KEY   = "button_fdn_key";
 
+    private static final String BUTTON_VIDEO_CALL_KEY = "button_videocall_settings_key";
     private static final String BUTTON_VIDEO_CALL_FB_KEY = "videocall_setting_fb_key";
     private static final String BUTTON_VIDEO_CALL_FW_KEY = "videocall_setting_fw_key";
     private static final String BUTTON_VIDEO_CALL_SP_KEY = "vt_imageplacer";
@@ -1677,6 +1678,11 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             mButtonVideoCallForward = (PreferenceScreen) findPreference(BUTTON_VIDEO_CALL_FW_KEY);
             mButtonVideoCallPictureSelect = (PreferenceScreen)
                     findPreference(BUTTON_VIDEO_CALL_SP_KEY);
+        } else {
+            getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FB_KEY));
+            getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FW_KEY));
+            getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_SP_KEY));
+            getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
         }
 
         if (isAirplaneModeOn()) {

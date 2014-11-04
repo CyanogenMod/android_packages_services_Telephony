@@ -184,6 +184,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_VIBRATE_CONNECTED_KEY = "button_vibrate_after_connected";
     private static final String SHOW_DURATION_KEY      = "duration_enable_key";
     private static final String BUTTON_IPPREFIX_KEY = "button_ipprefix_key";
+
+    private static final String BUTTON_VIDEO_CALL_KEY = "button_videocall_settings_key";
     private static final String BUTTON_VIDEO_CALL_FB_KEY = "videocall_setting_fb_key";
     private static final String BUTTON_VIDEO_CALL_FW_KEY = "videocall_setting_fw_key";
     private static final String BUTTON_VIDEO_CALL_SP_KEY = "vt_imageplacer";
@@ -1659,6 +1661,11 @@ public class CallFeaturesSetting extends PreferenceActivity
             mButtonVideoCallForward = (PreferenceScreen) findPreference(BUTTON_VIDEO_CALL_FW_KEY);
             mButtonVideoCallPictureSelect = (PreferenceScreen)
                     findPreference(BUTTON_VIDEO_CALL_SP_KEY);
+        } else {
+            getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FB_KEY));
+            getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FW_KEY));
+            getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_SP_KEY));
+            getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
         }
 
         mButtonDTMF = (ListPreference) findPreference(BUTTON_DTMF_KEY);
