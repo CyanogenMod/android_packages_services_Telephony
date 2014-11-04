@@ -23,8 +23,6 @@ import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothHeadset;
-import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -41,14 +39,16 @@ import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.UpdateLock;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.provider.Settings.System;
 import android.telephony.ServiceState;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 
 import android.telephony.TelephonyManager;
 import android.telephony.MSimTelephonyManager;
-import com.android.internal.telephony.Call;
+
 import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.IccCard;
 import com.android.internal.telephony.MmiCode;
@@ -58,14 +58,13 @@ import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.cdma.TtyIntent;
 import com.android.phone.common.CallLogAsync;
-import com.android.phone.OtaUtils.CdmaOtaScreenState;
 import com.android.internal.telephony.PhoneConstants;
 import com.codeaurora.telephony.msim.MSimPhoneFactory;
 import com.codeaurora.telephony.msim.SubscriptionManager;
 import com.codeaurora.telephony.msim.MSimTelephonyIntents;
 
-import java.util.ArrayList;
-
+import static android.telephony.TelephonyManager.SIM_STATE_ABSENT;
+import static android.telephony.TelephonyManager.SIM_STATE_READY;
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
 /**
@@ -103,6 +102,8 @@ public class MSimPhoneGlobals extends PhoneGlobals {
 
     /* Array of MSPhone Objects to store each phoneproxy and associated objects */
     private static MSPhone[] mMSPhones;
+
+    private boolean[] mSimNamesInitialized;
 
     private int mDefaultSubscription = 0;
 
@@ -145,9 +146,11 @@ public class MSimPhoneGlobals extends PhoneGlobals {
             int numPhones = MSimTelephonyManager.getDefault().getPhoneCount();
             // Create MSPhone which hold phone proxy and its corresponding memebers.
             mMSPhones = new MSPhone[numPhones];
+            mSimNamesInitialized = new boolean[numPhones];
             for(int i = 0; i < numPhones; i++) {
                 mMSPhones [i] = new MSPhone(i);
                 mCM.registerPhone(mMSPhones[i].mPhone);
+                mSimNamesInitialized[i] = false;
             }
 
             // Get the default subscription from the system property
@@ -584,6 +587,27 @@ public class MSimPhoneGlobals extends PhoneGlobals {
         if (ss != null) {
             int state = ss.getState();
             notificationMgr.updateNetworkSelection(state, phone);
+            if (state == ServiceState.STATE_IN_SERVICE ||
+                    state == ServiceState.STATE_EMERGENCY_ONLY) {
+                maybeGenerateDefaultNameForSubscription(phone.getSubscription());
+            }
+        }
+    }
+
+    private void maybeGenerateDefaultNameForSubscription(int subscription) {
+        if (mSimNamesInitialized[subscription]) return;
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
+        String imsi = tm.getSubscriberId(subscription);
+        if (imsi == null) return;
+        String subName = Settings.Global.getSimNameForSubscription(this, subscription, null);
+        if (TextUtils.isEmpty(subName)) {
+            String operatorName = tm.getSimOperatorName(subscription);
+            if (!TextUtils.isEmpty(operatorName)) {
+                Settings.Global.setSimNameForSubscription(this, subscription, operatorName);
+                mSimNamesInitialized[subscription] = true;
+            }
+        } else {
+            mSimNamesInitialized[subscription] = true;
         }
     }
 

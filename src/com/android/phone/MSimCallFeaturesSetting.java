@@ -19,6 +19,7 @@
 
 package com.android.phone;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -81,9 +82,6 @@ public class MSimCallFeaturesSetting extends CallFeaturesSetting {
 
         mSubManager = SubscriptionManager.getInstance();
 
-        // get buttons
-        PreferenceScreen prefSet = getPreferenceScreen();
-
         mButtonXDivert = (PreferenceScreen) findPreference(BUTTON_XDIVERT_KEY);
 
         PreferenceScreen selectSub = (PreferenceScreen) findPreference(BUTTON_SELECT_SUB_KEY);
@@ -98,7 +96,6 @@ public class MSimCallFeaturesSetting extends CallFeaturesSetting {
         if (mButtonXDivert != null) {
             mButtonXDivert.setOnPreferenceChangeListener(this);
         }
-        removeOptionalPrefs(prefSet);
     }
 
 
@@ -225,13 +222,22 @@ public class MSimCallFeaturesSetting extends CallFeaturesSetting {
     @Override
     protected void removeOptionalPrefs(PreferenceScreen preferenceScreen) {
         super.removeOptionalPrefs(preferenceScreen);
-        if (!getResources().getBoolean(R.bool.config_show_xdivert) && mButtonXDivert != null) {
-            preferenceScreen.removePreference(mButtonXDivert);
+        if (!getResources().getBoolean(R.bool.config_show_xdivert)) {
+            Preference xdivert = findPreference(BUTTON_XDIVERT_KEY);
+            preferenceScreen.removePreference(xdivert);
         }
     }
 
     protected int getPreferencesResource() {
         return R.xml.msim_call_feature_setting;
+    }
+
+    public static void goUpToTopLevelSetting(Activity activity) {
+        Intent intent = new Intent(activity, MSimCallFeaturesSetting.class);
+        intent.setAction(Intent.ACTION_MAIN);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        activity.startActivity(intent);
+        activity.finish();
     }
 
     private static void log(String msg) {

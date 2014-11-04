@@ -75,7 +75,6 @@ public class ImsEditor extends PreferenceActivity
     private static final boolean DBG = Log.isLoggable("IMS", Log.DEBUG);
 
     private ImsSharedPreferences mSharedPreferences;
-    private Button mRemoveButton;
     private MultiSelectListPreference mUseAlwaysPref;
     private ListPreference mCallTypePref;
     private ListPreference mVideoCallQuality;
@@ -131,33 +130,23 @@ public class ImsEditor extends PreferenceActivity
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        getPreferenceScreen().setEnabled(true);
-        if (mRemoveButton != null) mRemoveButton.setEnabled(true);
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         if (DBG) Log.v(TAG, "start profile editor");
         super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.ims_edit);
 
         mSharedPreferences = new ImsSharedPreferences(this);
 
         mHandler = new ImsEditorHandler();
         mMessenger = new Messenger(mHandler);
 
-        setContentView(R.layout.ims_settings_ui);
-        addPreferencesFromResource(R.xml.ims_edit);
-
-        PreferenceGroup screen = (PreferenceGroup) getPreferenceScreen();
+        PreferenceGroup screen = getPreferenceScreen();
         for (int i = 0, n = screen.getPreferenceCount(); i < n; i++) {
             setupPreference(screen.getPreference(i));
         }
-        mUseAlwaysPref = (MultiSelectListPreference) getPreferenceScreen()
+        mUseAlwaysPref = (MultiSelectListPreference) screen
                 .findPreference(getString(R.string.ims_call_type_control));
-        mCallTypePref = (ListPreference) getPreferenceScreen().findPreference(
-                getString(R.string.call_type));
+        mCallTypePref = (ListPreference) screen.findPreference(getString(R.string.call_type));
         mVideoCallQuality = (ListPreference) screen
                 .findPreference(getString(R.string.ims_vt_call_quality));
         screen.setTitle(R.string.ims_edit_title);
@@ -173,11 +162,10 @@ public class ImsEditor extends PreferenceActivity
     }
 
     /**
-     * Method to enable or disable Selectable and Enabled for a preference
+     * Method to enable or disable a preference
      */
     private void enablePref(Preference pref, boolean enable) {
         if (pref != null) {
-            pref.setSelectable(enable);
             pref.setEnabled(enable);
         }
     }
@@ -305,11 +293,11 @@ public class ImsEditor extends PreferenceActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        menu.add(0, MENU_SAVE, 0, R.string.ims_menu_save)
+        menu.add(0, MENU_DISCARD, 1, R.string.ims_menu_discard)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        menu.add(0, MENU_DISCARD, 0, R.string.ims_menu_discard)
+        menu.add(0, MENU_SAVE, 2, R.string.ims_menu_save)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        menu.add(0, MENU_REMOVE, 0, R.string.remove_ims_account)
+        menu.add(0, MENU_REMOVE, 3, R.string.remove_ims_account)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         return true;
     }
@@ -424,7 +412,7 @@ public class ImsEditor extends PreferenceActivity
             enablePref(mUseAlwaysPref, false);
         }
         PreferenceKey.CALLTYPE.setValue(convertCallTypeToStr(mSharedPreferences.getCallType()));
-        PreferenceKey.CALLTYPE.preference.setSelectable(mSharedPreferences.isCallTypeSelectable());
+        PreferenceKey.CALLTYPE.preference.setEnabled(mSharedPreferences.isCallTypeSelectable());
         enablePref(mVideoCallQuality, vtSupp);
     }
 

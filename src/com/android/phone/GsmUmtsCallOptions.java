@@ -19,10 +19,11 @@
 
 package com.android.phone;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 
@@ -31,6 +32,8 @@ import com.android.internal.telephony.PhoneConstants;
 
 import static com.android.internal.telephony.MSimConstants.SUBSCRIPTION_KEY;
 
+import com.android.phone.PhoneUtils.PhoneSettings;
+
 public class GsmUmtsCallOptions extends PreferenceActivity {
     private static final String LOG_TAG = "GsmUmtsCallOptions";
     private final boolean DBG = (PhoneGlobals.DBG_LEVEL >= 2);
@@ -38,8 +41,10 @@ public class GsmUmtsCallOptions extends PreferenceActivity {
     private static final String BUTTON_CF_EXPAND_KEY = "button_cf_expand_key";
     private static final String BUTTON_MORE_EXPAND_KEY = "button_more_expand_key";
     private static final String BUTTON_CB_EXPAND_KEY = "button_callbarring_expand_key";
+    private static final String BUTTON_SHOW_SSN_KEY = "button_show_ssn_key";
 
     private PreferenceScreen subscriptionPrefCFE;
+    private CheckBoxPreference mShowSSNPref;
 
     private int mSubscription = 0;
     private Phone mPhone;
@@ -67,6 +72,12 @@ public class GsmUmtsCallOptions extends PreferenceActivity {
         PreferenceScreen subscriptionPrefCBSettings =
                 (PreferenceScreen) findPreference(BUTTON_CB_EXPAND_KEY);
         subscriptionPrefCBSettings.getIntent().putExtra(SUBSCRIPTION_KEY, mSubscription);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mShowSSNPref = (CheckBoxPreference) findPreference(BUTTON_SHOW_SSN_KEY);
+        boolean initialState = prefs.getBoolean(mShowSSNPref.getKey(), false);
+        PhoneSettings.setPreferenceKeyForSubscription(mShowSSNPref, mSubscription);
+        mShowSSNPref.setChecked(prefs.getBoolean(mShowSSNPref.getKey(), initialState));
 
         mPhone = PhoneGlobals.getInstance().getPhone(mSubscription);
 

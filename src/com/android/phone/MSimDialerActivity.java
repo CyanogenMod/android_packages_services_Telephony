@@ -207,7 +207,7 @@ public class MSimDialerActivity extends AlertActivity implements
                 item.subscription = MSimPhoneFactory.getPhone(i).getSubscription();
                 item.isDefault = item.subscription == defaultSub;
                 item.label = context.getString(R.string.msim_call_selector_item,
-                        i + 1, tm.getNetworkOperatorName(i));
+                        i + 1, tm.getSimOperatorName(i));
                 mItems.add(item);
             }
         }

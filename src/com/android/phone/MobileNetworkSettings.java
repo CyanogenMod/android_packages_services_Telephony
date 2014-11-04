@@ -20,6 +20,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
+import com.codeaurora.telephony.msim.MSimPhoneFactory;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -39,6 +40,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.telephony.MSimTelephonyManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -511,8 +513,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                 setPreferredNetworkMode(buttonNetworkMode);
 
                 //Set the modem network mode
-                mPhone.setPreferredNetworkType(modemNetworkMode, mHandler
-                        .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
+                setPreferredNetworkType(modemNetworkMode);
 
                 Intent intent = new Intent(PhoneToggler.ACTION_NETWORK_MODE_CHANGED);
                 intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, buttonNetworkMode);
@@ -522,6 +523,21 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         // always let the preference setting proceed.
         return true;
+    }
+
+    private void setPreferredNetworkType(int modemNetworkMode) {
+        MSimTelephonyManager tm = MSimTelephonyManager.getDefault();
+        if (tm.isMultiSimEnabled()  &&
+                tm.getMultiSimConfiguration() ==
+                        MSimTelephonyManager.MultiSimVariants.DSDS) {
+            for (int i=0; i<tm.getPhoneCount(); i++) {
+                Phone phone = MSimPhoneFactory.getPhone(i);
+                phone.setPreferredNetworkType(Phone.NT_MODE_GSM_ONLY, mHandler
+                        .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
+            }
+        }
+        mPhone.setPreferredNetworkType(modemNetworkMode, mHandler
+                .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
     }
 
     private class MyHandler extends Handler {
