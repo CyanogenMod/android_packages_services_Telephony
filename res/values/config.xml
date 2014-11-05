@@ -160,4 +160,3 @@
     <!-- whether hide roaming settings -->
     <bool name="hide_roaming">false</bool>
 </resources>
-</resources>
