@@ -829,7 +829,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     public boolean endCallForSubscriber(int subId) {
         enforceCallPermission();
-        return (Boolean) sendRequest(CMD_END_CALL, subId, null);
+        return (Boolean) sendRequest(CMD_END_CALL, new Integer(subId), null);
     }
 
     public void answerRingingCall() {
@@ -842,7 +842,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         // but that can probably wait till the big TelephonyManager API overhaul.
         // For now, protect this call with the MODIFY_PHONE_STATE permission.
         enforceModifyPermission();
-        sendRequestAsync(CMD_ANSWER_RINGING_CALL);
+        sendRequest(CMD_ANSWER_RINGING_CALL, new Integer(subId), null);
     }
 
     /**
