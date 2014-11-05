@@ -146,8 +146,8 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                         IccCardConstants.INTENT_VALUE_ICC_IMSI.equals(stateExtra)) {
                     mIccLoaded[slot] = true;
                     int primarySlot = getPrimarySlot();
-                    int currentDds = SubscriptionManager.getSlotId(PhoneFactory
-                            .getDataSubscription());
+                    int currentDds = SubscriptionManager.getSlotId(SubscriptionManager
+                            .getDefaultDataSubId());
                     logd("ACTION_SIM_STATE_CHANGED current defalut dds :" + currentDds
                             + ", primary slot :" + primarySlot);
                     if (currentDds == primarySlot) {
@@ -369,7 +369,8 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
 
     protected void onConfigLteDone(Message msg) {
         int primarySlot = getPrimarySlot();
-        int currentDds = SubscriptionManager.getSlotId(PhoneFactory.getDataSubscription());
+        int currentDds = SubscriptionManager.getSlotId(SubscriptionManager
+                .getDefaultDataSubId());
         if (primarySlot != -1) {
             logd("onConfigLteDone primary Slot " + primarySlot + ", currentDds = " + currentDds
                     + ", mIccLoaded[" + primarySlot
