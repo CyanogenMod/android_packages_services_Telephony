@@ -65,6 +65,7 @@ import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.PhoneProxy;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.TelephonyIntents;
+import com.android.internal.telephony.imsphone.ImsPhone;
 import com.android.phone.common.CallLogAsync;
 import com.android.server.sip.SipService;
 
@@ -1054,4 +1055,17 @@ public class PhoneGlobals extends ContextWrapper {
      * Used to determine if the preserved call origin is fresh enough.
      */
     private static final long CALL_ORIGIN_EXPIRATION_MILLIS = 30 * 1000;
+
+    public boolean isImsPhoneActive(Phone mPhone){
+        if (SystemProperties.getBoolean("persist.radio.cfu.timer", false)){
+            return true;
+        }
+        Phone imsPhone = mPhone.getImsPhone();
+        if ((imsPhone != null)
+                && (imsPhone.getServiceState().getState()
+                    == ServiceState.STATE_IN_SERVICE)) {
+            return true;
+        }
+        return false;
+    }
 }

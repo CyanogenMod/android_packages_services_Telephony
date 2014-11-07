@@ -28,15 +28,30 @@ import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.DialerKeyListener;
+import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Spinner;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
+import android.util.Log;
+import java.util.Calendar;
+import java.util.Date;
 
-public class EditPhoneNumberPreference extends EditTextPreference {
+import com.android.internal.telephony.CommandsInterface;
 
+public class EditPhoneNumberPreference extends EditTextPreference
+        implements AdapterView.OnItemSelectedListener {
+
+    private String TAG = "EditPhoneNumberPreference";
+    private static final boolean DBG = (PhoneGlobals.DBG_LEVEL >= 2);
     //allowed modes for this preference.
     /** simple confirmation (OK / CANCEL) */
     private static final int CM_CONFIRM = 0;
@@ -56,6 +71,23 @@ public class EditPhoneNumberPreference extends EditTextPreference {
 
     //UI layout
     private ImageButton mContactPickButton;
+
+    //UI for time settings
+    private Calendar mStartDate = Calendar.getInstance();
+    private Calendar mEndDate = Calendar.getInstance();
+    private TextView mTimeStartTextView;
+    private View mStartTimeSetting;
+    private Spinner mTimeStartHourSpinner;
+    private Spinner mTimeStartMinuteSpinner;
+    private TextView mTimeEndTextView;
+    private View mEndTimeSetting;
+    private Spinner mTimeEndHourSpinner;
+    private Spinner mTimeEndMinuteSpinner;
+    private CheckBox mTimePeriodAllDay;
+    private Spinner mTimeStartFormate;
+    private Spinner mTimeEndFormate;
+    private ArrayAdapter time24hour;
+    private ArrayAdapter time12hour;
 
     //Listeners
     /** Called when focus is changed between fields */
@@ -85,7 +117,21 @@ public class EditPhoneNumberPreference extends EditTextPreference {
     private int mButtonClicked;
 
     //relevant (parsed) value of the mText
+    private boolean canShowTimerSetting = false;
     private String mPhoneNumber;
+    private int mValidStartTimeHour = 22;
+    private int mValidStartTimeMinute = 0;
+    private int mValidEndTimeHour = 8;
+    private int mValidEndTimeMinute = 0;
+
+    private int mStartTimeHour = 22;
+    private int mStartTimeMinute = 0;
+    private int mStartTimeAPMP = 0;
+    private int mEndTimeHour = 8;
+    private int mEndTimeMinute = 0;
+    private int mEndTimeAMPM = 0;
+    private String mTimePeriodString;
+    private boolean mTimePeriodAllDayChecked = true;
     private boolean mChecked;
 
 
@@ -186,6 +232,7 @@ public class EditPhoneNumberPreference extends EditTextPreference {
     //called when we're binding the dialog to the preference's view.
     @Override
     protected void onBindDialogView(View view) {
+        if (DBG) Log.d(TAG, "onBindDialogView, mPrefId = " + mPrefId);
         // default the button clicked to be the cancel button.
         mButtonClicked = DialogInterface.BUTTON_NEGATIVE;
 
@@ -222,6 +269,10 @@ public class EditPhoneNumberPreference extends EditTextPreference {
                 }
             });
         }
+
+        //set timer settings
+        initTimeSettingsView(view);
+
     }
 
     /**
@@ -323,7 +374,20 @@ public class EditPhoneNumberPreference extends EditTextPreference {
         // A positive result is technically either button1 or button3.
         if ((mButtonClicked == DialogInterface.BUTTON_POSITIVE) ||
                 (mButtonClicked == DialogInterface.BUTTON_NEUTRAL)){
-            setPhoneNumber(getEditText().getText().toString());
+            String number = getEditText().getText().toString();
+            if (mPrefId == CommandsInterface.CF_REASON_UNCONDITIONAL){
+                if (isAllDayChecked() && mTimePeriodAllDayChecked){
+                    setPhoneNumber(number);
+                } else {
+                    setPhoneNumberWithTimePeriod(number, mStartTimeHour,
+                        mStartTimeMinute, mEndTimeHour, mEndTimeMinute);
+                    if (DBG) Log.d(TAG, "onDialogClosed, phonenumber = " + number
+                                    + "timePeriodString = " + mTimePeriodString);
+                }
+            } else {
+                setPhoneNumber(number);
+            }
+            if (DBG) dumpSpinnerSelectedTimePeriodInfo();
             super.onDialogClosed(positiveResult);
             setText(getStringValue());
         } else {
@@ -365,14 +429,40 @@ public class EditPhoneNumberPreference extends EditTextPreference {
         return PhoneNumberUtils.stripSeparators(mPhoneNumber);
     }
 
+    public int getStartTimeHour() {
+        return mStartTimeHour;
+    }
+
+    public int getStartTimeMinute() {
+        return mStartTimeMinute;
+    }
+
+    public int getEndTimeHour() {
+        return mEndTimeHour;
+    }
+
+    public int getEndTimeMinute() {
+        return mEndTimeMinute;
+    }
+
+    public boolean isAllDayChecked() {
+        return mTimePeriodAllDay.isChecked();
+    }
+
     /** The phone number including any formatting characters */
     protected String getRawPhoneNumber() {
         return mPhoneNumber;
     }
 
+    protected String getRawPhoneNumberWithTime(){
+        return mPhoneNumber + mTimePeriodString;
+    }
+
     //set the phone number value.
     // return the current preference to allow for chaining preferences.
     public EditPhoneNumberPreference setPhoneNumber(String number) {
+        if (DBG) Log.d("EditPhoneNumberPreference",
+                "setPhoneNumber, phonenumber = " + number);
         mPhoneNumber = number;
         setText(getStringValue());
         notifyChanged();
@@ -380,6 +470,84 @@ public class EditPhoneNumberPreference extends EditTextPreference {
         return this;
     }
 
+    public void setAllDayCheckBox(boolean checked){
+        if (DBG) Log.d(TAG, "setAllDayCheckBox,"
+                +"mTimePeriodAllDayChecked" + checked);
+        mTimePeriodAllDayChecked = checked;
+    }
+
+    public void setTimeSettingVisibility(boolean enable) {
+        canShowTimerSetting = enable;
+    }
+
+    /*
+     *    set the phone number with time period info.
+     *1. save timer info from network
+     *2. call when timer info changed after timer edit finish
+     */
+    public EditPhoneNumberPreference setPhoneNumberWithTimePeriod(String number,
+                int starthour, int startminute, int endhour, int endminute) {
+        mPhoneNumber = number;
+        setText(getStringValue());
+        setTimePeriodInfo(starthour, startminute, endhour, endminute);
+        notifyChanged();
+
+        return this;
+    }
+
+    public void setTimePeriodInfo(int starthour, int startminute,
+            int endhour, int endminute) {
+        if (DBG) Log.d(TAG, "setTimePeriodInfo, starthour = " + starthour
+                    + "startminute = " + startminute
+                    + "endhour = " + endhour
+                    + "endminute = " + endminute);
+        mValidStartTimeHour = starthour;
+        mValidStartTimeMinute = startminute;
+        mValidEndTimeHour = endhour;
+        mValidEndTimeMinute = endminute;
+        if (mTimePeriodAllDayChecked){
+            mTimePeriodString = " all day";
+        } else {
+            String fomatedStartTimeString = formateTime(mStartDate,
+                    mStartTimeHour, mStartTimeMinute);
+            String fomatedEndTimeString = formateTime(mEndDate,
+                    mEndTimeHour, mEndTimeMinute);
+            mTimePeriodString = " from " + fomatedStartTimeString
+                    + " to " + fomatedEndTimeString;
+            if (mEndTimeHour*60 + mEndTimeMinute
+                    < mStartTimeHour*60 + mStartTimeMinute){
+                mTimePeriodString = mTimePeriodString + " next day";
+            }
+        }
+    }
+
+    //set the phone number with time period info.
+    private String formateTime(Calendar mDate, int hour, int minute) {
+        String fomatedTimeString;
+        Calendar now = Calendar.getInstance();
+        java.text.DateFormat mDateFormat = DateFormat.getDateFormat(getContext());
+        mDate.set(now.get(Calendar.YEAR),
+                now.get(Calendar.MONTH),
+                now.get(Calendar.DAY_OF_MONTH),
+                hour,
+                minute,
+                0);
+        Date mDateTimeOnly = mDate.getTime();
+        fomatedTimeString = DateFormat.getTimeFormat(getContext()).format(mDateTimeOnly);
+        if (DBG) Log.d(TAG, "formatedTime =" + fomatedTimeString);
+        return fomatedTimeString;
+    }
+
+    //set the phone number with time period info.
+    public EditPhoneNumberPreference setPhoneNumberWithTimePeriod(String number,
+                String timeperiod) {
+        mPhoneNumber = number;
+        mTimePeriodString = timeperiod;
+        setText(getStringValue());
+        notifyChanged();
+
+        return this;
+    }
 
     /*
      * Other code relevant to preference framework
@@ -480,11 +648,19 @@ public class EditPhoneNumberPreference extends EditTextPreference {
     protected void setValueFromString(String value) {
         String[] inValues = value.split(":", 2);
         setToggled(inValues[0].equals(VALUE_ON));
-        setPhoneNumber(inValues[1]);
+        if (inValues.length == 3){
+            setPhoneNumberWithTimePeriod(inValues[1], inValues[2]);
+        } else {
+            setPhoneNumber(inValues[1]);
+        }
     }
 
     //retrieve the state of this preference in the form of an encoded string
     protected String getStringValue() {
+        if (mPrefId == CommandsInterface.CF_REASON_UNCONDITIONAL){
+            return ((isToggled() ? VALUE_ON : VALUE_OFF) + VALUE_SEPARATOR + getPhoneNumber()
+                    + mTimePeriodString);
+        }
         return ((isToggled() ? VALUE_ON : VALUE_OFF) + VALUE_SEPARATOR + getPhoneNumber());
     }
 
@@ -495,5 +671,169 @@ public class EditPhoneNumberPreference extends EditTextPreference {
      */
     public void showPhoneNumberDialog() {
         showDialog(null);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String selectedItem = parent.getItemAtPosition(position).toString();
+        if (DBG) Log.d(TAG, "onItemSelected"
+                + ", selectedItem = " + selectedItem
+                + ", position = " + position
+                + ", parent" + parent);
+        //Toast.makeText(mParentActivity, "your option is " + selectedItem, 2000).show();
+        setSelectionStartTimePreiod();
+        setSelectionEndTimePreiod();
+        if (DBG) dumpSpinnerSelectedTimePeriodInfo();
+    }
+
+    private void initTimeSettingsView(View view){
+        Log.d(TAG, "initTimeSettingsView, mPrefId = " + mPrefId);
+        //all day default for time period
+        mTimePeriodAllDay = (CheckBox) view.findViewById(R.id.all_day);
+        mTimePeriodAllDay.setChecked(mTimePeriodAllDayChecked);
+        mTimePeriodAllDay.setOnCheckedChangeListener(new CompoundButton
+                .OnCheckedChangeListener(){
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView,
+                            boolean isChecked) {
+                        onAllDayChecked(isChecked);
+                    }
+                });
+        //set start time
+        mTimeStartTextView = (TextView) view.findViewById(R.id.time_start);
+        mStartTimeSetting = (View) view.findViewById(R.id.start_time_setting);
+        mTimeStartHourSpinner = (Spinner) view.findViewById(
+                is24Hour()? R.id.time_start_hour_24 : R.id.time_start_hour_12);
+        mTimeStartHourSpinner.setOnItemSelectedListener(this);
+        mTimeStartMinuteSpinner = (Spinner) view.findViewById(R.id.time_start_minute);
+        mTimeStartMinuteSpinner.setOnItemSelectedListener(this);
+
+        //set end time
+        mTimeEndTextView = (TextView) view.findViewById(R.id.time_end);
+        mEndTimeSetting = (View) view.findViewById(R.id.end_time_setting);
+        mTimeEndHourSpinner = (Spinner) view.findViewById(
+                is24Hour()? R.id.time_end_hour_24 : R.id.time_end_hour_12);
+        mTimeEndHourSpinner.setOnItemSelectedListener(this);
+        mTimeEndMinuteSpinner = (Spinner) view.findViewById(R.id.time_end_minute);
+        mTimeEndMinuteSpinner.setOnItemSelectedListener(this);
+
+        //set time formate: 12-hour or 24-hour
+        mTimeStartFormate = (Spinner) view.findViewById(R.id.time_start_formate);
+        mTimeStartFormate.setOnItemSelectedListener(this);
+        mTimeEndFormate = (Spinner) view.findViewById(R.id.time_end_formate);
+        mTimeEndFormate.setOnItemSelectedListener(this);
+
+        if ((mPrefId == CommandsInterface.CF_REASON_UNCONDITIONAL)
+                && canShowTimerSetting) {
+            Log.d(TAG, "show time setting for cfut");
+            mTimePeriodAllDay.setVisibility(View.VISIBLE);
+            mTimeStartTextView.setVisibility(View.VISIBLE);
+            mTimeEndTextView.setVisibility(View.VISIBLE);
+            mStartTimeSetting.setVisibility(View.VISIBLE);
+            mEndTimeSetting.setVisibility(View.VISIBLE);
+            mTimeStartHourSpinner.setVisibility(View.VISIBLE);
+            mTimeEndHourSpinner.setVisibility(View.VISIBLE);
+
+            mTimeStartMinuteSpinner.setSelection(mValidStartTimeMinute);
+            mTimeEndMinuteSpinner.setSelection(mValidEndTimeMinute);
+
+            if (is24Hour()){
+                mTimeStartHourSpinner.setSelection(mValidStartTimeHour);
+                mTimeEndHourSpinner.setSelection(mValidEndTimeHour);
+            } else {
+                mTimeStartFormate.setVisibility(View.VISIBLE);
+                mTimeEndFormate.setVisibility(View.VISIBLE);
+                showTimeWith12Formate(mValidStartTimeHour, mTimeStartHourSpinner, mTimeStartFormate);
+                showTimeWith12Formate(mValidEndTimeHour, mTimeEndHourSpinner, mTimeEndFormate);
+            }
+            onAllDayChecked(mTimePeriodAllDay.isChecked());
+        }
+    }
+
+    private void onAllDayChecked(boolean isChecked){
+        mTimeStartHourSpinner.setEnabled(!isChecked);
+        mTimeStartHourSpinner.setClickable(!isChecked);
+        mTimeStartMinuteSpinner.setEnabled(!isChecked);
+        mTimeStartMinuteSpinner.setClickable(!isChecked);
+        mTimeEndHourSpinner.setEnabled(!isChecked);
+        mTimeEndHourSpinner.setClickable(!isChecked);
+        mTimeEndMinuteSpinner.setEnabled(!isChecked);
+        mTimeEndMinuteSpinner.setClickable(!isChecked);
+        if (!is24Hour()){
+            mTimeStartFormate.setEnabled(!isChecked);
+            mTimeStartFormate.setClickable(!isChecked);
+            mTimeEndFormate.setEnabled(!isChecked);
+            mTimeEndFormate.setClickable(!isChecked);
+        }
+        mTimeStartTextView.setTextColor(isChecked? 0xFF888888 : 0xFF000000);
+        mTimeEndTextView.setTextColor(isChecked? 0xFF888888 : 0xFF000000);
+    }
+
+    /*Get value from the system settings*/
+    private boolean is24Hour() {
+        return DateFormat.is24HourFormat(getContext());
+    }
+
+    private void showTimeWith12Formate(int hour, Spinner hourSpinner, Spinner hourFormate){
+        if (hour < 12){
+            hourSpinner.setSelection(hour);
+            hourFormate.setSelection(0);
+        } else if (hour >= 12){
+            hourSpinner.setSelection(hour-12);
+            hourFormate.setSelection(1);
+        }
+    }
+
+    private void setSelectionStartTimePreiod( ){
+        mStartTimeMinute = (int) mTimeStartMinuteSpinner.getSelectedItemId();
+        if (DBG) Log.d(TAG, "setSelectionTimePreiod, mStartTimeMinute = "+mStartTimeMinute);
+        int starthourposion = (int) mTimeStartHourSpinner.getSelectedItemId();
+        if (DBG) Log.d(TAG, "setSelectionTimePreiod, starthourposion = "+starthourposion);
+        if (is24Hour()){
+            mStartTimeHour = starthourposion;
+        } else {
+            mStartTimeAPMP = (int) mTimeStartFormate.getSelectedItemId();
+            Log.d(TAG, "setSelectionTimePreiod, mStartTimeAPMP = " + mStartTimeAPMP);
+            if (mStartTimeAPMP == 0){
+                mStartTimeHour = starthourposion;
+            } else if (mStartTimeAPMP ==1){
+                mStartTimeHour = 12 + starthourposion;
+            }
+        }
+        Log.d(TAG, "setSelectionTimePreiod, mStartTimeHour = "
+                + mStartTimeHour + ", mStartTimeMinute = " + mStartTimeMinute);
+    }
+
+    private void setSelectionEndTimePreiod(){
+        mEndTimeMinute = (int) mTimeEndMinuteSpinner.getSelectedItemId();
+        if (DBG) Log.d(TAG, "setSelectionTimePreiod, mEndTimeMinute = "+mEndTimeMinute);
+        int endhourposion = (int) mTimeEndHourSpinner.getSelectedItemId();
+        if (DBG) Log.d(TAG, "setSelectionTimePreiod, endhourposion = "+ endhourposion);
+        if (is24Hour()){
+            mEndTimeHour = (int) mTimeEndHourSpinner.getSelectedItemId();
+        } else {
+            mEndTimeAMPM = (int) mTimeEndFormate.getSelectedItemId();
+            if (DBG) Log.d(TAG, "setSelectionTimePreiod, mEndTimeAMPM = " + mEndTimeAMPM);
+            if (mEndTimeAMPM == 0){
+                mEndTimeHour = endhourposion;
+            } else if (mEndTimeAMPM ==1){
+                mEndTimeHour = 12 + endhourposion;
+            }
+        }
+        if (DBG) Log.d(TAG, "setSelectionTimePreiod, mEndTimeHour = "
+                    + mEndTimeHour + ", mEndTimeMinute = " + mEndTimeMinute);
+    }
+
+    private void dumpSpinnerSelectedTimePeriodInfo(){
+        Log.d(TAG, "dumpSpinnerSelectedTimePeriodIfo: "
+            + "mStartTimeHour = " + mStartTimeHour
+            + ", mStartTimeMinute = " + mStartTimeMinute
+            + ", mEndTimeHour = " + mEndTimeHour
+            + ", mEndTimeMinute = " + mEndTimeMinute
+            + ", mTimePeriodString = " + mTimePeriodString);
     }
 }
