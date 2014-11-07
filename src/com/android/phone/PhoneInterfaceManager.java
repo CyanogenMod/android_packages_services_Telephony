@@ -124,8 +124,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
     private static final String PREF_CARRIERS_ALPHATAG_PREFIX = "carrier_alphtag_";
     private static final String PREF_CARRIERS_NUMBER_PREFIX = "carrier_number_";
-    private static final String PREF_CARRIERS_SIMPLIFIED_NETWORK_SETTINGS_PREFIX =
-            "carrier_simplified_network_settings_";
+    private static final String PREF_ENABLE_VIDEO_CALLING = "enable_video_calling";
 
     /**
      * A request object to use for transmitting data to an ICC.
@@ -2050,34 +2049,6 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             return null;
         }
         return iccId;
-    }
-
-    @Override
-    public void enableSimplifiedNetworkSettingsForSubscriber(int subId, boolean enable) {
-        enforceModifyPermissionOrCarrierPrivilege();
-
-        String iccId = getIccId(subId);
-        if (iccId != null) {
-            String snsPrefKey = PREF_CARRIERS_SIMPLIFIED_NETWORK_SETTINGS_PREFIX + iccId;
-            SharedPreferences.Editor editor = carrierPrivilegeConfigs.edit();
-            if (enable) {
-                editor.putBoolean(snsPrefKey, true);
-            } else {
-                editor.remove(snsPrefKey);
-            }
-            editor.commit();
-        }
-    }
-
-    @Override
-    public boolean getSimplifiedNetworkSettingsEnabledForSubscriber(int subId) {
-        enforceReadPermission();
-        String iccId = getIccId(subId);
-        if (iccId != null) {
-            String snsPrefKey = PREF_CARRIERS_SIMPLIFIED_NETWORK_SETTINGS_PREFIX + iccId;
-            return carrierPrivilegeConfigs.getBoolean(snsPrefKey, false);
-        }
-        return false;
     }
 
     @Override
