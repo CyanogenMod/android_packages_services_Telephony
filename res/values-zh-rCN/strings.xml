@@ -185,6 +185,8 @@
     <string name="labelVTCF">呼叫转移</string>
     <string name="image_replace_setting_label">可视电话替代图片设置</string>
 
+    <string name="enhanced_4g_lte_mode_title">增强4G LTE模式</string>
+    <string name="enhanced_4g_lte_mode_summary">使用LTE服务来改善语音和其他通信 (推荐)</string>
     <string name="data_enabled" msgid="5972538663568715366">"启用移动数据网络"</string>
     <!-- no translation found for data_enable_summary (2382798156640007971) -->
     <skip />
