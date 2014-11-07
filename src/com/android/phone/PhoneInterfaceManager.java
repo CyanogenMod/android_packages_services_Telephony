@@ -19,6 +19,7 @@
 
 package com.android.phone;
 
+import android.Manifest;
 import android.app.ActivityManager;
 import android.app.AppOpsManager;
 import android.bluetooth.IBluetoothHeadsetPhone;
@@ -63,6 +64,7 @@ import com.android.internal.util.HexDump;
 import com.android.internal.telephony.uicc.IccIoResult;
 import com.android.internal.telephony.uicc.IccUtils;
 import com.android.internal.telephony.CommandException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1047,6 +1049,66 @@ public class PhoneInterfaceManager extends ITelephony.Stub implements CallModele
 
     public void setCellInfoListRate(int rateInMillis) {
         mPhone.setCellInfoListRate(rateInMillis);
+    }
+
+
+    /**
+     * Allows an application to add a protected sms address if the application has
+     * been granted the permission MODIFY_PROTECTED_SMS_LIST.
+     * @param address
+     * @hide
+     */
+    @Override
+    public void addProtectedSmsAddress(String address) {
+        if (TextUtils.isEmpty(address)) {
+            return;
+        }
+
+        //Normalize the number
+        String normalized = PhoneNumberUtil.normalizeDigitsOnly(address);
+
+        List<String> settings =
+                Settings.Secure.getDelimitedStringAsList(mApp.getContentResolver(),
+                        Settings.Secure.PROTECTED_SMS_ADDRESSES, "\\|");
+        if (!settings.contains(normalized)) {
+            // Add the address
+            settings.add(normalized);
+        }
+
+        // Commit
+        Settings.Secure.putString(mApp.getContentResolver(),
+                Settings.Secure.PROTECTED_SMS_ADDRESSES, TextUtils.join("|", settings));
+    }
+
+    /**
+     * Allows an application to revoke/remove a protected sms address if the application has been
+     * granted the permission MODIFY_PROTECTED_SMS_LIST.
+     * @param address
+     * @return true if address is successfully removed
+     * @hide
+     */
+    @Override
+    public boolean revokeProtectedSmsAddress(String address) {
+        if (TextUtils.isEmpty(address)) {
+            return false;
+        }
+
+        //Normalize the number
+        String normalized = PhoneNumberUtil.normalizeDigitsOnly(address);
+
+        List<String> settings =
+                Settings.Secure.getDelimitedStringAsList(mApp.getContentResolver(),
+                        Settings.Secure.PROTECTED_SMS_ADDRESSES, "\\|");
+
+        if (settings.contains(normalized)) {
+            settings.remove(normalized);
+            // Commit
+            Settings.Secure.putString(mApp.getContentResolver(),
+                    Settings.Secure.PROTECTED_SMS_ADDRESSES, TextUtils.join("|", settings));
+            return true;
+        } else {
+            return false;
+        }
     }
 
     //
