@@ -135,7 +135,10 @@ public class GsmUmtsOptions {
         Resources res = mPrefActivity.getResources();
 
         enablePlmnIncSearch();
-        if (res.getBoolean(R.bool.csp_enabled)) {
+        if(!mPhone.isManualNetSelAllowed()) {
+            log("Manual network selection not allowed.Disabling Operator Selection menu.");
+            mPrefScreen.removePreference(mButtonOperatorSelectionExpand);
+        } else if (res.getBoolean(R.bool.csp_enabled)) {
             if (mPhone.isCspPlmnEnabled()) {
                 log("[CSP] Enabling Operator Selection menu.");
                 mButtonOperatorSelectionExpand.setEnabled(true);
@@ -143,7 +146,9 @@ public class GsmUmtsOptions {
                 log("[CSP] Disabling Operator Selection menu.");
                 mPrefScreen.removePreference(mButtonOperatorSelectionExpand);
             }
+        }
 
+        if (res.getBoolean(R.bool.csp_enabled)) {
             // Read platform settings for carrier settings
             final boolean isCarrierSettingsEnabled = mPrefActivity.getResources().getBoolean(
                     R.bool.config_carrier_settings_enable);
