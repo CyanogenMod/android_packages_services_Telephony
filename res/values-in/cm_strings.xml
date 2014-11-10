@@ -80,7 +80,10 @@
   <string name="choose_forward_lookup_provider_title">Penyedia pencarian maju</string>
   <string name="choose_people_lookup_provider_title">Penyedia pencarian orang</string>
   <string name="choose_reverse_lookup_provider_title">Mencari pembalikan provider</string>
+  <string name="sim_name">Nama SIM</string>
   <string name="sub_no_sim">Tidak ada SIM</string>
+  <string name="sub_active">Aktif</string>
+  <string name="sub_not_active">Tidak aktif</string>
   <string name="msim_call_selector_title">Panggil <xliff:g id="number"> %s </xliff:g> melalui</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g>
 </string>
@@ -258,6 +261,7 @@
   <string name="exportAllcontatsFailed">Semua kontak gagal diekspor ke SIM</string>
   <string name="exportAllcontatsNoContacts">Tidak ada kontak yang ditemukan untuk diekspor ke SIM</string>
   <string name="cursorError">Data kursor tidak valid</string>
+  <string name="set_subscription">Konfigurasi kartu SIM</string>
   <string name="set_subscription_error_atleast_one">Pilih setidaknya satu kartu SIM</string>
   <string name="set_uicc_subscription_progress">Pengaturan langganan\u2026</string>
   <string name="set_sub_success">Langganan berhasil diatur</string>

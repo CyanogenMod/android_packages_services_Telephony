@@ -80,7 +80,10 @@
   <string name="choose_forward_lookup_provider_title">Paikkahauntarjoaja</string>
   <string name="choose_people_lookup_provider_title">Ihmisen haun tarjoaja</string>
   <string name="choose_reverse_lookup_provider_title">Käänteisen haun tarjoaja</string>
+  <string name="sim_name">SIM-nimi</string>
   <string name="sub_no_sim">Ei SIMiä</string>
+  <string name="sub_active">Aktiivinen</string>
+  <string name="sub_not_active">Ei aktiivinen</string>
   <string name="msim_call_selector_title">Soita <xliff:g id="number">%s</xliff:g>:n kautta</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Kiina (CN)</string>
@@ -198,15 +201,23 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Ensisijainen verkkotila: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="network_settings_sel_sub">SIM-kortin asetukset</string>
+  <string name="summary_manage_subscriptions">Hallitse verkkoasetuksia jokaiselle SIM-kortille</string>
+  <string name="callind_multi_sim">SIM-kortin asetukset</string>
   <string name="tty_mode_not_allowed_vt_call">TTY-tilamuutos ei ole sallittu videopuhelun aikana</string>
   <string name="fdn_service_unavailable">FDN palvelu ei ole käytettävissä.</string>
   <string name="exportContacts">Viedään yhteystiedot SIM-kortille\u2026</string>
   <string name="xdivert_summary">CFNRc asetukset</string>
   <string name="phone_numbers">Anna puhelinnumerot</string>
+  <string name="sub1LineNumber">SIM 1 numero:</string>
+  <string name="sub2LineNumber">SIM 2 numero:</string>
   <string name="proceed">Jatka</string>
   <string name="sum_xdivert_enabled">X-Divert käytössä</string>
   <string name="sum_xdivert_disabled">X-Divert pois käytöstä</string>
   <string name="xdivert_not_supported">X-Divert ei tue CDMA-tilaa</string>
+  <string name="xdivert_enternumber_error">Syötä puhelinnumero jokaiselle SIM-kortille</string>
+  <string name="xdivert_partial_set">X-Divert on asetettu vain ensimmäiselle SIM-kortille</string>
+  <string name="xdivert_sub_absent">Jokainen SIM-kortti tulee aktivoida X-Divertin prosessointia varten</string>
   <string name="xdivert_status">X-Divert tila</string>
   <string name="xdivert_active">Aktiivinen</string>
   <string name="xdivert_not_active">Ei aktiivinen</string>
@@ -249,9 +260,14 @@
   <string name="exportAllcontatsFailed">Kaikkien yhteystietojen vieminen SIM-kortille epäonnistui</string>
   <string name="exportAllcontatsNoContacts">SIM-kortille vietäviä yhteystietoja ei löydy</string>
   <string name="cursorError">Virheellinen kursoridata</string>
+  <string name="set_subscription">Määritä SIM-kortit</string>
+  <string name="set_subscription_error_atleast_one">Valitse vähintään yksi SIM-kortti</string>
   <string name="set_uicc_subscription_progress">Asetetaan tilausta\u2026</string>
   <string name="set_sub_success">Tilaus asetettu onnistuneesti</string>
   <string name="set_sub_failed">Tilauksen asetus epäonnistui</string>
+  <string name="set_sub_1">SIM-kortti 1: </string>
+  <string name="set_sub_2">SIM-kortti 2: </string>
+  <string name="set_sub_3">SIM-kortti 3: </string>
   <string name="set_sub_activate_success">Aktivointi onnistui</string>
   <string name="set_sub_deactivate_success">Deaktivointi onnistui</string>
   <string name="set_sub_activate_failed">Aktivointi epäonnistui</string>
