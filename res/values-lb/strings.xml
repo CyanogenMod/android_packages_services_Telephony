@@ -33,20 +33,27 @@
   <string name="ok">OK</string>
   <string name="audio_mode_speaker">Lautsprecher</string>
   <string name="audio_mode_bluetooth">Bluetooth</string>
+  <string name="pause_prompt_str">Téin gi geschéckt\n</string>
   <string name="send_button">Schécken</string>
   <string name="pause_prompt_yes">Jo</string>
   <string name="pause_prompt_no">Nee</string>
   <string name="wild_prompt_str">Plazhalter ersetzen duerch</string>
   <string name="add_vm_number_str">Nummer dobäisetzen</string>
+  <string name="label_ndp">PIN fir d\'Entspärung vum SIM-Netzwierk</string>
   <string name="sim_ndp_unlock_text">Entspären</string>
   <string name="sim_ndp_dismiss_text">Verwerfen</string>
   <string name="requesting_unlock">Netzwierkentspärung gëtt ugefrot\u2026</string>
+  <string name="unlock_failed">Netzwierkentspärung net erfollegräich.</string>
+  <string name="unlock_success">Netzwierkentspärung erfollegräich.</string>
   <string name="labelGSMMore">GSM-Uruffastellungen</string>
   <string name="labelCDMAMore">CDMA-Uruffastellungen</string>
   <string name="settings_label">Netzwierkastellungen</string>
   <string name="voicemail">Sproochopnam</string>
   <string name="call_settings">Uruffastellungen</string>
   <string name="additional_gsm_call_settings">Zousätzlech Astellungen</string>
+  <string name="labelCallerId">Uruffer-ID</string>
+  <string name="sum_hide_caller_id">Nummer bei erausgoenden Uriff verstoppt</string>
+  <string name="sum_show_caller_id">Nummer bei erausgoenden Uriff ugewisen</string>
   <string name="labelCW">Gespréich pauséiert</string>
   <string name="labelCFU">Ëmmer weiderleeden</string>
   <string name="messageCFU">Ëmmer dës Nummer benotzen</string>
@@ -76,7 +83,9 @@
     <item>Nummer verstoppen</item>
     <item>Nummer uweisen</item>
   </string-array>
+  <string name="fw_get_in_vm_failed">Déi aktuell Astellunge fir d\'Weiderleedungsnummer kënnen net ofgeruff a gespäichert ginn.\nWëlls du trotzdeem bei deen anere Provider wiesselen?</string>
   <string name="no_change">Keng Ännerunge goufe gemaach.</string>
+  <string name="sum_voicemail_choose_provider">Mailbox-Service auswielen</string>
   <string name="voicemail_default">Mäi Provider</string>
   <string name="mobile_networks">Astellunge vum mobilen Netzwierk</string>
   <string name="label_available">Disponibel Netzwierker</string>
@@ -85,6 +94,8 @@
   <string name="search_networks">Netzwierker sichen</string>
   <string name="network_query_error">Feeler beim Sichen no Netzwierker.</string>
   <string name="registration_done">Um Netzwierk ugemellt.</string>
+  <string name="select_automatically">Automatesch auswielen</string>
+  <string name="sum_select_automatically">Automatesch dat preferréiert Netzwierk auswielen</string>
   <string name="register_automatically">Automatesch Registréierung\u2026</string>
   <string name="preferred_network_mode_title">Preferéierten Netzwierktyp</string>
   <string name="preferred_network_mode_dialogtitle">Preferéierten Netzwierktyp</string>
@@ -100,6 +111,7 @@
   <string name="preferred_network_mode_lte_summary">Preferéierten Netzwierktyp: LTE</string>
   <string name="preferred_network_mode_lte_gsm_wcdma_summary">Preferéierten Netzwierktyp: GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_lte_cdma_evdo_summary">Preferéierten Netzwierktyp: CDMA+LTE/EVDO</string>
+  <string name="preferred_network_mode_global_summary">Preferréierten Netzwierkmodus: Global</string>
   <string name="preferred_network_mode_lte_wcdma_summary">Preferéierten Netzwierktyp: LTE / WCDMA</string>
   <string-array name="preferred_network_mode_choices">
     <item>LTE / WCDMA</item>
@@ -118,7 +130,18 @@
   </string-array>
   <string name="data_enabled">Daten aktivéiert</string>
   <string name="data_enable_summary">Datenzougrëff iwwer dat mobilt Netzwierk aktivéieren</string>
+  <string name="roaming_enable">Beim Roaming d\'Connectioun mat Dateservicer zouloossen</string>
+  <string name="roaming_disable">Beim Roaming d\'Connectioun mat Dateservicer zouloossen</string>
+  <string name="gsm_umts_options">GSM/UMTS-Optiounen</string>
+  <string name="cdma_options">CDMA-Optiounen</string>
+  <string name="throttle_data_usage">Dateverbrauch</string>
+  <string name="throttle_current_usage">Daten an der aktueller Period genotzt</string>
+  <string name="throttle_rate">Richtlinn fir den Datentaux</string>
   <string name="throttle_help">Méi gewuer ginn</string>
+  <string name="enable_disable_administrative">Verwaltung</string>
+  <string name="administrative_enable">Verwaltung aktivéiert</string>
+  <string name="administrative_disable">Verwaltung desaktivéiert</string>
+  <string name="enable_disable_maintenance">Maintenance</string>
   <string name="maintenance_enable">Maintenance aktivéiert</string>
   <string name="maintenance_disable">Maintenance desaktivéiert</string>
   <string name="general_news_settings">Allgemeng Noriichten</string>
@@ -126,15 +149,23 @@
   <string name="sports_news_settings">Sportsnoriichten</string>
   <string name="entertainment_news_settings">Ënnerhalungsnoriichten</string>
   <string name="enable_disable_local">Lokal</string>
+  <string name="local_enable">Lokal Noriichten aktivéiert</string>
+  <string name="local_disable">Lokal Noriichten desaktivéiert</string>
+  <string name="enable_disable_regional">Regional</string>
+  <string name="regional_enable">Regional Noriichten aktivéiert</string>
+  <string name="regional_disable">Regional Noriichten desaktivéiert</string>
+  <string name="enable_disable_national">National</string>
   <string name="national_enable">National Noriichten aktivéiert</string>
   <string name="national_disable">National Noriichten desaktivéiert</string>
+  <string name="enable_disable_international">International</string>
+  <string name="list_language_title">Sprooch</string>
   <string-array name="list_language_entries">
-    <item>English</item>
+    <item>Emglesch</item>
     <item>Franséisch</item>
     <item>Spuenesch</item>
-    <item>Japanese</item>
-    <item>Korean</item>
-    <item>Chinese</item>
+    <item>Japanesch</item>
+    <item>Koreanesch</item>
+    <item>Chinesesch</item>
     <item>Hebräesch</item>
   </string-array>
   <string-array name="list_language_values">
@@ -146,7 +177,31 @@
     <item>"6"</item>
     <item>"7"</item>
   </string-array>
+  <string name="list_language_dtitle">Sproochen</string>
+  <string name="enable_disable_local_weather">Lokaalt Wieder</string>
+  <string name="local_weather_enable">Lokaalt Wieder aktivéiert</string>
+  <string name="local_weather_disable">Lokaalt Wieder desaktivéiert</string>
+  <string name="enable_disable_restaurants">Restauranten</string>
+  <string name="restaurants_enable">Restauranten aktivéiert</string>
+  <string name="restaurants_disable">Restauranten desaktivéiert</string>
+  <string name="enable_disable_advertisements">Reklammen</string>
+  <string name="advertisements_enable">Reklammen aktivéiert</string>
+  <string name="advertisements_disable">Reklammen desaktivéiert</string>
+  <string name="enable_disable_stock_quotes">Boursennotéierungen</string>
+  <string name="stock_quotes_enable">Boursennotéierungen aktivéiert</string>
+  <string name="stock_quotes_disable">Boursennotéierungen desaktivéiert</string>
+  <string name="network_lte">LTE (recommandéiert)</string>
+  <string name="network_4G">4G (recommandéiert)</string>
   <string name="network_global">Global</string>
+  <string name="cdma_system_select_title">Auswiel duerch de System</string>
+  <string name="cdma_system_select_dialogtitle">Auswiel duerch de System</string>
+  <string-array name="cdma_system_select_choices">
+    <item>Just Doheem</item>
+    <item>Automatesch</item>
+  </string-array>
+  <string name="cdma_subscription_title">CDMA-Abonnement</string>
+  <string name="cdma_subscription_summary">Tëscht RUIM/SIM an NV wiesselen</string>
+  <string name="cdma_subscription_dialogtitle">Abonnement</string>
   <string-array name="cdma_subscription_choices">
     <item>RUIM/SIM</item>
     <item>NV</item>
@@ -155,26 +210,72 @@
     <item>"0"</item>
     <item>"1"</item>
   </string-array>
+  <string name="cdma_activate_device">Apparat aktivéieren</string>
+  <string name="cdma_lte_data_service">Dateservice astellen</string>
   <string name="manage_fdn_list">Uruffbegrenzung</string>
+  <string name="fdn_activation">FDN-Aktivéierung</string>
+  <string name="enable_fdn">FDN aktivéieren</string>
+  <string name="disable_fdn">FDN desaktivéieren</string>
+  <string name="change_pin2">PIN2 änneren</string>
+  <string name="enable_fdn_ok">FDN desaktivéieren</string>
+  <string name="disable_fdn_ok">FDN aktivéieren</string>
+  <string name="tty_mode_option_title">TTY-Modus</string>
+  <string name="tty_mode_option_summary">TTY-Modus setzen</string>
+  <string name="menu_add">Kontakt dobäisetzen</string>
+  <string name="menu_edit">Kontakt änneren</string>
+  <string name="menu_delete">Kontakt läschen</string>
+  <string name="get_pin2">PIN2 aginn</string>
+  <string name="name">Numm</string>
+  <string name="number">Nummer</string>
   <string name="save">Späicheren</string>
+  <string name="fdn_failed">FDN-Operatioun feelgeschloen.</string>
+  <string name="enable_pin">SIM-PIN aktivéieren/desaktivéieren</string>
+  <string name="change_pin">SIM-PIN änneren</string>
+  <string name="enter_pin_text">SIM-PIN:</string>
+  <string name="oldPinLabel">Al PIN</string>
+  <string name="newPinLabel">Nei PIN</string>
+  <string name="confirmPinLabel">Nei PIN bestätegen</string>
   <string name="invalidPin">Tipp e PIN deen tëscht 4 an 8 Zifferen huet.</string>
+  <string name="disable_sim_pin">SIM-PIN desaktivéieren</string>
+  <string name="enable_sim_pin">SIM-PIN aktivéieren</string>
   <string name="enable_in_progress">Waart w.e.g.\u2026</string>
+  <string name="enable_pin_ok">SIM-PIN aktivéiert.</string>
+  <string name="disable_pin_ok">SIM-PIN desaktivéiert.</string>
+  <string name="pin_failed">De PIN deen s de aginn hues ass net korrekt.</string>
   <string name="pin_changed">SIM-PIN erfollegräich geännert.</string>
   <string name="enter_pin2_text">PIN2</string>
   <string name="oldPin2Label">Al PIN2</string>
+  <string name="newPin2Label">Nei PIN2</string>
+  <string name="confirmPin2Label">Nei PIN2 bestätegen</string>
+  <string name="invalidPuk2">Gëff e PUK2 vun 8 Zifferen an.</string>
   <string name="pin2_changed">PIN2 erfollegräich geännert.</string>
+  <string name="label_puk2_code">PUK2-Code aginn</string>
+  <string name="puk2_blocked">D\'PUK2 ass permanent blockéiert.</string>
   <string name="card_title_dialing">Gëtt gewielt</string>
+  <string name="card_title_call_ended">Uruff ofgeschloss</string>
   <string name="card_title_on_hold">Gehalen</string>
+  <string name="card_title_hanging_up">Uruff gëtt getrennt</string>
+  <string name="card_title_my_phone_number">Meng Nummer ass <xliff:g id="my_phone_number">%s</xliff:g></string>
+  <string name="notification_dialing">Gëtt gewielt</string>
   <string name="notification_missedCallTitle">Verpassten Uruff</string>
   <string name="notification_missedCallsTitle">Verpasst Uriff</string>
+  <string name="notification_missedCallTicker">Verpassten Uruff vu(n) <xliff:g id="missed_call_from">%s</xliff:g></string>
   <string name="notification_on_hold">Gehalen</string>
+  <string name="notification_incoming_call">Erakommenden Uruff</string>
+  <string name="notification_voicemail_title">Nei Mailbox-Opnam</string>
+  <string name="notification_voicemail_title_count">Nei Mailbox-Opnamen (<xliff:g id="count">%d</xliff:g>)</string>
   <string name="notification_voicemail_text_format"><xliff:g id="voicemail_number">%s</xliff:g> uruffen</string>
   <string name="notification_voicemail_no_vm_number">Mailbox-Nummer onbekannt</string>
+  <string name="notification_network_selection_title">Kee Service</string>
   <string name="notification_network_selection_text">Ausgewielt Netzwierk (<xliff:g id="operator_name">%s</xliff:g>) net erreechbar</string>
+  <string name="notification_action_end_call">Anhänken</string>
+  <string name="notification_missedCall_call_back">Zréckruffen</string>
+  <string name="notification_missedCall_message">Message schécken</string>
   <string name="incall_error_power_off">Desaktivéier de Fligermodus, fir unzeruffen.</string>
   <string name="incall_error_emergency_only">Net am Netzwierk registréiert.</string>
   <string name="incall_error_out_of_service">Mobilt Netzwierk net disponibel.</string>
   <string name="incall_error_no_phone_number_supplied">Uruff net geschéckt, keng gëlteg Nummer.</string>
+  <string name="incall_error_call_failed">Uruff net ofgesat.</string>
   <string name="incall_status_dialed_mmi">MMI-Sequenz gëtt gestartet\u2026</string>
   <string name="incall_error_supp_service_unknown">Net ënnerstëtze Service.</string>
   <string name="incall_error_supp_service_switch">Wiesselen tëscht Uriff net méiglech.</string>
@@ -183,29 +284,79 @@
   <string name="incall_error_supp_service_conference">Keng Telefonskonferenz méiglech.</string>
   <string name="incall_error_supp_service_reject">Uruff kann net refuséiert ginn.</string>
   <string name="incall_error_supp_service_hangup">Uriff kënnen net fräigi ginn.</string>
+  <string name="emergency_enable_radio_dialog_title">Noutruff</string>
   <string name="emergency_enable_radio_dialog_message">Mobilfunkverbindung gëtt aktivéiert\u2026</string>
   <string name="emergency_enable_radio_dialog_retry">Plaz ouni Netzofdeckung; gëtt nees probéiert\u2026</string>
   <string name="dial_emergency_error">Uruff net geschéckt. <xliff:g id="non_emergency_number">%s</xliff:g> ass keng Noutruffnummer!</string>
   <string name="dial_emergency_empty_error">Uruff net geschéckt. Wiel eng Noutruffnummer!</string>
-  <string name="dialerKeyboardHintText">D\'Tastatur benotze fir ze wielen</string>
+  <string name="dialerKeyboardHintText">D\'Tastatur benotze fir auszewielen</string>
   <string name="onscreenHoldText">Halen</string>
   <string name="onscreenEndCallText">Anhänken</string>
   <string name="onscreenShowDialpadText">Wieltasten</string>
+  <string name="onscreenMuteText">Stomm</string>
+  <string name="onscreenAddCallText">Uruff dobäisetzen</string>
   <string name="onscreenMergeCallsText">Uriff verbannen</string>
   <string name="onscreenManageCallsText">Uriff geréieren</string>
   <string name="onscreenManageConferenceText">Konferenz geréieren</string>
+  <string name="onscreenAudioText">Toun</string>
   <string name="onscreenVideoCallText">Videouruff</string>
+  <string name="importSimEntry">Importéieren</string>
+  <string name="importAllSimEntries">All importéieren</string>
+  <string name="importingSimContacts">SIM-Kontakter ginn importéiert</string>
+  <string name="importToFDNfromContacts">Aus de Kontakter importéieren</string>
+  <string name="hac_mode_title">Héierapparater</string>
+  <string-array name="tty_mode_entries">
+    <item>TTY Aus</item>
+    <item>TTY Voll</item>
+    <item>TTY HCO</item>
+    <item>TTY VCO</item>
+  </string-array>
+  <string name="dtmf_tones_title">DTMF-Téin</string>
+  <string-array name="dtmf_tone_entries">
+    <item>Normal</item>
+    <item>Laang</item>
+  </string-array>
+  <string name="ota_title_activate">Däin Telefon aktivéieren</string>
+  <string name="ota_skip_activation_dialog_title">Aktivéierung iwwersprangen\?</string>
+  <string name="ota_skip_activation_dialog_skip_label">Iwwersprangen</string>
+  <string name="ota_activate">Aktivéieren</string>
+  <string name="ota_title_activate_success">Den Telefon ass aktivéiert.</string>
+  <string name="ota_title_problem_with_activation">Problem bei der Aktivéierung</string>
   <string name="ota_speaker">Lautsprecher</string>
+  <string name="ota_progress">Waart während däin Telefon programméiert gëtt.</string>
+  <string name="ota_failure">Programméierung feelgeschloen</string>
+  <string name="ota_call_end">Zréck</string>
   <string name="ota_next">Weider</string>
   <string name="ecm_exit_dialog">EcmExitDialog</string>
+  <string name="phone_entered_ecm_text">Noutfallréckruffmodus aktivéiert</string>
+  <string name="phone_in_ecm_notification_title">Noutfallréckruffmodus</string>
+  <string name="phone_in_ecm_call_notification_text">Dateconnectioun desaktivéiert</string>
+  <string name="alert_dialog_yes">Jo</string>
+  <string name="alert_dialog_no">Nee</string>
+  <string name="voicemail_provider">Service</string>
+  <string name="calling_via_template">Uruff iwwer <xliff:g id="provider_name">%s</xliff:g></string>
   <string name="contactPhoto">Kontaktfoto</string>
   <string name="goPrivate">privat schwätzen</string>
   <string name="sip_accounts_title">Konten</string>
   <string name="sip_menu_add">Dobäisetzen</string>
   <string name="sip_menu_save">Späicheren</string>
   <string name="sip_menu_discard">Verwerfen</string>
+  <string name="alert_dialog_close">Profil zoumaachen</string>
+  <string name="alert_dialog_ok">OK</string>
+  <string name="close_profile">Zoumaachen</string>
+  <string name="registration_status_checking_status">Status gëtt iwwerpréift...</string>
+  <string name="domain_address_title">Server</string>
+  <string name="username_title">Benotzernumm</string>
+  <string name="password_title">Passwuert</string>
+  <string name="display_name_title">Ugewisenen Numm</string>
+  <string name="advanced_settings_show">▷ Drécke fir alles unzeweisen</string>
+  <string name="advanced_settings_hide">▽ Drécke fir alles ze verstoppen</string>
+  <string translatable="true" name="sip_system_decide">Automatesch</string>
+  <string translatable="true" name="sip_always_send_keepalive">Ëmmer schécken</string>
   <string name="respond_via_sms_setting_title">Séier Äntwerten</string>
   <string name="respond_via_sms_setting_title_2">Séier Äntwerten änneren</string>
+  <string name="description_image_button_one">een</string>
+  <string name="description_image_button_two">zwee</string>
   <string name="description_image_button_three">dräi</string>
   <string name="description_image_button_four">véier</string>
   <string name="description_image_button_five">fënnef</string>
@@ -213,9 +364,18 @@
   <string name="description_image_button_seven">siwen</string>
   <string name="description_image_button_eight">aacht</string>
   <string name="description_image_button_nine">néng</string>
+  <string name="description_image_button_star">Stär</string>
   <string name="description_image_button_zero">null</string>
+  <string name="description_image_button_pound">Pond</string>
+  <string name="description_dial_button">wielen</string>
   <string name="description_delete_button">Récktast</string>
   <string name="accessibility_call_muted">Uruff stomm geschalt.</string>
+  <string name="description_target_answer">Äntweren</string>
+  <string name="description_target_send_sms">SMS schécken</string>
+  <string name="description_target_decline">Refuséieren</string>
+  <string name="voicemail_notification_vibrate_when_title" msgid="8731372580674292759">Vibréieren</string>
+  <string name="voicemail_notification_vibarte_when_dialog_title" msgid="8995274609647451109">Vibréieren</string>
+  <string name="voicemail_notification_ringtone_title">Toun</string>
   <string name="ringtone_title" msgid="5379026328015343686">Schelltoun</string>
   <string name="vibrate_on_ring_title">Vibréiere beim Schellen</string>
   <string name="dtmf_tone_enable_title">Wieltastentéin</string>

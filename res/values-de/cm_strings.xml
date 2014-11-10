@@ -80,7 +80,10 @@
   <string name="choose_forward_lookup_provider_title">Dienst für Vorwärtssuche</string>
   <string name="choose_people_lookup_provider_title">Dienst für Personensuche</string>
   <string name="choose_reverse_lookup_provider_title">Dienst für Rückwärtssuche</string>
+  <string name="sim_name">SIM-Name</string>
   <string name="sub_no_sim">Keine SIM-Karte</string>
+  <string name="sub_active">Aktiv</string>
+  <string name="sub_not_active">Nicht aktiv</string>
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g> anrufen über</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Chinesisch (CN)</string>
@@ -198,15 +201,23 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Bevorzugter Netzmodus: TD-SDCMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Bevorzugter Netzmodus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Bevorzugter Netzmodus: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="network_settings_sel_sub">SIM-Karten-Einstellungen</string>
+  <string name="summary_manage_subscriptions">Netzwerkeinstellungen für jede SIM-Karte verwalten</string>
+  <string name="callind_multi_sim">SIM-Karten-Einstellungen</string>
   <string name="tty_mode_not_allowed_vt_call">TTY-Moduswechsel ist während eines Video-Anrufes nicht erlaubt</string>
   <string name="fdn_service_unavailable">FDN-Dienst ist nicht verfügbar.</string>
   <string name="exportContacts">Kontakte werden auf die SIM-Karte exportiert\u2026</string>
   <string name="xdivert_summary">CFNRc-Einstellungen</string>
   <string name="phone_numbers">Telefonnummern eingeben</string>
+  <string name="sub1LineNumber">Telefonnummer (SIM 1):</string>
+  <string name="sub2LineNumber">Telefonnummer (SIM 2):</string>
   <string name="proceed">Weiter</string>
   <string name="sum_xdivert_enabled">Umleitung aktiviert</string>
   <string name="sum_xdivert_disabled">Umleitung deaktiviert</string>
   <string name="xdivert_not_supported">Umleitung nicht von CDMA unterstützt</string>
+  <string name="xdivert_enternumber_error">Geben Sie für jede SIM-Karte die zugehörige Telefonnummer ein</string>
+  <string name="xdivert_partial_set">Anklopfen (X-Divert) wurde nur für die erste SIM-Karte eingerichtet</string>
+  <string name="xdivert_sub_absent">Anklopfen (X-Divert) sollte für alle SIM-Karten eingerichtet werden</string>
   <string name="xdivert_status">Umleitungs-Status</string>
   <string name="xdivert_active">Aktiviert</string>
   <string name="xdivert_not_active">Deaktiviert</string>
@@ -248,6 +259,7 @@
   <string name="exportAllcontatsFailed">Export aller SIM-Kontakte fehlgeschlagen</string>
   <string name="exportAllcontatsNoContacts">Keine Kontakte für SIM-Export gefunden</string>
   <string name="cursorError">Ungültige Cursor-Daten</string>
+  <string name="set_subscription">SIM-Karten konfigurieren</string>
   <string name="set_subscription_error_atleast_one">Wählen Sie mindestens eine SIM-Karte aus</string>
   <string name="set_uicc_subscription_progress">Aktiviere SIM-Karte\u2026</string>
   <string name="set_sub_success">SIM-Karte wurde erfolgreich aktiviert</string>

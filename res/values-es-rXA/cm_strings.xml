@@ -80,7 +80,10 @@
   <string name="choose_forward_lookup_provider_title">Fornidor pa guetar llugares</string>
   <string name="choose_people_lookup_provider_title">Fornidor pa guetar persones</string>
   <string name="choose_reverse_lookup_provider_title">Fornidor pa gueta inversa</string>
+  <string name="sim_name">Nome de la SIM</string>
   <string name="sub_no_sim">Ensin tarxeta SIM</string>
+  <string name="sub_active">Activa</string>
+  <string name="sub_not_active">Inactiva</string>
   <string name="msim_call_selector_title">Llamar a <xliff:g id="number">%s</xliff:g> vía</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Chinu (CN)</string>
@@ -198,15 +201,23 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Mou de rede preferíu: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Mou de rede preferíu: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Mou de rede preferíu: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="network_settings_sel_sub">Axustes de tarxeta SIM</string>
+  <string name="summary_manage_subscriptions">Xestionar la configuración de rede de cada tarxeta SIM</string>
+  <string name="callind_multi_sim">Axustes de tarxeta SIM</string>
   <string name="tty_mode_not_allowed_vt_call">Nun se permite\'l cambéu de modalidá TTY mentanto una videollamada</string>
   <string name="fdn_service_unavailable">El serviciu FDN nun ta disponible.</string>
   <string name="exportContacts">Esportando contautos a la tarxeta SIM\u2026</string>
   <string name="xdivert_summary">Axustes CFNRc</string>
   <string name="phone_numbers">Introducir númberos de teléfonu</string>
+  <string name="sub1LineNumber">Númberu de SIM 1:</string>
+  <string name="sub2LineNumber">Númberu de SIM 2:</string>
   <string name="proceed">Proceder</string>
   <string name="sum_xdivert_enabled">X-Divert habilitáu</string>
   <string name="sum_xdivert_disabled">X-Divert deshabilitáu</string>
   <string name="xdivert_not_supported">X-Divert nun ta sofitáu en CDMA</string>
+  <string name="xdivert_enternumber_error">Introduz el númberu de teléfonu pa cada tarxeta SIM</string>
+  <string name="xdivert_partial_set">X-Divert afitóse namái pa la primer tarxeta SIM</string>
+  <string name="xdivert_sub_absent">Cada tarxeta SIM tien d\'activase pa procesar X-Divert</string>
   <string name="xdivert_status">Estáu de X-Divert</string>
   <string name="xdivert_active">Activáu</string>
   <string name="xdivert_not_active">Desactiváu</string>
@@ -249,9 +260,14 @@
   <string name="exportAllcontatsFailed">Fallu al esportar tolos contautos de la tarxeta SIM</string>
   <string name="exportAllcontatsNoContacts">Nun s\'atoparon contautos qu\'esportar a la tarxeta SIM</string>
   <string name="cursorError">Datos del cursor inválidos</string>
+  <string name="set_subscription">Configurar les tarxetes SIM</string>
+  <string name="set_subscription_error_atleast_one">Seleiciona al menos una tarxeta SIM</string>
   <string name="set_uicc_subscription_progress">Afitando soscripción\u2026</string>
   <string name="set_sub_success">Afitóse la soscripción</string>
   <string name="set_sub_failed">Falló al afitase la soscripción</string>
+  <string name="set_sub_1">Tarxeta SIM 1: </string>
+  <string name="set_sub_2">Tarxeta SIM 2: </string>
+  <string name="set_sub_3">Tarxeta SIM 3: </string>
   <string name="set_sub_activate_success">Activación fecha</string>
   <string name="set_sub_deactivate_success">Desactivación fecha</string>
   <string name="set_sub_activate_failed">L\'activación falló</string>

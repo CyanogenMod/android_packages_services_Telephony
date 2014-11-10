@@ -80,7 +80,10 @@
   <string name="choose_forward_lookup_provider_title">ผู้ให้บริการการค้นหาการส่งต่อ</string>
   <string name="choose_people_lookup_provider_title">ผู้ให้บริการค้นหาบุคคล</string>
   <string name="choose_reverse_lookup_provider_title">ผู้ให้บริการค้นหาย้อนกลับ</string>
+  <string name="sim_name">ชื่อซิมการ์ด</string>
   <string name="sub_no_sim">ไม่มีซิม</string>
+  <string name="sub_active">ใช้งานอยู่</string>
+  <string name="sub_not_active">ไม่ใช้งาน</string>
   <string name="msim_call_selector_title">โทร <xliff:g id="number">%s</xliff:g> จาก</string>
   <string name="msim_call_selector_item">ซิม<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn ภาษาจีน (CN)</string>
@@ -257,6 +260,7 @@
   <string name="exportAllcontatsFailed">ส่งออกผู้ติดต่อทั้งหมดไปยังซิมล้มเหลว</string>
   <string name="exportAllcontatsNoContacts">ไม่พบผู้ติดต่อที่จะส่งออกไปยังซิม</string>
   <string name="cursorError">ข้อมูลเคอร์เซอร์ไม่ถูกต้อง</string>
+  <string name="set_subscription">ตั้งค่าซิมการ์ด</string>
   <string name="set_subscription_error_atleast_one">เลือกอย่างน้อยหนึ่งซิม</string>
   <string name="set_uicc_subscription_progress">ตั้งค่าการติดตาม\u2026</string>
   <string name="set_sub_success">การติดตามถูกกำหนดเรียบร้อยแล้ว</string>

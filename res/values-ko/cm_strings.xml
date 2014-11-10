@@ -80,7 +80,10 @@
   <string name="choose_forward_lookup_provider_title">정방향 조회 검색 제공자</string>
   <string name="choose_people_lookup_provider_title">사람 검색 제공자</string>
   <string name="choose_reverse_lookup_provider_title">역방향 조회 검색 제공자</string>
+  <string name="sim_name">SIM 이름</string>
   <string name="sub_no_sim">SIM 없음</string>
+  <string name="sub_active">활성</string>
+  <string name="sub_not_active">비활성</string>
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g>(으)로 전화 걸기</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn 중국 (CN)</string>
@@ -198,15 +201,23 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">선호 네트워크 모드: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">선호 네트워크 모드: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">선호 네트워크 모드: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="network_settings_sel_sub">SIM 카드 설정</string>
+  <string name="summary_manage_subscriptions">각 SIM 카드의 네트워크 설정 관리</string>
+  <string name="callind_multi_sim">SIM 카드 설정</string>
   <string name="tty_mode_not_allowed_vt_call">영상통화 중에는 TTY 모드를 변경할 수 없습니다</string>
   <string name="fdn_service_unavailable">FDN 서비스를 사용할 수 없습니다.</string>
   <string name="exportContacts">연락처를 SIM 카드로 내보내는 중\u2026</string>
   <string name="xdivert_summary">CFNRc 설정</string>
   <string name="phone_numbers">전화번호 입력</string>
+  <string name="sub1LineNumber">SIM 1 번호:</string>
+  <string name="sub2LineNumber">SIM 2 번호:</string>
   <string name="proceed">진행</string>
   <string name="sum_xdivert_enabled">X-Divert 활성화</string>
   <string name="sum_xdivert_disabled">X-Divert 비활성화</string>
   <string name="xdivert_not_supported">CDMA에서는 X-Divert를 사용할 수 없습니다</string>
+  <string name="xdivert_enternumber_error">각 SIM 카드의 전화번호를 입력해주십시오</string>
+  <string name="xdivert_partial_set">X-Divert가 첫번째 SIM 카드에만 설정되었습니다</string>
+  <string name="xdivert_sub_absent">X-Divert를 사용하려면 각 SIM 카드가 모두 활성화되어야 합니다</string>
   <string name="xdivert_status">X-Divert 상태</string>
   <string name="xdivert_active">활성</string>
   <string name="xdivert_not_active">비활성</string>
@@ -249,6 +260,7 @@
   <string name="exportAllcontatsFailed">모든 연락처를 SIM으로 내보내지 못했습니다</string>
   <string name="exportAllcontatsNoContacts">SIM에 내보낼 연락처가 없습니다</string>
   <string name="cursorError">잘못된 커서 데이터</string>
+  <string name="set_subscription">SIM 카드 구성</string>
   <string name="set_subscription_error_atleast_one">적어도 하나의 SIM 카드를 선택해야 합니다</string>
   <string name="set_uicc_subscription_progress">회선 설정 중\u2026</string>
   <string name="set_sub_success">회선이 성공적으로 설정되었습니다</string>
