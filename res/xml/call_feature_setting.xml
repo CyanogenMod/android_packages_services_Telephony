@@ -26,7 +26,7 @@
             android:targetPackage="com.android.phone"
             android:targetClass="com.android.phone.settings.PhoneAccountSettingsActivity"/>
 
-    </PreferenceScreen>>
+    </PreferenceScreen>
 
     <PreferenceScreen
         android:key="emergency_call_list"
