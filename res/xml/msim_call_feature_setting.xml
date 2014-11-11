@@ -70,7 +70,7 @@
             android:key="switch_enable_people_lookup"
             android:title="@string/enable_people_lookup_title"
             android:summary="@string/enable_people_lookup_summary"
-            android:defaultValue="false"
+            android:defaultValue="@bool/default_people_lookup"
             android:persistent="false" />
 
     <CheckBoxPreference
