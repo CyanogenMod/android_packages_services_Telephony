@@ -1661,7 +1661,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         // Show the voicemail preference in onResume if the calling intent specifies the
         // ACTION_ADD_VOICEMAIL action.
         mShowVoicemailPreference = (icicle == null) &&
-                getIntent().getAction().equals(ACTION_ADD_VOICEMAIL);
+                TextUtils.equals(getIntent().getAction(), ACTION_ADD_VOICEMAIL);
     }
 
     private void initPhoneAccountPreferences() {
