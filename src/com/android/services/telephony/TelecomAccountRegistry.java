@@ -16,11 +16,8 @@
 
 package com.android.services.telephony;
 
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -29,7 +26,8 @@ import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telephony.PhoneStateListener;
 import android.telephony.ServiceState;
-import android.telephony.SubInfoRecord;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionListener;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -178,31 +176,13 @@ final class TelecomAccountRegistry {
         }
     }
 
-    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+
+    private final SubscriptionListener mSubscriptionListener = new SubscriptionListener() {
         @Override
-        public void onReceive(Context context, Intent intent) {
-            boolean rebuildAccounts = false;
-            String action = intent.getAction();
-            if (TelephonyIntents.ACTION_SUBINFO_RECORD_UPDATED.equals(action)) {
-                int status = intent.getIntExtra(
-                        SubscriptionManager.INTENT_KEY_DETECT_STATUS,
-                        SubscriptionManager.EXTRA_VALUE_NOCHANGE);
-                Log.i(this, "SUBINFO_RECORD_UPDATED : %d.", status);
-                // Anytime the SIM state changes...rerun the setup
-                // We rely on this notification even when the status is EXTRA_VALUE_NOCHANGE,
-                // so we explicitly do not check for that here.
-                rebuildAccounts = true;
-            } else if (TelephonyIntents.ACTION_SUBINFO_CONTENT_CHANGE.equals(action)) {
-                String columnName = intent.getStringExtra(TelephonyIntents.EXTRA_COLUMN_NAME);
-                String stringContent = intent.getStringExtra(TelephonyIntents.EXTRA_STRING_CONTENT);
-                Log.v(this, "SUBINFO_CONTENT_CHANGE: Column: %s Content: %s",
-                        columnName, stringContent);
-                rebuildAccounts = true;
-            }
-            if (rebuildAccounts) {
-                tearDownAccounts();
-                setupAccounts();
-            }
+        public void onSubscriptionInfoChanged() {
+            // Any time the SubscriptionInfo changes...rerun the setup
+            tearDownAccounts();
+            setupAccounts();
         }
     };
 
@@ -242,12 +222,14 @@ final class TelecomAccountRegistry {
      * Sets up all the phone accounts for SIMs on first boot.
      */
     void setupOnBoot() {
-        // We need to register for both types of intents if we want to see added/removed Subs
-        // along with changes to a given Sub.
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(TelephonyIntents.ACTION_SUBINFO_RECORD_UPDATED);
-        intentFilter.addAction(TelephonyIntents.ACTION_SUBINFO_CONTENT_CHANGE);
-        mContext.registerReceiver(mReceiver, intentFilter);
+        // TODO: When this object "finishes" we should unregister by invoking
+        // SubscriptionManager.unregister(mContext, mSubscriptionListener);
+        // This is not strictly necessary because it will be unregistered if the
+        // notification fails but it is good form.
+
+        // Register for SubscriptionInfo list changes
+        SubscriptionManager.register(mContext, mSubscriptionListener,
+                SubscriptionListener.LISTEN_SUBSCRIPTION_INFO_LIST_CHANGED);
 
         // We also need to listen for changes to the service state (e.g. emergency -> in service)
         // because this could signal a removal or addition of a SIM in a single SIM phone.
