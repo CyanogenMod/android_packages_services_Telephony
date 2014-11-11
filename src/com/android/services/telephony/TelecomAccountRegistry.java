@@ -21,6 +21,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
@@ -49,16 +51,6 @@ import java.util.List;
  */
 final class TelecomAccountRegistry {
     private static final boolean DBG = false; /* STOP SHIP if true */
-
-    // Slot IDs are zero based indices but the numbered icons represent the first, second,
-    // etc... SIM in the device. So that means that index 0 is SIM 1, index 1 is SIM 2 and so on.
-
-    private final static int[] phoneAccountIcons = {
-            R.drawable.ic_multi_sim1,
-            R.drawable.ic_multi_sim2,
-            R.drawable.ic_multi_sim3,
-            R.drawable.ic_multi_sim4
-    };
 
     // This icon is the one that is used when the Slot ID that we have for a particular SIM
     // is not supported, i.e. SubscriptionManager.INVALID_SLOT_ID or the 5th SIM in a phone.
@@ -109,6 +101,7 @@ final class TelecomAccountRegistry {
 
             String label;
             String description;
+            Bitmap iconBitmap = null;
 
             if (isEmergency) {
                 label = mContext.getResources().getString(R.string.sim_label_emergency_calls);
@@ -124,12 +117,10 @@ final class TelecomAccountRegistry {
                 // slotId from the subId or the phoneId in all instances.
                 SubInfoRecord record = SubscriptionManager.getSubInfoForSubscriber(subId);
                 if (record != null) {
-                    subDisplayName = record.getDisplayName().toString();
-                    slotId = record.getSubscriptionId();
-
-                    // Assign a "fake" color while the underlying Telephony stuff is refactored
-                    // Assign PhoneAccount.NO_COLOR to first slot so single-SIM phones are unchanged
-                    color = slotId == 0? PhoneAccount.NO_COLOR : makeFakeColor(subId);
+                    subDisplayName = record.getDisplayName();
+                    slotId = record.getSimSlotIndex();
+                    color = record.getIconTint();
+                    iconBitmap = record.createIconBitmap(mContext);
                 }
 
                 String slotIdString;
@@ -158,13 +149,19 @@ final class TelecomAccountRegistry {
                     PhoneAccount.CAPABILITY_CALL_PROVIDER |
                     PhoneAccount.CAPABILITY_PLACE_EMERGENCY_CALLS;
 
+            if (iconBitmap == null) {
+                iconBitmap = BitmapFactory.decodeResource(
+                        mContext.getResources(),
+                        defaultPhoneAccountIcon);
+            }
+
             PhoneAccount account = PhoneAccount.builder(phoneAccountHandle, label)
                     .setAddress(Uri.fromParts(PhoneAccount.SCHEME_TEL, line1Number, null))
                     .setSubscriptionAddress(
                             Uri.fromParts(PhoneAccount.SCHEME_TEL, subNumber, null))
                     .setCapabilities(capabilities)
-                    .setIconResId(getPhoneAccountIcon(slotId))
-                    .setIcon(mContext, getPhoneAccountIcon(slotId), color)
+                    .setIcon(iconBitmap)
+                    .setHighlightColor(color)
                     .setShortDescription(description)
                     .setSupportedUriSchemes(Arrays.asList(
                             PhoneAccount.SCHEME_TEL, PhoneAccount.SCHEME_VOICEMAIL))
@@ -340,16 +337,6 @@ final class TelecomAccountRegistry {
 
         // Clean up any PhoneAccounts that are no longer relevant
         cleanupPhoneAccounts();
-    }
-
-    private int getPhoneAccountIcon(int index) {
-        // A valid slot id doesn't necessarily mean that we have an icon for it.
-        if (SubscriptionManager.isValidSlotId(index) &&
-                index < TelecomAccountRegistry.phoneAccountIcons.length) {
-            return TelecomAccountRegistry.phoneAccountIcons[index];
-        }
-        // Invalid indices get the default icon that has no number associated with it.
-        return defaultPhoneAccountIcon;
     }
 
     private void tearDownAccounts() {
