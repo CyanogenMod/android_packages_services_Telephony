@@ -124,9 +124,9 @@ final class PstnPhoneCapabilitiesNotifier {
     }
 
     private void handleVideoCapabilitesChanged(AsyncResult ar) {
-        Log.d(this, "handleVideoCapabilitesChanged");
         try {
             boolean isVideoCapable = (Boolean) ar.result;
+            Log.d(this, "handleVideoCapabilitesChanged. Video capability - " + isVideoCapable);
             PhoneAccountHandle accountHandle =
                     TelecomAccountRegistry.makePstnPhoneAccountHandle(mPhoneProxy);
             TelecomManager telecomMgr = TelecomManager.from(mPhoneProxy.getContext());
