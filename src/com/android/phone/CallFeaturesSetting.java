@@ -56,6 +56,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ListAdapter;
+import android.widget.Toast;
 
 import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
@@ -1502,6 +1503,16 @@ public class CallFeaturesSetting extends PreferenceActivity
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        if (DBG) log("onCreate: Intent is " + getIntent());
+
+        // Make sure we are running as the primary user.
+        if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
+            Toast.makeText(this, R.string.call_settings_primary_user_only,
+                    Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         mPhone = PhoneGlobals.getPhone();
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
