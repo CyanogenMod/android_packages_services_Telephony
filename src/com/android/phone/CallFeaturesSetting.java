@@ -1654,20 +1654,29 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
 
             int phoneType = mPhone.getPhoneType();
-            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
-                Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
-                if (fdnButton != null) {
-                    prefSet.removePreference(fdnButton);
-                }
-                if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
-                    addPreferencesFromResource(R.xml.cdma_call_privacy);
-                }
-            } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
-                if (getResources().getBoolean(R.bool.config_additional_call_setting)) {
-                    addPreferencesFromResource(R.xml.gsm_umts_call_options);
+            Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
+            boolean shouldHideCarrierSettings = Settings.Global.getInt(
+                    getContentResolver(), Settings.Global.HIDE_CARRIER_NETWORK_SETTINGS, 0) == 1;
+            if (shouldHideCarrierSettings) {
+                prefSet.removePreference(fdnButton);
+                if (mButtonDTMF != null) {
+                    prefSet.removePreference(mButtonDTMF);
                 }
             } else {
-                throw new IllegalStateException("Unexpected phone type: " + phoneType);
+                if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                    if (fdnButton != null) {
+                        prefSet.removePreference(fdnButton);
+                    }
+                    if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
+                        addPreferencesFromResource(R.xml.cdma_call_privacy);
+                    }
+                } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+                    if (getResources().getBoolean(R.bool.config_additional_call_setting)) {
+                        addPreferencesFromResource(R.xml.gsm_umts_call_options);
+                    }
+                } else {
+                    throw new IllegalStateException("Unexpected phone type: " + phoneType);
+                }
             }
         }
 
