@@ -196,6 +196,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private static final int MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY = 1;
 
+
     public static final String HAC_KEY = "HACSetting";
     public static final String HAC_VAL_ON = "ON";
     public static final String HAC_VAL_OFF = "OFF";
@@ -213,7 +214,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final int FW_SET_RESPONSE_ERROR = 501;
     private static final int FW_GET_RESPONSE_ERROR = 502;
 
-
     // dialog identifiers for voicemail
     private static final int VOICEMAIL_DIALOG_CONFIRM = 600;
     private static final int VOICEMAIL_FWD_SAVING_DIALOG = 601;
@@ -229,6 +229,9 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final int MSG_FW_GET_EXCEPTION = 402;
     private static final int MSG_VM_OK = 600;
     private static final int MSG_VM_NOCHANGE = 700;
+
+    // dialog identifiers for TTY
+    private static final int TTY_SET_RESPONSE_ERROR = 800;
 
     // voicemail notification vibration string constants
     private static final String VOICEMAIL_VIBRATION_ALWAYS = "always";
@@ -472,6 +475,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         } else if (preference == mButtonDTMF) {
             return true;
         } else if (preference == mButtonTTY) {
+            if(mPhone.isImsVtCallPresent()) {
+                // TTY Mode change is not allowed during a VT call
+                showDialogIfForeground(TTY_SET_RESPONSE_ERROR);
+            }
             return true;
         } else if (preference == mButtonAutoRetry) {
             android.provider.Settings.Global.putInt(mPhone.getContext().getContentResolver(),
@@ -1347,7 +1354,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     protected Dialog onCreateDialog(int id) {
         if ((id == VM_RESPONSE_ERROR) || (id == VM_NOCHANGE_ERROR) ||
             (id == FW_SET_RESPONSE_ERROR) || (id == FW_GET_RESPONSE_ERROR) ||
-                (id == VOICEMAIL_DIALOG_CONFIRM)) {
+                (id == VOICEMAIL_DIALOG_CONFIRM) || (id == TTY_SET_RESPONSE_ERROR)) {
 
             AlertDialog.Builder b = new AlertDialog.Builder(this);
 
@@ -1383,6 +1390,12 @@ public class CallFeaturesSetting extends PreferenceActivity
                     b.setPositiveButton(R.string.alert_dialog_yes, this);
                     b.setNegativeButton(R.string.alert_dialog_no, this);
                     break;
+                case TTY_SET_RESPONSE_ERROR:
+                    titleId = R.string.tty_mode_option_title;
+                    msgId = R.string.tty_mode_not_allowed_vt_call;
+                    b.setIconAttribute(android.R.attr.alertDialogIcon);
+                    b.setPositiveButton(R.string.ok, this);
+                    break;
                 default:
                     msgId = R.string.exception_error;
                     // Set Button 3, tells the activity that the error is
@@ -1413,7 +1426,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                     R.string.reading_settings)));
             return dialog;
         }
-
 
         return null;
     }
