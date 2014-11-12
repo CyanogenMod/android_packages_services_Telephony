@@ -1166,6 +1166,10 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         return getPhone(subId).isDataConnectivityPossible();
     }
 
+    public boolean isDataPossibleForSubscription(long subId, String apnType) {
+        return getPhone(subId).isOnDemandDataPossible(apnType);
+    }
+
     public boolean handlePinMmi(String dialString) {
         return handlePinMmiForSubscriber(getDefaultSubscription(), dialString);
     }
