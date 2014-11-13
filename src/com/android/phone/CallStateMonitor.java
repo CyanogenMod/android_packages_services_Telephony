@@ -58,6 +58,7 @@ class CallStateMonitor extends Handler {
     public static final int PHONE_ON_DIAL_CHARS = 13;
     public static final int PHONE_SUPP_SERVICE_FAILED = 14;
     public static final int PHONE_TTY_MODE_RECEIVED = 15;
+    public static final int PHONE_SUPP_SERVICE_NOTIFY = 16;
     // Events generated internally.
     // We should store all the possible event type values in one place to make sure that
     // they don't step on each others' toes.
@@ -101,6 +102,7 @@ class CallStateMonitor extends Handler {
         //callManager.registerForResendIncallMute(this, PHONE_RESEND_MUTE, null);
         //callManager.registerForPostDialCharacter(this, PHONE_ON_DIAL_CHARS, null);
         callManager.registerForTtyModeReceived(this, PHONE_TTY_MODE_RECEIVED, null);
+        callManager.registerForSuppServiceNotification(this, PHONE_SUPP_SERVICE_NOTIFY, null);
     }
 
     public void addListener(Handler handler) {
@@ -147,6 +149,7 @@ class CallStateMonitor extends Handler {
         //callManager.unregisterForPostDialCharacter(this);
         callManager.unregisterForSuppServiceFailed(this);
         callManager.unregisterForTtyModeReceived(this);
+        callManager.unregisterForSuppServiceNotification(this);
 
         registerForNotifications();
     }
