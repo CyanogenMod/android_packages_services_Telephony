@@ -233,7 +233,7 @@
         </PreferenceScreen>
     <PreferenceCategory
         android:key="pref_advanced_settings"
-        android:title="@string/advanced_settings"
+        android:title="@string/advanced_settings">
 
          <PreferenceScreen
              android:key="button_blacklist"

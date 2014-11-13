@@ -1933,7 +1933,6 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         // Look up the voicemail ringtone name asynchronously and update its preference.
         new Thread(mVoicemailRingtoneLookupRunnable).start();
-        lookupRingtoneName();
         updateBlacklistSummary();
     }
 
