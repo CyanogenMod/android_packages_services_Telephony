@@ -919,7 +919,7 @@ public class ImsConference extends Conference {
 
             if (mConferenceHost.getPhone() != null &&
                     mConferenceHost.getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_GSM) {
-                GsmConnection c = new GsmConnection(originalConnection, getTelecomCallId());
+                GsmConnection c = new GsmConnection(originalConnection, getTelecomCallId(), false);
                 PhoneAccountHandle phoneAccountHandle =
                         PhoneUtils.makePstnPhoneAccountHandle(mConferenceHost.getPhone());
                 // This is a newly created conference connection as a result of SRVCC

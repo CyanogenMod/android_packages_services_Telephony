@@ -29,6 +29,7 @@ import android.os.SystemClock;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import com.android.internal.telephony.Call;
@@ -42,6 +43,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.TelephonyComponentFactory;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.cdma.CdmaCallWaitingNotification;
+import com.android.internal.telephony.gsm.SuppServiceNotification;
 import com.android.internal.telephony.imsphone.ImsExternalCallTracker;
 import com.android.internal.telephony.imsphone.ImsExternalConnection;
 import com.android.phone.PhoneUtils;
@@ -59,9 +61,12 @@ final class PstnIncomingCallNotifier {
     private static final int EVENT_NEW_RINGING_CONNECTION = 100;
     private static final int EVENT_CDMA_CALL_WAITING = 101;
     private static final int EVENT_UNKNOWN_CONNECTION = 102;
+    private static final int EVENT_SUPP_SERVICE_NOTIFY = 103;
 
     /** The phone object to listen to. */
     private final Phone mPhone;
+
+    private boolean mNextGsmCallIsForwarded = false;
 
     /**
      * Used to listen to events from {@link #mPhone}.
@@ -78,6 +83,9 @@ final class PstnIncomingCallNotifier {
                     break;
                 case EVENT_UNKNOWN_CONNECTION:
                     handleNewUnknownConnection((AsyncResult) msg.obj);
+                    break;
+                case EVENT_SUPP_SERVICE_NOTIFY:
+                    handleSuppServiceNotification((AsyncResult) msg.obj);
                     break;
                 default:
                     break;
@@ -111,6 +119,7 @@ final class PstnIncomingCallNotifier {
             mPhone.registerForNewRingingConnection(mHandler, EVENT_NEW_RINGING_CONNECTION, null);
             mPhone.registerForCallWaiting(mHandler, EVENT_CDMA_CALL_WAITING, null);
             mPhone.registerForUnknownConnection(mHandler, EVENT_UNKNOWN_CONNECTION, null);
+            mPhone.registerForSuppServiceNotification(mHandler, EVENT_SUPP_SERVICE_NOTIFY, null);
         }
     }
 
@@ -120,6 +129,7 @@ final class PstnIncomingCallNotifier {
             mPhone.unregisterForNewRingingConnection(mHandler);
             mPhone.unregisterForCallWaiting(mHandler);
             mPhone.unregisterForUnknownConnection(mHandler);
+            mPhone.unregisterForSuppServiceNotification(mHandler);
         }
     }
 
@@ -180,6 +190,17 @@ final class PstnIncomingCallNotifier {
         }
     }
 
+    private void handleSuppServiceNotification(AsyncResult asyncResult) {
+        SuppServiceNotification ssn = (SuppServiceNotification) asyncResult.result;
+
+        if (ssn.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MT) {
+            if (ssn.code == SuppServiceNotification.MT_CODE_FORWARDED_CALL
+                    || ssn.code == SuppServiceNotification.MT_CODE_DEFLECTED_CALL) {
+                mNextGsmCallIsForwarded = true;
+            }
+        }
+    }
+
     private void addNewUnknownCall(Connection connection) {
         Log.i(this, "addNewUnknownCall, connection is: %s", connection);
 
@@ -204,6 +225,14 @@ final class PstnIncomingCallNotifier {
             // Specifies the time the call was added. This is used by the dialer for analytics.
             extras.putLong(TelecomManager.EXTRA_CALL_CREATED_TIME_MILLIS,
                     SystemClock.elapsedRealtime());
+
+            if (mNextGsmCallIsForwarded) {
+                int phoneType = connection.getCall().getPhone().getPhoneType();
+                if (phoneType == TelephonyManager.PHONE_TYPE_GSM) {
+                    extras.putBoolean(TelephonyManager.EXTRA_IS_FORWARDED, true);
+                    mNextGsmCallIsForwarded = false;
+                }
+            }
 
             PhoneAccountHandle handle = findCorrectPhoneAccountHandle();
             if (handle == null) {

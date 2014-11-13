@@ -16,14 +16,62 @@
 
 package com.android.services.telephony;
 
+import android.os.AsyncResult;
+import android.os.Handler;
+import android.os.Message;
+
 import com.android.internal.telephony.Connection;
+import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.gsm.SuppServiceNotification;
 
 /**
  * Manages a single phone call handled by GSM.
  */
 final class GsmConnection extends TelephonyConnection {
-    GsmConnection(Connection connection, String telecomCallId) {
+    private static final int MSG_SUPP_SERVICE_NOTIFY = 1;
+
+    private final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MSG_SUPP_SERVICE_NOTIFY:
+                    Log.v(GsmConnection.this, "MSG_SUPP_SERVICE_NOTIFY");
+                    AsyncResult ar = (AsyncResult) msg.obj;
+                    SuppServiceNotification ssn = (SuppServiceNotification) ar.result;
+
+                    if (ssn != null) {
+                        onSuppServiceNotification(ssn);
+                    }
+                    break;
+            }
+        }
+    };
+
+    private final boolean mIsForwarded;
+    private boolean mHeldRemotely;
+    private boolean mAdditionalCallForwarded;
+    private boolean mDialingIsWaiting;
+    private boolean mRemoteIncomingCallsBarred;
+
+    GsmConnection(Connection connection, String telecomCallId, boolean isForwarded) {
         super(connection, telecomCallId);
+        mIsForwarded = isForwarded;
+        updateConnectionProperties();
+    }
+
+    @Override
+    void setOriginalConnection(Connection originalConnection) {
+        super.setOriginalConnection(originalConnection);
+        getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
+    }
+
+    @Override
+    void clearOriginalConnection() {
+        Phone phone = getPhone();
+        if (phone != null) {
+            phone.unregisterForSuppServiceNotification(mHandler);
+        }
+        super.clearOriginalConnection();
     }
 
     /**
@@ -36,7 +84,7 @@ final class GsmConnection extends TelephonyConnection {
     @Override
     public TelephonyConnection cloneConnection() {
         GsmConnection gsmConnection = new GsmConnection(getOriginalConnection(),
-                getTelecomCallId());
+                getTelecomCallId(), mIsForwarded);
         return gsmConnection;
     }
 
@@ -70,7 +118,49 @@ final class GsmConnection extends TelephonyConnection {
     }
 
     @Override
+    protected int buildConnectionProperties() {
+        int properties = super.buildConnectionProperties();
+
+        if (mIsForwarded) properties |= PROPERTY_WAS_FORWARDED;
+        if (mHeldRemotely) properties |= PROPERTY_HELD_REMOTELY;
+        if (mAdditionalCallForwarded) properties |= PROPERTY_ADDITIONAL_CALL_FORWARDED;
+        if (mDialingIsWaiting) properties |= PROPERTY_DIALING_IS_WAITING;
+        if (mRemoteIncomingCallsBarred) properties |= PROPERTY_REMOTE_INCOMING_CALLS_BARRED;
+
+        return properties;
+    }
+
+    @Override
     void onRemovedFromCallService() {
         super.onRemovedFromCallService();
+    }
+
+    private void onSuppServiceNotification(SuppServiceNotification notification) {
+        Phone phone = getPhone();
+        int state = getState();
+
+        Log.d(this, "SS Notification: " + notification);
+
+        if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MT) {
+            if (notification.code == SuppServiceNotification.MT_CODE_CALL_ON_HOLD) {
+                mHeldRemotely = true;
+            } else if (notification.code == SuppServiceNotification.MT_CODE_CALL_RETRIEVED) {
+                mHeldRemotely = false;
+            } else if (notification.code ==
+                    SuppServiceNotification.MT_CODE_ADDITIONAL_CALL_FORWARDED) {
+                mAdditionalCallForwarded = true;
+            }
+        } else if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MO) {
+            if (notification.code == SuppServiceNotification.MO_CODE_CALL_IS_WAITING) {
+                if (state == STATE_DIALING) {
+                    mDialingIsWaiting = true;
+                }
+            } else if (notification.code ==
+                    SuppServiceNotification.MO_CODE_INCOMING_CALLS_BARRED) {
+                mRemoteIncomingCallsBarred = true;
+            }
+        }
+
+        updateConnectionProperties();
     }
 }

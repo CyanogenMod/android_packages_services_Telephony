@@ -72,4 +72,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="incall_screen_category_key"
+        android:title="@string/incall_screen_settings">
+
+        <SwitchPreference
+            android:key="button_show_ssn_key"
+            android:title="@string/show_ssn_label"
+            android:defaultValue="false"
+            android:summary="@string/show_ssn_summary" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

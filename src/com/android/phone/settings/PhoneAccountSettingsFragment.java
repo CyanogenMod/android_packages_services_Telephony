@@ -23,7 +23,9 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneConstants;
 import com.android.phone.Constants;
 import com.android.phone.PhoneUtils;
 import com.android.phone.R;
@@ -48,6 +50,9 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private static final String DEFAULT_OUTGOING_ACCOUNT_KEY = "default_outgoing_account";
     private static final String ALL_CALLING_ACCOUNTS_KEY = "phone_account_all_calling_accounts";
 
+    private static final String INCALL_CATEGORY_KEY = "incall_screen_category_key";
+    private static final String SHOW_SSN_PREF_KEY = "button_show_ssn_key";
+
     private static final String SIP_SETTINGS_CATEGORY_PREF_KEY =
             "phone_accounts_sip_settings_category_key";
     private static final String USE_SIP_PREF_KEY = "use_sip_calling_options_key";
@@ -69,6 +74,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private TelecomManager mTelecomManager;
     private TelephonyManager mTelephonyManager;
     private SubscriptionManager mSubscriptionManager;
+    private boolean mHasGsmPhone;
 
     private PreferenceCategory mAccountList;
 
@@ -85,6 +91,14 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         mTelecomManager = TelecomManager.from(getActivity());
         mTelephonyManager = TelephonyManager.from(getActivity());
         mSubscriptionManager = SubscriptionManager.from(getActivity());
+
+        mHasGsmPhone = false;
+        for (Phone phone : CallManager.getInstance().getAllPhones()) {
+            if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_GSM) {
+                mHasGsmPhone = true;
+                break;
+            }
+        }
     }
 
     @Override
@@ -185,6 +199,16 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         } else {
             getPreferenceScreen().removePreference(
                     getPreferenceScreen().findPreference(SIP_SETTINGS_CATEGORY_PREF_KEY));
+        }
+
+        if (!mHasGsmPhone) {
+            PreferenceCategory incallSettings = (PreferenceCategory)
+                    getPreferenceScreen().findPreference(INCALL_CATEGORY_KEY);
+
+            incallSettings.removePreference(incallSettings.findPreference(SHOW_SSN_PREF_KEY));
+            if (incallSettings.getPreferenceCount() == 0) {
+                getPreferenceScreen().removePreference(incallSettings);
+            }
         }
     }
 
