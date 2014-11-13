@@ -40,14 +40,14 @@ import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection.PostDialListener;
 import com.android.internal.telephony.gsm.SuppServiceNotification;
-
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.cdma.CdmaCall;
 import com.android.internal.telephony.gsm.*;
 import com.android.internal.telephony.gsm.GsmConnection;
 import com.android.internal.telephony.imsphone.ImsPhoneConnection;
-import com.android.phone.R;
 import com.android.internal.telephony.PhoneConstants;
+
+import com.android.phone.R;
 
 import java.lang.Override;
 import java.util.Collections;
@@ -64,7 +64,6 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_RINGBACK_TONE = 2;
     private static final int MSG_HANDOVER_STATE_CHANGED = 3;
     private static final int MSG_DISCONNECT = 4;
-    private static final int MSG_SUPP_SERVICE_NOTIFY = 5;
     private static final int MSG_PHONE_VP_ON = 6;
     private static final int MSG_PHONE_VP_OFF = 7;
     private static final int MSG_SUPP_SERVICE_FAILED = 8;
@@ -124,30 +123,6 @@ abstract class TelephonyConnection extends Connection {
                     break;
                 case MSG_DISCONNECT:
                     updateState();
-                    break;
-                case MSG_SUPP_SERVICE_NOTIFY:
-                    Log.v(TelephonyConnection.this, "MSG_SUPP_SERVICE_NOTIFY on phoneId : "
-                            +getPhone().getPhoneId());
-                    if (msg.obj != null && ((AsyncResult) msg.obj).result != null) {
-                        mSsNotification =
-                                (SuppServiceNotification)((AsyncResult) msg.obj).result;
-                        String callForwardText = getSuppSvcNotificationText(mSsNotification);
-                        if (TelephonyManager.getDefault().getPhoneCount() > 1) {
-                            List<SubInfoRecord> sub =
-                                    SubscriptionManager.getSubInfoUsingSlotId(
-                                            getPhone().getPhoneId());
-                            String displayName =  ((sub != null) && (sub.size() > 0)) ?
-                                    sub.get(0).displayName : mSubName[getPhone().getPhoneId()];
-
-                            mDisplayName = displayName + ":" + callForwardText;
-                        } else {
-                            mDisplayName = callForwardText;
-                        }
-                        if (callForwardText != null && !callForwardText.isEmpty()) {
-                            Toast.makeText(TelephonyGlobals.getApplicationContext(),
-                                    mDisplayName, Toast.LENGTH_LONG).show();
-                        }
-                    }
                     break;
                 case MSG_PHONE_VP_ON:
                     if (!mVoicePrivacyState) {
@@ -456,7 +431,7 @@ abstract class TelephonyConnection extends Connection {
         }
     };
 
-    private com.android.internal.telephony.Connection mOriginalConnection;
+    /* package */ com.android.internal.telephony.Connection mOriginalConnection;
     private Call.State mOriginalConnectionState = Call.State.IDLE;
     private Bundle mOriginalConnectionExtras;
 
@@ -790,7 +765,6 @@ abstract class TelephonyConnection extends Connection {
                 mHandler, MSG_HANDOVER_STATE_CHANGED, null);
         getPhone().registerForRingbackTone(mHandler, MSG_RINGBACK_TONE, null);
         getPhone().registerForDisconnect(mHandler, MSG_DISCONNECT, null);
-        getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
         getPhone().registerForInCallVoicePrivacyOn(mHandler, MSG_PHONE_VP_ON, null);
         getPhone().registerForInCallVoicePrivacyOff(mHandler, MSG_PHONE_VP_OFF, null);
         getPhone().registerForSuppServiceFailed(mHandler, MSG_SUPP_SERVICE_FAILED, null);
@@ -978,16 +952,8 @@ abstract class TelephonyConnection extends Connection {
                     setRinging();
                     break;
                 case DISCONNECTED:
-                    if (mSsNotification != null) {
-                        setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                                mOriginalConnection.getDisconnectCause(),
-                                mSsNotification.notificationType,
-                                mSsNotification.code));
-                        mSsNotification = null;
-                    } else {
-                        setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                                mOriginalConnection.getDisconnectCause()));
-                    }
+                    setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                            mOriginalConnection.getDisconnectCause()));
                     close();
                     break;
                 case DISCONNECTING:

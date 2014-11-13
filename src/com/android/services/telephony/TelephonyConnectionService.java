@@ -219,7 +219,7 @@ public class TelephonyConnectionService extends ConnectionService {
         }
 
         final TelephonyConnection connection =
-                createConnectionFor(phone, null, true /* isOutgoing */);
+                createConnectionFor(phone, null, true /* isOutgoing */, null);
         if (connection == null) {
             return Connection.createFailedConnection(
                     DisconnectCauseUtil.toTelecomDisconnectCause(
@@ -292,8 +292,9 @@ public class TelephonyConnectionService extends ConnectionService {
             return Connection.createCanceledConnection();
         }
 
+        final Bundle extras = request.getExtras();
         Connection connection =
-                createConnectionFor(phone, originalConnection, false /* isOutgoing */);
+                createConnectionFor(phone, originalConnection, false /* isOutgoing */, extras);
         if (connection == null) {
             connection = Connection.createCanceledConnection();
             return Connection.createCanceledConnection();
@@ -343,7 +344,7 @@ public class TelephonyConnectionService extends ConnectionService {
 
         TelephonyConnection connection =
                 createConnectionFor(phone, unknownConnection,
-                        !unknownConnection.isIncoming() /* isOutgoing */);
+                        !unknownConnection.isIncoming() /* isOutgoing */, null);
 
         if (connection == null) {
             return Connection.createCanceledConnection();
@@ -419,12 +420,17 @@ public class TelephonyConnectionService extends ConnectionService {
     private TelephonyConnection createConnectionFor(
             Phone phone,
             com.android.internal.telephony.Connection originalConnection,
-            boolean isOutgoing) {
+            boolean isOutgoing,
+            Bundle extras) {
         TelephonyConnection returnConnection = null;
         int phoneType = phone.getPhoneType();
         int phoneId = phone.getPhoneId();
         if (phoneType == TelephonyManager.PHONE_TYPE_GSM) {
-            returnConnection = new GsmConnection(originalConnection);
+            boolean isForwarded = extras != null
+                    && extras.getBoolean(TelephonyManager.EXTRA_IS_FORWARDED, false);
+            returnConnection = new GsmConnection(originalConnection, isForwarded);
+            mTelephonyConferenceController[phoneId].add(returnConnection);
+            return returnConnection;
         } else if (phoneType == TelephonyManager.PHONE_TYPE_CDMA) {
             boolean allowMute = allowMute(phone);
             returnConnection = new CdmaConnection(
