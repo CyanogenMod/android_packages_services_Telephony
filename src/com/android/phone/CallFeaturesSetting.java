@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2014 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,6 +65,7 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.phone.common.util.SettingsUtil;
 import com.android.phone.settings.AccountSelectionPreference;
 import com.android.services.telephony.sip.SipUtil;
+import com.android.internal.telephony.util.BlacklistUtils;
 
 import java.lang.String;
 import java.util.Collection;
@@ -234,6 +236,13 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String VOICEMAIL_VIBRATION_ALWAYS = "always";
     private static final String VOICEMAIL_VIBRATION_NEVER = "never";
 
+    private PreferenceScreen mButtonVideoCallFallback;
+    private PreferenceScreen mButtonVideoCallForward;
+    private PreferenceScreen mButtonVideoCallPictureSelect;
+    // Blacklist support
+    private static final String BUTTON_BLACKLIST = "button_blacklist";
+
+    private PreferenceScreen mIPPrefixPreference;
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
     private Runnable mVoicemailRingtoneLookupRunnable;
@@ -260,6 +269,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private Preference mVoicemailNotificationRingtone;
     private CheckBoxPreference mVoicemailNotificationVibrate;
     private AccountSelectionPreference mDefaultOutgoingAccount;
+    private boolean isSpeedDialListStarted = false;
+    private PreferenceScreen mButtonBlacklist;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -1670,6 +1681,9 @@ public class CallFeaturesSetting extends PreferenceActivity
         updateVoiceNumberField();
         mVMProviderSettingsForced = false;
 
+        // Blacklist screen - Needed for setting summary
+        mButtonBlacklist = (PreferenceScreen) prefSet.findPreference(BUTTON_BLACKLIST);
+
         PreferenceScreen selectSub = (PreferenceScreen) findPreference(BUTTON_SELECT_SUB_KEY);
         if (selectSub != null) {
             Intent intent = selectSub.getIntent();
@@ -1722,6 +1736,18 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         // Look up the voicemail ringtone name asynchronously and update its preference.
         new Thread(mVoicemailRingtoneLookupRunnable).start();
+        lookupRingtoneName();
+        updateBlacklistSummary();
+    }
+
+    private void updateBlacklistSummary() {
+        if (mButtonBlacklist != null) {
+            if (BlacklistUtils.isBlacklistEnabled(this)) {
+                mButtonBlacklist.setSummary(R.string.blacklist_summary);
+            } else {
+                mButtonBlacklist.setSummary(R.string.blacklist_summary_disabled);
+            }
+        }
     }
 
     // Migrate settings from BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY to

@@ -63,6 +63,7 @@ import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.PhoneProxy;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.TelephonyIntents;
+import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.phone.common.CallLogAsync;
 import com.android.server.sip.SipService;
 
@@ -207,6 +208,11 @@ public class PhoneGlobals extends ContextWrapper {
     public OtaUtils.CdmaOtaConfigData cdmaOtaConfigData;
     public OtaUtils.CdmaOtaScreenState cdmaOtaScreenState;
     public OtaUtils.CdmaOtaInCallScreenUiState cdmaOtaInCallScreenUiState;
+
+    // For adding to Blacklist from call log
+    private static final String REMOVE_BLACKLIST = "com.android.phone.REMOVE_BLACKLIST";
+    private static final String EXTRA_NUMBER = "number";
+    private static final String EXTRA_FROM_NOTIFICATION = "fromNotification";
 
     /**
      * Set the restore mute state flag. Used when we are setting the mute state
@@ -407,6 +413,9 @@ public class PhoneGlobals extends ContextWrapper {
 
             phoneMgr = PhoneInterfaceManager.init(this, phone);
 
+            // Convert old blacklist to new format
+            Blacklist.migrateOldDataIfPresent(this);
+
             // Create the CallNotifer singleton, which handles
             // asynchronous events from the telephony layer (like
             // launching the incoming-call UI when an incoming call comes
@@ -436,6 +445,7 @@ public class PhoneGlobals extends ContextWrapper {
             intentFilter.addAction(TelephonyIntents.ACTION_RADIO_TECHNOLOGY_CHANGED);
             intentFilter.addAction(TelephonyIntents.ACTION_SERVICE_STATE_CHANGED);
             intentFilter.addAction(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
+            intentFilter.addAction(REMOVE_BLACKLIST);
             registerReceiver(mReceiver, intentFilter);
 
             //set the default values for the preferences in the phone.
@@ -525,6 +535,14 @@ public class PhoneGlobals extends ContextWrapper {
         Intent intent = new Intent(PhoneGlobals.ACTION_HANG_UP_ONGOING_CALL, null,
                 context, NotificationBroadcastReceiver.class);
         return PendingIntent.getBroadcast(context, 0, intent, 0);
+    }
+
+    /* package */ static PendingIntent getUnblockNumberFromNotificationPendingIntent(
+            Context context, String number) {
+        Intent intent = new Intent(REMOVE_BLACKLIST);
+        intent.putExtra(EXTRA_NUMBER, number);
+        intent.putExtra(EXTRA_FROM_NOTIFICATION, true);
+        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     boolean isSimPinEnabled() {
@@ -869,6 +887,13 @@ public class PhoneGlobals extends ContextWrapper {
                         Intent.EXTRA_DOCK_STATE_UNDOCKED);
                 if (VDBG) Log.d(LOG_TAG, "ACTION_DOCK_EVENT -> mDockState = " + mDockState);
                 mHandler.sendMessage(mHandler.obtainMessage(EVENT_DOCK_STATE_CHANGED, 0));
+            } else if (action.equals(REMOVE_BLACKLIST)) {
+                if (intent.getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
+                    // Dismiss the notification that brought us here
+                    notificationMgr.cancelBlacklistedCallNotification();
+                    BlacklistUtils.addOrUpdate(context, intent.getStringExtra(EXTRA_NUMBER),
+                            0, BlacklistUtils.BLOCK_CALLS);
+                }
             }
         }
     }

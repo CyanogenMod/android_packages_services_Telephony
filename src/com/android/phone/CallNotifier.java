@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2006 The Android Open Source Project
+ * Copyright (C) 2014 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +21,7 @@ import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.CallerInfo;
 import com.android.internal.telephony.CallerInfoAsyncQuery;
+import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
@@ -28,6 +30,7 @@ import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaDisplayInfoRec;
 import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaSignalInfoRec;
 import com.android.internal.telephony.cdma.SignalToneUtil;
+import com.android.internal.telephony.util.BlacklistUtils;
 
 import android.app.ActivityManagerNative;
 import android.bluetooth.BluetoothAdapter;
@@ -112,6 +115,9 @@ public class CallNotifier extends Handler {
     private AudioManager mAudioManager;
 
     private final BluetoothManager mBluetoothManager;
+
+    // Blacklist handling
+    private static final String BLACKLIST = "Blacklist";
 
     /**
      * Initialize the singleton CallNotifier instance.
@@ -297,6 +303,27 @@ public class CallNotifier extends Handler {
             // event.  There's nothing we can do here, so just bail out
             // without doing anything.  (But presumably we'll log it in
             // the call log when the disconnect event comes in...)
+            return;
+        }
+
+        // Blacklist handling
+        String number = c.getAddress();
+        if (DBG) log("Incoming number is: " + number);
+        // See if the number is in the blacklist
+        // Result is one of: MATCH_NONE, MATCH_LIST or MATCH_REGEX
+        int listType = BlacklistUtils.isListed(mApplication, number, BlacklistUtils.BLOCK_CALLS);
+        if (listType != BlacklistUtils.MATCH_NONE) {
+            // We have a match, set the user and hang up the call and notify
+            if (DBG) log("Incoming call from " + number + " blocked.");
+            c.setUserData(BLACKLIST);
+            try {
+                c.hangup();
+                silenceRinger();
+                mApplication.notificationMgr.notifyBlacklistedCall(number,
+                        c.getCreateTime(), listType);
+            } catch (CallStateException e) {
+                e.printStackTrace();
+            }
             return;
         }
 
@@ -499,6 +526,11 @@ public class CallNotifier extends Handler {
             Log.w(LOG_TAG, "onDisconnect: null connection");
         }
 
+        boolean disconnectedDueToBlacklist = false;
+        if (c != null) {
+            disconnectedDueToBlacklist = BLACKLIST.equals(c.getUserData());
+        }
+
         int autoretrySetting = 0;
         if ((c != null) && (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA)) {
             autoretrySetting = android.provider.Settings.Global.getInt(mApplication.
@@ -555,7 +587,9 @@ public class CallNotifier extends Handler {
         }
 
         if (c != null) {
-            mCallLogger.logCall(c);
+            if (!disconnectedDueToBlacklist) {
+                mCallLogger.logCall(c);
+            }
 
             final String number = c.getAddress();
             final Phone phone = c.getCall().getPhone();
@@ -584,10 +618,11 @@ public class CallNotifier extends Handler {
             if (((mPreviousCdmaCallState == Call.State.DIALING)
                     || (mPreviousCdmaCallState == Call.State.ALERTING))
                     && (!isEmergencyNumber)
-                    && (cause != DisconnectCause.INCOMING_MISSED )
-                    && (cause != DisconnectCause.NORMAL)
-                    && (cause != DisconnectCause.LOCAL)
-                    && (cause != DisconnectCause.INCOMING_REJECTED)) {
+                    && !disconnectedDueToBlacklist
+                    && (cause != Connection.DisconnectCause.INCOMING_MISSED )
+                    && (cause != Connection.DisconnectCause.NORMAL)
+                    && (cause != Connection.DisconnectCause.LOCAL)
+                    && (cause != Connection.DisconnectCause.INCOMING_REJECTED)) {
                 if (!mIsCdmaRedialCall) {
                     if (autoretrySetting == InCallScreen.AUTO_RETRY_ON) {
                         // TODO: (Moto): The contact reference data may need to be stored and use
