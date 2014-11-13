@@ -16,6 +16,8 @@
 
 package com.android.phone;
 
+import com.android.internal.telephony.util.BlacklistUtils;
+
 import android.app.IntentService;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -28,11 +30,14 @@ public class ClearBlacklistService extends IntentService {
     /** This action is used to clear blacklisted calls. */
     public static final String ACTION_CLEAR_BLACKLISTED_CALLS =
             "com.android.phone.intent.CLEAR_BLACKLISTED_CALLS";
+    /** This action is used to clear blacklisted messages. */
+    public static final String ACTION_CLEAR_BLACKLISTED_MESSAGES =
+            "com.android.phone.intent.CLEAR_BLACKLISTED_MESSAGES";
 
     private PhoneGlobals mApp;
 
-    public ClearMissedCallsService() {
-        super(ClearMissedCallsService.class.getSimpleName());
+    public ClearBlacklistService() {
+        super(ClearBlacklistService.class.getSimpleName());
     }
 
     @Override
@@ -45,7 +50,9 @@ public class ClearBlacklistService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         final String action = intent.getAction();
         if (ACTION_CLEAR_BLACKLISTED_CALLS.equals(action)) {
-            mApp.notificationMgr.cancelBlacklistedCallNotification();
+            mApp.notificationMgr.cancelBlacklistedNotification(BlacklistUtils.BLOCK_CALLS);
+        } else if (ACTION_CLEAR_BLACKLISTED_MESSAGES.equals(action)) {
+            mApp.notificationMgr.cancelBlacklistedNotification(BlacklistUtils.BLOCK_MESSAGES);
         }
     }
 }
