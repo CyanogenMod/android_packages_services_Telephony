@@ -39,4 +39,12 @@
     <string name="preferred_network_mode_gsm_only_choice">GSM only</string>
     <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferred</string>
 
+    <!-- Advanced Settings -->
+    <string name="advanced_setting">Advanced Settings</string>
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">Blocked caller list</string>
+    <string name="blacklist_summary_disabled">Disabled</string>
+    <string name="blacklist_summary">You will not receive incoming calls or messages from phone numbers on the blocked caller list</string>
+
 </resources>
