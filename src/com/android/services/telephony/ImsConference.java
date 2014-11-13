@@ -802,7 +802,7 @@ public class ImsConference extends Conference {
             PhoneAccountHandle phoneAccountHandle =
                     PhoneUtils.makePstnPhoneAccountHandle(mConferenceHost.getPhone());
             if (mConferenceHost.getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_GSM) {
-                GsmConnection c = new GsmConnection(originalConnection);
+                GsmConnection c = new GsmConnection(originalConnection, false);
                 c.updateState();
                 // Copy the connect time from the conferenceHost
                 c.setConnectTimeMillis(mConferenceHost.getConnectTimeMillis());

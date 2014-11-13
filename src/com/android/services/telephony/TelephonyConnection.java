@@ -35,22 +35,20 @@ import android.telecom.TelecomManager;
 import android.telecom.VideoProfile;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SubscriptionManager;
-import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
-import android.telephony.PhoneNumberUtils;
 
 import com.android.ims.ImsCallProfile;
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection.Capability;
 import com.android.internal.telephony.Connection.PostDialListener;
-import com.android.internal.telephony.gsm.SuppServiceNotification;
-
 import com.android.internal.telephony.Phone;
-import com.android.internal.telephony.SubscriptionController;
-import com.android.internal.telephony.imsphone.ImsPhoneConnection;
-import com.android.phone.R;
 import com.android.internal.telephony.PhoneConstants;
+import com.android.internal.telephony.SubscriptionController;
+import com.android.internal.telephony.gsm.SuppServiceNotification;
+import com.android.internal.telephony.imsphone.ImsPhoneConnection;
+
+import com.android.phone.R;
 
 import java.lang.Override;
 import java.util.Arrays;
@@ -73,7 +71,6 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_DISCONNECT = 4;
     private static final int MSG_MULTIPARTY_STATE_CHANGED = 5;
     private static final int MSG_CONFERENCE_MERGE_FAILED = 6;
-    private static final int MSG_SUPP_SERVICE_NOTIFY = 7;
     private static final int MSG_CONNECTION_EXTRAS_CHANGED = 8;
     private static final int MSG_SET_VIDEO_STATE = 9;
     private static final int MSG_SET_LOCAL_VIDEO_CAPABILITY = 10;
@@ -86,7 +83,6 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_SET_CONNECTION_CAPABILITY = 17;
 
     private boolean mIsVoicePrivacyOn = false;
-    private SuppServiceNotification mSsNotification = null;
     private String[] mSubName = {"SIM1", "SIM2", "SIM3"};
     private String mDisplayName;
     private boolean mIsEmergencyNumber = false;
@@ -183,42 +179,6 @@ abstract class TelephonyConnection extends Connection {
                     List<ConferenceParticipant> participants = (List<ConferenceParticipant>) msg.obj;
                     updateConferenceParticipants(participants);
                     break;
-                case MSG_SUPP_SERVICE_NOTIFY:
-                    int phoneId = getPhone().getPhoneId();
-                    Log.v(TelephonyConnection.this, "MSG_SUPP_SERVICE_NOTIFY on phoneId : "
-                            +phoneId);
-                    if (msg.obj != null && ((AsyncResult) msg.obj).result != null) {
-                        mSsNotification =
-                                (SuppServiceNotification)((AsyncResult) msg.obj).result;
-                        final String notificationText =
-                                getSuppSvcNotificationText(mSsNotification, phoneId);
-                        if (TelephonyManager.getDefault().getPhoneCount() > 1) {
-                            SubscriptionInfo sub =
-                                SubscriptionManager.from(TelephonyGlobals.getApplicationContext())
-                                .getActiveSubscriptionInfoForSimSlotIndex(phoneId);
-                            String displayName =  (sub != null) ?
-                                sub.getDisplayName().toString() : mSubName[phoneId];
-                            mDisplayName = displayName + ":" + notificationText;
-                        } else {
-                            mDisplayName = notificationText;
-                        }
-                        Toast.makeText(TelephonyGlobals.getApplicationContext(),
-                                mDisplayName, Toast.LENGTH_LONG).show();
-                        if (mSsNotification.history != null) {
-                            final Bundle extras = getExtras();
-                            if (extras != null) {
-                                Log.v(TelephonyConnection.this,
-                                        "Updating call history info in extras.");
-                                extras.putStringArrayList(EXTRA_CALL_HISTORY_INFO,
-                                     new ArrayList(Arrays.asList(mSsNotification.history)));
-                                setExtras(extras);
-                            }
-                        }
-                    } else {
-                        Log.v(this,
-                                "MSG_SUPP_SERVICE_NOTIFY event processing failed");
-                    }
-                    break;
 
                 case MSG_SET_CONNECTION_CAPABILITY:
                     setConnectionCapability(msg.arg1);
@@ -231,174 +191,6 @@ abstract class TelephonyConnection extends Connection {
             }
         }
     };
-
-    private String getSuppSvcNotificationText(SuppServiceNotification suppSvcNotification,
-            int phoneId) {
-        final int SUPP_SERV_NOTIFICATION_TYPE_MO = 0;
-        final int SUPP_SERV_NOTIFICATION_TYPE_MT = 1;
-        String callForwardTxt = "";
-        if (suppSvcNotification != null) {
-            switch (suppSvcNotification.notificationType) {
-                // The Notification is for MO call
-                case SUPP_SERV_NOTIFICATION_TYPE_MO:
-                    callForwardTxt = getMoSsNotificationText(suppSvcNotification.code, phoneId);
-                    break;
-
-                // The Notification is for MT call
-                case SUPP_SERV_NOTIFICATION_TYPE_MT:
-                    callForwardTxt = getMtSsNotificationText(suppSvcNotification.code, phoneId);
-                    break;
-
-                default:
-                    Log.v(this, "Received invalid Notification Type :"
-                            + suppSvcNotification.notificationType);
-                    break;
-            }
-        }
-        return callForwardTxt;
-    }
-
-    private String getMtSsNotificationText(int code, int phoneId) {
-        String callForwardTxt = "";
-        Context context = TelephonyGlobals.getApplicationContext();
-        switch (code) {
-            case SuppServiceNotification.MT_CODE_FORWARDED_CALL:
-                //This message is displayed on C when the incoming
-                //call is forwarded from B
-                callForwardTxt = context.getString(R.string.card_title_forwarded_MTcall);
-                break;
-
-            case SuppServiceNotification.MT_CODE_CUG_CALL:
-                //This message is displayed on B, when A makes call to B, both A & B
-                //belong to a CUG group
-                callForwardTxt = context.getString(R.string.card_title_cugcall);
-                break;
-
-            case SuppServiceNotification.MT_CODE_CALL_ON_HOLD:
-                //This message is displayed on B,when A makes call to B & puts it on
-                // hold
-                callForwardTxt = context.getString(R.string.card_title_callonhold);
-                break;
-
-            case SuppServiceNotification.MT_CODE_CALL_RETRIEVED:
-                //This message is displayed on B,when A makes call to B, puts it on
-                //hold & retrives it back.
-                callForwardTxt = context.getString(R.string.card_title_callretrieved);
-                break;
-
-            case SuppServiceNotification.MT_CODE_MULTI_PARTY_CALL:
-                //This message is displayed on B when the the call is changed as
-                //multiparty
-                callForwardTxt = context.getString(R.string.card_title_multipartycall);
-                break;
-
-            case SuppServiceNotification.MT_CODE_ON_HOLD_CALL_RELEASED:
-                //This message is displayed on B, when A makes call to B, puts it on
-                //hold & then releases it.
-                callForwardTxt = context.getString(R.string.card_title_callonhold_released);
-                break;
-
-            case SuppServiceNotification.MT_CODE_FORWARD_CHECK_RECEIVED:
-                //This message is displayed on C when the incoming call is forwarded
-                //from B
-                callForwardTxt = context.getString(R.string.card_title_forwardcheckreceived);
-                break;
-
-            case SuppServiceNotification.MT_CODE_CALL_CONNECTING_ECT:
-                //This message is displayed on B,when Call is connecting through
-                //Explicit Cold Transfer
-                callForwardTxt = context.getString(R.string.card_title_callconnectingect);
-                break;
-
-            case SuppServiceNotification.MT_CODE_CALL_CONNECTED_ECT:
-                //This message is displayed on B,when Call is connected through
-                //Explicit Cold Transfer
-                callForwardTxt = context.getString(R.string.card_title_callconnectedect);
-                break;
-
-            case SuppServiceNotification.MT_CODE_DEFLECTED_CALL:
-                //This message is displayed on B when the incoming call is deflected
-                //call
-                callForwardTxt = context.getString(R.string.card_title_deflectedcall);
-                break;
-
-            case SuppServiceNotification.MT_CODE_ADDITIONAL_CALL_FORWARDED:
-                // This message is displayed on B when it is busy and the incoming call
-                // gets forwarded to C
-                callForwardTxt = context.getString(R.string.card_title_MTcall_forwarding);
-                break;
-
-            default :
-               Log.v(this,"Received unsupported MT SS Notification :" + code
-                      +" "+phoneId);
-                break;
-        }
-        return callForwardTxt;
-    }
-
-    private String getMoSsNotificationText(int code, int phoneId) {
-        String callForwardTxt = "";
-        Context context = TelephonyGlobals.getApplicationContext();
-        switch (code) {
-            case SuppServiceNotification.MO_CODE_UNCONDITIONAL_CF_ACTIVE:
-                // This message is displayed when an outgoing call is made
-                // and unconditional forwarding is enabled.
-                callForwardTxt = context.getString(R.string.card_title_unconditionalCF);
-            break;
-
-            case SuppServiceNotification.MO_CODE_SOME_CF_ACTIVE:
-                // This message is displayed when an outgoing call is made
-                // and conditional forwarding is enabled.
-                callForwardTxt = context.getString(R.string.card_title_conditionalCF);
-                break;
-
-            case SuppServiceNotification.MO_CODE_CALL_FORWARDED:
-                //This message is displayed on A when the outgoing call
-                //actually gets forwarded to C
-                callForwardTxt = context.getString(R.string.card_title_MOcall_forwarding);
-                break;
-
-            case SuppServiceNotification.MO_CODE_CALL_IS_WAITING:
-                //This message is displayed on A when the B is busy on another call
-                //and Call waiting is enabled on B
-                callForwardTxt = context.getString(R.string.card_title_calliswaiting);
-                break;
-
-            case SuppServiceNotification.MO_CODE_CUG_CALL:
-                //This message is displayed on A, when A makes call to B, both A & B
-                //belong to a CUG group
-                callForwardTxt = context.getString(R.string.card_title_cugcall);
-                break;
-
-            case SuppServiceNotification.MO_CODE_OUTGOING_CALLS_BARRED:
-                //This message is displayed on A when outging is barred on A
-                callForwardTxt = context.getString(R.string.card_title_outgoing_barred);
-                break;
-
-            case SuppServiceNotification.MO_CODE_INCOMING_CALLS_BARRED:
-                //This message is displayed on A, when A is calling B
-                //& incoming is barred on B
-                callForwardTxt = context.getString(R.string.card_title_incoming_barred);
-                break;
-
-            case SuppServiceNotification.MO_CODE_CLIR_SUPPRESSION_REJECTED:
-                //This message is displayed on A, when CLIR suppression is rejected
-                callForwardTxt = context.getString(R.string.card_title_clir_suppression_rejected);
-                break;
-
-            case SuppServiceNotification.MO_CODE_CALL_DEFLECTED:
-                //This message is displayed on A, when the outgoing call
-                //gets deflected to C from B
-                callForwardTxt = context.getString(R.string.card_title_call_deflected);
-                break;
-
-            default:
-                Log.v(this,"Received unsupported MO SS Notification :" + code
-                        +" "+phoneId);
-                break;
-        }
-        return callForwardTxt;
-    }
 
     /**
      * A listener/callback mechanism that is specific communication from TelephonyConnections
@@ -808,6 +600,10 @@ abstract class TelephonyConnection extends Connection {
         return callCapabilities;
     }
 
+    protected int buildConnectionProperties() {
+        return 0;
+    }
+
     protected final void updateConnectionCapabilities() {
         int newCapabilities = buildConnectionCapabilities();
 
@@ -823,6 +619,14 @@ abstract class TelephonyConnection extends Connection {
 
         if (getConnectionCapabilities() != newCapabilities) {
             setConnectionCapabilities(newCapabilities);
+        }
+    }
+
+    protected final void updateConnectionProperties() {
+        int newProperties = buildConnectionProperties();
+
+        if (getConnectionProperties() != newProperties) {
+            setConnectionProperties(newProperties);
         }
     }
 
@@ -869,7 +673,6 @@ abstract class TelephonyConnection extends Connection {
                 mHandler, MSG_HANDOVER_STATE_CHANGED, null);
         getPhone().registerForRingbackTone(mHandler, MSG_RINGBACK_TONE, null);
         getPhone().registerForDisconnect(mHandler, MSG_DISCONNECT, null);
-        getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
         getPhone().registerForInCallVoicePrivacyOn(mHandler, MSG_PHONE_VP_ON, null);
         getPhone().registerForInCallVoicePrivacyOff(mHandler, MSG_PHONE_VP_OFF, null);
         mOriginalConnection.addPostDialListener(mPostDialListener);
@@ -1146,21 +949,10 @@ abstract class TelephonyConnection extends Connection {
                         // EMERGENCY_TEMP_FAILURE & EMERGENCY_PERM_FAILURE, then redial on other sub.
                         emergencyRedial(cause, phone);
                         break;
-                    } else if (mSsNotification != null) {
-                        setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                                mOriginalConnection.getDisconnectCause(),
-                                mOriginalConnection.getVendorDisconnectCause(),
-                                mSsNotification.notificationType,
-                                mSsNotification.code));
-                        mSsNotification = null;
-                        DisconnectCauseUtil.mNotificationCode = 0xFF;
-                        DisconnectCauseUtil.mNotificationType = 0xFF;
-                    } else {
-                        setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                                mOriginalConnection.getDisconnectCause(),
-                                mOriginalConnection.getVendorDisconnectCause()));
                     }
                     resetDisconnectCause();
+                    setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                            mOriginalConnection.getDisconnectCause()));
                     close();
                     break;
                 case DISCONNECTING:
