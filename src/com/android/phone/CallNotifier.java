@@ -37,6 +37,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
+import android.database.Cursor;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
@@ -48,6 +49,7 @@ import android.os.SystemProperties;
 import android.os.SystemVibrator;
 import android.os.Vibrator;
 import android.provider.CallLog.Calls;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.telephony.DisconnectCause;
 import android.telephony.PhoneNumberUtils;
@@ -116,8 +118,7 @@ public class CallNotifier extends Handler {
 
     private final BluetoothManager mBluetoothManager;
 
-    // Blacklist handling
-    private static final String BLACKLIST = "Blacklist";
+    private boolean mSilentRingerRequested;
 
     /**
      * Initialize the singleton CallNotifier instance.
@@ -307,22 +308,7 @@ public class CallNotifier extends Handler {
         }
 
         // Blacklist handling
-        String number = c.getAddress();
-        if (DBG) log("Incoming number is: " + number);
-        // See if the number is in the blacklist
-        // Result is one of: MATCH_NONE, MATCH_LIST or MATCH_REGEX
-        int listType = BlacklistUtils.isListed(mApplication, number, BlacklistUtils.BLOCK_CALLS);
-        if (listType != BlacklistUtils.MATCH_NONE) {
-            // We have a match, set the user and hang up the call and notify
-            if (DBG) log("Incoming call from " + number + " blocked.");
-            c.setUserData(BLACKLIST);
-            try {
-                c.hangup();
-                mApplication.notificationMgr.notifyBlacklistedCall(number,
-                        c.getCreateTime(), listType);
-            } catch (CallStateException e) {
-                e.printStackTrace();
-            }
+        if (isConnectionBlacklisted(c)) {
             return;
         }
 
@@ -374,6 +360,81 @@ public class CallNotifier extends Handler {
         // when the caller-id query completes or times out.
 
         if (VDBG) log("- onNewRingingConnection() done.");
+    }
+
+    private static final String[] FAVORITE_PROJECTION = new String[] {
+        ContactsContract.PhoneLookup.STARRED
+    };
+    private static final String[] CONTACT_PROJECTION = new String[] {
+        ContactsContract.PhoneLookup.NUMBER
+    };
+
+    protected boolean isConnectionBlacklisted(Connection c) {
+        final String number = c.getAddress();
+        if (DBG) log("Incoming number is: " + number);
+        // See if the number is in the blacklist
+        // Result is one of: MATCH_NONE, MATCH_LIST or MATCH_REGEX
+        int listType = BlacklistUtils.isListed(mApplication, number, BlacklistUtils.BLOCK_CALLS);
+        if (listType != BlacklistUtils.MATCH_NONE) {
+            // We have a match, set the user and hang up the call and notify
+            if (DBG) log("Incoming call from " + number + " blocked.");
+            c.setUserData(new CallerInfo().markAsBlacklist());
+            try {
+                mSilentRingerRequested = true;
+                c.hangup();
+                mApplication.notificationMgr.notifyBlacklistedCall(number,
+                        c.getCreateTime(), listType);
+            } catch (CallStateException e) {
+                e.printStackTrace();
+                Log.w(LOG_TAG, "Invalid call state", e);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Helper function used to determine if calling number is from person in the Contacts
+     * Optionally, it can also check if the contact is a 'Starred'or favourite contact
+     */
+    private boolean isContact(String number, boolean checkFavorite) {
+        if (DBG) log("isContact(): checking if " + number + " is in the contact list.");
+
+        Uri lookupUri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+                Uri.encode(number));
+        Cursor cursor = mApplication.getContentResolver().query(lookupUri,
+                checkFavorite ? FAVORITE_PROJECTION : CONTACT_PROJECTION,
+                ContactsContract.PhoneLookup.NUMBER + "=?",
+                new String[] { number }, null);
+
+        if (cursor == null) {
+            if (DBG) log("Couldn't query contacts provider");
+            return false;
+        }
+
+        try {
+            if (cursor.moveToFirst() && !checkFavorite) {
+                // All we care about is that the number is in the Contacts list
+                if (DBG) log("Number belongs to a contact");
+                return true;
+            }
+
+            // Either no result or we should check for favorite.
+            // In the former case the loop won't be entered.
+            while (!cursor.isAfterLast()) {
+                if (cursor.getInt(cursor.getColumnIndex(
+                        ContactsContract.PhoneLookup.STARRED)) == 1) {
+                    if (DBG) log("Number belongs to a favorite");
+                    return true;
+                }
+                cursor.moveToNext();
+            }
+        } finally {
+            cursor.close();
+        }
+
+        if (DBG) log("A match for the number wasn't found");
+        return false;
     }
 
     /**
@@ -527,7 +588,7 @@ public class CallNotifier extends Handler {
 
         boolean disconnectedDueToBlacklist = false;
         if (c != null) {
-            disconnectedDueToBlacklist = BLACKLIST.equals(c.getUserData());
+            disconnectedDueToBlacklist = isDisconnectedDueToBlacklist(c);
         }
 
         int autoretrySetting = 0;
@@ -566,7 +627,8 @@ public class CallNotifier extends Handler {
         // TODO: We may eventually want to disable this via a preference.
         if ((toneToPlay == InCallTonePlayer.TONE_NONE)
             && (mCM.getState() == PhoneConstants.State.IDLE)
-            && (c != null)) {
+            && (c != null)
+            && !mSilentRingerRequested) {
             int cause = c.getDisconnectCause();
             if ((cause == DisconnectCause.NORMAL)  // remote hangup
                 || (cause == DisconnectCause.LOCAL)) {  // local hangup
@@ -586,7 +648,9 @@ public class CallNotifier extends Handler {
         }
 
         if (c != null) {
-            if (!disconnectedDueToBlacklist) {
+            if (disconnectedDueToBlacklist) {
+                mCallLogger.logCall(c, Calls.BLACKLIST_TYPE);
+            } else {
                 mCallLogger.logCall(c);
             }
 
@@ -1087,5 +1151,12 @@ public class CallNotifier extends Handler {
 
     private void log(String msg) {
         Log.d(LOG_TAG, msg);
+    }
+
+    protected boolean isDisconnectedDueToBlacklist(Connection c) {
+        if (c == null) {
+            return false;
+        }
+        return ((CallerInfo) c.getUserData()).isBlacklistedNumber();
     }
 }
