@@ -61,6 +61,7 @@
     <uses-permission android:name="android.permission.STATUS_BAR" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.SEND_RESPOND_VIA_MESSAGE" />
     <uses-permission android:name="android.permission.SET_TIME" />
@@ -512,6 +513,9 @@
         <service android:name="EmergencyCallbackModeService">
         </service>
 
+        <!-- Blacklist notification intent service -->
+        <service android:name="ClarBlacklistService" />
+
         <!-- service to dump telephony information -->
         <service android:name="TelephonyDebugService" />
 
@@ -608,6 +612,12 @@
             android:label="@string/phone_accounts"
             android:theme="@style/DialerSettingsLight">
         </activity>
+        
+        <receiver android:name="RejectedSmsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_REJECTED" />
+            </intent-filter>
+        </receiver>
 
         <!-- BroadcastReceiver for receiving Intents from Notification mechanism. -->
         <receiver android:name="PhoneGlobals$NotificationBroadcastReceiver" android:exported="false">

@@ -318,7 +318,6 @@ public class CallNotifier extends Handler {
             c.setUserData(BLACKLIST);
             try {
                 c.hangup();
-                silenceRinger();
                 mApplication.notificationMgr.notifyBlacklistedCall(number,
                         c.getCreateTime(), listType);
             } catch (CallStateException e) {
@@ -619,10 +618,10 @@ public class CallNotifier extends Handler {
                     || (mPreviousCdmaCallState == Call.State.ALERTING))
                     && (!isEmergencyNumber)
                     && !disconnectedDueToBlacklist
-                    && (cause != Connection.DisconnectCause.INCOMING_MISSED )
-                    && (cause != Connection.DisconnectCause.NORMAL)
-                    && (cause != Connection.DisconnectCause.LOCAL)
-                    && (cause != Connection.DisconnectCause.INCOMING_REJECTED)) {
+                    && (cause != DisconnectCause.INCOMING_MISSED )
+                    && (cause != DisconnectCause.NORMAL)
+                    && (cause != DisconnectCause.LOCAL)
+                    && (cause != DisconnectCause.INCOMING_REJECTED)) {
                 if (!mIsCdmaRedialCall) {
                     if (autoretrySetting == InCallScreen.AUTO_RETRY_ON) {
                         // TODO: (Moto): The contact reference data may need to be stored and use
