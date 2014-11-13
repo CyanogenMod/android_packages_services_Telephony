@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-     Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2013-2014 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -34,4 +34,23 @@
     <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> messages were blocked</string>
     <string name="blacklist_notification_list_private">Private</string>
     <string name="unblock_number">Unblock</string>
+
+    <!-- Number lookup -->
+    <string name="number_lookup">Phone number lookup</string>
+    <string name="enable_forward_lookup_title">Forward lookup</string>
+    <string name="enable_forward_lookup_summary">Show nearby places when searching in the dialer</string>
+    <string name="enable_people_lookup_title">People lookup</string>
+    <string name="enable_people_lookup_summary">Show online results for people when searching in the dialer</string>
+    <string name="enable_reverse_lookup_title">Reverse lookup</string>
+    <string name="enable_reverse_lookup_summary">Look up information about the person or place for unknown numbers on incoming calls</string>
+    <string name="choose_lookup_providers">Choose lookup providers</string>
+    <string name="choose_forward_lookup_provider_title">Choose forward lookup provider</string>
+    <string name="choose_people_lookup_provider_title">Choose people lookup provider</string>
+    <string name="choose_reverse_lookup_provider_title">Choose reverse lookup provider</string>
+
+    <!-- Chinese Reverse Lookup Provider -->
+    <string name="cyngn_reverse_lookup_provider_package" translatable="false">com.cyngn.chineselocationlookup</string>
+    <string name="cyngn_reverse_lookup_provider_name">Cyngn Chinese (CN)</string>
+    <string name="cyngn_reverse_lookup_provider_value" translatable="false">CyngnChinese</string>
+
 </resources>
