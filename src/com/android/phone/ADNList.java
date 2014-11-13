@@ -241,7 +241,7 @@ public class ADNList extends ListActivity {
 
     protected void showAlertDialog(String value) {
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Result...");
+        alertDialog.setTitle(R.string.Result_title);
         alertDialog.setMessage(value);
         alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
