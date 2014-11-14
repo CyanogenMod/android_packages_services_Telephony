@@ -102,6 +102,8 @@ public class ExportContactsToSim extends Activity {
                 if ((contactsCursor.getCount()) < 1) {
                     // If there are no contacts in Phone book display it to user.
                     mResult = NO_CONTACTS;
+                } else if (getUri() == null){
+                    mResult = FAILURE;
                 } else {
                     //We need to load SIM Records atleast once before exporting to SIM.
                     if (!mSimContactsLoaded) {
@@ -207,12 +209,12 @@ public class ExportContactsToSim extends Activity {
     private Uri getUri() {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        int slotId  = extras.getInt(SIM_INDEX);
+        int slotId  = (extras != null) ? extras.getInt(SIM_INDEX) : -1;
         Log.d("ExportContactsToSim"," on slot: " + slotId);
 
         if (slotId < TelephonyManager.getDefault().getPhoneCount() && slotId >= 0) {
             long[] subId = SubscriptionManager.getSubId(slotId);
-            if (subId != null) {
+            if (subId != null && subId[0] > 0) {
                 return Uri.parse("content://icc/adn/subId/" + subId[0]);
             } else {
                 Log.e(TAG, "Invalid subId for slot:" + slotId);
