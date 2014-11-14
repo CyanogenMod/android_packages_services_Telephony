@@ -340,9 +340,11 @@ public class SetSubscription extends PreferenceActivity implements
                     SwitchPreference subPref = (SwitchPreference)preference;
                     String key = subPref.getKey();
                     boolean on = (Boolean)newValue;
+                    boolean allnull = true;
                     int numSubSelected = 0;
                     for (int i = 0; i < subArray.length; i++) {
                         if (subArray[i] != null) {
+                            allnull = false;
                             SwitchPreference pref = subArray[i];
                             if (pref.isChecked() && !pref.equals(subPref)) {
                                 numSubSelected++;
@@ -350,7 +352,7 @@ public class SetSubscription extends PreferenceActivity implements
                         }
                     }
                     Log.d(TAG, "setSubscription: key = " + key);
-                    if (numSubSelected == 0) {
+                    if ((numSubSelected == 0) && (!allnull)) {
                         // Show a message to prompt the user to select atleast one.
                         Toast toast = Toast.makeText(getApplicationContext(),
                                 R.string.set_subscription_error_atleast_one,
