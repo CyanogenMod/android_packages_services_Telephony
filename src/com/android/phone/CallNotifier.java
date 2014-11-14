@@ -57,6 +57,7 @@ import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.telephony.VoLteServiceState;
 import android.util.EventLog;
 import android.util.Log;
 
@@ -196,7 +197,8 @@ public class CallNotifier extends Handler {
         for (int i = 0; i < TelephonyManager.getDefault().getPhoneCount(); i++) {
             telephonyManager.listen(getPhoneStateListener(i),
                     PhoneStateListener.LISTEN_MESSAGE_WAITING_INDICATOR
-                    | PhoneStateListener.LISTEN_CALL_FORWARDING_INDICATOR);
+                    | PhoneStateListener.LISTEN_CALL_FORWARDING_INDICATOR
+                    | PhoneStateListener.LISTEN_VOLTE_STATE);
         }
     }
 
@@ -333,6 +335,15 @@ public class CallNotifier extends Handler {
             public void onCallForwardingIndicatorChanged(boolean cfi) {
                 Phone phone = PhoneUtils.getPhoneFromSubId(mSubId);
                 onCfiChanged(cfi, phone);
+            }
+
+            @Override
+            public void onVoLteServiceStateChanged(VoLteServiceState stateInfo) {
+                if (stateInfo.getSrvccState() == VoLteServiceState.IMS_REGISTERED){
+                    mApplication.notificationMgr.updateImsRegistration(true);
+                }else if (stateInfo.getSrvccState() == VoLteServiceState.IMS_UNREGISTERED){
+                    mApplication.notificationMgr.updateImsRegistration(false);
+                }
             }
         };
         return mPhoneStateListener[phoneId];

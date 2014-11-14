@@ -75,6 +75,7 @@ public class NotificationMgr {
     static final int CALL_FORWARD_NOTIFICATION = 4;
     static final int DATA_DISCONNECTED_ROAMING_NOTIFICATION = 5;
     static final int SELECTED_OPERATOR_FAIL_NOTIFICATION = 6;
+    static final int IMS_REGISTERED_NOTIFICATION = 7;
 
     static final int NOTIFICATION_ID_OFFSET = 50;
 
@@ -569,6 +570,19 @@ public class NotificationMgr {
                     mSelectedUnavailableNotify = false;
                 }
             }
+        }
+    }
+
+    void updateImsRegistration(boolean registered) {
+        if (registered) {
+            Notification notification = new Notification.Builder(mContext)
+                    .setSmallIcon(R.drawable.ims_state).build();
+            notification.flags |= Notification.FLAG_ONGOING_EVENT;
+            mNotificationManager.notify(
+                    IMS_REGISTERED_NOTIFICATION,
+                    notification);
+        } else {
+            mNotificationManager.cancel(IMS_REGISTERED_NOTIFICATION);
         }
     }
 
