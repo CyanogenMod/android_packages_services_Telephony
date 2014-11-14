@@ -285,12 +285,12 @@ public class SimContacts extends ADNList {
 
         Bundle extras = intent.getExtras();
 
-        mSimIndex  = extras.getInt(SIM_INDEX);
+        mSimIndex  = (extras != null) ? extras.getInt(SIM_INDEX) : -1;
         if (mSimIndex == IMPORT_FROM_ALL) {
             intent.setData(Uri.parse("content://icc/adn/adn_all"));
         } else if (mSimIndex < TelephonyManager.getDefault().getPhoneCount() && mSimIndex >= 0) {
             long[] subId = SubscriptionManager.getSubId(mSimIndex);
-            if (subId != null) {
+            if (subId != null && subId[0] > 0) {
                 intent.setData(Uri.parse("content://icc/adn/subId/" + subId[0]));
             } else {
                 Log.e(LOG_TAG, "Error: invalid subId for slot =" + mSimIndex);
@@ -685,7 +685,7 @@ public class SimContacts extends ADNList {
     protected Uri getUri() {
         if (mSimIndex < TelephonyManager.getDefault().getPhoneCount() && mSimIndex >= 0) {
             long[] subId = SubscriptionManager.getSubId(mSimIndex);
-            if (subId != null) {
+            if (subId != null && subId[0] > 0) {
                 return Uri.parse("content://icc/adn/subId/" + subId[0]);
             } else {
                 Log.e(TAG, "Invalid subId for slot:" + mSimIndex);
