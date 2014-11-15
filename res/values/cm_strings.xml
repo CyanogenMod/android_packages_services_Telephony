@@ -503,7 +503,7 @@
 
     <!-- Call recording format -->
     <string name="call_recording_format">Call recording format</string>
-    <string name="wb_amr_format">WB AMR</string>
-    <string name="aac_format">AAC</string>
+    <string name="wb_amr_format" translatable="false">AMR-WB</string>
+    <string name="aac_format" translatable="false">AAC</string>
 
 </resources>
