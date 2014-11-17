@@ -1593,6 +1593,4 @@
 
     <string name="preferred_lte">"Enable 4G data only"</string>
     <string name="preferred_lte_summary">"When enable 4G data only, voice and SMS will not work"</string>
-
-    <string name="speed_dial_setting">Speed dial settings</string>
 </resources>
