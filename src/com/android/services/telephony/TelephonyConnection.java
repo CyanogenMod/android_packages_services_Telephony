@@ -714,6 +714,15 @@ abstract class TelephonyConnection extends Connection {
             currentCapabilities = removeCapability(currentCapabilities,
                     PhoneCapabilities.SUPPORTS_VT_LOCAL);
         }
+        int callState = getState();
+        if (mLocalVideoCapable && mRemoteVideoCapable
+                && (callState == STATE_ACTIVE || callState == STATE_HOLDING)) {
+            currentCapabilities = applyCapability(currentCapabilities,
+                    PhoneCapabilities.CALL_TYPE_MODIFIABLE);
+        } else {
+            currentCapabilities = removeCapability(currentCapabilities,
+                    PhoneCapabilities.CALL_TYPE_MODIFIABLE);
+        }
         return currentCapabilities;
     }
 
