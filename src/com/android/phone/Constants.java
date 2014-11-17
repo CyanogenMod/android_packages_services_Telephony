@@ -124,18 +124,6 @@ public class Constants {
         EXITED_ECM
     }
 
-    /**
-     * enable proximity sensor or not. 0 = Off 1 = On
-     */
-    public static final String SETTINGS_PROXIMITY_SENSOR = "proximity_sensor";
-
-    public static final String SETTINGS_VIBRATE_WHEN_ACCEPTED = "vibrate_on_accepted";
-
-    /**
-     * display duration info after end call. 0 = Off 1 = On
-     */
-    public static final String SETTINGS_SHOW_CALL_DURATION = "show_call_duration";
-
     public static final String SETTINGS_IP_PREFIX = "ipcall_prefix";
 
     public static final String PERSIST_RADIO_NETWORK_FEATURE = "persist.radio.network_feature";
