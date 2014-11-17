@@ -89,16 +89,6 @@
                       android:targetClass="com.qti.xdivert.XDivertSetting" />
       </PreferenceScreen>
 
-    <PreferenceScreen
-        android:key="speed_dial_settings"
-        android:title="@string/speed_dial_setting"
-        android:persistent="false">
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.dialer"
-            android:targetClass="com.android.dialer.SpeedDialListActivity"/>
-    </PreferenceScreen>
-
     <!-- Add videocall settings menu  -->
     <PreferenceCategory
         android:key="button_videocall_settings_key"
