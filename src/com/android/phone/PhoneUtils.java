@@ -25,8 +25,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.net.Uri;
@@ -2478,17 +2476,5 @@ public class PhoneUtils {
             || network == Phone.NT_MODE_LTE_CDMA_EVDO_GSM_WCDMA
             || network == Phone.NT_MODE_LTE_GSM_WCDMA
             || network == Phone.NT_MODE_LTE_CDMA_AND_EVDO);
-    }
-
-    public static boolean isPackageInstalled(Context context, String pkg) {
-        if (pkg == null) {
-            return false;
-        }
-        try {
-            PackageInfo pi = context.getPackageManager().getPackageInfo(pkg, 0);
-            return pi.applicationInfo.enabled;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
     }
 }
