@@ -24,10 +24,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnKeyListener;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
@@ -51,6 +53,7 @@ import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -64,6 +67,7 @@ import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
+import com.android.internal.telephony.TelephonyIntents;
 import com.android.phone.common.util.SettingsUtil;
 
 import java.lang.String;
@@ -460,6 +464,12 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     public void onPause() {
         super.onPause();
         mForeground = false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 
     /**
@@ -1552,6 +1562,12 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
 
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
+        //Register for intent broadcasts
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        intentFilter.addAction(TelephonyIntents.ACTION_SIM_STATE_CHANGED);
+
+        registerReceiver(mReceiver, intentFilter);
+
         // get buttons
         PreferenceScreen prefSet = getPreferenceScreen();
         mVoicemailCategory = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
@@ -1673,6 +1689,8 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         super.onResume();
         mForeground = true;
 
+        setScreenState();
+
         if(isVTSupported()) {
             mButtonVideoCallFallback = (PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_FB_KEY);
             mButtonVideoCallForward = (PreferenceScreen) findPreference(BUTTON_VIDEO_CALL_FW_KEY);
@@ -1727,6 +1745,26 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         // Look up the default/voicemail ringtone name asynchronously and update its preference.
         new Thread(mRingtoneLookupRunnable).start();
     }
+
+    private void setScreenState() {
+        int simState = TelephonyManager.getDefault().getSimState(mPhone.getPhoneId());
+        getPreferenceScreen().setEnabled(simState != TelephonyManager.SIM_STATE_ABSENT);
+    }
+
+    /**
+     * Receiver for ACTION_AIRPLANE_MODE_CHANGED and ACTION_SIM_STATE_CHANGED.
+     */
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED) ||
+                    action.equals(TelephonyIntents.ACTION_SIM_STATE_CHANGED)) {
+                setScreenState();
+            }
+        }
+    };
 
     private boolean isAirplaneModeOn() {
         return Settings.System.getInt(getContentResolver(),
