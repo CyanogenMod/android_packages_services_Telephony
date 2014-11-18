@@ -583,6 +583,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
             }
             intentFilter.addAction(AudioManager.RINGER_MODE_CHANGED_ACTION);
             intentFilter.addAction(REMOVE_BLACKLIST);
+
             registerReceiver(mReceiver, intentFilter);
 
             // Use a separate receiver for ACTION_MEDIA_BUTTON broadcasts,
@@ -903,6 +904,7 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
     /* package */ static PendingIntent getUnblockNumberFromNotificationPendingIntent(
             Context context, String number, int type) {
         Intent intent = new Intent(REMOVE_BLACKLIST);
+        intent.setClass(context, NotificationBroadcastReceiver.class);
         intent.putExtra(EXTRA_NUMBER, number);
         intent.putExtra(EXTRA_FROM_NOTIFICATION, true);
         intent.putExtra(EXTRA_TYPE, type);
@@ -1325,14 +1327,6 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
                 if (ringerMode == AudioManager.RINGER_MODE_SILENT) {
                     notifier.silenceRinger();
                 }
-            } else if (action.equals(REMOVE_BLACKLIST)) {
-                if (intent.getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
-                    // Dismiss the notification that brought us here
-                    int blacklistType = intent.getIntExtra(EXTRA_TYPE, 0);
-                    notificationMgr.cancelBlacklistedNotification(blacklistType);
-                    BlacklistUtils.addOrUpdate(context, intent.getStringExtra(EXTRA_NUMBER),
-                            0, blacklistType);
-                }
             }
         }
     }
@@ -1406,6 +1400,15 @@ public class PhoneGlobals extends ContextWrapper implements WiredHeadsetListener
                 Intent smsIntent = new Intent(Intent.ACTION_SENDTO, intent.getData());
                 smsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(smsIntent);
+            } else if (action.equals(REMOVE_BLACKLIST)) {
+                if (intent.getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
+                    // Dismiss the notification that brought us here
+                    int blacklistType = intent.getIntExtra(EXTRA_TYPE, 0);
+                    NotificationMgr.init(PhoneGlobals.getInstance())
+                            .cancelBlacklistedNotification(blacklistType);
+                    BlacklistUtils.addOrUpdate(context, intent.getStringExtra(EXTRA_NUMBER),
+                            0, blacklistType);
+                }
             } else {
                 Log.w(LOG_TAG, "Received hang-up request from notification,"
                         + " but there's no call the system can hang up.");
