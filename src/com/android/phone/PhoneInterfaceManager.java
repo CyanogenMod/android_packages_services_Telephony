@@ -1377,7 +1377,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         }
 
         log("No modify permission, check carrier privilege next.");
-        if (hasCarrierPrivileges() != TelephonyManager.CARRIER_PRIVILEGE_STATUS_HAS_ACCESS) {
+        if (getCarrierPrivilegeStatus() != TelephonyManager.CARRIER_PRIVILEGE_STATUS_HAS_ACCESS) {
             loge("No Carrier Privilege.");
             throw new SecurityException("No modify permission or carrier privilege.");
         }
@@ -1389,7 +1389,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      * @throws SecurityException if the caller does not have the required permission
      */
     private void enforceCarrierPrivilege() {
-        if (hasCarrierPrivileges() != TelephonyManager.CARRIER_PRIVILEGE_STATUS_HAS_ACCESS) {
+        if (getCarrierPrivilegeStatus() != TelephonyManager.CARRIER_PRIVILEGE_STATUS_HAS_ACCESS) {
             loge("No Carrier Privilege.");
             throw new SecurityException("No Carrier Privilege.");
         }
@@ -1507,6 +1507,17 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     public boolean needsOtaServiceProvisioning() {
         return mPhone.needsOtaServiceProvisioning();
+    }
+
+    /**
+     * Sets the voice mail number of a given subId.
+     */
+    @Override
+    public boolean setVoiceMailNumber(int subId, String alphaTag, String number) {
+        enforceCarrierPrivilege();
+        Boolean success = (Boolean) sendRequest(CMD_SET_VOICEMAIL_NUMBER,
+                new Pair<String, String>(alphaTag, number), new Integer(subId));
+        return success;
     }
 
     /**
@@ -1987,10 +1998,10 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
-    public int hasCarrierPrivileges() {
+    public int getCarrierPrivilegeStatus() {
         UiccCard card = UiccController.getInstance().getUiccCard();
         if (card == null) {
-            loge("hasCarrierPrivileges: No UICC");
+            loge("getCarrierPrivilegeStatus: No UICC");
             return TelephonyManager.CARRIER_PRIVILEGE_STATUS_RULES_NOT_LOADED;
         }
         return card.getCarrierPrivilegeStatusForCurrentTransaction(
@@ -2062,7 +2073,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
     @Override
     public void setLine1NumberForDisplayForSubscriber(int subId, String alphaTag, String number) {
-        enforceModifyPermissionOrCarrierPrivilege();
+        enforceCarrierPrivilege();
 
         String iccId = getIccId(subId);
         if (iccId != null) {
@@ -2110,7 +2121,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
     @Override
     public boolean setOperatorBrandOverride(String brand) {
-        enforceModifyPermissionOrCarrierPrivilege();
+        enforceCarrierPrivilege();
         return mPhone.setOperatorBrandOverride(brand);
     }
 
