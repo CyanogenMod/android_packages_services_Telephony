@@ -162,4 +162,6 @@
 
     <!-- enable network checking for ut interface-->
     <bool name="check_nw_for_ut">false</bool>
+    <!-- show toast for ims srvcc -->
+    <bool name="config_show_srvcc_toast">false</bool>
 </resources>
