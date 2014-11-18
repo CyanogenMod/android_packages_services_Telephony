@@ -47,7 +47,6 @@ import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
-import android.os.SystemVibrator;
 import android.os.Vibrator;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract;
@@ -98,7 +97,7 @@ public class CallNotifier extends Handler {
     private static final int PHONE_MWI_CHANGED = 21;
     private static final int DISPLAYINFO_NOTIFICATION_DONE = 24;
     private static final int UPDATE_IN_CALL_NOTIFICATION = 27;
-
+    private static final int VIBRATE_45_SEC = 28;
 
     private PhoneGlobals mApplication;
     private CallManager mCM;
@@ -107,6 +106,7 @@ public class CallNotifier extends Handler {
 
     // ToneGenerator instance for playing SignalInfo tones
     private ToneGenerator mSignalInfoToneGenerator;
+    private Vibrator mVibrator;
 
     // The tone volume relative to other sounds in the stream SignalInfo
     private static final int TONE_RELATIVE_VOLUME_SIGNALINFO = 80;
@@ -146,6 +146,7 @@ public class CallNotifier extends Handler {
         mCallLogger = callLogger;
         mBluetoothManager = bluetoothManager;
 
+        mVibrator = (Vibrator) mApplication.getSystemService(Context.VIBRATOR_SERVICE);
         mAudioManager = (AudioManager) mApplication.getSystemService(Context.AUDIO_SERVICE);
 
         callStateMonitor.addListener(this);
@@ -257,6 +258,11 @@ public class CallNotifier extends Handler {
             case CallStateMonitor.PHONE_SUPP_SERVICE_NOTIFY:
                 if (DBG) log("Received Supplementary Notification");
                 onSuppServiceNotification((AsyncResult) msg.obj);
+                break;
+
+            case VIBRATE_45_SEC:
+                vibrate(70, 0, 0);
+                sendEmptyMessageDelayed(VIBRATE_45_SEC, 60000);
                 break;
 
             default:
@@ -510,8 +516,11 @@ public class CallNotifier extends Handler {
                 .enableNotificationAlerts(state == PhoneConstants.State.IDLE);
 
         Phone fgPhone = mCM.getFgPhone();
+        Call fgCall = fgPhone.getForegroundCall();
+        Connection c;
+
         if (fgPhone.getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA) {
-            if ((fgPhone.getForegroundCall().getState() == Call.State.ACTIVE)
+            if ((fgCall.getState() == Call.State.ACTIVE)
                     && ((mPreviousCdmaCallState == Call.State.DIALING)
                     ||  (mPreviousCdmaCallState == Call.State.ALERTING))) {
                 if (mIsCdmaRedialCall) {
@@ -521,7 +530,10 @@ public class CallNotifier extends Handler {
                 // Stop any signal info tone when call moves to ACTIVE state
                 stopSignalInfoTone();
             }
-            mPreviousCdmaCallState = fgPhone.getForegroundCall().getState();
+            mPreviousCdmaCallState = fgCall.getState();
+            c = fgCall.getLatestConnection();
+        } else {
+            c = fgCall.getEarliestConnection();
         }
 
         // Have the PhoneApp recompute its mShowBluetoothIndication
@@ -539,6 +551,17 @@ public class CallNotifier extends Handler {
             if (VDBG) log("onPhoneStateChanged: OFF HOOK");
             // make sure audio is in in-call mode now
             PhoneUtils.setAudioMode(mCM);
+        }
+
+        if (c != null && !c.isIncoming() && c.getState() == Call.State.ACTIVE) {
+            long callDurationMsec = c.getDurationMillis();
+            if (VDBG) log("duration is " + callDurationMsec);
+            if (PhoneSettings.vibOutgoing(mApplication) && callDurationMsec < 200) {
+                vibrate(100, 200, 0);
+            }
+            if (PhoneSettings.vibOn45Secs(mApplication)) {
+                start45SecondVibration(callDurationMsec);
+            }
         }
     }
 
@@ -561,6 +584,11 @@ public class CallNotifier extends Handler {
         } else {
             Log.w(LOG_TAG, "onDisconnect: null connection");
         }
+
+        if (c != null && PhoneSettings.vibHangup(mApplication) && c.getDurationMillis() > 0) {
+            vibrate(50, 100, 50);
+        }
+
         int autoretrySetting = 0;
         if ((c != null) && (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA)) {
             autoretrySetting = android.provider.Settings.Global.getInt(mApplication.
@@ -569,6 +597,9 @@ public class CallNotifier extends Handler {
 
         // Stop any signalInfo tone being played when a call gets ended
         stopSignalInfoTone();
+
+        // Stop 45-second vibration
+        removeMessages(VIBRATE_45_SEC);
 
         if ((c != null) && (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA)) {
             // Resetting the CdmaPhoneCallState members
@@ -747,6 +778,29 @@ public class CallNotifier extends Handler {
         }
 
         return -1;
+    }
+
+     protected void start45SecondVibration(long callDurationMsec) {
+        callDurationMsec = callDurationMsec % 60000;
+        if (VDBG) log("vibrate start @" + callDurationMsec);
+        removeMessages(VIBRATE_45_SEC);
+
+        long timer;
+        if (callDurationMsec > 45000) {
+            // Schedule the alarm at the next minute + 45 secs
+            timer = 45000 + 60000 - callDurationMsec;
+        } else {
+            // Schedule the alarm at the first 45 second mark
+            timer = 45000 - callDurationMsec;
+        }
+        sendEmptyMessageDelayed(VIBRATE_45_SEC, timer);
+    }
+
+    public void vibrate(int v1, int p1, int v2) {
+        long[] pattern = new long[] {
+            0, v1, p1, v2
+        };
+        mVibrator.vibrate(pattern, -1);
     }
 
     /**
