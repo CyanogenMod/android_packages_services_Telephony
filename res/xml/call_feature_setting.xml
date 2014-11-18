@@ -206,6 +206,24 @@
         android:persistent="false">
     </PreferenceScreen>
 
+    <PreferenceCategory
+        android:title="@string/incall_vibration">
+
+        <CheckBoxPreference
+            android:key="button_vibrate_outgoing"
+            android:title="@string/vibrate_outgoing"
+            android:persistent="true" />
+        <CheckBoxPreference
+            android:key="button_vibrate_hangup"
+            android:title="@string/vibrate_hangup"
+            android:persistent="true" />
+        <CheckBoxPreference
+            android:key="button_vibrate_45"
+            android:title="@string/vibrate_45"
+            android:summary="@string/vibrate_45_sum" />
+
+    </PreferenceCategory>
+
     <!-- Add videocall settings menu  -->
     <PreferenceCategory
         android:key="button_videocall_settings_key"

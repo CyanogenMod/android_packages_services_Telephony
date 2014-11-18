@@ -21,6 +21,33 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 public final class PhoneSettings {
+    public static boolean vibOn45Secs(Context context) {
+        return vibOn45Secs(context, -1);
+    }
+
+    public static boolean vibOn45Secs(Context context, int subscription) {
+        String key = getKeyForSubscription("button_vibrate_45", subscription);
+        return getPrefs(context).getBoolean(key, false);
+    }
+
+    public static boolean vibHangup(Context context) {
+        return vibHangup(context, -1);
+    }
+
+    public static boolean vibHangup(Context context, int subscription) {
+        String key = getKeyForSubscription("button_vibrate_hangup", subscription);
+        return getPrefs(context).getBoolean(key, false);
+    }
+
+    public static boolean vibOutgoing(Context context) {
+        return vibOutgoing(context, -1);
+    }
+
+    public static boolean vibOutgoing(Context context, int subscription) {
+        String key = getKeyForSubscription("button_vibrate_outgoing", subscription);
+        return getPrefs(context).getBoolean(key, false);
+    }
+
     public static boolean showInCallEvents(Context context) {
         return showInCallEvents(context, -1);
     }
