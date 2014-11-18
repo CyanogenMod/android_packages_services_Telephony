@@ -23,18 +23,6 @@
     <string name="blacklist_summary_disabled">Disabled</string>
     <string name="blacklist_summary">Incoming calls from phone numbers in the blacklist will be blocked</string>
 
-    <!-- Blacklist notifications -->
-    <string name="blacklist_call_notification">Blocked a call from %s</string>
-    <string name="blacklist_call_notification_private_number">Blocked a call from a private number</string>
-    <string name="blacklist_call_notification_unknown_number">Blocked a call from unknown number %s</string>
-    <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> calls were blocked</string>
-    <string name="blacklist_message_notification">Blocked a message from %s</string>
-    <string name="blacklist_message_notification_private_number">Blocked a message from a private number</string>
-    <string name="blacklist_message_notification_unknown_number">Blocked a message from unknown number %s</string>
-    <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> messages were blocked</string>
-    <string name="blacklist_notification_list_private">Private</string>
-    <string name="unblock_number">Unblock</string>
-
     <!-- Number lookup -->
     <string name="number_lookup">Phone number lookup</string>
     <string name="enable_forward_lookup_title">Forward lookup</string>

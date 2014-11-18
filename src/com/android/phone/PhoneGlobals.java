@@ -20,31 +20,23 @@ import android.app.Activity;
 import android.app.KeyguardManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
-import android.app.TaskStackBuilder;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.IBluetoothHeadsetPhone;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.ServiceConnection;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Handler;
-import android.os.IBinder;
 import android.os.IPowerManager;
 import android.os.Message;
 import android.os.PowerManager;
-import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UpdateLock;
-import android.os.UserHandle;
 import android.preference.PreferenceManager;
 import android.provider.Settings.System;
 import android.telephony.ServiceState;
@@ -209,11 +201,7 @@ public class PhoneGlobals extends ContextWrapper {
     public OtaUtils.CdmaOtaScreenState cdmaOtaScreenState;
     public OtaUtils.CdmaOtaInCallScreenUiState cdmaOtaInCallScreenUiState;
 
-    // For adding to Blacklist from call log
-    private static final String REMOVE_BLACKLIST = "com.android.phone.REMOVE_BLACKLIST";
-    private static final String EXTRA_NUMBER = "number";
-    private static final String EXTRA_TYPE = "type";
-    private static final String EXTRA_FROM_NOTIFICATION = "fromNotification";
+
 
     /**
      * Set the restore mute state flag. Used when we are setting the mute state
@@ -414,9 +402,6 @@ public class PhoneGlobals extends ContextWrapper {
 
             phoneMgr = PhoneInterfaceManager.init(this, phone);
 
-            // Convert old blacklist to new format
-            Blacklist.migrateOldDataIfPresent(this);
-
             // Create the CallNotifer singleton, which handles
             // asynchronous events from the telephony layer (like
             // launching the incoming-call UI when an incoming call comes
@@ -446,7 +431,6 @@ public class PhoneGlobals extends ContextWrapper {
             intentFilter.addAction(TelephonyIntents.ACTION_RADIO_TECHNOLOGY_CHANGED);
             intentFilter.addAction(TelephonyIntents.ACTION_SERVICE_STATE_CHANGED);
             intentFilter.addAction(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
-            intentFilter.addAction(REMOVE_BLACKLIST);
             registerReceiver(mReceiver, intentFilter);
 
             //set the default values for the preferences in the phone.
@@ -536,15 +520,6 @@ public class PhoneGlobals extends ContextWrapper {
         Intent intent = new Intent(PhoneGlobals.ACTION_HANG_UP_ONGOING_CALL, null,
                 context, NotificationBroadcastReceiver.class);
         return PendingIntent.getBroadcast(context, 0, intent, 0);
-    }
-
-    /* package */ static PendingIntent getUnblockNumberFromNotificationPendingIntent(
-            Context context, String number, int type) {
-        Intent intent = new Intent(REMOVE_BLACKLIST);
-        intent.putExtra(EXTRA_NUMBER, number);
-        intent.putExtra(EXTRA_FROM_NOTIFICATION, true);
-        intent.putExtra(EXTRA_TYPE, type);
-        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     boolean isSimPinEnabled() {
@@ -889,14 +864,6 @@ public class PhoneGlobals extends ContextWrapper {
                         Intent.EXTRA_DOCK_STATE_UNDOCKED);
                 if (VDBG) Log.d(LOG_TAG, "ACTION_DOCK_EVENT -> mDockState = " + mDockState);
                 mHandler.sendMessage(mHandler.obtainMessage(EVENT_DOCK_STATE_CHANGED, 0));
-            } else if (action.equals(REMOVE_BLACKLIST)) {
-                if (intent.getBooleanExtra(EXTRA_FROM_NOTIFICATION, false)) {
-                    // Dismiss the notification that brought us here
-                    int blacklistType = intent.getIntExtra(EXTRA_TYPE, 0);
-                    notificationMgr.cancelBlacklistedNotification(blacklistType);
-                    BlacklistUtils.addOrUpdate(context, intent.getStringExtra(EXTRA_NUMBER),
-                            0, blacklistType);
-                }
             }
         }
     }

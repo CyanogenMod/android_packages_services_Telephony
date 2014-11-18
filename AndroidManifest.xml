@@ -513,9 +513,6 @@
         <service android:name="EmergencyCallbackModeService">
         </service>
 
-        <!-- Blacklist notification intent service -->
-        <service android:name="ClarBlacklistService" />
-
         <!-- service to dump telephony information -->
         <service android:name="TelephonyDebugService" />
 
@@ -612,12 +609,6 @@
             android:label="@string/phone_accounts"
             android:theme="@style/DialerSettingsLight">
         </activity>
-        
-        <receiver android:name="RejectedSmsReceiver">
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_REJECTED" />
-            </intent-filter>
-        </receiver>
 
         <!-- BroadcastReceiver for receiving Intents from Notification mechanism. -->
         <receiver android:name="PhoneGlobals$NotificationBroadcastReceiver" android:exported="false">
