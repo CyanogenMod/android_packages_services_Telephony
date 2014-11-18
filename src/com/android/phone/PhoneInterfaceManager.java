@@ -1913,7 +1913,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public int getCalculatedPreferredNetworkType() {
         enforceReadPermission();
-        return PhoneFactory.calculatePreferredNetworkType(mPhone.getContext());
+        return PhoneFactory.calculatePreferredNetworkType(mPhone.getContext(), 0); // wink FIXME: need to get SubId from somewhere.
     }
 
     /**
