@@ -892,11 +892,11 @@ public class NotificationMgr {
                     : R.drawable.ic_unblock_message_holo_dark;
             int unblockType = notificationId == BLACKLISTED_CALL_NOTIFICATION
                     ? BlacklistUtils.BLOCK_CALLS : BlacklistUtils.BLOCK_MESSAGES;
-            PendingIntent action = PhoneGlobals.getUnblockNumberFromNotificationPendingIntent(
-                    mContext, number, unblockType);
 
             builder.addAction(actionDrawableResId,
-                    mContext.getString(R.string.unblock_number), action);
+                    mContext.getString(R.string.unblock_number),
+                    PhoneGlobals.getUnblockNumberFromNotificationPendingIntent(
+                            mContext, number, unblockType));
         }
 
         mNotificationManager.notify(notificationId, builder.getNotification());
