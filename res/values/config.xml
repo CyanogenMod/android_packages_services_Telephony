@@ -196,7 +196,4 @@
 
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">false</bool>
-
-    <!-- Flag whether to enable IP Prefix setting-->
-    <bool name="config_ip_prefix_enable" translatable="false">false</bool>
 </resources>

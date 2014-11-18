@@ -33,7 +33,10 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
+import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.media.AudioManager;
@@ -44,6 +47,7 @@ import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
@@ -303,6 +307,9 @@ public class CallFeaturesSetting extends PreferenceActivity
     // Blacklist support
     private static final String BUTTON_BLACKLIST = "button_blacklist";
 
+    // Call recording format
+    private static final String CALL_RECORDING_FORMAT = "call_recording_format";
+
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
     private Runnable mRingtoneLookupRunnable;
@@ -348,6 +355,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private ListPreference mChooseReverseLookupProvider;
     private ListPreference mT9SearchInputLocale;
     private CheckBoxPreference mButtonProximity;
+    private ListPreference mCallRecordingFormat;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -716,6 +724,11 @@ public class CallFeaturesSetting extends PreferenceActivity
             saveLookupProviderSetting(preference, (String) objValue);
         } else if (preference == mT9SearchInputLocale) {
             saveT9SearchInputLocale(preference, (String) objValue);
+        } else if (preference == mCallRecordingFormat) {
+            int value = Integer.valueOf((String) objValue);
+            int index = mCallRecordingFormat.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.CALL_RECORDING_FORMAT, value);
+            mCallRecordingFormat.setSummary(mCallRecordingFormat.getEntries()[index]);
         }
         // always let the preference setting proceed.
         return true;
@@ -1657,6 +1670,8 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButtonProximity = (CheckBoxPreference) findPreference(BUTTON_PROXIMITY_KEY);
         mIPPrefix = (PreferenceScreen) findPreference(BUTTON_IPPREFIX_KEY);
 
+        mCallRecordingFormat = (ListPreference) findPreference(CALL_RECORDING_FORMAT);
+
         if (mT9SearchInputLocale != null) {
             initT9SearchInputPreferenceList();
         }
@@ -1717,6 +1732,13 @@ public class CallFeaturesSetting extends PreferenceActivity
         if (mT9SearchInputLocale != null) {
             // should this be enabled/disabled based on a flag?
             mT9SearchInputLocale.setOnPreferenceChangeListener(this);
+        }
+
+        if (mCallRecordingFormat != null) {
+            int format = Settings.System.getInt(getContentResolver(), Settings.System.CALL_RECORDING_FORMAT, 0);
+            mCallRecordingFormat.setValue(String.valueOf(format));
+            mCallRecordingFormat.setSummary(mCallRecordingFormat.getEntry());
+            mCallRecordingFormat.setOnPreferenceChangeListener(this);
         }
 
         removeOptionalPrefs(prefSet);
@@ -2604,7 +2626,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             preferenceScreen.removePreference(mButtonProximity);
             mButtonProximity = null;
         }
-        if (!getResources().getBoolean(R.bool.config_ip_prefix_enable) &&
+        if (!SystemProperties.getBoolean("persist.radio.ipcall.enabled", false) &&
                 mIPPrefix != null) {
             preferenceScreen.removePreference(mIPPrefix);
             mIPPrefix = null;
@@ -2626,6 +2648,25 @@ public class CallFeaturesSetting extends PreferenceActivity
                     addPreferencesFromResource(R.xml.cdma_call_privacy);
                     PhoneGlobals.initCallWaitingPref(this, SUB1);
                 }
+            }
+        }
+
+        // Remove Call recording format preference if it's not enabled
+        boolean recordingEnabled = false;
+        try {
+            PackageManager pm = getPackageManager();
+            String phonePackage = "com.android.dialer";
+            Resources res;
+            res = pm.getResourcesForApplication(phonePackage);
+            int booleanID = res.getIdentifier(phonePackage + ":bool/call_recording_enabled", null, null);
+            recordingEnabled = res.getBoolean(booleanID);
+        } catch (NameNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (NotFoundException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (!recordingEnabled && mCallRecordingFormat != null) {
+                preferenceScreen.removePreference(mCallRecordingFormat);
             }
         }
     }

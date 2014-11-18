@@ -7,6 +7,7 @@ include $(CLEAR_VARS)
 LOCAL_JAVA_LIBRARIES := telephony-common voip-common telephony-msim
 LOCAL_STATIC_JAVA_LIBRARIES := com.android.phone.shared \
         com.android.services.telephony.common \
+        libphonenumbergoogle \
         guava \
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
