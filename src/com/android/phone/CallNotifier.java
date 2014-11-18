@@ -120,8 +120,6 @@ public class CallNotifier extends Handler {
 
     private final BluetoothManager mBluetoothManager;
 
-    private boolean mSilentRingerRequested;
-
     /**
      * Initialize the singleton CallNotifier instance.
      * This is only done once, at startup, from PhoneApp.onCreate().
@@ -314,11 +312,6 @@ public class CallNotifier extends Handler {
             return;
         }
 
-        // Blacklist handling
-        if (isConnectionBlacklisted(c)) {
-            return;
-        }
-
         // Stop any signalInfo tone being played on receiving a Call
         stopSignalInfoTone();
 
@@ -375,30 +368,6 @@ public class CallNotifier extends Handler {
     private static final String[] CONTACT_PROJECTION = new String[] {
         ContactsContract.PhoneLookup.NUMBER
     };
-
-    protected boolean isConnectionBlacklisted(Connection c) {
-        final String number = c.getAddress();
-        if (DBG) log("Incoming number is: " + number);
-        // See if the number is in the blacklist
-        // Result is one of: MATCH_NONE, MATCH_LIST or MATCH_REGEX
-        int listType = BlacklistUtils.isListed(mApplication, number, BlacklistUtils.BLOCK_CALLS);
-        if (listType != BlacklistUtils.MATCH_NONE) {
-            // We have a match, set the user and hang up the call and notify
-            if (DBG) log("Incoming call from " + number + " blocked.");
-            c.setUserData(new CallerInfo().markAsBlacklist());
-            try {
-                mSilentRingerRequested = true;
-                c.hangup();
-                mApplication.notificationMgr.notifyBlacklistedCall(number,
-                        c.getCreateTime(), listType);
-            } catch (CallStateException e) {
-                e.printStackTrace();
-                Log.w(LOG_TAG, "Invalid call state", e);
-            }
-            return true;
-        }
-        return false;
-    }
 
     /**
      * Helper function used to determine if calling number is from person in the Contacts
@@ -592,12 +561,6 @@ public class CallNotifier extends Handler {
         } else {
             Log.w(LOG_TAG, "onDisconnect: null connection");
         }
-
-        boolean disconnectedDueToBlacklist = false;
-        if (c != null) {
-            disconnectedDueToBlacklist = isDisconnectedDueToBlacklist(c);
-        }
-
         int autoretrySetting = 0;
         if ((c != null) && (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA)) {
             autoretrySetting = android.provider.Settings.Global.getInt(mApplication.
@@ -634,8 +597,7 @@ public class CallNotifier extends Handler {
         // TODO: We may eventually want to disable this via a preference.
         if ((toneToPlay == InCallTonePlayer.TONE_NONE)
             && (mCM.getState() == PhoneConstants.State.IDLE)
-            && (c != null)
-            && !mSilentRingerRequested) {
+            && (c != null)) {
             int cause = c.getDisconnectCause();
             if ((cause == DisconnectCause.NORMAL)  // remote hangup
                 || (cause == DisconnectCause.LOCAL)) {  // local hangup
@@ -655,11 +617,7 @@ public class CallNotifier extends Handler {
         }
 
         if (c != null) {
-            if (disconnectedDueToBlacklist) {
-                mCallLogger.logCall(c, Calls.BLACKLIST_TYPE);
-            } else {
-                mCallLogger.logCall(c);
-            }
+            mCallLogger.logCall(c);
 
             final String number = c.getAddress();
             final Phone phone = c.getCall().getPhone();
@@ -688,7 +646,6 @@ public class CallNotifier extends Handler {
             if (((mPreviousCdmaCallState == Call.State.DIALING)
                     || (mPreviousCdmaCallState == Call.State.ALERTING))
                     && (!isEmergencyNumber)
-                    && !disconnectedDueToBlacklist
                     && (cause != DisconnectCause.INCOMING_MISSED )
                     && (cause != DisconnectCause.NORMAL)
                     && (cause != DisconnectCause.LOCAL)
@@ -1238,12 +1195,5 @@ public class CallNotifier extends Handler {
 
     private void log(String msg) {
         Log.d(LOG_TAG, msg);
-    }
-
-    protected boolean isDisconnectedDueToBlacklist(Connection c) {
-        if (c == null) {
-            return false;
-        }
-        return ((CallerInfo) c.getUserData()).isBlacklistedNumber();
     }
 }
