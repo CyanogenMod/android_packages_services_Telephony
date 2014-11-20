@@ -86,16 +86,12 @@ abstract class TelephonyConnection extends Connection {
                             ((connection.getAddress() != null &&
                             mOriginalConnection.getAddress() != null &&
                             mOriginalConnection.getAddress().contains(connection.getAddress())) ||
-                            connection.getStateBeforeHandover() == mOriginalConnection.getState())) {
-                            Log.d(TelephonyConnection.this,
-                                    "SettingOriginalConnection " + mOriginalConnection.toString()
-                                            + " with " + connection.toString());
+                            mOriginalConnection.getStateBeforeHandover() == connection.getState())) {
+                            Log.d(TelephonyConnection.this, "SettingOriginalConnection " +
+                                    mOriginalConnection.toString() + " with " + connection.toString());
                             setOriginalConnection(connection);
                             mWasImsConnection = false;
                         }
-                    } else {
-                        Log.w(TelephonyConnection.this,
-                                "MSG_HANDOVER_STATE_CHANGED: mOriginalConnection==null - invalid state (not cleaned up)");
                     }
                     break;
                 case MSG_RINGBACK_TONE:
