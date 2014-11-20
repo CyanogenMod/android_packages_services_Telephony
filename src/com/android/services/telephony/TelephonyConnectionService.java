@@ -277,6 +277,16 @@ public class TelephonyConnectionService extends ConnectionService {
     }
 
     @Override
+    public void triggerConferenceRecalculate() {
+        int size = TelephonyManager.getDefault().getPhoneCount();
+        for (int i = 0; i < size; i++) {
+            if (mTelephonyConferenceController[i].shouldRecalculate()) {
+                 mTelephonyConferenceController[i].recalculate();
+            }
+        }
+    }
+
+    @Override
     public Connection onCreateUnknownConnection(PhoneAccountHandle connectionManagerPhoneAccount,
             ConnectionRequest request) {
         Log.i(this, "onCreateUnknownConnection, request: " + request);

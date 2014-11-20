@@ -251,23 +251,27 @@ public class ImsConferenceController {
      * @param connection The connection to the Ims server.
      */
     private void startConference(TelephonyConnection connection) {
-        com.android.internal.telephony.Connection originalConnection =
-                connection.getOriginalConnection();
         if (Log.VERBOSE) {
             Log.v(this, "Start new ImsConference - connection: %s", connection);
         }
 
+        // Make a clone of the connection which will become the Ims conference host connection.
+        // This is necessary since the Connection Service does not support removing a connection
+        // from Telecom.  Instead we create a new instance and remove the old one from telecom.
+        TelephonyConnection conferenceHostConnection = connection.cloneConnection();
+
         // Create conference and add to telecom
-        ImsConference conference = new ImsConference(mConnectionService, originalConnection);
+        ImsConference conference = new ImsConference(mConnectionService, conferenceHostConnection);
         conference.setState(connection.getState());
         mConnectionService.addConference(conference);
         conference.addListener(mConferenceListener);
 
         // Cleanup TelephonyConnection which backed the original connection and remove from telecom.
-        // Use the "Canceled" disconnect cause to ensure the call is not logged.
+        // Use the "Other" disconnect cause to ensure the call is logged to the call log but the
+        // disconnect tone is not played.
         connection.removeConnectionListener(mConnectionListener);
         connection.clearOriginalConnection();
-        connection.setDisconnected(new DisconnectCause(DisconnectCause.CANCELED));
+        connection.setDisconnected(new DisconnectCause(DisconnectCause.OTHER));
         connection.destroy();
         mImsConferences.add(conference);
     }
