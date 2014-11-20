@@ -951,6 +951,8 @@ public class CallFeaturesSetting extends PreferenceActivity
                 }
                 mSubMenuVoicemailSettings.onPickActivityResult(cursor.getString(0));
                 return;
+            } catch (SQLiteException sqle) {
+                    log("onActivityResult: bad contact data, no results found.");
             } finally {
                 if (cursor != null) {
                     cursor.close();
