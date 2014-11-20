@@ -19,6 +19,7 @@ package com.android.services.telephony;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncResult;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.telecom.AudioState;
@@ -66,12 +67,15 @@ abstract class TelephonyConnection extends Connection {
 
     protected static SuppServiceNotification mSsNotification = null;
 
+    private static final boolean DBG = false;
+
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MSG_PRECISE_CALL_STATE_CHANGED:
                     Log.v(TelephonyConnection.this, "MSG_PRECISE_CALL_STATE_CHANGED");
+                    setExtras();
                     updateState();
                     break;
                 case MSG_HANDOVER_STATE_CHANGED:
@@ -415,6 +419,7 @@ abstract class TelephonyConnection extends Connection {
 
     private com.android.internal.telephony.Connection mOriginalConnection;
     private Call.State mOriginalConnectionState = Call.State.IDLE;
+    private Bundle mOriginalConnectionExtras;
 
     /**
      * Determines if the {@link TelephonyConnection} has local video capabilities.
@@ -790,6 +795,36 @@ abstract class TelephonyConnection extends Connection {
 
         Log.v(this, "isValidRingingCall, returning true");
         return true;
+    }
+
+    protected void setExtras() {
+        Bundle extras = null;
+        if (mOriginalConnection != null) {
+            extras = mOriginalConnection.getCall().getExtras();
+            if (extras != null) {
+                // Check if extras have changed and need updating.
+                if (!Objects.equals(mOriginalConnectionExtras, extras)) {
+                    if (DBG) {
+                        Log.d(TelephonyConnection.this, "Updating extras:");
+                        for (String key : extras.keySet()) {
+                            Object value = extras.get(key);
+                            if (value instanceof String) {
+                                Log.d(TelephonyConnection.this,
+                                        "setExtras Key=" + key +
+                                                " value=" + (String)value);
+                            }
+                        }
+                    }
+                    mOriginalConnectionExtras = extras;
+                    super.setExtras(extras);
+                } else {
+                    Log.d(TelephonyConnection.this,
+                        "Extras update not required");
+                }
+            } else {
+                Log.d(TelephonyConnection.this, "Null call extras");
+            }
+        }
     }
 
     void updateState() {
