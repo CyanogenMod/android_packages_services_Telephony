@@ -127,13 +127,14 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     /** The singleton instance. */
     private static PhoneInterfaceManager sInstance;
 
-    PhoneGlobals mApp;
-    Phone mPhone;
-    CallManager mCM;
-    AppOpsManager mAppOps;
-    MainThreadHandler mMainThreadHandler;
+    private PhoneGlobals mApp;
+    private Phone mPhone;
+    private CallManager mCM;
+    private AppOpsManager mAppOps;
+    private MainThreadHandler mMainThreadHandler;
+    private SubscriptionManager mSubscriptionManager;
+    private SharedPreferences mTelephonySharedPreferences;
 
-    SharedPreferences carrierPrivilegeConfigs;
     private static final String PREF_CARRIERS_ALPHATAG_PREFIX = "carrier_alphtag_";
     private static final String PREF_CARRIERS_NUMBER_PREFIX = "carrier_number_";
     private static final String PREF_CARRIERS_SIMPLIFIED_NETWORK_SETTINGS_PREFIX =
@@ -745,6 +746,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         mMainThreadHandler = new MainThreadHandler();
         carrierPrivilegeConfigs =
                 PreferenceManager.getDefaultSharedPreferences(mPhone.getContext());
+        mSubscriptionManager = SubscriptionManager.from(app);
+
         publish();
     }
 
@@ -810,11 +813,13 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         }
 
         boolean isValid = false;
-        List<SubInfoRecord> slist = SubscriptionManager.getActiveSubInfoList();
-        for (SubInfoRecord subInfoRecord : slist) {
-            if (subInfoRecord.getSubscriptionId() == subId) {
-                isValid = true;
-                break;
+        List<SubscriptionInfo> slist = mSubscriptionManager.getActiveSubscriptionInfoList();
+        if (slist != null) {
+            for (SubscriptionInfo subInfoRecord : slist) {
+                if (subInfoRecord.getSubscriptionId() == subId) {
+                    isValid = true;
+                    break;
+                }
             }
         }
         if (isValid == false) {

@@ -46,7 +46,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private String LOG_TAG = PhoneAccountSettingsFragment.class.getSimpleName();
 
     private TelecomManager mTelecomManager;
-    private Context mApplicationContext;
+    private SubscriptionManager mSubscriptionManager;
 
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private AccountSelectionPreference mSelectCallAssistant;
@@ -61,7 +61,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         super.onCreate(icicle);
 
         mTelecomManager = TelecomManager.from(getActivity());
-        mApplicationContext = getActivity().getApplicationContext();
+        mSubscriptionManager = SubscriptionManager.from(getActivity());
     }
 
     @Override
@@ -277,8 +277,12 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     }
 
     private void initAccountList() {
-        for (SubInfoRecord subscription : SubscriptionManager.getActiveSubInfoList()) {
-            String label = subscription.getDisplayName().toString();
+        List<SubscriptionInfo> sil = mSubscriptionManager.getActiveSubscriptionInfoList();
+        if (sil == null) {
+            return;
+        }
+        for (SubscriptionInfo subscription : sil) {
+            CharSequence label = subscription.getDisplayName();
             Intent intent = new Intent(TelecomManager.ACTION_SHOW_CALL_SETTINGS);
             intent.putExtra(CallFeaturesSetting.SUB_ID_EXTRA, subscription.getSubscriptionId());
             intent.putExtra(CallFeaturesSetting.SUB_LABEL_EXTRA, label);
