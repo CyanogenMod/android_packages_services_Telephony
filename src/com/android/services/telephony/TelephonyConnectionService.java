@@ -52,10 +52,9 @@ import java.util.Objects;
  * Service for making GSM and CDMA connections.
  */
 public class TelephonyConnectionService extends ConnectionService {
-    private final GsmConferenceController mGsmConferenceController =
-            new GsmConferenceController(this);
-    private final CdmaConferenceController mCdmaConferenceController =
-            new CdmaConferenceController(this);
+    private GsmConferenceController[] mGsmConferenceController;
+    private CdmaConferenceController[] mCdmaConferenceController;
+
     private ComponentName mExpectedComponentName = null;
     private EmergencyCallHelper mEmergencyCallHelper;
     private EmergencyTonePlayer mEmergencyTonePlayer;
@@ -64,6 +63,13 @@ public class TelephonyConnectionService extends ConnectionService {
     @Override
     public void onCreate() {
         super.onCreate();
+        int size = TelephonyManager.getDefault().getPhoneCount();
+        mGsmConferenceController  = new GsmConferenceController[size];
+        mCdmaConferenceController = new CdmaConferenceController[size];
+        for (int i = 0; i < size; i++) {
+            mGsmConferenceController[i] = new GsmConferenceController(this);
+            mCdmaConferenceController[i] = new CdmaConferenceController(this);
+        }
         mExpectedComponentName = new ComponentName(this, this.getClass());
         mEmergencyTonePlayer = new EmergencyTonePlayer(this);
     }
@@ -375,15 +381,16 @@ public class TelephonyConnectionService extends ConnectionService {
             com.android.internal.telephony.Connection originalConnection,
             boolean isOutgoing) {
         int phoneType = phone.getPhoneType();
+        int phoneId = phone.getPhoneId();
         if (phoneType == TelephonyManager.PHONE_TYPE_GSM) {
             GsmConnection connection = new GsmConnection(originalConnection);
-            mGsmConferenceController.add(connection);
+            mGsmConferenceController[phoneId].add(connection);
             return connection;
         } else if (phoneType == TelephonyManager.PHONE_TYPE_CDMA) {
             boolean allowMute = allowMute(phone);
             CdmaConnection connection = new CdmaConnection(
                     originalConnection, mEmergencyTonePlayer, allowMute, isOutgoing);
-            mCdmaConferenceController.add(connection);
+            mCdmaConferenceController[phoneId].add(connection);
             return connection;
         } else {
             return null;
