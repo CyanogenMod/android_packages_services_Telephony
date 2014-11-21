@@ -20,6 +20,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 
 import android.content.DialogInterface;
+import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,12 +29,15 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.telecom.PhoneAccountHandle;
+import android.telecom.TelecomManager;
 import android.util.Log;
 
 public class CdmaCallOptions extends PreferenceActivity {
     private static final String LOG_TAG = "CdmaCallOptions";
     private final boolean DBG = (PhoneGlobals.DBG_LEVEL >= 2);
 
+    public static final int CALL_WAITING = 7;
     private static final String BUTTON_VP_KEY = "button_voice_privacy_key";
     private CheckBoxPreference mButtonVoicePrivacy;
 
@@ -46,12 +50,35 @@ public class CdmaCallOptions extends PreferenceActivity {
         Phone phone = PhoneUtils.getPhoneFromIntent(getIntent());
         Log.d(LOG_TAG, "Get CDMACallOptions phoneId = " + phone.getPhoneId());
 
+        initCallWaitingPref(this, phone.getPhoneId());
+
         mButtonVoicePrivacy = (CheckBoxPreference) findPreference(BUTTON_VP_KEY);
         if (phone.getPhoneType() != PhoneConstants.PHONE_TYPE_CDMA
                 || getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
             //disable the entire screen
             getPreferenceScreen().setEnabled(false);
         }
+    }
+
+    public static void initCallWaitingPref(PreferenceActivity activity, int phoneId) {
+        PreferenceScreen prefCWAct = (PreferenceScreen)
+                activity.findPreference("button_cw_act_key");
+        PreferenceScreen prefCWDeact = (PreferenceScreen)
+                activity.findPreference("button_cw_deact_key");
+
+        CdmaCallOptionsSetting callOptionSettings = new CdmaCallOptionsSetting(activity,
+                CALL_WAITING, phoneId);
+
+        PhoneAccountHandle accountHandle = PhoneGlobals.getPhoneAccountHandle(activity, phoneId);
+        prefCWAct.getIntent()
+                .putExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE, accountHandle)
+                .setData(Uri.fromParts("tel", callOptionSettings.getActivateNumber(), null));
+        prefCWAct.setSummary(callOptionSettings.getActivateNumber());
+
+        prefCWDeact.getIntent()
+                .putExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE, accountHandle)
+                .setData(Uri.fromParts("tel", callOptionSettings.getDeactivateNumber(), null));
+        prefCWDeact.setSummary(callOptionSettings.getDeactivateNumber());
     }
 
     @Override
