@@ -49,6 +49,9 @@ import android.os.UpdateLock;
 import android.os.UserHandle;
 import android.preference.PreferenceManager;
 import android.provider.Settings.System;
+import android.telecom.PhoneAccountHandle;
+import android.telephony.SubscriptionManager;
+import android.telecom.TelecomManager;
 import android.telephony.ServiceState;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -68,6 +71,8 @@ import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.imsphone.ImsPhone;
 import com.android.phone.common.CallLogAsync;
 import com.android.server.sip.SipService;
+
+import java.util.List;
 
 /**
  * Global state for the telephony subsystem when running in the primary
@@ -1076,5 +1081,20 @@ public class PhoneGlobals extends ContextWrapper {
             return true;
         }
         return false;
+    }
+
+    static PhoneAccountHandle getPhoneAccountHandle(Context context, int phoneId) {
+        if (!SubscriptionManager.isValidPhoneId(phoneId)) {
+            return null;
+        }
+        String subId = String.valueOf(PhoneFactory.getPhone(phoneId).getSubId());
+        TelecomManager telecomManager = TelecomManager.from(context);
+        List<PhoneAccountHandle> accounts = telecomManager.getCallCapablePhoneAccounts();
+        for (PhoneAccountHandle account : accounts) {
+            if (subId.equals(account.getId())) {
+                return account;
+            }
+        }
+        return null;
     }
 }
