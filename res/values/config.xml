@@ -109,6 +109,10 @@
 
     <!-- If true, removes the Voice Privacy option from Call Settings -->
     <bool name="config_voice_privacy_disable">false</bool>
+    <!-- If false, removes the X-Divert option from Call Settings -->
+    <bool name="config_xdivert_enable">true</bool>
+    <!-- If false, removes the Video Call option from Call Settings -->
+    <bool name="config_video_call_enable">true</bool>
 
     <!-- Configure certain GsmUmtsOptions to be available or not. The
          default values are in Phone/res/values/config.xml and maybe overridden
