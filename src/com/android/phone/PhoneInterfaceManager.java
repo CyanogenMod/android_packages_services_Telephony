@@ -1631,26 +1631,9 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     public String getIccOperatorNumeric(long subId) {
         String iccOperatorNumeric = null;
-        int netType = getDataNetworkTypeForSubscriber(subId);
-        int family = UiccController.getFamilyFromRadioTechnology(netType);
-        if (UiccController.APP_FAM_UNKNOWN == family) {
-            int phoneType = getActivePhoneTypeForSubscriber(subId);
-            switch (phoneType) {
-                case TelephonyManager.PHONE_TYPE_GSM:
-                    family = UiccController.APP_FAM_3GPP;
-                    break;
-                case TelephonyManager.PHONE_TYPE_CDMA:
-                    family = UiccController.APP_FAM_3GPP2;
-                    break;
-            }
-        }
-
-        if (UiccController.APP_FAM_UNKNOWN != family) {
-            int slotId = SubscriptionManager.getPhoneId(subId);
-            IccRecords iccRecords = UiccController.getInstance().getIccRecords(slotId, family);
-            if (iccRecords != null) {
-                iccOperatorNumeric = iccRecords.getOperatorNumeric();
-            }
+        IccRecords iccRecords = getPhone(subId).getIccCard().getIccRecords();
+        if (iccRecords != null) {
+            iccOperatorNumeric = iccRecords.getOperatorNumeric();
         }
         return iccOperatorNumeric;
     }
