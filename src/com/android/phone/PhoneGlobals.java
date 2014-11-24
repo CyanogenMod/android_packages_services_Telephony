@@ -60,11 +60,15 @@ import com.android.internal.telephony.MmiCode;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.android.internal.telephony.SubscriptionController;
 import com.android.internal.telephony.PhoneProxy;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.phone.common.CallLogAsync;
 import com.android.server.sip.SipService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Global state for the telephony subsystem when running in the primary
@@ -498,7 +502,8 @@ public class PhoneGlobals extends ContextWrapper {
     }
 
     /**
-     * Returns the Phone associated with this instance
+     * Returns the Phone associated with this instance.
+     * WARNING: This method should be used carefully, now that there may be multiple phones.
      */
     static Phone getPhone() {
         return getInstance().phone;
@@ -511,6 +516,19 @@ public class PhoneGlobals extends ContextWrapper {
         } else {
             return getPhone();
         }
+    }
+
+    /**
+     * Returns a list of the currently active phones for the Telephony package.
+     */
+    public static List<Phone> getPhones() {
+        int[] subIds = SubscriptionController.getInstance().getActiveSubIdList();
+        List<Phone> phones = new ArrayList<Phone>(subIds.length);
+
+        for (int i = 0; i < subIds.length; i++) {
+            phones.add(PhoneFactory.getPhone(SubscriptionManager.getPhoneId(subIds[i])));
+        }
+        return phones;
     }
 
     /* package */ BluetoothManager getBluetoothManager() {
