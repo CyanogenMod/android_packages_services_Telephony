@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">데이터 연결이 일시적으로 중단됩니다. 계속하시겠습니까?</string>
   <string name="simContacts_title_cm">SIM 카드 연락처 관리</string>
   <string name="sip_accounts_title_cm">SIP 계정</string>
+  <string name="respond_via_sms_cannot_be_empty">빠른 응답 메시지는 비워둘 수 없습니다</string>
+  <string name="call_recording_format">통화 녹음 형식</string>
 </resources>

@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Datatjeneste må frakobles midlertidig. Er du sikker på at du vil fortsette?</string>
   <string name="simContacts_title_cm">Administrere SIM-kortkontakter</string>
   <string name="sip_accounts_title_cm">SIP-kontoer</string>
+  <string name="respond_via_sms_cannot_be_empty">Rask respons kan ikke være tom</string>
+  <string name="call_recording_format">Opptaksformat ved samtale</string>
 </resources>

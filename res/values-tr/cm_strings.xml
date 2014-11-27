@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Veri servisi bağlantısının geçici olarak kesilmesi gerekmekte. Devam etmek istediğinize emin misiniz?</string>
   <string name="simContacts_title_cm">SIM kart kişilerini yönet</string>
   <string name="sip_accounts_title_cm">SIP hesapları</string>
+  <string name="respond_via_sms_cannot_be_empty">Hızlı yanıt boş olamaz</string>
+  <string name="call_recording_format">Çağrı kayıt biçimi</string>
 </resources>

@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">දත්ත සේවාව තාවකාලිකව විසන්ධි කිරීමට අවශ්‍යවේ. ඔබට ඉදිරියට යාමට අවශ්‍ය බවට විශ්වාසද?</string>
   <string name="simContacts_title_cm">සිම්පත් සම්බන්ධතා කළමනාකරණය</string>
   <string name="sip_accounts_title_cm">SIP ගිණුම්</string>
+  <string name="respond_via_sms_cannot_be_empty">යුහු ප්‍රතිචාරය හිස් නොවිය යුතුය</string>
+  <string name="call_recording_format">ඇමතුම් පටිගතකිරීමේ ආකෘතිය</string>
 </resources>

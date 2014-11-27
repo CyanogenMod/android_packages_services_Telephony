@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Служба даних тимчасово буде відключена. Справді продовжити?</string>
   <string name="simContacts_title_cm">Керувати контактами SIM-карти</string>
   <string name="sip_accounts_title_cm">Облікові записи SIP</string>
+  <string name="respond_via_sms_cannot_be_empty">Швидка відповідь не може бути пустою</string>
+  <string name="call_recording_format">Формат запису виклику</string>
 </resources>

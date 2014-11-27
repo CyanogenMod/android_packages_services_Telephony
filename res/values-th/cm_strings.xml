@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">จำเป็นต้องตัดการเชื่อมต่อเครือข่ายชั่วคราว คุณแน่ใจว่าจะทำต่อ?</string>
   <string name="simContacts_title_cm">จัดการรายชื่อในซิมการ์ด</string>
   <string name="sip_accounts_title_cm">บัญชี SIP</string>
+  <string name="respond_via_sms_cannot_be_empty">การตอบสนองรวดเร็วต้องไม่ว่างเปล่า</string>
+  <string name="call_recording_format">นามสกุลไฟล์บันทึการโทร</string>
 </resources>

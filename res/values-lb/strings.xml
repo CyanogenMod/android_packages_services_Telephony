@@ -49,9 +49,11 @@
   <string name="labelCDMAMore">CDMA-Uruffastellungen</string>
   <string name="settings_label">Netzwierkastellungen</string>
   <string name="voicemail">Sproochopnam</string>
+  <string name="networks">Netzwierkprovideren</string>
   <string name="call_settings">Uruffastellungen</string>
   <string name="additional_gsm_call_settings">Zousätzlech Astellungen</string>
   <string name="labelCallerId">Uruffer-ID</string>
+  <string name="sum_loading_settings">Astellunge gi gelueden\u2026</string>
   <string name="sum_hide_caller_id">Nummer bei erausgoenden Uriff verstoppt</string>
   <string name="sum_show_caller_id">Nummer bei erausgoenden Uriff ugewisen</string>
   <string name="labelCW">Gespréich pauséiert</string>
@@ -63,17 +65,21 @@
   <string name="sum_cfu_disabled">Desaktivéiert</string>
   <string name="labelCFB">Weiderleede wa besat</string>
   <string name="messageCFB">Nummer wa besat</string>
+  <string name="sum_cfb_enabled">Weiderleeden u(n) <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
   <string name="sum_cfb_disabled">Desaktivéiert</string>
   <string name="disable_cfb_forbidden">Däi Provider erlaabt et net d\'Weiderleedung auszeschalte wann deng Nummer besat ass.</string>
   <string name="labelCFNRy">Weiderleede wann net beäntwert</string>
   <string name="messageCFNRy">Nummer wann net beäntwert</string>
+  <string name="sum_cfnry_enabled">Weiderleeden u(n) <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
   <string name="sum_cfnry_disabled">Desaktivéiert</string>
   <string name="disable_cfnry_forbidden">Däi Provider erlaabt et net d\'Weiderleedung auszeschalte wann s du den Uruff net beäntwers.</string>
+  <string name="sum_cfnrc_enabled">Weiderleeden u(n) <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
   <string name="sum_cfnrc_disabled">Desaktivéiert</string>
   <string name="updating_title">Uruffastellungen</string>
   <string name="error_updating_title">Feeler bei den Uruffastellungen</string>
   <string name="reading_settings">Astellunge gi gelies\u2026</string>
   <string name="updating_settings">Astellunge ginn aktualiséiert\u2026</string>
+  <string name="response_error">Onerwaart Äntwert vum Netzwierk.</string>
   <string name="close_dialog">OK</string>
   <string name="enable">Aktivéieren</string>
   <string name="disable">Desaktivéieren</string>
@@ -98,6 +104,7 @@
   <string name="sum_select_automatically">Automatesch dat preferréiert Netzwierk auswielen</string>
   <string name="register_automatically">Automatesch Registréierung\u2026</string>
   <string name="preferred_network_mode_title">Preferéierten Netzwierktyp</string>
+  <string name="preferred_network_mode_summary">De Modus vun der Netzwierkoperatioun änneren</string>
   <string name="preferred_network_mode_dialogtitle">Preferéierten Netzwierktyp</string>
   <string name="preferred_network_mode_wcdma_perf_summary">Preferéierten Netzwierktyp: WCDMA preferéiert</string>
   <string name="preferred_network_mode_gsm_only_summary">Preferéierten Netzwierktyp: just GSM</string>

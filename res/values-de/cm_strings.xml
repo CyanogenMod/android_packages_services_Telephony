@@ -283,4 +283,5 @@
   <string name="disconnect_data_confirm">Datendienst muss vorübergehend getrennt werden. Sind Sie sicher, dass Sie fortfahren möchten?</string>
   <string name="simContacts_title_cm">Kontakte auf SIM-Karte verwalten</string>
   <string name="sip_accounts_title_cm">SIP-Konten</string>
+  <string name="call_recording_format">Anrufaufnahme-Format</string>
 </resources>

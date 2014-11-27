@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">El servicio de datos se desconectará temporalmente. ¿Estás seguro de que quieres continuar?</string>
   <string name="simContacts_title_cm">Gestionar contactos de tarjeta SIM</string>
   <string name="sip_accounts_title_cm">Cuentas SIP</string>
+  <string name="respond_via_sms_cannot_be_empty">La respuesta rápida no puede estar vacía</string>
+  <string name="call_recording_format">Formato de grabación de llamada</string>
 </resources>

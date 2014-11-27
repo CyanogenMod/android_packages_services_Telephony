@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Мобильный интернет будет временно отключён. Продолжить?</string>
   <string name="simContacts_title_cm">Управление контактами SIM-карты</string>
   <string name="sip_accounts_title_cm">SIP-аккаунты</string>
+  <string name="respond_via_sms_cannot_be_empty">Текст быстрого ответа не может быть пустым</string>
+  <string name="call_recording_format">Формат записи вызова</string>
 </resources>

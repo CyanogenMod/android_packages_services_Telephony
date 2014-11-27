@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">El servei de dades necessita desconnectar-se temporalment. Estàs segur que vols continuar?</string>
   <string name="simContacts_title_cm">Gestiona els contactes de la targeta SIM</string>
   <string name="sip_accounts_title_cm">Comptes SIP</string>
+  <string name="respond_via_sms_cannot_be_empty">La resposta ràpida no pot estar buida</string>
+  <string name="call_recording_format">Format de gravació de trucades</string>
 </resources>

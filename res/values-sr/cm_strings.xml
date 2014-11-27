@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Услуга мобилних података треба привремено да се прекине. Да ли си сигуран да желиш да наставиш?</string>
   <string name="simContacts_title_cm">Управљај контактима са SIM картице</string>
   <string name="sip_accounts_title_cm">SIP налози</string>
+  <string name="respond_via_sms_cannot_be_empty">Брзи одговор не може бити празан</string>
+  <string name="call_recording_format">Формат снимања позива</string>
 </resources>
