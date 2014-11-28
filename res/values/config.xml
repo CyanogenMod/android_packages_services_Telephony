@@ -144,6 +144,13 @@
     <string name="carrier_settings" translatable="false"></string>
     <string name="carrier_settings_menu" translatable="false"></string>
 
+    <!-- Sprint Message Wait Indicator Quirk
+         If true, message wait indicators are hidden by default on this device
+         unless the user enables it in Call Settings.  This quirk is necessary
+         for the "Phantom Voicemail" issue where notifications are impossible
+         to dismiss on the Sprint network. -->
+    <bool name="sprint_mwi_quirk">false</bool>
+
     <!-- Does not display additional call seting for IMS phone based on GSM Phone -->
     <bool name="config_additional_call_setting">true</bool>
 
