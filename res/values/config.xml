@@ -159,6 +159,8 @@
 
     <!-- whether hide roaming settings -->
     <bool name="hide_roaming">false</bool>
+    <!-- whether disable data of sub2 -->
+    <bool name="disable_data_sub2">false</bool>
 
     <!-- enable network checking for ut interface-->
     <bool name="check_nw_for_ut">false</bool>

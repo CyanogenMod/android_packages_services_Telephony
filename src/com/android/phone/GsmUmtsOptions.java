@@ -30,6 +30,8 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 
 import android.provider.Settings;
+import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
@@ -72,6 +74,10 @@ public class GsmUmtsOptions {
     protected void create() {
         mPrefActivity.addPreferencesFromResource(R.xml.gsm_umts_options);
         mButtonAPNExpand = (PreferenceScreen) mPrefScreen.findPreference(BUTTON_APN_EXPAND_KEY);
+        if (needDisableSub2Apn(mPhone.getPhoneId())) {
+            log("disable sub2 apn");
+            mButtonAPNExpand.setEnabled(false);
+        }
         mButtonOperatorSelectionExpand =
                 (PreferenceScreen) mPrefScreen.findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY);
         mButtonOperatorSelectionExpand.getIntent().putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
@@ -180,5 +186,17 @@ public class GsmUmtsOptions {
 
     protected void log(String s) {
         android.util.Log.d(LOG_TAG, s);
+    }
+
+    protected boolean needDisableSub2Apn(int sub) {
+        if (mPrefActivity.getResources().getBoolean(R.bool.disable_data_sub2)) {
+            // When current SUB is SUB2, in DSDS mode, all 2 subscriptions are
+            // active, we need disable current apn option.
+            return (PhoneConstants.SUB2 == sub
+                    && TelephonyManager.getDefault().getMultiSimConfiguration()
+                            .equals(TelephonyManager.MultiSimVariants.DSDS)
+                    && 2 == SubscriptionManager.getActiveSubInfoCount ());
+        }
+        return false;
     }
 }
