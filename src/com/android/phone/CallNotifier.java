@@ -815,6 +815,16 @@ public class CallNotifier extends Handler {
             return;
         }
 
+        boolean notifProp = mApplication.getResources().getBoolean(R.bool.sprint_mwi_quirk);
+        boolean notifOption = Settings.System.getInt(mApplication.getContentResolver(),
+                Settings.System.ENABLE_MWI_NOTIFICATION, 0) == 1;
+        if (notifProp && !notifOption) {
+            // sprint_mwi_quirk is true, and ENABLE_MWI_NOTIFICATION is unchecked or unset (false)
+            // ignore the mwi event, but log if we're debugging.
+            if (VDBG) log("onMwiChanged(): mwi_notification is disabled. Ignoring...");
+            return;
+        }
+
         mApplication.notificationMgr.updateMwi(visible, phone);
     }
 
