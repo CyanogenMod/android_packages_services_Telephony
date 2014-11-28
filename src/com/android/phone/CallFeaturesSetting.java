@@ -164,6 +164,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_VOICEMAIL_KEY = "button_voicemail_key";
     private static final String BUTTON_VOICEMAIL_PROVIDER_KEY = "button_voicemail_provider_key";
     private static final String BUTTON_VOICEMAIL_SETTING_KEY = "button_voicemail_setting_key";
+    private static final String BUTTON_VOICEMAIL_CATEGORY_KEY = "button_voicemail_category_key";
+    private static final String BUTTON_MWI_NOTIFICATION_KEY = "button_mwi_notification_key";
     // New preference key for voicemail notification vibration
     /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY =
             "button_voicemail_notification_vibrate_key";
@@ -270,6 +272,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private ListPreference mButtonDTMF;
     private ListPreference mButtonTTY;
     private Preference mPhoneAccountSettingsPreference;
+    private CheckBoxPreference mMwiNotification;
     private ListPreference mVoicemailProviders;
     private PreferenceScreen mVoicemailSettingsScreen;
     private PreferenceScreen mVoicemailSettings;
@@ -486,6 +489,11 @@ public class CallFeaturesSetting extends PreferenceActivity
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mSubMenuVoicemailSettings) {
+            return true;
+        } else if (preference == mMwiNotification) {
+            int mwi_notification = mMwiNotification.isChecked() ? 1 : 0;
+            Settings.System.putInt(mPhone.getContext().getContentResolver(),
+                    Settings.System.ENABLE_MWI_NOTIFICATION, mwi_notification);
             return true;
         } else if (preference == mButtonDTMF) {
             return true;
@@ -1626,6 +1634,17 @@ public class CallFeaturesSetting extends PreferenceActivity
                     findPreference(BUTTON_VIDEO_CALL_SP_KEY);
         }
 
+        mMwiNotification = (CheckBoxPreference) findPreference(BUTTON_MWI_NOTIFICATION_KEY);
+        if (mMwiNotification != null) {
+            if (getResources().getBoolean(R.bool.sprint_mwi_quirk)) {
+                mMwiNotification.setOnPreferenceChangeListener(this);
+            } else {
+                PreferenceScreen voicemailCategory = (PreferenceScreen) findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
+                voicemailCategory.removePreference(mMwiNotification);
+                mMwiNotification = null;
+            }
+        }
+
         mButtonDTMF = (ListPreference) findPreference(BUTTON_DTMF_KEY);
         mButtonAutoRetry = (CheckBoxPreference) findPreference(BUTTON_RETRY_KEY);
         mButtonHAC = (CheckBoxPreference) findPreference(BUTTON_HAC_KEY);
@@ -1764,6 +1783,12 @@ public class CallFeaturesSetting extends PreferenceActivity
                 log("Remove xdivert preference");
                 prefSet.removePreference(mXDivertPref);
             }
+        }
+
+        if (mMwiNotification != null) {
+            int mwiNotification = Settings.System.getInt(getContentResolver(),
+                    Settings.System.ENABLE_MWI_NOTIFICATION, 0);
+            mMwiNotification.setChecked(mwiNotification != 0);
         }
 
         if (mButtonDTMF != null) {
