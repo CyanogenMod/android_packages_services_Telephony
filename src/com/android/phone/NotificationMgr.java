@@ -356,7 +356,7 @@ public class NotificationMgr {
                     .setContentIntent(pendingIntent)
                     .setSound(ringtoneUri)
                     .setColor(mContext.getResources().getColor(R.color.dialer_theme_color))
-                    .setOngoing(true);
+                    .setOngoing(false);
 
             CallFeaturesSetting.migrateVoicemailVibrationSettingsIfNeeded(prefs, phoneId);
             final boolean vibrate = prefs.getBoolean(
