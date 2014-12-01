@@ -126,6 +126,12 @@
         android:entries="@array/dtmf_tone_entries"
         android:entryValues="@array/dtmf_tone_values"/>
 
+    <SwitchPreference
+        android:key="enhanced_4g_lte"
+        android:title="@string/enhanced_4g_lte_mode_title"
+        android:persistent="false"
+        android:summary="@string/enhanced_4g_lte_mode_summary"/>
+
     <PreferenceScreen
         android:key="button_gsm_more_expand_key"
         android:title="@string/labelGSMMore"
