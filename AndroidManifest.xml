@@ -122,6 +122,7 @@
 
         <!-- Dialer UI that only allows emergency calls -->
         <activity android:name="EmergencyDialer"
+            android:launchMode="singleInstance"
             android:label="@string/emergencyDialerIconLabel"
             android:theme="@style/EmergencyDialerTheme"
             android:screenOrientation="portrait">
