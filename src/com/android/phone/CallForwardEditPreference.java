@@ -4,6 +4,7 @@ import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandException;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
+import com.android.ims.ImsException;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -264,8 +265,13 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
             callForwardInfo = null;
             if (ar.exception != null && !isTestForUTInterface) {
                 if (DBG) Log.d(LOG_TAG, "handleGetCFResponse: ar.exception=" + ar.exception);
-                tcpListener.onException(CallForwardEditPreference.this,
-                        (CommandException) ar.exception);
+                if (ar.exception instanceof ImsException) {
+                    tcpListener.onException(CallForwardEditPreference.this,
+                            CommandException.fromRilErrno(2));
+                } else {
+                    tcpListener.onException(CallForwardEditPreference.this,
+                            (CommandException) ar.exception);
+                }
             } else {
                 if (ar.userObj instanceof Throwable && !isTestForUTInterface) {
                     tcpListener.onError(CallForwardEditPreference.this, RESPONSE_ERROR);
