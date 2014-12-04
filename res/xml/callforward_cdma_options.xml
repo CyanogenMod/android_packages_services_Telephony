@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2013-2014, The Linux Foundation. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *         * Redistributions of source code must retain the above copyright
+ *             notice, this list of conditions and the following disclaimer.
+ *         * Redistributions in binary form must reproduce the above
+ *             copyright notice, this list of conditions and the following
+ *             disclaimer in the documentation and/or other materials provided
+ *             with the distribution.
+ *         * Neither the name of The Linux Foundation nor the names of its
+ *             contributors may be used to endorse or promote products derived
+ *             from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ * ARE DISCLAIMED.    IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:phone="http://schemas.android.com/apk/res/com.android.phone"
+    android:title="@string/call_forwarding_settings">
+
+    <PreferenceScreen android:key="button_cfu_setting_key"
+        android:title="@string/labelCFU"
+        android:persistent="false">
+
+        <!-- Note for all com.android.phone.EditPhoneNumberPreference objects
+
+            The last several attributes are for use with the EditText field
+            in the dialog.  These attributes are forwarded to that field
+            when the edittext is created.  The attributes include:
+              1. android:singleLine
+              2. android:autoText
+              3. android:background -->
+        <com.android.phone.CdmaCallForwardEditPreference
+            android:key="button_cfu_key"
+            android:title="@string/CFActivate"
+            android:persistent="false"
+            android:dialogTitle="@string/labelCFU"
+            android:dialogMessage="@string/messageCFU"
+            phone:reason="unconditional"
+            android:singleLine="true"
+            android:autoText="false"/>
+        <PreferenceScreen
+             android:key="button_cfu_deact_key"
+             android:title="@string/CFDeactivate">
+             <intent
+                 android:action="android.intent.action.CALL_PRIVILEGED"
+                 android:targetPackage="com.android.server.telecom"
+                 android:targetClass="com.android.server.telecom.CallActivity" />
+        </PreferenceScreen>
+    </PreferenceScreen>
+    <PreferenceScreen android:key="button_cfb_setting_key"
+        android:title="@string/labelCFB"
+        android:persistent="false">
+        <!-- See note on com.android.phone.EditPreference above -->
+        <com.android.phone.CdmaCallForwardEditPreference
+            android:key="button_cfb_key"
+            android:title="@string/CFActivate"
+            android:persistent="false"
+            android:dialogTitle="@string/labelCFB"
+            android:dialogMessage="@string/messageCFB"
+            phone:reason="busy"
+            android:singleLine="true"
+            android:autoText="false"/>
+        <PreferenceScreen
+            android:key="button_cfb_deact_key"
+            android:title="@string/CFDeactivate">
+            <intent
+                android:action="android.intent.action.CALL_PRIVILEGED"
+                android:targetPackage="com.android.server.telecom"
+                android:targetClass="com.android.server.telecom.CallActivity" />
+        </PreferenceScreen>
+    </PreferenceScreen>
+    <PreferenceScreen android:key="button_cfnry_setting_key"
+        android:title="@string/labelCFNRy"
+        android:persistent="false">
+        <!-- See note on com.android.phone.EditPreference above -->
+        <com.android.phone.CdmaCallForwardEditPreference
+            android:key="button_cfnry_key"
+            android:title="@string/CFActivate"
+            android:persistent="false"
+            android:dialogTitle="@string/labelCFNRy"
+            android:dialogMessage="@string/messageCFNRy"
+            phone:reason="no_reply"
+            android:singleLine="true"
+            android:autoText="false"/>
+        <PreferenceScreen
+            android:key="button_cfnry_deact_key"
+            android:title="@string/CFDeactivate">
+            <intent
+                android:action="android.intent.action.CALL_PRIVILEGED"
+                android:targetPackage="com.android.server.telecom"
+                android:targetClass="com.android.server.telecom.CallActivity" />
+        </PreferenceScreen>
+    </PreferenceScreen>
+    <PreferenceScreen android:key="button_cfnrc_setting_key"
+        android:title="@string/labelCFNRc_cdma"
+        android:persistent="false">
+        <!-- See note on com.android.phone.EditPreference above -->
+        <com.android.phone.CdmaCallForwardEditPreference
+            android:key="button_cfnrc_key"
+            android:title="@string/CFActivate"
+            android:persistent="false"
+            android:dialogTitle="@string/labelCFNRc_cdma"
+            android:dialogMessage="@string/messageCFNRc"
+            phone:reason="not_reachable"
+            android:singleLine="true"
+            android:autoText="false"/>
+        <PreferenceScreen
+            android:key="button_cfnrc_deact_key"
+            android:title="@string/CFDeactivate">
+            <intent
+                android:action="android.intent.action.CALL_PRIVILEGED"
+                android:targetPackage="com.android.server.telecom"
+                android:targetClass="com.android.server.telecom.CallActivity" />
+        </PreferenceScreen>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="button_cf_deact_all_key"
+        android:title="@string/labelCFDeactAll">
+        <intent
+            android:action="android.intent.action.CALL_PRIVILEGED"
+            android:targetPackage="com.android.server.telecom"
+            android:targetClass="com.android.server.telecom.CallActivity" />
+    </PreferenceScreen>
+</PreferenceScreen>

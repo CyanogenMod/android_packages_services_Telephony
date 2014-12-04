@@ -1613,6 +1613,9 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                     prefSet.removePreference(fdnButton);
                 if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
                     addPreferencesFromResource(R.xml.cdma_call_privacy);
+                    CdmaCallOptions.initCallWaitingPref(this, mPhone.getPhoneId());
+                    ((PreferenceScreen) findPreference(BUTTON_CF_EXPAND_KEY)).getIntent().putExtra(
+                            SUBSCRIPTION_KEY, mPhone.getPhoneId());
                 }
             } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
                 addPreferencesFromResource(R.xml.gsm_umts_call_options);
