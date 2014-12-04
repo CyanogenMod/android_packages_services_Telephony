@@ -1690,4 +1690,6 @@
     <string name="preferred_lte_summary">"When enable 4G data only, voice and SMS will not work"</string>
 
     <string name="speed_dial_setting">Speed dial settings</string>
+    <string name="srvcc_video_message">"Video call has been downgraded to 2G/3G voice call, because the 4G network is not available."</string>
+    <string name="srvcc_message">"4G voice call has been downgraded to 2G/3G voice call, because the 4G network is not available."</string>
 </resources>

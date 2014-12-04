@@ -25,6 +25,7 @@ import android.telecom.AudioState;
 import android.telecom.Connection;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneCapabilities;
+import android.telecom.VideoProfile;
 import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -85,6 +86,15 @@ abstract class TelephonyConnection extends Connection {
                             mOriginalConnection.getAddress().contains(connection.getAddress()))) {
                         Log.d(TelephonyConnection.this, "SettingOriginalConnection " +
                                 mOriginalConnection.toString() + " with " + connection.toString());
+
+                        if (TelephonyGlobals.getApplicationContext().getResources()
+                                .getBoolean(R.bool.config_show_srvcc_toast)) {
+                            int srvccMessageRes = VideoProfile.VideoState.isVideo(
+                                    mOriginalConnection.getVideoState()) ? R.string.srvcc_video_message
+                                    : R.string.srvcc_message;
+                            Toast.makeText(TelephonyGlobals.getApplicationContext(),
+                                    srvccMessageRes, Toast.LENGTH_LONG).show();
+                        }
                         setOriginalConnection(connection);
                     }
                     break;
