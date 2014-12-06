@@ -163,15 +163,24 @@ final class CdmaConnection extends TelephonyConnection {
 
     @Override
     protected int buildCallCapabilities() {
-        int capabilities = 0;
+        int capabilities = super.buildCallCapabilities();
         if (mAllowMute) {
-            capabilities = PhoneCapabilities.MUTE;
+            capabilities |= PhoneCapabilities.MUTE;
         }
         capabilities |= PhoneCapabilities.SUPPORT_HOLD;
         if (getState() == STATE_ACTIVE || getState() == STATE_HOLDING) {
             capabilities |= PhoneCapabilities.HOLD;
         }
         return capabilities;
+    }
+
+    @Override
+    public void performConference(TelephonyConnection otherConnection) {
+        if (isImsConnection()) {
+            super.performConference(otherConnection);
+        } else {
+            Log.w(this, "Non-IMS CDMA Connection attempted to call performConference.");
+        }
     }
 
     void forceAsDialing(boolean isDialing) {
@@ -216,6 +225,10 @@ final class CdmaConnection extends TelephonyConnection {
      * Read the settings to determine which type of DTMF method this CDMA phone calls.
      */
     private boolean useBurstDtmf() {
+        if (isImsConnection()) {
+            Log.d(this,"in ims call, return false");
+            return false;
+        }
         int dtmfTypeSetting = Settings.System.getInt(
                 getPhone().getContext().getContentResolver(),
                 Settings.System.DTMF_TONE_TYPE_WHEN_DIALING,
