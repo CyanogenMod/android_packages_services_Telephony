@@ -413,8 +413,8 @@ public class TelephonyConnectionService extends ConnectionService {
     private boolean isOriginalConnectionKnown(
             com.android.internal.telephony.Connection originalConnection) {
         for (Connection connection : getAllConnections()) {
-            TelephonyConnection telephonyConnection = (TelephonyConnection) connection;
             if (connection instanceof TelephonyConnection) {
+                TelephonyConnection telephonyConnection = (TelephonyConnection) connection;
                 if (telephonyConnection.getOriginalConnection() == originalConnection) {
                     return true;
                 }
