@@ -18,22 +18,30 @@ package com.android.services.telephony;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import android.net.Uri;
 import android.telecom.Conference;
+import android.telecom.ConferenceParticipant;
 import android.telecom.Connection;
 import android.telecom.DisconnectCause;
+import android.telecom.PhoneAccountHandle;
 
 import com.android.internal.telephony.Call;
+import com.android.internal.telephony.gsm.GsmConnection;
+import com.android.internal.telephony.imsphone.ImsPhoneConnection;
 
 /**
- * Maintains a list of all the known GSM connections and implements GSM-specific conference
- * call functionality.
+ * Maintains a list of all the known TelephonyConnections connections and controls GSM and
+ * default IMS conference call behavior. This functionality is characterized by the support of
+ * two top-level calls, in contrast to a CDMA conference call which automatically starts a
+ * conference when there are two calls.
  */
-final class GsmConferenceController {
-    private static final int GSM_CONFERENCE_MAX_SIZE = 5;
+final class TelephonyConferenceController {
+    private static final int TELEPHONY_CONFERENCE_MAX_SIZE = 5;
 
     private final Connection.Listener mConnectionListener = new Connection.Listener() {
         @Override
@@ -49,41 +57,42 @@ final class GsmConferenceController {
 
         @Override
         public void onDestroyed(Connection connection) {
-            remove((GsmConnection) connection);
+            remove(connection);
         }
     };
 
-    /** The known GSM connections. */
-    private final List<GsmConnection> mGsmConnections = new ArrayList<>();
+    /** The known connections. */
+    private final List<TelephonyConnection> mTelephonyConnections = new ArrayList<>();
 
     private final TelephonyConnectionService mConnectionService;
 
-    public GsmConferenceController(TelephonyConnectionService connectionService) {
+    public TelephonyConferenceController(TelephonyConnectionService connectionService) {
         mConnectionService = connectionService;
     }
 
-    /** The GSM conference connection object. */
-    private Conference mGsmConference;
+    /** The TelephonyConference connection object. */
+    private TelephonyConference mTelephonyConference;
 
-    void add(GsmConnection connection) {
-        mGsmConnections.add(connection);
+    void add(TelephonyConnection connection) {
+        mTelephonyConnections.add(connection);
         connection.addConnectionListener(mConnectionListener);
         recalculate();
     }
 
-    void remove(GsmConnection connection) {
+    void remove(Connection connection) {
         connection.removeConnectionListener(mConnectionListener);
-        mGsmConnections.remove(connection);
+        mTelephonyConnections.remove(connection);
+
         recalculate();
     }
 
     private void recalculate() {
-        recalculateConferenceable();
         recalculateConference();
+        recalculateConferenceable();
     }
 
     private boolean isFullConference(Conference conference) {
-        return conference.getConnections().size() >= GSM_CONFERENCE_MAX_SIZE;
+        return conference.getConnections().size() >= TELEPHONY_CONFERENCE_MAX_SIZE;
     }
 
     private boolean participatesInFullConference(Connection connection) {
@@ -95,13 +104,13 @@ final class GsmConferenceController {
      * Calculates the conference-capable state of all GSM connections in this connection service.
      */
     private void recalculateConferenceable() {
-        Log.v(this, "recalculateConferenceable : %d", mGsmConnections.size());
+        Log.v(this, "recalculateConferenceable : %d", mTelephonyConnections.size());
 
-        List<Connection> activeConnections = new ArrayList<>(mGsmConnections.size());
-        List<Connection> backgroundConnections = new ArrayList<>(mGsmConnections.size());
+        List<Connection> activeConnections = new ArrayList<>(mTelephonyConnections.size());
+        List<Connection> backgroundConnections = new ArrayList<>(mTelephonyConnections.size());
 
         // Loop through and collect all calls which are active or holding
-        for (GsmConnection connection : mGsmConnections) {
+        for (Connection connection : mTelephonyConnections) {
             Log.d(this, "recalc - %s %s", connection.getState(), connection);
 
             if (!participatesInFullConference(connection)) {
@@ -136,23 +145,26 @@ final class GsmConferenceController {
         }
 
         // Set the conference as conferenceable with all the connections
-        if (mGsmConference != null && !isFullConference(mGsmConference)) {
-            List<Connection> nonConferencedConnections = new ArrayList<>(mGsmConnections.size());
-            for (GsmConnection c : mGsmConnections) {
+        if (mTelephonyConference != null && !isFullConference(mTelephonyConference)) {
+            List<Connection> nonConferencedConnections =
+                    new ArrayList<>(mTelephonyConnections.size());
+            for (TelephonyConnection c : mTelephonyConnections) {
                 if (c.getConference() == null) {
                     nonConferencedConnections.add(c);
                 }
             }
-            mGsmConference.setConferenceableConnections(nonConferencedConnections);
+            Log.v(this, "conference conferenceable: %s", nonConferencedConnections);
+            mTelephonyConference.setConferenceableConnections(nonConferencedConnections);
         }
 
         // TODO: Do not allow conferencing of already conferenced connections.
     }
 
     private void recalculateConference() {
-        Set<GsmConnection> conferencedConnections = new HashSet<>();
+        Set<Connection> conferencedConnections = new HashSet<>();
+        int numGsmConnections = 0;
 
-        for (GsmConnection connection : mGsmConnections) {
+        for (TelephonyConnection connection : mTelephonyConnections) {
             com.android.internal.telephony.Connection radioConnection =
                 connection.getOriginalConnection();
 
@@ -161,57 +173,67 @@ final class GsmConferenceController {
                 Call call = radioConnection.getCall();
                 if ((state == Call.State.ACTIVE || state == Call.State.HOLDING) &&
                         (call != null && call.isMultiparty())) {
+
+                    numGsmConnections++;
                     conferencedConnections.add(connection);
                 }
             }
         }
 
         Log.d(this, "Recalculate conference calls %s %s.",
-                mGsmConference, conferencedConnections);
+                mTelephonyConference, conferencedConnections);
 
-        if (conferencedConnections.size() < 2) {
-            Log.d(this, "less than two conference calls!");
+        // If this is a GSM conference and the number of connections drops below 2, we will
+        // terminate the conference.
+        if (numGsmConnections < 2) {
+            Log.d(this, "not enough connections to be a conference!");
+
             // No more connections are conferenced, destroy any existing conference.
-            if (mGsmConference != null) {
+            if (mTelephonyConference != null) {
                 Log.d(this, "with a conference to destroy!");
-                mGsmConference.destroy();
-                mGsmConference = null;
+                mTelephonyConference.destroy();
+                mTelephonyConference = null;
             }
         } else {
-            if (mGsmConference != null) {
-                List<Connection> existingConnections = mGsmConference.getConnections();
+            if (mTelephonyConference != null) {
+                List<Connection> existingConnections = mTelephonyConference.getConnections();
                 // Remove any that no longer exist
                 for (Connection connection : existingConnections) {
-                    if (!conferencedConnections.contains(connection)) {
-                        mGsmConference.removeConnection(connection);
+                    if (connection instanceof TelephonyConnection &&
+                            !conferencedConnections.contains(connection)) {
+                        mTelephonyConference.removeConnection(connection);
                     }
                 }
 
                 // Add any new ones
                 for (Connection connection : conferencedConnections) {
                     if (!existingConnections.contains(connection)) {
-                        mGsmConference.addConnection(connection);
+                        mTelephonyConference.addConnection(connection);
                     }
                 }
             } else {
-                mGsmConference = new GsmConference(null);
+                mTelephonyConference = new TelephonyConference(null);
+
                 for (Connection connection : conferencedConnections) {
                     Log.d(this, "Adding a connection to a conference call: %s %s",
-                            mGsmConference, connection);
-                    mGsmConference.addConnection(connection);
+                            mTelephonyConference, connection);
+                    mTelephonyConference.addConnection(connection);
                 }
-                mConnectionService.addConference(mGsmConference);
+
+                mConnectionService.addConference(mTelephonyConference);
             }
 
             // Set the conference state to the same state as its child connections.
-            Connection conferencedConnection = mGsmConference.getConnections().get(0);
-            switch (conferencedConnection.getState()) {
-                case Connection.STATE_ACTIVE:
-                    mGsmConference.setActive();
-                    break;
-                case Connection.STATE_HOLDING:
-                    mGsmConference.setOnHold();
-                    break;
+            Connection conferencedConnection = mTelephonyConference.getPrimaryConnection();
+            if (conferencedConnection != null) {
+                switch (conferencedConnection.getState()) {
+                    case Connection.STATE_ACTIVE:
+                        mTelephonyConference.setActive();
+                        break;
+                    case Connection.STATE_HOLDING:
+                        mTelephonyConference.setOnHold();
+                        break;
+                }
             }
         }
     }

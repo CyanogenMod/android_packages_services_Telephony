@@ -153,4 +153,7 @@
     <bool name="config_uplmn_for_usim">false</bool>
     <!-- Disable data before manual PLMN scan if true-->
     <bool name="config_disable_data_manual_plmn">true</bool>
+
+    <!-- After a CDMA conference call is merged, the swap button should be displayed. -->
+    <bool name="support_swap_after_merge" translatable="false">true</bool>
 </resources>
