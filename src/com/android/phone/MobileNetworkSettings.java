@@ -43,6 +43,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.provider.Settings;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -201,6 +202,7 @@ public class MobileNetworkSettings extends PreferenceActivity
             getSharedPreferences(ImsManager.IMS_SHARED_PREFERENCES, Context.MODE_WORLD_READABLE);
 
         imsPref.edit().putBoolean(ImsManager.KEY_IMS_ON, turnOn).commit();
+        Settings.System.putInt(getContentResolver(), ImsManager.KEY_IMS_ON, turnOn ? 1: 0);
     }
 
     @Override
