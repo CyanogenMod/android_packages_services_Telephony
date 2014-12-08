@@ -1215,7 +1215,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         if (checkIfCallerIsSelfOrForegroundUser()) {
             if (DBG_LOC) log("getCellLocation: is active user");
             Bundle data = new Bundle();
-            mPhone.getCellLocation().fillInNotifierBundle(data);
+            Phone phone = getPhone(mSubscriptionController.getDefaultDataSubId());
+            phone.getCellLocation().fillInNotifierBundle(data);
             return data;
         } else {
             if (DBG_LOC) log("getCellLocation: suppress non-active user");
@@ -1303,7 +1304,11 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
         if (checkIfCallerIsSelfOrForegroundUser()) {
             if (DBG_LOC) log("getAllCellInfo: is active user");
-            return getPhone(subId).getAllCellInfo();
+            List<CellInfo> cellInfos = new ArrayList<CellInfo>();
+            for (Phone phone : PhoneFactory.getPhones()) {
+                cellInfos.addAll(phone.getAllCellInfo());
+            }
+            return cellInfos;
         } else {
             if (DBG_LOC) log("getAllCellInfo: suppress non-active user");
             return null;
