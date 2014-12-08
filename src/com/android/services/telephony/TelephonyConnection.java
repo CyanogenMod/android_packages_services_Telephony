@@ -29,6 +29,7 @@ import android.telecom.ConferenceParticipant;
 import android.telecom.Connection;
 import android.telecom.PhoneAccount;
 import android.telecom.StatusHints;
+import android.telephony.TelephonyManager;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
@@ -606,8 +607,14 @@ abstract class TelephonyConnection extends Connection {
 
     protected final void updateAddress() {
         updateConnectionCapabilities();
+        Uri address;
         if (mOriginalConnection != null) {
-            Uri address = getAddressFromNumber(mOriginalConnection.getAddress());
+            if (((getAddress() != null) &&
+                    (getPhone().getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA))) {
+                address = getAddressFromNumber(mOriginalConnection.getOrigDialString());
+            } else {
+                address = getAddressFromNumber(mOriginalConnection.getAddress());
+            }
             int presentation = mOriginalConnection.getNumberPresentation();
             if (!Objects.equals(address, getAddress()) ||
                     presentation != getAddressPresentation()) {
