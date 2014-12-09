@@ -740,13 +740,15 @@ public class CallNotifier extends Handler {
     }
 
     private void onSuppServiceNotification(AsyncResult r) {
-        SuppServiceNotification notification = (SuppServiceNotification) r.result;
+        if (r != null) {
+            SuppServiceNotification notification = (SuppServiceNotification) r.result;
 
-        /* show a toast for transient notifications */
-        int toastResId = getSuppServiceToastTextResIdIfEnabled(notification);
-        if (toastResId >= 0) {
-            Toast.makeText(mApplication, mApplication.getString(toastResId),
-                    Toast.LENGTH_LONG).show();
+            /* show a toast for transient notifications */
+            int toastResId = getSuppServiceToastTextResIdIfEnabled(notification);
+            if (toastResId >= 0) {
+                Toast.makeText(mApplication, mApplication.getString(toastResId),
+                        Toast.LENGTH_LONG).show();
+            }
         }
     }
 
