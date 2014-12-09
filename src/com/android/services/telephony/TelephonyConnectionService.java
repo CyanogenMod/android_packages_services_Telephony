@@ -422,6 +422,7 @@ public class TelephonyConnectionService extends ConnectionService {
             boolean isOutgoing) {
         TelephonyConnection returnConnection = null;
         int phoneType = phone.getPhoneType();
+        int phoneId = phone.getPhoneId();
         if (phoneType == TelephonyManager.PHONE_TYPE_GSM) {
             returnConnection = new GsmConnection(originalConnection);
         } else if (phoneType == TelephonyManager.PHONE_TYPE_CDMA) {
