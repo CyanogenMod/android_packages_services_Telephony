@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.android.phone;
+package com.android.phone.ims;
 
 import android.os.Bundle;
 import android.preference.ListPreference;
