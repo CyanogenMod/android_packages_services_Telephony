@@ -27,23 +27,22 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.android.phone;
+package com.android.phone.msim;
 
+import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceScreen;
 import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
-import android.app.TabActivity;
-import java.util.List;
 
-import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
+import com.android.phone.PhoneGlobals;
+import com.android.phone.R;
+
+import java.util.List;
 
 public class SelectSubscription extends  TabActivity {
 

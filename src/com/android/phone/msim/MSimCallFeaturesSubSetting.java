@@ -17,7 +17,9 @@
  * limitations under the License.
  */
 
-package com.android.phone;
+package com.android.phone.msim;
+
+import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -48,7 +50,6 @@ import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
@@ -62,17 +63,21 @@ import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
+import com.android.phone.CallFeaturesSetting;
+import com.android.phone.Constants;
+import com.android.phone.DefaultRingtonePreference;
+import com.android.phone.EditPhoneNumberPreference;
+import com.android.phone.PhoneGlobals;
+import com.android.phone.PhoneUtils;
+import com.android.phone.R;
 import com.android.phone.common.util.SettingsUtil;
 
-import java.lang.String;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
 
 /**
  * Top level "MSim Call settings" UI; see res/xml/call_feature_setting_msim.xml

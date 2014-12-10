@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.android.phone;
+package com.android.phone.msim;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -25,7 +25,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
 import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,9 +41,13 @@ import android.view.MenuItem;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
-import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
+import com.android.phone.CdmaOptions;
+import com.android.phone.EmergencyCallbackModeExitDialog;
+import com.android.phone.GsmUmtsOptions;
+import com.android.phone.PhoneGlobals;
+import com.android.phone.PhoneUtils;
 import com.android.phone.R;
 
 
