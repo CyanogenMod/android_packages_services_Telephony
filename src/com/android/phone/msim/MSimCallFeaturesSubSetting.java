@@ -1706,8 +1706,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FW_KEY));
             if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_SP_KEY) != null)
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_SP_KEY));
-            if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_KEY) != null)
-                getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
         }
 
         if (isAirplaneModeOn()) {
