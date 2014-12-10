@@ -1702,11 +1702,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FW_KEY));
             if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_SP_KEY) != null)
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_SP_KEY));
-            if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_KEY) != null)
-                getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
-            if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_BUTTON_ENABLE) != null)
-                getPreferenceScreen().removePreference(
-                    findPreference(BUTTON_VIDEO_CALL_BUTTON_ENABLE));
         }
 
         mButtonDTMF = (ListPreference) findPreference(BUTTON_DTMF_KEY);
