@@ -166,6 +166,9 @@
     <!-- whether disable data of sub2 -->
     <bool name="disable_data_sub2">false</bool>
 
+    <!-- enable enhanced LTE setting in call setting-->
+    <bool name="cmcc_enhanced_lte">false</bool>
+
     <!-- enable network checking for ut interface-->
     <bool name="check_nw_for_ut">false</bool>
 
