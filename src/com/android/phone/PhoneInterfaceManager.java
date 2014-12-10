@@ -1146,17 +1146,13 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
     // FIXME: subId version needed
     public boolean enableDataConnectivity() {
-        enforceModifyPermission();
-        long subId = SubscriptionManager.getDefaultDataSubId();
-        getPhone(subId).setDataEnabled(true);
+        setDataEnabled(true);
         return true;
     }
 
     // FIXME: subId version needed
     public boolean disableDataConnectivity() {
-        enforceModifyPermission();
-        long subId = SubscriptionManager.getDefaultDataSubId();
-        getPhone(subId).setDataEnabled(false);
+        setDataEnabled(false);
         return true;
     }
 
@@ -1970,7 +1966,17 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     @Override
     public void setDataEnabled(boolean enable) {
         enforceModifyPermission();
-        mPhone.setDataEnabled(enable);
+        long subId = SubscriptionManager.getDefaultDataSubId();
+        int phoneId = SubscriptionManager.getPhoneId(subId);
+
+        if (TelephonyManager.getDefault().isMultiSimEnabled()) {
+            // If the non-subid API is used, we want to update settings as well
+            // (see DataUsageSummary.java in packages/apps/Settings)
+            android.provider.Settings.Global.putInt(mPhone.getContext().getContentResolver(),
+                    android.provider.Settings.Global.MOBILE_DATA + phoneId, enable ? 1 : 0);
+        }
+
+        getPhone(phoneId).setDataEnabled(enable);
     }
 
     /**
@@ -2003,7 +2009,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             mApp.enforceCallingOrSelfPermission(android.Manifest.permission.MODIFY_PHONE_STATE,
                     null);
         }
-        return mPhone.getDataEnabled();
+        long subId = SubscriptionManager.getDefaultDataSubId();
+        return getPhone(subId).getDataEnabled();
     }
 
     @Override
