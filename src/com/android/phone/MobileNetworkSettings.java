@@ -769,7 +769,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                 break;
             case Phone.NT_MODE_LTE_CDMA_EVDO_GSM_WCDMA:
                 mButtonPreferredNetworkMode.setSummary(
-                        R.string.preferred_network_mode_global_summary);
+                        R.string.preferred_network_mode_global_summary_cm);
                 break;
             case Phone.NT_MODE_GLOBAL:
                 mButtonPreferredNetworkMode.setSummary(
@@ -821,7 +821,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                 break;
             default:
                 mButtonPreferredNetworkMode.setSummary(
-                        R.string.preferred_network_mode_global_summary);
+                        R.string.preferred_network_mode_global_summary_cm);
         }
     }
 

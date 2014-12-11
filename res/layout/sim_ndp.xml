@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:colorBackground="#80808080"
-            android:text="@string/requesting_unlock" />
+            android:text="@string/requesting_unlock_cm" />
     </LinearLayout>
 
 </RelativeLayout>
