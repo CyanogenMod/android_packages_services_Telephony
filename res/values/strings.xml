@@ -101,104 +101,16 @@
     <!-- network depersonalization -->
     <!-- Label text for PIN entry widget on SIM Network Depersonalization panel -->
     <string name="label_ndp">SIM network unlock PIN</string>
-    <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
-    <string name="label_nsdp">SIM network subset unlock PIN</string>
-    <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
-    <string name="label_cdp">SIM corporate unlock PIN</string>
-    <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
-    <string name="label_spdp">SIM service provider unlock PIN</string>
-    <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
-    <string name="label_sdp">SIM unlock PIN</string>
-    <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
-    <string name="label_rn1dp">RUIM network1 unlock PIN</string>
-    <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
-    <string name="label_rn2dp">RUIM network2 unlock PIN</string>
-    <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
-    <string name="label_rhrpd">RUIM hrpd unlock PIN</string>
-    <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
-    <string name="label_rcdp">RUIM corporate unlock PIN</string>
-    <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
-    <string name="label_rspdp">RUIM service provider unlock PIN</string>
-    <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
-    <string name="label_rdp">RUIM unlock PIN</string>
-    <!-- Label text for PUK entry widget on Depersonalization panel -->
-    <string name="label_puk">Enter PUK</string>
-    <!-- Button label on SIM Depersonalization panel -->
+    <!-- Button label on SIM Network Depersonalization panel -->
     <string name="sim_ndp_unlock_text">Unlock</string>
-    <!-- Button label on SIM Depersonalization panel -->
+    <!-- Button label on SIM Network Depersonalization panel -->
     <string name="sim_ndp_dismiss_text">Dismiss</string>
     <!-- Status message displayed on SIM Network Depersonalization panel -->
-    <string name="requesting_unlock">Requesting SIM network unlock\u2026</string>
-    <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
-    <string name="requesting_nw_subset_unlock">Requesting SIM network subset unlock\u2026</string>
-    <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
-    <string name="requesting_sp_unlock">Requesting SIM service provider unlock\u2026</string>
-    <!-- Status message displayed on SIM Corporate Depersonalization panel -->
-    <string name="requesting_corporate_unlock">Requesting SIM corporate unlock\u2026</string>
-    <!-- Status message displayed on SIM SIM Depersonalization panel -->
-    <string name="requesting_sim_unlock">Requesting SIM unlock\u2026</string>
-    <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
-    <string name="requesting_rnw1_unlock">Requesting RUIM network1 unlock\u2026</string>
-    <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
-    <string name="requesting_rnw2_unlock">Requesting RUIM network2 unlock\u2026</string>
-    <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
-    <string name="requesting_rhrpd_unlock">Requesting RUIM hrpd unlock\u2026</string>
-    <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
-    <string name="requesting_rsp_unlock">Requesting RUIM service provider unlock\u2026</string>
-    <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
-    <string name="requesting_rc_unlock">Requesting RUIM corporate unlock\u2026</string>
-    <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
-    <string name="requesting_ruim_unlock">Requesting RUIM unlock\u2026</string>
-    <!-- Status message displayed on PUK Depersonalization panel -->
-    <string name="requesting_puk_unlock">Requesting PUK unlock\u2026</string>
+    <string name="requesting_unlock">Requesting network unlock\u2026</string>
     <!-- Error message displayed on SIM Network Depersonalization panel -->
-    <string name="unlock_failed">SIM Network unlock request unsuccessful.</string>
-    <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
-    <string name="nw_subset_unlock_failed">SIM Network Subset unlock request unsuccessful.</string>
-    <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
-    <string name="sp_unlock_failed">SIM Service Provider unlock request unsuccessful.</string>
-    <!-- Error message displayed on SIM Corporate Depersonalization panel -->
-    <string name="corporate_unlock_failed">SIM Corporate unlock request unsuccessful.</string>
-    <!-- Error message displayed on SIM SIM Depersonalization panel -->
-    <string name="sim_unlock_failed">SIM unlock request unsuccessful.</string>
-    <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
-    <string name="rnw1_unlock_failed">RUIM Network1 unlock request unsuccessful.</string>
-    <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
-    <string name="rnw2_unlock_failed">RUIM Network2 unlock request unsuccessful.</string>
-    <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
-    <string name="rhrpd_unlock_failed">RUIM Hrpd unlock request unsuccessful.</string>
-    <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
-    <string name="rsp_unlock_failed">RUIM Service Provider unlock request unsuccessful.</string>
-    <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-    <string name="rc_unlock_failed">RUIM Corporate unlock request unsuccessful.</string>
-    <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
-    <string name="ruim_unlock_failed">RUIM unlock request unsuccessful.</string>
-    <!-- Error message displayed on PUK Depersonalization panel -->
-    <string name="puk_unlock_failed">PUK unlock unsuccessful.</string>
+    <string name="unlock_failed">Network unlock request unsuccessful.</string>
     <!-- Success message displayed on SIM Network Depersonalization panel -->
-    <string name="unlock_success">SIM Network unlock successful.</string>
-    <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
-    <string name="nw_subset_unlock_success">SIM Network Subset unlock successful.</string>
-    <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
-    <string name="sp_unlock_success">SIM Service Provider unlock successful.</string>
-    <!-- Success message displayed on SIM Corporate Depersonalization panel -->
-    <string name="corporate_unlock_success">SIM Corporate unlock successful.</string>
-    <!-- Success message displayed on SIM SIM Depersonalization panel -->
-    <string name="sim_unlock_success">SIM unlock successful.</string>
-    <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
-    <string name="rnw1_unlock_success">RUIM Network1 unlock successful.</string>
-    <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-    <string name="rnw2_unlock_success">RUIM Network2 unlock successful.</string>
-    <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
-    <string name="rhrpd_unlock_success">RUIM Hrpd unlock successful.</string>
-    <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
-    <string name="rsp_unlock_success">RUIM Service Provider unlock successful.</string>
-    <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
-    <string name="rc_unlock_success">RUIM Corporate unlock successful.</string>
-    <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
-    <string name="ruim_unlock_success">RUIM unlock successful.</string>
-    <!-- Success message displayed on PUK Depersonalization panel -->
-    <string name="puk_unlock_success">PUK unlock successful.</string>
+    <string name="unlock_success">Network unlock successful.</string>
 
     <!-- settings strings -->
 
@@ -361,12 +273,6 @@
     <string name="response_error">Unexpected response from network.</string>
     <!-- Status message displayed in the "Call settings error" dialog -->
     <string name="exception_error">Network or SIM card error.</string>
-    <!-- Status message displayed in the "Call settings error" dialog when
-         current SS request is modified to a different request by STK CC -->
-    <string name="stk_cc_ss_to_dial_error">SS request modified to DIAL request.</string>
-    <string name="stk_cc_ss_to_ussd_error">SS request modified to USSD request.</string>
-    <string name="stk_cc_ss_to_ss_error">SS request modified to new SS request.</string>
-
     <!-- Status message displayed in the "Call settings error" dialog when operation fails due to FDN
          [CHAR LIMIT=NONE] -->
     <string name="fdn_check_failure">Your Phone app\'s Fixed Dialing Numbers setting is turned on. As a result, some call-related features aren\'t working.</string>
@@ -398,30 +304,6 @@
         <item><xliff:g>HIDE</xliff:g></item>
         <!-- Phone settings: Internal key used for Caller ID preference values.  DO NOT TRANSLATE. -->
         <item><xliff:g>SHOW</xliff:g></item>
-    </string-array>
-
-    <!-- Add VideoCall Setttings -->
-    <string name="videocall_settings">VideoCall Settings</string>
-    <string name="vt_fallback_setting">Redial via voice call</string>
-    <string name="vt_forward_setting">Video call forwarding</string>
-    <string name="vt_imagereplace_setting">Alternative picture</string>
-    <string name="fallback_setting_label">Redial via voice call</string>
-    <string name="image_replace_setting_label">Alternative picture setting</string>
-    <string name="labelVTCF">Video call forwarding</string>
-
-
-    <string name="vt_fallback_setting_sum">Redial manually</string>
-    <string name="vt_forward_setting_sum">Video call forward settings</string>
-    <string name="vt_imagereplace_setting_sum">Display when local camera is off</string>
-    <string-array name="videocall_fb_setting_entries">
-      <item>Redial manually</item>
-      <item>Redial automatically</item>
-      <item>No redial</item>
-    </string-array>
-    <string-array name="videocall_fb_setting_values" translatable="false">
-       <item>0</item>
-       <item>1</item>
-       <item>2</item>
     </string-array>
 
     <!-- voicemail setting strings --><skip/>
@@ -498,58 +380,9 @@
     <!-- Mobile network settings, summary for preferred network mode CDMA+LTE/EVDO[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_lte_cdma_evdo_summary">Preferred network mode: CDMA+LTE/EVDO</string>
     <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_global_summary">Preferred network mode: Global(CDMA/EVDO/LTE/GSM/WCDMA)</string>
+    <string name="preferred_network_mode_global_summary">Preferred network mode: Global</string>
     <!-- Mobile network settings, summary for preferred network mode LTE / WCDMA[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_lte_wcdma_summary">Preferred network mode: LTE / WCDMA</string>
-        <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_only_summary">Preferred network mode: TD-SCDMA only</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferred network mode: TD-SCDMA / WCDMA</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_lte_summary">Preferred network mode: TD-SCDMA / LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_summary">Preferred network mode: TD-SCDMA / GSM</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Preferred network mode: TD-SCDMA/GSM/LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Preferred network mode: TD-SCDMA/WCDMA/LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA/LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
-    <!-- In-call screen: call failure reason (call denied because call barring
-            is ON on MT side ) -->
-    <string name="callFailed_incoming_cb_enabled">Party has barred all Incoming calls.</string>
-    <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
-    <string name="callUnanswered_forwarded">Call Unanswered and Forwarded</string>
-
-    <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
-    <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
-    <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
-    <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
-    <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
-    <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
-    <string name="preferred_network_mode_td_scdma_only_choice">TD-SCDMA only</string>
-    <string name="preferred_network_mode_lte_wcdma_choice">LTE / WCDMA</string>
-    <string name="preferred_network_mode_lte_choice">LTE</string>
-    <string name="preferred_network_mode_global_choice">Global</string>
-    <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
-    <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
-    <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
-    <string name="preferred_network_mode_evdo_only_choice">EvDo only</string>
-    <string name="preferred_network_mode_cdma_wo_evdo_choice">CDMA w/o EvDo</string>
-    <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo auto</string>
-    <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA auto</string>
-    <string name="preferred_network_mode_wcdma_only_choice">WCDMA only</string>
-    <string name="preferred_network_mode_gsm_only_choice">GSM only</string>
-    <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferred</string>
 
 
     <string-array name="preferred_network_mode_choices" translatable="false">
@@ -628,8 +461,6 @@
 
     <string name="gsm_umts_options">GSM/UMTS Options</string>
     <string name="cdma_options">CDMA Options</string>
-    <string name="network_settings_sel_sub">SUBS Settings</string>
-    <string name="summary_manage_subscriptions">Manage Network settings of each subscriptions</string>
 
     <!-- Screen option on the mobile network settings to go into data usage settings -->
     <string name="throttle_data_usage">Data usage</string>
@@ -874,13 +705,6 @@
          with mobile operator specific settings. [CHAR LIMIT=25] -->
     <string name="carrier_settings_title">Carrier settings</string>
 
-    <!-- Call Independent services screen title-->
-    <string name="call_ind_services">Call Independent Services</string>
-    <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
-    <string name="callind_multi_sim">SUBS Settings</string>
-    <!-- button name for direct launch of Call Feature screen for Single Sim Functionality -->
-    <string name="callind">Call Feature Settings</string>
-
     <!-- FDN settings strings -->
     <!-- Call settings screen, setting option name -->
     <string name="fdn">Fixed Dialing Numbers</string>
@@ -916,14 +740,6 @@
     <string name="tty_mode_option_summary">Set TTY mode</string>
     <string name="auto_retry_mode_title">Auto-retry</string>
     <string name="auto_retry_mode_summary">Enable Auto-retry mode</string>
-    <!-- TTY Mode change is NOT allowed during a VT call -->
-    <string name="tty_mode_not_allowed_vt_call">TTY Mode change is not allowed during a VT call</string>
-
-    <string name="ipcall">IP call setting</string>
-    <string name="ipcall_sub_title">IP call setting</string>
-    <string name="ipcall_sub_summery">Edit the IP prefix for IP call</string>
-    <string name="ipcall_dialog_title">IP call setting</string>
-    <string name="ipcall_dialog_edit_hint">Please input the IP prefix</string>
 
     <!-- FDN list screen: menu item label -->
     <string name="menu_add">Add contact</string>
@@ -971,21 +787,17 @@
     <string name="pin2_or_fdn_invalid">FDN wasn\'t updated. The PIN2 was incorrect, or the phone number was rejected.</string>
     <!-- FDN settings: error message displayed in a popup (toast) -->
     <string name="fdn_failed">FDN operation failed.</string>
-    <string name="fdn_service_unavailable">FDN service is not available.</string>
 
     <!-- ADN related strings -->
     <!-- Placeholder text displayed while loading the list of SIM contacts -->
     <string name="simContacts_emptyLoading">Reading from SIM card\u2026</string>
-    <string name="exportContacts">Exporting contacts to SIM card\u2026</string>
     <!-- Call settings, string that appears on FDN contact list when there are no contacts on the SIM. -->
     <string name="simContacts_empty">No contacts on your SIM card.</string>
     <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
-    <string name="simContacts_title">Manage SIM card contacts</string>
+    <string name="simContacts_title">Select contacts to import</string>
     <!-- Appears when user tries to import contacts in SIM during Airplane mode
       [CHAR LIMIT=NONE] -->
     <string name="simContacts_airplaneMode">To import contacts from the SIM card, first turn off Airplane mode.</string>
-    <!-- Call settings: title of the dialog shown for SIM contact related operations. -->
-    <string name="Result_title">Result...</string>
 
     <!-- SIM PIN strings -->
     <!-- Title of "Enable/disable SIM PIN" screen -->
@@ -1266,11 +1078,6 @@
     <!-- Title for the dialog used to display CDMA DisplayInfo -->
     <string name="network_message">Network message</string>
 
-    <!-- Shown in "Managed Roaming" dialog when registration is denied with rejCode 10. -->
-    <string name="managed_roaming_title">Managed Roaming</string>
-    <string name="managed_roaming_title_sub">Managed Roaming (SUB<xliff:g id="index" example="1">%d</xliff:g>)</string>
-    <string name="managed_roaming_dialog_content">Network with Limited Service found. Do you want to initiate a Network Search?</string>
-
     <!-- OTA-specific strings -->
     <!-- Title shown on OTA screen -->
     <string name="ota_title_activate">Activate your phone</string>
@@ -1413,8 +1220,6 @@
          [CHAR LIMIT=30] -->
     <string name="voicemail_notification_ringtone_title">Sound</string>
 
-    <string name="ringtone_title">Phone ringtone</string>
-
     <!-- The default value value for voicemail notification. -->
     <string name="voicemail_notification_vibrate_when_default" translatable="false">never</string>
 
@@ -1461,100 +1266,4 @@
     <string name="sim_label_emergency_calls">Emergency calls</string>
     <string name="sim_description_emergency_calls">Emergency calling only</string>
     <string name="sim_description_default">SIM card, slot: <xliff:g id="slot_id">%s</xliff:g></string>
-    <!-- Sim contacts management -->
-    <string name="contactScreen"> Add/Edit SIM Contact</string>
-    <string name="exportContactScreen"> Export phone contacts to sim </string>
-    <string name="addSimEntries"> Add SIM Contact</string>
-    <string name="deleteAllSimEntries"> Delete All SIM Contacts</string>
-    <string name="deleteSimContacts">Deleting SIM contacts</string>
-    <string name="editContact"> Edit</string>
-    <string name="sendSms"> Send SMS</string>
-    <string name="delete"> Delete</string>
-    <string name="dial"> Dial</string>
-    <string name="enterName"> Enter Name:</string>
-    <string name="enterNumber"> Enter Phone Number:</string>
-    <string name="hintName">Name.</string>
-    <string name="hintPhonenumber">Phone Number.</string>
-    <string name="contactAddSuccess"> Succesfully added contact to SIM </string>
-    <string name="contactAddFailed"> Failed to add contact to SIM !!!</string>
-    <string name="contactUpdateSuccess"> Succesfully updated contact in SIM </string>
-    <string name="contactUpdateFailed"> Failed to update contact in SIM !!!</string>
-    <string name="contactdeleteSuccess"> Succesfully deleted contact from SIM </string>
-    <string name="contactdeleteFailed"> Failed to delete contact from SIM !!!</string>
-    <string name="allContactdeleteSuccess"> Succesfully deleted all contacts from SIM </string>
-    <string name="allContactdeleteFailed"> Failed to delete all contacts from SIM !!!</string>
-    <string name="exportAllcontatsSuccess">Succesfully exported all contacts to SIM </string>
-    <string name="exportAllcontatsFailed"> Failed to export all contacts to SIM !!!</string>
-    <string name="exportAllcontatsNoContacts"> No Contacts found to export to SIM !!!</string>
-    <string name="cursorError"> Cursor is not having proper data !!! </string>
-
-    <!-- UPLMN Prefer -->
-    <string name="uplmn_list_setting_title">Preferred networks</string>
-    <string name="network_id">Network ID</string>
-    <string name="dialog_network_priority_title">Priority</string>
-    <string name="uplmn_list_setting_add_plmn">New PLMN</string>
-    <string name="gsm_umts_network_preferences_title">Network Mode</string>
-    <string name="gsm_umts_network_preferences_dialogtitle">Network Mode</string>
-
-    <string name="sim_info">SIM card info</string>
-    <string name="close">Close</string>
-    <string name="change">Set</string>
-    <string name="new_sim_detected">New SIM card detected:</string>
-    <string name="default_sim_setting">Default SIM settings as:</string>
-    <string name="mobile_data">"Mobile Data: "</string>
-    <string name="slot">Slot</string>
-    <string name="carrier_name">(Carrier name)</string>
-    <string name="mobile_data_on">on</string>
-    <string name="mobile_data_off">off</string>
-    <string name="sim_unknown">Unknown</string>
-    <string name="sim_absent">Absent</string>
-    <string name="multi_sim_settings_title">Dual SIM settings</string>
-    <string name="lte_switch_unavailable">4G/3G SIM cards switcher is unavailable</string>
-    <string name="lte_recognize_summary">Two 4G/3G SIM cards are detected,you need to set the default 4G/3G SIM card:</string>
-    <string name="lte_select_summary">The selected subscription will be recognized as a 4G/3G card and the other one as a 2G card.</string>
-    <string name="lte_checkbox_text">Set mobile data to the selected SIM card once default 4G/3G SIM card is changed</string>
-    <string name="select_ok">OK</string>
-    <string name="lte_select_title">Default 4G/3G SIM card</string>
-    <string name="lte_recognition_title">SIM card recognition</string>
-    <string name="reg_failed">Registration failed</string>
-    <string name="reg_suc">Registration succeeded</string>
-    <string name="reg_failed_msg">Default 4G/3G SIM card registration failed, %1$s will be recognized as a 2G SIM card.</string>
-    <string name="lte_set">Set</string>
-    <string name="lte_setting">Default 4G/3G SIM card is being set</string>
-    <string name="select_continue">Continue</string>
-    <string name="select_cancel">Cancel</string>
-    <string-array name="origin_carrier_names" translateable="false">
-        <item>China Mobile</item>
-        <item>China Unicom</item>
-        <item>China Telecom</item>
-    </string-array>
-
-    <string-array name="locale_carrier_names" translatable="false">
-        <item>china_mobile</item>
-        <item>china_unicom</item>
-        <item>china_telecom</item>
-    </string-array>
-
-    <string name="china_mobile">China Mobile</string>
-    <string name="china_unicom">China Unicom</string>
-    <string name="china_telecom">China Telecom</string>
- <!-- Manual PLMN scan data disconnect dialog text -->
-    <string name="disconnect_data_confirm">Data service temporarily would be disconnected. Are you sure?</string>
-
-    <!-- IMS settings related strings -->
-    <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
-    <string name="ims_edit_title">IMS account details</string>
-    <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
-    <string name="ims_accounts_title">IMS Account</string>
-
-    <!-- VT call quality settings. -->
-    <string translatable="false" name="ims_vt_call_quality">VtCallQuality</string>
-    <string name="ims_vt_call_quality_title">VT Call Quality</string>
-    <string name="ims_vt_call_quality_low">Low</string>
-    <string name="ims_vt_call_quality_high">High</string>
-    <string name="ims_vt_call_quality_unknown">Unknown</string>
-    <string name="ims_vt_call_quality_set_failed">Failed to set video quality</string>
-
-    <string name="preferred_lte">"Enable 4G data only"</string>
-    <string name="preferred_lte_summary">"When enable 4G data only, voice and SMS will not work"</string>
 </resources>
