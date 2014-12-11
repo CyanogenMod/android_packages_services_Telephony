@@ -441,7 +441,7 @@
         </activity>
 
         <!-- MSim Call Feature Sub Settings -->
-        <activity android:name="MSimCallFeaturesSubSetting"
+        <activity android:name=".msim.MSimCallFeaturesSubSetting"
             android:label="@string/call_settings"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/SettingsLight">
@@ -453,7 +453,7 @@
         </activity>
 
        <!-- MSim Mobile Network Settings per subscription -->
-       <activity android:name="MSimMobileNetworkSubSettings"
+       <activity android:name=".msim.MSimMobileNetworkSubSettings"
                 android:label="@string/settings_label"
                 android:theme="@style/SettingsLight">
             <intent-filter>
@@ -464,7 +464,7 @@
         </activity>
 
         <!-- Select Subscription -->
-        <activity android:name="SelectSubscription"
+        <activity android:name=".msim.SelectSubscription"
             android:label="@string/callind_multi_sim"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/SettingsLight">
@@ -570,7 +570,7 @@
                 android:uiOptions="splitActionBarWhenNarrow">
         </activity>
 
-        <activity android:name="ImsEditor"
+        <activity android:name=".ims.ImsEditor"
                 android:theme="@style/DialerSettingsLight"
                 android:configChanges="orientation|screenSize|keyboardHidden"
                 android:uiOptions="splitActionBarWhenNarrow">
