@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-     Copyright (C) 2013-2014 The CyanogenMod Project
+     Copyright (C) 2013-2015 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,30 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
-    <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
-    <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
-    <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
-    <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
-    <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
-    <string name="preferred_network_mode_td_scdma_only_choice">TD-SCDMA only</string>
-    <string name="preferred_network_mode_lte_wcdma_choice">LTE / WCDMA</string>
-    <string name="preferred_network_mode_lte_choice">LTE</string>
-    <string name="preferred_network_mode_global_choice">Global</string>
-    <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
-    <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA  LTE/EvDo</string>
-    <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
-    <string name="preferred_network_mode_evdo_only_choice">EvDo only</string>
-    <string name="preferred_network_mode_cdma_wo_evdo_choice">CDMA w/o EvDo</string>
-    <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo auto</string>
-    <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA auto</string>
-    <string name="preferred_network_mode_wcdma_only_choice">WCDMA only</string>
-    <string name="preferred_network_mode_gsm_only_choice">GSM only</string>
-    <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferred</string>
-
     <!-- Advanced Settings -->
     <string name="incall_screen_settings">In-call screen settings</string>
     <string name="show_ssn_label">Event notification</string>
@@ -83,4 +59,154 @@
     <string name="call_notif_callconnectingect">Call connecting through explicit call transfer</string>
     <!-- Toast text for incoming call connected through ECT -->
     <string name="call_notif_callconnectedect">Call connected through explicit call transfer</string>
+
+    <!-- Status message displayed on SIM Network Depersonalization panel -->
+    <string name="requesting_unlock_cm">Requesting SIM network unlock\u2026</string>
+    <!-- Error message displayed on SIM Network Depersonalization panel -->
+    <string name="unlock_failed_cm">SIM network unlock request unsuccessful.</string>
+    <!-- Success message displayed on SIM Network Depersonalization panel -->
+    <string name="unlock_success_cm">SIM network unlock successful.</string>
+
+    <!-- Call forwarding settings screen, setting timer info for cfut case -->
+    <string name="set_time_period">Set time period</string>
+    <string name="all_day">All day</string>
+    <string name="time_interval_char">: </string>
+    <string name="time_start">From</string>
+    <string name="time_start_hour">time start hour</string>
+    <string name="time_start_minute">time start minute</string>
+    <string name="time_end">To</string>
+    <string name="time_end_hour">time end hour</string>
+    <string name="time_end_minute">time end minute</string>
+    <string name="time_formate_am">AM</string>
+    <string name="time_formate_pm">PM</string>
+    <string name="cf_mobile_date">Please turn on mobile data and make sure that WLAN is off</string>
+
+    <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_global_summary_cm">Preferred network mode: Global (CDMA/EVDO/LTE/GSM/WCDMA)</string>
+
+    <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
+    <string name="callFailed_incoming_cb_enabled">Party has barred all Incoming calls.</string>
+    <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
+    <string name="callUnanswered_forwarded">Call Unanswered and Forwarded</string>
+
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferred network mode: TD-SCDMA / WCDMA</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_lte_summary">Preferred network mode: TD-SCDMA / LTE</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_gsm_summary">Preferred network mode: TD-SCDMA / GSM</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Preferred network mode: TD-SCDMA/GSM/LTE</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Preferred network mode: TD-SCDMA/WCDMA/LTE</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA/LTE</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+
+    <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
+    <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
+    <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_only_choice">TD-SCDMA only</string>
+    <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
+    <string name="preferred_network_mode_lte_choice">LTE</string>
+    <string name="preferred_network_mode_global_choice">Global</string>
+    <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
+    <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
+    <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
+    <string name="preferred_network_mode_evdo_only_choice">EvDo only</string>
+    <string name="preferred_network_mode_cdma_wo_evdo_choice">CDMA w/o EvDo</string>
+    <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo auto</string>
+    <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA auto</string>
+    <string name="preferred_network_mode_wcdma_only_choice">WCDMA only</string>
+    <string name="preferred_network_mode_gsm_only_choice">GSM only</string>
+    <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferred</string>
+
+    <string name="call_barring">Call barring</string>
+    <string name="call_barring_outgoing">Outgoing call barring</string>
+    <string-array name="call_barring_outgoing_display_values">
+        <item>Off</item>
+        <item>International roam call</item>
+        <item>International call</item>
+        <item>Outgoing call</item>
+    </string-array>
+    <string-array name="call_barring_outgoing_values">
+        <item><xliff:g>-1</xliff:g></item>
+        <item><xliff:g>2</xliff:g></item>
+        <item><xliff:g>1</xliff:g></item>
+        <item><xliff:g>0</xliff:g></item>
+    </string-array>
+    <string-array name="call_barring_incoming_display_values">
+        <item>Off</item>
+        <item>Roaming</item>
+        <item>All</item>
+    </string-array>
+    <string name="call_barring_incoming">Incoming call barring</string>
+    <string-array name="call_barring_incoming_values">
+        <item><xliff:g>-2</xliff:g></item>
+        <item><xliff:g>4</xliff:g></item>
+        <item><xliff:g>3</xliff:g></item>
+    </string-array>
+    <string name="input_password">Input password</string>
+    <string name="labelCbCancelAll">Cancel all callbarring</string>
+    <string name="psw_enter_old">Old password</string>
+    <string name="labelCbChangePassword">Change password</string>
+    <string name="psw_enter_new">New password</string>
+    <string name="invalidPsw">Input your password (4 - 8 number)</string>
+    <string name="psw_reenter_new">Reenter your password</string>
+    <string name="no_call_barring">No callbarring</string>
+    <string name="cb_psw_dont_match">Password do not match</string>
+    <string name="operation_successfully">Operation successfully!</string>
+
+    <!-- FDN settings: error message displayed in a popup (toast) -->
+    <string name="fdn_invalid_number_cm">FDN wasn\'t updated because the number is empty or exceeds 20 digits.</string>
+
+    <!-- Title of the activity shown for Exporting contacts to SIM.  -->
+    <string name="exportContacts">Exporting contacts to SIM card\u2026</string>
+    <!-- Title of the List shown for SIM Contacts Management Activity.  -->
+    <string name="simContacts_title_cm">Manage SIM card contacts</string>
+    <!-- Title of the dialog shown for SIM contact related operations. -->
+    <string name="Result_title">Result...</string>
+
+    <!-- In-call screen: call failure message displayed in errror dialog -->
+    <string name="incall_error_local_low_battery">Call is failed due to low battery!!!.</string>
+    <!-- In-call screen: call failure message displayed in errror dialog -->
+    <string name="incall_error_low_battery">Call is failed due to remote device low battery!!!.</string>
+
+    <!-- Sim contacts management -->
+    <string name="contactScreen"> Add/Edit SIM Contact</string>
+    <string name="exportContactScreen"> Export phone contacts to sim </string>
+    <string name="addSimEntries"> Add SIM Contact</string>
+    <string name="deleteAllSimEntries"> Delete All SIM Contacts</string>
+    <string name="deleteSimContacts">Deleting SIM contacts</string>
+    <string name="editContact"> Edit</string>
+    <string name="sendSms"> Send SMS</string>
+    <string name="delete"> Delete</string>
+    <string name="dial"> Dial</string>
+    <string name="enterName"> Enter Name:</string>
+    <string name="enterNumber"> Enter Phone Number:</string>
+    <string name="hintName">Name.</string>
+    <string name="hintPhonenumber">Phone Number.</string>
+    <string name="contactAddSuccess"> Succesfully added contact to SIM </string>
+    <string name="contactAddFailed"> Failed to add contact to SIM !!!</string>
+    <string name="contactUpdateSuccess"> Succesfully updated contact in SIM </string>
+    <string name="contactUpdateFailed"> Failed to update contact in SIM !!!</string>
+    <string name="contactdeleteSuccess"> Succesfully deleted contact from SIM </string>
+    <string name="contactdeleteFailed"> Failed to delete contact from SIM !!!</string>
+    <string name="allContactdeleteSuccess"> Succesfully deleted all contacts from SIM </string>
+    <string name="allContactdeleteFailed"> Failed to delete all contacts from SIM !!!</string>
+    <string name="exportAllcontatsSuccess">Succesfully exported all contacts to SIM </string>
+    <string name="exportAllcontatsFailed"> Failed to export all contacts to SIM !!!</string>
+    <string name="exportAllcontatsNoContacts"> No Contacts found to export to SIM !!!</string>
+    <string name="cursorError"> Cursor is not having proper data !!! </string>
 </resources>

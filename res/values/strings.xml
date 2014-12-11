@@ -101,16 +101,16 @@
     <!-- network depersonalization -->
     <!-- Label text for PIN entry widget on SIM Network Depersonalization panel -->
     <string name="label_ndp">SIM network unlock PIN</string>
-    <!-- Button label on SIM Depersonalization panel -->
+    <!-- Button label on SIM Network Depersonalization panel -->
     <string name="sim_ndp_unlock_text">Unlock</string>
-    <!-- Button label on SIM Depersonalization panel -->
+    <!-- Button label on SIM Network Depersonalization panel -->
     <string name="sim_ndp_dismiss_text">Dismiss</string>
     <!-- Status message displayed on SIM Network Depersonalization panel -->
-    <string name="requesting_unlock">Requesting SIM network unlock\u2026</string>
+    <string name="requesting_unlock">Requesting network unlock\u2026</string>
     <!-- Error message displayed on SIM Network Depersonalization panel -->
-    <string name="unlock_failed">SIM Network unlock request unsuccessful.</string>
+    <string name="unlock_failed">Network unlock request unsuccessful.</string>
     <!-- Success message displayed on SIM Network Depersonalization panel -->
-    <string name="unlock_success">SIM Network unlock successful.</string>
+    <string name="unlock_success">Network unlock successful.</string>
 
     <!-- settings strings -->
 
@@ -221,20 +221,6 @@
     <string name="sum_cfu_enabled_no_number">Number is unavailable</string>
     <!-- Call forwarding settings screen, setting summary text when Always forward is disabled -->
     <string name="sum_cfu_disabled">Disabled</string>
-
-    <!-- Call forwarding settings screen, setting timer info for cfut case -->
-    <string name="set_time_period">Set time period</string>
-    <string name="all_day">All day</string>
-    <string name="time_interval_char">: </string>
-    <string name="time_start">From</string>
-    <string name="time_start_hour">time start hour</string>
-    <string name="time_start_minute">time start minute</string>
-    <string name="time_end">To</string>
-    <string name="time_end_hour">time end hour</string>
-    <string name="time_end_minute">time end minute</string>
-    <string name="time_formate_am">AM</string>
-    <string name="time_formate_pm">PM</string>
-    <string name="cf_mobile_date">Please turn on mobile data and make sure that WLAN is off</string>
 
     <!-- Call forwarding settings screen, setting option name -->
     <string name="labelCFB">When busy</string>
@@ -400,64 +386,40 @@
     <!-- Mobile network settings, summary for preferred network mode CDMA+LTE/EVDO[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_lte_cdma_evdo_summary">Preferred network mode: CDMA+LTE/EVDO</string>
     <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_global_summary">Preferred network mode: Global(CDMA/EVDO/LTE/GSM/WCDMA)</string>
+    <string name="preferred_network_mode_global_summary">Preferred network mode: Global</string>
     <!-- Mobile network settings, summary for preferred network mode LTE / WCDMA[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_lte_wcdma_summary">Preferred network mode: LTE / WCDMA</string>
      <!-- Mobile network settings, summary for preferred network mode LTE / GSM / UMTS [CHAR LIMIT=100] -->
      <string name="preferred_network_mode_lte_gsm_umts_summary">Preferred network mode: LTE / GSM / UMTS</string>
      <!-- Mobile network settings, summary for preferred network mode LTE / CDMA [CHAR LIMIT=100] -->
      <string name="preferred_network_mode_lte_cdma_summary">Preferred network mode: LTE / CDMA</string>
-    <!-- In-call screen: call failure reason (call denied because call barring
-            is ON on MT side ) -->
-    <string name="callFailed_incoming_cb_enabled">Party has barred all Incoming calls.</string>
-    <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
-    <string name="callUnanswered_forwarded">Call Unanswered and Forwarded</string>
-
      <!-- Mobile network settings, summary for preferred network mode TDSCDMTA [CHAR LIMIT=100] -->
      <string name="preferred_network_mode_tdscdma_summary">Preferred network mode: TDSCDMA</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferred network mode: TD-SCDMA / WCDMA</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_lte_summary">Preferred network mode: TD-SCDMA / LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_summary">Preferred network mode: TD-SCDMA / GSM</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Preferred network mode: TD-SCDMA/GSM/LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Preferred network mode: TD-SCDMA/WCDMA/LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA/LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
 
-    <string-array name="preferred_network_mode_choices">
-        <item>TD-SCDMA/LTE/CDMA/EVDO/GSM/WCDMA </item>
-        <item>TD-SCDMA/GSM/WCDMA/CDMA/EVDO </item>
-        <item>TD-SCDMA/GSM/WCDMA/LTE</item>
-        <item>TD-SCDMA/WCDMA/LTE</item>
-        <item>TD-SCDMA/GSM/WCDMA</item>
-        <item>TD-SCDMA/GSM/LTE</item>
-        <item>TD-SCDMA/GSM</item>
-        <item>TD-SCDMA/LTE</item>
-        <item>TD-SCDMA/WCDMA</item>
-        <item>TD-SCDMA only</item>
-        <item>LTE / WCDMA</item>
-        <item>LTE</item>
-        <item>Global</item>
-        <item>GSM/WCDMA/LTE</item>
-        <item>CDMA + LTE/EvDo</item>
-        <item>CDMA/EvDo/GSM/WCDMA</item>
-        <item>EvDo only</item>
-        <item>CDMA w/o EvDo</item>
-        <item>CDMA/EvDo auto</item>
-        <item>GSM/WCDMA auto</item>
-        <item>WCDMA only</item>
-        <item>GSM only</item>
-        <item>GSM/WCDMA preferred</item>
+    <string-array name="preferred_network_mode_choices" translatable="false">
+        <item>@string/preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice</item>
+        <item>@string/preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice</item>
+        <item>@string/preferred_network_mode_td_scdma_gsm_wcdma_lte_choice</item>
+        <item>@string/preferred_network_mode_td_scdma_wcdma_lte_choice</item>
+        <item>@string/preferred_network_mode_td_scdma_gsm_wcdma_choice</item>
+        <item>@string/preferred_network_mode_td_scdma_gsm_lte_choice</item>
+        <item>@string/preferred_network_mode_td_scdma_gsm_choice</item>
+        <item>@string/preferred_network_mode_td_scdma_lte_choice</item>
+        <item>@string/preferred_network_mode_td_scdma_wcdma_choice</item>
+        <item>@string/preferred_network_mode_td_scdma_only_choice</item>
+        <item>@string/preferred_network_mode_lte_wcdma_choice</item>
+        <item>@string/preferred_network_mode_lte_choice</item>
+        <item>@string/preferred_network_mode_global_choice</item>
+        <item>@string/preferred_network_mode_gsm_wcdma_lte_choice</item>
+        <item>@string/preferred_network_mode_cdma_lte_evdo_choice</item>
+        <item>@string/preferred_network_mode_cdma_evdo_gsm_wcdma_choice</item>
+        <item>@string/preferred_network_mode_evdo_only_choice</item>
+        <item>@string/preferred_network_mode_cdma_wo_evdo_choice</item>
+        <item>@string/preferred_network_mode_cdma_evdo_auto_choice</item>
+        <item>@string/preferred_network_mode_gsm_wcdma_auto_choice</item>
+        <item>@string/preferred_network_mode_wcdma_only_choice</item>
+        <item>@string/preferred_network_mode_gsm_only_choice</item>
+        <item>@string/preferred_network_mode_gsm_wcdma_preferred_choice</item>
     </string-array>
     <string-array name="preferred_network_mode_values"  translatable="false">
         <item>"22"</item>
@@ -513,42 +475,6 @@
 
     <string name="gsm_umts_options">GSM/UMTS Options</string>
     <string name="cdma_options">CDMA Options</string>
-
-    <string name="call_barring">Call barring</string>
-    <string name="call_barring_outgoing">Outgoing call barring</string>
-    <string-array name="call_barring_outgoing_display_values">
-        <item>Off</item>
-        <item>International roam call</item>
-        <item>International call</item>
-        <item>Outgoing call</item>
-    </string-array>
-    <string-array name="call_barring_outgoing_values">
-        <item><xliff:g>-1</xliff:g></item>
-        <item><xliff:g>2</xliff:g></item>
-        <item><xliff:g>1</xliff:g></item>
-        <item><xliff:g>0</xliff:g></item>
-    </string-array>
-    <string-array name="call_barring_incoming_display_values">
-        <item>Off</item>
-        <item>Roaming</item>
-        <item>All</item>
-    </string-array>
-    <string name="call_barring_incoming">Incoming call barring</string>
-    <string-array name="call_barring_incoming_values">
-        <item><xliff:g>-2</xliff:g></item>
-        <item><xliff:g>4</xliff:g></item>
-        <item><xliff:g>3</xliff:g></item>
-    </string-array>
-    <string name="input_password">Input password</string>
-    <string name="labelCbCancelAll">Cancel all callbarring</string>
-    <string name="psw_enter_old">Old password</string>
-    <string name="labelCbChangePassword">Change password</string>
-    <string name="psw_enter_new">New password</string>
-    <string name="invalidPsw">Input your password (4 - 8 number)</string>
-    <string name="psw_reenter_new">Reenter your password</string>
-    <string name="no_call_barring">No callbarring</string>
-    <string name="cb_psw_dont_match">Password do not match</string>
-    <string name="operation_successfully">Operation successfully!</string>
 
     <!-- Screen option on the mobile network settings to go into data usage settings -->
     <string name="throttle_data_usage">Data usage</string>
@@ -905,7 +831,7 @@
     <!-- FDN settings: error message displayed in a popup (toast) -->
     <string name="pin2_invalid">FDN wasn\'t updated because you typed an incorrect PIN.</string>
     <!-- FDN settings: error message displayed in a popup (toast) -->
-    <string name="fdn_invalid_number">FDN wasn\'t updated because the number is empty or exceeds 20 digits.</string>
+    <string name="fdn_invalid_number">FDN wasn\'t updated because the number can\'t exceed 20 digits.</string>
     <!-- FDN settings: error message displayed in a popup (toast), when the entered
          FDN number was inappropriate, OR, PIN2 the user entered was incorrect.
          Because of API restriction, there's no way to determine which is the exact
@@ -918,16 +844,12 @@
     <!-- ADN related strings -->
     <!-- Placeholder text displayed while loading the list of SIM contacts -->
     <string name="simContacts_emptyLoading">Reading from SIM card\u2026</string>
-    <!-- Title of the activity shown for Exporting contacts to SIM.  -->
-    <string name="exportContacts">Exporting contacts to SIM card\u2026</string>
     <!-- Call settings, string that appears on FDN contact list when there are no contacts on the SIM. -->
     <string name="simContacts_empty">No contacts on your SIM card.</string>
+    <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
+    <string name="simContacts_title">Select contacts to import</string>
     <!-- Appears when user tries to import contacts in SIM during airplane mode [CHAR LIMIT=NONE] -->
     <string name="simContacts_airplaneMode">Turn off airplane mode to import contacts from the SIM card.</string>
-    <!-- Title of the List shown for SIM Contacts Management Activity.  -->
-    <string name="simContacts_title">Manage SIM card contacts</string>
-    <!-- Title of the dialog shown for SIM contact related operations. -->
-    <string name="Result_title">Result...</string>
 
     <!-- SIM PIN strings -->
     <!-- Title of "Enable/disable SIM PIN" screen -->
@@ -1086,10 +1008,6 @@
     <string name="incall_error_supp_service_hangup">Can\'t release call(s).</string>
     <!-- In-call screen: call failure message displayed in an error dialog when WFC is enabled, is wifi-only, and not connected to a wireless network. [CHAR_LIMIT=NONE] -->
     <string name="incall_error_wfc_only_no_wireless_network">Connect to a wireless network to make a call.</string>
-    <!-- In-call screen: call failure message displayed in errror dialog -->
-    <string name="incall_error_local_low_battery">Call is failed due to low battery!!!.</string>
-    <!-- In-call screen: call failure message displayed in errror dialog -->
-    <string name="incall_error_low_battery">Call is failed due to remote device low battery!!!.</string>
 
     <!-- Dialog title for the "radio enable" UI for emergency calls -->
     <string name="emergency_enable_radio_dialog_title">Emergency call</string>
@@ -1413,30 +1331,4 @@
         A SIM card has activated your service and updated your phone\'s roaming capabilities.
     </string>
 
-    <!-- Sim contacts management -->
-    <string name="contactScreen"> Add/Edit SIM Contact</string>
-    <string name="exportContactScreen"> Export phone contacts to sim </string>
-    <string name="addSimEntries"> Add SIM Contact</string>
-    <string name="deleteAllSimEntries"> Delete All SIM Contacts</string>
-    <string name="deleteSimContacts">Deleting SIM contacts</string>
-    <string name="editContact"> Edit</string>
-    <string name="sendSms"> Send SMS</string>
-    <string name="delete"> Delete</string>
-    <string name="dial"> Dial</string>
-    <string name="enterName"> Enter Name:</string>
-    <string name="enterNumber"> Enter Phone Number:</string>
-    <string name="hintName">Name.</string>
-    <string name="hintPhonenumber">Phone Number.</string>
-    <string name="contactAddSuccess"> Succesfully added contact to SIM </string>
-    <string name="contactAddFailed"> Failed to add contact to SIM !!!</string>
-    <string name="contactUpdateSuccess"> Succesfully updated contact in SIM </string>
-    <string name="contactUpdateFailed"> Failed to update contact in SIM !!!</string>
-    <string name="contactdeleteSuccess"> Succesfully deleted contact from SIM </string>
-    <string name="contactdeleteFailed"> Failed to delete contact from SIM !!!</string>
-    <string name="allContactdeleteSuccess"> Succesfully deleted all contacts from SIM </string>
-    <string name="allContactdeleteFailed"> Failed to delete all contacts from SIM !!!</string>
-    <string name="exportAllcontatsSuccess">Succesfully exported all contacts to SIM </string>
-    <string name="exportAllcontatsFailed"> Failed to export all contacts to SIM !!!</string>
-    <string name="exportAllcontatsNoContacts"> No Contacts found to export to SIM !!!</string>
-    <string name="cursorError"> Cursor is not having proper data !!! </string>
 </resources>
