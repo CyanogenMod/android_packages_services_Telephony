@@ -139,7 +139,7 @@
         <activity android:name="ADNList" />
 
         <activity android:name="SimContacts"
-            android:label="@string/simContacts_title"
+            android:label="@string/simContacts_title_cm"
             android:theme="@style/SimImportTheme"
             android:screenOrientation="portrait"
             android:icon="@mipmap/ic_launcher_contacts">
