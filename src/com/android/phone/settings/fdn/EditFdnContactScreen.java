@@ -384,7 +384,7 @@ public class EditFdnContactScreen extends Activity {
         } else {
             if (DBG) log("handleResult: failed!");
             if (invalidNumber) {
-                showStatus(getResources().getText(R.string.fdn_invalid_number));
+                showStatus(getResources().getText(R.string.fdn_invalid_number_cm));
             } else {
                if (PhoneFactory.getDefaultPhone().getIccCard().getIccPin2Blocked()) {
                     showStatus(getResources().getText(R.string.fdn_enable_puk2_requested));
