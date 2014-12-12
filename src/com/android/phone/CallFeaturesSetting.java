@@ -48,6 +48,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.ContactsContract.CommonDataKinds;
@@ -1696,6 +1697,8 @@ public class CallFeaturesSetting extends PreferenceActivity
             mButtonVideoCallPictureSelect = (PreferenceScreen)
                     findPreference(BUTTON_VIDEO_CALL_SP_KEY);
         } else {
+            if((PreferenceCategory)findPreference(BUTTON_VIDEO_CALL_KEY) != null)
+                getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
             if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_FB_KEY) != null)
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FB_KEY));
             if((PreferenceScreen) findPreference(BUTTON_VIDEO_CALL_FW_KEY) != null)
