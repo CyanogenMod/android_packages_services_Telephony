@@ -48,6 +48,7 @@ import android.preference.ListPreference;
 import android.preference.SwitchPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.provider.ContactsContract.CommonDataKinds;
@@ -1726,7 +1727,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FW_KEY));
             if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_SP_KEY) != null)
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_SP_KEY));
-            if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_KEY) != null)
+            if((PreferenceCategory)findPreference(BUTTON_VIDEO_CALL_KEY) != null)
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
             if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_BUTTON_ENABLE) != null)
                 getPreferenceScreen().removePreference(
