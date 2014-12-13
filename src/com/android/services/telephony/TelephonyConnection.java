@@ -738,6 +738,7 @@ abstract class TelephonyConnection extends Connection {
         newCallCapabilities = applyAudioQualityCapabilities(newCallCapabilities);
         newCallCapabilities = applyConferenceTerminationCapabilities(newCallCapabilities);
         newCallCapabilities = applyVoicePrivacyCapabilities(newCallCapabilities);
+        newCallCapabilities = applyAddParticipantCapabilities(newCallCapabilities);
 
         if (getCallCapabilities() != newCallCapabilities) {
             setCallCapabilities(newCallCapabilities);
@@ -1121,6 +1122,26 @@ abstract class TelephonyConnection extends Connection {
         } else {
             currentCapabilities = removeCapability(currentCapabilities,
                     PhoneCapabilities.VOICE_PRIVACY);
+        }
+
+        return currentCapabilities;
+    }
+
+    /**
+     * Applies the add participant capabilities to the {@code CallCapabilities} bit-mask.
+     *
+     * @param callCapabilities The {@code CallCapabilities} bit-mask.
+     * @return The capabilities with the add participant capabilities applied.
+     */
+    private int applyAddParticipantCapabilities(int callCapabilities) {
+        int currentCapabilities = callCapabilities;
+        if (getPhone() != null &&
+                 getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_IMS) {
+            currentCapabilities = applyCapability(currentCapabilities,
+                    PhoneCapabilities.ADD_PARTICIPANT);
+        } else {
+            currentCapabilities = removeCapability(currentCapabilities,
+                    PhoneCapabilities.ADD_PARTICIPANT);
         }
 
         return currentCapabilities;
