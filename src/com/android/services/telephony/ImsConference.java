@@ -177,7 +177,8 @@ public class ImsConference extends Conference {
         setCapabilities(
                 PhoneCapabilities.SUPPORT_HOLD |
                         PhoneCapabilities.HOLD |
-                        PhoneCapabilities.MUTE
+                        PhoneCapabilities.MUTE |
+                        PhoneCapabilities.ADD_PARTICIPANT
         );
     }
 
