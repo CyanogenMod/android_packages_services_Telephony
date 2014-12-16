@@ -56,6 +56,20 @@
 
     </PreferenceScreen>
 
+    <PreferenceCategory
+        android:key="pref_advanced_settings"
+        android:title="@string/advanced_settings">
+
+         <PreferenceScreen
+             android:key="button_blacklist"
+             android:title="@string/blacklist_title"
+             android:persistent="false">
+             <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.android.settings"
+                 android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
+         </PreferenceScreen>
+    </PreferenceCategory>
+
     <CheckBoxPreference
         android:key="button_auto_retry_key"
         android:title="@string/auto_retry_mode_title"
