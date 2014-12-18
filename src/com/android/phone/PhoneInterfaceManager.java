@@ -2244,4 +2244,12 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         return mTelephonySharedPreferences.getBoolean(PREF_ENABLE_VIDEO_CALLING, true)
                 && ImsUtil.isImsEnabled(mPhone.getContext());
     }
+
+    /*
+     * {@hide}
+     * Returns the IMS Registration Status
+     */
+    public boolean isImsRegistered() {
+        return mPhone.isImsRegistered();
+    }
 }
