@@ -2269,4 +2269,12 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             return null;
         }
     }
+    
+    /*
+     * {@hide}
+     * Returns the IMS Registration Status
+     */
+    public boolean isImsRegistered() {
+        return mPhone.isImsRegistered();
+    }
 }
