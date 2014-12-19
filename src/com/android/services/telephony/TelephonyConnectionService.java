@@ -77,6 +77,7 @@ public class TelephonyConnectionService extends ConnectionService {
     private EmergencyTonePlayer mEmergencyTonePlayer;
     private static boolean [] sLchState = new
             boolean[sPhoneCount];
+    private ConnectionRequest mRequest;
 
     /**
      * A listener to actionable events specific to the TelephonyConnection.
@@ -86,6 +87,39 @@ public class TelephonyConnectionService extends ConnectionService {
         @Override
         public void onOriginalConnectionConfigured(TelephonyConnection c) {
             addConnectionToConferenceController(c);
+        }
+
+        @Override
+        public void onEmergencyRedial(
+                TelephonyConnection connection, PhoneAccountHandle redialPhoneAccount,
+                        int phoneId) {
+            Log.d(this,"onEmergencyRedial");
+            String number = connection.getAddress().getSchemeSpecificPart();
+            Phone phone = PhoneFactory.getPhone(phoneId);
+
+            Log.i(this, "setPhoneAccountHandle, account = " + redialPhoneAccount);
+            connection.setPhoneAccountHandle(redialPhoneAccount);
+
+            Bundle bundle = mRequest.getExtras();
+            com.android.internal.telephony.Connection originalConnection;
+            try {
+                originalConnection = phone.dial(number, null, mRequest.getVideoState(), bundle);
+            } catch (CallStateException e) {
+                Log.e(this, e, "placeOutgoingConnection, phone.dial exception: " + e);
+                connection.setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                        android.telephony.DisconnectCause.OUTGOING_FAILURE,
+                        e.getMessage()));
+                return;
+            }
+
+            if (originalConnection == null) {
+                int telephonyDisconnectCause = android.telephony.DisconnectCause.OUTGOING_FAILURE;
+                Log.d(this, "placeOutgoingConnection, phone.dial returned null");
+                connection.setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                        telephonyDisconnectCause, "Connection is null"));
+            } else {
+                connection.setOriginalConnection(originalConnection);
+            }
         }
     };
 
@@ -211,7 +245,9 @@ public class TelephonyConnectionService extends ConnectionService {
         boolean useEmergencyCallHelper = false;
 
         if (isEmergencyNumber) {
+            mRequest = request;
             if (!phone.isRadioOn()) {
+                mRequest = request;
                 useEmergencyCallHelper = true;
             }
         } else {
