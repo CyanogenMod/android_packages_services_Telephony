@@ -151,7 +151,7 @@ public class DisconnectCauseUtil {
                 return DisconnectCause.UNKNOWN;
 
             default:
-                throw new IllegalStateException("Unrecognized Telephony DisconnectCause");
+                return DisconnectCause.UNKNOWN;
         }
     }
 
