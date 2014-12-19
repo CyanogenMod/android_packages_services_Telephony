@@ -45,7 +45,6 @@ import android.os.Message;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
-import android.preference.SwitchPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
@@ -65,9 +64,6 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 
-import com.android.ims.ImsManager;
-import com.android.ims.ImsException;
-import android.telephony.SubscriptionManager;
 import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
@@ -129,8 +125,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     // If the VM provider returns non null value in this extra we will force the user to
     // choose another VM provider
     private static final String SIGNOUT_EXTRA = "com.android.phone.Signout";
-
-    private static final String BUTTON_4G_LTE_KEY = "enhanced_4g_lte";
 
     //Information about logical "up" Activity
     private static final String UP_ACTIVITY_PACKAGE = "com.android.contacts";
@@ -225,8 +219,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private static final int VM_RESPONSE_ERROR = 500;
     private static final int FW_SET_RESPONSE_ERROR = 501;
     private static final int FW_GET_RESPONSE_ERROR = 502;
-
-    private SwitchPreference mButton4glte;
 
     // dialog identifiers for voicemail
     private static final int VOICEMAIL_DIALOG_CONFIRM = 600;
@@ -495,9 +487,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     // Click listener for all toggle events
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference.getKey().equals(BUTTON_4G_LTE_KEY)) {
-            return true;
-        } else if (preference == mSubMenuVoicemailSettings) {
+        if (preference == mSubMenuVoicemailSettings) {
             return true;
         } else if (preference == mIPPrefixPreference) {
             View v = getLayoutInflater().inflate(R.layout.ip_prefix, null);
@@ -643,19 +633,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             .edit()
             .putBoolean(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + mPhone.getPhoneId(),
                     mVoicemailNotificationVibrate.isChecked()).commit();
-        } else if (preference == mButton4glte) {
-            SwitchPreference ltePref = (SwitchPreference)preference;
-            ltePref.setChecked(!ltePref.isChecked());
-            setIMS(ltePref.isChecked());
-            ImsManager imsMan = ImsManager.getInstance(getBaseContext(),
-                    SubscriptionManager.getDefaultVoiceSubId());
-            if (imsMan != null) {
-                try {
-                    imsMan.setAdvanced4GMode(ltePref.isChecked());
-                } catch (ImsException ie) {
-                    log("setAdvanced4GMode failed");
-                }
-            }
         }
         // always let the preference setting proceed.
         return true;
@@ -1558,12 +1535,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         }
     }
 
-    private void setIMS(boolean turnOn) {
-        SharedPreferences imsPref =
-            getSharedPreferences(ImsManager.IMS_SHARED_PREFERENCES, Context.MODE_WORLD_READABLE);
-        imsPref.edit().putBoolean(ImsManager.KEY_IMS_ON, turnOn).commit();
-    }
-
     /*
      * Activity class methods
      */
@@ -1611,10 +1582,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         if (mRingtonePreference != null) {
             mRingtonePreference.setSubId(mPhone.getPhoneId());
         }
-
-        mButton4glte = (SwitchPreference)findPreference(BUTTON_4G_LTE_KEY);
-        mButton4glte.setOnPreferenceChangeListener(this);
-        mButton4glte.setChecked(ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this));
 
         mIPPrefixPreference = (PreferenceScreen) findPreference(BUTTON_IPPREFIX_KEY);
 
@@ -1712,15 +1679,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                 }
             }
         };
-
-        // Enable enhanced 4G LTE mode settings depending on whether exists on platform
-        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByPlatform(this) ||
-                    !getResources().getBoolean(R.bool.cmcc_enhanced_lte)) {
-            Preference pref = prefSet.findPreference(BUTTON_4G_LTE_KEY);
-            if (pref != null) {
-                prefSet.removePreference(pref);
-            }
-        }
 
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
