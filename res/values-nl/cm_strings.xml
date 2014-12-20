@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Gegevensverbinding moet tijdelijk worden verbroken. Weet u zeker dat u wilt doorgaan?</string>
   <string name="simContacts_title_cm">Contacten op simkaart beheren</string>
   <string name="sip_accounts_title_cm">SIP-accounts</string>
+  <string name="respond_via_sms_cannot_be_empty">Snel antwoord kan niet leeg zijn</string>
+  <string name="call_recording_format">Formaat gespreksopname</string>
 </resources>

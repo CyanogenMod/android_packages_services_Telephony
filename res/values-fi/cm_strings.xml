@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Yhteys datapalveluun pitää katkaista hetkeksi. Haluatko varmasti jatkaa?</string>
   <string name="simContacts_title_cm">Hallitse SIM-kortin yhteystietoja</string>
   <string name="sip_accounts_title_cm">SIP tilit</string>
+  <string name="respond_via_sms_cannot_be_empty">Pikavastaus ei voi olla tyhjä</string>
+  <string name="call_recording_format">Soiton tallennuksen muoto</string>
 </resources>

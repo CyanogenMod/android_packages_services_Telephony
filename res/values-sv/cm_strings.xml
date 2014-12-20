@@ -80,6 +80,7 @@
   <string name="choose_people_lookup_provider_title">Leverantör för personsökning</string>
   <string name="choose_reverse_lookup_provider_title">Leverantör för omvänd sökning</string>
   <string name="sub_no_sim">Inget SIM</string>
+  <string name="sub_active">Aktiv</string>
   <string name="msim_call_selector_title">Ring <xliff:g id="number">%s</xliff:g> via</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Kinesiska (CN)</string>
@@ -122,6 +123,8 @@
   <string name="gsm_umts_network_preferences_dialogtitle">Nätverksläge</string>
   <string name="label_puk">Ange PUK</string>
   <string name="phone_numbers">Ange telefonnummer</string>
+  <string name="sub1LineNumber">SIM 1 nummer:</string>
+  <string name="sub2LineNumber">SIM 2 nummer:</string>
   <string name="proceed">Fortsätt</string>
   <string name="xdivert_active">Aktiv</string>
   <string name="xdivert_not_active">Inaktiv</string>

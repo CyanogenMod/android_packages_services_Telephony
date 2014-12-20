@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Data dienste moet tydelik onderbreek word. Is jy seker jy wil voortgaan?</string>
   <string name="simContacts_title_cm">Bestuur SIM kaart kontakte</string>
   <string name="sip_accounts_title_cm">SIP rekeninge</string>
+  <string name="respond_via_sms_cannot_be_empty">Vinnige antwoord kan nie leeg wees nie</string>
+  <string name="call_recording_format">Oproep opname formaat</string>
 </resources>
