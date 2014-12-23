@@ -29,6 +29,7 @@
 
 package com.android.phone.msim;
 
+import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
@@ -99,6 +101,13 @@ public class SelectSubscription extends  TabActivity {
             subscriptionPref.setContent(intent);
             tabHost.addTab(subscriptionPref);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        String tabTag = getTabHost().getCurrentTabTag();
+        Activity activity = getLocalActivityManager().getActivity(tabTag);
+        return activity.onOptionsItemSelected(item);
     }
 
     @Override
