@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Data service skal afbrydes midlertidigt. Vil du fortsætte?</string>
   <string name="simContacts_title_cm">Administrér SIM-kort kontakter</string>
   <string name="sip_accounts_title_cm">SIP-konti</string>
+  <string name="respond_via_sms_cannot_be_empty">Hurtig svar kan ikke være tom</string>
+  <string name="call_recording_format">Format til optagelse af opkald</string>
 </resources>

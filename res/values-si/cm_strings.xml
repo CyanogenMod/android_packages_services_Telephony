@@ -18,7 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="call_notif_unconditionalCF">කොන්දේසි විරහිතව ඇමතුම් ඉදිරියට යැවීම සක්‍රීයයි</string>
-  <string name="call_notif_conditionalCF">කොන්දේසිගතව ඇමතුම් ඉදිරියට යැවීම සක්‍රීයයි</string>
+  <string name="call_notif_conditionalCF">කොන්දේසිමය ඇමතුම් යොමු කිරීම සක්‍රීයයි</string>
   <string name="call_notif_MOcall_forwarding">ලබාගන්නා ඇමතුම ඉදිරියට යැවුනි</string>
   <string name="call_notif_cugcall">සංවෘත පරිශීලක සමූහය තුල ඇමතුම</string>
   <string name="call_notif_outgoing_barred">ලබාගන්නා ඇමතුම් වළක්වා ඇත</string>
@@ -129,12 +129,12 @@
   <string name="notification_missedVideoCallsMsg">මඟහැරුණු වීඩියෝ ඇමතුම් <xliff:g id="num_missed_calls">%1$s</xliff:g></string>
   <string name="notification_missedVideoCallTicker"><xliff:g id="missed_call_from">%1$s</xliff:g> වෙතින් වීඩියෝ ඇමතුමක් මගහැරුණි</string>
   <string name="preferred_network_mode_dialogtitle_cmcc">ජාල ප්‍රකාරය</string>
-  <string name="preferred_network_mode_4g_3g_2g_auto_summary">4G/3G/2G (ස්වයංක්‍රීය)</string>
-  <string name="preferred_network_mode_3g_2g_auto_summary">3G/2G (ස්වයංක්‍රීය)</string>
+  <string name="preferred_network_mode_4g_3g_2g_auto_summary">4G/3G/2G (ස්වයං)</string>
+  <string name="preferred_network_mode_3g_2g_auto_summary">3G/2G (ස්වයං)</string>
   <string name="CFActivate">සක්‍රීය කරන්න</string>
   <string name="CFDeactivate">අක්‍රීය කරන්න</string>
   <string name="labelCFDeactAll">සියල්ල අක්‍රීය කරන්න</string>
-  <string name="uplmn_list_setting_title">වඩා කැමති ජාල</string>
+  <string name="uplmn_list_setting_title">අභිමත ජාල</string>
   <string name="network_id">ජාල අනන්‍යකාරකය</string>
   <string name="dialog_network_priority_title">ප්‍රමුඛතාව</string>
   <string name="uplmn_list_setting_add_plmn">අලුත් PLMN</string>
@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">දත්ත සේවාව තාවකාලිකව විසන්ධි කිරීමට අවශ්‍යවේ. ඔබට ඉදිරියට යාමට අවශ්‍ය බවට විශ්වාසද?</string>
   <string name="simContacts_title_cm">සිම්පත් සම්බන්ධතා කළමනාකරණය</string>
   <string name="sip_accounts_title_cm">SIP ගිණුම්</string>
+  <string name="respond_via_sms_cannot_be_empty">යුහු ප්‍රතිචාරය හිස් නොවිය යුතුය</string>
+  <string name="call_recording_format">ඇමතුම් පටිගතකරණ ආකෘතිය</string>
 </resources>

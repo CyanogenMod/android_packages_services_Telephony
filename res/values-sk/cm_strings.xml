@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Dátová služba musí byť dočasne odpojená. Ste si istý, že chcete pokračovať?</string>
   <string name="simContacts_title_cm">Spravovať kontakty na karte SIM</string>
   <string name="sip_accounts_title_cm">SIP účty</string>
+  <string name="respond_via_sms_cannot_be_empty">Rýchla odpoveď nemôže byť prázdny</string>
+  <string name="call_recording_format">Formát nahrávky hovoru</string>
 </resources>

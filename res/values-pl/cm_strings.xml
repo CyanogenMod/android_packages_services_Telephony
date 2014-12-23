@@ -80,7 +80,10 @@
   <string name="choose_forward_lookup_provider_title">Dostawca wyszukiwania naprzód</string>
   <string name="choose_people_lookup_provider_title">Dostawca wyszukiwania osób</string>
   <string name="choose_reverse_lookup_provider_title">Dostawca wyszukiwania wstecz</string>
+  <string name="sim_name">Nazwa SIM</string>
   <string name="sub_no_sim">Brak karty SIM</string>
+  <string name="sub_active">Aktywna</string>
+  <string name="sub_not_active">Nieaktywna</string>
   <string name="msim_call_selector_title">Zadzwoń <xliff:g id="number">%s</xliff:g> poprzez</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Chiński (CN)</string>
@@ -198,15 +201,23 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Preferowany tryb sieci: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Preferowany tryb sieci: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Preferowany tryb sieci: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="network_settings_sel_sub">Ustawienia karty SIM</string>
+  <string name="summary_manage_subscriptions">Zarządzanie ustawieniami sieci każdej karty SIM</string>
+  <string name="callind_multi_sim">Ustawienia karty SIM</string>
   <string name="tty_mode_not_allowed_vt_call">Zmiana trybu TTY jest niedozwolona podczas rozmowy wideo</string>
   <string name="fdn_service_unavailable">Usługa FDN jest niedostępna.</string>
   <string name="exportContacts">Eksportowanie kontaktów do karty SIM\u2026</string>
   <string name="xdivert_summary">Ustawienia CFNRc</string>
   <string name="phone_numbers">Wprowadź numery telefonów</string>
+  <string name="sub1LineNumber">Numer SIM 1:</string>
+  <string name="sub2LineNumber">Numer SIM 2:</string>
   <string name="proceed">Kontynuuj</string>
   <string name="sum_xdivert_enabled">Przekierowanie połączeń włączone</string>
   <string name="sum_xdivert_disabled">Przekierowanie połączeń wyłączone</string>
   <string name="xdivert_not_supported">Przekierowania nie są obsługiwane przez CDMA</string>
+  <string name="xdivert_enternumber_error">Wprowadź numer telefonu dla każdej karty SIM</string>
+  <string name="xdivert_partial_set">X-Divert zostało ustawione tylko dla pierwszej karty SIM</string>
+  <string name="xdivert_sub_absent">Każda karta SIM powinna być aktywowana do procesu X-Divert</string>
   <string name="xdivert_status">Status przekazywania</string>
   <string name="xdivert_active">Aktywny</string>
   <string name="xdivert_not_active">Nieaktywny</string>
@@ -249,9 +260,14 @@
   <string name="exportAllcontatsFailed">Nie udało się wyeksportować kontaktów na kartę SIM</string>
   <string name="exportAllcontatsNoContacts">Nie odnaleziono kontaktów do wyeksportowania na kartę SIM</string>
   <string name="cursorError">Nieprawidłowy typ danych</string>
+  <string name="set_subscription">Konfigurowanie kart SIM</string>
+  <string name="set_subscription_error_atleast_one">Wybierz co najmniej jedną kartę SIM</string>
   <string name="set_uicc_subscription_progress">Ustawianie usługi\u2026</string>
   <string name="set_sub_success">Usługa została ustawiona pomyślnie</string>
   <string name="set_sub_failed">Nie udało się ustawić usługi</string>
+  <string name="set_sub_1">Karta SIM 1: </string>
+  <string name="set_sub_2">Karta SIM 2: </string>
+  <string name="set_sub_3">Karta SIM 3: </string>
   <string name="set_sub_activate_success">Aktywacja pomyślna</string>
   <string name="set_sub_deactivate_success">Dezaktywacja pomyślna</string>
   <string name="set_sub_activate_failed">Aktywacja nie powiodła się</string>
@@ -268,4 +284,6 @@
   <string name="disconnect_data_confirm">Usługa danych mobilnych musi zostać chwilowo wyłączona. Czy chcesz kontynuować?</string>
   <string name="simContacts_title_cm">Zarządzanie kontaktami karty SIM</string>
   <string name="sip_accounts_title_cm">Konta SIP</string>
+  <string name="respond_via_sms_cannot_be_empty">Szybka odpowiedź nie może być pusta</string>
+  <string name="call_recording_format">Format nagrywania rozmowy</string>
 </resources>

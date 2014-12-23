@@ -226,6 +226,7 @@
   <string name="no_vt_allowed">Deaktivieren Sie den TTY-Modus, um Videoanrufe tätigen zu können</string>
   <string name="ims_edit_title">IMS-Kontodetails</string>
   <string name="ims_accounts_title">IMS-Konto</string>
+  <string name="mo_call_type_title">MOC-Typ</string>
   <string name="ims_service_capability">IP Multimedia Subsystem (IMS) aktivieren/deaktivieren</string>
   <string name="ims_service_capability_title">IMS Servicefähigkeit</string>
   <string name="ims_menu_save">Speichern</string>
@@ -283,4 +284,6 @@
   <string name="disconnect_data_confirm">Datendienst muss vorübergehend getrennt werden. Sind Sie sicher, dass Sie fortfahren möchten?</string>
   <string name="simContacts_title_cm">Kontakte auf SIM-Karte verwalten</string>
   <string name="sip_accounts_title_cm">SIP-Konten</string>
+  <string name="respond_via_sms_cannot_be_empty">Schnelle Antwort darf nicht leer sein</string>
+  <string name="call_recording_format">Anrufaufnahme-Format</string>
 </resources>

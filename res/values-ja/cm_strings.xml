@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">データサービスを一時的に切断する必要があります。続けてもよろしいですか？</string>
   <string name="simContacts_title_cm">SIMカードの連絡先を管理</string>
   <string name="sip_accounts_title_cm">SIPアカウント</string>
+  <string name="respond_via_sms_cannot_be_empty">クイック返信は空にできません</string>
+  <string name="call_recording_format">通話の録音形式</string>
 </resources>

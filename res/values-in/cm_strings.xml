@@ -285,4 +285,6 @@
   <string name="disconnect_data_confirm">Layanan data perlu diputus sementara. Anda yakin ingin melanjutkan?</string>
   <string name="simContacts_title_cm">Kelola kontak kartu SIM</string>
   <string name="sip_accounts_title_cm">Akun SIP</string>
+  <string name="respond_via_sms_cannot_be_empty">Respon cepat tidak boleh kosong</string>
+  <string name="call_recording_format">Format perekaman panggilan</string>
 </resources>

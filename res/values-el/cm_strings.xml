@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Η υπηρεσία δεδομένων πρέπει να διακοπεί προσωρινά. Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
   <string name="simContacts_title_cm">Διαχείριση επαφών κάρτας SIM</string>
   <string name="sip_accounts_title_cm">Λογαριασμοί SIP</string>
+  <string name="respond_via_sms_cannot_be_empty">Η γρήγορη απάντηση δεν μπορεί να είναι κενή</string>
+  <string name="call_recording_format">Μορφή ηχογράφησης κλήσεων</string>
 </resources>

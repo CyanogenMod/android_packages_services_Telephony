@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Adatszolgáltatást ideiglenesen le kell kapcsolni. Biztosan folytatni kívánja?</string>
   <string name="simContacts_title_cm">SIM névjegyek kezelése</string>
   <string name="sip_accounts_title_cm">SIP fiókok</string>
+  <string name="respond_via_sms_cannot_be_empty">Gyors válasz nem lehet üres</string>
+  <string name="call_recording_format">Hívásfelvétel formátuma</string>
 </resources>

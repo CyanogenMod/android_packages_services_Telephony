@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Duomenų paslaugos turi būti laikinai atjungtos. Ar tikrai norite tęsti?</string>
   <string name="simContacts_title_cm">Valdyti SIM kortelės kontaktus</string>
   <string name="sip_accounts_title_cm">SIP paskyros</string>
+  <string name="respond_via_sms_cannot_be_empty">Greitas atsakas negali būti tuščias</string>
+  <string name="call_recording_format">Skambučio įrašymo formatas</string>
 </resources>
