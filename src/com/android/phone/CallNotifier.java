@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2006 The Android Open Source Project
+ * Copyright (C) 2014 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +21,7 @@ import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.CallerInfo;
 import com.android.internal.telephony.CallerInfoAsyncQuery;
+import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
@@ -29,6 +31,8 @@ import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaDisplayInfoRec;
 import com.android.internal.telephony.cdma.CdmaInformationRecords.CdmaSignalInfoRec;
 import com.android.internal.telephony.cdma.SignalToneUtil;
+import com.android.internal.telephony.gsm.SuppServiceNotification;
+import com.android.internal.telephony.util.BlacklistUtils;
 
 import android.app.ActivityManagerNative;
 import android.bluetooth.BluetoothAdapter;
@@ -39,6 +43,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
@@ -51,6 +56,7 @@ import android.os.SystemProperties;
 import android.os.SystemVibrator;
 import android.os.Vibrator;
 import android.provider.CallLog.Calls;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.telephony.DisconnectCause;
 import android.telephony.PhoneNumberUtils;
@@ -60,6 +66,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.VoLteServiceState;
 import android.util.EventLog;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Phone app module that listens for phone state changes and various other
@@ -124,6 +131,11 @@ public class CallNotifier extends Handler {
     private final BluetoothManager mBluetoothManager;
 
     private PhoneStateListener[] mPhoneStateListener;
+
+    // Blacklist handling
+    private static final String BLACKLIST = "Blacklist";
+
+    private boolean mSilentRingerRequested;
 
     /**
      * Initialize the singleton CallNotifier instance.
@@ -307,16 +319,18 @@ public class CallNotifier extends Handler {
                     mVoicePrivacyState = false;
                 }
                 break;
-
             case ACTION_SUBINFO_RECORD_UPDATED:
                 if (DBG) log("ACTION_SUBINFO_RECORD_UPDATED...");
                 unRegisterPhoneStateListener();
                 listen();
                 break;
-
             case CallStateMonitor.PHONE_SUPP_SERVICE_FAILED:
                 if (DBG) log("PHONE_SUPP_SERVICE_FAILED...");
                 onSuppServiceFailed((AsyncResult) msg.obj);
+                break;
+            case CallStateMonitor.PHONE_SUPP_SERVICE_NOTIFY:
+                if (DBG) log("Received Supplementary Notification");
+                onSuppServiceNotification((AsyncResult) msg.obj);
                 break;
 
             default:
@@ -429,6 +443,57 @@ public class CallNotifier extends Handler {
         // when the caller-id query completes or times out.
 
         if (VDBG) log("- onNewRingingConnection() done.");
+    }
+
+    private static final String[] FAVORITE_PROJECTION = new String[] {
+        ContactsContract.PhoneLookup.STARRED
+    };
+    private static final String[] CONTACT_PROJECTION = new String[] {
+        ContactsContract.PhoneLookup.NUMBER
+    };
+
+    /**
+     * Helper function used to determine if calling number is from person in the Contacts
+     * Optionally, it can also check if the contact is a 'Starred'or favourite contact
+     */
+    private boolean isContact(String number, boolean checkFavorite) {
+        if (DBG) log("isContact(): checking if " + number + " is in the contact list.");
+
+        Uri lookupUri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+                Uri.encode(number));
+        Cursor cursor = mApplication.getContentResolver().query(lookupUri,
+                checkFavorite ? FAVORITE_PROJECTION : CONTACT_PROJECTION,
+                ContactsContract.PhoneLookup.NUMBER + "=?",
+                new String[] { number }, null);
+
+        if (cursor == null) {
+            if (DBG) log("Couldn't query contacts provider");
+            return false;
+        }
+
+        try {
+            if (cursor.moveToFirst() && !checkFavorite) {
+                // All we care about is that the number is in the Contacts list
+                if (DBG) log("Number belongs to a contact");
+                return true;
+            }
+
+            // Either no result or we should check for favorite.
+            // In the former case the loop won't be entered.
+            while (!cursor.isAfterLast()) {
+                if (cursor.getInt(cursor.getColumnIndex(
+                        ContactsContract.PhoneLookup.STARRED)) == 1) {
+                    if (DBG) log("Number belongs to a favorite");
+                    return true;
+                }
+                cursor.moveToNext();
+            }
+        } finally {
+            cursor.close();
+        }
+
+        if (DBG) log("A match for the number wasn't found");
+        return false;
     }
 
     /**
@@ -579,7 +644,6 @@ public class CallNotifier extends Handler {
         } else {
             Log.w(LOG_TAG, "onDisconnect: null connection");
         }
-
         int autoretrySetting = 0;
         if ((c != null) &&
                 (c.getCall().getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_CDMA)) {
@@ -688,6 +752,88 @@ public class CallNotifier extends Handler {
                 }
             }
         }
+    }
+
+    private void onSuppServiceNotification(AsyncResult r) {
+        if (r != null) {
+            SuppServiceNotification notification = (SuppServiceNotification) r.result;
+
+            /* show a toast for transient notifications */
+            int toastResId = getSuppServiceToastTextResIdIfEnabled(notification);
+            if (toastResId >= 0) {
+                Toast.makeText(mApplication, mApplication.getString(toastResId),
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    protected int getSuppServiceToastTextResIdIfEnabled(SuppServiceNotification notification) {
+        if (!PhoneSettings.showInCallEvents(mApplication)) {
+            /* don't show anything if the user doesn't want it */
+            return -1;
+        }
+        return getSuppServiceToastTextResId(notification);
+    }
+
+    protected int getSuppServiceToastTextResId(SuppServiceNotification notification) {
+        if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MO) {
+            switch (notification.code) {
+                case SuppServiceNotification.MO_CODE_UNCONDITIONAL_CF_ACTIVE :
+                    // This message is displayed when an outgoing call is made
+                    // and unconditional forwarding is enabled.
+                    return R.string.call_notif_unconditionalCF;
+                case SuppServiceNotification.MO_CODE_SOME_CF_ACTIVE:
+                    // This message is displayed when an outgoing call is made
+                    // and conditional forwarding is enabled.
+                    return R.string.call_notif_conditionalCF;
+                case SuppServiceNotification.MO_CODE_CALL_FORWARDED:
+                    //This message is displayed on A when the outgoing call actually gets forwarded to C
+                    return R.string.call_notif_MOcall_forwarding;
+                case SuppServiceNotification.MO_CODE_CUG_CALL:
+                    //This message is displayed on A, when A makes call to B, both A & B
+                    //belong to a CUG group
+                    return R.string.call_notif_cugcall;
+                case SuppServiceNotification.MO_CODE_OUTGOING_CALLS_BARRED:
+                    //This message is displayed on A when outging is barred on A
+                    return R.string.call_notif_outgoing_barred;
+                case SuppServiceNotification.MO_CODE_INCOMING_CALLS_BARRED:
+                    //This message is displayed on A, when A is calling B & incoming is barred on B
+                    return R.string.call_notif_incoming_barred;
+                case SuppServiceNotification.MO_CODE_CLIR_SUPPRESSION_REJECTED:
+                    //This message is displayed on A, when CLIR suppression is rejected
+                    return R.string.call_notif_clir_suppression_rejected;
+                case SuppServiceNotification.MO_CODE_CALL_DEFLECTED:
+                    //This message is displayed on A, when the outgoing call gets deflected to C from B
+                    return R.string.call_notif_call_deflected;
+            }
+        } else if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MT) {
+            switch (notification.code) {
+                case SuppServiceNotification.MT_CODE_CUG_CALL:
+                    //This message is displayed on B, when A makes call to B, both A & B
+                    //belong to a CUG group
+                    return R.string.call_notif_cugcall;
+               case SuppServiceNotification.MT_CODE_MULTI_PARTY_CALL:
+                   //This message is displayed on B when the the call is changed as multiparty
+                   return R.string.call_notif_multipartycall;
+               case SuppServiceNotification.MT_CODE_ON_HOLD_CALL_RELEASED:
+                   //This message is displayed on B, when A makes call to B, puts it on hold & then releases it.
+                   return R.string.call_notif_callonhold_released;
+               case SuppServiceNotification.MT_CODE_FORWARD_CHECK_RECEIVED:
+                   //This message is displayed on C when the incoming call is forwarded from B
+                   return R.string.call_notif_forwardcheckreceived;
+               case SuppServiceNotification.MT_CODE_CALL_CONNECTING_ECT:
+                   //This message is displayed on B,when Call is connecting through Explicit Call Transfer
+                   return R.string.call_notif_callconnectingect;
+               case SuppServiceNotification.MT_CODE_CALL_CONNECTED_ECT:
+                   //This message is displayed on B,when Call is connected through Explicit Call Transfer
+                   return R.string.call_notif_callconnectedect;
+               case SuppServiceNotification.MT_CODE_ADDITIONAL_CALL_FORWARDED:
+                   // This message is displayed on B when it is busy and the incoming call gets forwarded to C
+                   return R.string.call_notif_MTcall_forwarding;
+            }
+        }
+
+        return -1;
     }
 
     /**

@@ -16,6 +16,8 @@
 
 package com.android.phone;
 
+import java.util.ArrayList;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -38,6 +40,9 @@ import android.provider.Settings;
 import android.telecom.PhoneAccount;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.ServiceState;
+import android.text.SpannableStringBuilder;
+import android.text.format.DateUtils;
+import android.text.style.RelativeSizeSpan;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -47,6 +52,7 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.PhoneBase;
 import com.android.internal.telephony.TelephonyCapabilities;
+import com.android.internal.telephony.util.BlacklistUtils;
 
 import java.util.List;
 
@@ -236,6 +242,8 @@ public class NotificationMgr {
         PhoneLookup._ID
     };
 
+
+
     /**
      * Updates the message waiting indicator (voicemail) notification.
      *
@@ -348,7 +356,7 @@ public class NotificationMgr {
                     .setContentIntent(pendingIntent)
                     .setSound(ringtoneUri)
                     .setColor(mContext.getResources().getColor(R.color.dialer_theme_color))
-                    .setOngoing(true);
+                    .setOngoing(false);
 
             CallFeaturesSetting.migrateVoicemailVibrationSettingsIfNeeded(prefs, phoneId);
             final boolean vibrate = prefs.getBoolean(
