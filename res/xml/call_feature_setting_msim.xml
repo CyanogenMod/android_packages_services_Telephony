@@ -79,16 +79,6 @@
         android:persistent="true"
         android:defaultValue="true" />
 
-      <PreferenceScreen
-          android:key="button_xdivert"
-          android:title="@string/xdivert_title"
-          android:summary="@string/xdivert_summary"
-          android:persistent="false">
-          <intent android:action="android.intent.action.MAIN"
-                  android:targetPackage="com.qti.xdivert"
-                      android:targetClass="com.qti.xdivert.XDivertSetting" />
-      </PreferenceScreen>
-
     <!-- Add videocall settings menu  -->
     <PreferenceCategory
         android:key="button_videocall_settings_key"

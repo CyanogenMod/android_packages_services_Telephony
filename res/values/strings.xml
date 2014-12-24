@@ -1477,12 +1477,6 @@
     <string name="exportAllcontatsNoContacts"> No Contacts found to export to SIM !!!</string>
     <string name="cursorError"> Cursor is not having proper data !!! </string>
 
-     <!-- XDivert Settings -->
-     <!-- Title for the XDivert Feature displayed in Call Settings -->
-     <string name="xdivert_title">X-Divert</string>
-     <!-- Summary for the XDivert Feature displayed in Call Settings -->
-     <string name="xdivert_summary">CFNRc Settings</string>
-
     <!-- UPLMN Prefer -->
     <string name="uplmn_list_setting_title">Preferred networks</string>
     <string name="network_id">Network ID</string>
