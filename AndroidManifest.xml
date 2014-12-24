@@ -140,7 +140,7 @@
         <activity android:name="EmergencyDialer"
             android:label="@string/emergencyDialerIconLabel"
             android:theme="@style/EmergencyDialerTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="user">
             <intent-filter>
                 <action android:name="com.android.phone.EmergencyDialer.DIAL" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -157,7 +157,7 @@
         <activity android:name="SimContacts"
             android:label="@string/simContacts_title_cm"
             android:theme="@style/SimImportTheme"
-            android:screenOrientation="portrait"
+            android:screenOrientation="user"
             android:icon="@mipmap/ic_launcher_contacts">
 
             <intent-filter>
@@ -225,7 +225,7 @@
         <activity android:name="OutgoingCallBroadcaster"
                 android:theme="@style/OutgoingCallBroadcasterTheme"
                 android:permission="android.permission.CALL_PHONE"
-                android:screenOrientation="nosensor"
+                android:screenOrientation="user"
                 android:configChanges="orientation|screenSize|keyboardHidden"
                 android:excludeFromRecents="true">
             <!-- CALL action intent filters, for the various ways
@@ -283,7 +283,7 @@
 
         <activity-alias android:name="PrivilegedOutgoingCallBroadcaster"
                 android:targetActivity="OutgoingCallBroadcaster"
-                android:screenOrientation="nosensor"
+                android:screenOrientation="user"
                 android:permission="android.permission.CALL_PRIVILEGED">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.CALL_PRIVILEGED" />
@@ -323,7 +323,7 @@
             android:label="@string/phoneIconLabel"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
-            android:screenOrientation="nosensor"
+            android:screenOrientation="user"
             android:configChanges="keyboardHidden"
             android:exported="false">
         </activity>
@@ -664,7 +664,7 @@
         </activity>
         <activity android:name=".SipCallOptionHandler"
                 android:theme="@style/SipCallOptionHandlerTheme"
-                android:screenOrientation="nosensor"
+                android:screenOrientation="user"
                 android:configChanges="orientation|screenSize|keyboardHidden"
                 android:excludeFromRecents="true">
         </activity>
