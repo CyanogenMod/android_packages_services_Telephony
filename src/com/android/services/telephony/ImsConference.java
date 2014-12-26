@@ -342,6 +342,26 @@ public class ImsConference extends Conference {
     }
 
     /**
+     * Invoked when the conference adds a participant to the conference call.
+     *
+     * @param participant The participant to be added with conference call.
+     */
+
+    @Override
+    public void onAddParticipant(String participant) {
+        try {
+            Phone phone = (mConferenceHost != null) ? mConferenceHost.getPhone() : null;
+            Log.d(this, "onAddParticipant mConferenceHost = " + mConferenceHost
+                    + " Phone = " + phone);
+            if (phone != null) {
+                phone.addParticipant(participant);
+            }
+        } catch (CallStateException e) {
+            Log.e(this, e, "Exception thrown trying to add a participant into conference");
+        }
+    }
+
+    /**
      * Invoked when the conference should be put on hold.
      */
     @Override
