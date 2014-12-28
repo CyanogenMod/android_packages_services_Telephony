@@ -148,17 +148,16 @@ public class GsmUmtsOptions {
             }
         }
 
-        if (res.getBoolean(R.bool.csp_enabled)) {
-            // Read platform settings for carrier settings
-            final boolean isCarrierSettingsEnabled = mPrefActivity.getResources().getBoolean(
-                    R.bool.config_carrier_settings_enable);
-            if (!isCarrierSettingsEnabled) {
-                Preference pref = mPrefScreen.findPreference(BUTTON_CARRIER_SETTINGS_KEY);
-                if (pref != null) {
-                    mPrefScreen.removePreference(pref);
-                }
+        // Read platform settings for carrier settings
+        final boolean isCarrierSettingsEnabled = mPrefActivity.getResources().getBoolean(
+                R.bool.config_carrier_settings_enable);
+        if (!isCarrierSettingsEnabled) {
+            Preference pref = mPrefScreen.findPreference(BUTTON_CARRIER_SETTINGS_KEY);
+            if (pref != null) {
+                mPrefScreen.removePreference(pref);
             }
         }
+
         if (!mRemovedAPNExpand) {
             mButtonAPNExpand.setOnPreferenceClickListener(
                     new Preference.OnPreferenceClickListener() {
