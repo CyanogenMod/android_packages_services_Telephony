@@ -73,6 +73,7 @@ abstract class TelephonyConnection extends Connection {
     private String[] mSubName = {"SUB 1", "SUB 2", "SUB 3"};
     private String mDisplayName;
     private boolean mVoicePrivacyState = false;
+    protected boolean mIsOutgoing;
 
     protected static SuppServiceNotification mSsNotification = null;
 
@@ -164,6 +165,10 @@ abstract class TelephonyConnection extends Connection {
             }
         }
     };
+
+    protected boolean isOutgoing() {
+        return mIsOutgoing;
+    }
 
     private String getSuppSvcNotificationText(SuppServiceNotification suppSvcNotification) {
         final int SUPP_SERV_NOTIFICATION_TYPE_MO = 0;
@@ -756,8 +761,9 @@ abstract class TelephonyConnection extends Connection {
         updateCallCapabilities();
         Uri address;
         if (mOriginalConnection != null) {
-            if (((getAddress() != null) &&
-                    (getPhone().getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA))) {
+            if ((getAddress() != null) &&
+                    (getPhone().getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA) &&
+                            isOutgoing()) {
                 address = getAddressFromNumber(mOriginalConnection.getOrigDialString());
             } else {
                 address = getAddressFromNumber(mOriginalConnection.getAddress());
