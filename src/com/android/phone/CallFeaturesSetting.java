@@ -303,6 +303,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private boolean isSpeedDialListStarted = false;
     private PreferenceScreen mButtonBlacklist;
+    private Preference mSdnButton;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -516,7 +517,14 @@ public class CallFeaturesSetting extends PreferenceActivity
     // Click listener for all toggle events
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference.getKey().equals(BUTTON_4G_LTE_KEY)) {
+        if (preference == mSdnButton) {
+            Log.d(LOG_TAG, "onPreferenceTreeClick : mSdnButton is selected.Start activity");
+            Intent sdnLaunchIntent = new Intent(getString(R.string.launch_sdn));
+            sdnLaunchIntent.addCategory(Intent.CATEGORY_DEFAULT);
+            sdnLaunchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(sdnLaunchIntent);
+            return true;
+        } else if (preference.getKey().equals(BUTTON_4G_LTE_KEY)) {
             return true;
         } else if (preference == mSubMenuVoicemailSettings) {
             return true;
@@ -1859,6 +1867,26 @@ public class CallFeaturesSetting extends PreferenceActivity
                 }
             } else {
                 throw new IllegalStateException("Unexpected phone type: " + phoneType);
+            }
+        }
+
+
+        /*
+         * SDN Changes
+         * If the config is enabled to read and display contents of SDN,
+         * the preference is added and enabled. Relevant strings are
+         * requried to launch the activity successfully
+         */
+        if ((mPhone.getContext().getResources()
+                .getBoolean(R.bool.config_enable_displaying_sdn))) {
+            mSdnButton = new Preference(prefSet.getContext());
+            if (mSdnButton != null) {
+                log("SDN feature enabled.");
+                mSdnButton.setTitle(R.string.sdn);
+                mSdnButton.setSummary(R.string.sum_sdn);
+                mSdnButton.setPersistent(false);
+                mSdnButton.setSelectable(true);
+                prefSet.addPreference(mSdnButton);
             }
         }
 
