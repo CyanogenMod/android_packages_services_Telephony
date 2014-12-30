@@ -99,6 +99,7 @@ abstract class TelephonyConnection extends Connection {
                         Log.d(TelephonyConnection.this, "SettingOriginalConnection " +
                                 mOriginalConnection.toString() + " with " + connection.toString());
                         setOriginalConnection(connection);
+                        mWasImsConnection = false;
                     }
                     break;
                 case MSG_RINGBACK_TONE:
