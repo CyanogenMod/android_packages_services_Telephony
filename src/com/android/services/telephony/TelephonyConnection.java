@@ -109,6 +109,7 @@ abstract class TelephonyConnection extends Connection {
                                     srvccMessageRes, Toast.LENGTH_LONG).show();
                         }
                         setOriginalConnection(connection);
+                        mWasImsConnection = false;
                     }
                     break;
                 case MSG_RINGBACK_TONE:
