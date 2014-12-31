@@ -724,6 +724,7 @@ abstract class TelephonyConnection extends Connection {
         newCallCapabilities = applyConferenceTerminationCapabilities(newCallCapabilities);
         newCallCapabilities = applyVoicePrivacyCapabilities(newCallCapabilities);
         newCallCapabilities = applyAddParticipantCapabilities(newCallCapabilities);
+        newCallCapabilities = applyConferenceCapabilities(newCallCapabilities);
 
         if (getCallCapabilities() != newCallCapabilities) {
             setCallCapabilities(newCallCapabilities);
@@ -850,6 +851,13 @@ abstract class TelephonyConnection extends Connection {
             return call.getPhone();
         }
         return null;
+    }
+
+    private boolean isMultiparty() {
+        if (mOriginalConnection != null) {
+            return mOriginalConnection.isMultiparty();
+        }
+        return false;
     }
 
     private boolean hasMultipleTopLevelCalls() {
@@ -1124,6 +1132,24 @@ abstract class TelephonyConnection extends Connection {
         } else {
             currentCapabilities = removeCapability(currentCapabilities,
                     PhoneCapabilities.ADD_PARTICIPANT);
+        }
+
+        return currentCapabilities;
+    }
+
+    /**
+     * Applies the conference capabilities to the {@code CallCapabilities} bit-mask.
+     *
+     * @param callCapabilities The {@code CallCapabilities} bit-mask.
+     * @return The capabilities with the conference capabilities applied.
+     */
+    private int applyConferenceCapabilities(int callCapabilities) {
+        int currentCapabilities = callCapabilities;
+        if (getPhone() != null &&
+                 getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_IMS &&
+                 isMultiparty()) {
+            currentCapabilities = applyCapability(currentCapabilities,
+                    PhoneCapabilities.GENERIC_CONFERENCE);
         }
 
         return currentCapabilities;
