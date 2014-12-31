@@ -187,7 +187,15 @@ public class TelephonyConnectionService extends ConnectionService {
                             "Phone is in tdd data only"));
         }
 
+        // Check both voice & data RAT to enable normal CS call,
+        // when voice RAT is OOS but Data RAT is present.
         int state = phone.getServiceState().getState();
+        if (state == ServiceState.STATE_OUT_OF_SERVICE) {
+            if (phone.getServiceState().getDataNetworkType() ==
+                    ServiceState.RIL_RADIO_TECHNOLOGY_LTE) {
+                state = phone.getServiceState().getDataRegState();
+            }
+        }
         boolean useEmergencyCallHelper = false;
 
         if (isEmergencyNumber) {
