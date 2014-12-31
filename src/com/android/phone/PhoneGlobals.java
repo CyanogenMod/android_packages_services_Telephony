@@ -445,6 +445,8 @@ public class PhoneGlobals extends ContextWrapper {
 
             mHandler.sendEmptyMessage(EVENT_START_SIP_SERVICE);
 
+            startImsService();
+
             int phoneType = phone.getPhoneType();
 
             if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
@@ -1047,6 +1049,17 @@ public class PhoneGlobals extends ContextWrapper {
         return phoneInEcm;
     }
 
+    private void startImsService() {
+        Log.d(LOG_TAG, "startImsService");
+        try {
+            Intent intent = new Intent();
+            intent.setClassName(IMS_SERVICE_PKG_NAME, IMS_SERVICE_CLASS_NAME);
+            startService(intent);
+        } catch(SecurityException ex) {
+            Log.w(LOG_TAG, "startImsService: exception = " + ex);
+        }
+    }
+
     /**
      * "Call origin" may be used by Contacts app to specify where the phone call comes from.
      * Currently, the only permitted value for this extra is {@link #ALLOWED_EXTRA_CALL_ORIGIN}.
@@ -1092,4 +1105,7 @@ public class PhoneGlobals extends ContextWrapper {
         }
         return null;
     }
+
+    private static final String IMS_SERVICE_PKG_NAME = "org.codeaurora.ims";
+    private static final String IMS_SERVICE_CLASS_NAME = "org.codeaurora.ims.ImsService";
 }
