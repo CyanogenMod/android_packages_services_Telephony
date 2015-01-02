@@ -21,4 +21,7 @@
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">true</bool>
 
+    <!-- Disable speaker proximity preference for problematic devices -->
+    <bool name="config_enabled_speakerprox" translatable="false">true</bool>
+
 </resources>
