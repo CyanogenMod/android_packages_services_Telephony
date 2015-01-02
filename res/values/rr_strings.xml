@@ -6,4 +6,13 @@
     <string name="proximity_on_summary">When in call, use proximity sensor to turn off screen</string>
     <string name="proximity_off_summary">When in call, the screen will remain on</string>
 
+ <!-- Proximity speaker -->
+    <string name="display_category_prox_auto_speaker_title">Proximity speaker settings</string>
+    <string name="prox_auto_speaker_title">Automatic proximity speaker</string>
+    <string name="prox_auto_speaker_summary">Enable speakerphone when the device is removed from your face</string>
+    <string name="prox_auto_speaker_delay_title">Proximity speaker delay</string>
+    <string name="prox_auto_speaker_delay_summary">Time delay before speaker is activated</string>
+    <string name="prox_auto_speaker_incall_only_title">Only while in call</string>
+    <string name="prox_auto_speaker_incall_only_summary_on">On outgoing calls, listener will only become active after the receiving party answers</string>
+    <string name="prox_auto_speaker_incall_only_summary_off">Listener will be active during all offhook call states (default)</string>
 </resources>
