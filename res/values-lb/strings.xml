@@ -94,7 +94,7 @@
   <string name="messageCFNRc">Nummer wann net erreechbar</string>
   <string name="sum_cfnrc_enabled">Weiderleeden u(n) <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
   <string name="sum_cfnrc_disabled">Desaktivéiert</string>
-  <string name="disable_cfnrc_forbidden">Däin Netzbedreiwer ënnerstëtzt d\'Desaktivéiere vun der Uruffweiderleedungen bei Onerreechbarkeet net.</string>
+  <string name="disable_cfnrc_forbidden">Däin Netzbedreiwer ënnerstëtzt d\'Desaktivéiere vun der Uruffweiderleedunge bei Onerreechbarkeet net.</string>
   <string name="updating_title">Uruffastellungen</string>
   <string name="error_updating_title">Feeler bei den Uruffastellungen</string>
   <string name="reading_settings">Astellunge gi gelies\u2026</string>
@@ -177,16 +177,16 @@
   <string name="gsm_umts_options">GSM/UMTS-Optiounen</string>
   <string name="cdma_options">CDMA-Optiounen</string>
   <string name="throttle_data_usage">Dateverbrauch</string>
-  <string name="throttle_current_usage">Daten an der aktueller Period genotzt</string>
-  <string name="throttle_time_frame">Datennotzungsperiod</string>
+  <string name="throttle_current_usage">Daten an der aktueller Period benotzt</string>
+  <string name="throttle_time_frame">Datebenotzungsperiod</string>
   <string name="throttle_rate">Richtlinn fir den Datentaux</string>
   <string name="throttle_help">Méi gewuer ginn</string>
   <string name="throttle_status_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) vu(n) <xliff:g id="used">%3$s</xliff:g> Maximum fir dës Period\nDéi nächst Period start a(n) <xliff:g id="used">%4$d</xliff:g> Deeg (<xliff:g id="used">%5$s</xliff:g>)</string>
   <string name="throttle_data_usage_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) vu(n) <xliff:g id="used">%3$s</xliff:g> Maximum fir dës Period</string>
   <string name="throttle_data_rate_reduced_subtext"><xliff:g id="used">%1$s</xliff:g> Maximum iwwerschratt\nDen Datentaux gouf op <xliff:g id="used">%2$d</xliff:g> kb/s reduzéiert</string>
   <string name="throttle_time_frame_subtext"><xliff:g id="used">%1$d</xliff:g>\u066A vum Zyklus ofgelaf\nDéi nächst Period start a(n) <xliff:g id="used">%2$d</xliff:g> Deeg (<xliff:g id="used">%3$s</xliff:g>)</string>
-  <string name="throttle_rate_subtext">Den Datentaux gëtt op <xliff:g id="used">%1$d</xliff:g> kb/s reduzéiert wann d\'Datennotzungslimitt iwwerschratt ass</string>
-  <string name="throttle_help_subtext">Méi Informatiounen iwwer d\'Richtlinne vum Netzbedreiwer fir d\'Notzung vun de Mobilfunknetzdaten</string>
+  <string name="throttle_rate_subtext">Den Datentaux gëtt op <xliff:g id="used">%1$d</xliff:g> kb/s reduzéiert wann d\'Datebenotzungslimitt iwwerschratt ass</string>
+  <string name="throttle_help_subtext">Méi Informatiounen iwwer d\'Richtlinne vum Netzbedreiwer fir d\'Benotzung vun de Mobilfunknetzdaten</string>
   <string name="cell_broadcast_sms">Zell-Iwwerdroungs-SMS</string>
   <string name="enable_disable_cell_bc_sms">Zell-Iwwerdroungs-SMS</string>
   <string name="cell_bc_sms_enable">Zell-Iwwerdroungs-SMS aktivéiert</string>
@@ -347,25 +347,25 @@
   <string name="oldPinLabel">Al PIN</string>
   <string name="newPinLabel">Nei PIN</string>
   <string name="confirmPinLabel">Nei PIN bestätegen</string>
-  <string name="badPin">Den ale PIN deen s de aginn hues ass net korrekt. Probéier nees.</string>
-  <string name="mismatchPin">D\'PIN-Coden déi s de aginn hues stëmmen net iwwereneen. Probéier nees.</string>
-  <string name="invalidPin">Tipp e PIN deen tëscht 4 an 8 Zifferen huet.</string>
+  <string name="badPin">Den ale PIN, deen s de aginn hues, ass net korrekt. Probéier nees.</string>
+  <string name="mismatchPin">D\'PIN-Coden, déi s de aginn hues, stëmmen net iwwereneen. Probéier nees.</string>
+  <string name="invalidPin">Gëff e PIN an, deen tëscht 4 an 8 Zifferen huet.</string>
   <string name="disable_sim_pin">SIM-PIN desaktivéieren</string>
   <string name="enable_sim_pin">SIM-PIN aktivéieren</string>
   <string name="enable_in_progress">Waart w.e.g.\u2026</string>
   <string name="enable_pin_ok">SIM-PIN aktivéiert.</string>
   <string name="disable_pin_ok">SIM-PIN desaktivéiert.</string>
-  <string name="pin_failed">De PIN deen s de aginn hues ass net korrekt.</string>
+  <string name="pin_failed">De PIN, deen s de aginn hues, ass net korrekt.</string>
   <string name="pin_changed">SIM-PIN erfollegräich geännert.</string>
   <string name="puk_requested">Passwuert inkorrekt, PIN blockéiert! PUK ugefrot.</string>
   <string name="enter_pin2_text">PIN2</string>
   <string name="oldPin2Label">Al PIN2</string>
   <string name="newPin2Label">Nei PIN2</string>
   <string name="confirmPin2Label">Nei PIN2 bestätegen</string>
-  <string name="badPuk2">De PUK2 deen s du aginn hues ass net korrekt. Probéier nees.</string>
-  <string name="badPin2">Den ale PIN2 deen s de aginn hues ass net korrekt. Probéier nees.</string>
-  <string name="mismatchPin2">D\'PIN2-Coden déi s de aginn hues stëmmen net iwwereneen. Probéier nees.</string>
-  <string name="invalidPin2">Tipp e PIN2 deen tëscht 4 an 8 Zifferen huet.</string>
+  <string name="badPuk2">De PUK2, deen s du aginn hues, ass net korrekt. Probéier nees.</string>
+  <string name="badPin2">Den ale PIN2, deen s de aginn hues, ass net korrekt. Probéier nees.</string>
+  <string name="mismatchPin2">D\'PIN2-Coden, déi s de aginn hues, stëmmen net iwwereneen. Probéier nees.</string>
+  <string name="invalidPin2">Gëff e PIN2 an, deen tëscht 4 an 8 Zifferen huet.</string>
   <string name="invalidPuk2">Gëff e PUK2 vun 8 Zifferen an.</string>
   <string name="pin2_changed">PIN2 erfollegräich geännert.</string>
   <string name="label_puk2_code">PUK2-Code aginn</string>
@@ -454,21 +454,21 @@
   </string-array>
   <string name="network_message">Netzwierkmessage</string>
   <string name="ota_title_activate">Däin Telefon aktivéieren</string>
-  <string name="ota_touch_activate">E speziellen Uruff muss gemaach gi fir den Telefonsservice ze aktivéieren.\n\nNom drécken op \u201CAktivéieren\u201D muss du d\'Uleedunge suivéiere fir däin Telefon ze aktivéieren.</string>
+  <string name="ota_touch_activate">E speziellen Uruff muss gemaach gi fir den Telefonsservice z\'aktivéieren.\n\nNom drécken op \u201CAktivéieren\u201D muss du d\'Uleedunge suivéiere fir däin Telefon z\'aktivéieren.</string>
   <string name="ota_hfa_activation_title">Gëtt aktivéiert...</string>
   <string name="ota_hfa_activation_dialog_message">Däin Telefon aktivéiert däi mobilen Dateservice.\n\nDat ka bis zu 5 Minutten daueren.</string>
   <string name="ota_skip_activation_dialog_title">Aktivéierung iwwersprangen\?</string>
-  <string name="ota_skip_activation_dialog_message">Wann s du d\'Aktivéierung iwwerspréngs, kanns du keng Uriff ofsetzen oder dech mam mobilen Datennetzwierk connectéieren (mat WLAN-Netzwierker bleift et awer méiglech). Bis de däin Telefon aktivéiers hues, gëss de all Kéier gefrot en ze aktivéiere wann s de en uschalts. </string>
+  <string name="ota_skip_activation_dialog_message">Wann s du d\'Aktivéierung iwwerspréngs, kanns du keng Uriff ofsetzen oder dech mam mobilen Datennetzwierk connectéieren (mat WLAN-Netzwierker bleift et awer méiglech). Bis de däin Telefon aktivéiers hues, gëss de all Kéier gefrot en z\'aktivéiere wann s de en uschalts. </string>
   <string name="ota_skip_activation_dialog_skip_label">Iwwersprangen</string>
   <string name="ota_activate">Aktivéieren</string>
   <string name="ota_title_activate_success">Den Telefon ass aktivéiert.</string>
   <string name="ota_title_problem_with_activation">Problem bei der Aktivéierung</string>
-  <string name="ota_listen">Suivéiert déi geschwaten Uleedung bis de héiers dass d\'Aktivéierung ofgeschloss ass.</string>
+  <string name="ota_listen">Suivéiert déi geschwaten Uleedung bis de héiers datt d\'Aktivéierung ofgeschloss ass.</string>
   <string name="ota_speaker">Lautsprecher</string>
   <string name="ota_progress">Waart während däin Telefon programméiert gëtt.</string>
   <string name="ota_failure">Programméierung feelgeschloen</string>
   <string name="ota_successful">Däin Telefon ass elo aktivéiert. Et ka bis zu 15 Minutten dauere bis d\'Servicer gestart sinn.</string>
-  <string name="ota_unsuccessful">Däin Telefon gouf net aktivéiert.\nDu muss eng Plaz mat besserem Empfang fannen (z.B. bei enger Fënster oder dobaussen).\n\nProbéier nees oder ruff fir aner Optioune beim Clientsservice un.</string>
+  <string name="ota_unsuccessful">Däin Telefon gouf net aktivéiert.\nDu muss eng Plaz mat besserem Empfang fannen (z. B. bei enger Fënster oder dobaussen).\n\nProbéier nees oder ruff fir aner Optioune beim Clientsservice un.</string>
   <string name="ota_spc_failure">IWWERMÉISSEG VILL SPC-FEELER</string>
   <string name="ota_call_end">Zréck</string>
   <string name="ota_try_again">Nees probéieren</string>
@@ -545,7 +545,7 @@
   <string name="registration_status_invalid_credentials">Konteregistréierung feelgeschloen: Falsche Benotzernumm oder falscht Passwuert.</string>
   <string name="registration_status_server_unreachable">Account registration unsuccessful: Kontrolléier de Servernumm.</string>
   <string name="third_party_account_summary">Dëse Kont gëtt momentan vun der App \"<xliff:g id="account_owner" example="Google Talk">%s</xliff:g>\" benotzt.</string>
-  <string name="sip_edit_title">Detailer vum SIP-Konto</string>
+  <string name="sip_edit_title">Detailer vum SIP-Kont</string>
   <string name="sip_edit_new_title">Detailer vum SIP-Kont</string>
   <string name="domain_address_title">Server</string>
   <string name="username_title">Benotzernumm</string>
@@ -555,7 +555,7 @@
   <string name="port_title">Port-Nummer</string>
   <string name="transport_title">Transporttyp</string>
   <string name="send_keepalive_title">\"Keep-alive\" schécken</string>
-  <string name="set_primary_title">Als Standard-Konto setzen</string>
+  <string name="set_primary_title">Als Standard-Kont setzen</string>
   <string name="set_primary_summary">Fir erausgoend Uriff benotzt</string>
   <string name="advanced_settings">Optional Astellungen</string>
   <string name="auth_username_title">Authentifizéierungs-Benotzernumm</string>

@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">Datu pakalpojumu ir nepieciešams īslaicīgi pārtraukt. Vai tiešām vēlaties turpināt?</string>
   <string name="simContacts_title_cm">Pārvaldīt SIM kartes kontaktus</string>
   <string name="sip_accounts_title_cm">SIP konti</string>
+  <string name="respond_via_sms_cannot_be_empty">Ātrā atbilde nevar būt tukša</string>
+  <string name="call_recording_format">Sarunas ierakstīšanas formāts</string>
 </resources>
