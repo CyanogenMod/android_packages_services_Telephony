@@ -86,7 +86,6 @@ public class ConferenceParticipantConnection extends Connection {
                 break;
             case STATE_DISCONNECTED:
                 setDisconnected(new DisconnectCause(DisconnectCause.CANCELED));
-                destroy();
                 break;
             default:
                 setActive();

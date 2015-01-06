@@ -495,6 +495,9 @@ public class ImsConference extends Conference {
                 ConferenceParticipantConnection connection =
                         mConferenceParticipantConnections.get(endpoint);
                 connection.updateState(participant.getState());
+                if (participant.getState() == ConferenceParticipantConnection.STATE_DISCONNECTED) {
+                    removeConferenceParticipant(connection);
+                }
             }
         }
 
