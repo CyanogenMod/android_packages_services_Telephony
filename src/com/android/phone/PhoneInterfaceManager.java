@@ -1580,14 +1580,19 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      * @return true if a ICC card is present
      */
     public boolean hasIccCard() {
-        return hasIccCardUsingSlotId(getDefaultSim());
+        return hasIccCardUsingSlotId(mSubscriptionController.getSlotId(getDefaultSubscription()));
     }
 
     /**
      * @return true if a ICC card is present for a slotId
      */
     public boolean hasIccCardUsingSlotId(int slotId) {
-        return getPhone(slotId).getIccCard().hasIccCard();
+        int subId[] = mSubscriptionController.getSubIdUsingSlotId(slotId);
+        if (subId != null) {
+            return getPhone(subId[0]).getIccCard().hasIccCard();
+        } else {
+            return false;
+        }
     }
 
     /**
