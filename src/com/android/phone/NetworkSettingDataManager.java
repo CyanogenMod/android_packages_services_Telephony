@@ -114,7 +114,7 @@ public class NetworkSettingDataManager {
             if (mNetworkSearchDataDisabled || mNetworkSearchDataDisconnecting) {
                 //enable data service
                 mTelephonyManager.setDataEnabledUsingSubId( SubscriptionManager
-                        .getDefaultSubId(), true);
+                        .getDefaultDataSubId(), true);
                 mContext.unregisterReceiver(mReceiver);
                 mNetworkSearchDataDisabled = false;
                 mNetworkSearchDataDisconnecting = false;
@@ -140,7 +140,7 @@ public class NetworkSettingDataManager {
                 mContext.registerReceiver(mReceiver, intentFilter);
                 mNetworkSearchDataDisconnecting = true;
                 mTelephonyManager.setDataEnabledUsingSubId(SubscriptionManager
-                        .getDefaultSubId(), false);
+                        .getDefaultDataSubId(), false);
             } else if (which == DialogInterface.BUTTON_NEGATIVE){
                 log(" network search, do nothing");
                 msg1.arg1 = 0;
