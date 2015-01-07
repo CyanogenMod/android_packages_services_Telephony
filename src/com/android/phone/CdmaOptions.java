@@ -47,9 +47,11 @@ public class CdmaOptions {
     private static final String BUTTON_CDMA_ACTIVATE_DEVICE_KEY = "cdma_activate_device_key";
     private static final String BUTTON_CARRIER_SETTINGS_KEY = "carrier_settings_key";
     private static final String BUTTON_APN_EXPAND_KEY = "button_apn_key";
+    private static final String BUTTON_OPERATOR_SELECTION_EXPAND_KEY = "button_carrier_sel_key";
 
     private PreferenceActivity mPrefActivity;
     private PreferenceScreen mPrefScreen;
+    private PreferenceScreen mButtonOperatorSelectionExpand;
     private Phone mPhone;
 
     public CdmaOptions(PreferenceActivity prefActivity, PreferenceScreen prefScreen, Phone phone) {
@@ -103,6 +105,14 @@ public class CdmaOptions {
             log("Both NV and Ruim NOT supported, REMOVE subscription type selection");
             mPrefScreen.removePreference(mPrefScreen
                                 .findPreference(BUTTON_CDMA_SUBSCRIPTION_KEY));
+        }
+
+        mButtonOperatorSelectionExpand =
+                (PreferenceScreen) mPrefScreen.findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY);
+        if (res.getBoolean(R.bool.config_disable_operator_selection_menu)) {
+            mButtonOperatorSelectionExpand.setEnabled(false);
+        } else {
+            mPrefScreen.removePreference(mButtonOperatorSelectionExpand);
         }
 
         final boolean voiceCapable = mPrefActivity.getResources().getBoolean(
