@@ -315,6 +315,12 @@ public class TelephonyConnectionService extends ConnectionService {
         if (foregroundCall.hasConnections()) {
             allConnections.addAll(foregroundCall.getConnections());
         }
+        if (phone.getImsPhone() != null) {
+            final Call imsFgCall = phone.getImsPhone().getForegroundCall();
+            if (imsFgCall.hasConnections()) {
+                allConnections.addAll(imsFgCall.getConnections());
+            }
+        }
         final Call backgroundCall = phone.getBackgroundCall();
         if (backgroundCall.hasConnections()) {
             allConnections.addAll(phone.getBackgroundCall().getConnections());
