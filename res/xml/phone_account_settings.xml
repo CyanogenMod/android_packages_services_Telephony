@@ -75,20 +75,20 @@
             android:entries="@array/sip_call_options_entries"
             android:entryValues="@array/sip_call_options_values"/>
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="sip_receive_calls_key"
             android:title="@string/sip_receive_calls"
             android:summary="@string/sip_receive_calls_summary"
             android:persistent="true"/>
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="duration_enable_key"
             android:persistent="false"
             android:title="@string/preferred_duration_title"
             android:summaryOn="@string/duration_enable_summary"
             android:summaryOff="@string/duration_disable_summary" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="button_vibrate_after_connected"
             android:title="@string/vibrate_after_connected_title"
             android:persistent="false"

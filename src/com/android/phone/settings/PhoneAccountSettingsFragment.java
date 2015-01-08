@@ -7,11 +7,11 @@ import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Icon;
 import android.net.sip.SipManager;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
@@ -79,11 +79,11 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private AccountSelectionPreference mDefaultOutgoingAccount;
 
     private ListPreference mUseSipCalling;
-    private CheckBoxPreference mSipReceiveCallsPreference;
+    private SwitchPreference mSipReceiveCallsPreference;
     private SipSharedPreferences mSipSharedPreferences;
 
-    private CheckBoxPreference mShowDurationCheckBox;
-    private CheckBoxPreference mVibrateAfterConnected;
+    private SwitchPreference mShowDurationSwitch;
+    private SwitchPreference mVibrateAfterConnected;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -191,7 +191,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
             mUseSipCalling.setValueIndex(optionsValueIndex);
             mUseSipCalling.setSummary(mUseSipCalling.getEntry());
 
-            mSipReceiveCallsPreference = (CheckBoxPreference)
+            mSipReceiveCallsPreference = (SwitchPreference)
                     getPreferenceScreen().findPreference(SIP_RECEIVE_CALLS_PREF_KEY);
             mSipReceiveCallsPreference.setEnabled(SipUtil.isPhoneIdle(getActivity()));
             mSipReceiveCallsPreference.setChecked(
@@ -202,17 +202,17 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
                     getPreferenceScreen().findPreference(SIP_SETTINGS_CATEGORY_PREF_KEY));
         }
 
-        mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
-        if (mShowDurationCheckBox != null) {
-            mShowDurationCheckBox.setOnPreferenceChangeListener(this);
+        mShowDurationSwitch = (SwitchPreference) findPreference(SHOW_DURATION_KEY);
+        if (mShowDurationSwitch != null) {
+            mShowDurationSwitch.setOnPreferenceChangeListener(this);
             boolean checked = Settings.System.getInt(getContext().getContentResolver(),
                     Constants.SETTINGS_SHOW_CALL_DURATION, 1) == 1;
-                    mShowDurationCheckBox.setChecked(checked);
-                    mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
+                    mShowDurationSwitch.setChecked(checked);
+                    mShowDurationSwitch.setSummary(checked ? R.string.duration_enable_summary
                             : R.string.duration_disable_summary);
         }
 
-        mVibrateAfterConnected = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
+        mVibrateAfterConnected = (SwitchPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
         if (mVibrateAfterConnected != null) {
             mVibrateAfterConnected.setOnPreferenceChangeListener(this);
             boolean checked = Settings.System.getInt(getContext().getContentResolver(),
@@ -244,11 +244,11 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
                 }
             }).start();
             return true;
-        } else if (pref == mShowDurationCheckBox) {
+        } else if (pref == mShowDurationSwitch) {
             boolean checked = (Boolean) objValue;
             Settings.System.putInt(getContext().getContentResolver(),
                     Constants.SETTINGS_SHOW_CALL_DURATION, checked ? 1 : 0);
-            mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
+            mShowDurationSwitch.setSummary(checked ? R.string.duration_enable_summary
                     : R.string.duration_disable_summary);
             return true;
         } else if (pref == mVibrateAfterConnected) {
