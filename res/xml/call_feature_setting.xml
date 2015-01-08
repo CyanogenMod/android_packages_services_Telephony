@@ -71,7 +71,7 @@
             android:ringtoneType="notification"
             android:defaultValue="content://settings/system/notification_sound" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="button_voicemail_notification_vibrate_key"
             android:title="@string/voicemail_notification_vibrate_when_title"
             android:persistent="true" />
@@ -89,7 +89,7 @@
 
     </PreferenceScreen>
 
-     <CheckBoxPreference
+     <SwitchPreference
         android:key="button_auto_retry_key"
         android:title="@string/auto_retry_mode_title"
         android:persistent="false"
@@ -103,7 +103,7 @@
         android:entries="@array/tty_mode_entries"
         android:entryValues="@array/tty_mode_values"/>
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="button_hac_key"
         android:title="@string/hac_mode_title"
         android:persistent="true"
