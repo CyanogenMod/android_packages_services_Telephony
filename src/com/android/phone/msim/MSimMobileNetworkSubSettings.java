@@ -26,7 +26,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.AsyncResult;
 import android.os.Bundle;
@@ -81,16 +80,14 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
     private static final String KEY_PREFERRED_LTE = "toggle_preferred_lte";
     private static final String BUTTON_UPLMN_KEY = "button_uplmn_key";
 
-    // Used for restoring the preference if APSS tune away is enabled
-    private static final String KEY_PREF_NETWORK_MODE = "pre_network_mode_sub";
-    private static final String PREF_FILE = "pre-network-mode";
-
     static final int preferredNetworkMode = Phone.PREFERRED_NT_MODE;
 
     //Information about logical "up" Activity
     private static final String UP_ACTIVITY_PACKAGE = "com.android.settings";
     private static final String UP_ACTIVITY_CLASS =
             "com.android.settings.Settings$WirelessSettingsActivity";
+
+    private static final String PROPERTY_GTA_OPEN_KEY = "persist.radio.multisim.gta";
 
     //UI objects
     private ListPreference mButtonPreferredNetworkMode;
@@ -558,8 +555,9 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 int networkMode = Integer.valueOf(
                         mButtonPreferredNetworkMode.getValue()).intValue();
                 setPreferredNetworkMode(networkMode);
-                setPrefNetworkTypeInSp(networkMode);
                 updateButtonPreferredLte();
+                if (SystemProperties.getBoolean(PROPERTY_GTA_OPEN_KEY, false))
+                    setPrefNetworkTypeInDb(networkMode);
             } else {
                 mPhone.getPreferredNetworkType(obtainMessage(MESSAGE_GET_PREFERRED_NETWORK_TYPE));
             }
@@ -754,14 +752,11 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         mPhone.setDataRoamingEnabled(enabled);
     }
 
-    private void setPrefNetworkTypeInSp(int preNetworkType) {
-        SharedPreferences sp = mPhone.getContext().getSharedPreferences(PREF_FILE,
-                Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putInt(KEY_PREF_NETWORK_MODE + mPhone.getPhoneId(), preNetworkType);
-        editor.apply();
-        log("updating network type : " + preNetworkType + " for phoneId : " + mPhone.getPhoneId() +
-            " in shared preference" + " context is : " + mPhone.getContext());
+    private void setPrefNetworkTypeInDb(int preNetworkType) {
+        android.telephony.TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
+                    Constants.SETTING_PRE_NW_MODE_DEFAULT,
+                    mPhone.getPhoneId(), preNetworkType);
+        log("updating network type : " + preNetworkType + " for phoneId : " + mPhone.getPhoneId());
     }
 
     // Set preferred LTE mode
