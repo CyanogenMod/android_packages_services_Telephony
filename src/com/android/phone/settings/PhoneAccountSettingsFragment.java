@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.net.sip.SipManager;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.preference.CheckBoxPreference;
+import android.preference.SwitchPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -57,7 +57,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private Preference mConfigureCallAssistant;
 
     private ListPreference mUseSipCalling;
-    private CheckBoxPreference mSipReceiveCallsPreference;
+    private SwitchPreference mSipReceiveCallsPreference;
     private SipSharedPreferences mSipSharedPreferences;
 
     @Override
@@ -125,7 +125,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
             mUseSipCalling.setValueIndex(optionsValueIndex);
             mUseSipCalling.setSummary(mUseSipCalling.getEntry());
 
-            mSipReceiveCallsPreference = (CheckBoxPreference)
+            mSipReceiveCallsPreference = (SwitchPreference)
                     getPreferenceScreen().findPreference(SIP_RECEIVE_CALLS_PREF_KEY);
             mSipReceiveCallsPreference.setEnabled(SipUtil.isPhoneIdle(getActivity()));
             mSipReceiveCallsPreference.setChecked(
