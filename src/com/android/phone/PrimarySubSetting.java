@@ -197,7 +197,7 @@ public class PrimarySubSetting extends Activity implements View.OnClickListener 
                     .setMessage(
                             getString(R.string.reg_failed_msg,
                                     mPrimarySubSelectionController.getSimName(sub)))
-                    .setNeutralButton(R.string.select_ok, null)
+                    .setNeutralButton(android.R.string.ok, null)
                     .create();
             alertDialog.show();
         } else {
@@ -214,7 +214,7 @@ public class PrimarySubSetting extends Activity implements View.OnClickListener 
                             finish();
                         }
                     })
-                    .setNegativeButton(R.string.select_cancel,
+                    .setNegativeButton(android.R.string.cancel,
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     finish();

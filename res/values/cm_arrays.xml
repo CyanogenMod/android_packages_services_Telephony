@@ -40,4 +40,16 @@
         <item>@string/preferred_network_mode_gsm_only_choice</item>
         <item>@string/preferred_network_mode_gsm_wcdma_preferred_choice</item>
     </string-array>
+
+    <string-array name="origin_carrier_names" translatable="false">
+        <item>China Mobile</item>
+        <item>China Unicom</item>
+        <item>China Telecom</item>
+    </string-array>
+
+    <string-array name="locale_carrier_names" translatable="false">
+        <item>@string/china_mobile</item>
+        <item>@string/china_unicom</item>
+        <item>@string/china_telecom</item>
+    </string-array>
 </resources>

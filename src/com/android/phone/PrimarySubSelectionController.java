@@ -302,7 +302,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
 
         // show data status
         html += mContext.getString(R.string.default_sim_setting) + "<br>"
-                + mContext.getString(R.string.mobile_data) + mobileDataState;
+                + mContext.getString(R.string.mobile_data, mobileDataState);
 
         return html;
     }
