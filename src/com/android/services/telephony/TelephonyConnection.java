@@ -915,6 +915,18 @@ abstract class TelephonyConnection extends Connection {
     }
 
     /**
+     * Checks for and returns the list of conference participants
+     * associated with this connection.
+     */
+    public List<ConferenceParticipant> getConferenceParticipants() {
+        if (mOriginalConnection == null) {
+            Log.v(this, "Null mOriginalConnection, cannot get conf participants.");
+            return null;
+        }
+        return mOriginalConnection.getConferenceParticipants();
+    }
+
+    /**
      * Checks to see the original connection corresponds to an active incoming call. Returns false
      * if there is no such actual call, or if the associated call is not incoming (See
      * {@link Call.State#isRinging}).
