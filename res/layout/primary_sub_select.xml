@@ -75,6 +75,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="0"
         android:background="@android:drawable/btn_default"
-        android:text="@string/select_ok" />
+        android:text="@android:string/ok" />
 
 </LinearLayout>

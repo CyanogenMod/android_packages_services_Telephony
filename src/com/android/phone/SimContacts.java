@@ -346,16 +346,21 @@ public class SimContacts extends ADNList {
             case MENU_DELETE_ALL:
                 title = getString(R.string.deleteAllSimEntries);
                 message = getString(R.string.deleteSimContacts);
+
                 DeleteAllSimContactsThread deleteThread = new DeleteAllSimContactsThread();
+
                 if (mCursor == null) {
-                    showToast(getString(R.string.cursorError));
+                    Log.e(LOG_TAG, "Cursor is null");
                     break;
                 }
+
                 prepareProgressDialog(title, message);
                 mProgressDialog.setButton(DialogInterface.BUTTON_NEGATIVE,
                         getString(R.string.cancel), deleteThread);
                 mProgressDialog.show();
+
                 deleteThread.start();
+
                 return true;
             case MENU_ADD_CONTACT:
                 showContactScreen(null, null, 1);
@@ -366,11 +371,11 @@ public class SimContacts extends ADNList {
 
                 ImportAllSimContactsThread thread = new ImportAllSimContactsThread();
 
-                // TODO: need to show some error dialog.
                 if (mCursor == null) {
-                    Log.e(LOG_TAG, "cursor is null. Ignore silently.");
+                    Log.e(LOG_TAG, "Cursor is null");
                     break;
                 }
+
                 prepareProgressDialog(title, message);
                 mProgressDialog.setButton(DialogInterface.BUTTON_NEGATIVE,
                         getString(R.string.cancel), thread);
@@ -431,7 +436,7 @@ public class SimContacts extends ADNList {
             startActivity(intent);
             finish();
         } else {
-            showToast(getString(R.string.cursorError));
+            Log.e(LOG_TAG, "Invalid cursor data");
         }
     }
 
@@ -448,7 +453,7 @@ public class SimContacts extends ADNList {
             startActivity(intent);
             finish();
         } else {
-            showToast(getString(R.string.cursorError));
+            Log.e(LOG_TAG, "Invalid cursor data");
         }
     }
 
@@ -506,7 +511,7 @@ public class SimContacts extends ADNList {
                         + " AND number=" + phoneNumber, null);
             displayProgress(true);
         } else {
-            showToast(getString(R.string.cursorError));
+            Log.e(LOG_TAG, "Invalid cursor data");
         }
     }
 
@@ -537,7 +542,7 @@ public class SimContacts extends ADNList {
             final String phoneNumber = mCursor.getString(NUMBER_COLUMN);
             showContactScreen(name, phoneNumber, 2);
         } else {
-            showToast(getString(R.string.cursorError));
+            Log.e(LOG_TAG, "Invalid cursor data");
         }
     }
 
