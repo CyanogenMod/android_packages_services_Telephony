@@ -318,7 +318,8 @@ public class MobileNetworkSettings extends PreferenceActivity
                 break;
         }
 
-        if (ImsManager.isVolteEnabledByPlatform(this)) {
+        if (ImsManager.isVolteEnabledByPlatform(this)
+                && ImsManager.isVolteProvisionedOnDevice(this)) {
             TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             tm.listen(mPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
         }
@@ -424,7 +425,8 @@ public class MobileNetworkSettings extends PreferenceActivity
         }
 
         // Enable enhanced 4G LTE mode settings depending on whether exists on platform
-        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByPlatform(this)) {
+        if (!(ImsManager.isVolteEnabledByPlatform(this)
+                && ImsManager.isVolteProvisionedOnDevice(this))) {
             Preference pref = prefSet.findPreference(BUTTON_4G_LTE_KEY);
             if (pref != null) {
                 prefSet.removePreference(pref);
@@ -520,7 +522,8 @@ public class MobileNetworkSettings extends PreferenceActivity
     protected void onPause() {
         super.onPause();
 
-        if (ImsManager.isVolteEnabledByPlatform(this)) {
+        if (ImsManager.isVolteEnabledByPlatform(this)
+                && ImsManager.isVolteProvisionedOnDevice(this)) {
             TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             tm.listen(mPhoneStateListener, PhoneStateListener.LISTEN_NONE);
         }
