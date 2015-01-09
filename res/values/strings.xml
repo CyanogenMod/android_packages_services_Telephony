@@ -1210,6 +1210,8 @@
          [CHAR LIMIT=30] -->
     <string name="voicemail_notification_ringtone_title">Sound</string>
 
+    <string name="ringtone_title">Phone ringtone</string>
+
     <!-- The default value value for voicemail notification. -->
     <string name="voicemail_notification_vibrate_when_default" translatable="false">never</string>
 
