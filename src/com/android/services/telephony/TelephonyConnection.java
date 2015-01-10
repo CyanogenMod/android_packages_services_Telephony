@@ -1011,7 +1011,7 @@ abstract class TelephonyConnection extends Connection {
         setActive();
     }
 
-    private void close() {
+    protected void close() {
         Log.v(this, "close");
         if (getPhone() != null) {
             if (getPhone().getState() == PhoneConstants.State.IDLE) {
