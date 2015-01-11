@@ -284,4 +284,6 @@
   <string name="disconnect_data_confirm">El serviciu de datos va desconeutase de mou temporal. ¿Daveres que quies siguir?</string>
   <string name="simContacts_title_cm">Xestionar contautos de tarxeta SIM</string>
   <string name="sip_accounts_title_cm">Cuentes SIP</string>
+  <string name="respond_via_sms_cannot_be_empty">La rempuesta rápida nun pue quedar balera</string>
+  <string name="call_recording_format">Formatu de grabación de llamaes</string>
 </resources>

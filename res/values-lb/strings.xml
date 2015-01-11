@@ -228,15 +228,6 @@
     <item>Chinesesch</item>
     <item>Hebräesch</item>
   </string-array>
-  <string-array name="list_language_values">
-    <item>"1"</item>
-    <item>"2"</item>
-    <item>"3"</item>
-    <item>"4"</item>
-    <item>"5"</item>
-    <item>"6"</item>
-    <item>"7"</item>
-  </string-array>
   <string name="list_language_dtitle">Sproochen</string>
   <string name="enable_disable_local_weather">Lokaalt Wieder</string>
   <string name="local_weather_enable">Lokaalt Wieder aktivéiert</string>
@@ -411,7 +402,7 @@
   <string name="incall_status_dialed_mmi">MMI-Sequenz gëtt gestartet\u2026</string>
   <string name="incall_error_supp_service_unknown">Net ënnerstëtze Service.</string>
   <string name="incall_error_supp_service_switch">Wiesselen tëscht Uriff net méiglech.</string>
-  <string name="incall_error_supp_service_separate">Uruff kann net getrennt ginn</string>
+  <string name="incall_error_supp_service_separate">Uruff kann net getrennt ginn.</string>
   <string name="incall_error_supp_service_transfer">Uruff kann net iwwerdroe ginn.</string>
   <string name="incall_error_supp_service_conference">Keng Telefonskonferenz méiglech.</string>
   <string name="incall_error_supp_service_reject">Uruff kann net refuséiert ginn.</string>
@@ -422,11 +413,11 @@
   <string name="emergency_enable_radio_dialog_retry">Plaz ouni Netzofdeckung; gëtt nees probéiert\u2026</string>
   <string name="dial_emergency_error">Uruff net geschéckt. <xliff:g id="non_emergency_number">%s</xliff:g> ass keng Noutruffnummer!</string>
   <string name="dial_emergency_empty_error">Uruff net geschéckt. Wiel eng Noutruffnummer!</string>
-  <string name="dialerKeyboardHintText">D\'Tastatur benotze fir auszewielen</string>
+  <string name="dialerKeyboardHintText">D\'Tastatur benotze fir ze wielen</string>
   <string name="onscreenHoldText">Halen</string>
   <string name="onscreenEndCallText">Anhänken</string>
   <string name="onscreenShowDialpadText">Wieltasten</string>
-  <string name="onscreenMuteText">Stomm</string>
+  <string name="onscreenMuteText">Roueg</string>
   <string name="onscreenAddCallText">Uruff dobäisetzen</string>
   <string name="onscreenMergeCallsText">Uriff verbannen</string>
   <string name="onscreenSwapCallsText">Auswiesselen</string>
@@ -600,7 +591,7 @@
   <string name="description_dial_button">wielen</string>
   <string name="description_delete_button">Récktast</string>
   <string name="accessibility_speakerphone_enabled">Lautsprecher aktivéiert.</string>
-  <string name="accessibility_call_muted">Uruff stomm geschalt.</string>
+  <string name="accessibility_call_muted">Uruff roueg geschalt.</string>
   <string name="description_target_answer">Äntweren</string>
   <string name="description_target_send_sms">SMS schécken</string>
   <string name="description_target_decline">Refuséieren</string>

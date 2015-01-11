@@ -79,8 +79,10 @@
   <string name="choose_forward_lookup_provider_title">Platssökningstjänst</string>
   <string name="choose_people_lookup_provider_title">Leverantör för personsökning</string>
   <string name="choose_reverse_lookup_provider_title">Leverantör för omvänd sökning</string>
+  <string name="sim_name">SIM namn</string>
   <string name="sub_no_sim">Inget SIM</string>
   <string name="sub_active">Aktiv</string>
+  <string name="sub_not_active">Inte aktiv</string>
   <string name="msim_call_selector_title">Ring <xliff:g id="number">%s</xliff:g> via</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
   <string name="cyngn_reverse_lookup_provider_name">Cyngn Kinesiska (CN)</string>
@@ -93,6 +95,7 @@
   <string name="network_forbidden">(Förbjudet)</string>
   <string name="call_barring">Samtalsspärr</string>
   <string name="call_barring_off">Av</string>
+  <string name="call_barring_outgoing_international">Internationella samtal</string>
   <string name="call_barring_outgoing_all">Alla utgående samtal</string>
   <string name="call_barring_incoming_all">Alla inkommande samtal</string>
   <string name="input_password">Ange lösenord</string>
@@ -106,6 +109,8 @@
   <string name="emergency_call">Ring</string>
   <string name="new_emergency_number">Nytt nödsamtalsnummer</string>
   <string name="emergency_call_number">Nödsamtalsnummer</string>
+  <string name="emergency_number_exist">Det angivna nödsamtalsnumret finns redan.</string>
+  <string name="emergency_number_save_error">Det angivna nödsamtalsnumret är för långt.</string>
   <string name="ipcall_dialog_title">IP-samtalsinställningar</string>
   <string name="notification_missedVideoCallTitle">Missat videosamtal</string>
   <string name="notification_missedVideoCallsTitle">Missade videosamtal</string>
@@ -121,13 +126,27 @@
   <string name="dialog_network_priority_title">Prioritet</string>
   <string name="gsm_umts_network_preferences_title">Nätverksläge</string>
   <string name="gsm_umts_network_preferences_dialogtitle">Nätverksläge</string>
+  <string name="label_sdp">PIN för SIM-upplåsning</string>
   <string name="label_puk">Ange PUK</string>
+  <string name="puk_unlock_failed">PUK-upplåsning misslyckades.</string>
+  <string name="puk_unlock_success">PUK-upplåsning lyckades.</string>
+  <string name="stk_cc_ss_to_dial_error">SS-begäran ändrades till DIAL-begäran.</string>
+  <string name="stk_cc_ss_to_ussd_error">SS-begäran ändrades till USSD-begäran.</string>
+  <string name="stk_cc_ss_to_ss_error">SS-begäran ändrades till ny SS-begäran.</string>
   <string name="phone_numbers">Ange telefonnummer</string>
   <string name="sub1LineNumber">SIM 1 nummer:</string>
   <string name="sub2LineNumber">SIM 2 nummer:</string>
   <string name="proceed">Fortsätt</string>
+  <string name="sum_xdivert_enabled">X-Divert aktiverat</string>
+  <string name="sum_xdivert_disabled">X-Divert inaktiverat</string>
+  <string name="xdivert_not_supported">X-Divert stöds inte för CDMA</string>
+  <string name="xdivert_partial_set">X-Divert har endast ställts in för första SIM-kortet</string>
+  <string name="xdivert_status">X-Divert-status</string>
   <string name="xdivert_active">Aktiv</string>
   <string name="xdivert_not_active">Inaktiv</string>
+  <string name="xdivert_imsi_not_read">SIM-initiering pågår. Var god försök igen senare.</string>
+  <string name="ims_accounts_title">IMS-konto</string>
+  <string name="mo_call_type_title">MO-samtalstyp</string>
   <string name="ims_menu_save">Spara</string>
   <string name="ims_menu_discard">Avbryt</string>
   <string name="remove_ims_account">Ta bort konto</string>
@@ -147,11 +166,20 @@
   <string name="dial">Ring</string>
   <string name="enterName">Ange namn:</string>
   <string name="enterNumber">Ange telefonnummer:</string>
+  <string name="allContactdeleteFailed">Misslyckades med att ta bort alla kontakter från SIM</string>
+  <string name="set_subscription">Konfigurera SIM-kort</string>
+  <string name="set_subscription_error_atleast_one">Välj minst ett SIM-kort</string>
+  <string name="set_sub_1">SIM-kort 1: </string>
+  <string name="set_sub_2">SIM-kort 2: </string>
+  <string name="set_sub_3">SIM-kort 3: </string>
   <string name="set_sub_activate_success">Aktivering lyckades</string>
   <string name="set_sub_deactivate_success">Inaktivering lyckades</string>
   <string name="set_sub_activate_failed">Aktivering misslyckades</string>
   <string name="set_sub_global_activate_failed">Global aktivering misslyckades</string>
   <string name="set_sub_global_deactivate_failed">Global inaktivering misslyckades</string>
   <string name="set_sub_deactivate_failed">Inaktivering misslyckades</string>
+  <string name="set_sub_activate_not_supported">Aktivering stöds ej</string>
+  <string name="set_sub_deactivate_not_supported">Inaktivering stöds ej</string>
+  <string name="simContacts_title_cm">Hantera SIM-kortets kontakter</string>
   <string name="sip_accounts_title_cm">SIP-konton</string>
 </resources>

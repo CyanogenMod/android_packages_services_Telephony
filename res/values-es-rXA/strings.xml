@@ -33,7 +33,7 @@
   <string name="ok">Aceutar</string>
   <string name="audio_mode_speaker">Altavoz</string>
   <string name="audio_mode_earpiece">Auricular</string>
-  <string name="audio_mode_wired_headset">Auriculares</string>
+  <string name="audio_mode_wired_headset">Auriculares con cable</string>
   <string name="audio_mode_bluetooth">Bluetooth</string>
   <string name="wait_prompt_str">¿Quies unviar los siguientes tonos?\n</string>
   <string name="pause_prompt_str">Unviando tonos\n</string>
@@ -106,7 +106,7 @@
   <string name="radio_off_error">Pa ver esta configuración, tienes d\'activar la señal móvil.</string>
   <string name="close_dialog">Aceutar</string>
   <string name="enable">Habilitar</string>
-  <string name="disable">Inhabilitar</string>
+  <string name="disable">Deshabilitar</string>
   <string name="change_num">Anovar</string>
   <string-array name="clir_display_values">
     <item>Valor predetermináu de rede</item>
@@ -130,7 +130,7 @@
   <string name="not_allowed">La tarxeta SIM nun permite afitar conexón con esta rede.</string>
   <string name="connect_later">Nun pue coneutase a la rede nesti momentu. Inténtalo de nueves más tarde.</string>
   <string name="registration_done">Afitóse la conexón cola rede</string>
-  <string name="sum_carrier_select">Esbillar un operador de rede</string>
+  <string name="sum_carrier_select">Seleicionar un operador de rede</string>
   <string name="sum_search_networks">Guetar toles redes disponibles</string>
   <string name="select_automatically">Seleicionar automáticamente</string>
   <string name="sum_select_automatically">Seleicionar rede preferida automáticamente</string>
@@ -180,7 +180,7 @@
   <string name="throttle_current_usage">Datos del periodu actual</string>
   <string name="throttle_time_frame">Periodu usu datos</string>
   <string name="throttle_rate">Política velocidá datos</string>
-  <string name="throttle_help">Más información</string>
+  <string name="throttle_help">Deprendi más</string>
   <string name="throttle_status_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) de <xliff:g id="used">%3$s</xliff:g> periodu máximu\nSiguiente periodu entama en <xliff:g id="used">%4$d</xliff:g> díes (<xliff:g id="used">%5$s</xliff:g>)</string>
   <string name="throttle_data_usage_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) de <xliff:g id="used">%3$s</xliff:g> periodu maximu</string>
   <string name="throttle_data_rate_reduced_subtext">Máx de <xliff:g id="USED_0">%1$s</xliff:g> perpasáu.\nFrec datos reducida a <xliff:g id="USED_1">%2$d</xliff:g> Kb/s</string>
@@ -205,7 +205,7 @@
   <string name="bf_news_settings">Noticies financieres y comerciales</string>
   <string name="sports_news_settings">Noticies deportives</string>
   <string name="entertainment_news_settings">Noticies d\'entretenimientu</string>
-  <string name="enable_disable_local">Marcadores llocales</string>
+  <string name="enable_disable_local">Llocal</string>
   <string name="local_enable">Noticies llocales habilitaes</string>
   <string name="local_disable">Noticies llocales inhabilitaes</string>
   <string name="enable_disable_regional">Rexonal</string>
@@ -282,7 +282,7 @@
   <string name="cdma_system_select_dialogtitle">Esbilla de sistema</string>
   <string-array name="cdma_system_select_choices">
     <item>Namái sistema domésticu</item>
-    <item>Automática</item>
+    <item>Automáticu</item>
   </string-array>
   <string name="cdma_subscription_title">Soscripción CDMA</string>
   <string name="cdma_subscription_summary">Camudar ente RUIM/SIM y NV</string>
@@ -349,10 +349,10 @@
   <string name="confirmPinLabel">Confirma\'l PIN nuevu</string>
   <string name="badPin">El códigu PIN vieyu qu\'introduxisti nun ye correutu. Inténtalo de nueves.</string>
   <string name="mismatchPin">El códigu PIN qu\'introduxisti nun concasa. Inténtalo de nueves.</string>
-  <string name="invalidPin">Introduz un códigu PIN con una llonxitú ente cuatro y ocho díxitos.</string>
+  <string name="invalidPin">Introduz un códigu PIN ente 4 y 8 díxitos.</string>
   <string name="disable_sim_pin">Inhabilitar PIN de tarxeta SIM</string>
   <string name="enable_sim_pin">Habilitar PIN de tarxeta SIM</string>
-  <string name="enable_in_progress">Por favor, espera...</string>
+  <string name="enable_in_progress">Por favor, espera\u2026</string>
   <string name="enable_pin_ok">Habilitóse\'l códigu PIN de la tarxeta SIM.</string>
   <string name="disable_pin_ok">El códigu PIN de la tarxeta SIM ta inhabilitáu.</string>
   <string name="pin_failed">El códigu PIN qu\'introduxisti yera incorreutu.</string>
@@ -375,7 +375,7 @@
   <string name="pin2_attempts">\nQueden <xliff:g id="number">%d</xliff:g> intentos.</string>
   <string name="pin2_unblocked">PIN2 desbloquiáu!</string>
   <string name="doneButton">Fecho</string>
-  <string name="caller_manage_header">Conferencia telefónica<xliff:g id="CONF_CALL_TIME">%s</xliff:g></string>
+  <string name="caller_manage_header">Conferencia telefónica <xliff:g id="conf_call_time">%s</xliff:g></string>
   <string name="voicemail_settings_number_label">Númberu del buzón de voz</string>
   <string name="card_title_dialing">Llamando</string>
   <string name="card_title_redialing">Reintentando</string>
@@ -384,12 +384,12 @@
   <string name="card_title_call_ended">Llamada finada</string>
   <string name="card_title_on_hold">N\'espera</string>
   <string name="card_title_hanging_up">Colgando</string>
-  <string name="card_title_in_call">\u2026ta llamándote</string>
-  <string name="card_title_my_phone_number">El mio númberu ye <xliff:g id="MY_PHONE_NUMBER">%s</xliff:g>.</string>
+  <string name="card_title_in_call">En llamada</string>
+  <string name="card_title_my_phone_number">El mio númberu ye <xliff:g id="MY_PHONE_NUMBER">%s</xliff:g></string>
   <string name="notification_dialing">Llamando</string>
   <string name="notification_missedCallTitle">Llamada perdida</string>
   <string name="notification_missedCallsTitle">Llamaes perdíes</string>
-  <string name="notification_missedCallsMsg"><xliff:g id="NUM_MISSED_CALLS">%s</xliff:g> llamaes perdíes</string>
+  <string name="notification_missedCallsMsg"><xliff:g id="num_missed_calls">%s</xliff:g> llamaes perdíes</string>
   <string name="notification_missedCallTicker">Llamada perdida de <xliff:g id="MISSED_CALL_FROM">%s</xliff:g></string>
   <string name="notification_ongoing_call">Llamada en cursu</string>
   <string name="notification_on_hold">N\'espera</string>
@@ -399,28 +399,28 @@
   <string name="notification_voicemail_text_format">Marcar <xliff:g id="VOICEMAIL_NUMBER">%s</xliff:g></string>
   <string name="notification_voicemail_no_vm_number">Númberu del buzón de voz desconocíu</string>
   <string name="notification_network_selection_title">Ensin serviciu</string>
-  <string name="notification_network_selection_text">La rede esbillada (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) nun ta disponible.</string>
+  <string name="notification_network_selection_text">La rede esbillada (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) nun ta disponible</string>
   <string name="notification_action_end_call">Colgar</string>
   <string name="notification_missedCall_call_back">Llamar</string>
   <string name="notification_missedCall_message">Mensaxe</string>
   <string name="incall_error_power_off">Pa facer una llamada, primero tienes de desactivar el mou avión.</string>
-  <string name="incall_error_emergency_only">Nun pudo coneutase a la rede</string>
+  <string name="incall_error_emergency_only">Non rexistráu na rede.</string>
   <string name="incall_error_out_of_service">La rede móvil nun ta disponible.</string>
   <string name="incall_error_no_phone_number_supplied">Nun se fexo la llamada; el númberu inxertáu nun ye válidu.</string>
   <string name="incall_error_call_failed">La llamada nun s\'unvió.</string>
   <string name="incall_status_dialed_mmi">Aniciando secuencia MMI\u2026</string>
-  <string name="incall_error_supp_service_unknown">Serviciu no almitíu</string>
+  <string name="incall_error_supp_service_unknown">Serviciu non almitíu.</string>
   <string name="incall_error_supp_service_switch">Nun pudo cambiase de llamada.</string>
   <string name="incall_error_supp_service_separate">Nun pudo desvinculase la llamada.</string>
   <string name="incall_error_supp_service_transfer">Nun pudo tresferise la llamada.</string>
   <string name="incall_error_supp_service_conference">Nun pudo facese la conferencia telefónica.</string>
   <string name="incall_error_supp_service_reject">Nun pudo refugase la llamada.</string>
-  <string name="incall_error_supp_service_hangup">Nun ye dable finar les llamaes actives.</string>
-  <string name="incall_call_type_label_sip">Llamada por Internet</string>
+  <string name="incall_error_supp_service_hangup">Nun ye dable rellanzar llamada(es).</string>
+  <string name="incall_call_type_label_sip">Llamada per Internet</string>
   <string name="emergency_enable_radio_dialog_title">Llamada d\'emerxencia</string>
-  <string name="emergency_enable_radio_dialog_message">Activando señal móvil\u2026</string>
+  <string name="emergency_enable_radio_dialog_message">Activando señal radio\u2026</string>
   <string name="emergency_enable_radio_dialog_retry">Área fuera de serviciu; reintentando\u2026</string>
-  <string name="dial_emergency_error">Nun s\'unvió la llamada. <xliff:g id="NON_EMERGENCY_NUMBER">%s</xliff:g> nun ye un númberu d\'emerxencia!</string>
+  <string name="dial_emergency_error">Nun s\'unvió la llamada. <xliff:g id="non_emergency_number">%s</xliff:g> nun ye un númberu d\'emerxencia!</string>
   <string name="dial_emergency_empty_error">La llamada nun s\'unvió. Marca un númberu d\'emerxencia!</string>
   <string name="dialerKeyboardHintText">Usar tecláu pa marcar</string>
   <string name="onscreenHoldText">Retener</string>
@@ -428,8 +428,8 @@
   <string name="onscreenShowDialpadText">Tecláu</string>
   <string name="onscreenMuteText">Silenciar</string>
   <string name="onscreenAddCallText">Amestar llamada</string>
-  <string name="onscreenMergeCallsText">Llamada a trés</string>
-  <string name="onscreenSwapCallsText">Camudar</string>
+  <string name="onscreenMergeCallsText">Mecer llamaes</string>
+  <string name="onscreenSwapCallsText">Intercambiar</string>
   <string name="onscreenManageCallsText">Alministrar llamaes</string>
   <string name="onscreenManageConferenceText">Alministrar conferencia</string>
   <string name="onscreenAudioText">Audiu</string>
@@ -471,7 +471,7 @@
   <string name="ota_unsuccessful">El teléfonu nun s\'activó. \nYe dable que tengas qu\'allugate nuna zona con más cobertoria (cerca d\'una ventana o nel esterior). \n\nInténtalo de nueves o ponte en contautu col serviciu d\'atención al veceru pa consultar otres opciones.</string>
   <string name="ota_spc_failure">ESCESU DE FALLOS DE SPC</string>
   <string name="ota_call_end">Atrás</string>
-  <string name="ota_try_again">Vuelvi a intentalo</string>
+  <string name="ota_try_again">Inténtalo de nueves</string>
   <string name="ota_next">Siguiente</string>
   <string name="ecm_exit_dialog">EcmExitDialog</string>
   <string name="phone_entered_ecm_text">Activóse\'l mou de devolución de llamada d\'emerxencia.</string>
@@ -518,7 +518,7 @@
   <string name="remember_my_choice">Usar siempre pa facer llamaes d\'Internet</string>
   <string name="reset_my_choice_hint">Pa camudar la cuenta de llamaes per Internet que quies usar de forma predeterminada, vete a Teléfonu &gt; Axustes &gt; Axustes de llamada per Internet &gt; Cuentes.</string>
   <string name="pstn_phone">Llamada de teléfonu móvil</string>
-  <string name="internet_phone">Llamada por Internet</string>
+  <string name="internet_phone">Llamada per Internet</string>
   <string name="no_sip_account_found_title">Ensin cuentes de llamada per Internet</string>
   <string name="no_sip_account_found">Nun hai cuentes de llamaes per Internet nesti teléfonu. ¿Quies amestar una cuenta agora?</string>
   <string name="sip_menu_add">Amestar</string>
@@ -572,19 +572,19 @@
   <string name="no_internet_available">Pa facer una llamada per Internet, comprueba la conexón a Internet.</string>
   <string name="no_wifi_available">Pa facer llamaes per Internet, tienes de tar coneutáu a una rede Wi-Fi (usa la opción Conexones inalámbriques y redes).</string>
   <string name="no_voip">Nun s\'almiten llamaes per Internet</string>
-  <string translatable="true" name="sip_system_decide">Automática</string>
+  <string translatable="true" name="sip_system_decide">Automáticu</string>
   <string translatable="true" name="sip_always_send_keepalive">Unviar siempre</string>
   <string name="not_voice_capable">Llamaes de voz non almitíes</string>
   <string name="respond_via_sms_canned_response_1">Nun puedo falar. ¿Ye importante?</string>
   <string name="respond_via_sms_canned_response_2">Llámote namás pueda.</string>
   <string name="respond_via_sms_canned_response_3">Llámote dempués.</string>
-  <string name="respond_via_sms_canned_response_4">Nun puedo falar. Llámame llueu.</string>
-  <string name="respond_via_sms_custom_message">Escribi una rempuesta\u2026</string>
+  <string name="respond_via_sms_canned_response_4">Nun puedo falar. Llámesme llueu?</string>
+  <string name="respond_via_sms_custom_message">Escribi una rempuesta...</string>
   <string name="respond_via_sms_setting_title">Rempuestes rápides</string>
   <string name="respond_via_sms_setting_title_2">Editar rempuestes rápides</string>
   <string name="respond_via_sms_edittext_dialog_title">Rempuesta rápida</string>
   <string name="respond_via_sms_menu_reset_default_activity">Restaurar valores predeterminaos</string>
-  <string name="respond_via_sms_confirmation_format">Mensaxe unviáu a <xliff:g id="PHONE_NUMBER">%s</xliff:g></string>
+  <string name="respond_via_sms_confirmation_format">Mensaxe unviáu a <xliff:g id="PHONE_NUMBER">%s</xliff:g>.</string>
   <string name="description_image_button_one">uno</string>
   <string name="description_image_button_two">dos</string>
   <string name="description_image_button_three">trés</string>
@@ -599,8 +599,8 @@
   <string name="description_image_button_pound">llibra</string>
   <string name="description_dial_button">marcar</string>
   <string name="description_delete_button">retroceder un espaciu</string>
-  <string name="accessibility_speakerphone_enabled">Altavoz habilitáu</string>
-  <string name="accessibility_call_muted">Llamada silenciada</string>
+  <string name="accessibility_speakerphone_enabled">Altavoz habilitáu.</string>
+  <string name="accessibility_call_muted">Llamada silenciada.</string>
   <string name="description_target_answer">Responder</string>
   <string name="description_target_send_sms">Unviar SMS</string>
   <string name="description_target_decline">Refugar</string>
@@ -613,5 +613,4 @@
   <string name="dtmf_tone_enable_title">Sonar al marcar númberu</string>
   <string name="dial_pad_autocomplete">Autocompletar con tecláu</string>
   <string name="preference_category_ringtone">Tonu y vibración</string>
-  <string name="call_settings_title_font_family">sans-serif-light</string>
 </resources>
