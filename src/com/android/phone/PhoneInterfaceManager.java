@@ -2190,4 +2190,22 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         }
         return result;
     }
+
+    /**
+     * Returns the unique device ID of phone, for example, the IMEI for
+     * GSM and the MEID for CDMA phones. Return null if device ID is not available.
+     *
+     * <p>Requires Permission:
+     *   {@link android.Manifest.permission#READ_PHONE_STATE READ_PHONE_STATE}
+     */
+    @Override
+    public String getDeviceId() {
+        enforceReadPermission();
+        final Phone phone = PhoneFactory.getPhone(0);
+        if (phone != null) {
+            return phone.getDeviceId();
+        } else {
+            return null;
+        }
+    }
 }
