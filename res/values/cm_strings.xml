@@ -254,13 +254,13 @@
     <string name="preferred_network_mode_gsm_only_choice">GSM only</string>
     <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferred</string>
 
-    <string name="network_settings_sel_sub">SUBS Settings</string>
+    <string name="network_settings_sel_sub">Mobile Settings</string>
     <string name="summary_manage_subscriptions">Manage Network settings of each subscriptions</string>
 
     <!-- Call Independent services screen title-->
     <string name="call_ind_services">Call Independent Services</string>
     <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
-    <string name="callind_multi_sim">SUBS Settings</string>
+    <string name="callind_multi_sim">Mobile Settings</string>
     <!-- button name for direct launch of Call Feature screen for Single Sim Functionality -->
     <string name="callind">Call Feature Settings</string>
 
@@ -287,12 +287,12 @@
 
     <!-- Shown in "Managed Roaming" dialog when registration is denied with rejCode 10. -->
     <string name="managed_roaming_title">Managed Roaming</string>
-    <string name="managed_roaming_title_sub">Managed Roaming (SUB<xliff:g id="index" example="1">%d</xliff:g>)</string>
+    <string name="managed_roaming_title_sub">Managed Roaming (SIM <xliff:g id="index" example="1">%d</xliff:g>)</string>
     <string name="managed_roaming_dialog_content">Network with Limited Service found. Do you want to initiate a Network Search?</string>
 
     <!-- Sim contacts management -->
     <string name="contactScreen"> Add/Edit SIM Contact</string>
-    <string name="exportContactScreen"> Export phone contacts to sim </string>
+    <string name="exportContactScreen"> Export phone contacts to SIM </string>
     <string name="addSimEntries"> Add SIM Contact</string>
     <string name="deleteAllSimEntries"> Delete All SIM Contacts</string>
     <string name="deleteSimContacts">Deleting SIM contacts</string>
