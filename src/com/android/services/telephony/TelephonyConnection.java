@@ -118,9 +118,10 @@ abstract class TelephonyConnection extends Connection {
                     updateState();
                     break;
                 case MSG_SUPP_SERVICE_NOTIFY:
-                    Log.v(TelephonyConnection.this, "MSG_SUPP_SERVICE_NOTIFY on phoneId : "
-                            +getPhone().getPhoneId());
-                    if (msg.obj != null && ((AsyncResult) msg.obj).result != null) {
+                    if (msg.obj != null && ((AsyncResult) msg.obj).result != null
+                            && mOriginalConnection != null) {
+                        Log.v(TelephonyConnection.this, "MSG_SUPP_SERVICE_NOTIFY on phoneId : "
+                                + getPhone().getPhoneId());
                         mSsNotification =
                                 (SuppServiceNotification)((AsyncResult) msg.obj).result;
                         String callForwardText = getSuppSvcNotificationText(mSsNotification);
@@ -139,6 +140,9 @@ abstract class TelephonyConnection extends Connection {
                             Toast.makeText(TelephonyGlobals.getApplicationContext(),
                                     mDisplayName, Toast.LENGTH_LONG).show();
                         }
+                    } else {
+                        Log.v(TelephonyConnection.this,
+                                "MSG_SUPP_SERVICE_NOTIFY event processing failed");
                     }
                     break;
                 case MSG_PHONE_VP_ON:
@@ -834,6 +838,10 @@ abstract class TelephonyConnection extends Connection {
             getPhone().unregisterForRingbackTone(mHandler);
             getPhone().unregisterForHandoverStateChanged(mHandler);
             getPhone().unregisterForDisconnect(mHandler);
+            getPhone().unregisterForSuppServiceNotification(mHandler);
+            getPhone().unregisterForInCallVoicePrivacyOn(mHandler);
+            getPhone().unregisterForInCallVoicePrivacyOff(mHandler);
+            getPhone().unregisterForSuppServiceFailed(mHandler);
             mOriginalConnection = null;
         }
     }
@@ -1049,12 +1057,7 @@ abstract class TelephonyConnection extends Connection {
                 Log.i(this, "disable local call hold, if not already done by telecomm service");
                 setLocalCallHold(0);
             }
-            getPhone().unregisterForPreciseCallStateChanged(mHandler);
-            getPhone().unregisterForRingbackTone(mHandler);
-            getPhone().unregisterForHandoverStateChanged(mHandler);
-            getPhone().unregisterForSuppServiceNotification(mHandler);
-            getPhone().unregisterForInCallVoicePrivacyOn(mHandler);
-            getPhone().unregisterForInCallVoicePrivacyOff(mHandler);
+            clearOriginalConnection();
         }
         mOriginalConnection = null;
         destroy();
