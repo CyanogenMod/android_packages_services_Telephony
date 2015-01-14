@@ -55,7 +55,7 @@ abstract class TelephonyConnection extends Connection {
     private static final String ACTION_SUPP_SERVICE_FAILURE =
             "org.codeaurora.ACTION_SUPP_SERVICE_FAILURE";
 
-    private String[] mSubName = {"SUB 1", "SUB 2", "SUB 3"};
+    private String[] mSubName = {"SIM 1", "SIM 2", "SIM 3"};
     private String mDisplayName;
     private boolean mVoicePrivacyState = false;
 
