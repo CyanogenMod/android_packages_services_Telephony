@@ -36,10 +36,19 @@ import static android.provider.SearchIndexablesContract.NON_INDEXABLES_KEYS_COLU
 public class PhoneSearchIndexablesProvider extends SearchIndexablesProvider {
     private static final String TAG = "PhoneSearchIndexablesProvider";
 
+    private static String className;
+
+    static {
+        if(PhoneUtils.isMultiSimEnabled()) {
+            className = SelectSubscription.class.getName();
+        } else {
+            className = MobileNetworkSettings.class.getName();
+        }
+    }
+
     private static SearchIndexableResource[] INDEXABLE_RES = new SearchIndexableResource[] {
             new SearchIndexableResource(1, R.xml.network_setting,
-                    MobileNetworkSettings.class.getName(),
-                    R.mipmap.ic_launcher_phone),
+                    className, R.mipmap.ic_launcher_phone),
     };
 
     @Override
@@ -55,7 +64,8 @@ public class PhoneSearchIndexablesProvider extends SearchIndexablesProvider {
             Object[] ref = new Object[7];
             ref[COLUMN_INDEX_XML_RES_RANK] = INDEXABLE_RES[n].rank;
             ref[COLUMN_INDEX_XML_RES_RESID] = INDEXABLE_RES[n].xmlResId;
-            ref[COLUMN_INDEX_XML_RES_CLASS_NAME] = null;
+            ref[COLUMN_INDEX_XML_RES_CLASS_NAME] = PhoneUtils.isMultiSimEnabled() ?
+                    "com.android.phone.MSimMobileNetworkSubSettings" : null;
             ref[COLUMN_INDEX_XML_RES_ICON_RESID] = INDEXABLE_RES[n].iconResId;
             ref[COLUMN_INDEX_XML_RES_INTENT_ACTION] = "android.intent.action.MAIN";
             ref[COLUMN_INDEX_XML_RES_INTENT_TARGET_PACKAGE] = "com.android.phone";
