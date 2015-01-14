@@ -115,7 +115,7 @@
     <!-- settings strings -->
 
     <!-- Error message for users that aren't allowed to modify Mobile Network settings [CHAR LIMIT=none] -->
-    <string name="mobile_network_settings_not_available">Cellular network settings are not available for this user</string>
+    <string name="mobile_network_settings_not_available">Mobile network settings are not available for this user</string>
     <!-- GSM Call settings screen, setting option name -->
     <string name="labelGSMMore">GSM call settings</string>
     <!-- CDM Call settings screen, setting option name -->
@@ -324,7 +324,7 @@
 
     <!-- networks setting strings --><skip/>
     <!-- Mobile network settings screen title -->
-    <string name="mobile_networks">Cellular network settings</string>
+    <string name="mobile_networks">Mobile network settings</string>
     <!-- Available networks screen title/heading -->
     <string name="label_available">Available networks</string>
     <!-- Mobile network settings screen, toast when searching for available networks -->
