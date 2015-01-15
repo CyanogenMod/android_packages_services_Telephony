@@ -46,7 +46,7 @@
 
     </PreferenceScreen>
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="button_auto_retry_key"
         android:title="@string/auto_retry_mode_title"
         android:persistent="false"
@@ -60,7 +60,7 @@
         android:entries="@array/tty_mode_entries"
         android:entryValues="@array/tty_mode_values"/>
 
-     <CheckBoxPreference
+     <SwitchPreference
         android:key="button_hac_key"
         android:title="@string/hac_mode_title"
         android:persistent="true"
@@ -73,7 +73,7 @@
         android:entries="@array/dtmf_tone_entries"
         android:entryValues="@array/dtmf_tone_values"/>
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="button_enable_video_calling"
         android:title="@string/enable_video_calling_title"
         android:persistent="true"

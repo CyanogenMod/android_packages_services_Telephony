@@ -42,12 +42,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.Settings;
 import android.telephony.PhoneNumberUtils;
@@ -270,7 +270,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private ListPreference mVoicemailProviders;
     private PreferenceScreen mVoicemailSettings;
     private Preference mVoicemailNotificationRingtone;
-    private CheckBoxPreference mVoicemailNotificationVibrate;
+    private SwitchPreference mVoicemailNotificationVibrate;
 
     private long mSubId;
     private int mSlotId;
@@ -1550,7 +1550,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             mVoicemailNotificationRingtone =
                     findPreference(BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY);
             mVoicemailNotificationVibrate =
-                    (CheckBoxPreference) findPreference(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY);
+                    (SwitchPreference) findPreference(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY);
             mVoicemailNotificationVibrate.setOnPreferenceChangeListener(this);
 
             initVoiceMailProviders();
