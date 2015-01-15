@@ -429,8 +429,6 @@ public class TelephonyConnectionService extends ConnectionService {
             boolean isForwarded = extras != null
                     && extras.getBoolean(TelephonyManager.EXTRA_IS_FORWARDED, false);
             returnConnection = new GsmConnection(originalConnection, isForwarded);
-            mTelephonyConferenceController[phoneId].add(returnConnection);
-            return returnConnection;
         } else if (phoneType == TelephonyManager.PHONE_TYPE_CDMA) {
             boolean allowMute = allowMute(phone);
             returnConnection = new CdmaConnection(
