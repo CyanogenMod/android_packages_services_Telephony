@@ -305,14 +305,13 @@ public class MobileNetworkSettings extends PreferenceActivity
         boolean isLteOnCdma = mPhone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE;
         mIsGlobalCdma = isLteOnCdma && getResources().getBoolean(R.bool.config_show_cdma);
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        // mButtonEnabledNetworks is not needed anymore
+        prefSet.removePreference(mButtonEnabledNetworks);
         if (tm.getSimplifiedNetworkSettingsEnabledForSubscriber(SubscriptionManager.getDefaultSubId())) {
             prefSet.removePreference(mButtonPreferredNetworkMode);
             prefSet.removePreference(mButtonEnabledNetworks);
             prefSet.removePreference(mLteDataServicePref);
         } else if (getResources().getBoolean(R.bool.world_phone) == true) {
-            prefSet.removePreference(mButtonEnabledNetworks);
-            // mButtonEnabledNetworks = null as it is not needed anymore
-            mButtonEnabledNetworks = null;
             // set the listener for the mButtonPreferredNetworkMode list preference so we can issue
             // change Preferred Network Mode.
             mButtonPreferredNetworkMode.setOnPreferenceChangeListener(this);
@@ -325,9 +324,17 @@ public class MobileNetworkSettings extends PreferenceActivity
             mCdmaOptions = new CdmaOptions(this, prefSet, mPhone);
             mGsmUmtsOptions = new GsmUmtsOptions(this, prefSet);
         } else {
-            prefSet.removePreference(mButtonPreferredNetworkMode);
-            // mButtonPreferredNetworkMode = null as it is not needed anymore
-            mButtonPreferredNetworkMode = null;
+            if (!isLteOnCdma) {
+                prefSet.removePreference(mButtonPreferredNetworkMode);
+            } else {
+                mButtonPreferredNetworkMode.setOnPreferenceChangeListener(this);
+                int settingsNetworkMode = android.provider.Settings.Global.getInt(
+                        mPhone.getContext().getContentResolver(),
+                        android.provider.Settings.Global.PREFERRED_NETWORK_MODE,
+                        preferredNetworkMode);
+                mButtonPreferredNetworkMode.setValue(
+                        Integer.toString(settingsNetworkMode));
+            }
             int phoneType = mPhone.getPhoneType();
             if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
                 if (isLteOnCdma) {
