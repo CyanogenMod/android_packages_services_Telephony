@@ -41,6 +41,8 @@ import android.net.ConnectivityManager;
 import android.os.AsyncResult;
 import android.os.Message;
 import android.os.RemoteException;
+import android.os.SystemProperties;
+
 import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -59,12 +61,15 @@ public class NetworkSettingDataManager {
     private TelephonyManager mTelephonyManager;
     private boolean mNetworkSearchDataDisconnecting = false;
     private boolean mNetworkSearchDataDisabled = false;
+    private boolean mAppDisableData = true;
     Message mMsg;
 
     public NetworkSettingDataManager(Context context) {
         mContext  = context;
         if (DBG) log(" Create NetworkSettingDataManager");
         mTelephonyManager = (TelephonyManager)mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        mAppDisableData = SystemProperties.getBoolean("persist.radio.plmn_disable_data", true);
+        log("mAppDisableData: " + mAppDisableData);
     }
 
     /**
@@ -111,8 +116,10 @@ public class NetworkSettingDataManager {
                 msg.sendToTarget();
             }
         } else {
-            if (mNetworkSearchDataDisabled || mNetworkSearchDataDisconnecting) {
+            if (mAppDisableData &&
+                    mNetworkSearchDataDisabled || mNetworkSearchDataDisconnecting) {
                 //enable data service
+                log("Enabling data");
                 mTelephonyManager.setDataEnabledUsingSubId( SubscriptionManager
                         .getDefaultDataSubId(), true);
                 mContext.unregisterReceiver(mReceiver);
@@ -133,6 +140,13 @@ public class NetworkSettingDataManager {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             if (which == DialogInterface.BUTTON_POSITIVE){
+                // If apps not required to disable DATA then send SUCCESS
+                // status to client for processing MPLMN search request
+                if (!mAppDisableData) {
+                    msg1.arg1 = 1;
+                    msg1.sendToTarget();
+                    return;
+                }
                 //disable data service
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction(
