@@ -30,7 +30,6 @@
 package com.android.phone;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -41,14 +40,12 @@ import android.os.Message;
 import android.provider.ContactsContract;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 import android.view.Window;
 import android.widget.TextView;
-
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.widget.Toast;
 
 import static android.view.Window.PROGRESS_VISIBILITY_OFF;
 import static android.view.Window.PROGRESS_VISIBILITY_ON;
@@ -163,22 +160,8 @@ public class ExportContactsToSim extends Activity {
         }
     }
 
-    private void showAlertDialog(String value) {
-        if (!mIsForeground) {
-            Log.d(TAG, "The activitiy is not in foreground. Do not display dialog!!!");
-            return;
-        }
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Result...");
-        alertDialog.setMessage(value);
-        alertDialog.setCanceledOnTouchOutside(false);
-        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // finish ExportContacts activity
-                finish();
-            }
-        });
-        alertDialog.show();
+    private void showToast(String value) {
+        Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
     }
 
     private void displayProgress(boolean loading) {
@@ -195,11 +178,14 @@ public class ExportContactsToSim extends Activity {
                 case CONTACTS_EXPORTED:
                     int result = (Integer)msg.obj;
                     if (result == SUCCESS) {
-                        showAlertDialog(getString(R.string.exportAllcontatsSuccess));
+                        showToast(getString(R.string.exportAllcontatsSuccess));
                     } else if (result == NO_CONTACTS) {
-                        showAlertDialog(getString(R.string.exportAllcontatsNoContacts));
+                        showToast(getString(R.string.exportAllcontatsNoContacts));
                     } else {
-                        showAlertDialog(getString(R.string.exportAllcontatsFailed));
+                        showToast(getString(R.string.exportAllcontatsFailed));
+                    }
+                    if (mIsForeground) {
+                       finish();
                     }
                     break;
             }
