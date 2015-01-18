@@ -280,9 +280,6 @@
     <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
     <string name="simContacts_title_cm">Manage SIM card contacts</string>
 
-    <!-- Call settings: title of the dialog shown for SIM contact related operations. -->
-    <string name="Result_title">Result...</string>
-
     <string name="ringtone_title">Phone ringtone</string>
 
     <!-- Sim contacts management -->

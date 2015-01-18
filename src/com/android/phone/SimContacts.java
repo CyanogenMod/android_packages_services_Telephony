@@ -348,7 +348,7 @@ public class SimContacts extends ADNList {
                 message = getString(R.string.deleteSimContacts);
                 DeleteAllSimContactsThread deleteThread = new DeleteAllSimContactsThread();
                 if (mCursor == null) {
-                    showAlertDialog(getString(R.string.cursorError));
+                    showToast(getString(R.string.cursorError));
                     break;
                 }
                 prepareProgressDialog(title, message);
@@ -431,7 +431,7 @@ public class SimContacts extends ADNList {
             startActivity(intent);
             finish();
         } else {
-            showAlertDialog(getString(R.string.cursorError));
+            showToast(getString(R.string.cursorError));
         }
     }
 
@@ -448,7 +448,7 @@ public class SimContacts extends ADNList {
             startActivity(intent);
             finish();
         } else {
-            showAlertDialog(getString(R.string.cursorError));
+            showToast(getString(R.string.cursorError));
         }
     }
 
@@ -506,7 +506,7 @@ public class SimContacts extends ADNList {
                         + " AND number=" + phoneNumber, null);
             displayProgress(true);
         } else {
-            showAlertDialog(getString(R.string.cursorError));
+            showToast(getString(R.string.cursorError));
         }
     }
 
@@ -537,7 +537,7 @@ public class SimContacts extends ADNList {
             final String phoneNumber = mCursor.getString(NUMBER_COLUMN);
             showContactScreen(name, phoneNumber, 2);
         } else {
-            showAlertDialog(getString(R.string.cursorError));
+            showToast(getString(R.string.cursorError));
         }
     }
 
@@ -641,9 +641,9 @@ public class SimContacts extends ADNList {
                     reQuery();
                     int result = (Integer)msg.obj;
                     if (result == 1) {
-                        showAlertDialog(getString(R.string.allContactdeleteSuccess));
+                        showToast(getString(R.string.allContactdeleteSuccess));
                     } else {
-                        showAlertDialog(getString(R.string.allContactdeleteFailed));
+                        showToast(getString(R.string.allContactdeleteFailed));
                     }
                     break;
             }
