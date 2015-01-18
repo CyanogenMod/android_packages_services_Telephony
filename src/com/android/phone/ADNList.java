@@ -22,12 +22,10 @@ package com.android.phone;
 import static android.view.Window.PROGRESS_VISIBILITY_OFF;
 import static android.view.Window.PROGRESS_VISIBILITY_ON;
 
-import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -39,6 +37,7 @@ import android.view.Window;
 import android.widget.CursorAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.internal.telephony.PhoneFactory;
 
@@ -207,9 +206,9 @@ public class ADNList extends ListActivity {
             if (DBG) log("onInsertComplete: requery");
             displayProgress(false);
             if (uri != null) {
-                showAlertDialog(getString(R.string.contactAddSuccess));
+                showToast(getString(R.string.contactAddSuccess));
             } else {
-                showAlertDialog(getString(R.string.contactAddFailed));
+                showToast(getString(R.string.contactAddFailed));
             }
             reQuery();
         }
@@ -219,9 +218,9 @@ public class ADNList extends ListActivity {
             if (DBG) log("onUpdateComplete: requery");
             displayProgress(false);
             if (result == SUCCESS) {
-                showAlertDialog(getString(R.string.contactUpdateSuccess));
+                showToast(getString(R.string.contactUpdateSuccess));
             } else {
-                showAlertDialog(getString(R.string.contactUpdateFailed));
+                showToast(getString(R.string.contactUpdateFailed));
             }
             reQuery();
         }
@@ -231,24 +230,16 @@ public class ADNList extends ListActivity {
             if (DBG) log("onDeleteComplete: requery");
             displayProgress(false);
             if (result == SUCCESS) {
-                showAlertDialog(getString(R.string.contactdeleteSuccess));
+                showToast(getString(R.string.contactdeleteSuccess));
             } else {
-                showAlertDialog(getString(R.string.contactdeleteFailed));
+                showToast(getString(R.string.contactdeleteFailed));
             }
             reQuery();
         }
     }
 
-    protected void showAlertDialog(String value) {
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Result...");
-        alertDialog.setMessage(value);
-        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                //Just to provide information to user no need to do anything.
-            }
-        });
-        alertDialog.show();
+    protected void showToast(String value) {
+        Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
     }
 
     protected boolean isSimPresent() {
