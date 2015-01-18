@@ -40,7 +40,7 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name."
+        android:hint="@string/hintName"
         android:singleLine="true" >
         <requestFocus />
     </EditText>
@@ -55,7 +55,7 @@
         android:id="@+id/phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone Number."
+        android:hint="@string/hintPhonenumber"
         android:inputType="phone" />
 
     <LinearLayout

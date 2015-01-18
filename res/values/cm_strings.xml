@@ -433,6 +433,8 @@
     <string name="dial">Dial</string>
     <string name="enterName">Enter name:</string>
     <string name="enterNumber">Enter phone number:</string>
+    <string name="hintName">Name</string>
+    <string name="hintPhonenumber">Phone number</string>
     <string name="contactAddSuccess">Succesfully added contact to SIM</string>
     <string name="contactAddFailed">Failed to add contact to SIM</string>
     <string name="contactUpdateSuccess">Succesfully updated contact in SIM</string>
