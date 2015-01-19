@@ -100,7 +100,7 @@
   <string name="call_barring">Blocare apel</string>
   <string name="call_barring_off">Oprit</string>
   <string name="call_barring_outgoing">Blocare de apel extern</string>
-  <string name="call_barring_outgoing_international_roaming">Apeluri Internaționale în roaming</string>
+  <string name="call_barring_outgoing_international_roaming">Apeluri internaționale în roaming</string>
   <string name="call_barring_outgoing_international">Apeluri internaţionale</string>
   <string name="call_barring_outgoing_all">Toate apelurile efectuate</string>
   <string name="call_barring_incoming">Blocare apel primit</string>
@@ -242,9 +242,9 @@
   <string name="addSimEntries">Adăugare contact în SIM</string>
   <string name="deleteAllSimEntries">Şterge toate contactele din SIM</string>
   <string name="deleteSimContacts">Se șterg contactele din SIM\u2026</string>
-  <string name="editContact">Editaţi</string>
+  <string name="editContact">Editare</string>
   <string name="sendSms">Trimite SMS</string>
-  <string name="delete">Ștergeți</string>
+  <string name="delete">Ștergere</string>
   <string name="dial">Apelare</string>
   <string name="enterName">Introduceţi numele:</string>
   <string name="enterNumber">Introduceți un număr de telefon:</string>

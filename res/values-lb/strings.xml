@@ -130,7 +130,7 @@
   <string name="not_allowed">Deng SIM-Kaart erlaabt keng Connectioun mat dësem Netzwierk.</string>
   <string name="connect_later">Ka momentan keng Connectioun mat dësem Netzwierk hierstellen. Probéier méi spéit nees.</string>
   <string name="registration_done">Um Netzwierk ugemellt.</string>
-  <string name="sum_carrier_select">Netzwierk-Provider auswielen</string>
+  <string name="sum_carrier_select">Netzwierkprovider auswielen</string>
   <string name="sum_search_networks">All verfügbar Netzwierker sichen</string>
   <string name="select_automatically">Automatesch auswielen</string>
   <string name="sum_select_automatically">Automatesch dat preferréiert Netzwierk auswielen</string>
