@@ -180,4 +180,6 @@
 
     <!-- Disable Operator Selection Menu for some CDMA carriers -->
     <bool name="config_disable_operator_selection_menu">false</bool>
+   <!-- Config to enable/disable showing depersonalizationpanel dialog -->
+   <bool name="icc_depersonalizationPanelEnabled">true</bool>
 </resources>
