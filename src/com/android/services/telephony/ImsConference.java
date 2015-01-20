@@ -194,6 +194,16 @@ public class ImsConference extends Conference {
             mConferenceParticipantConnections =
                     new ConcurrentHashMap<Uri, ConferenceParticipantConnection>(8, 0.9f, 1);
 
+    public void updateConferenceStateAfterCreation() {
+        if (mConferenceHost != null) {
+            Log.v(this, "updateConferenceStateAfterCreation :: process participant update");
+            handleConferenceParticipantsUpdate(mConferenceHost,
+                    mConferenceHost.getConferenceParticipants());
+        } else {
+            Log.v(this, "updateConferenceStateAfterCreation :: null mConferenceHost");
+        }
+    }
+
     /**
      * Initializes a new {@link ImsConference}.
      *
