@@ -294,7 +294,7 @@
              non-voice-capable tablets and regular phone devices. -->
         <activity android:name="MobileNetworkSettings"
             android:label="@string/settings_label"
-            android:theme="@style/SettingsLight">
+            android:theme="@style/Theme.Material.Settings">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -459,7 +459,7 @@
        <!-- MSim Mobile Network Settings per subscription -->
        <activity android:name=".msim.MSimMobileNetworkSubSettings"
                 android:label="@string/settings_label"
-                android:theme="@style/SettingsLight">
+                android:theme="@style/Theme.Material.Settings">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
