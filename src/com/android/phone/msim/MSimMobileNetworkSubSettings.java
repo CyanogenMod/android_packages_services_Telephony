@@ -30,11 +30,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 import android.view.MenuItem;
@@ -90,7 +90,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
 
     //UI objects
     private ListPreference mButtonPreferredNetworkMode;
-    private CheckBoxPreference mButtonDataRoam;
+    private SwitchPreference mButtonDataRoam;
 
     private static final String iface = "rmnet0"; //TODO: this will go away
 
@@ -199,7 +199,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
         //get UI object references
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mButtonDataRoam = (CheckBoxPreference) prefSet.findPreference(BUTTON_ROAMING_KEY);
+        mButtonDataRoam = (SwitchPreference) prefSet.findPreference(BUTTON_ROAMING_KEY);
         mButtonPreferredNetworkMode = (ListPreference) prefSet.findPreference(
                 BUTTON_PREFERED_NETWORK_MODE);
 

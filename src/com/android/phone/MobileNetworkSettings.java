@@ -228,7 +228,6 @@ public class MobileNetworkSettings extends PreferenceActivity
 
     @Override
     protected void onCreate(Bundle icicle) {
-        setTheme(R.style.Theme_Material_Settings);
         super.onCreate(icicle);
 
         mPhone = PhoneUtils.getPhoneFromIntent(getIntent());
