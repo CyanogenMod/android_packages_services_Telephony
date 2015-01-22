@@ -22,6 +22,7 @@ import android.os.Message;
 import android.telecom.CallProperties;
 import android.telecom.PhoneCapabilities;
 
+import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.Phone;
@@ -43,6 +44,12 @@ final class GsmConnection extends TelephonyConnection {
         setCallProperties(computeCallProperties());
     }
 
+    GsmConnection(Connection connection, boolean isForwarded, Call.State state) {
+        super(connection, state);
+        mIsForwarded = isForwarded;
+        setCallProperties(computeCallProperties());
+    }
+
     /**
      * Clones the current {@link GsmConnection}.
      * <p>
@@ -52,7 +59,8 @@ final class GsmConnection extends TelephonyConnection {
      */
     @Override
     public TelephonyConnection cloneConnection() {
-        GsmConnection gsmConnection = new GsmConnection(getOriginalConnection(), false);
+        GsmConnection gsmConnection = new GsmConnection(getOriginalConnection(), false,
+                getOriginalConnectionState());
         return gsmConnection;
     }
 
