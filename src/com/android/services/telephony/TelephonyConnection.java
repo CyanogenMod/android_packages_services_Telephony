@@ -501,6 +501,14 @@ abstract class TelephonyConnection extends Connection {
         }
     }
 
+    protected TelephonyConnection(com.android.internal.telephony.Connection originalConnection,
+                Call.State originalConnectionState) {
+        if (originalConnection != null) {
+            setOriginalConnection(originalConnection);
+            mOriginalConnectionState = originalConnectionState;
+        }
+    }
+
     /**
      * Creates a clone of the current {@link TelephonyConnection}.
      *
@@ -874,6 +882,10 @@ abstract class TelephonyConnection extends Connection {
 
     com.android.internal.telephony.Connection getOriginalConnection() {
         return mOriginalConnection;
+    }
+
+    Call.State getOriginalConnectionState() {
+        return mOriginalConnectionState;
     }
 
     protected Call getCall() {

@@ -91,6 +91,22 @@ final class CdmaConnection extends TelephonyConnection {
         }
     }
 
+    CdmaConnection(
+            Connection connection,
+            EmergencyTonePlayer emergencyTonePlayer,
+            boolean allowMute,
+            boolean isOutgoing,
+            Call.State state) {
+        super(connection, state);
+        mEmergencyTonePlayer = emergencyTonePlayer;
+        mAllowMute = allowMute;
+        mIsOutgoing = isOutgoing;
+        mIsCallWaiting = connection != null && connection.getState() == Call.State.WAITING;
+        if (mIsCallWaiting) {
+            startCallWaitingTimer();
+        }
+    }
+
     /** {@inheritDoc} */
     @Override
     public void onPlayDtmfTone(char digit) {
@@ -155,7 +171,8 @@ final class CdmaConnection extends TelephonyConnection {
     @Override
     public TelephonyConnection cloneConnection() {
         CdmaConnection cdmaConnection = new CdmaConnection(getOriginalConnection(),
-                mEmergencyTonePlayer, mAllowMute, mIsOutgoing);
+                mEmergencyTonePlayer, mAllowMute, mIsOutgoing,
+                getOriginalConnectionState());
         return cdmaConnection;
     }
 
