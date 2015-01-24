@@ -212,12 +212,21 @@ final class PstnIncomingCallNotifier {
 
     private void addNewUnknownCall(Connection connection) {
         Bundle extras = null;
+        extras = new Bundle();
+        Uri uri = null;
+
         if (connection.getNumberPresentation() == TelecomManager.PRESENTATION_ALLOWED &&
                 !TextUtils.isEmpty(connection.getAddress())) {
-            extras = new Bundle();
-            Uri uri = Uri.fromParts(PhoneAccount.SCHEME_TEL, connection.getAddress(), null);
+            uri = Uri.fromParts(PhoneAccount.SCHEME_TEL, connection.getAddress(), null);
             extras.putParcelable(TelecomManager.EXTRA_UNKNOWN_CALL_HANDLE, uri);
         }
+
+        if ((connection.getCall() != null) &&
+                (connection.getCall().getState() == Call.State.HOLDING)) {
+            extras.putString(TelecomManager.EXTRA_UNKNOWN_CALL_STATE,
+                    connection.getCall().getState().toString());
+        }
+
         TelecomManager.from(mPhoneProxy.getContext()).addNewUnknownCall(
                 TelecomAccountRegistry.makePstnPhoneAccountHandle(mPhoneProxy), extras);
     }
