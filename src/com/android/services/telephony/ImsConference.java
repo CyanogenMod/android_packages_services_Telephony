@@ -144,7 +144,7 @@ public class ImsConference extends Conference {
         public void onConferenceParticipantsChanged(android.telecom.Connection c,
                 List<ConferenceParticipant> participants) {
 
-            if (c == null) {
+            if (c == null || participants == null) {
                 return;
             }
             Log.v(this, "onConferenceParticipantsChanged: %d participants", participants.size());
@@ -488,6 +488,9 @@ public class ImsConference extends Conference {
     private void handleConferenceParticipantsUpdate(
             TelephonyConnection parent, List<ConferenceParticipant> participants) {
 
+        if (participants == null) {
+            return;
+        }
         boolean newParticipantsAdded = false;
         boolean oldParticipantsRemoved = false;
         ArrayList<ConferenceParticipant> newParticipants = new ArrayList<>(participants.size());
