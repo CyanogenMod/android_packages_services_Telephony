@@ -259,14 +259,9 @@ public class ImsConference extends Conference {
         return conferenceCapabilities;
     }
 
-    /**
-     * Not used by the IMS conference controller.
-     *
-     * @return {@code Null}.
-     */
     @Override
     public android.telecom.Connection getPrimaryConnection() {
-        return null;
+        return mConferenceHost;
     }
 
     /**
