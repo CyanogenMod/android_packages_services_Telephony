@@ -823,6 +823,7 @@ abstract class TelephonyConnection extends Connection {
 
         // Set video state and capabilities
         setVideoState(mOriginalConnection.getVideoState());
+        updateState();
         setLocalVideoCapable(mOriginalConnection.isLocalVideoCapable());
         setRemoteVideoCapable(mOriginalConnection.isRemoteVideoCapable());
         setVideoProvider(mOriginalConnection.getVideoProvider());
