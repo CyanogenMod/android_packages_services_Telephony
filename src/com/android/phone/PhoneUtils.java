@@ -39,6 +39,7 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -1009,7 +1010,9 @@ public class PhoneUtils {
                 //      time that a USSD should be canceled.
 
                 // inflate the layout with the scrolling text area for the dialog.
-                LayoutInflater inflater = (LayoutInflater) context.getSystemService(
+                ContextThemeWrapper contextThemeWrapper =
+                        new ContextThemeWrapper(context, R.style.DialerAlertDialogTheme);
+                LayoutInflater inflater = (LayoutInflater) contextThemeWrapper.getSystemService(
                         Context.LAYOUT_INFLATER_SERVICE);
                 View dialogView = inflater.inflate(R.layout.dialog_ussd_response, null);
 
@@ -1048,7 +1051,8 @@ public class PhoneUtils {
                     };
 
                 // build the dialog
-                final AlertDialog newDialog = new AlertDialog.Builder(context)
+
+                final AlertDialog newDialog = new AlertDialog.Builder(contextThemeWrapper)
                         .setMessage(text)
                         .setView(dialogView)
                         .setPositiveButton(R.string.send_button, mUSSDDialogListener)
@@ -1084,6 +1088,11 @@ public class PhoneUtils {
 
                 // now show the dialog!
                 newDialog.show();
+
+                newDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+                        .setTextColor(context.getResources().getColor(R.color.dialer_theme_color));
+                newDialog.getButton(DialogInterface.BUTTON_NEGATIVE)
+                        .setTextColor(context.getResources().getColor(R.color.dialer_theme_color));
             }
         }
     }
