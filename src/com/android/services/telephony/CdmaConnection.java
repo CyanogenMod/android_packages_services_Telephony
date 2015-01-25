@@ -213,10 +213,6 @@ final class CdmaConnection extends TelephonyConnection {
         if (mAllowMute) {
             capabilities |= PhoneCapabilities.MUTE;
         }
-        capabilities |= PhoneCapabilities.SUPPORT_HOLD;
-        if (getState() == STATE_ACTIVE || getState() == STATE_HOLDING) {
-            capabilities |= PhoneCapabilities.HOLD;
-        }
         return capabilities;
     }
 
