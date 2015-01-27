@@ -72,6 +72,7 @@ public class NetworkSetting extends PreferenceActivity
     private static final String LIST_NETWORKS_KEY = "list_networks_key";
     private static final String BUTTON_SRCH_NETWRKS_KEY = "button_srch_netwrks_key";
     private static final String BUTTON_AUTO_SELECT_KEY = "button_auto_select_key";
+    private static final String BUTTON_PREFERRED_NETWORK_KEY = "button_preferred_networks_key";
 
     //map of network controls to the network data.
     private HashMap<Preference, OperatorInfo> mNetworkMap;
@@ -93,6 +94,7 @@ public class NetworkSetting extends PreferenceActivity
     private PreferenceGroup mNetworkList;
     private Preference mSearchButton;
     private Preference mAutoSelect;
+    private Preference mPreferredNetworks;
 
     private final Handler mHandler = new Handler() {
         @Override
@@ -219,6 +221,8 @@ public class NetworkSetting extends PreferenceActivity
         } else if (preference == mAutoSelect) {
             selectNetworkAutomatic();
             handled = true;
+        } else if (mPreferredNetworks == preference) {
+            handled = false;
         } else {
             Preference selectedCarrier = preference;
 
@@ -280,6 +284,15 @@ public class NetworkSetting extends PreferenceActivity
 
         mSearchButton = getPreferenceScreen().findPreference(BUTTON_SRCH_NETWRKS_KEY);
         mAutoSelect = getPreferenceScreen().findPreference(BUTTON_AUTO_SELECT_KEY);
+
+        mPreferredNetworks = getPreferenceScreen().findPreference(BUTTON_PREFERRED_NETWORK_KEY);
+        if (mPreferredNetworks != null) {
+            if (!(mPhone.getContext().getResources().getBoolean(R.bool.config_ef_plmn_sel))) {
+                getPreferenceScreen().removePreference(mPreferredNetworks);
+                mPreferredNetworks = null;
+            }
+        }
+
 
         // Start the Network Query service, and bind it.
         // The OS knows to start he service only once and keep the instance around (so

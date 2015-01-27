@@ -1667,4 +1667,8 @@
     <string name="sdn"></string>
     <string name="sum_sdn"></string>
     <string name="launch_sdn"></string>
+    <!-- Preferred networks -->
+    <string name="preferred_networks"></string>
+    <string name="sum_preferred_networks"></string>
+
 </resources>
