@@ -1662,4 +1662,9 @@
     <string name="speed_dial_setting">Speed dial settings</string>
     <string name="srvcc_video_message">"Video call has been downgraded to 2G/3G voice call, because the 4G network is not available."</string>
     <string name="srvcc_message">"4G voice call has been downgraded to 2G/3G voice call, because the 4G network is not available."</string>
+
+    <!--  SDN related strings -->
+    <string name="sdn"></string>
+    <string name="sum_sdn"></string>
+    <string name="launch_sdn"></string>
 </resources>
