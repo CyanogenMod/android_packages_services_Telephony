@@ -23,13 +23,11 @@ import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnKeyListener;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
@@ -75,7 +73,6 @@ import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
-import com.android.internal.telephony.TelephonyIntents;
 import com.android.phone.common.util.SettingsUtil;
 import com.android.phone.settings.AccountSelectionPreference;
 import com.android.services.telephony.sip.SipUtil;
@@ -489,12 +486,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     public void onPause() {
         super.onPause();
         mForeground = false;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(mReceiver);
     }
 
     /**
@@ -1671,12 +1662,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         // ACTION_ADD_VOICEMAIL action.
         mShowVoicemailPreference = (icicle == null) &&
                 getIntent().getAction().equals(ACTION_ADD_VOICEMAIL);
-
-        //Register for intent broadcasts
-        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-        intentFilter.addAction(TelephonyIntents.ACTION_SIM_STATE_CHANGED);
-
-        registerReceiver(mReceiver, intentFilter);
     }
 
     private void initPhoneAccountPreferences() {
@@ -1714,8 +1699,6 @@ public class CallFeaturesSetting extends PreferenceActivity
             addPreferencesFromResource(R.xml.call_feature_setting);
         }
         initPhoneAccountPreferences();
-
-        setScreenState();
 
         // get buttons
         PreferenceScreen prefSet = getPreferenceScreen();
@@ -2014,26 +1997,6 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         }
     }
-
-    private void setScreenState() {
-        int simState = TelephonyManager.getDefault().getSimState();
-        getPreferenceScreen().setEnabled(simState != TelephonyManager.SIM_STATE_ABSENT);
-    }
-
-    /**
-     * Receiver for ACTION_AIRPLANE_MODE_CHANGED and ACTION_SIM_STATE_CHANGED.
-     */
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-
-            if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED) ||
-                    action.equals(TelephonyIntents.ACTION_SIM_STATE_CHANGED)) {
-                setScreenState();
-            }
-        }
-    };
 
     // Migrate settings from BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY to
     // BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, if the latter does not exist.
