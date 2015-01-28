@@ -1,6 +1,5 @@
 package com.android.phone;
 
-import com.android.ims.ImsException;
 import com.android.internal.telephony.CommandException;
 import com.android.internal.telephony.Phone;
 
@@ -15,7 +14,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import com.android.internal.telephony.Phone;
-import com.android.internal.telephony.RILConstants;
 
 public class CallWaitingCheckBoxPreference extends CheckBoxPreference {
     private static final String LOG_TAG = "CallWaitingCheckBoxPreference";
@@ -98,13 +96,8 @@ public class CallWaitingCheckBoxPreference extends CheckBoxPreference {
                     Log.d(LOG_TAG, "handleGetCallWaitingResponse: ar.exception=" + ar.exception);
                 }
                 if (mTcpListener != null) {
-                    if (ar.exception instanceof ImsException) {
-                        mTcpListener.onException(CallWaitingCheckBoxPreference.this,
-                                CommandException.fromRilErrno(RILConstants.GENERIC_FAILURE));
-                    } else {
-                        mTcpListener.onException(CallWaitingCheckBoxPreference.this,
-                                (CommandException) ar.exception);
-                    }
+                    mTcpListener.onException(CallWaitingCheckBoxPreference.this,
+                            (CommandException)ar.exception);
                 }
             } else if (ar.userObj instanceof Throwable) {
                 if (mTcpListener != null) {
