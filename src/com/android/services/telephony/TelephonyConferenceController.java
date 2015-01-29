@@ -190,6 +190,27 @@ final class TelephonyConferenceController {
         Log.d(this, "Recalculate conference calls %s %s.",
                 mTelephonyConference, conferencedConnections);
 
+        // Check if all connections are in Connection Service
+        boolean allConnInService = false;
+        for (Connection connection : conferencedConnections) {
+            Log.d (this, "Finding connection in Connection Service for " + connection);
+            for (Connection c : mConnectionService.getAllConnections()) {
+                Log.d(this, "Comparing with Connection Service" + c);
+                if (c == connection) {
+                    allConnInService = true;
+                    break;
+                } else {
+                    allConnInService = false;
+                }
+            }
+            if (!allConnInService) {
+                Log.d(this, "Finding connection in Connection Service Failed");
+                break;
+            }
+        }
+        Log.d(this, "Found a match for all connections in connection service" +
+            allConnInService);
+
         // If this is a GSM conference and the number of connections drops below 2, we will
         // terminate the conference.
         if (numGsmConnections < 2) {
@@ -211,33 +232,20 @@ final class TelephonyConferenceController {
                         mTelephonyConference.removeConnection(connection);
                     }
                 }
-
-                // Add any new ones
-                for (Connection connection : conferencedConnections) {
-                    if (!existingConnections.contains(connection)) {
-                        mTelephonyConference.addConnection(connection);
-                    }
-                }
-            } else {
-                boolean found = false;
-                for (Connection connection : conferencedConnections) {
-                    Log.d (this, "Finding connection in Connection Service for " + connection);
-                    for (Connection c : mConnectionService.getAllConnections()) {
-                        Log.d(this, "Comparing with Connection Service" + c);
-                        if (c == connection) {
-                            found = true;
-                            break;
-                        } else {
-                            found = false;
+                if (allConnInService) {
+                    triggerRecalculate = false;
+                    // Add any new ones
+                    for (Connection connection : conferencedConnections) {
+                        if (!existingConnections.contains(connection)) {
+                            mTelephonyConference.addConnection(connection);
                         }
                     }
-                    if (!found) {
-                        Log.d(this, "Finding connection in Connection Service Failed");
-                        break;
-                    }
+                } else {
+                    Log.d(this, "Trigger recalculate later");
+                    triggerRecalculate = true;
                 }
-                Log.d(this, "Found a match for all connections in connection service" + found);
-                if (found) {
+            } else {
+                if (allConnInService) {
                     triggerRecalculate = false;
                     mTelephonyConference = new TelephonyConference(null);
                     for (Connection connection : conferencedConnections) {
@@ -250,20 +258,20 @@ final class TelephonyConferenceController {
                     Log.d(this, "Trigger recalculate later");
                     triggerRecalculate = true;
                 }
-                if (mTelephonyConference != null) {
-                    Connection conferencedConnection = mTelephonyConference.getPrimaryConnection();
-                    Log.d(this, "Primary Conferenced connection is " + conferencedConnection);
-                    if (conferencedConnection != null) {
-                        switch (conferencedConnection.getState()) {
-                            case Connection.STATE_ACTIVE:
-                                Log.d(this, "Setting conference to active");
-                                mTelephonyConference.setActive();
-                                break;
-                            case Connection.STATE_HOLDING:
-                                Log.d(this, "Setting conference to hold");
-                                mTelephonyConference.setOnHold();
-                                break;
-                        }
+            }
+            if (mTelephonyConference != null) {
+                Connection conferencedConnection = mTelephonyConference.getPrimaryConnection();
+                Log.d(this, "Primary Conferenced connection is " + conferencedConnection);
+                if (conferencedConnection != null) {
+                    switch (conferencedConnection.getState()) {
+                        case Connection.STATE_ACTIVE:
+                            Log.d(this, "Setting conference to active");
+                            mTelephonyConference.setActive();
+                            break;
+                        case Connection.STATE_HOLDING:
+                            Log.d(this, "Setting conference to hold");
+                            mTelephonyConference.setOnHold();
+                            break;
                     }
                 }
             }
