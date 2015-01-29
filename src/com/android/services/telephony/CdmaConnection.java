@@ -27,6 +27,7 @@ import android.telephony.PhoneNumberUtils;
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection;
+import com.android.internal.telephony.imsphone.ImsPhoneConnection;
 import com.android.internal.telephony.Phone;
 import com.android.phone.Constants;
 
@@ -40,6 +41,7 @@ final class CdmaConnection extends TelephonyConnection {
 
     private static final int MSG_CALL_WAITING_MISSED = 1;
     private static final int MSG_DTMF_SEND_CONFIRMATION = 2;
+    private static final int MSG_CDMA_LINE_CONTROL_INFO_REC = 3;
     private static final int TIMEOUT_CALL_WAITING_MILLIS = 20 * 1000;
 
     private final Handler mHandler = new Handler() {
@@ -54,6 +56,9 @@ final class CdmaConnection extends TelephonyConnection {
                 case MSG_DTMF_SEND_CONFIRMATION:
                     handleBurstDtmfConfirmation();
                     break;
+                case MSG_CDMA_LINE_CONTROL_INFO_REC:
+                    onCdmaLineControlInfoRec();
+                    break;
                 default:
                     break;
             }
@@ -65,7 +70,6 @@ final class CdmaConnection extends TelephonyConnection {
      * {@code True} if the CDMA connection should allow mute.
      */
     private final boolean mAllowMute;
-    private final boolean mIsOutgoing;
     // Queue of pending short-DTMF characters.
     private final Queue<Character> mDtmfQueue = new LinkedList<>();
     private final EmergencyTonePlayer mEmergencyTonePlayer;
@@ -73,6 +77,7 @@ final class CdmaConnection extends TelephonyConnection {
     // Indicates that the DTMF confirmation from telephony is pending.
     private boolean mDtmfBurstConfirmationPending = false;
     private boolean mIsCallWaiting;
+    private boolean mConnectionTimeReset = false;
 
     CdmaConnection(
             Connection connection,
@@ -84,7 +89,9 @@ final class CdmaConnection extends TelephonyConnection {
         mAllowMute = allowMute;
         mIsOutgoing = isOutgoing;
         mIsCallWaiting = connection != null && connection.getState() == Call.State.WAITING;
-        if (mIsCallWaiting) {
+        boolean isImsCall = getOriginalConnection() instanceof ImsPhoneConnection;
+        // Start call waiting timer for CDMA waiting call.
+        if (mIsCallWaiting && !isImsCall) {
             startCallWaitingTimer();
         }
     }
@@ -143,6 +150,20 @@ final class CdmaConnection extends TelephonyConnection {
         super.onAnswer();
     }
 
+    /**
+     * Clones the current {@link CdmaConnection}.
+     * <p>
+     * Listeners are not copied to the new instance.
+     *
+     * @return The cloned connection.
+     */
+    @Override
+    public TelephonyConnection cloneConnection() {
+        CdmaConnection cdmaConnection = new CdmaConnection(getOriginalConnection(),
+                mEmergencyTonePlayer, mAllowMute, mIsOutgoing);
+        return cdmaConnection;
+    }
+
     @Override
     public void onStateChanged(int state) {
         Connection originalConnection = getOriginalConnection();
@@ -162,14 +183,35 @@ final class CdmaConnection extends TelephonyConnection {
     }
 
     @Override
+    void setOriginalConnection(com.android.internal.telephony.Connection originalConnection) {
+        super.setOriginalConnection(originalConnection);
+        getPhone().registerForLineControlInfo(mHandler, MSG_CDMA_LINE_CONTROL_INFO_REC, null);
+    }
+
+    @Override
+    protected void close() {
+        super.close();
+        if (getPhone() != null) {
+            getPhone().unregisterForLineControlInfo(mHandler);
+        }
+        mConnectionTimeReset = false;
+    }
+
+    private void onCdmaLineControlInfoRec() {
+        if (mOriginalConnection != null && mOriginalConnection.getState() == Call.State.ACTIVE) {
+            if (mOriginalConnection.getDurationMillis() > 0 &&
+                    !mOriginalConnection.isIncoming() && !mConnectionTimeReset) {
+                mConnectionTimeReset = true;
+                resetCdmaConnectionTime();
+            }
+        }
+    }
+
+    @Override
     protected int buildCallCapabilities() {
         int capabilities = super.buildCallCapabilities();
         if (mAllowMute) {
             capabilities |= PhoneCapabilities.MUTE;
-        }
-        capabilities |= PhoneCapabilities.SUPPORT_HOLD;
-        if (getState() == STATE_ACTIVE || getState() == STATE_HOLDING) {
-            capabilities |= PhoneCapabilities.HOLD;
         }
         return capabilities;
     }
@@ -189,10 +231,6 @@ final class CdmaConnection extends TelephonyConnection {
         } else {
             updateState();
         }
-    }
-
-    boolean isOutgoing() {
-        return mIsOutgoing;
     }
 
     boolean isCallWaiting() {

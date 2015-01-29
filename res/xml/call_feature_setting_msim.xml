@@ -83,6 +83,12 @@
         android:entries="@array/dtmf_tone_entries"
         android:entryValues="@array/dtmf_tone_values"/>
 
+    <SwitchPreference
+        android:key="enhanced_4g_lte"
+        android:title="@string/enhanced_4g_lte_mode_title"
+        android:persistent="false"
+        android:summary="@string/enhanced_4g_lte_mode_summary"/>
+
     <CheckBoxPreference
         android:key="button_enable_video_calling"
         android:title="@string/enable_video_calling_title"

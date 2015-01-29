@@ -46,10 +46,12 @@ import android.os.UserHandle;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
+import android.preference.SwitchPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.Settings;
@@ -66,6 +68,9 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 
+import com.android.ims.ImsManager;
+import com.android.ims.ImsException;
+import android.telephony.SubscriptionManager;
 import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
@@ -135,6 +140,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String UP_ACTIVITY_CLASS =
             "com.android.dialer.DialtactsActivity";
 
+    private static final String BUTTON_4G_LTE_KEY = "enhanced_4g_lte";
+
     // Used to tell the saving logic to leave forwarding number as is
     public static final CallForwardInfo[] FWD_SETTINGS_DONT_TOUCH = null;
     // Suffix appended to provider key for storing vm number
@@ -194,7 +201,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_VIDEO_CALL_FB_KEY = "videocall_setting_fb_key";
     private static final String BUTTON_VIDEO_CALL_FW_KEY = "videocall_setting_fw_key";
     private static final String BUTTON_VIDEO_CALL_SP_KEY = "vt_imageplacer";
-    private static final String BUTTON_VIDEO_CALL_BUTTON_ENABLE = "button_enable_video_calling";
 
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
@@ -285,6 +291,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private ListPreference mButtonDTMF;
     private ListPreference mButtonTTY;
     private Preference mPhoneAccountSettingsPreference;
+    private SwitchPreference mButton4glte;
     private PreferenceScreen mVoicemailCategory;
     private ListPreference mVoicemailProviders;
     private PreferenceScreen mVoicemailSettings;
@@ -509,7 +516,9 @@ public class CallFeaturesSetting extends PreferenceActivity
     // Click listener for all toggle events
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mSubMenuVoicemailSettings) {
+        if (preference.getKey().equals(BUTTON_4G_LTE_KEY)) {
+            return true;
+        } else if (preference == mSubMenuVoicemailSettings) {
             return true;
         } else if (preference == mButtonDTMF) {
             return true;
@@ -693,6 +702,19 @@ public class CallFeaturesSetting extends PreferenceActivity
                 // Set this flag so if we get a failure we revert to previous provider
                 mChangingVMorFwdDueToProviderChange = true;
                 saveVoiceMailAndForwardingNumber(newProviderKey, newProviderSettings);
+            }
+        }else if (preference == mButton4glte) {
+            SwitchPreference ltePref = (SwitchPreference)preference;
+            ltePref.setChecked(!ltePref.isChecked());
+            setIMS(ltePref.isChecked());
+            ImsManager imsMan = ImsManager.getInstance(getBaseContext(),
+                    SubscriptionManager.getDefaultVoiceSubId());
+            if (imsMan != null) {
+                try {
+                    imsMan.setAdvanced4GMode(ltePref.isChecked());
+                } catch (ImsException ie) {
+                    log("setAdvanced4GMode failed");
+                }
             }
         }
         // always let the preference setting proceed.
@@ -1602,6 +1624,12 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
     }
 
+    private void setIMS(boolean turnOn) {
+        SharedPreferences imsPref =
+            getSharedPreferences(ImsManager.IMS_SHARED_PREFERENCES, Context.MODE_WORLD_READABLE);
+        imsPref.edit().putBoolean(ImsManager.KEY_IMS_ON, turnOn).commit();
+    }
+
     /*
      * Activity class methods
      */
@@ -1691,7 +1719,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             mSubMenuVoicemailSettings.setDialogTitle(R.string.voicemail_settings_number_label);
         }
 
-        if(isVTSupported() && getResources().getBoolean(R.bool.config_video_call_enable)) {
+        if(isVTSupported()) {
             mButtonVideoCallFallback = (PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_FB_KEY);
             mButtonVideoCallForward = (PreferenceScreen) findPreference(BUTTON_VIDEO_CALL_FW_KEY);
             mButtonVideoCallPictureSelect = (PreferenceScreen)
@@ -1705,6 +1733,8 @@ public class CallFeaturesSetting extends PreferenceActivity
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FW_KEY));
             if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_SP_KEY) != null)
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_SP_KEY));
+            if((PreferenceCategory)findPreference(BUTTON_VIDEO_CALL_KEY) != null)
+                getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
         }
 
         mButtonDTMF = (ListPreference) findPreference(BUTTON_DTMF_KEY);
@@ -1716,6 +1746,19 @@ public class CallFeaturesSetting extends PreferenceActivity
         mVibrateAfterConnected = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
         mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
         mIPPrefixPreference = (PreferenceScreen) findPreference(BUTTON_IPPREFIX_KEY);
+
+        mButton4glte = (SwitchPreference)findPreference(BUTTON_4G_LTE_KEY);
+        mButton4glte.setOnPreferenceChangeListener(this);
+        mButton4glte.setChecked(ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this));
+
+        // Enable enhanced 4G LTE mode settings depending on whether exists on platform
+        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByPlatform(this) ||
+                    !getResources().getBoolean(R.bool.cmcc_enhanced_lte)) {
+            Preference pref = prefSet.findPreference(BUTTON_4G_LTE_KEY);
+            if (pref != null) {
+                prefSet.removePreference(pref);
+            }
+        }
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);

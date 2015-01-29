@@ -49,6 +49,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.preference.PreferenceCategory;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
@@ -218,7 +219,6 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private static final int VM_RESPONSE_ERROR = 500;
     private static final int FW_SET_RESPONSE_ERROR = 501;
     private static final int FW_GET_RESPONSE_ERROR = 502;
-
 
     // dialog identifiers for voicemail
     private static final int VOICEMAIL_DIALOG_CONFIRM = 600;
@@ -1706,6 +1706,8 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_FW_KEY));
             if((PreferenceScreen)findPreference(BUTTON_VIDEO_CALL_SP_KEY) != null)
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_SP_KEY));
+            if((PreferenceCategory)findPreference(BUTTON_VIDEO_CALL_KEY) != null)
+                getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
         }
 
         if (isAirplaneModeOn()) {

@@ -166,6 +166,9 @@
     <!-- whether disable data of sub2 -->
     <bool name="disable_data_sub2">false</bool>
 
+    <!-- enable enhanced LTE setting in call setting-->
+    <bool name="cmcc_enhanced_lte">false</bool>
+
     <!-- enable network checking for ut interface-->
     <bool name="check_nw_for_ut">false</bool>
 
@@ -174,4 +177,9 @@
 
     <!-- After a CDMA conference call is merged, the swap button should be displayed. -->
     <bool name="support_swap_after_merge" translatable="false">true</bool>
+
+    <!-- Disable Operator Selection Menu for some CDMA carriers -->
+    <bool name="config_disable_operator_selection_menu">false</bool>
+   <!-- Config to enable/disable showing depersonalizationpanel dialog -->
+   <bool name="icc_depersonalizationPanelEnabled">true</bool>
 </resources>

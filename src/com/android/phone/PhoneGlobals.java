@@ -326,7 +326,8 @@ public class PhoneGlobals extends ContextWrapper {
                         // Some products don't have the concept of a "SIM network lock"
                         Log.i(LOG_TAG, "Ignoring EVENT_PERSO_LOCKED event; "
                               + "not showing 'PERSO unlock' PIN entry screen");
-                    } else {
+                    } else if (getResources()
+                            .getBoolean(R.bool.icc_depersonalizationPanelEnabled)) {
                         // Normal case: show the "PERSO unlock" PIN entry screen.
                         // The user won't be able to do anything else until
                         // they enter a valid PERSO PIN.
@@ -444,6 +445,8 @@ public class PhoneGlobals extends ContextWrapper {
             notificationMgr = NotificationMgr.init(this);
 
             mHandler.sendEmptyMessage(EVENT_START_SIP_SERVICE);
+
+            startImsService();
 
             int phoneType = phone.getPhoneType();
 
@@ -1047,6 +1050,17 @@ public class PhoneGlobals extends ContextWrapper {
         return phoneInEcm;
     }
 
+    private void startImsService() {
+        Log.d(LOG_TAG, "startImsService");
+        try {
+            Intent intent = new Intent();
+            intent.setClassName(IMS_SERVICE_PKG_NAME, IMS_SERVICE_CLASS_NAME);
+            startService(intent);
+        } catch(SecurityException ex) {
+            Log.w(LOG_TAG, "startImsService: exception = " + ex);
+        }
+    }
+
     /**
      * "Call origin" may be used by Contacts app to specify where the phone call comes from.
      * Currently, the only permitted value for this extra is {@link #ALLOWED_EXTRA_CALL_ORIGIN}.
@@ -1092,4 +1106,7 @@ public class PhoneGlobals extends ContextWrapper {
         }
         return null;
     }
+
+    private static final String IMS_SERVICE_PKG_NAME = "org.codeaurora.ims";
+    private static final String IMS_SERVICE_CLASS_NAME = "org.codeaurora.ims.ImsService";
 }

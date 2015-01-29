@@ -16,6 +16,7 @@
 
 package com.android.services.telephony;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncResult;
@@ -29,7 +30,10 @@ import android.telecom.Connection;
 import android.telecom.DisconnectCause;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneCapabilities;
+import android.telecom.PhoneAccountHandle;
+import android.telecom.TelecomManager;
 import android.telecom.VideoProfile;
+import android.telephony.PhoneNumberUtils;
 import android.telephony.SubInfoRecord;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -41,6 +45,7 @@ import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection.PostDialListener;
 import com.android.internal.telephony.gsm.SuppServiceNotification;
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.SubscriptionController;
 import com.android.internal.telephony.cdma.CdmaCall;
 import com.android.internal.telephony.gsm.*;
 import com.android.internal.telephony.gsm.GsmConnection;
@@ -73,6 +78,9 @@ abstract class TelephonyConnection extends Connection {
     private String[] mSubName = {"SUB 1", "SUB 2", "SUB 3"};
     private String mDisplayName;
     private boolean mVoicePrivacyState = false;
+    protected boolean mIsOutgoing;
+    private boolean[] mIsPermDiscCauseReceived = new
+            boolean[TelephonyManager.getDefault().getPhoneCount()];
 
     protected static SuppServiceNotification mSsNotification = null;
 
@@ -95,7 +103,7 @@ abstract class TelephonyConnection extends Connection {
                     if ((connection.getAddress() != null &&
                                     mOriginalConnection.getAddress() != null &&
                             mOriginalConnection.getAddress().contains(connection.getAddress())) ||
-                            connection.getStateBeforeHandover() == mOriginalConnection.getState()) {
+                            mOriginalConnection.getStateBeforeHandover() == connection.getState()) {
                         Log.d(TelephonyConnection.this, "SettingOriginalConnection " +
                                 mOriginalConnection.toString() + " with " + connection.toString());
 
@@ -108,6 +116,7 @@ abstract class TelephonyConnection extends Connection {
                                     srvccMessageRes, Toast.LENGTH_LONG).show();
                         }
                         setOriginalConnection(connection);
+                        mWasImsConnection = false;
                     }
                     break;
                 case MSG_RINGBACK_TONE:
@@ -149,6 +158,10 @@ abstract class TelephonyConnection extends Connection {
             }
         }
     };
+
+    protected boolean isOutgoing() {
+        return mIsOutgoing;
+    }
 
     private String getSuppSvcNotificationText(SuppServiceNotification suppSvcNotification) {
         final int SUPP_SERV_NOTIFICATION_TYPE_MO = 0;
@@ -342,6 +355,8 @@ abstract class TelephonyConnection extends Connection {
      */
     public abstract static class TelephonyConnectionListener {
         public void onOriginalConnectionConfigured(TelephonyConnection c) {}
+        public void onEmergencyRedial(TelephonyConnection c, PhoneAccountHandle pHandle,
+                int phoneId) {}
     }
 
     private final PostDialListener mPostDialListener = new PostDialListener() {
@@ -475,6 +490,13 @@ abstract class TelephonyConnection extends Connection {
             setOriginalConnection(originalConnection);
         }
     }
+
+    /**
+     * Creates a clone of the current {@link TelephonyConnection}.
+     *
+     * @return The clone.
+     */
+    public abstract TelephonyConnection cloneConnection();
 
     @Override
     public void onAudioStateChanged(AudioState audioState) {
@@ -723,6 +745,8 @@ abstract class TelephonyConnection extends Connection {
         newCallCapabilities = applyAudioQualityCapabilities(newCallCapabilities);
         newCallCapabilities = applyConferenceTerminationCapabilities(newCallCapabilities);
         newCallCapabilities = applyVoicePrivacyCapabilities(newCallCapabilities);
+        newCallCapabilities = applyAddParticipantCapabilities(newCallCapabilities);
+        newCallCapabilities = applyConferenceCapabilities(newCallCapabilities);
 
         if (getCallCapabilities() != newCallCapabilities) {
             setCallCapabilities(newCallCapabilities);
@@ -731,8 +755,15 @@ abstract class TelephonyConnection extends Connection {
 
     protected final void updateAddress() {
         updateCallCapabilities();
+        Uri address;
         if (mOriginalConnection != null) {
-            Uri address = getAddressFromNumber(mOriginalConnection.getAddress());
+            if ((getAddress() != null) &&
+                    (getPhone().getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA) &&
+                            isOutgoing()) {
+                address = getAddressFromNumber(mOriginalConnection.getOrigDialString());
+            } else {
+                address = getAddressFromNumber(mOriginalConnection.getAddress());
+            }
             int presentation = mOriginalConnection.getNumberPresentation();
             if (!Objects.equals(address, getAddress()) ||
                     presentation != getAddressPresentation()) {
@@ -773,6 +804,7 @@ abstract class TelephonyConnection extends Connection {
 
         // Set video state and capabilities
         setVideoState(mOriginalConnection.getVideoState());
+        updateState();
         setLocalVideoCapable(mOriginalConnection.isLocalVideoCapable());
         setRemoteVideoCapable(mOriginalConnection.isRemoteVideoCapable());
         setVideoProvider(mOriginalConnection.getVideoProvider());
@@ -843,6 +875,13 @@ abstract class TelephonyConnection extends Connection {
             return call.getPhone();
         }
         return null;
+    }
+
+    private boolean isMultiparty() {
+        if (mOriginalConnection != null) {
+            return mOriginalConnection.isMultiparty();
+        }
+        return false;
     }
 
     private boolean hasMultipleTopLevelCalls() {
@@ -930,7 +969,14 @@ abstract class TelephonyConnection extends Connection {
             return;
         }
 
+        final String number = mOriginalConnection.getAddress();
+        final Phone phone = mOriginalConnection.getCall().getPhone();
+        int cause = mOriginalConnection.getDisconnectCause();
+        final boolean isEmergencyNumber =
+                    PhoneNumberUtils.isLocalEmergencyNumber(TelephonyGlobals.
+                    getApplicationContext(), number);
         Call.State newState = mOriginalConnection.getState();
+
         Log.v(this, "Update state from %s to %s for %s", mOriginalConnectionState, newState, this);
         if (mOriginalConnectionState != newState) {
             mOriginalConnectionState = newState;
@@ -952,8 +998,25 @@ abstract class TelephonyConnection extends Connection {
                     setRinging();
                     break;
                 case DISCONNECTED:
-                    setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                            mOriginalConnection.getDisconnectCause()));
+                    if (mSsNotification != null) {
+                        setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                                mOriginalConnection.getDisconnectCause(),
+                                mSsNotification.notificationType,
+                                mSsNotification.code));
+                        mSsNotification = null;
+                    } else if(isEmergencyNumber &&
+                            (TelephonyManager.getDefault().getPhoneCount() > 1) &&
+                            ((cause == android.telephony.DisconnectCause.EMERGENCY_TEMP_FAILURE) ||
+                            (cause == android.telephony.DisconnectCause.EMERGENCY_PERM_FAILURE))) {
+                        // If emergency call failure is received with cause codes
+                        // EMERGENCY_TEMP_FAILURE & EMERGENCY_PERM_FAILURE, then redial on other sub.
+                        emergencyRedial(cause, phone);
+                        break;
+                    } else {
+                        setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                                mOriginalConnection.getDisconnectCause()));
+                    }
+                    resetDisconnectCause();
                     close();
                     break;
                 case DISCONNECTING:
@@ -962,6 +1025,66 @@ abstract class TelephonyConnection extends Connection {
         }
         updateCallCapabilities();
         updateAddress();
+    }
+
+    private void emergencyRedial(int cause, Phone phone) {
+        int PhoneIdToCall = phone.getPhoneId();
+        if (cause == android.telephony.DisconnectCause.EMERGENCY_PERM_FAILURE) {
+            Log.d(this,"EMERGENCY_PERM_FAILURE received on sub:" + PhoneIdToCall);
+            // update mIsPermDiscCauseReceived so that next redial doesn't occur
+            // on this sub
+            mIsPermDiscCauseReceived[phone.getPhoneId()] = true;
+            PhoneIdToCall = SubscriptionManager.INVALID_PHONE_ID;
+        }
+        // Check for any subscription on which EMERGENCY_PERM_FAILURE is received
+        // if no such sub, then redial should be stopped.
+        for (int i = getNextPhoneId(phone.getPhoneId()); i != phone.getPhoneId();
+                i = getNextPhoneId(i)) {
+            if (mIsPermDiscCauseReceived[i] == false) {
+                PhoneIdToCall = i;
+                break;
+            }
+        }
+
+        long subId = SubscriptionController.getInstance().getSubIdUsingPhoneId(PhoneIdToCall);
+        if (PhoneIdToCall == SubscriptionManager.INVALID_PHONE_ID) {
+            Log.d(this,"EMERGENCY_PERM_FAILURE received on all subs, abort redial");
+            setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                    mOriginalConnection.getDisconnectCause(), 0xFF, 0xFF));
+            resetDisconnectCause();
+            close();
+        } else {
+            Log.d(this,"Redial emergency call on subscription " + PhoneIdToCall);
+            TelecomManager telecommMgr = (TelecomManager)
+            TelephonyGlobals.getApplicationContext().getSystemService(Context.TELECOM_SERVICE);
+            if (telecommMgr != null) {
+                List<PhoneAccountHandle> phoneAccountHandles =
+                        telecommMgr.getCallCapablePhoneAccounts();
+                for (PhoneAccountHandle handle : phoneAccountHandles) {
+                    String sub = handle.getId();
+                    if (Long.toString(subId).equals(sub)){
+                        Log.d(this,"EMERGENCY REDIAL");
+                        for (TelephonyConnectionListener l : mTelephonyListeners) {
+                            l.onEmergencyRedial(this, handle, PhoneIdToCall);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private int getNextPhoneId(int curId) {
+        int nextId =  curId + 1;
+        if (nextId >= TelephonyManager.getDefault().getPhoneCount()) {
+            nextId = 0;
+        }
+        return nextId;
+    }
+
+    private void resetDisconnectCause() {
+        for (int i = 0; i < TelephonyManager.getDefault().getPhoneCount(); i++) {
+            mIsPermDiscCauseReceived[i] = false;
+        }
     }
 
     private void setActiveInternal() {
@@ -989,7 +1112,7 @@ abstract class TelephonyConnection extends Connection {
         setActive();
     }
 
-    private void close() {
+    protected void close() {
         Log.v(this, "close");
         if (getPhone() != null) {
             if (getPhone().getState() == PhoneConstants.State.IDLE) {
@@ -1029,6 +1152,15 @@ abstract class TelephonyConnection extends Connection {
         } else {
             currentCapabilities = removeCapability(currentCapabilities,
                     PhoneCapabilities.SUPPORTS_VT_LOCAL);
+        }
+        int callState = getState();
+        if (mLocalVideoCapable && mRemoteVideoCapable
+                && (callState == STATE_ACTIVE || callState == STATE_HOLDING)) {
+            currentCapabilities = applyCapability(currentCapabilities,
+                    PhoneCapabilities.CALL_TYPE_MODIFIABLE);
+        } else {
+            currentCapabilities = removeCapability(currentCapabilities,
+                    PhoneCapabilities.CALL_TYPE_MODIFIABLE);
         }
         return currentCapabilities;
     }
@@ -1088,6 +1220,44 @@ abstract class TelephonyConnection extends Connection {
         } else {
             currentCapabilities = removeCapability(currentCapabilities,
                     PhoneCapabilities.VOICE_PRIVACY);
+        }
+
+        return currentCapabilities;
+    }
+
+    /**
+     * Applies the add participant capabilities to the {@code CallCapabilities} bit-mask.
+     *
+     * @param callCapabilities The {@code CallCapabilities} bit-mask.
+     * @return The capabilities with the add participant capabilities applied.
+     */
+    private int applyAddParticipantCapabilities(int callCapabilities) {
+        int currentCapabilities = callCapabilities;
+        if (getPhone() != null &&
+                 getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_IMS) {
+            currentCapabilities = applyCapability(currentCapabilities,
+                    PhoneCapabilities.ADD_PARTICIPANT);
+        } else {
+            currentCapabilities = removeCapability(currentCapabilities,
+                    PhoneCapabilities.ADD_PARTICIPANT);
+        }
+
+        return currentCapabilities;
+    }
+
+    /**
+     * Applies the conference capabilities to the {@code CallCapabilities} bit-mask.
+     *
+     * @param callCapabilities The {@code CallCapabilities} bit-mask.
+     * @return The capabilities with the conference capabilities applied.
+     */
+    private int applyConferenceCapabilities(int callCapabilities) {
+        int currentCapabilities = callCapabilities;
+        if (getPhone() != null &&
+                 getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_IMS &&
+                 isMultiparty()) {
+            currentCapabilities = applyCapability(currentCapabilities,
+                    PhoneCapabilities.GENERIC_CONFERENCE);
         }
 
         return currentCapabilities;
@@ -1289,6 +1459,7 @@ abstract class TelephonyConnection extends Connection {
             sb.append("Y");
         }
         sb.append("]");
+        sb.append("OriginalConnection is" + mOriginalConnection);
         return sb.toString();
     }
 }

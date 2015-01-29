@@ -74,6 +74,19 @@ final class GsmConnection extends TelephonyConnection {
         getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
     }
 
+    /**
+     * Clones the current {@link GsmConnection}.
+     * <p>
+     * Listeners are not copied to the new instance.
+     *
+     * @return The cloned connection.
+     */
+    @Override
+    public TelephonyConnection cloneConnection() {
+        GsmConnection gsmConnection = new GsmConnection(getOriginalConnection(), false);
+        return gsmConnection;
+    }
+
     /** {@inheritDoc} */
     @Override
     public void onPlayDtmfTone(char digit) {

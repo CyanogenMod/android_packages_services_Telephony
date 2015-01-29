@@ -30,6 +30,11 @@ import android.telecom.PhoneCapabilities;
 public class ConferenceParticipantConnection extends Connection {
 
     /**
+     * The user entity URI For the conference participant.
+     */
+    private final Uri mUserEntity;
+
+    /**
      * The endpoint URI For the conference participant.
      */
     private final Uri mEndpoint;
@@ -52,6 +57,7 @@ public class ConferenceParticipantConnection extends Connection {
         setAddress(participant.getHandle(), PhoneConstants.PRESENTATION_ALLOWED);
         setCallerDisplayName(participant.getDisplayName(), PhoneConstants.PRESENTATION_ALLOWED);
 
+        mUserEntity = participant.getHandle();
         mEndpoint = participant.getEndpoint();
         setCapabilities();
     }
@@ -86,7 +92,6 @@ public class ConferenceParticipantConnection extends Connection {
                 break;
             case STATE_DISCONNECTED:
                 setDisconnected(new DisconnectCause(DisconnectCause.CANCELED));
-                destroy();
                 break;
             default:
                 setActive();
@@ -103,7 +108,16 @@ public class ConferenceParticipantConnection extends Connection {
      */
     @Override
     public void onDisconnect() {
-        mParentConnection.onDisconnectConferenceParticipant(mEndpoint);
+        mParentConnection.onDisconnectConferenceParticipant(mUserEntity);
+    }
+
+    /**
+     * Retrieves the user handle for this connection.
+     *
+     * @return The userEntity.
+     */
+    public Uri getUserEntity() {
+        return mUserEntity;
     }
 
     /**
