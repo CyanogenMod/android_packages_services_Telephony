@@ -96,7 +96,7 @@ class CallStateMonitor extends Handler {
         callManager.registerForSignalInfo(this, PHONE_STATE_SIGNALINFO, null);
         callManager.registerForInCallVoicePrivacyOn(this, PHONE_ENHANCED_VP_ON, null);
         callManager.registerForInCallVoicePrivacyOff(this, PHONE_ENHANCED_VP_OFF, null);
-        callManager.registerForSuppServiceFailed(this, PHONE_SUPP_SERVICE_FAILED, null);
+        //callManager.registerForSuppServiceFailed(this, PHONE_SUPP_SERVICE_FAILED, null);
         //callManager.registerForRingbackTone(this, PHONE_RINGBACK_TONE, null);
         //callManager.registerForResendIncallMute(this, PHONE_RESEND_MUTE, null);
         //callManager.registerForPostDialCharacter(this, PHONE_ON_DIAL_CHARS, null);
