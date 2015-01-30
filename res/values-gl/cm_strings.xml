@@ -38,4 +38,5 @@
   <string name="enable_people_lookup_title">Busca de persoas</string>
   <string name="choose_lookup_providers">Escoller os fornecedores de consultas</string>
   <string name="sub_no_sim">Sen SIM</string>
+  <string name="t9_search_input_locale_default">Predeterminado</string>
 </resources>

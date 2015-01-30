@@ -248,6 +248,8 @@
   <string name="dial">Truca</string>
   <string name="enterName">Introdueix el nom:</string>
   <string name="enterNumber">Introdueix el número de telèfon:</string>
+  <string name="hintName">Nom</string>
+  <string name="hintPhonenumber">Número de telèfon</string>
   <string name="contactAddSuccess">El contacte s\'ha afegit a la SIM amb èxit</string>
   <string name="contactAddFailed">No s\'ha pogut afegir el contacte a la SIM</string>
   <string name="contactUpdateSuccess">El contacte s\'ha actualitzat a la SIM amb èxit</string>

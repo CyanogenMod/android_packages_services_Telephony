@@ -248,6 +248,8 @@
   <string name="dial">Componi</string>
   <string name="enterName">Inserire nome:</string>
   <string name="enterNumber">Inserire numero di telefono:</string>
+  <string name="hintName">Nome</string>
+  <string name="hintPhonenumber">Numero di telefono</string>
   <string name="contactAddSuccess">Contatto aggiunto alla SIM</string>
   <string name="contactAddFailed">Impossibile aggiungere il contatto alla SIM</string>
   <string name="contactUpdateSuccess">Contatto modificato nella SIM</string>

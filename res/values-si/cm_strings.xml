@@ -248,6 +248,8 @@
   <string name="dial">අමතන්න</string>
   <string name="enterName">නම ඇතුළත් කරන්න:</string>
   <string name="enterNumber">දුරකථන අංකය ඇතුළත් කරන්න:</string>
+  <string name="hintName">නම</string>
+  <string name="hintPhonenumber">දුරකථන අංකය</string>
   <string name="contactAddSuccess">සම්බන්ධතාව සාර්ථක ලෙස සිම් පතට එක් කෙරුණි</string>
   <string name="contactAddFailed">සම්බන්ධතාව සිම් පතට එක් කිරීමට අසමත්විය</string>
   <string name="contactUpdateSuccess">සිම් පත් සම්බන්ධතාව සාර්ථක ලෙස නවීකරණය විය</string>

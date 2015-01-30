@@ -48,7 +48,7 @@
   <string name="blacklist_call_notification_multiple">Отклонено вызовов: <xliff:g id="count">%d</xliff:g></string>
   <string name="blacklist_message_notification">Сообщение от %s заблокировано</string>
   <string name="blacklist_message_notification_private_number">Сообщение от неизвестного номера заблокировано</string>
-  <string name="blacklist_message_notification_unknown_number">Заблокирован неизвестный номер %s</string>
+  <string name="blacklist_message_notification_unknown_number">Заблокировано сообщение от неизвестного номера %s</string>
   <string name="blacklist_message_notification_multiple">Заблокировано сообщений: <xliff:g id="count">%d</xliff:g></string>
   <string name="blacklist_notification_list_private">Скрытый номер</string>
   <string name="unblock_number">Разблокировать</string>
@@ -68,7 +68,7 @@
   <string name="preferred_network_mode_gsm_wcdma_auto">GSM/WCDMA (авторежим)</string>
   <string name="preferred_network_mode_wcdma_only">Только WCDMA</string>
   <string name="preferred_network_mode_gsm_only">Только GSM</string>
-  <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA (предпочтение)</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred">Предпочтительно GSM/WCDMA</string>
   <string name="number_lookup">Поиск номеров телефона</string>
   <string name="enable_forward_lookup_title">Прямой поиск</string>
   <string name="enable_forward_lookup_summary">Показывать ближайшие организации при поиске в номеронабирателе</string>
@@ -248,6 +248,8 @@
   <string name="dial">Вызов</string>
   <string name="enterName">Введите имя:</string>
   <string name="enterNumber">Введите номер телефона:</string>
+  <string name="hintName">Имя</string>
+  <string name="hintPhonenumber">Hомер телефона</string>
   <string name="contactAddSuccess">Контакт успешно добавлен на SIM-карту</string>
   <string name="contactAddFailed">Не удалось добавить контакт на SIM-карту</string>
   <string name="contactUpdateSuccess">Контакт на SIM обновлён</string>

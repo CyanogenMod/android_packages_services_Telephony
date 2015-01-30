@@ -248,6 +248,8 @@
   <string name="dial">Vytočiť</string>
   <string name="enterName">Zadajte meno:</string>
   <string name="enterNumber">Zadajte telefónne číslo:</string>
+  <string name="hintName">Meno</string>
+  <string name="hintPhonenumber">Telefónne číslo</string>
   <string name="contactAddSuccess">Kontakt bol úspešne pridaný na kartu SIM</string>
   <string name="contactAddFailed">Nepodarilo sa pridať kontakt na kartu SIM</string>
   <string name="contactUpdateSuccess">Kontakt bol na karte SIM úspešne upravený</string>

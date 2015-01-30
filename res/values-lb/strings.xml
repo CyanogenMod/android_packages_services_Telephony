@@ -192,9 +192,9 @@
   <string name="cell_bc_sms_enable">Zell-Iwwerdroungs-SMS aktivéiert</string>
   <string name="cell_bc_sms_disable">Zell-Iwwerdroungs-SMS desaktivéiert</string>
   <string name="cb_sms_settings">Zell-Iwwerdroungs-SMS-Astellungen</string>
-  <string name="enable_disable_emergency_broadcast">Noutruff-Iwwerdoung</string>
-  <string name="emergency_broadcast_enable">Noutruff-Iwwerdoung aktivéiert</string>
-  <string name="emergency_broadcast_disable">Noutruff-Iwwerdoung desaktivéiert</string>
+  <string name="enable_disable_emergency_broadcast">Noutruff-Iwwerdroung</string>
+  <string name="emergency_broadcast_enable">Noutruff-Iwwerdroung aktivéiert</string>
+  <string name="emergency_broadcast_disable">Noutruff-Iwwerdroung desaktivéiert</string>
   <string name="enable_disable_administrative">Verwaltung</string>
   <string name="administrative_enable">Verwaltung aktivéiert</string>
   <string name="administrative_disable">Verwaltung desaktivéiert</string>
@@ -232,9 +232,9 @@
   <string name="enable_disable_local_weather">Lokaalt Wieder</string>
   <string name="local_weather_enable">Lokaalt Wieder aktivéiert</string>
   <string name="local_weather_disable">Lokaalt Wieder desaktivéiert</string>
-  <string name="enable_disable_atr">Regional Trafficnoriichten</string>
-  <string name="atr_enable">Regional Trafficnoriichten aktivéiert</string>
-  <string name="atr_disable">Regional Trafficnoriichten desaktivéiert</string>
+  <string name="enable_disable_atr">Regional Traficnoriichten</string>
+  <string name="atr_enable">Regional Traficnoriichten aktivéiert</string>
+  <string name="atr_disable">Regional Traficnoriichten desaktivéiert</string>
   <string name="enable_disable_lafs">Fluchzäite vu lokale Fluchhäfen</string>
   <string name="lafs_enable">Fluchzäite vu lokale Fluchhäfen aktivéiert</string>
   <string name="lafs_disable">Fluchzäite vu lokale Fluchhäfen desaktivéiert</string>

@@ -248,6 +248,8 @@
   <string name="dial">ダイヤル</string>
   <string name="enterName">名前を入力:</string>
   <string name="enterNumber">電話番号を入力:</string>
+  <string name="hintName">名前</string>
+  <string name="hintPhonenumber">電話番号</string>
   <string name="contactAddSuccess">SIMに連絡先を追加しました</string>
   <string name="contactAddFailed">SIMに連絡先を追加できませんでした</string>
   <string name="contactUpdateSuccess">SIMの連絡先をアップデートしました</string>

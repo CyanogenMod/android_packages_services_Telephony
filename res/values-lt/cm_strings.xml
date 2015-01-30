@@ -57,7 +57,7 @@
   <string name="perm_change_mobile_network">Pakeisti tinklą (2G / 3G)</string>
   <string name="perm_change_mobile_network_desc">Leisti programai keisti tarp 2G ir 3G duomenų bet kuriuo metu. 3G yra greitesnis bet sunaudoja daugiau akumuliatoriaus, taip pat tai jums gali kainuoti daugiau pinigų.</string>
   <string name="phone_number_label">Mano telefono numeris</string>
-  <string name="phone_number_summary">Nustatyti prietaiso telefono numerį</string>
+  <string name="phone_number_summary">Nustatyti įrenginio telefono numerį</string>
   <string name="noise_suppression_title">Triukšmo slopinimas</string>
   <string name="noise_suppression_summary">Įjungti triukšmo slopinimą skambučiams</string>
   <string name="preferred_network_mode_td_scdma_only">Tik TD-SCDMA </string>
@@ -248,6 +248,8 @@
   <string name="dial">Rinkti</string>
   <string name="enterName">Įveskite vardą:</string>
   <string name="enterNumber">Įveskite telefono numerį:</string>
+  <string name="hintName">Vardas</string>
+  <string name="hintPhonenumber">Telefono numeris</string>
   <string name="contactAddSuccess">Kontaktas sėkmingai pridėtas į SIM</string>
   <string name="contactAddFailed">Kontakto nepavyko pridėti į SIM</string>
   <string name="contactUpdateSuccess">Sėkmingai atnaujintas SIM kontaktas</string>

@@ -128,6 +128,7 @@
   <string name="uplmn_list_setting_add_plmn">Ny PLMN</string>
   <string name="gsm_umts_network_preferences_title">Nätverksläge</string>
   <string name="gsm_umts_network_preferences_dialogtitle">Nätverksläge</string>
+  <string name="label_spdp">PIN för upplåsning av SIM-tjänsteleverantör</string>
   <string name="label_sdp">PIN för SIM-upplåsning</string>
   <string name="label_puk">Ange PUK</string>
   <string name="puk_unlock_failed">PUK-upplåsning misslyckades.</string>
@@ -154,6 +155,7 @@
   <string name="xdivert_active">Aktiv</string>
   <string name="xdivert_not_active">Inaktiv</string>
   <string name="xdivert_imsi_not_read">SIM-initiering pågår. Var god försök igen senare.</string>
+  <string name="no_volte">Kunde inte göra IMS-samtal</string>
   <string name="ims_edit_title">IMS-kontodetaljer</string>
   <string name="ims_accounts_title">IMS-konto</string>
   <string name="mo_call_type_title">MO-samtalstyp</string>
@@ -176,6 +178,7 @@
   <string name="dial">Ring</string>
   <string name="enterName">Ange namn:</string>
   <string name="enterNumber">Ange telefonnummer:</string>
+  <string name="contactAddFailed">Misslyckades att lägga till kontakt till SIM</string>
   <string name="contactUpdateFailed">Kunde inte uppdatera kontakten på SIM-kortet</string>
   <string name="contactdeleteFailed">Misslyckades att ta bort kontakt från SIM</string>
   <string name="allContactdeleteSuccess">Tog bort alla kontakter från SIM</string>

@@ -248,6 +248,8 @@
   <string name="dial">拨号</string>
   <string name="enterName">输入姓名：</string>
   <string name="enterNumber">输入电话号码：</string>
+  <string name="hintName">姓名</string>
+  <string name="hintPhonenumber">电话号码</string>
   <string name="contactAddSuccess">成功添加联系人到 SIM 卡</string>
   <string name="contactAddFailed">将联系人添加到 SIM 卡失败</string>
   <string name="contactUpdateSuccess">已成功更新 SIM 卡中的联系人</string>

@@ -249,6 +249,8 @@
   <string name="dial">پەیوەندیکردن</string>
   <string name="enterName">ناو بنوسە:</string>
   <string name="enterNumber">ژمارەی تەلەفون بنوسە:</string>
+  <string name="hintName">ناو</string>
+  <string name="hintPhonenumber">ژماره‌ی مۆبایل</string>
   <string name="contactAddSuccess">ناو بەسەرکەوتوویی زیادکرا بۆ سیمکارت</string>
   <string name="contactAddFailed">نه‌توانرا لێدوان بنوسێ بۆ سیم</string>
   <string name="contactUpdateSuccess">به‌ سه‌رکه‌وتوویی نوێکردنه‌وه‌ کرا له‌ په‌یوه‌ندییه‌کانی سیم</string>

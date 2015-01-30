@@ -248,6 +248,8 @@
   <string name="dial">Marcar</string>
   <string name="enterName">Introducir nombre:</string>
   <string name="enterNumber">Introducir número de teléfono:</string>
+  <string name="hintName">Nombre</string>
+  <string name="hintPhonenumber">Número de teléfono</string>
   <string name="contactAddSuccess">El contacto ha sido añadido a la tarjeta SIM</string>
   <string name="contactAddFailed">Error al añadir el contacto a la tarjeta SIM</string>
   <string name="contactUpdateSuccess">El contacto ha sido actualizado en la tarjeta SIM</string>

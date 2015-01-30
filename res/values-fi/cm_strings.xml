@@ -248,6 +248,8 @@
   <string name="dial">Soita</string>
   <string name="enterName">Anna nimi:</string>
   <string name="enterNumber">Anna puhelinnumero:</string>
+  <string name="hintName">Nimi</string>
+  <string name="hintPhonenumber">Puhelinnumero</string>
   <string name="contactAddSuccess">Yhteystieto lisätty onnistuneesti SIM-kortille</string>
   <string name="contactAddFailed">Yhteystiedon lisääminen SIM-kortille epäonnistui</string>
   <string name="contactUpdateSuccess">SIM-kortin yhteystiedon päivittäminen onnistui</string>

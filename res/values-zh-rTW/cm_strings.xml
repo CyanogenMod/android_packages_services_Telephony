@@ -42,4 +42,6 @@
   <string name="incoming_call_style_fullscreen_photo">全螢幕來電者相片</string>
   <string name="labelCbChangePassword">變更密碼</string>
   <string name="preferred_network_mode_dialogtitle_cmcc">網路模式</string>
+  <string name="hintName">名稱</string>
+  <string name="hintPhonenumber">電話號碼</string>
 </resources>

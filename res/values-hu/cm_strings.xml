@@ -248,6 +248,8 @@
   <string name="dial">Tárcsázás</string>
   <string name="enterName">Adja meg nevét:</string>
   <string name="enterNumber">Adja meg a telefonszámot:</string>
+  <string name="hintName">Név</string>
+  <string name="hintPhonenumber">Telefonszám</string>
   <string name="contactAddSuccess">Névjegy sikeresen hozzáadva a SIM-hez</string>
   <string name="contactAddFailed">Nem sikerült hozzáadni a névjegyet a SIM-hez</string>
   <string name="contactUpdateSuccess">Névjegy sikeresen frissítve a SIM-en</string>

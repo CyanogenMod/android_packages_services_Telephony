@@ -248,6 +248,8 @@
   <string name="dial">Κλήση</string>
   <string name="enterName">Εισάγετε όνομα:</string>
   <string name="enterNumber">Εισάγετε τηλεφωνικό αριθμό:</string>
+  <string name="hintName">Όνομα</string>
+  <string name="hintPhonenumber">Αριθμός τηλεφώνου</string>
   <string name="contactAddSuccess">Επιτυχής προσθήκη επαφής στη SIM</string>
   <string name="contactAddFailed">Αποτυχία προσθήκης επαφής στη SIM</string>
   <string name="contactUpdateSuccess">Επιτυχής ενημέρωση επαφής στη SIM</string>

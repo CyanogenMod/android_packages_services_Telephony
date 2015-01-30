@@ -248,6 +248,8 @@
   <string name="dial">Ara</string>
   <string name="enterName">İsim girin:</string>
   <string name="enterNumber">Telefon numarası girin:</string>
+  <string name="hintName">İsim</string>
+  <string name="hintPhonenumber">Telefon numarası</string>
   <string name="contactAddSuccess">Kişi SIM\'e başarıyla eklendi</string>
   <string name="contactAddFailed">SIM\'e kişi ekleme başarısız oldu</string>
   <string name="contactUpdateSuccess">SIM\'deki kişi başarıyla güncellendi</string>

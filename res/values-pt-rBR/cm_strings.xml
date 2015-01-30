@@ -248,6 +248,8 @@
   <string name="dial">Discar</string>
   <string name="enterName">Digite o nome:</string>
   <string name="enterNumber">Digite o número de telefone:</string>
+  <string name="hintName">Nome</string>
+  <string name="hintPhonenumber">Número de telefone</string>
   <string name="contactAddSuccess">Contato adicionado com sucesso ao SIM</string>
   <string name="contactAddFailed">Falha ao adicionar contato ao SIM</string>
   <string name="contactUpdateSuccess">Sucesso ao atualizar contato no SIM</string>

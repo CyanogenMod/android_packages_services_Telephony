@@ -249,6 +249,8 @@
   <string name="dial">Panggil</string>
   <string name="enterName">Masukkan nama:</string>
   <string name="enterNumber">Masukkan nomor telepon:</string>
+  <string name="hintName">Nama</string>
+  <string name="hintPhonenumber">Nomer telepon</string>
   <string name="contactAddSuccess">Berhasil menambahkan kontak ke SIM</string>
   <string name="contactAddFailed">Gagal untuk menambahkan kontak ke SIM</string>
   <string name="contactUpdateSuccess">Kontak di SIM berhasil diperbarui</string>

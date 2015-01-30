@@ -248,6 +248,8 @@
   <string name="dial">Uruffen</string>
   <string name="enterName">Numm aginn:</string>
   <string name="enterNumber">Telefonsnummer aginn:</string>
+  <string name="hintName">Numm</string>
+  <string name="hintPhonenumber">Telefonsnummer</string>
   <string name="contactAddSuccess">Kontakt erfollegräich op d\'SIM-Kaart gesat</string>
   <string name="contactAddFailed">Kontakt konnt net op d\'SIM-Kaart gesat ginn</string>
   <string name="contactUpdateSuccess">SIM-Kontakt erfollegräich aktualiséiert</string>

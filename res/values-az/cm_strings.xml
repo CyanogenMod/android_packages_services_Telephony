@@ -27,6 +27,7 @@
   <string name="call_notif_call_deflected">Zəng uzaq yer tərəfindən yönləndirildi</string>
   <string name="call_notif_MTcall_forwarding">Gələn zəng yönləndirildi</string>
   <string name="call_notif_multipartycall">Çox tərəfli zəng</string>
+  <string name="call_notif_forwardcheckreceived">Zəng yönləndirildi</string>
   <string name="vibrate_outgoing">Cavab verәrkәn vibrasiyalamaq</string>
   <string name="vibrate_call_waiting">Zәngi gözlәyәrkәn vibrasiyalamaq</string>
   <string name="blacklist_title">Qara siyahı</string>

@@ -248,6 +248,8 @@
   <string name="dial">Wählen</string>
   <string name="enterName">Name eingeben:</string>
   <string name="enterNumber">Telefonnummer eingeben:</string>
+  <string name="hintName">Name</string>
+  <string name="hintPhonenumber">Telefonnummer</string>
   <string name="contactAddSuccess">SIM-Kontakt erfolgreich hinzugefügt</string>
   <string name="contactAddFailed">SIM-Kontakt hinzufügen fehlgeschlagen</string>
   <string name="contactUpdateSuccess">SIM-Kontakt erfolgreich aktualisiert</string>

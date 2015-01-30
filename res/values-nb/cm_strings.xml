@@ -248,6 +248,8 @@
   <string name="dial">Ring opp</string>
   <string name="enterName">Skriv inn navn:</string>
   <string name="enterNumber">Angi telefonnummer:</string>
+  <string name="hintName">Navn</string>
+  <string name="hintPhonenumber">Mobilnummer</string>
   <string name="contactAddSuccess">Kontakten ble lagret på SIMkortet</string>
   <string name="contactAddFailed">Klarte ikke å lagre kontakten på SIMkortet</string>
   <string name="contactUpdateSuccess">Kontakten er oppdatert på SIMkortet</string>
