@@ -1742,13 +1742,30 @@ public class CallFeaturesSetting extends PreferenceActivity
     public static boolean migrateVoicemailVibrationSettingsIfNeeded(SharedPreferences prefs,
             int phoneId) {
         if (!prefs.contains(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + phoneId)) {
-            String vibrateWhen = prefs.getString(
-                    BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY + phoneId,
-                    VOICEMAIL_VIBRATION_NEVER);
-            // If vibrateWhen is always, then voicemailVibrate should be True.
-            // otherwise if vibrateWhen is "only in silent mode", or "never", then
-            // voicemailVibrate = False.
-            boolean voicemailVibrate = vibrateWhen.equals(VOICEMAIL_VIBRATION_ALWAYS);
+            boolean voicemailVibrate = false;
+            // If phoneId based setting is not found, try without phoneId.
+            if (!prefs.contains(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY)) {
+                String vibrateWhen = VOICEMAIL_VIBRATION_NEVER;
+                // If BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY is not found,
+                // try BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY with and without phoneId.
+                if (!prefs.contains(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY + phoneId)) {
+                    vibrateWhen = prefs.getString(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY,
+                            VOICEMAIL_VIBRATION_NEVER);
+                } else {
+                    vibrateWhen = prefs.getString(
+                            BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY + phoneId,
+                            VOICEMAIL_VIBRATION_NEVER);
+                }
+                // If vibrateWhen is always, then voicemailVibrate should be True.
+                // otherwise if vibrateWhen is "only in silent mode", or "never", then
+                // voicemailVibrate = False.
+                voicemailVibrate = vibrateWhen.equals(VOICEMAIL_VIBRATION_ALWAYS);
+            } else {
+                voicemailVibrate = prefs.getBoolean(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY,
+                        false);
+            }
+
+            // Save the vibrate setting in phoneId based BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY
             final SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean(BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + phoneId,
                     voicemailVibrate);
