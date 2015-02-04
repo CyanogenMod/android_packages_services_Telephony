@@ -22,6 +22,7 @@ import android.net.Uri;
 import android.telecom.Connection;
 import android.telecom.ConnectionRequest;
 import android.telecom.ConnectionService;
+import android.telecom.Conference;
 import android.telecom.DisconnectCause;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
@@ -320,6 +321,11 @@ public class TelephonyConnectionService extends ConnectionService {
             if (imsFgCall.hasConnections()) {
                 allConnections.addAll(imsFgCall.getConnections());
             }
+
+            final Call imsBgCall = phone.getImsPhone().getBackgroundCall();
+            if (imsBgCall.hasConnections()) {
+                allConnections.addAll(imsBgCall.getConnections());
+            }
         }
         final Call backgroundCall = phone.getBackgroundCall();
         if (backgroundCall.hasConnections()) {
@@ -328,7 +334,8 @@ public class TelephonyConnectionService extends ConnectionService {
 
         com.android.internal.telephony.Connection unknownConnection = null;
         for (com.android.internal.telephony.Connection telephonyConnection : allConnections) {
-            if (!isOriginalConnectionKnown(telephonyConnection)) {
+            if ((!isOriginalConnectionKnown(telephonyConnection)) &&
+                    !isConferenceHostOriginalConnection(telephonyConnection)) {
                 unknownConnection = telephonyConnection;
                 break;
             }
@@ -349,6 +356,27 @@ public class TelephonyConnectionService extends ConnectionService {
             connection.updateState();
             return connection;
         }
+    }
+
+    /**
+     * Check whether the original connection is part of any Imsconference
+     */
+    private boolean isConferenceHostOriginalConnection(
+        com.android.internal.telephony.Connection originalConnection) {
+        int phoneId = originalConnection.getCall().getPhone().getPhoneId();
+        ArrayList<ImsConference> conferences =
+                mImsConferenceController[phoneId].getImsConferences();
+        if (conferences != null) {
+            for (Conference conference: conferences) {
+                TelephonyConnection primaryConn =
+                        (TelephonyConnection) conference.getPrimaryConnection();
+                if (primaryConn != null &&
+                        primaryConn.getOriginalConnection() == originalConnection) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override
