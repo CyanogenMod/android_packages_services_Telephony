@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.telecom.AudioState;
+import android.telecom.CallProperties;
 import android.telecom.Connection;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneCapabilities;
@@ -32,6 +33,7 @@ import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection.PostDialListener;
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.gsm.SuppServiceNotification;
 import com.android.internal.telephony.imsphone.ImsPhoneConnection;
 import com.android.internal.telephony.PhoneConstants;
 
@@ -49,6 +51,7 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_RINGBACK_TONE = 2;
     private static final int MSG_HANDOVER_STATE_CHANGED = 3;
     private static final int MSG_DISCONNECT = 4;
+    private static final int MSG_SUPP_SERVICE_NOTIFY = 5;
     private static final int MSG_PHONE_VP_ON = 6;
     private static final int MSG_PHONE_VP_OFF = 7;
     private static final int MSG_SUPP_SERVICE_FAILED = 8;
@@ -58,6 +61,29 @@ abstract class TelephonyConnection extends Connection {
     private String[] mSubName = {"SIM 1", "SIM 2", "SIM 3"};
     private String mDisplayName;
     private boolean mVoicePrivacyState = false;
+
+    static class CallPropertiesFlags {
+        boolean mIsForwarded;
+        boolean mHeldRemotely;
+        boolean mAdditionalCallForwarded;
+        boolean mDialingIsWaiting;
+        boolean mRemoteIncomingCallsBarred;
+
+        int getCallProperties() {
+            int newProperties = 0;
+
+            if (mIsForwarded) newProperties |= CallProperties.WAS_FORWARDED;
+            if (mHeldRemotely) newProperties |= CallProperties.HELD_REMOTELY;
+            if (mAdditionalCallForwarded) newProperties |= CallProperties.ADDITIONAL_CALL_FORWARDED;
+            if (mDialingIsWaiting) newProperties |= CallProperties.DIALING_IS_WAITING;
+            if (mRemoteIncomingCallsBarred) {
+                newProperties |= CallProperties.REMOTE_INCOMING_CALLS_BARRED;
+            }
+            return newProperties;
+        }
+    }
+
+    protected CallPropertiesFlags mCallPropertiesFlags = new CallPropertiesFlags();
 
     private static final boolean DBG = false;
 
@@ -97,6 +123,14 @@ abstract class TelephonyConnection extends Connection {
                     break;
                 case MSG_DISCONNECT:
                     updateState();
+                    break;
+                case MSG_SUPP_SERVICE_NOTIFY:
+                    Log.v(TelephonyConnection.this, "MSG_SUPP_SERVICE_NOTIFY");
+                    SuppServiceNotification ssn =
+                            (SuppServiceNotification)((AsyncResult) msg.obj).result;
+                    if (ssn != null) {
+                        onSuppServiceNotification(ssn);
+                    }
                     break;
                 case MSG_PHONE_VP_ON:
                     if (!mVoicePrivacyState) {
@@ -452,6 +486,21 @@ abstract class TelephonyConnection extends Connection {
         // Subclass can override this to do cleanup.
     }
 
+    protected void onSuppServiceNotification(SuppServiceNotification notification) {
+        Log.d(this, "SS Notification: " + notification);
+
+        // hold/retrieved notifications can come from either gsm or ims phones
+        if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MT) {
+            if (notification.code == SuppServiceNotification.MT_CODE_CALL_ON_HOLD) {
+                mCallPropertiesFlags.mHeldRemotely = true;
+            } else if (notification.code == SuppServiceNotification.MT_CODE_CALL_RETRIEVED) {
+                mCallPropertiesFlags.mHeldRemotely = false;
+            }
+        }
+
+        setCallProperties(mCallPropertiesFlags.getCallProperties());
+    }
+
     void setOriginalConnection(com.android.internal.telephony.Connection originalConnection) {
         Log.v(this, "new TelephonyConnection, originalConnection: " + originalConnection);
         if (mOriginalConnection != null) {
@@ -467,6 +516,7 @@ abstract class TelephonyConnection extends Connection {
                 mHandler, MSG_HANDOVER_STATE_CHANGED, null);
         getPhone().registerForRingbackTone(mHandler, MSG_RINGBACK_TONE, null);
         getPhone().registerForDisconnect(mHandler, MSG_DISCONNECT, null);
+        getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
         getPhone().registerForInCallVoicePrivacyOn(mHandler, MSG_PHONE_VP_ON, null);
         getPhone().registerForInCallVoicePrivacyOff(mHandler, MSG_PHONE_VP_OFF, null);
         getPhone().registerForSuppServiceFailed(mHandler, MSG_SUPP_SERVICE_FAILED, null);

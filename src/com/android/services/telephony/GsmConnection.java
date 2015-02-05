@@ -31,47 +31,14 @@ import com.android.internal.telephony.gsm.SuppServiceNotification;
  * Manages a single phone call handled by GSM.
  */
 final class GsmConnection extends TelephonyConnection {
-    private static final int MSG_SUPP_SERVICE_NOTIFY = 1;
-
-    private final Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MSG_SUPP_SERVICE_NOTIFY:
-                    Log.v(GsmConnection.this, "MSG_SUPP_SERVICE_NOTIFY");
-                    AsyncResult ar = (AsyncResult) msg.obj;
-                    SuppServiceNotification ssn = (SuppServiceNotification) ar.result;
-
-                    if (ssn != null) {
-                        onSuppServiceNotification(ssn);
-                    }
-                    break;
-            }
-        }
-    };
-
-    private final boolean mIsForwarded;
-    private boolean mHeldRemotely;
-    private boolean mAdditionalCallForwarded;
-    private boolean mDialingIsWaiting;
-    private boolean mRemoteIncomingCallsBarred;
 
     GsmConnection(Connection connection, boolean isForwarded) {
         super(null);
-        mIsForwarded = isForwarded;
+        mCallPropertiesFlags.mIsForwarded = isForwarded;
         if (connection != null) {
             setOriginalConnection(connection);
         }
-        updateProperties();
-    }
-
-    @Override
-    void setOriginalConnection(Connection originalConnection) {
-        if (mOriginalConnection != null) {
-            getPhone().unregisterForSuppServiceNotification(mHandler);
-        }
-        super.setOriginalConnection(originalConnection);
-        getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
+        setCallProperties(mCallPropertiesFlags.getCallProperties());
     }
 
     /** {@inheritDoc} */
@@ -121,46 +88,26 @@ final class GsmConnection extends TelephonyConnection {
         super.onRemovedFromCallService();
     }
 
-    private void onSuppServiceNotification(SuppServiceNotification notification) {
-        Phone phone = getPhone();
+    @Override
+    protected void onSuppServiceNotification(SuppServiceNotification notification) {
         int state = getState();
 
         Log.d(this, "SS Notification: " + notification);
 
-        if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MT) {
-            if (notification.code == SuppServiceNotification.MT_CODE_CALL_ON_HOLD) {
-                mHeldRemotely = true;
-            } else if (notification.code == SuppServiceNotification.MT_CODE_CALL_RETRIEVED) {
-                mHeldRemotely = false;
-            } else if (notification.code ==
-                    SuppServiceNotification.MT_CODE_ADDITIONAL_CALL_FORWARDED) {
-                mAdditionalCallForwarded = true;
-            }
+        if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MT &&
+                notification.code == SuppServiceNotification.MT_CODE_ADDITIONAL_CALL_FORWARDED) {
+                mCallPropertiesFlags.mAdditionalCallForwarded = true;
         } else if (notification.notificationType == SuppServiceNotification.NOTIFICATION_TYPE_MO) {
             if (notification.code == SuppServiceNotification.MO_CODE_CALL_IS_WAITING) {
                 if (state == STATE_DIALING) {
-                    mDialingIsWaiting = true;
+                    mCallPropertiesFlags.mDialingIsWaiting = true;
                 }
             } else if (notification.code ==
                     SuppServiceNotification.MO_CODE_INCOMING_CALLS_BARRED) {
-                mRemoteIncomingCallsBarred = true;
+                mCallPropertiesFlags.mRemoteIncomingCallsBarred = true;
             }
         }
 
-        updateProperties();
-    }
-
-    private void updateProperties() {
-        int newProperties = 0;
-
-        if (mIsForwarded) newProperties |= CallProperties.WAS_FORWARDED;
-        if (mHeldRemotely) newProperties |= CallProperties.HELD_REMOTELY;
-        if (mAdditionalCallForwarded) newProperties |= CallProperties.ADDITIONAL_CALL_FORWARDED;
-        if (mDialingIsWaiting) newProperties |= CallProperties.DIALING_IS_WAITING;
-        if (mRemoteIncomingCallsBarred) {
-            newProperties |= CallProperties.REMOTE_INCOMING_CALLS_BARRED;
-        }
-
-        setCallProperties(newProperties);
+        super.onSuppServiceNotification(notification);
     }
 }
