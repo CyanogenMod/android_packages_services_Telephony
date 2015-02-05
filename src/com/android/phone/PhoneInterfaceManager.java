@@ -1390,15 +1390,15 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
         List<String> settings =
                 Settings.Secure.getDelimitedStringAsList(mApp.getContentResolver(),
-                        Settings.Secure.PROTECTED_SMS_ADDRESSES, "\\|");
+                        Settings.Secure.PROTECTED_SMS_ADDRESSES, "|");
         if (!settings.contains(normalized)) {
             // Add the address
             settings.add(normalized);
         }
 
         // Commit
-        Settings.Secure.putString(mApp.getContentResolver(),
-                Settings.Secure.PROTECTED_SMS_ADDRESSES, TextUtils.join("|", settings));
+        Settings.Secure.putListAsDelimitedString(mApp.getContentResolver(),
+                Settings.Secure.PROTECTED_SMS_ADDRESSES, "|", settings);
     }
 
     /**
