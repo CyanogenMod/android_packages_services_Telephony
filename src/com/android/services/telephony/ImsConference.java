@@ -510,6 +510,7 @@ public class ImsConference extends Conference {
                 connection.updateState(participant.getState());
                 if (participant.getState() == ConferenceParticipantConnection.STATE_DISCONNECTED) {
                     removeConferenceParticipant(connection);
+                    removeConnection(connection);
                 }
             }
         }
@@ -533,7 +534,7 @@ public class ImsConference extends Conference {
 
             if (!participantEndpoints.contains(entry.getKey())) {
                 ConferenceParticipantConnection participant = entry.getValue();
-                participant.removeConnectionListener(mParticipantListener);
+                removeConferenceParticipant(participant);
                 removeConnection(participant);
                 entryIterator.remove();
                 oldParticipantsRemoved = true;
@@ -583,9 +584,7 @@ public class ImsConference extends Conference {
      * @param participant The participant to remove.
      */
     private void removeConferenceParticipant(ConferenceParticipantConnection participant) {
-        if (Log.VERBOSE) {
-            Log.v(this, "removeConferenceParticipant: %s", participant);
-        }
+        Log.d(this, "removeConferenceParticipant: %s", participant);
 
         participant.removeConnectionListener(mParticipantListener);
         participant.getEndpoint();
