@@ -1899,6 +1899,17 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         // Blacklist screen - Needed for setting summary
         mButtonBlacklist = (PreferenceScreen) prefSet.findPreference(BUTTON_BLACKLIST);
+        if (!BlacklistUtils.isBlacklistFeaturePresent(this)) {
+            PreferenceCategory parent =
+                    (PreferenceCategory)findPreference("pref_advanced_settings");
+            parent.removePreference(mButtonBlacklist);
+            mButtonBlacklist = null;
+
+            if (parent.getPreferenceCount() == 0) {
+                PreferenceScreen root = (PreferenceScreen)findPreference("pref_key_root");
+                root.removePreference(parent);
+            }
+        }
 
         PreferenceScreen selectSub = (PreferenceScreen) findPreference(BUTTON_SELECT_SUB_KEY);
         if (selectSub != null) {
