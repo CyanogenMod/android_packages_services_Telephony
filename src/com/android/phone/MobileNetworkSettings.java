@@ -588,7 +588,29 @@ public class MobileNetworkSettings extends PreferenceActivity
                             settingsNetworkMode);
                 }
 
-                if (isValidModemNetworkMode(mPhone, modemNetworkMode)) {
+                 if (modemNetworkMode == Phone.NT_MODE_WCDMA_PREF ||
+                        modemNetworkMode == Phone.NT_MODE_GSM_ONLY ||
+                        modemNetworkMode == Phone.NT_MODE_WCDMA_ONLY ||
+                        modemNetworkMode == Phone.NT_MODE_GSM_UMTS ||
+                        modemNetworkMode == Phone.NT_MODE_CDMA ||
+                        modemNetworkMode == Phone.NT_MODE_CDMA_NO_EVDO ||
+                        modemNetworkMode == Phone.NT_MODE_EVDO_NO_CDMA ||
+                        modemNetworkMode == Phone.NT_MODE_GLOBAL ||
+                        modemNetworkMode == Phone.NT_MODE_LTE_CDMA_AND_EVDO ||
+                        modemNetworkMode == Phone.NT_MODE_LTE_GSM_WCDMA ||
+                        modemNetworkMode == Phone.NT_MODE_LTE_CDMA_EVDO_GSM_WCDMA ||
+                        modemNetworkMode == Phone.NT_MODE_LTE_ONLY ||
+                        modemNetworkMode == Phone.NT_MODE_LTE_WCDMA ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_ONLY ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_WCDMA ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_LTE ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_GSM ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_GSM_LTE ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_GSM_WCDMA ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_WCDMA_LTE ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_GSM_WCDMA_LTE ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_CDMA_EVDO_GSM_WCDMA ||
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_LTE_CDMA_EVDO_GSM_WCDMA) {
                     if (DBG) {
                         log("handleGetPreferredNetworkTypeResponse: if 1: modemNetworkMode = " +
                                 modemNetworkMode);
