@@ -125,6 +125,17 @@ public class CallNotifier extends Handler {
     private final BluetoothManager mBluetoothManager;
 
     private PhoneStateListener[] mPhoneStateListener;
+    private PhoneStateListener mInCallVolumeFixListener = new PhoneStateListener() {
+        @Override
+        public void onCallStateChanged(int state, String incomingNumber) {
+            if (state == AudioManager.MODE_IN_CALL) {
+                Log.d(LOG_TAG, "Audio manager switched to IN_CALL, fliping speaker phone to fix routing.");
+                boolean speakerOn = mAudioManager.isSpeakerphoneOn();
+                mAudioManager.setSpeakerphoneOn(!speakerOn);
+                mAudioManager.setSpeakerphoneOn(speakerOn);
+            }
+        }
+    };
 
     /**
      * Initialize the singleton CallNotifier instance.
@@ -166,6 +177,9 @@ public class CallNotifier extends Handler {
         int phoneCount = TelephonyManager.getDefault().getPhoneCount();
         mPhoneStateListener = new PhoneStateListener[phoneCount];
         listen();
+        TelephonyManager telephonyManager = (TelephonyManager)mApplication.getSystemService(
+                Context.TELEPHONY_SERVICE);
+        telephonyManager.listen(mInCallVolumeFixListener, PhoneStateListener.LISTEN_CALL_STATE);
         IntentFilter filter = new IntentFilter(TelephonyIntents.ACTION_SUBINFO_RECORD_UPDATED);
         mApplication.getApplicationContext().registerReceiver(mBroadcastReceiver, filter);
     }
