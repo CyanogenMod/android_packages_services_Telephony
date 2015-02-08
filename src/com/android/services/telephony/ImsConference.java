@@ -489,19 +489,20 @@ public class ImsConference extends Conference {
         boolean newParticipantsAdded = false;
         boolean oldParticipantsRemoved = false;
         ArrayList<ConferenceParticipant> newParticipants = new ArrayList<>(participants.size());
-        HashSet<Uri> participantEndpoints = new HashSet<>(participants.size());
+        HashSet<Uri> participantUserEntities = new HashSet<>(participants.size());
 
         // Add any new participants and update existing.
         for (ConferenceParticipant participant : participants) {
-            Uri endpoint = participant.getEndpoint();
-            participantEndpoints.add(endpoint);
-            if (!mConferenceParticipantConnections.containsKey(endpoint)) {
+            Uri userEntity = participant.getHandle();
+
+            participantUserEntities.add(userEntity);
+            if (!mConferenceParticipantConnections.containsKey(userEntity)) {
                 createConferenceParticipantConnection(parent, participant);
                 newParticipants.add(participant);
                 newParticipantsAdded = true;
             } else {
                 ConferenceParticipantConnection connection =
-                        mConferenceParticipantConnections.get(endpoint);
+                        mConferenceParticipantConnections.get(userEntity);
                 connection.updateState(participant.getState());
                 if (participant.getState() == ConferenceParticipantConnection.STATE_DISCONNECTED) {
                     removeConferenceParticipant(connection);
@@ -515,7 +516,7 @@ public class ImsConference extends Conference {
             // Set the state of the new participants at once and add to the conference
             for (ConferenceParticipant newParticipant : newParticipants) {
                 ConferenceParticipantConnection connection =
-                        mConferenceParticipantConnections.get(newParticipant.getEndpoint());
+                        mConferenceParticipantConnections.get(newParticipant.getHandle());
                 connection.updateState(newParticipant.getState());
             }
         }
@@ -527,7 +528,7 @@ public class ImsConference extends Conference {
         while (entryIterator.hasNext()) {
             Map.Entry<Uri, ConferenceParticipantConnection> entry = entryIterator.next();
 
-            if (!participantEndpoints.contains(entry.getKey())) {
+            if (!participantUserEntities.contains(entry.getKey())) {
                 ConferenceParticipantConnection participant = entry.getValue();
                 removeConferenceParticipant(participant);
                 removeConnection(participant);
@@ -566,7 +567,7 @@ public class ImsConference extends Conference {
             Log.v(this, "createConferenceParticipantConnection: %s", connection);
         }
 
-        mConferenceParticipantConnections.put(participant.getEndpoint(), connection);
+        mConferenceParticipantConnections.put(participant.getHandle(), connection);
         PhoneAccountHandle phoneAccountHandle =
                 TelecomAccountRegistry.makePstnPhoneAccountHandle(parent.getPhone());
         mTelephonyConnectionService.addExistingConnection(phoneAccountHandle, connection);
@@ -582,8 +583,8 @@ public class ImsConference extends Conference {
         Log.d(this, "removeConferenceParticipant: %s", participant);
 
         participant.removeConnectionListener(mParticipantListener);
-        participant.getEndpoint();
-        mConferenceParticipantConnections.remove(participant.getEndpoint());
+        participant.getUserEntity();
+        mConferenceParticipantConnections.remove(participant.getUserEntity());
         mTelephonyConnectionService.removeConnection(participant);
     }
 
