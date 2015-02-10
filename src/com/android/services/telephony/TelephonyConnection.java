@@ -39,7 +39,6 @@ import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection.PostDialListener;
 import com.android.internal.telephony.gsm.SuppServiceNotification;
-
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.cdma.CdmaCall;
 import com.android.internal.telephony.gsm.*;
@@ -49,6 +48,7 @@ import com.android.phone.R;
 import com.android.internal.telephony.PhoneConstants;
 
 import java.lang.Override;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +124,8 @@ abstract class TelephonyConnection extends Connection {
                                 + getPhone().getPhoneId());
                         mSsNotification =
                                 (SuppServiceNotification)((AsyncResult) msg.obj).result;
-                        String callForwardText = getSuppSvcNotificationText(mSsNotification);
+                        final String notificationText =
+                                getSuppSvcNotificationText(mSsNotification);
                         if (TelephonyManager.getDefault().getPhoneCount() > 1) {
                             List<SubInfoRecord> sub =
                                     SubscriptionManager.getSubInfoUsingSlotId(
@@ -132,13 +133,16 @@ abstract class TelephonyConnection extends Connection {
                             String displayName =  ((sub != null) && (sub.size() > 0)) ?
                                     sub.get(0).displayName : mSubName[getPhone().getPhoneId()];
 
-                            mDisplayName = displayName + ":" + callForwardText;
+                            mDisplayName = displayName + ":" + notificationText;
                         } else {
-                            mDisplayName = callForwardText;
+                            mDisplayName = notificationText;
                         }
-                        if (callForwardText != null && !callForwardText.isEmpty()) {
+                        if (notificationText != null && !notificationText.isEmpty()) {
+                            final String history =(mSsNotification.history != null
+                                    && mSsNotification.history.length > 0) ?
+                                    " History: " + Arrays.toString(mSsNotification.history) : "";
                             Toast.makeText(TelephonyGlobals.getApplicationContext(),
-                                    mDisplayName, Toast.LENGTH_LONG).show();
+                                    mDisplayName + history, Toast.LENGTH_LONG).show();
                         }
                     } else {
                         Log.v(TelephonyConnection.this,
