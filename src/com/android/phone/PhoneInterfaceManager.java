@@ -1635,9 +1635,31 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      */
     public String getIccOperatorNumeric(long subId) {
         String iccOperatorNumeric = null;
-        IccRecords iccRecords = getPhone(subId).getIccCard().getIccRecords();
-        if (iccRecords != null) {
-            iccOperatorNumeric = iccRecords.getOperatorNumeric();
+        int netType = getPhone(subId).getServiceState().getRilDataRadioTechnology();
+        int family = UiccController.getFamilyFromRadioTechnology(netType);
+        if (family == UiccController.APP_FAM_UNKNOWN) {
+            int phoneType = getActivePhoneTypeForSubscriber(subId);
+            switch (phoneType) {
+                case TelephonyManager.PHONE_TYPE_GSM:
+                    family = UiccController.APP_FAM_3GPP;
+                    break;
+                case TelephonyManager.PHONE_TYPE_CDMA:
+                    family = UiccController.APP_FAM_3GPP2;
+                    break;
+            }
+        }
+
+        if (family != UiccController.APP_FAM_UNKNOWN) {
+            int slotId = SubscriptionManager.getPhoneId(subId);
+            IccRecords iccRecords = UiccController.getInstance().getIccRecords(slotId, family);
+            if (iccRecords != null) {
+                iccOperatorNumeric = iccRecords.getOperatorNumeric();
+            }
+        } else {
+            IccRecords iccRecords = getPhone(subId).getIccCard().getIccRecords();
+            if (iccRecords != null) {
+                iccOperatorNumeric = iccRecords.getOperatorNumeric();
+            }
         }
         return iccOperatorNumeric;
     }
