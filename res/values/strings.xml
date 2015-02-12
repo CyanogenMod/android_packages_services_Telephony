@@ -1670,5 +1670,6 @@
     <!-- Preferred networks -->
     <string name="preferred_networks"></string>
     <string name="sum_preferred_networks"></string>
+    <string name="network_forbidden">(Forbidden)</string>
 
 </resources>
