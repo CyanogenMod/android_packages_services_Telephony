@@ -825,6 +825,8 @@ abstract class TelephonyConnection extends Connection {
         mOriginalConnection.addPostDialListener(mPostDialListener);
         mOriginalConnection.addListener(mOriginalConnectionListener);
 
+        updateAddress();
+
         // Set video state and capabilities
         setVideoState(mOriginalConnection.getVideoState());
         updateState();
@@ -839,7 +841,6 @@ abstract class TelephonyConnection extends Connection {
         }
 
         fireOnOriginalConnectionConfigured();
-        updateAddress();
     }
 
     /**
