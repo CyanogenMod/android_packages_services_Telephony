@@ -2081,7 +2081,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
-    public void setLine1NumberForDisplayForSubscriber(long subId, String alphaTag, String number) {
+    public boolean setLine1NumberForDisplayForSubscriber(long subId, String alphaTag, String number) {
         enforceModifyPermissionOrCarrierPrivilege();
 
         String iccId = getIccId(subId);
@@ -2102,6 +2102,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             }
             editor.commit();
         }
+        return true;
     }
 
     @Override
