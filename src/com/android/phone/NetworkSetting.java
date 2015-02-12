@@ -534,6 +534,11 @@ public class NetworkSetting extends PreferenceActivity
         } else {
             title = ni.getOperatorNumeric();
         }
+
+        if (ni.getState() == OperatorInfo.State.FORBIDDEN) {
+            title += getString(R.string.network_forbidden);
+        }
+
         if (!ni.getRadioTech().equals(""))
             title += " " + mRatMap.get(ni.getRadioTech());
 
