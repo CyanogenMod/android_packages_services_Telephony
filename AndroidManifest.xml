@@ -456,18 +456,6 @@
             </intent-filter>
         </activity>
 
-       <!-- MSim Mobile Network Settings per subscription -->
-       <activity android:name=".msim.MSimMobileNetworkSubSettings"
-                android:label="@string/settings_label"
-                android:theme="@style/Theme.Material.Settings">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- Select Subscription. Theme is set in the Activity. -->
         <activity android:name=".msim.SelectSubscription"
             android:label="@string/callind_multi_sim"
             android:configChanges="orientation|keyboardHidden"
