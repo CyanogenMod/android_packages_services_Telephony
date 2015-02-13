@@ -55,10 +55,6 @@ public class GsmUmtsOptions {
     private Phone mPhone;
     private boolean mRemovedAPNExpand = false;
 
-    public GsmUmtsOptions(PreferenceActivity prefActivity, PreferenceScreen prefScreen) {
-        this(prefActivity,  prefScreen, 0);
-    }
-
     private int mSubId;
 
     public GsmUmtsOptions(PreferenceActivity prefActivity, PreferenceScreen prefScreen,
