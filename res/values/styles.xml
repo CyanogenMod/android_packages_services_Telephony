@@ -301,8 +301,9 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
-    <style name="Theme.Material.Settings" parent="@android:style/Theme.Material.Settings">
+    <style name="Theme.Material.Settings" parent="android:Theme.Material.Light.DarkActionBar">
         <item name="@*android:actionBarSize">56dip</item>
-        <item name="preferenceBackgroundColor">@drawable/preference_background</item>
+        <item name="android:colorPrimary">@color/settings_theme_primary</item>
+        <item name="android:colorPrimaryDark">@color/settings_theme_primary_dark</item>
     </style>
 </resources>

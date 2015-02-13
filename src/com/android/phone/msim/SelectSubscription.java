@@ -51,6 +51,7 @@ public class SelectSubscription extends TabActivity {
 
     public static final String PACKAGE = "PACKAGE";
     public static final String TARGET_CLASS = "TARGET_CLASS";
+    public static final String EXTRA_THEME = "TARGET_THEME";
 
     private String[] tabLabel = {"SIM 1", "SIM 2", "SIM 3"};
 
@@ -66,6 +67,19 @@ public class SelectSubscription extends TabActivity {
      */
     @Override
     protected void onCreate(Bundle icicle) {
+        Intent intent =  getIntent();
+        if (intent.hasExtra(EXTRA_THEME)) {
+            String themeName = intent.getStringExtra(EXTRA_THEME);
+            if (themeName != null && !themeName.isEmpty()) {
+                int style = getResources().getIdentifier(themeName, "style", getPackageName());
+                if (style != 0) {
+                    setTheme(style);
+                }
+            }
+        } else {
+            setTheme(R.style.SettingsLight);
+        }
+
         super.onCreate(icicle);
         if (DBG) log("Creating activity");
 
@@ -73,7 +87,6 @@ public class SelectSubscription extends TabActivity {
 
         TabHost tabHost = getTabHost();
 
-        Intent intent =  getIntent();
         String pkg = intent.getStringExtra(PACKAGE);
         String targetClass = intent.getStringExtra(TARGET_CLASS);
 
