@@ -71,6 +71,14 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_PHONE_VP_ON = 6;
     private static final int MSG_PHONE_VP_OFF = 7;
     private static final int MSG_SUPP_SERVICE_FAILED = 8;
+    private static final int MSG_SET_VIDEO_STATE = 9;
+    private static final int MSG_SET_LOCAL_VIDEO_CAPABILITY = 10;
+    private static final int MSG_SET_REMOTE_VIDEO_CAPABILITY = 11;
+    private static final int MSG_SET_VIDEO_PROVIDER = 12;
+    private static final int MSG_SET_AUDIO_QUALITY = 13;
+    private static final int MSG_SET_CALL_SUBSTATE = 14;
+    private static final int MSG_SET_CONFERENCE_PARTICIPANTS = 15;
+
     private static final String ACTION_SUPP_SERVICE_FAILURE =
             "org.codeaurora.ACTION_SUPP_SERVICE_FAILURE";
 
@@ -179,9 +187,49 @@ abstract class TelephonyConnection extends Connection {
                     failure.putExtra("supp_serv_failure", val);
                     TelephonyGlobals.getApplicationContext().sendBroadcast(failure);
                     break;
+
+                case MSG_SET_VIDEO_STATE:
+                    setVideoState(msg.arg1);
+                    break;
+
+                case MSG_SET_LOCAL_VIDEO_CAPABILITY:
+                    setLocalVideoCapable(toBoolean(msg.arg1));
+                    break;
+
+                case MSG_SET_REMOTE_VIDEO_CAPABILITY:
+                    setRemoteVideoCapable(toBoolean(msg.arg1));
+                    break;
+
+                case MSG_SET_VIDEO_PROVIDER:
+                    VideoProvider videoProvider = (VideoProvider) msg.obj;
+                    setVideoProvider(videoProvider);
+                    break;
+
+                case MSG_SET_AUDIO_QUALITY:
+                    setAudioQuality(msg.arg1);
+                    break;
+
+                case MSG_SET_CALL_SUBSTATE:
+                    setCallSubstate(msg.arg1);
+                    break;
+
+                case MSG_SET_CONFERENCE_PARTICIPANTS:
+                    List<ConferenceParticipant> participants =
+                            (List<ConferenceParticipant>) msg.obj;
+                    updateConferenceParticipants(participants);
+                    break;
+
             }
         }
     };
+
+    private boolean toBoolean(int value) {
+        return (value == 1);
+    }
+
+    private int toInt(boolean value) {
+        return (value) ? 1 : 0;
+    }
 
     protected boolean isOutgoing() {
         return mIsOutgoing;
@@ -400,7 +448,7 @@ abstract class TelephonyConnection extends Connection {
             new com.android.internal.telephony.Connection.ListenerBase() {
         @Override
         public void onVideoStateChanged(int videoState) {
-            setVideoState(videoState);
+            mHandler.obtainMessage(MSG_SET_VIDEO_STATE, videoState, 0).sendToTarget();
         }
 
         /**
@@ -411,7 +459,8 @@ abstract class TelephonyConnection extends Connection {
          */
         @Override
         public void onLocalVideoCapabilityChanged(boolean capable) {
-            setLocalVideoCapable(capable);
+            mHandler.obtainMessage(MSG_SET_LOCAL_VIDEO_CAPABILITY,
+                    toInt(capable), 0).sendToTarget();
         }
 
         /**
@@ -422,7 +471,8 @@ abstract class TelephonyConnection extends Connection {
          */
         @Override
         public void onRemoteVideoCapabilityChanged(boolean capable) {
-            setRemoteVideoCapable(capable);
+            mHandler.obtainMessage(MSG_SET_REMOTE_VIDEO_CAPABILITY,
+                    toInt(capable), 0).sendToTarget();
         }
 
         /**
@@ -433,7 +483,7 @@ abstract class TelephonyConnection extends Connection {
          */
         @Override
         public void onVideoProviderChanged(VideoProvider videoProvider) {
-            setVideoProvider(videoProvider);
+            mHandler.obtainMessage(MSG_SET_VIDEO_PROVIDER, videoProvider).sendToTarget();
         }
 
         /**
@@ -444,7 +494,7 @@ abstract class TelephonyConnection extends Connection {
          */
         @Override
         public void onAudioQualityChanged(int audioQuality) {
-            setAudioQuality(audioQuality);
+            mHandler.obtainMessage(MSG_SET_AUDIO_QUALITY, audioQuality, 0).sendToTarget();
         }
 
         /**
@@ -455,7 +505,7 @@ abstract class TelephonyConnection extends Connection {
          */
         @Override
         public void onCallSubstateChanged(int callSubstate) {
-            setCallSubstate(callSubstate);
+            mHandler.obtainMessage(MSG_SET_CALL_SUBSTATE, callSubstate, 0).sendToTarget();
         }
 
         /**
@@ -466,7 +516,7 @@ abstract class TelephonyConnection extends Connection {
          */
         @Override
         public void onConferenceParticipantsChanged(List<ConferenceParticipant> participants) {
-            updateConferenceParticipants(participants);
+            mHandler.obtainMessage(MSG_SET_CONFERENCE_PARTICIPANTS, participants).sendToTarget();
         }
     };
 
