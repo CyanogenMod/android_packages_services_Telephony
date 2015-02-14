@@ -39,7 +39,8 @@ public class TelephonyConference extends Conference {
                 PhoneCapabilities.SUPPORT_HOLD |
                 PhoneCapabilities.HOLD |
                 PhoneCapabilities.MUTE |
-                PhoneCapabilities.MANAGE_CONFERENCE);
+                PhoneCapabilities.MANAGE_CONFERENCE|
+                PhoneCapabilities.MERGE_CONFERENCE);
         setActive();
     }
 

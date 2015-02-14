@@ -45,6 +45,12 @@ public class ImsConferenceController {
 
             mImsConferences.remove(conference);
         }
+
+        @Override
+        public void onStateChanged(Conference c, int oldState, int newState) {
+            Log.v(ImsConferenceController.class, "onStateChanged: conf");
+            recalculate();
+        }
     };
 
     /**
@@ -67,7 +73,7 @@ public class ImsConferenceController {
         @Override
         public void onCallCapabilitiesChanged(Connection c, int callCapabilities) {
             Log.v(this, "onCallCapabilitiesChanged: %s", Log.pii(c.getAddress()));
-            recalculateConference();
+            recalculate();
         }
 
         @Override
@@ -115,7 +121,7 @@ public class ImsConferenceController {
 
         mTelephonyConnections.add(connection);
         connection.addConnectionListener(mConnectionListener);
-        recalculateConference();
+        recalculate();
     }
 
     /**
@@ -129,7 +135,7 @@ public class ImsConferenceController {
         }
 
         mTelephonyConnections.remove(connection);
-        recalculateConferenceable();
+        recalculate();
     }
 
     /**
@@ -280,6 +286,7 @@ public class ImsConferenceController {
         connection.clearOriginalConnection();
         connection.setDisconnected(new DisconnectCause(DisconnectCause.OTHER));
         connection.destroy();
+        //TODO: Do this before or right after clone!!! mConnectionService.removeConnection(connection);
         mImsConferences.add(conference);
     }
 
