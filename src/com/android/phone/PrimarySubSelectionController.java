@@ -97,6 +97,8 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
     public static final String CONFIG_LTE_SUB_SELECT_MODE = "config_lte_sub_select_mode";
     public static final String CONFIG_PRIMARY_SUB_SETABLE = "config_primary_sub_setable";
 
+    private static final String SETTING_USER_PREF_DATA_SUB = "user_preferred_data_sub";
+
     private static final int MSG_ALL_CARDS_AVAILABLE = 1;
     private static final int MSG_CONFIG_LTE_DONE = 2;
     private static final int MSG_MODEM_STACK_READY = 3;
@@ -124,7 +126,13 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
 
         IntentFilter intentFilter = new IntentFilter(TelephonyIntents.ACTION_SIM_STATE_CHANGED);
         intentFilter.addAction(Intent.ACTION_LOCALE_CHANGED);
+        intentFilter.addAction(TelephonyIntents.ACTION_SUBSCRIPTION_SET_UICC_RESULT);
         mContext.registerReceiver(mReceiver, intentFilter);
+
+        logd("get preferred data sub from DB:" + getUserPrefDataSubIdFromDB());
+        if (getUserPrefDataSubIdFromDB() == SubscriptionManager.INVALID_SUB_ID) {
+            setUserPrefDataSubIdInDB(SubscriptionManager.getDefaultDataSubId());
+        }
     }
 
     private void logd(String message) {
@@ -175,9 +183,38 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                     mSIMChangedDialog.dismiss();
                     alertSIMChanged();
                 }
+            } else if (TelephonyIntents.ACTION_SUBSCRIPTION_SET_UICC_RESULT.equals(action)) {
+                int status = intent.getIntExtra(TelephonyIntents.EXTRA_RESULT,
+                        PhoneConstants.FAILURE);
+                int state = intent.getIntExtra(TelephonyIntents.EXTRA_NEW_SUB_STATE,
+                        SubscriptionManager.INACTIVE);
+                long subId = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                        SubscriptionManager.DEFAULT_SUB_ID);
+                Log.d(TAG, "ACTION_SUBSCRIPTION_SET_UICC_RESULT status = " + status + ", state = "
+                        + state + " subId: " + subId + " and subId from DB:"
+                        + getUserPrefDataSubIdFromDB());
+                if (mContext.getResources().getBoolean(R.bool.config_dds_switch_back) && status ==
+                        PhoneConstants.SUCCESS && state == SubscriptionManager.ACTIVE &&
+                        subId == getUserPrefDataSubIdFromDB()) {
+                    SubscriptionManager.setDefaultDataSubId(getUserPrefDataSubIdFromDB());
+                }
             }
         }
     };
+
+    private long getUserPrefDataSubIdFromDB() {
+        long subId = SubscriptionManager.INVALID_SUB_ID;
+        subId = android.provider.Settings.Global.getLong(mContext.getContentResolver(),
+                SETTING_USER_PREF_DATA_SUB, subId);
+        logd("getPreDataSubFromDB: " + subId);
+        return subId;
+    }
+
+    private void setUserPrefDataSubIdInDB(long subId) {
+        android.provider.Settings.Global.putLong(mContext.getContentResolver(),
+                SETTING_USER_PREF_DATA_SUB, subId);
+        logd("updating preferred data subId: " + subId + " in DB");
+    }
 
     protected boolean isCardsInfoChanged(int sub) {
         String iccId = mCardStateMonitor.getIccId(sub);

@@ -64,6 +64,9 @@ final class PstnIncomingCallNotifier {
             .parse("content://com.android.firewall");
     private static final String EXTRA_NUMBER = "phonenumber";
     private static final String IS_FORBIDDEN = "isForbidden";
+    private static final String BLOCK_NUMBER = "number";
+    private static final String SUB_ID = "sub_id";
+    private static final String BLOCK_CALL_INTENT = "com.android.firewall.ADD_CALL_BLOCK_RECORD";
 
     /**
      * The base phone implementation behind phone proxy. The underlying phone implementation can
@@ -195,6 +198,7 @@ final class PstnIncomingCallNotifier {
                 if (phone != null
                         && isBlockedByFirewall(connection.getAddress(), phone.getPhoneId())) {
                     PhoneUtils.hangupRingingCall(call);
+                    sendBlockRecordBroadcast(phone.getPhoneId(), connection.getAddress());
                     return;
                 }
                 sendIncomingCallIntent(connection);
@@ -214,6 +218,7 @@ final class PstnIncomingCallNotifier {
                 if (phone != null
                         && isBlockedByFirewall(number, phone.getPhoneId())) {
                     PhoneUtils.hangupRingingCall(call);
+                    sendBlockRecordBroadcast(phone.getPhoneId(), number);
                     return;
                 }
                 if (number != null && Objects.equals(number, ccwi.number)) {
@@ -221,6 +226,13 @@ final class PstnIncomingCallNotifier {
                 }
             }
         }
+    }
+
+    private void sendBlockRecordBroadcast (int subId, String number) {
+        Intent intent = new Intent(BLOCK_CALL_INTENT);
+        intent.putExtra(SUB_ID, subId);
+        intent.putExtra(BLOCK_NUMBER, number);
+        mPhoneProxy.getContext().sendBroadcast(intent);
     }
 
     private void handleNewUnknownConnection(AsyncResult asyncResult) {

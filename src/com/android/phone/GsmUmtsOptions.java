@@ -139,8 +139,9 @@ public class GsmUmtsOptions {
     private void updateOperatorSelectionVisibility() {
         log("updateOperatorSelectionVisibility. mPhone = " + mPhone.getPhoneName());
         Resources res = mPrefActivity.getResources();
-
-        enablePlmnIncSearch();
+        if(!res.getBoolean(R.bool.config_ef_plmn_sel)) {
+            enablePlmnIncSearch();
+        }
         if(!mPhone.isManualNetSelAllowed()) {
             log("Manual network selection not allowed.Disabling Operator Selection menu.");
             mPrefScreen.removePreference(mButtonOperatorSelectionExpand);

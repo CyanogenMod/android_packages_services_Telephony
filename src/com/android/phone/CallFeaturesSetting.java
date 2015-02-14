@@ -23,13 +23,11 @@ import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnKeyListener;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
@@ -75,7 +73,6 @@ import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
-import com.android.internal.telephony.TelephonyIntents;
 import com.android.phone.common.util.SettingsUtil;
 import com.android.phone.settings.AccountSelectionPreference;
 import com.android.services.telephony.sip.SipUtil;
@@ -303,6 +300,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private boolean isSpeedDialListStarted = false;
     private PreferenceScreen mButtonBlacklist;
+    private Preference mSdnButton;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {
@@ -490,12 +488,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         mForeground = false;
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(mReceiver);
-    }
-
     /**
      * We have to pull current settings from the network for all kinds of
      * voicemail providers so we can tell whether we have to update them,
@@ -516,7 +508,14 @@ public class CallFeaturesSetting extends PreferenceActivity
     // Click listener for all toggle events
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference.getKey().equals(BUTTON_4G_LTE_KEY)) {
+        if (preference == mSdnButton) {
+            Log.d(LOG_TAG, "onPreferenceTreeClick : mSdnButton is selected.Start activity");
+            Intent sdnLaunchIntent = new Intent(getString(R.string.launch_sdn));
+            sdnLaunchIntent.addCategory(Intent.CATEGORY_DEFAULT);
+            sdnLaunchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(sdnLaunchIntent);
+            return true;
+        } else if (preference.getKey().equals(BUTTON_4G_LTE_KEY)) {
             return true;
         } else if (preference == mSubMenuVoicemailSettings) {
             return true;
@@ -1663,12 +1662,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         // ACTION_ADD_VOICEMAIL action.
         mShowVoicemailPreference = (icicle == null) &&
                 getIntent().getAction().equals(ACTION_ADD_VOICEMAIL);
-
-        //Register for intent broadcasts
-        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-        intentFilter.addAction(TelephonyIntents.ACTION_SIM_STATE_CHANGED);
-
-        registerReceiver(mReceiver, intentFilter);
     }
 
     private void initPhoneAccountPreferences() {
@@ -1706,8 +1699,6 @@ public class CallFeaturesSetting extends PreferenceActivity
             addPreferencesFromResource(R.xml.call_feature_setting);
         }
         initPhoneAccountPreferences();
-
-        setScreenState();
 
         // get buttons
         PreferenceScreen prefSet = getPreferenceScreen();
@@ -1862,6 +1853,26 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         }
 
+
+        /*
+         * SDN Changes
+         * If the config is enabled to read and display contents of SDN,
+         * the preference is added and enabled. Relevant strings are
+         * requried to launch the activity successfully
+         */
+        if ((mPhone.getContext().getResources()
+                .getBoolean(R.bool.config_enable_displaying_sdn))) {
+            mSdnButton = new Preference(prefSet.getContext());
+            if (mSdnButton != null) {
+                log("SDN feature enabled.");
+                mSdnButton.setTitle(R.string.sdn);
+                mSdnButton.setSummary(R.string.sum_sdn);
+                mSdnButton.setPersistent(false);
+                mSdnButton.setSelectable(true);
+                prefSet.addPreference(mSdnButton);
+            }
+        }
+
         // check the intent that started this activity and pop up the voicemail
         // dialog if we've been asked to.
         // If we have at least one non default VM provider registered then bring up
@@ -1997,26 +2008,6 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         }
     }
-
-    private void setScreenState() {
-        int simState = TelephonyManager.getDefault().getSimState();
-        getPreferenceScreen().setEnabled(simState != TelephonyManager.SIM_STATE_ABSENT);
-    }
-
-    /**
-     * Receiver for ACTION_AIRPLANE_MODE_CHANGED and ACTION_SIM_STATE_CHANGED.
-     */
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-
-            if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED) ||
-                    action.equals(TelephonyIntents.ACTION_SIM_STATE_CHANGED)) {
-                setScreenState();
-            }
-        }
-    };
 
     // Migrate settings from BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_WHEN_KEY to
     // BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, if the latter does not exist.
