@@ -248,6 +248,8 @@
   <string name="dial">Skakel</string>
   <string name="enterName">Naam:</string>
   <string name="enterNumber">Telefoonnommer:</string>
+  <string name="hintName">Naam</string>
+  <string name="hintPhonenumber">Telefoon nommer</string>
   <string name="contactAddSuccess">Suksesvol SIM kontak bygevoeg</string>
   <string name="contactAddFailed">Het misluk om SIM kontak by te voeg</string>
   <string name="contactUpdateSuccess">Suksesvol in SIM kontakbesonderhede opgedateer</string>

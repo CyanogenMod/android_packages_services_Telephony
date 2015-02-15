@@ -39,9 +39,9 @@
   <string name="vibrate_45_sum">Giden aramaların her dakikasının 45. saniyesinde titreşir</string>
   <string name="show_ssn_label">Olay bildirimi</string>
   <string name="show_ssn_summary">Arama yönetimiyle ilgili şebeke olayları için bildirim göster</string>
-  <string name="blacklist_title">Karaliste</string>
+  <string name="blacklist_title">Kara liste</string>
   <string name="blacklist_summary_disabled">Devre dışı</string>
-  <string name="blacklist_summary">Karalistedeki telefon numaralarından gelen çağrılar engellenecek</string>
+  <string name="blacklist_summary">Kara listedeki telefon numaralarından gelen çağrılar engellenecek</string>
   <string name="blacklist_call_notification">%s den bir çağrı engellendi</string>
   <string name="blacklist_call_notification_private_number">Özel numaradan gelen bir çağrı engellendi</string>
   <string name="blacklist_call_notification_unknown_number">Bilinmeyen numaradan gelen bir çağrı engellendi %s</string>
@@ -77,7 +77,7 @@
   <string name="enable_reverse_lookup_title">Geri arama</string>
   <string name="enable_reverse_lookup_summary">Gelen aramalarda bilinmeyen numaralar için kişi veya konum hakkında bilgi araştır</string>
   <string name="choose_lookup_providers">Arama sağlayıcılarını seç</string>
-  <string name="choose_forward_lookup_provider_title">İleri yönde sorgu sağlayıcısı</string>
+  <string name="choose_forward_lookup_provider_title">Arama yönlendirme sağlayıcısı</string>
   <string name="choose_people_lookup_provider_title">Kişi arama sağlayıcısı</string>
   <string name="choose_reverse_lookup_provider_title">Geri arama sağlayıcısı</string>
   <string name="sim_name">SIM adı</string>

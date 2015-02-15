@@ -385,8 +385,8 @@
   <string name="notification_ongoing_call">Uruff am Gaang</string>
   <string name="notification_on_hold">Gehalen</string>
   <string name="notification_incoming_call">Erakommenden Uruff</string>
-  <string name="notification_voicemail_title">Nei Mailbox-Opnam</string>
-  <string name="notification_voicemail_title_count">Nei Mailbox-Opnamen (<xliff:g id="count">%d</xliff:g>)</string>
+  <string name="notification_voicemail_title">Nei Mailboxopnam</string>
+  <string name="notification_voicemail_title_count">Nei Mailboxopnamen (<xliff:g id="count">%d</xliff:g>)</string>
   <string name="notification_voicemail_text_format"><xliff:g id="voicemail_number">%s</xliff:g> uruffen</string>
   <string name="notification_voicemail_no_vm_number">Mailbox-Nummer onbekannt</string>
   <string name="notification_network_selection_title">Kee Service</string>
@@ -449,7 +449,7 @@
   <string name="ota_hfa_activation_title">Gëtt aktivéiert...</string>
   <string name="ota_hfa_activation_dialog_message">Däin Telefon aktivéiert däi mobilen Dateservice.\n\nDat ka bis zu 5 Minutten daueren.</string>
   <string name="ota_skip_activation_dialog_title">Aktivéierung iwwersprangen\?</string>
-  <string name="ota_skip_activation_dialog_message">Wann s du d\'Aktivéierung iwwerspréngs, kanns du keng Uriff ofsetzen oder dech mam mobilen Datennetzwierk connectéieren (mat WLAN-Netzwierker bleift et awer méiglech). Bis de däin Telefon aktivéiers hues, gëss de all Kéier gefrot en z\'aktivéiere wann s de en uschalts. </string>
+  <string name="ota_skip_activation_dialog_message">Wann s du d\'Aktivéierung iwwerspréngs, kanns du keng Uriff maachen oder dech mam mobilen Datennetzwierk connectéieren (mat WLAN-Netzwierker bleift et awer méiglech). Bis de däin Telefon aktivéiers hues, gëss de all Kéier gefrot en z\'aktivéiere wann s de en uschalts. </string>
   <string name="ota_skip_activation_dialog_skip_label">Iwwersprangen</string>
   <string name="ota_activate">Aktivéieren</string>
   <string name="ota_title_activate_success">Den Telefon ass aktivéiert.</string>
@@ -534,7 +534,7 @@
   <string name="registration_status_done">Uriff ginn empfaangen.</string>
   <string name="registration_status_failed_try_later">Konteregistréierung feelgeschloen: (<xliff:g id="registration_error_message" example="timed out">%s</xliff:g>); ech probéiere méi spéit nees</string>
   <string name="registration_status_invalid_credentials">Konteregistréierung feelgeschloen: Falsche Benotzernumm oder falscht Passwuert.</string>
-  <string name="registration_status_server_unreachable">Account registration unsuccessful: Kontrolléier de Servernumm.</string>
+  <string name="registration_status_server_unreachable">Konteregistréierung feelgeschloen: Kontrolléier de Servernumm.</string>
   <string name="third_party_account_summary">Dëse Kont gëtt momentan vun der App \"<xliff:g id="account_owner" example="Google Talk">%s</xliff:g>\" benotzt.</string>
   <string name="sip_edit_title">Detailer vum SIP-Kont</string>
   <string name="sip_edit_new_title">Detailer vum SIP-Kont</string>
@@ -560,8 +560,8 @@
   <string name="not_a_valid_port">D\'Port-Nummer sollt tëscht 1000 an 65534 sinn.</string>
   <string name="no_internet_available_title">Keng Internet-Connectioun</string>
   <string name="no_wifi_available_title">Keng WLAN-Connectioun</string>
-  <string name="no_internet_available">Kontrolléier deng Internetconnectioun ier s de en Interneturuff ofsetz.</string>
-  <string name="no_wifi_available">Fir Interneturiff ass eng aktiv Connectioun mat engem WLAN-Netzwierkt néideg. (benotz d\'Astellungen ënner \"Kabbellos an Netzwierk\").</string>
+  <string name="no_internet_available">Kontrolléier deng Internetconnectioun ier s de en Interneturuff méchs.</string>
+  <string name="no_wifi_available">Fir Interneturiff ass eng aktiv Connectioun mat engem WLAN-Netzwierkt néideg. (benotz d\'Astellungen ënner \"Kabellos an Netzwierk\").</string>
   <string name="no_voip">Interneturiff net ënnerstëtzt</string>
   <string translatable="true" name="sip_system_decide">Automatesch</string>
   <string translatable="true" name="sip_always_send_keepalive">Ëmmer schécken</string>

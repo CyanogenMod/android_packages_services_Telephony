@@ -71,7 +71,7 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred">Suosi GSM/WCDMA</string>
   <string name="number_lookup">Puhelinnumeron haku</string>
   <string name="enable_forward_lookup_title">Paikkahaku</string>
-  <string name="enable_forward_lookup_summary">Näytä lähistöllä olevat paikat kun etsitään puhelimella</string>
+  <string name="enable_forward_lookup_summary">Näytä lähistöllä olevat paikat, kun etsitään numeronvalitsimella</string>
   <string name="enable_people_lookup_title">Henkilöhaku</string>
   <string name="enable_people_lookup_summary">Näytä tuloksia ihmisistä kun haetaan puhelimessa</string>
   <string name="enable_reverse_lookup_title">Käänteinen haku</string>

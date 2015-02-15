@@ -248,6 +248,8 @@
   <string name="dial">전화</string>
   <string name="enterName">이름:</string>
   <string name="enterNumber">전화번호:</string>
+  <string name="hintName">이름</string>
+  <string name="hintPhonenumber">전화 번호</string>
   <string name="contactAddSuccess">연락처를 SIM에 추가했습니다</string>
   <string name="contactAddFailed">연락처를 SIM에 추가하지 못했습니다</string>
   <string name="contactUpdateSuccess">SIM 연락처를 갱신했습니다</string>

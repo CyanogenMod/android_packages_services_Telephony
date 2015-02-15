@@ -97,6 +97,7 @@
   <string name="call_barring_off">Av</string>
   <string name="call_barring_outgoing_international">Internationella samtal</string>
   <string name="call_barring_outgoing_all">Alla utgående samtal</string>
+  <string name="call_barring_incoming_roaming">Roamingsamtal</string>
   <string name="call_barring_incoming_all">Alla inkommande samtal</string>
   <string name="input_password">Ange lösenord</string>
   <string name="psw_enter_old">Nuvarande lösenord</string>
@@ -139,6 +140,17 @@
   <string name="stk_cc_ss_to_dial_error">SS-begäran ändrades till DIAL-begäran.</string>
   <string name="stk_cc_ss_to_ussd_error">SS-begäran ändrades till USSD-begäran.</string>
   <string name="stk_cc_ss_to_ss_error">SS-begäran ändrades till ny SS-begäran.</string>
+  <string name="preferred_network_mode_global_summary_cm">Nätverksläge: Globalt (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <string name="preferred_network_mode_td_scdma_only_summary">Nätverksläge: Endast TD-SCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">Nätverksläge: TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_summary">Nätverksläge: TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_summary">Nätverksläge: TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Nätverksläge: TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Nätverksläge: TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Nätverksläge: TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Nätverksläge: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Nätverksläge: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Nätverksläge: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">Inställningar för SIM-kort</string>
   <string name="callind_multi_sim">Inställningar för SIM-kort</string>
   <string name="exportContacts">Exporterar kontakter till SIM-kort\u2026</string>
@@ -189,6 +201,7 @@
   <string name="set_subscription">Konfigurera SIM-kort</string>
   <string name="set_subscription_error_atleast_one">Välj minst ett SIM-kort</string>
   <string name="set_uicc_subscription_progress">Ställer in abonnemang\u2026</string>
+  <string name="set_sub_success">Abbonemang har valts</string>
   <string name="set_sub_failed">Kunde inte välja abonnemang</string>
   <string name="set_sub_1">SIM-kort 1: </string>
   <string name="set_sub_2">SIM-kort 2: </string>

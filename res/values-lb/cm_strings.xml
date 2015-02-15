@@ -35,21 +35,21 @@
   <string name="vibrate_outgoing">Bei Äntwert vibréieren</string>
   <string name="vibrate_call_waiting">Vibréiere wann en Uruff waart</string>
   <string name="vibrate_hangup">Vibréiere beim Anhänken</string>
-  <string name="vibrate_45">All Minutt virbréieren</string>
+  <string name="vibrate_45">All Minutt vibréieren</string>
   <string name="vibrate_45_sum">Bei erausgoenden Uriff jeeweils 15 Sekonne virun all voller Minutt kuerz vibréieren</string>
   <string name="show_ssn_label">Notifikatioun bei Evenementer</string>
   <string name="show_ssn_summary">Bei verschiddenen Uruff-Evenementer eng Notifikatioun uweisen</string>
   <string name="blacklist_title">Schwaarz Lëscht</string>
   <string name="blacklist_summary_disabled">Desaktivéiert</string>
-  <string name="blacklist_summary">Erakomment Uriff vun Telefonsnummeren op der schwaarzer Lëscht gi blockéiert</string>
+  <string name="blacklist_summary">Erakommend Uriff vun Telefonsnummeren op der schwaarzer Lëscht gi blockéiert</string>
   <string name="blacklist_call_notification">Uruff vum %s blockéiert</string>
   <string name="blacklist_call_notification_private_number">En Uruff vun enger ënnerdréckter Nummer gouf ofgewisen</string>
   <string name="blacklist_call_notification_unknown_number">En Uruff vun der onbekannter Nummer %s gouf blockéiert</string>
-  <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> uriff goufe blockéiert</string>
+  <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> Uriff goufe blockéiert</string>
   <string name="blacklist_message_notification">E Message vum %s gouf blockéiert</string>
   <string name="blacklist_message_notification_private_number">Message vun enger ënnerdréckter Nummer gouf blockéiert</string>
   <string name="blacklist_message_notification_unknown_number">Message vun onbekannter Nummer %s gouf blockéiert</string>
-  <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> Message goufe blockéiert</string>
+  <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> Messagë goufe blockéiert</string>
   <string name="blacklist_notification_list_private">Privat</string>
   <string name="unblock_number">Deblockéieren</string>
   <string name="mwi_notification_title">Indikator uweisen</string>
@@ -86,7 +86,7 @@
   <string name="sub_not_active">Net aktiv</string>
   <string name="msim_call_selector_title"><xliff:g id="number">%s</xliff:g> uruffen iwwer</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
-  <string name="cyngn_reverse_lookup_provider_name">Cyngn-Chineesesch (CN)</string>
+  <string name="cyngn_reverse_lookup_provider_name">Cyngn-Chinesesch (CN)</string>
   <string name="preference_category_t9_dialpad_search">T9-Sich</string>
   <string name="t9_search_input_locale">T9-Sichagab</string>
   <string name="t9_search_input_locale_default">Standard</string>
@@ -121,7 +121,7 @@
   <string name="emergency_number_exist">D\'Noutruffnummer déi s du aginn hues existéiert schonn.</string>
   <string name="emergency_number_save_error">D\'Noutruffnummer déi s du aginn hues ass ze laang.</string>
   <string name="ipcall_sub_title">Prefix fir IP-Uriff</string>
-  <string name="ipcall_sub_summery">Präfix fir VOIP-Uriff änneren</string>
+  <string name="ipcall_sub_summery">Prefix fir VOIP-Uriff änneren</string>
   <string name="ipcall_dialog_title">Astellunge fir IP-Uriff</string>
   <string name="ipcall_dialog_edit_hint">Prefix fir IP-Uriff</string>
   <string name="notification_missedVideoCallTitle">Verpasste Videouruff</string>
@@ -134,7 +134,7 @@
   <string name="CFActivate">Aktivéieren</string>
   <string name="CFDeactivate">Desaktivéieren</string>
   <string name="labelCFDeactAll">All desaktivéieren</string>
-  <string name="uplmn_list_setting_title">Preferréiert Netzwierker</string>
+  <string name="uplmn_list_setting_title">Preferéiert Netzwierker</string>
   <string name="network_id">Netzwierk-ID</string>
   <string name="dialog_network_priority_title">Prioritéit</string>
   <string name="uplmn_list_setting_add_plmn">Neit PLMN</string>
@@ -142,18 +142,18 @@
   <string name="gsm_umts_network_preferences_dialogtitle">Netzwierkmodus</string>
   <string name="label_nsdp">PIN fir d\'Netzlëscht z\'entspäeren</string>
   <string name="label_cdp">PIN fir d\'Entspäre vun der Firme-SIM</string>
-  <string name="label_spdp">Entspär-PIN vum SIM-Service-Provider</string>
+  <string name="label_spdp">Entspär-PIN vum SIM-Service-Netzbedreiwer</string>
   <string name="label_sdp">SIM-Entspär-PIN</string>
   <string name="label_rn1dp">Entspär-PIN vum RUIM-Netzwierk 1</string>
   <string name="label_rn2dp">Entspär-PIN vum RUIM-Netzwierk 2</string>
   <string name="label_rhrpd">Entspär-PIN vum RUIM-HRPD</string>
   <string name="label_rcdp">Entspär-PIN vun der Firmen-RUIM</string>
-  <string name="label_rspdp">Entspär-PIN vun der Provider-RUIM</string>
+  <string name="label_rspdp">Entspär-PIN vun der Netzbedreiwer-RUIM</string>
   <string name="label_rdp">Entspär-PIN vun der RUIM-Kaart</string>
   <string name="label_puk">PUK aginn</string>
   <string name="requesting_unlock_cm">SIM-Netzwierk-Entspärung gëtt ugefrot\u2026</string>
   <string name="requesting_nw_subset_unlock">Entspäre vum SIM-Subnetz ugefrot\u2026</string>
-  <string name="requesting_sp_unlock">Entspäre vum SIM-Providerservice ugefrot\u2026</string>
+  <string name="requesting_sp_unlock">Entspäre vum SIM-Netzbedreiwerservice ugefrot\u2026</string>
   <string name="requesting_corporate_unlock">Entspäre vun der Firme-SIM ugefrot\u2026</string>
   <string name="requesting_sim_unlock">Entspäre vun der SIM ufuerderen\u2026</string>
   <string name="requesting_rnw1_unlock">Entspäre vum RUIM-Netzwierk 1 ufuerderen\u2026</string>
@@ -224,7 +224,7 @@
   <string name="xdivert_imsi_not_read">SIM-Initialiséierung leeft. Probéier méi spéit nees.</string>
   <string name="no_volte">IMS-Uriff net méiglech</string>
   <string name="no_vt_allowed">Desaktivéier den TTY-Modus fir e Videouruff ofsetzen ze kënnen</string>
-  <string name="ims_edit_title">IMS-Kontodetailer</string>
+  <string name="ims_edit_title">IMS-Kontendetailer</string>
   <string name="ims_accounts_title">IMS-Kont</string>
   <string name="mo_call_type_title">MO-Urufftyp</string>
   <string name="ims_service_capability">Servicefäegkeet aktivéieren/desaktivéieren</string>

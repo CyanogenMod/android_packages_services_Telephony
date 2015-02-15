@@ -86,7 +86,7 @@
   <string name="sub_not_active">לא פעיל</string>
   <string name="msim_call_selector_title">התקשר ל-<xliff:g id="number">%s</xliff:g> דרך</string>
   <string name="msim_call_selector_item">SIM<xliff:g id="index">%1$d</xliff:g>: <xliff:g id="operator">%2$s</xliff:g></string>
-  <string name="cyngn_reverse_lookup_provider_name">Cyngn סינית (CN)</string>
+  <string name="cyngn_reverse_lookup_provider_name">Cyngn Chinese (CN)</string>
   <string name="preference_category_t9_dialpad_search">חיפוש לוח T9</string>
   <string name="t9_search_input_locale">חיפוש עם קלט T9</string>
   <string name="t9_search_input_locale_default">ברירת מחדל</string>
@@ -183,6 +183,7 @@
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <string name="network_settings_sel_sub">הגדרות כרטיס SIM</string>
   <string name="callind_multi_sim">הגדרות כרטיס SIM</string>
+  <string name="fdn_service_unavailable">שירות FDN אינו זמין.</string>
   <string name="xdivert_summary">הגדרות CFNRc</string>
   <string name="phone_numbers">הזן מספרי טלפון</string>
   <string name="sub1LineNumber">המספר של SIM 1:</string>
