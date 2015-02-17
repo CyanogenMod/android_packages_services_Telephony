@@ -530,6 +530,7 @@ public class ImsConference extends Conference {
 
             if (!participantUserEntities.contains(entry.getKey())) {
                 ConferenceParticipantConnection participant = entry.getValue();
+                participant.setDisconnected(new DisconnectCause(DisconnectCause.CANCELED));
                 removeConferenceParticipant(participant);
                 removeConnection(participant);
                 entryIterator.remove();
@@ -597,11 +598,11 @@ public class ImsConference extends Conference {
         for (ConferenceParticipantConnection connection :
                 mConferenceParticipantConnections.values()) {
 
-            removeConferenceParticipant(connection);
-
             // Mark disconnect cause as cancelled to ensure that the call is not logged in the
             // call log.
             connection.setDisconnected(new DisconnectCause(DisconnectCause.CANCELED));
+            removeConferenceParticipant(connection);
+
             connection.destroy();
         }
         mConferenceParticipantConnections.clear();
