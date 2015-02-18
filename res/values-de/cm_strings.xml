@@ -102,6 +102,7 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Bevorzugter Netzmodus: TD-SDCMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Bevorzugter Netzmodus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Bevorzugter Netzmodus: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="callFailed_incoming_cb_enabled">Alle eingehenden Anrufe sind auf der Gegenstelle blockiert.</string>
   <string name="callUnanswered_forwarded">Anruf unbeantwortet und weitergeleitet</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -179,6 +180,7 @@
   <string name="lte_recognition_title">SIM-Karten-Erkennung</string>
   <string name="lte_recognize_summary">Zwei 3G/LTE-SIM-Karten wurden gefunden, Sie müssen die Standard-3G/LTE-SIM-Karte festlegen:</string>
   <string name="lte_select_title">Standard-3G/LTE-SIM-Karte</string>
+  <string name="lte_checkbox_text">Datenverbindung der ausgewählten SIM-Karte nutzen, sobald die Standard 3G/LTE-SIM-Karte geändert wird</string>
   <string name="reg_failed">Registrierung fehlgeschlagen</string>
   <string name="reg_suc">Registrierung erfolgreich</string>
   <string name="reg_failed_msg">Registrierung der Standard-3G/LTE-SIM-Karte ist fehlgeschlagen, %1$s wird als 2G-SIM-Karte erkannt.</string>
