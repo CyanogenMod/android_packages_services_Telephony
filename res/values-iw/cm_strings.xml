@@ -61,6 +61,9 @@
   <string name="requesting_ruim_unlock">מבקש פתיחת RUIM\u2026</string>
   <string name="requesting_puk_unlock">מבקש פתיחת PUK\u2026</string>
   <string name="sim_unlock_failed">בקשת פתיחת SIM נכשלה.</string>
+  <string name="rhrpd_unlock_failed">בקשת פתיחת RUIM HRPD נכשלה.</string>
+  <string name="ruim_unlock_failed">בקשת פתיחת RUIM נכשלה.</string>
+  <string name="puk_unlock_failed">פתיחת PUK נכשלה.</string>
   <string name="unlock_success_cm">פתיחת SIM לרשת הצליחה.</string>
   <string name="nw_subset_unlock_success">פתיחת SIM לרשת פרטית הצליחה.</string>
   <string name="sp_unlock_success">ספק שירות ה-SIM נפתח בהצלחה.</string>
@@ -76,6 +79,8 @@
   <string name="stk_cc_ss_to_dial_error">בקשת SS שונתה לבקשת DIAL.</string>
   <string name="stk_cc_ss_to_ussd_error">בקשת SS שונתה לבקשת USSD.</string>
   <string name="stk_cc_ss_to_ss_error">בקשת SS שונתה לבקשת SS חדשה.</string>
+  <string name="videocall_settings">הגדרות שיחת וידאו</string>
+  <string name="vt_fallback_setting">חיוג חוזר דרך שיחה קולית</string>
   <string name="vt_imagereplace_setting">תמונה חלופית</string>
   <string name="preferred_network_mode_global_summary_cm">מצב רשת מועדף: גלובלי (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">מצב רשת מועדף: TD-SCDMA בלבד</string>
@@ -117,6 +122,8 @@
   <string name="ipcall_sub_summery">עריכת קידומת עבור התקשרות דרך שירות ה-IP</string>
   <string name="ipcall_dialog_title">קידומת IP</string>
   <string name="ipcall_dialog_edit_hint">קידומת חיוג לשיחת IP</string>
+  <string name="fdn_service_unavailable">שירות FDN אינו זמין.</string>
+  <string name="exportContacts">מייצא אנשי קשר לכרטיס ה-SIM\u2026</string>
   <string name="simContacts_title_cm">נהל אנשי קשר ב-SIM</string>
   <string name="contactScreen">נהל אנשי קשר ב-SIM</string>
   <string name="exportContactScreen">יצא אנשי קשר במכשיר ל-SIM</string>
@@ -148,6 +155,10 @@
   <string name="uplmn_list_setting_add_plmn">PLMN חדש</string>
   <string name="gsm_umts_network_preferences_title">מצב רשת</string>
   <string name="gsm_umts_network_preferences_dialogtitle">מצב רשת</string>
+  <string name="close">סגור</string>
+  <string name="change">הגדר</string>
+  <string name="new_sim_detected">כרטיס SIM חדש זוהה:</string>
+  <string name="default_sim_setting">הגדרות ברירת מחדל:</string>
   <string name="mobile_data_on">פעיל</string>
   <string name="mobile_data_off">כבוי</string>
   <string name="sim_unknown">לא ידוע</string>
@@ -160,6 +171,9 @@
   <string name="reg_failed">הרשמה נכשלה</string>
   <string name="reg_suc">הרשמה הצליחה</string>
   <string name="lte_set">הגדר</string>
+  <string name="china_mobile">China Mobile</string>
+  <string name="china_unicom">China Unicom</string>
+  <string name="china_telecom">China Telecom</string>
   <string name="disconnect_data_confirm">שירות הנתונים צריך להיכבות באופן זמני. אתה בטוח שאתה רוצה להמשיך?</string>
   <string name="ims_edit_title">פרטי חשבון IMS</string>
   <string name="ims_accounts_title">חשבונות IMS</string>
