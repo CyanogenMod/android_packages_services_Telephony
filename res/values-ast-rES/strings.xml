@@ -532,9 +532,15 @@
   <string name="voicemail_notification_vibrate_when_title" msgid="8731372580674292759">Vibrar</string>
   <string name="voicemail_notification_vibarte_when_dialog_title" msgid="8995274609647451109">Vibrar</string>
   <string name="voicemail_notification_ringtone_title">Soníu</string>
+  <string name="ringtone_title">Tonu del teléfonu</string>
   <string name="dial_pad_autocomplete">Autocompletar con tecláu</string>
   <string name="preference_category_ringtone">Tonu y vibración</string>
   <string name="call_settings_title_font_family">sans-serif-light</string>
+  <string name="pstn_connection_service_label">Tarxetes SIM integraes</string>
+  <string name="enable_video_calling_title">Habilitar llamada de videu</string>
+  <string name="enable_video_calling_dialog_msg">
+        P\'habilitar la llamada de videu, necesites habilitar el mou LTE de 4G ameyoráu nos axustes del sistema.
+    </string>
   <string name="enable_video_calling_dialog_settings">Configuración de rede</string>
   <string name="enable_video_calling_dialog_close">Zarrar</string>
   <string name="sim_label_emergency_calls">Llamaes d\'emerxencia</string>
