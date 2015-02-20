@@ -423,6 +423,7 @@ public class PhoneGlobals extends ContextWrapper {
         if (phone == null) {
             // Initialize the telephony framework
             PhoneFactory.makeDefaultPhones(this);
+            sendBroadcast(new Intent("com.android.phone.ACTION_PHONE_READY"));
 
             int numPhones = TelephonyManager.getDefault().getPhoneCount();
             if(numPhones > 1) PrimarySubSelectionController.init(this);
@@ -568,7 +569,6 @@ public class PhoneGlobals extends ContextWrapper {
                                       CallFeaturesSetting.HAC_VAL_ON :
                                       CallFeaturesSetting.HAC_VAL_OFF);
         }
-        sendBroadcast(new Intent("com.android.phone.ACTION_PHONE_READY"));
     }
 
     /**
