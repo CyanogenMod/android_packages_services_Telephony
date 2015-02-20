@@ -534,6 +534,9 @@
     <string name="network_message" msgid="4483886461245213802">"网络讯息"</string>
     <string name="ota_title_activate" msgid="8616918561356194398">"激活您的手机"</string>
     <string name="ota_touch_activate" msgid="6553212803262586244">"需要拨打特别号码才能激活您的手机服务。\n\n在按下“激活”后，按照语音提示激活您的手机。"</string>
+    <string name="managed_roaming_title">"漫游托管"</string>
+    <string name="managed_roaming_title_sub">"漫游托管 （卡<xliff:g id="index" example="1">%d</xliff:g>）"</string>
+    <string name="managed_roaming_dialog_content">"网络服务受限，确认搜索网络？"</string>
     <string name="ota_hfa_activation_title" msgid="2234246934160473981">"正在激活…"</string>
     <string name="ota_hfa_activation_dialog_message" msgid="8092479227918463415">"手机正在激活您的移动数据网络服务。\n\n此过程最多5分钟就能完成。"</string>
     <string name="ota_skip_activation_dialog_title" msgid="2943366608272261306">"略过激活步骤？"</string>
@@ -667,4 +670,10 @@
     <string name="xdivert_title">X-Divert设置</string>
     <string name="xdivert_summary">CFNRc设置</string>
     <string name="network_forbidden">(禁用)</string>
+
+    <!-- Carrier Name -->
+    <string name="China_Mobile">中国移动</string>
+    <string name="China_Unicom">中国联通</string>
+    <string name="China_Telecom">中国电信</string>
+    <string name="roamingTextSearching">"正在搜索服务"</string>
 </resources>

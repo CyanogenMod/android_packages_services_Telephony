@@ -528,9 +528,15 @@ public class NetworkSetting extends PreferenceActivity
         String title;
 
         if (!TextUtils.isEmpty(ni.getOperatorAlphaLong())) {
-            title = ni.getOperatorAlphaLong();
+            title = android.util.NativeTextHelper.getInternalLocalString(this,
+                    ni.getOperatorAlphaLong(),
+                    R.array.original_carrier_names,
+                    R.array.locale_carrier_names);
         } else if (!TextUtils.isEmpty(ni.getOperatorAlphaShort())) {
-            title = ni.getOperatorAlphaShort();
+            title = android.util.NativeTextHelper.getInternalLocalString(this,
+                    ni.getOperatorAlphaShort(),
+                    R.array.original_carrier_names,
+                    R.array.locale_carrier_names);
         } else {
             title = ni.getOperatorNumeric();
         }
