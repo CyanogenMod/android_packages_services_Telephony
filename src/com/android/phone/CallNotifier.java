@@ -290,7 +290,7 @@ public class CallNotifier extends Handler {
     }
 
     private PhoneStateListener getPhoneStateListener(int phoneId) {
-        long[] subId = SubscriptionManager.getSubId(phoneId);
+        int[] subId = SubscriptionManager.getSubId(phoneId);
 
         mPhoneStateListener[phoneId]  = new PhoneStateListener(subId[0]) {
             @Override

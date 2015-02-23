@@ -39,7 +39,7 @@ public class FdnList extends ADNList {
     private static final String INTENT_EXTRA_NAME = "name";
     private static final String INTENT_EXTRA_NUMBER = "number";
 
-    private long mSubId;
+    private int mSubId;
 
     @Override
     public void onCreate(Bundle icicle) {

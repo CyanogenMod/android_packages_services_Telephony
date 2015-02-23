@@ -86,7 +86,7 @@ public class EditFdnContactScreen extends Activity {
     private LinearLayout mPinFieldContainer;
     private Button mButton;
 
-    private long mSubId;
+    private int mSubId;
 
     private Handler mHandler = new Handler();
 

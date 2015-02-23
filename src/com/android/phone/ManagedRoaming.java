@@ -50,7 +50,7 @@ import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
 public class ManagedRoaming extends Activity {
     private static final String LOG_TAG = "ManagedRoaming";
 
-    private long mSubscription = SubscriptionManager.DEFAULT_SUB_ID;
+    private int mSubscription = SubscriptionManager.DEFAULT_SUBSCRIPTION_ID;
     private boolean mIsMRDialogShown = false;
 
     // Key used to read and write the saved network selection numeric value
@@ -60,7 +60,7 @@ public class ManagedRoaming extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
-        long subscription = intent.getLongExtra(SUBSCRIPTION_KEY,
+        int subscription = intent.getIntExtra(SUBSCRIPTION_KEY,
                 SubscriptionManager.getDefaultSubId());
         createManagedRoamingDialog(subscription);
     }
@@ -68,7 +68,7 @@ public class ManagedRoaming extends Activity {
     /*
      * Show Managed Roaming dialog if user preferred Network Selection mode is 'Manual'
      */
-    private void createManagedRoamingDialog(long subscription) {
+    private void createManagedRoamingDialog(int subscription) {
         Resources r = Resources.getSystem();
         String networkSelection = PreferenceManager.getDefaultSharedPreferences(ManagedRoaming.this)
                 .getString(NETWORK_SELECTION_KEY, "");

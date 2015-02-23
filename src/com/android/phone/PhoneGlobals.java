@@ -826,7 +826,7 @@ public class PhoneGlobals extends ContextWrapper {
     private class PhoneAppBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            long subId = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+            int subId = intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
                     SubscriptionManager.getDefaultSubId());
             String action = intent.getAction();
             if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED)) {
@@ -894,7 +894,7 @@ public class PhoneGlobals extends ContextWrapper {
                 if (VDBG) Log.d(LOG_TAG, "ACTION_DOCK_EVENT -> mDockState = " + mDockState);
                 mHandler.sendMessage(mHandler.obtainMessage(EVENT_DOCK_STATE_CHANGED, 0));
             } else if (action.equals(TelephonyIntents.ACTION_MANAGED_ROAMING_IND)) {
-                long subscription = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                int subscription = intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
                         SubscriptionManager.getDefaultSubId());
                 Intent createIntent = new Intent();
                 createIntent.setClass(context, ManagedRoaming.class);
@@ -928,7 +928,7 @@ public class PhoneGlobals extends ContextWrapper {
         }
     }
 
-    private void handleServiceStateChanged(Intent intent, long subId) {
+    private void handleServiceStateChanged(Intent intent, int subId) {
         /**
          * This used to handle updating EriTextWidgetProvider this routine
          * and and listening for ACTION_SERVICE_STATE_CHANGED intents could

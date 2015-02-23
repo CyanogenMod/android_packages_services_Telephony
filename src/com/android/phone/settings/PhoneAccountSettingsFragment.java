@@ -9,8 +9,11 @@ import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.telecom.PhoneAccountHandle;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.telecom.TelecomManager;
 import android.util.Log;
 
@@ -279,24 +282,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         } else {
             mConfigureCallAssistant.setSummary(null);
             mConfigureCallAssistant.setEnabled(true);
-        }
-    }
-
-    private void initAccountList() {
-        List<SubscriptionInfo> sil = mSubscriptionManager.getActiveSubscriptionInfoList();
-        if (sil == null) {
-            return;
-        }
-        for (SubscriptionInfo subscription : sil) {
-            CharSequence label = subscription.getDisplayName();
-            Intent intent = new Intent(TelecomManager.ACTION_SHOW_CALL_SETTINGS);
-            intent.putExtra(CallFeaturesSetting.SUB_ID_EXTRA, subscription.getSubscriptionId());
-            intent.putExtra(CallFeaturesSetting.SUB_LABEL_EXTRA, label);
-
-            Preference accountPreference = new Preference(mApplicationContext);
-            accountPreference.setTitle(label);
-            accountPreference.setIntent(intent);
-            mAccountList.addPreference(accountPreference);
         }
     }
 }

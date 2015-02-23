@@ -113,7 +113,7 @@ final class TelecomAccountRegistry {
                 // the network is.
                 description = label = mTelephonyManager.getNetworkOperatorName();
             } else {
-                String subDisplayName = null;
+                CharSequence subDisplayName = null;
                 // We can only get the real slotId from the SubInfoRecord, we can't calculate the
                 // slotId from the subId or the phoneId in all instances.
                 SubscriptionInfo record =
@@ -235,7 +235,7 @@ final class TelecomAccountRegistry {
 
         // Register for SubscriptionInfo list changes which is guaranteed
         // to invoke onSubscriptionsChanged the first time.
-        SubscriptionManager.from(mContext).registerOnSubscriptionsChangedListener(
+        SubscriptionManager.from(mContext).addOnSubscriptionsChangedListener(
                 mOnSubscriptionsChangedListener);
 
         // We also need to listen for changes to the service state (e.g. emergency -> in service)
@@ -296,7 +296,7 @@ final class TelecomAccountRegistry {
         Phone[] phones = PhoneFactory.getPhones();
         Log.d(this, "Found %d phones.  Attempting to register.", phones.length);
         for (Phone phone : phones) {
-            long subscriptionId = phone.getSubId();
+            int subscriptionId = phone.getSubId();
             Log.d(this, "Phone with subscription id %d", subscriptionId);
             if (subscriptionId >= 0) {
                 mAccounts.add(new AccountEntry(phone, false /* emergency */, false /* isDummy */));

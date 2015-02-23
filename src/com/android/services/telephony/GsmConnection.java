@@ -16,6 +16,8 @@
 
 package com.android.services.telephony;
 
+import com.android.internal.telephony.Call;
+import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection;
 
 /**

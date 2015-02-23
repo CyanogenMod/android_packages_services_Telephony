@@ -55,8 +55,9 @@ import android.os.SystemProperties;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
-import android.telephony.SubInfoRecord;
+import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
+import com.android.internal.telephony.SubscriptionController;
 import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.TextUtils;
@@ -160,7 +161,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                     if (mRestoreDdsToPrimarySub) {
                         if (slot == primarySlot) {
                             logd("restore dds to primary card");
-                            SubscriptionManager.setDefaultDataSubId(SubscriptionManager
+                            SubscriptionController.getInstance().setDefaultDataSubId(SubscriptionManager
                                     .getSubId(slot)[0]);
                             mRestoreDdsToPrimarySub = false;
                         }
@@ -307,9 +308,9 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
     }
 
     public String getSimName(int slot) {
-        SubInfoRecord subInfo = SubscriptionManager.getSubInfoForSubscriber(
-                SubscriptionManager.getSubId(slot)[0]);
-        return subInfo == null ? null : subInfo.displayName;
+        SubscriptionInfo subInfo = SubscriptionManager.from(mContext)
+                .getActiveSubscriptionInfo(SubscriptionManager.getSubId(slot)[0]);
+        return subInfo == null ? null : subInfo.getDisplayName().toString();
     }
 
     private String getSimCardInfo(int slot) {
@@ -377,7 +378,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                     + "] =" + mIccLoaded[primarySlot]);
             if (mIccLoaded[primarySlot]
                     && currentDds != primarySlot) {
-                SubscriptionManager
+                SubscriptionController.getInstance()
                         .setDefaultDataSubId(SubscriptionManager.getSubId(primarySlot)[0]);
                 mRestoreDdsToPrimarySub = false;
             } else {

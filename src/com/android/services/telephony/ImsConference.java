@@ -165,7 +165,6 @@ public class ImsConference extends Conference {
             setVideoProvider(c, videoProvider);
         }
 
-        @Override
         public void onCallCapabilitiesChanged(Connection c, int callCapabilities) {
             Log.d(this, "onCallCapabilitiesChanged: Connection: %s, callCapabilities: %s", c,
                     callCapabilities);
