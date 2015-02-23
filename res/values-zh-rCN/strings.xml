@@ -666,4 +666,5 @@
     <string name="phone_accounts_make_calls_with">呼叫通过</string>
     <string name="xdivert_title">X-Divert设置</string>
     <string name="xdivert_summary">CFNRc设置</string>
+    <string name="network_forbidden">(禁用)</string>
 </resources>

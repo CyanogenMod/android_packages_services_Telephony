@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.os.IPowerManager;
 import android.os.Message;
 import android.os.Messenger;
@@ -235,7 +236,8 @@ public class PhoneGlobals extends ContextWrapper {
      * @return
      */
     public boolean isPhoneFeatureEnabled() {
-        return getContentResolver().acquireProvider(URI_PHONE_FEATURE) != null;
+        return (UserHandle.myUserId() == UserHandle.USER_OWNER &&
+                getContentResolver().acquireProvider(URI_PHONE_FEATURE) != null);
     }
 
     /**
@@ -421,6 +423,7 @@ public class PhoneGlobals extends ContextWrapper {
         if (phone == null) {
             // Initialize the telephony framework
             PhoneFactory.makeDefaultPhones(this);
+            sendBroadcast(new Intent("com.android.phone.ACTION_PHONE_READY"));
 
             int numPhones = TelephonyManager.getDefault().getPhoneCount();
             if(numPhones > 1) PrimarySubSelectionController.init(this);
@@ -566,7 +569,6 @@ public class PhoneGlobals extends ContextWrapper {
                                       CallFeaturesSetting.HAC_VAL_ON :
                                       CallFeaturesSetting.HAC_VAL_OFF);
         }
-        sendBroadcast(new Intent("com.android.phone.ACTION_PHONE_READY"));
     }
 
     /**

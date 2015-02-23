@@ -326,7 +326,7 @@ public class CallNotifier extends Handler {
                 break;
             case CallStateMonitor.PHONE_SUPP_SERVICE_FAILED:
                 if (DBG) log("PHONE_SUPP_SERVICE_FAILED...");
-                onSuppServiceFailed((AsyncResult) msg.obj);
+                //onSuppServiceFailed((AsyncResult) msg.obj);
                 break;
             case CallStateMonitor.PHONE_SUPP_SERVICE_NOTIFY:
                 if (DBG) log("Received Supplementary Notification");

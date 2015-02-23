@@ -23,6 +23,10 @@ import com.android.internal.telephony.imsphone.ImsPhoneConnection;
 import android.telephony.TelephonyManager;
 
 import android.net.Uri;
+import android.os.AsyncResult;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.telecom.Connection;
 import android.telecom.Conference;
 import android.telecom.ConferenceParticipant;
@@ -194,6 +198,70 @@ public class ImsConference extends Conference {
             mConferenceParticipantConnections =
                     new ConcurrentHashMap<Uri, ConferenceParticipantConnection>(8, 0.9f, 1);
 
+    private static final int EVENT_REQUEST_ADD_PARTICIPANTS = 1;
+    private static final int EVENT_ADD_PARTICIPANTS_DONE = 2;
+    private static final String PARTICIPANTS_LIST_SEPARATOR = ";";
+    // Pending participants to invite to conference
+    private ArrayList<String> mPendingParticipantsList = new ArrayList<String>(0);
+
+    private Handler mHandler = new Handler(Looper.getMainLooper()) {
+        @Override public void handleMessage (Message msg) {
+            AsyncResult ar;
+            Log.i(this, "handleMessage what=" + msg.what);
+            switch (msg.what) {
+                case EVENT_REQUEST_ADD_PARTICIPANTS:
+                    if (msg.obj instanceof String) {
+                        processAddParticipantsList((String)msg.obj);
+                    }
+                    break;
+                case EVENT_ADD_PARTICIPANTS_DONE:
+                    ar = (AsyncResult)msg.obj;
+                    processAddParticipantResponse((ar.exception == null));
+                    break;
+            }
+        }
+    };
+
+    private void processAddParticipantsList(String dialString) {
+        boolean initAdding = false;
+        String[] participantsArr = dialString.split(PARTICIPANTS_LIST_SEPARATOR);
+        int numOfParticipants = ((participantsArr == null)? 0: participantsArr.length);
+        Log.d(this,"processAddPartList: no of particpants = " + numOfParticipants
+                + " pending = " + mPendingParticipantsList.size());
+        if (numOfParticipants > 0) {
+            if (mPendingParticipantsList.size() == 0) {
+                //directly add participant if no pending participants.
+                initAdding = true;
+            }
+            for (String participant: participantsArr) {
+                mPendingParticipantsList.add(participant);
+            }
+            if (initAdding) {
+                processNextParticipant();
+            }
+        }
+    }
+
+    private void processNextParticipant() {
+        if (mPendingParticipantsList.size() > 0) {
+            if (addParticipantInternal(mPendingParticipantsList.get(0))) {
+                Log.d(this,"processNextParticipant: sent request");
+            } else {
+                Log.d(this,"processNextParticipant: failed. Clear pending list.");
+                mPendingParticipantsList.clear();
+            }
+        }
+    }
+
+    private void processAddParticipantResponse(boolean success) {
+        Log.d(this,"processAddPartResp: success = " + success + " pending = " +
+                (mPendingParticipantsList.size() - 1));
+        if (mPendingParticipantsList.size() > 0) {
+            mPendingParticipantsList.remove(0);
+            processNextParticipant();
+        }
+    }
+
     public void updateConferenceStateAfterCreation() {
         if (mConferenceHost != null) {
             Log.v(this, "updateConferenceStateAfterCreation :: process participant update");
@@ -259,14 +327,9 @@ public class ImsConference extends Conference {
         return conferenceCapabilities;
     }
 
-    /**
-     * Not used by the IMS conference controller.
-     *
-     * @return {@code Null}.
-     */
     @Override
     public android.telecom.Connection getPrimaryConnection() {
-        return null;
+        return mConferenceHost;
     }
 
     /**
@@ -359,16 +422,27 @@ public class ImsConference extends Conference {
 
     @Override
     public void onAddParticipant(String participant) {
+        if (participant == null || participant.isEmpty()) {
+            return;
+        }
+        mHandler.sendMessage(mHandler.obtainMessage(EVENT_REQUEST_ADD_PARTICIPANTS, participant));
+    }
+
+    private boolean addParticipantInternal(String participant) {
+        boolean ret =  false;
         try {
             Phone phone = (mConferenceHost != null) ? mConferenceHost.getPhone() : null;
             Log.d(this, "onAddParticipant mConferenceHost = " + mConferenceHost
                     + " Phone = " + phone);
             if (phone != null) {
-                phone.addParticipant(participant);
+                phone.addParticipant(participant,
+                        mHandler.obtainMessage(EVENT_ADD_PARTICIPANTS_DONE));
+                ret = true;
             }
         } catch (CallStateException e) {
             Log.e(this, e, "Exception thrown trying to add a participant into conference");
         }
+        return ret;
     }
 
     /**
@@ -494,22 +568,24 @@ public class ImsConference extends Conference {
         boolean newParticipantsAdded = false;
         boolean oldParticipantsRemoved = false;
         ArrayList<ConferenceParticipant> newParticipants = new ArrayList<>(participants.size());
-        HashSet<Uri> participantEndpoints = new HashSet<>(participants.size());
+        HashSet<Uri> participantUserEntities = new HashSet<>(participants.size());
 
         // Add any new participants and update existing.
         for (ConferenceParticipant participant : participants) {
-            Uri endpoint = participant.getEndpoint();
-            participantEndpoints.add(endpoint);
-            if (!mConferenceParticipantConnections.containsKey(endpoint)) {
+            Uri userEntity = participant.getHandle();
+
+            participantUserEntities.add(userEntity);
+            if (!mConferenceParticipantConnections.containsKey(userEntity)) {
                 createConferenceParticipantConnection(parent, participant);
                 newParticipants.add(participant);
                 newParticipantsAdded = true;
             } else {
                 ConferenceParticipantConnection connection =
-                        mConferenceParticipantConnections.get(endpoint);
+                        mConferenceParticipantConnections.get(userEntity);
                 connection.updateState(participant.getState());
                 if (participant.getState() == ConferenceParticipantConnection.STATE_DISCONNECTED) {
                     removeConferenceParticipant(connection);
+                    removeConnection(connection);
                 }
             }
         }
@@ -519,7 +595,7 @@ public class ImsConference extends Conference {
             // Set the state of the new participants at once and add to the conference
             for (ConferenceParticipant newParticipant : newParticipants) {
                 ConferenceParticipantConnection connection =
-                        mConferenceParticipantConnections.get(newParticipant.getEndpoint());
+                        mConferenceParticipantConnections.get(newParticipant.getHandle());
                 connection.updateState(newParticipant.getState());
             }
         }
@@ -531,9 +607,9 @@ public class ImsConference extends Conference {
         while (entryIterator.hasNext()) {
             Map.Entry<Uri, ConferenceParticipantConnection> entry = entryIterator.next();
 
-            if (!participantEndpoints.contains(entry.getKey())) {
+            if (!participantUserEntities.contains(entry.getKey())) {
                 ConferenceParticipantConnection participant = entry.getValue();
-                participant.removeConnectionListener(mParticipantListener);
+                removeConferenceParticipant(participant);
                 removeConnection(participant);
                 entryIterator.remove();
                 oldParticipantsRemoved = true;
@@ -570,7 +646,7 @@ public class ImsConference extends Conference {
             Log.v(this, "createConferenceParticipantConnection: %s", connection);
         }
 
-        mConferenceParticipantConnections.put(participant.getEndpoint(), connection);
+        mConferenceParticipantConnections.put(participant.getHandle(), connection);
         PhoneAccountHandle phoneAccountHandle =
                 TelecomAccountRegistry.makePstnPhoneAccountHandle(parent.getPhone());
         mTelephonyConnectionService.addExistingConnection(phoneAccountHandle, connection);
@@ -583,13 +659,11 @@ public class ImsConference extends Conference {
      * @param participant The participant to remove.
      */
     private void removeConferenceParticipant(ConferenceParticipantConnection participant) {
-        if (Log.VERBOSE) {
-            Log.v(this, "removeConferenceParticipant: %s", participant);
-        }
+        Log.d(this, "removeConferenceParticipant: %s", participant);
 
         participant.removeConnectionListener(mParticipantListener);
-        participant.getEndpoint();
-        mConferenceParticipantConnections.remove(participant.getEndpoint());
+        participant.getUserEntity();
+        mConferenceParticipantConnections.remove(participant.getUserEntity());
         mTelephonyConnectionService.removeConnection(participant);
     }
 

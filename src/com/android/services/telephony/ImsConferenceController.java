@@ -282,4 +282,9 @@ public class ImsConferenceController {
         connection.destroy();
         mImsConferences.add(conference);
     }
+
+    public ArrayList<ImsConference> getImsConferences() {
+            return mImsConferences;
+    }
+
 }
