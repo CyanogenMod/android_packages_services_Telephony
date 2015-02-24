@@ -107,8 +107,10 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     private static final int EVENT_TRANSMIT_APDU_BASIC_CHANNEL_DONE = 30;
     private static final int CMD_EXCHANGE_SIM_IO = 31;
     private static final int EVENT_EXCHANGE_SIM_IO_DONE = 32;
-    private static final int CMD_SIM_GET_ATR = 33;
-    private static final int EVENT_SIM_GET_ATR_DONE = 34;
+    private static final int CMD_SET_VOICEMAIL_NUMBER = 33;
+    private static final int EVENT_SET_VOICEMAIL_NUMBER_DONE = 34;
+    private static final int CMD_SIM_GET_ATR = 35;
+    private static final int EVENT_SIM_GET_ATR_DONE = 36;
 
     /** The singleton instance. */
     private static PhoneInterfaceManager sInstance;
@@ -155,9 +157,17 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         public Object argument;
         /** The result of the request that is run on the main thread */
         public Object result;
+        /** The subscriber id that this request applies to. Null if default. */
+        public Integer subId;
+
 
         public MainThreadRequest(Object argument) {
             this.argument = argument;
+        }
+
+        public MainThreadRequest(Object argument, Integer subId) {
+            this.argument = argument;
+            this.subId = subId;
         }
     }
 
@@ -593,6 +603,18 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                     }
                     break;
 
+                case CMD_SET_VOICEMAIL_NUMBER:
+                    request = (MainThreadRequest) msg.obj;
+                    onCompleted = obtainMessage(EVENT_SET_VOICEMAIL_NUMBER_DONE, request);
+                    Pair<String, String> tagNum = (Pair<String, String>) request.argument;
+                    getPhoneFromRequest(request).setVoiceMailNumber(tagNum.first, tagNum.second,
+                            onCompleted);
+                    break;
+
+                case EVENT_SET_VOICEMAIL_NUMBER_DONE:
+                    handleNullReturnEvent(msg, "setVoicemailNumber");
+                    break;
+
                 case CMD_SIM_GET_ATR:
                     request = (MainThreadRequest) msg.obj;
                     if (uiccCard == null) {
@@ -742,6 +764,10 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         if (DBG) log("publish: " + this);
 
         ServiceManager.addService("phone", this);
+    }
+
+    private Phone getPhoneFromRequest(MainThreadRequest request) {
+        return (request.subId == null) ? mPhone : getPhone(request.subId);
     }
 
     // returns phone associated with the subId.
@@ -1153,7 +1179,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         return getPhone(subId).isDataConnectivityPossible();
     }
 
-    public boolean isDataPossibleForSubscription(long subId, String apnType) {
+    public boolean isDataPossibleForSubscription(int subId, String apnType) {
         return getPhone(subId).isOnDemandDataPossible(apnType);
     }
 
@@ -1274,7 +1300,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
-    public List<CellInfo> getAllCellInfoUsingSubId(long subId) {
+    public List<CellInfo> getAllCellInfoUsingSubId(int subId) {
         try {
             mApp.enforceCallingOrSelfPermission(
                 android.Manifest.permission.ACCESS_FINE_LOCATION, null);
@@ -1631,7 +1657,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     /**
      * get operator numeric value from icc records
      */
-    public String getIccOperatorNumeric(long subId) {
+    public String getIccOperatorNumeric(int subId) {
         String iccOperatorNumeric = null;
         IccRecords iccRecords = getPhone(subId).getIccCard().getIccRecords();
         if (iccRecords != null) {
@@ -1660,7 +1686,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
-    public IccOpenLogicalChannelResponse iccOpenLogicalChannelUsingSubId(long subId, String AID) {
+    public IccOpenLogicalChannelResponse iccOpenLogicalChannelUsingSubId(int subId, String AID) {
         enforceModifyPermissionOrCarrierPrivilege();
 
         if (DBG) log("iccOpenLogicalChannel: " + AID);
@@ -1676,7 +1702,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
-    public boolean iccCloseLogicalChannelUsingSubId(long subId, int channel) {
+    public boolean iccCloseLogicalChannelUsingSubId(int subId, int channel) {
         enforceModifyPermissionOrCarrierPrivilege();
 
         if (DBG) log("iccCloseLogicalChannel: " + channel);
@@ -1696,7 +1722,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
-    public String iccTransmitApduLogicalChannelUsingSubId(long subId, int channel, int cla,
+    public String iccTransmitApduLogicalChannelUsingSubId(int subId, int channel, int cla,
             int command, int p1, int p2, int p3, String data) {
         enforceModifyPermissionOrCarrierPrivilege();
 
@@ -1731,7 +1757,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
-    public String iccTransmitApduBasicChannelUsingSubId(long subId, int cla, int command, int p1,
+    public String iccTransmitApduBasicChannelUsingSubId(int subId, int cla, int command, int p1,
             int p2, int p3, String data) {
         enforceModifyPermissionOrCarrierPrivilege();
 
@@ -1761,7 +1787,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
-    public byte[] iccExchangeSimIOUsingSubId(long subId, int fileID, int command, int p1, int p2,
+    public byte[] iccExchangeSimIOUsingSubId(int subId, int fileID, int command, int p1, int p2,
             int p3, String filePath) {
         enforceModifyPermissionOrCarrierPrivilege();
 
@@ -1943,6 +1969,27 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     /**
+     * Check TETHER_DUN_REQUIRED and TETHER_DUN_APN settings, net.tethering.noprovisioning
+     * SystemProperty, and config_tether_apndata to decide whether DUN APN is required for
+     * tethering.
+     *
+     * @return 0: Not required. 1: required. 2: Not set.
+     * @hide
+     */
+    @Override
+    public int getTetherApnRequired() {
+        enforceModifyPermissionOrCarrierPrivilege();
+        int dunRequired = Settings.Global.getInt(mPhone.getContext().getContentResolver(),
+                Settings.Global.TETHER_DUN_REQUIRED, 2);
+        // If not set, check net.tethering.noprovisioning, TETHER_DUN_APN setting and
+        // config_tether_apndata.
+        if (dunRequired == 2 && mPhone.hasMatchedTetherApnSetting()) {
+            dunRequired = 1;
+        }
+        return dunRequired;
+    }
+
+    /**
      * Set mobile data enabled
      * Used by the user through settings etc to turn on/off mobile data
      *
@@ -1961,7 +2008,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      * @param enable {@code true} turn turn data on, else {@code false}
      */
     @Override
-    public void setDataEnabledUsingSubId(long subId, boolean enable) {
+    public void setDataEnabledUsingSubId(int subId, boolean enable) {
         enforceModifyPermission();
         getPhone(subId).setDataEnabled(enable);
     }
@@ -2031,34 +2078,6 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             return null;
         }
         return iccId;
-    }
-
-    @Override
-    public void enableSimplifiedNetworkSettingsForSubscriber(int subId, boolean enable) {
-        enforceModifyPermissionOrCarrierPrivilege();
-
-        String iccId = getIccId(subId);
-        if (iccId != null) {
-            String snsPrefKey = PREF_CARRIERS_SIMPLIFIED_NETWORK_SETTINGS_PREFIX + iccId;
-            SharedPreferences.Editor editor = carrierPrivilegeConfigs.edit();
-            if (enable) {
-                editor.putBoolean(snsPrefKey, true);
-            } else {
-                editor.remove(snsPrefKey);
-            }
-            editor.commit();
-        }
-    }
-
-    @Override
-    public boolean getSimplifiedNetworkSettingsEnabledForSubscriber(int subId) {
-        enforceReadPermission();
-        String iccId = getIccId(subId);
-        if (iccId != null) {
-            String snsPrefKey = PREF_CARRIERS_SIMPLIFIED_NETWORK_SETTINGS_PREFIX + iccId;
-            return carrierPrivilegeConfigs.getBoolean(snsPrefKey, false);
-        }
-        return false;
     }
 
     public boolean setLine1NumberForDisplayForSubscriber(int subId, String alphaTag, String number) {
@@ -2155,7 +2174,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
-    public byte[] getAtrUsingSubId(long subId) {
+    public byte[] getAtrUsingSubId(int subId) {
         if (Binder.getCallingUid() != Process.NFC_UID) {
             throw new SecurityException("Only Smartcard API may access UICC");
         }

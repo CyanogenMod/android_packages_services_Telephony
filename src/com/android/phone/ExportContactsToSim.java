@@ -213,7 +213,7 @@ public class ExportContactsToSim extends Activity {
         Log.d("ExportContactsToSim"," on slot: " + slotId);
 
         if (slotId < TelephonyManager.getDefault().getPhoneCount() && slotId >= 0) {
-            long[] subId = SubscriptionManager.getSubId(slotId);
+            int[] subId = SubscriptionManager.getSubId(slotId);
             if (subId != null && subId[0] > 0) {
                 return Uri.parse("content://icc/adn/subId/" + subId[0]);
             } else {

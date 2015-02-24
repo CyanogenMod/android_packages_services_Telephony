@@ -169,7 +169,7 @@ public class ImsConference extends Conference {
             setVideoProvider(c, videoProvider);
         }
 
-        @Override
+        // FIXME MR1_INTERNAL
         public void onCallCapabilitiesChanged(Connection c, int callCapabilities) {
             Log.d(this, "onCallCapabilitiesChanged: Connection: %s, callCapabilities: %s", c,
                     callCapabilities);
@@ -302,7 +302,7 @@ public class ImsConference extends Conference {
 
     }
 
-    // FIXME SAND, move IMS capabilities
+    // FIXME MR1_INTERNAL, move IMS capabilities
     private int applyVideoCapabilities(int conferenceCapabilities, int capabilities) {
         if (PhoneCapabilities.can(capabilities, PhoneCapabilities.SUPPORTS_VT_LOCAL)) {
             conferenceCapabilities = applyCapability(conferenceCapabilities,

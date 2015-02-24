@@ -307,11 +307,16 @@ public class MobileNetworkSettings extends PreferenceActivity
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         // mButtonEnabledNetworks is not needed anymore
         prefSet.removePreference(mButtonEnabledNetworks);
+        /* FIXME MR1_INTERNAL
         if (tm.getSimplifiedNetworkSettingsEnabledForSubscriber(SubscriptionManager.getDefaultSubId())) {
             prefSet.removePreference(mButtonPreferredNetworkMode);
             prefSet.removePreference(mButtonEnabledNetworks);
             prefSet.removePreference(mLteDataServicePref);
-        } else if (getResources().getBoolean(R.bool.world_phone) == true) {
+        } else */
+        if (getResources().getBoolean(R.bool.world_phone) == true) {
+            prefSet.removePreference(mButtonEnabledNetworks);
+            // mButtonEnabledNetworks = null as it is not needed anymore
+            mButtonEnabledNetworks = null;
             // set the listener for the mButtonPreferredNetworkMode list preference so we can issue
             // change Preferred Network Mode.
             mButtonPreferredNetworkMode.setOnPreferenceChangeListener(this);

@@ -339,7 +339,7 @@ public class CallNotifier extends Handler {
     }
 
     private PhoneStateListener getPhoneStateListener(int phoneId) {
-        long[] subId = SubscriptionManager.getSubId(phoneId);
+        int[] subId = SubscriptionManager.getSubId(phoneId);
 
         mPhoneStateListener[phoneId]  = new PhoneStateListener(subId[0]) {
             @Override
@@ -854,6 +854,11 @@ public class CallNotifier extends Handler {
     }
 
     private void onMwiChanged(boolean visible, Phone phone) {
+        if (phone == null) {
+            Log.w(LOG_TAG, "Got onMwiChanged() with null phone obj, Ignoring...");
+            return;
+        }
+
         if (VDBG) log("onMwiChanged(): " + visible + " phoneId = " + phone.getPhoneId());
 
         // "Voicemail" is meaningless on non-voice-capable devices,
@@ -881,6 +886,11 @@ public class CallNotifier extends Handler {
     }
 
     private void onCfiChanged(boolean visible, Phone phone) {
+        if (phone == null) {
+            Log.w(LOG_TAG, "Got onCfiChanged() with null phone obj, Ignoring...");
+            return;
+        }
+
         if (VDBG) log("onCfiChanged(): " + visible);
         mApplication.notificationMgr.updateCfi(visible, phone);
     }

@@ -24,10 +24,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.telecom.AudioState;
+import android.telecom.Conference;
 import android.telecom.ConferenceParticipant;
 import android.telecom.CallProperties;
 import android.telecom.Connection;
 import android.telecom.PhoneAccount;
+//FIXME MR1_INTERNAL remove below line after IMS capabilities are moved
 import android.telecom.PhoneCapabilities;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -624,7 +626,7 @@ abstract class TelephonyConnection extends Connection {
         if (ph == null) {
             return;
         }
-        long subId = ph.getSubId();
+        int subId = ph.getSubId();
         Log.i(this, "setActiveSubscription subId:" + subId);
         CallManager.getInstance().setActiveSubscription(subId);
     }
@@ -805,9 +807,9 @@ abstract class TelephonyConnection extends Connection {
         newCapabilities = applyVideoCapabilities(newCapabilities);
         newCapabilities = applyAudioQualityCapabilities(newCapabilities);
         newCapabilities = applyConferenceTerminationCapabilities(newCapabilities);
-        newCapabilities = applyVoicePrivacyCapabilities(newCallCapabilities);
-        newCapabilities = applyAddParticipantCapabilities(newCallCapabilities);
-        newCapabilities = applyConferenceCapabilities(newCallCapabilities);
+        newCapabilities = applyVoicePrivacyCapabilities(newCapabilities);
+        newCapabilities = applyAddParticipantCapabilities(newCapabilities);
+        newCapabilities = applyConferenceCapabilities(newCapabilities);
 
         if (getConnectionCapabilities() != newCapabilities) {
             setConnectionCapabilities(newCapabilities);

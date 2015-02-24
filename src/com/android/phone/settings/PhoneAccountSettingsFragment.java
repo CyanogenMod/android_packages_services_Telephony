@@ -12,6 +12,8 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.util.Log;
 
 import com.android.phone.R;
@@ -47,6 +49,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private String LOG_TAG = PhoneAccountSettingsFragment.class.getSimpleName();
 
     private TelecomManager mTelecomManager;
+    private SubscriptionManager mSubscriptionManager;
 
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private AccountSelectionPreference mSelectCallAssistant;
@@ -61,6 +64,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         super.onCreate(icicle);
 
         mTelecomManager = TelecomManager.from(getActivity());
+        mSubscriptionManager = SubscriptionManager.from(getActivity());
     }
 
     @Override
@@ -281,5 +285,18 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
             mConfigureCallAssistant.setSummary(null);
             mConfigureCallAssistant.setEnabled(true);
         }
+    }
+
+    private Intent getConfigureCallAssistantIntent() {
+        PhoneAccountHandle handle = mTelecomManager.getSimCallManager();
+        if (handle != null) {
+            String packageName = handle.getComponentName().getPackageName();
+            if (packageName != null) {
+                return new Intent(TelecomManager.ACTION_CONNECTION_SERVICE_CONFIGURE)
+                        .addCategory(Intent.CATEGORY_DEFAULT)
+                        .setPackage(packageName);
+            }
+        }
+        return null;
     }
 }

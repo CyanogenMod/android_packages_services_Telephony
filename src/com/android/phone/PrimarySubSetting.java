@@ -168,13 +168,13 @@ public class PrimarySubSetting extends Activity implements View.OnClickListener 
                             // icc loaded done.
                             android.util.Log.d(TAG,
                                   " Set dds to primary sub, if failed, restore dds once icc loaded");
-                            SubscriptionManager.setDefaultDataSubId(SubscriptionManager
-                                    .getSubId(targetSub)[0]);
+                            SubscriptionManager.from(PrimarySubSetting.this).setDefaultDataSubId(
+                                    SubscriptionManager.getSubId(targetSub)[0]);
                             mPrimarySubSelectionController.setRestoreDdsToPrimarySub(true);
                         } else {
-                            long ddsSub = SubscriptionManager.getDefaultDataSubId();
+                            int ddsSub = SubscriptionManager.getDefaultDataSubId();
                             android.util.Log.d(TAG, " Set DDS back to previous sub :" + ddsSub);
-                            SubscriptionManager.setDefaultDataSubId(ddsSub);
+                            SubscriptionManager.from(PrimarySubSetting.this).setDefaultDataSubId(ddsSub);
                         }
                         Toast.makeText(PrimarySubSetting.this, getString(R.string.reg_suc),
                                 Toast.LENGTH_LONG).show();

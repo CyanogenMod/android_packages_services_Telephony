@@ -276,7 +276,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private Preference mVoicemailNotificationRingtone;
     private CheckBoxPreference mVoicemailNotificationVibrate;
 
-    private long mSubId;
+    private int mSubId;
     private int mSlotId;
     private boolean isSpeedDialListStarted = false;
 
