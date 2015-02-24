@@ -46,7 +46,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private String LOG_TAG = PhoneAccountSettingsFragment.class.getSimpleName();
 
     private TelecomManager mTelecomManager;
-    private Context mApplicationContext;
 
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private AccountSelectionPreference mSelectCallAssistant;
@@ -61,7 +60,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         super.onCreate(icicle);
 
         mTelecomManager = TelecomManager.from(getActivity());
-        mApplicationContext = getActivity().getApplicationContext();
     }
 
     @Override
@@ -217,13 +215,19 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     }
 
     private synchronized void handleSipReceiveCallsOption(boolean isEnabled) {
+        Context context = getActivity();
+        if (context == null) {
+            // Return if the fragment is detached from parent activity before executed by thread.
+            return;
+        }
+
         mSipSharedPreferences.setReceivingCallsEnabled(isEnabled);
 
-        SipUtil.useSipToReceiveIncomingCalls(mApplicationContext, isEnabled);
+        SipUtil.useSipToReceiveIncomingCalls(context, isEnabled);
 
         // Restart all Sip services to ensure we reflect whether we are receiving calls.
         SipAccountRegistry sipAccountRegistry = SipAccountRegistry.getInstance();
-        sipAccountRegistry.restartSipService(mApplicationContext);
+        sipAccountRegistry.restartSipService(context);
     }
 
     /**
