@@ -1499,6 +1499,8 @@ public class CallFeaturesSetting extends PreferenceActivity
         switch (which){
             case DialogInterface.BUTTON_NEUTRAL:
                 if (DBG) log("Neutral button");
+                // We had a non recoverable error, exit
+                finish();
                 break;
             case DialogInterface.BUTTON_NEGATIVE:
                 if (DBG) log("Negative button");
