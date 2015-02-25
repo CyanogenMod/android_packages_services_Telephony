@@ -248,6 +248,8 @@
   <string name="dial">Ring op</string>
   <string name="enterName">Angiv navn:</string>
   <string name="enterNumber">Indtast telefonnummer:</string>
+  <string name="hintName">Navn</string>
+  <string name="hintPhonenumber">Telefonnummer</string>
   <string name="contactAddSuccess">Kontakt blev føjet til SIM-kort</string>
   <string name="contactAddFailed">Kunne ikke føje kontakt til SIM-kort</string>
   <string name="contactUpdateSuccess">Kontakt på SIM-kort blev opdateret</string>

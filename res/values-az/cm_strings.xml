@@ -34,4 +34,7 @@
   <string name="blacklist_summary">Qara siyahıdakı nömrәlәrdәn gәlәn zәnglәr qәbul edilmәyәcәkdir</string>
   <string name="blacklist_call_notification">%s nömrәsindәn zәng qәbul olunmayıb</string>
   <string name="blacklist_call_notification_unknown_number">Tәyin edilmәyәn %s nömrәsindәn zәng qәbul edilmәyib</string>
+  <string name="ipcall_sub_title">IP zəng yığma önəlavəsi</string>
+  <string name="ipcall_sub_summery">IP xidməti ilə zəng etmək üçün önəlavəyə düzəliş et</string>
+  <string name="ipcall_dialog_edit_hint">IP zəng yığma önəlavəsi</string>
 </resources>

@@ -190,6 +190,8 @@
   <string name="dial">Ring</string>
   <string name="enterName">Ange namn:</string>
   <string name="enterNumber">Ange telefonnummer:</string>
+  <string name="hintName">Namn</string>
+  <string name="hintPhonenumber">Telefonnummer</string>
   <string name="contactAddFailed">Misslyckades att lägga till kontakt till SIM</string>
   <string name="contactUpdateFailed">Kunde inte uppdatera kontakten på SIM-kortet</string>
   <string name="contactdeleteFailed">Misslyckades att ta bort kontakt från SIM</string>

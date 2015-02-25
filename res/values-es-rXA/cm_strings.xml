@@ -79,7 +79,7 @@
   <string name="choose_lookup_providers">Esbillar fornidor de gueta</string>
   <string name="choose_forward_lookup_provider_title">Fornidor pa guetar llugares</string>
   <string name="choose_people_lookup_provider_title">Fornidor pa guetar persones</string>
-  <string name="choose_reverse_lookup_provider_title">Fornidor pa gueta inversa</string>
+  <string name="choose_reverse_lookup_provider_title">Fornidor de busca inversa</string>
   <string name="sim_name">Nome de la SIM</string>
   <string name="sub_no_sim">Ensin tarxeta SIM</string>
   <string name="sub_active">Activa</string>
