@@ -660,8 +660,10 @@ public class ImsConference extends Conference {
             case Connection.STATE_INITIALIZING:
             case Connection.STATE_NEW:
             case Connection.STATE_RINGING:
-            case Connection.STATE_DIALING:
                 // No-op -- not applicable.
+                break;
+            case Connection.STATE_DIALING:
+                setDialing();
                 break;
             case Connection.STATE_DISCONNECTED:
                 DisconnectCause disconnectCause;
