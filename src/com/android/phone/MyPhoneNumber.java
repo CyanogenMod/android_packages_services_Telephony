@@ -21,12 +21,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 
 public class MyPhoneNumber extends BroadcastReceiver {
@@ -40,8 +42,15 @@ public class MyPhoneNumber extends BroadcastReceiver {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         String phoneNum = telephonyMgr.getLine1Number();
+        final int slot = intent.getIntExtra(PhoneConstants.SLOT_KEY, 0);
         String savedNum = prefs.getString(MSISDNEditPreference.PHONE_NUMBER, null);
         String simState = intent.getStringExtra(IccCardConstants.INTENT_KEY_ICC_STATE);
+
+        //Get the sub from the slot
+        final long subId = SubscriptionManager
+                .getSubId(slot)[0];
+        //Get the phone id from the sub
+        final int phoneId = SubscriptionManager.getPhoneId(subId);
 
         if (!IccCardConstants.INTENT_VALUE_ICC_LOADED.equals(simState)) {
             /* Don't set line 1 number unless SIM_STATE is LOADED
@@ -56,7 +65,7 @@ public class MyPhoneNumber extends BroadcastReceiver {
             }
 
             if (savedNum != null) {
-                Phone mPhone = PhoneFactory.getDefaultPhone();
+                Phone mPhone = PhoneFactory.getPhone(phoneId);
                 String alphaTag = mPhone.getLine1AlphaTag();
 
                 if (TextUtils.isEmpty(alphaTag)) {
