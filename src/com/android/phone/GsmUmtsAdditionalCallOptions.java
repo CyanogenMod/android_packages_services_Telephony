@@ -1,10 +1,12 @@
 package com.android.phone;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -40,7 +42,6 @@ public class GsmUmtsAdditionalCallOptions extends
         PreferenceScreen prefSet = getPreferenceScreen();
         mCLIRButton = (CLIRListPreference) prefSet.findPreference(BUTTON_CLIR_KEY);
         mCWButton = (CallWaitingCheckBoxPreference) prefSet.findPreference(BUTTON_CW_KEY);
-        mMSISDNButton = (MSISDNEditPreference) prefSet.findPreference(BUTTON_PN_KEY);
 
         mPreferences.add(mCLIRButton);
         mPreferences.add(mCWButton);
@@ -55,7 +56,7 @@ public class GsmUmtsAdditionalCallOptions extends
 
             mCLIRButton.init(this, true, mPhoneId);
             mCWButton.init(this, true, mPhoneId);
-            mMSISDNButton.init(this, true);
+            mMSISDNButton.init(this, true, mPhoneId);
 
             int[] clirArray = icicle.getIntArray(mCLIRButton.getKey());
             if (clirArray != null) {
@@ -91,7 +92,7 @@ public class GsmUmtsAdditionalCallOptions extends
             if (pref instanceof CallWaitingCheckBoxPreference) {
                 ((CallWaitingCheckBoxPreference) pref).init(this, false, mPhoneId);
             } else if (pref instanceof MSISDNEditPreference) {
-                ((MSISDNEditPreference) pref).init(this, false);
+                ((MSISDNEditPreference) pref).init(this, false, mPhoneId);
             }
         }
         super.onFinished(preference, reading);
