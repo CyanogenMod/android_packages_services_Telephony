@@ -46,8 +46,6 @@ public class MSISDNEditPreference extends EditTextPreference {
 
     public MSISDNEditPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        mPhone = PhoneFactory.getDefaultPhone();
         mContext = context;
     }
 
@@ -110,7 +108,8 @@ public class MSISDNEditPreference extends EditTextPreference {
         }
     }
 
-    void init(TimeConsumingPreferenceListener listener, boolean skipReading) {
+    void init(TimeConsumingPreferenceListener listener, boolean skipReading, int phoneId) {
+        mPhone = PhoneFactory.getPhone(phoneId);
         mTcpListener = listener;
         if (!skipReading) {
             setText(mPhone.getLine1Number());
