@@ -46,13 +46,16 @@ public class MSISDNEditPreference extends EditTextPreference {
 
     public MSISDNEditPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        mPhone = PhoneFactory.getDefaultPhone();
         mContext = context;
     }
 
-    public MSISDNEditPreference(Context context) {
+    public MSISDNEditPreference(Context context, int phoneId) {
         this(context, null);
+        mPhone = PhoneFactory.getPhone(phoneId);
+    }
+
+    public MSISDNEditPreference(Context context) {
+        this(context, PhoneFactory.getDefaultPhone().getPhoneId());
     }
 
     @Override

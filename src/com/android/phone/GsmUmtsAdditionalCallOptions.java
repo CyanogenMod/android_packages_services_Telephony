@@ -1,10 +1,12 @@
 package com.android.phone;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -24,7 +26,6 @@ public class GsmUmtsAdditionalCallOptions extends
 
     private CLIRListPreference mCLIRButton;
     private CallWaitingCheckBoxPreference mCWButton;
-    private MSISDNEditPreference mMSISDNButton;
 
     private final ArrayList<Preference> mPreferences = new ArrayList<Preference>();
     private int mInitIndex= 0;
@@ -40,11 +41,19 @@ public class GsmUmtsAdditionalCallOptions extends
         PreferenceScreen prefSet = getPreferenceScreen();
         mCLIRButton = (CLIRListPreference) prefSet.findPreference(BUTTON_CLIR_KEY);
         mCWButton = (CallWaitingCheckBoxPreference) prefSet.findPreference(BUTTON_CW_KEY);
-        mMSISDNButton = (MSISDNEditPreference) prefSet.findPreference(BUTTON_PN_KEY);
 
         mPreferences.add(mCLIRButton);
         mPreferences.add(mCWButton);
-        mPreferences.add(mMSISDNButton);
+
+
+        TelephonyManager telephonyManager =
+                (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+
+        for (int phone = 0; phone < telephonyManager.getPhoneCount(); phone++) {
+            MSISDNEditPreference msisdnEditPreference = new MSISDNEditPreference(this, phone);
+            mPreferences.add(msisdnEditPreference);
+            msisdnEditPreference.init(this, true);
+        }
 
         if (icicle == null) {
             if (DBG) Log.d(LOG_TAG, "start to init ");
@@ -55,7 +64,6 @@ public class GsmUmtsAdditionalCallOptions extends
 
             mCLIRButton.init(this, true, mPhoneId);
             mCWButton.init(this, true, mPhoneId);
-            mMSISDNButton.init(this, true);
 
             int[] clirArray = icicle.getIntArray(mCLIRButton.getKey());
             if (clirArray != null) {
