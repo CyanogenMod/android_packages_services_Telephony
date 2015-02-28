@@ -176,8 +176,8 @@
   <string name="mobile_data_on">활성화됨</string>
   <string name="mobile_data_off">비활성화됨</string>
   <string name="sim_unknown">알 수 없음</string>
-  <string name="sim_absent">SIM카드 없음</string>
-  <string name="multi_sim_settings_title">듀얼 SIM카드 설정</string>
+  <string name="sim_absent">SIM 카드 없음</string>
+  <string name="multi_sim_settings_title">듀얼 SIM 카드 설정</string>
   <string name="lte_switch_unavailable">3g/LTE SIM 카드 전환은 사용할 수 없습니다.</string>
   <string name="lte_recognition_title">SIM 카드 인식</string>
   <string name="lte_recognize_summary">두개의 3G/LTE SIM 카드 감지, 기본 3G/LTE SIM 카드 설정 필요:</string>

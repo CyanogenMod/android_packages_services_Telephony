@@ -16,13 +16,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="show_ssn_label">Įvykių įspėjimas</string>
-  <string name="show_ssn_summary">Rodyti įspėjimą dėl įvairių tinklo įvykių susijusių su skambučių tvarkymu</string>
+  <string name="show_ssn_label">Įvykio pranešimas</string>
+  <string name="show_ssn_summary">Rodyti pranešimą dėl įvairių tinklo įvykių susijusių su skambučių tvarkymu</string>
   <string name="blacklist_title">Juodasis sąrašas</string>
-  <string name="blacklist_summary_disabled">Išjungtas</string>
+  <string name="blacklist_summary_disabled">Neleidžiamas</string>
   <string name="blacklist_summary">Įeinantys skambučiai iš telefono numerių kurie yra juodajame sąraše bus blokuojami</string>
-  <string name="mwi_notification_title">Pranešimų rodymas</string>
-  <string name="mwi_notification_summary">Rodyti gaunamus balso pašto pranešimus</string>
+  <string name="mwi_notification_title">Pranešimų laukimo rodiklis</string>
+  <string name="mwi_notification_summary">Rodyti pranešimų laukimo rodiklį gaunamiems balso pašto pranešimams</string>
   <string name="call_notif_unconditionalCF">Besąlygiškas skambučių peradresavimas aktyvus</string>
   <string name="call_notif_conditionalCF">Sąlygiškas skambučių peradresavimas aktyvus</string>
   <string name="call_notif_MOcall_forwarding">Išeinantys skambučiai yra peradresuojami</string>
@@ -91,7 +91,7 @@
   <string name="vt_fallback_setting">Perrinkti naudojant balso skambutį</string>
   <string name="vt_forward_setting">Vaizdo skambučio peradresavimas</string>
   <string name="vt_imagereplace_setting">Alternatyvi nuotrauka</string>
-  <string name="vt_imagereplace_setting_sum">Rodyti vaizdą, kai priekyje esanti kamera yra išjungta</string>
+  <string name="vt_imagereplace_setting_sum">Rodyti vaizdą, kai priekyje esanti kamera yra neleidžiama</string>
   <string name="preferred_network_mode_global_summary_cm">Pageidaujami tinklo režimai: pasaulinis (CDMA / EvDo / LTE / GSM / WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Pageidaujami tinklo režimai: tik TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Pageidaujami tinklo režimai: TD-SCDMA / WCDMA</string>
@@ -136,7 +136,7 @@
   <string name="ipcall_dialog_edit_hint">IP skambučio rinkimo priešdėlis</string>
   <string name="fdn_service_unavailable">Fiksuoto rinkimo paslaugos neteikiamos.</string>
   <string name="exportContacts">Eksportuojami kontaktai į SIM kortelę\u2026</string>
-  <string name="simContacts_title_cm">Valdyti SIM kortelės kontaktus</string>
+  <string name="simContacts_title_cm">Tvarkyti SIM kortelės kontaktus</string>
   <string name="contactScreen">Tvarkyti SIM kontaktus</string>
   <string name="exportContactScreen">Eksportuoti telefono kontaktus į SIM</string>
   <string name="addSimEntries">Pridėti SIM kontaktą</string>
@@ -173,8 +173,8 @@
   <string name="new_sim_detected">Nauja SIM kortelė aptikta:</string>
   <string name="default_sim_setting">Numatytieji nustatymai:</string>
   <string name="mobile_data">Duomenų ryšys: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
-  <string name="mobile_data_on">įjungtas</string>
-  <string name="mobile_data_off">išjungtas</string>
+  <string name="mobile_data_on">įgalintas</string>
+  <string name="mobile_data_off">neleidžiamas</string>
   <string name="sim_unknown">Nežinoma</string>
   <string name="sim_absent">Nėra</string>
   <string name="multi_sim_settings_title">Dvejopi SIM nustatymai</string>

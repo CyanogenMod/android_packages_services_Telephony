@@ -47,6 +47,8 @@
   <string name="stk_cc_ss_to_dial_error">SS-begäran ändrades till DIAL-begäran.</string>
   <string name="stk_cc_ss_to_ussd_error">SS-begäran ändrades till USSD-begäran.</string>
   <string name="stk_cc_ss_to_ss_error">SS-begäran ändrades till ny SS-begäran.</string>
+  <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
+  <string name="preferred_network_mode_lte_choice">LTE</string>
   <string name="callind_multi_sim">Inställningar för SIM-kort</string>
   <string name="exportContacts">Exporterar kontakter till SIM-kort\u2026</string>
   <string name="simContacts_title_cm">Hantera SIM-kortets kontakter</string>
