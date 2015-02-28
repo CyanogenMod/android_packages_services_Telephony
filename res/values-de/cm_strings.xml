@@ -91,6 +91,7 @@
   <string name="vt_fallback_setting">Wahlwiederholung per Sprachanruf</string>
   <string name="vt_forward_setting">Videoanruf-Weiterleitung</string>
   <string name="vt_imagereplace_setting">Alternatives Bild</string>
+  <string name="vt_imagereplace_setting_sum">Anzuzeigendes Bild bei deaktivierter Frontkamera</string>
   <string name="preferred_network_mode_global_summary_cm">Bevorzugter Netzwerkmodus: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Bevorzugter Netzmodus: TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Bevorzugter Netzmodus: TD-SCDMA/WCDMA</string>
@@ -177,9 +178,11 @@
   <string name="sim_unknown">Unbekannt</string>
   <string name="sim_absent">Abwesend</string>
   <string name="multi_sim_settings_title">Dual-SIM-Einstellungen</string>
+  <string name="lte_switch_unavailable">3G/LTE-SIM-Karten-Schalter ist nicht verfügbar</string>
   <string name="lte_recognition_title">SIM-Karten-Erkennung</string>
   <string name="lte_recognize_summary">Zwei 3G/LTE-SIM-Karten wurden gefunden, Sie müssen die Standard-3G/LTE-SIM-Karte festlegen:</string>
   <string name="lte_select_title">Standard-3G/LTE-SIM-Karte</string>
+  <string name="lte_select_summary">Das ausgewählte Abonnement wird als eine 3G/LTE-SIM-Karte und die andere als eine 2G-SIM-Karte erkannt.</string>
   <string name="lte_checkbox_text">Datenverbindung der ausgewählten SIM-Karte nutzen, sobald die Standard 3G/LTE-SIM-Karte geändert wird</string>
   <string name="reg_failed">Registrierung fehlgeschlagen</string>
   <string name="reg_suc">Registrierung erfolgreich</string>

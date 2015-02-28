@@ -91,7 +91,7 @@
   <string name="vt_fallback_setting">Opnieuw kiezen via telefoongesprek</string>
   <string name="vt_forward_setting">Videogesprek doorsturen</string>
   <string name="vt_imagereplace_setting">Alternatieve afbeelding</string>
-  <string name="vt_imagereplace_setting_sum">Weer te geven afbeelding wanneer frontcamera is uitgeschakeld</string>
+  <string name="vt_imagereplace_setting_sum">Weer te geven afbeelding als camera aan de voorzijde is uitgeschakeld</string>
   <string name="preferred_network_mode_global_summary_cm">Voorkeursnetwerkmodus: Wereldwijd (CDMA/EVDO/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Voorkeursnetwerkmodus: alleen TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Voorkeursnetwerkmodus: TD-SCDMA/WCDMA</string>
@@ -172,12 +172,12 @@
   <string name="change">Instellen</string>
   <string name="new_sim_detected">Nieuwe simkaart gedetecteerd:</string>
   <string name="default_sim_setting">Standaardinstellingen:</string>
-  <string name="mobile_data">Gegevensverbinding: <xliff:g id="status" example="enabled">%1$s </xliff:g></string>
+  <string name="mobile_data">Gegevensverbinding: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
   <string name="mobile_data_on">ingeschakeld</string>
   <string name="mobile_data_off">uitgeschakeld</string>
   <string name="sim_unknown">Onbekend</string>
   <string name="sim_absent">Afwezig</string>
-  <string name="multi_sim_settings_title">Instellingen dualsim</string>
+  <string name="multi_sim_settings_title">Instellingen Dual SIM</string>
   <string name="lte_switch_unavailable">3G/LTE-simkaartwisselaar is niet beschikbaar</string>
   <string name="lte_recognition_title">Simkaartherkenning</string>
   <string name="lte_recognize_summary">Twee 3G/LTE-simkaarten gedetecteerd, u moet de standaardkaart instellen:</string>
@@ -185,7 +185,7 @@
   <string name="lte_select_summary">Het geselecteerde abonnement wordt herkend als een 3G/LTE-simkaart en de andere als een 2G-simkaart.</string>
   <string name="lte_checkbox_text">Gegevensverbinding instellen op de geselecteerde simkaart, wanneer de standaard-3G/LTE-simkaart is gewijzigd</string>
   <string name="reg_failed">Registratie mislukt</string>
-  <string name="reg_suc">Registratie succesvol</string>
+  <string name="reg_suc">Registratie gelukt</string>
   <string name="reg_failed_msg">Registratie standaard-3G/LTE-simkaart mislukt, %1$s wordt herkend als een 2G-simkaart.</string>
   <string name="lte_set">Instellen</string>
   <string name="lte_setting">Standaard-3G/LTE-simkaart wordt ingesteld</string>

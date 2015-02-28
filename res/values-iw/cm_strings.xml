@@ -61,6 +61,8 @@
   <string name="requesting_ruim_unlock">מבקש פתיחת RUIM\u2026</string>
   <string name="requesting_puk_unlock">מבקש פתיחת PUK\u2026</string>
   <string name="sim_unlock_failed">בקשת פתיחת SIM נכשלה.</string>
+  <string name="rnw1_unlock_failed">בקשת פתיחת RUIM רשת 1 נכשלה.</string>
+  <string name="rnw2_unlock_failed">בקשת פתיחת RUIM רשת 2 נכשלה.</string>
   <string name="rhrpd_unlock_failed">בקשת פתיחת RUIM HRPD נכשלה.</string>
   <string name="ruim_unlock_failed">בקשת פתיחת RUIM נכשלה.</string>
   <string name="puk_unlock_failed">פתיחת PUK נכשלה.</string>
@@ -81,7 +83,9 @@
   <string name="stk_cc_ss_to_ss_error">בקשת SS שונתה לבקשת SS חדשה.</string>
   <string name="videocall_settings">הגדרות שיחת וידאו</string>
   <string name="vt_fallback_setting">חיוג חוזר דרך שיחה קולית</string>
+  <string name="vt_forward_setting">העברת שיחות וידאו</string>
   <string name="vt_imagereplace_setting">תמונה חלופית</string>
+  <string name="vt_imagereplace_setting_sum">תמונה להצגה כאשר המצלמה הקדמית לא זמינה</string>
   <string name="preferred_network_mode_global_summary_cm">מצב רשת מועדף: גלובלי (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">מצב רשת מועדף: TD-SCDMA בלבד</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">מצב רשת מועדף: TD-SCDMA / WCDMA</string>
@@ -155,6 +159,7 @@
   <string name="uplmn_list_setting_add_plmn">PLMN חדש</string>
   <string name="gsm_umts_network_preferences_title">מצב רשת</string>
   <string name="gsm_umts_network_preferences_dialogtitle">מצב רשת</string>
+  <string name="sim_info">מידע על כרטיס ה-SIM</string>
   <string name="close">סגור</string>
   <string name="change">הגדר</string>
   <string name="new_sim_detected">כרטיס SIM חדש זוהה:</string>
