@@ -130,7 +130,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         mContext.registerReceiver(mReceiver, intentFilter);
 
         logd("get preferred data sub from DB:" + getUserPrefDataSubIdFromDB());
-        if (getUserPrefDataSubIdFromDB() == SubscriptionManager.INVALID_SUB_ID) {
+        if (getUserPrefDataSubIdFromDB() == SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
             setUserPrefDataSubIdInDB(SubscriptionManager.getDefaultDataSubId());
         }
     }
@@ -189,22 +189,22 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                 int state = intent.getIntExtra(TelephonyIntents.EXTRA_NEW_SUB_STATE,
                         SubscriptionManager.INACTIVE);
                 long subId = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
-                        SubscriptionManager.DEFAULT_SUB_ID);
+                        SubscriptionManager.DEFAULT_SUBSCRIPTION_ID);
                 Log.d(TAG, "ACTION_SUBSCRIPTION_SET_UICC_RESULT status = " + status + ", state = "
                         + state + " subId: " + subId + " and subId from DB:"
                         + getUserPrefDataSubIdFromDB());
                 if (mContext.getResources().getBoolean(R.bool.config_dds_switch_back) && status ==
                         PhoneConstants.SUCCESS && state == SubscriptionManager.ACTIVE &&
                         subId == getUserPrefDataSubIdFromDB()) {
-                    SubscriptionManager.setDefaultDataSubId(getUserPrefDataSubIdFromDB());
+                    SubscriptionManager.from(context).setDefaultDataSubId(getUserPrefDataSubIdFromDB());
                 }
             }
         }
     };
 
-    private long getUserPrefDataSubIdFromDB() {
-        long subId = SubscriptionManager.INVALID_SUB_ID;
-        subId = android.provider.Settings.Global.getLong(mContext.getContentResolver(),
+    private int getUserPrefDataSubIdFromDB() {
+        int subId = SubscriptionManager.INVALID_SUBSCRIPTION_ID;
+        subId = android.provider.Settings.Global.getInt(mContext.getContentResolver(),
                 SETTING_USER_PREF_DATA_SUB, subId);
         logd("getPreDataSubFromDB: " + subId);
         return subId;

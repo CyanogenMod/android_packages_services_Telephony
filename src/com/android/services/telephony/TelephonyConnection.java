@@ -35,6 +35,7 @@ import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telecom.VideoProfile;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
@@ -1138,7 +1139,7 @@ abstract class TelephonyConnection extends Connection {
             // update mIsPermDiscCauseReceived so that next redial doesn't occur
             // on this sub
             mIsPermDiscCauseReceived[phone.getPhoneId()] = true;
-            PhoneIdToCall = SubscriptionManager.INVALID_PHONE_ID;
+            PhoneIdToCall = SubscriptionManager.INVALID_PHONE_INDEX;
         }
         // Check for any subscription on which EMERGENCY_PERM_FAILURE is received
         // if no such sub, then redial should be stopped.
@@ -1151,7 +1152,7 @@ abstract class TelephonyConnection extends Connection {
         }
 
         long subId = SubscriptionController.getInstance().getSubIdUsingPhoneId(PhoneIdToCall);
-        if (PhoneIdToCall == SubscriptionManager.INVALID_PHONE_ID) {
+        if (PhoneIdToCall == SubscriptionManager.INVALID_PHONE_INDEX) {
             Log.d(this,"EMERGENCY_PERM_FAILURE received on all subs, abort redial");
             setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
                     mOriginalConnection.getDisconnectCause(), 0xFF, 0xFF));
