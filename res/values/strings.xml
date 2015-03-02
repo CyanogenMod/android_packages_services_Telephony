@@ -1672,4 +1672,9 @@
     <string name="sum_preferred_networks"></string>
     <string name="network_forbidden">(Forbidden)</string>
 
+    <!-- Carrier Name -->
+    <string name="China_Mobile">China Mobile</string>
+    <string name="China_Unicom">China Unicom</string>
+    <string name="China_Telecom">China Telecom</string>
+    <string name="roamingTextSearching">Searching for Service</string>
 </resources>
