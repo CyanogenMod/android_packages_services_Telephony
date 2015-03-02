@@ -66,6 +66,7 @@ public class GsmUmtsOptions {
         mPrefActivity = prefActivity;
         mPrefScreen = prefScreen;
         mSubId = subId;
+        mPhone = PhoneUtils.getPhoneFromSubId(mSubId);
         create();
     }
 
