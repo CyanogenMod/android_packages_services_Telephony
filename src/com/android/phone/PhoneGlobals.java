@@ -82,7 +82,7 @@ public class PhoneGlobals extends ContextWrapper {
      *
      * ***** DO NOT SUBMIT WITH DBG_LEVEL > 0 *************
      */
-    /* package */ public static final int DBG_LEVEL = 2;
+    /* package */ public static final int DBG_LEVEL = 0;
 
     private static final boolean DBG =
             (PhoneGlobals.DBG_LEVEL >= 1) && (SystemProperties.getInt("ro.debuggable", 0) == 1);
@@ -497,8 +497,7 @@ public class PhoneGlobals extends ContextWrapper {
     }
 
     static Phone getPhone(int phoneId) {
-        Log.d(LOG_TAG, "getPhone phoneId:" + phoneId);
-        if ( phoneId >= 0 && phoneId < TelephonyManager.getDefault().getPhoneCount()) {
+        if (phoneId >= 0 && phoneId < TelephonyManager.getDefault().getPhoneCount()) {
             return getInstance().mPhones[phoneId];
         } else {
             return getPhone();
