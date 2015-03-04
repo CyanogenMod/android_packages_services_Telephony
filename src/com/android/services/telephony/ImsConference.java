@@ -169,9 +169,9 @@ public class ImsConference extends Conference {
             setVideoProvider(c, videoProvider);
         }
 
-        // FIXME MR1_INTERNAL
-        public void onCallCapabilitiesChanged(Connection c, int callCapabilities) {
-            Log.d(this, "onCallCapabilitiesChanged: Connection: %s, callCapabilities: %s", c,
+        @Override
+        public void onConnectionCapabilitiesChanged(Connection c, int callCapabilities) {
+            Log.d(this, "onConnectionCapabilitiesChanged: Connection: %s, callCapabilities: %s", c,
                     callCapabilities);
             int capabilites = ImsConference.this.getCapabilities();
             setCapabilities(applyVideoCapabilities(capabilites, callCapabilities));
@@ -294,8 +294,9 @@ public class ImsConference extends Conference {
             Log.v(this, "set phacc to " + mPhoneAccount);
         }
 
-        int capabilities = Connection.CAPABILITY_SUPPORT_HOLD | Connection.CAPABILITY_HOLD |
-                Connection.CAPABILITY_MUTE | PhoneCapabilities.ADD_PARTICIPANT;
+        int capabilities = Connection.CAPABILITY_SUPPORT_HOLD |
+                Connection.CAPABILITY_HOLD |
+                Connection.CAPABILITY_MUTE | Connection.ADD_PARTICIPANT;
 
         capabilities = applyVideoCapabilities(capabilities, mConferenceHost.getCallCapabilities());
         setCapabilities(capabilities);
