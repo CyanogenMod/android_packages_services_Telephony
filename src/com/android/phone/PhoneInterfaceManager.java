@@ -2202,12 +2202,6 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
    }
 
    @Override
-   public int hasCarrierPrivileges() {
-    //TODO - Fix for lmr release
-   return 1;
-   }
-
-   @Override
    public int getTetherApnRequired() {
     //TODO - Fix for lmr release
    return 1;
