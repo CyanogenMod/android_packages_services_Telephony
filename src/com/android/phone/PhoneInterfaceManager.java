@@ -2252,12 +2252,6 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
    //TODO - Fix for lmr release
    }
 
-   @Override
-   public int getTetherApnRequired() {
-    //TODO - Fix for lmr release
-   return 1;
-   }
-
     /**
      * Returns the unique device ID of phone, for example, the IMEI for
      * GSM and the MEID for CDMA phones. Return null if device ID is not available.
