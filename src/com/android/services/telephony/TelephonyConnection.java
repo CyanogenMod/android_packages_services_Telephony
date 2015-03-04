@@ -756,6 +756,8 @@ abstract class TelephonyConnection extends Connection {
         newCapabilities = applyVideoCapabilities(newCapabilities);
         newCapabilities = applyAudioQualityCapabilities(newCapabilities);
         newCapabilities = applyConferenceTerminationCapabilities(newCapabilities);
+        newCapabilities = applyAddParticipantCapabilities(newCapabilities);
+        newCapabilities = applyConferenceCapabilities(newCapabilities);
 
         if (getConnectionCapabilities() != newCapabilities) {
             setConnectionCapabilities(newCapabilities);
