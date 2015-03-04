@@ -232,6 +232,8 @@ public class MobileNetworkSettings extends PreferenceActivity
         super.onCreate(icicle);
 
         mPhone = PhoneUtils.getPhoneFromIntent(getIntent());
+        // When subscriptions are not ready, use default phone
+        if (mPhone == null) mPhone = PhoneGlobals.getPhone();
         log("Settings onCreate phoneId =" + mPhone.getPhoneId());
 
         mHandler = new MyHandler();
