@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Kon nie video kwaliteit stel nie</string>
   <string name="perm_change_mobile_network">verander netwerk modus (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Laat die program toe om te verander tussen 2G data en 3G data op enige tyd. 3G is vinniger, maar verbruik meer battery en kan lei tot bykomende koste.</string>
+  <string name="phone_number_label">My telefoonnommer</string>
+  <string name="phone_number_summary">Stel die telefoonnommer vir hierdie toestel</string>
 </resources>

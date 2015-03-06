@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Αποτυχία ρύθμισης ποιότητας βίντεο</string>
   <string name="perm_change_mobile_network">αλλαγή κατάστασης δικτύου (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Επιτρέπει στην εφαρμογή να κάνει εναλλαγή μεταξύ 2G και 3G δεδομένων. Το 3G είναι γρηγορότερο, καταναλώνει περισσότερο μπαταρία και μπορεί επίσης να σας κοστίσει περισσότερα χρήματα.</string>
+  <string name="phone_number_label">Ο αριθμός μου</string>
+  <string name="phone_number_summary">Ορίστε τον αριθμό τηλεφώνου για αυτή τη συσκευή</string>
 </resources>

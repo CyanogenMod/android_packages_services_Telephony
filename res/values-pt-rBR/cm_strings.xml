@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Falha ao definir a qualidade de vídeo</string>
   <string name="perm_change_mobile_network">Alterar o modo da rede (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Permite que o aplicativo altere os dados entre 2G e 3G de dados a qualquer momento. 3G é mais rápido, mas consome mais bateria e pode fazer com que o custo adicional.</string>
+  <string name="phone_number_label">Meu número</string>
+  <string name="phone_number_summary">Defina o número de telefone para este dispositivo</string>
 </resources>
