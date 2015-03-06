@@ -32,6 +32,7 @@ import android.preference.PreferenceScreen;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.util.Log;
+import android.view.MenuItem;
 
 public class CdmaCallOptions extends PreferenceActivity {
     private static final String LOG_TAG = "CdmaCallOptions";
@@ -87,6 +88,16 @@ public class CdmaCallOptions extends PreferenceActivity {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
