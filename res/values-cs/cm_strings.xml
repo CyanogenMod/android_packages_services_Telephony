@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Selhalo nastavení kvality videa</string>
   <string name="perm_change_mobile_network">změnit režim sítě (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Umožňuje kdykoliv změnit typ datového připojení mezi 2G a 3G. Režim 3G je rychlejší, ale je náročnější na baterii a může být dražší.</string>
+  <string name="phone_number_label">Moje telefonní číslo</string>
+  <string name="phone_number_summary">Nastavení telefonního čísla pro toto zařízení</string>
 </resources>

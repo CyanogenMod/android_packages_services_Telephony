@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Video kalitesi ayarlanamadı</string>
   <string name="perm_change_mobile_network">şebeke modunu değiştir (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Uygulamanın 2G ve 3G verisi arasında değişiklik yapmasına izin verir. 3g daha hızlıdır fakat daha fazla pil tüketir ve ek ücretlere neden olabilir.</string>
+  <string name="phone_number_label">Telefon numaram</string>
+  <string name="phone_number_summary">Bu cihaz için telefon numarasını ayarla</string>
 </resources>

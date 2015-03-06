@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Fout bij instellen videokwaliteit</string>
   <string name="perm_change_mobile_network">netwerk wisselen (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Hiermee kan de app op elk moment wisselen tussen 2G en 3G. 3G is sneller, maar verbruikt meer stroom en kan extra kosten met zich meebrengen.</string>
+  <string name="phone_number_label">Mijn telefoonnummer</string>
+  <string name="phone_number_summary">Telefoonnummer instellen voor deze telefoon</string>
 </resources>

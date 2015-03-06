@@ -47,7 +47,7 @@
   <string name="label_rcdp">RUIM d\'entreprise déverrouille le code PIN</string>
   <string name="label_rspdp">Le fournisseur de service RUIM déverrouille le code PIN</string>
   <string name="label_rdp">RUIM déverrouille le code PIN</string>
-  <string name="label_puk">Entrer le code PUK</string>
+  <string name="label_puk">Entrez le code PUK</string>
   <string name="requesting_unlock_cm">Requête de déverrouillage réseau\u2026</string>
   <string name="requesting_nw_subset_unlock">Requête de déverrouillage du sous réseau SIM\u2026</string>
   <string name="requesting_sp_unlock">Requête de déverrouillage du fournisseur de service SIM\u2026</string>
@@ -146,8 +146,8 @@
   <string name="sendSms">Envoyer SMS</string>
   <string name="delete">Supprimer</string>
   <string name="dial">Appeler</string>
-  <string name="enterName">Entrer le nom :</string>
-  <string name="enterNumber">Entrer le numéro de téléphone :</string>
+  <string name="enterName">Entrez un nom :</string>
+  <string name="enterNumber">Entrez un numéro de téléphone :</string>
   <string name="hintName">Nom</string>
   <string name="hintPhonenumber">Numéro de téléphone</string>
   <string name="contactAddSuccess">Contact ajouté à la carte SIM avec succès</string>
@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Impossible de définir la qualité vidéo</string>
   <string name="perm_change_mobile_network">changer le mode de réseau (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Permettre à l\'application de basculer entre données 2G et 3G à tout moment. La 3G est plus rapide, mais consomme plus de batterie et peut entraîner des frais supplémentaires.</string>
+  <string name="phone_number_label">Mon numéro de téléphone</string>
+  <string name="phone_number_summary">Définir le numéro de téléphone de cet appareil</string>
 </resources>
