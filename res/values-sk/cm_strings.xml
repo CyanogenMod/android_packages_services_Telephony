@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Nepodarilo sa nastaviť kvalitu videa</string>
   <string name="perm_change_mobile_network">zmeniť typ siete (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Povolí aplikácii kedykoľvek prepínať medzi sieťami 2G a 3G. 3G je rýchlejšie, viac využíva batériu a taktiež Vás môže stáť viac peňazí.</string>
+  <string name="phone_number_label">Moje telefónne číslo</string>
+  <string name="phone_number_summary">Nastaviť telefónne číslo pre toto zariadenie</string>
 </resources>
