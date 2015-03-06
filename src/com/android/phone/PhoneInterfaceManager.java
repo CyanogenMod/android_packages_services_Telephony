@@ -127,8 +127,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
     private static final String PREF_CARRIERS_ALPHATAG_PREFIX = "carrier_alphtag_";
     private static final String PREF_CARRIERS_NUMBER_PREFIX = "carrier_number_";
-    private static final String PREF_CARRIERS_SIMPLIFIED_NETWORK_SETTINGS_PREFIX =
-            "carrier_simplified_network_settings_";
+    private static final String PREF_ENABLE_VIDEO_CALLING = "enable_video_calling";
 
     /**
      * A request object to use for transmitting data to an ICC.

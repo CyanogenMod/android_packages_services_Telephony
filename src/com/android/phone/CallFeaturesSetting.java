@@ -1631,9 +1631,10 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private void setIMS(boolean turnOn) {
-        SharedPreferences imsPref =
-            getSharedPreferences(ImsManager.IMS_SHARED_PREFERENCES, Context.MODE_WORLD_READABLE);
-        imsPref.edit().putBoolean(ImsManager.KEY_IMS_ON, turnOn).commit();
+        int value = (turnOn) ? 1:0;
+        android.provider.Settings.Global.putInt(
+                mPhone.getContext().getContentResolver(),
+                android.provider.Settings.Global.ENHANCED_4G_MODE_ENABLED, value);
     }
 
     /*
@@ -1760,7 +1761,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButton4glte.setChecked(ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this));
 
         // Enable enhanced 4G LTE mode settings depending on whether exists on platform
-        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByPlatform(this) ||
+        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this) ||
                     !getResources().getBoolean(R.bool.cmcc_enhanced_lte)) {
             Preference pref = prefSet.findPreference(BUTTON_4G_LTE_KEY);
             if (pref != null) {
