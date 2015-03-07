@@ -649,10 +649,6 @@
     <string name="select_continue">继续</string>
     <string name="select_cancel">取消</string>
 
-    <string name="china_mobile">中国移动</string>
-    <string name="china_unicom">中国联通</string>
-    <string name="china_telecom">中国电信</string>
-
     <string name="preferred_lte">"启用4G单数据"</string>
     <string name="preferred_lte_summary">"启用4G单数据时，语音和短信功能将不能使用"</string>
 

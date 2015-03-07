@@ -357,13 +357,13 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
             String carrierName = TelephonyManager.getDefault().getSimOperatorName(
                     SubscriptionManager.getSubId(slot)[0]);
             carrierName = NativeTextHelper.getInternalLocalString(mContext, carrierName,
-                    R.array.origin_carrier_names, R.array.locale_carrier_names);
+                    R.array.original_carrier_names, R.array.locale_carrier_names);
             if (TextUtils.isEmpty(carrierName) || TextUtils.isDigitsOnly(carrierName)) {
                 String iccId = mCardStateMonitor.getIccId(slot);
                 String spn = IINList.getDefault(mContext).getSpn(iccId);
                 if (spn != null) {
                     carrierName = NativeTextHelper.getInternalLocalString(mContext, spn,
-                            R.array.origin_carrier_names, R.array.locale_carrier_names);
+                            R.array.original_carrier_names, R.array.locale_carrier_names);
                 } else {
                     carrierName = mContext.getString(R.string.sim_unknown);
                 }

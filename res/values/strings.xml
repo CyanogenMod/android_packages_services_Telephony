@@ -1624,21 +1624,6 @@
     <string name="CFDeactivate">Deactivate</string>
     <string name="null_phone_number">Phone number cannot be null !</string>
     <string name="labelCFDeactAll">Deactivate All</string>
-    <string-array name="origin_carrier_names" translateable="false">
-        <item>China Mobile</item>
-        <item>China Unicom</item>
-        <item>China Telecom</item>
-    </string-array>
-
-    <string-array name="locale_carrier_names" translatable="false">
-        <item>china_mobile</item>
-        <item>china_unicom</item>
-        <item>china_telecom</item>
-    </string-array>
-
-    <string name="china_mobile">China Mobile</string>
-    <string name="china_unicom">China Unicom</string>
-    <string name="china_telecom">China Telecom</string>
  <!-- Manual PLMN scan data disconnect dialog text -->
     <string name="disconnect_data_confirm">Data service temporarily would be disconnected. Are you sure?</string>
 
