@@ -3460,7 +3460,7 @@ public class PhoneUtils {
                     subscription), false);
         }
         static boolean vibCallWaiting(Context context) {
-            return vibOutgoing(context, -1);
+            return vibCallWaiting(context, -1);
         }
         static boolean vibCallWaiting(Context context, int subscription) {
             return getPrefs(context).getBoolean(getKeyForSubscription("button_vibrate_call_waiting",
