@@ -523,4 +523,8 @@
     <string name="enable_video_calling_dialog_msg" msgid="6547569773866546434">"Para activar las videollamadas, debes habilitar el modo mejorado 4G LTE en la configuración del sistema."</string>
     <string name="enable_video_calling_dialog_settings" msgid="576528473599603249">"Configuración de red"</string>
     <string name="enable_video_calling_dialog_close" msgid="7411471282167927991">"Cerrar"</string>
+
+    <!-- Spanish string to be displayed for vibrate after call connects feature-->
+    <string name="vibrate_after_connected_title">"Vibrar en llamada saliente"</string>
+    <string name="vibrate_after_connected_summary">"Vibrar al respuestas"</string>
 </resources>
