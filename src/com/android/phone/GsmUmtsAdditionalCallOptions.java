@@ -102,7 +102,7 @@ public class GsmUmtsAdditionalCallOptions extends
     public boolean onOptionsItemSelected(MenuItem item) {
         final int itemId = item.getItemId();
         if (itemId == android.R.id.home) {  // See ActionBar#setDisplayHomeAsUpEnabled()
-            CallFeaturesSetting.goUpToTopLevelSetting(this);
+            onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
