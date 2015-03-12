@@ -78,7 +78,7 @@ public class ManagedRoaming extends Activity {
     private void createManagedRoamingDialog(int subscription) {
         Resources r = Resources.getSystem();
         String networkSelection = PreferenceManager.getDefaultSharedPreferences(ManagedRoaming.this)
-                .getString(NETWORK_SELECTION_KEY, "");
+                .getString(NETWORK_SELECTION_KEY + subscription, "");
         log(" Received Managed Roaming intent, networkSelection "
                 + networkSelection + " Is Dialog Displayed " + mIsMRDialogShown
                 + " sub = " + subscription);
