@@ -385,7 +385,7 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 int modemNetworkMode = buttonNetworkMode;
                 // if new mode is invalid set mode to default preferred
                 if ((modemNetworkMode < Phone.NT_MODE_WCDMA_PREF)
-                        || (modemNetworkMode > Phone.NT_MODE_TD_SCDMA_LTE_CDMA_EVDO_GSM_WCDMA)) {
+                        || (modemNetworkMode > Phone.NT_MODE_LTE_CDMA_EVDO_GSM)) {
                     log("Invalid Network Mode (" + modemNetworkMode + ") Chosen. Ignore mode");
                     return true;
                 }
@@ -514,7 +514,8 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                         modemNetworkMode == Phone.NT_MODE_TD_SCDMA_WCDMA_LTE ||
                         modemNetworkMode == Phone.NT_MODE_TD_SCDMA_GSM_WCDMA_LTE ||
                         modemNetworkMode == Phone.NT_MODE_TD_SCDMA_CDMA_EVDO_GSM_WCDMA ||
-                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_LTE_CDMA_EVDO_GSM_WCDMA) {
+                        modemNetworkMode == Phone.NT_MODE_TD_SCDMA_LTE_CDMA_EVDO_GSM_WCDMA ||
+                        modemNetworkMode == Phone.NT_MODE_LTE_CDMA_EVDO_GSM) {
                     if (DBG) {
                         log("handleGetPreferredNetworkTypeResponse: if 1: modemNetworkMode = " +
                                 modemNetworkMode);
@@ -688,6 +689,10 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
             case Phone.NT_MODE_TD_SCDMA_LTE_CDMA_EVDO_GSM_WCDMA:
                 mButtonPreferredNetworkMode.setSummary(
                         R.string.preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary);
+                break;
+            case Phone.NT_MODE_LTE_CDMA_EVDO_GSM:
+                mButtonPreferredNetworkMode.setSummary(
+                        R.string.preferred_network_mode_lte_cdma_evdo_gsm_summary);
                 break;
             default:
                 mButtonPreferredNetworkMode.setSummary(
