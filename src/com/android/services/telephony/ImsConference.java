@@ -171,7 +171,9 @@ public class ImsConference extends Conference {
             Log.d(this, "onCallCapabilitiesChanged: Connection: %s, callCapabilities: %s", c,
                     callCapabilities);
             int capabilites = ImsConference.this.getCapabilities();
-            setCapabilities(applyVideoCapabilities(capabilites, callCapabilities));
+            capabilites = applyMergeCapabilities(capabilites, callCapabilities);
+            capabilites = applyVideoCapabilities(capabilites, callCapabilities);
+            setCapabilities(capabilites);
         }
     };
 
@@ -227,12 +229,25 @@ public class ImsConference extends Conference {
             Log.v(this, "set phacc to " + mPhoneAccount);
         }
 
+        // TODO: Do we want to instead just transfer all mConferenceHost capabilities
+        // to ImsConference?
         int capabilities = PhoneCapabilities.SUPPORT_HOLD | PhoneCapabilities.HOLD |
                 PhoneCapabilities.MUTE | PhoneCapabilities.ADD_PARTICIPANT;
 
+        capabilities = applyMergeCapabilities(capabilities, mConferenceHost.getCallCapabilities());
         capabilities = applyVideoCapabilities(capabilities, mConferenceHost.getCallCapabilities());
         setCapabilities(capabilities);
 
+    }
+    private int applyMergeCapabilities(int conferenceCapabilities, int capabilities) {
+        if (PhoneCapabilities.can(capabilities, PhoneCapabilities.MERGE_CONFERENCE)) {
+            conferenceCapabilities = applyCapability(conferenceCapabilities,
+                    PhoneCapabilities.MERGE_CONFERENCE);
+        } else {
+            conferenceCapabilities = removeCapability(conferenceCapabilities,
+                    PhoneCapabilities.MERGE_CONFERENCE);
+        }
+        return conferenceCapabilities;
     }
 
     private int applyVideoCapabilities(int conferenceCapabilities, int capabilities) {
