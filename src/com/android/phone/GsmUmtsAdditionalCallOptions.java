@@ -42,6 +42,7 @@ public class GsmUmtsAdditionalCallOptions extends
         PreferenceScreen prefSet = getPreferenceScreen();
         mCLIRButton = (CLIRListPreference) prefSet.findPreference(BUTTON_CLIR_KEY);
         mCWButton = (CallWaitingCheckBoxPreference) prefSet.findPreference(BUTTON_CW_KEY);
+        mMSISDNButton = (MSISDNEditPreference) prefSet.findPreference(BUTTON_PN_KEY);
 
         mPreferences.add(mCLIRButton);
         mPreferences.add(mCWButton);
@@ -50,6 +51,7 @@ public class GsmUmtsAdditionalCallOptions extends
         if (icicle == null) {
             if (DBG) Log.d(LOG_TAG, "start to init ");
             mCLIRButton.init(this, false, mPhoneId);
+            mMSISDNButton.init(this, false, mPhoneId);
         } else {
             if (DBG) Log.d(LOG_TAG, "restore stored states");
             mInitIndex = mPreferences.size();
