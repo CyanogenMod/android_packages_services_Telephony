@@ -57,7 +57,7 @@ public class MSISDNEditPreference extends EditTextPreference {
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
 
-        if (positiveResult) {
+        if (positiveResult && mPhone != null) {
             String alphaTag = mPhone.getLine1AlphaTag();
             if (TextUtils.isEmpty(alphaTag)) {
                 // No tag, set it.
