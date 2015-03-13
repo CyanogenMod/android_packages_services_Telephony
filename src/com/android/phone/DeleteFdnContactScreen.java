@@ -48,7 +48,7 @@ public class DeleteFdnContactScreen extends Activity {
     private String mNumber;
     private String mPin2;
 
-    private long mSubId;
+    private int mSubId;
 
     protected QueryHandler mQueryHandler;
 

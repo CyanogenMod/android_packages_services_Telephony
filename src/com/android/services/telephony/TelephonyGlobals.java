@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.telephony.SubInfoRecord;
+import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.os.AsyncResult;
@@ -117,11 +117,12 @@ public class TelephonyGlobals {
                         final String notificationText =
                                 getSuppSvcNotificationText(mSsNotification[phoneId], phoneId);
                         if (TelephonyManager.getDefault().getPhoneCount() > 1) {
-                            List<SubInfoRecord> sub =
-                                    SubscriptionManager.getSubInfoUsingSlotId(phoneId);
-                            String displayName =  ((sub != null) && (sub.size() > 0)) ?
-                                    sub.get(0).displayName : mSubName[phoneId];
+                            SubscriptionInfo sub =
+                                SubscriptionManager.from(getApplicationContext())
+                                .getActiveSubscriptionInfoForSimSlotIndex(phoneId);
 
+                            String displayName =  (sub != null) ?
+                                 sub.getDisplayName().toString() : mSubName[phoneId];
                             mDisplayName = displayName + ":" + notificationText;
                         } else {
                             mDisplayName = notificationText;

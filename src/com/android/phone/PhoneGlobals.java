@@ -60,11 +60,15 @@ import com.android.internal.telephony.MmiCode;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.android.internal.telephony.SubscriptionController;
 import com.android.internal.telephony.PhoneProxy;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.phone.common.CallLogAsync;
 import com.android.server.sip.SipService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Global state for the telephony subsystem when running in the primary
@@ -168,6 +172,7 @@ public class PhoneGlobals extends ContextWrapper {
 
     // True if we are beginning a call, but the phone state has not changed yet
     private boolean mBeginningCall;
+    private boolean mDataDisconnectedDueToRoaming = false;
 
     // Last phone state seen by updatePhoneState()
     private PhoneConstants.State mLastPhoneState = PhoneConstants.State.IDLE;
@@ -497,7 +502,8 @@ public class PhoneGlobals extends ContextWrapper {
     }
 
     /**
-     * Returns the Phone associated with this instance
+     * Returns the Phone associated with this instance.
+     * WARNING: This method should be used carefully, now that there may be multiple phones.
      */
     static Phone getPhone() {
         return getInstance().phone;
@@ -510,6 +516,19 @@ public class PhoneGlobals extends ContextWrapper {
         } else {
             return getPhone();
         }
+    }
+
+    /**
+     * Returns a list of the currently active phones for the Telephony package.
+     */
+    public static List<Phone> getPhones() {
+        int[] subIds = SubscriptionController.getInstance().getActiveSubIdList();
+        List<Phone> phones = new ArrayList<Phone>(subIds.length);
+
+        for (int i = 0; i < subIds.length; i++) {
+            phones.add(PhoneFactory.getPhone(SubscriptionManager.getPhoneId(subIds[i])));
+        }
+        return phones;
     }
 
     /* package */ BluetoothManager getBluetoothManager() {
@@ -807,7 +826,7 @@ public class PhoneGlobals extends ContextWrapper {
     private class PhoneAppBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            long subId = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+            int subId = intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
                     SubscriptionManager.getDefaultSubId());
             String action = intent.getAction();
             if (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED)) {
@@ -830,9 +849,11 @@ public class PhoneGlobals extends ContextWrapper {
                         && "DISCONNECTED".equals(intent.getStringExtra(PhoneConstants.STATE_KEY))
                         && Phone.REASON_ROAMING_ON.equals(
                             intent.getStringExtra(PhoneConstants.STATE_CHANGE_REASON_KEY));
-                mHandler.sendEmptyMessage(disconnectedDueToRoaming
-                                          ? EVENT_DATA_ROAMING_DISCONNECTED
-                                          : EVENT_DATA_ROAMING_OK);
+                if (mDataDisconnectedDueToRoaming != disconnectedDueToRoaming) {
+                    mDataDisconnectedDueToRoaming = disconnectedDueToRoaming;
+                    mHandler.sendEmptyMessage(disconnectedDueToRoaming
+                            ? EVENT_DATA_ROAMING_DISCONNECTED : EVENT_DATA_ROAMING_OK);
+                }
             } else if ((action.equals(TelephonyIntents.ACTION_SIM_STATE_CHANGED)) &&
                     (mPUKEntryActivity != null)) {
                 // if an attempt to un-PUK-lock the device was made, while we're
@@ -873,7 +894,7 @@ public class PhoneGlobals extends ContextWrapper {
                 if (VDBG) Log.d(LOG_TAG, "ACTION_DOCK_EVENT -> mDockState = " + mDockState);
                 mHandler.sendMessage(mHandler.obtainMessage(EVENT_DOCK_STATE_CHANGED, 0));
             } else if (action.equals(TelephonyIntents.ACTION_MANAGED_ROAMING_IND)) {
-                long subscription = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                int subscription = intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
                         SubscriptionManager.getDefaultSubId());
                 Intent createIntent = new Intent();
                 createIntent.setClass(context, ManagedRoaming.class);
@@ -907,7 +928,7 @@ public class PhoneGlobals extends ContextWrapper {
         }
     }
 
-    private void handleServiceStateChanged(Intent intent, long subId) {
+    private void handleServiceStateChanged(Intent intent, int subId) {
         /**
          * This used to handle updating EriTextWidgetProvider this routine
          * and and listening for ACTION_SERVICE_STATE_CHANGED intents could
