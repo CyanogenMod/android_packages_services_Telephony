@@ -151,6 +151,9 @@ public class DisconnectCauseUtil {
                 return DisconnectCause.UNKNOWN;
 
             default:
+                Log.w("DisconnectCauseUtil.toTelecomDisconnectCauseCode",
+                        "Unrecognized Telephony DisconnectCause "
+                        + telephonyDisconnectCause);
                 return DisconnectCause.UNKNOWN;
         }
     }

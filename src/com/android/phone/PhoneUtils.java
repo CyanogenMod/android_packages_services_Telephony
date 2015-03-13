@@ -2439,7 +2439,7 @@ public class PhoneUtils {
         return getPhoneFromSubId(getSubIdFromIntent(intent));
     }
 
-    public static Phone getPhoneFromSubId(long subId) {
+    public static Phone getPhoneFromSubId(int subId) {
         return getPhoneFromPhoneId(getPhoneId(subId));
     }
 
@@ -2447,16 +2447,16 @@ public class PhoneUtils {
         return PhoneFactory.getPhone(phoneId);
     }
 
-    public static int getPhoneId(long subId) {
+    public static int getPhoneId(int subId) {
         return SubscriptionManager.getPhoneId(subId);
     }
 
-    public static Uri getUri(Uri uri, long subId) {
+    public static Uri getUri(Uri uri, int subId) {
         return Uri.withAppendedPath(uri, "/subId/" + subId);
     }
 
-    public static long getSubIdFromIntent(Intent intent) {
-        return intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+    public static int getSubIdFromIntent(Intent intent) {
+        return intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
                 SubscriptionManager.getDefaultSubId());
     }
 

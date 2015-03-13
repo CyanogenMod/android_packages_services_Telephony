@@ -34,7 +34,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
-import android.telephony.SubInfoRecord;
+import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -80,11 +80,14 @@ public class SelectSubscription extends  TabActivity {
 
         int numPhones = TelephonyManager.getDefault().getPhoneCount();
 
+        SubscriptionManager subscriptionManager =
+                       SubscriptionManager.from(super.getApplicationContext());
         for (int i = 0; i < numPhones; i++) {
-            List<SubInfoRecord> sir =
-                    SubscriptionManager.getSubInfoUsingSlotId(i);
+            SubscriptionInfo sir =
+                    subscriptionManager.getActiveSubscriptionInfoForSimSlotIndex(i);
             String displayName =
-                    ((sir != null) && (sir.size() > 0)) ? sir.get(0).displayName : tabLabel[i];
+                    ((sir != null)) ?
+                    sir.getDisplayName().toString() : tabLabel[i];
 
             log("Creating SelectSub activity = " + i + " displayName = " + displayName);
 
@@ -94,8 +97,7 @@ public class SelectSubscription extends  TabActivity {
             intent = new Intent().setClassName(pkg, targetClass)
                     .setAction(intent.getAction());
 
-            // For now using phone Id instead of subId
-            SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i);
+            SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i, sir.getSubscriptionId());
 
             subscriptionPref.setContent(intent);
             tabHost.addTab(subscriptionPref);

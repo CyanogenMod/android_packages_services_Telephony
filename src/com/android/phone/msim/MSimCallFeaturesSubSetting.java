@@ -254,7 +254,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private Preference mVoicemailNotificationRingtone;
     private CheckBoxPreference mVoicemailNotificationVibrate;
 
-    private long mSubId;
+    private int mSubId;
 
     private class VoiceMailProvider {
         public VoiceMailProvider(String name, Intent intent) {

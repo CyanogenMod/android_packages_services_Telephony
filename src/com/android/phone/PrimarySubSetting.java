@@ -41,6 +41,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import com.android.internal.telephony.SubscriptionController;
 import android.telephony.SubscriptionManager;
 import android.view.View;
 import android.widget.Button;
@@ -168,13 +169,13 @@ public class PrimarySubSetting extends Activity implements View.OnClickListener 
                             // icc loaded done.
                             android.util.Log.d(TAG,
                                   " Set dds to primary sub, if failed, restore dds once icc loaded");
-                            SubscriptionManager.setDefaultDataSubId(SubscriptionManager
+                            SubscriptionController.getInstance().setDefaultDataSubId(SubscriptionManager
                                     .getSubId(targetSub)[0]);
                             mPrimarySubSelectionController.setRestoreDdsToPrimarySub(true);
                         } else {
-                            long ddsSub = SubscriptionManager.getDefaultDataSubId();
+                            int ddsSub = SubscriptionManager.getDefaultDataSubId();
                             android.util.Log.d(TAG, " Set DDS back to previous sub :" + ddsSub);
-                            SubscriptionManager.setDefaultDataSubId(ddsSub);
+                            SubscriptionController.getInstance().setDefaultDataSubId(ddsSub);
                         }
                         Toast.makeText(PrimarySubSetting.this, getString(R.string.reg_suc),
                                 Toast.LENGTH_LONG).show();

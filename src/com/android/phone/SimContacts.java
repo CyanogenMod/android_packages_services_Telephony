@@ -289,7 +289,7 @@ public class SimContacts extends ADNList {
         if (mSimIndex == IMPORT_FROM_ALL) {
             intent.setData(Uri.parse("content://icc/adn/adn_all"));
         } else if (mSimIndex < TelephonyManager.getDefault().getPhoneCount() && mSimIndex >= 0) {
-            long[] subId = SubscriptionManager.getSubId(mSimIndex);
+            int[] subId = SubscriptionManager.getSubId(mSimIndex);
             if (subId != null && subId[0] > 0) {
                 intent.setData(Uri.parse("content://icc/adn/subId/" + subId[0]));
             } else {
@@ -684,7 +684,7 @@ public class SimContacts extends ADNList {
 
     protected Uri getUri() {
         if (mSimIndex < TelephonyManager.getDefault().getPhoneCount() && mSimIndex >= 0) {
-            long[] subId = SubscriptionManager.getSubId(mSimIndex);
+            int[] subId = SubscriptionManager.getSubId(mSimIndex);
             if (subId != null && subId[0] > 0) {
                 return Uri.parse("content://icc/adn/subId/" + subId[0]);
             } else {

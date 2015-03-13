@@ -35,7 +35,6 @@ import android.telecom.Conference.Listener;
 import android.telecom.Connection.VideoProvider;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -167,8 +166,8 @@ public class ImsConference extends Conference {
         }
 
         @Override
-        public void onCallCapabilitiesChanged(Connection c, int callCapabilities) {
-            Log.d(this, "onCallCapabilitiesChanged: Connection: %s, callCapabilities: %s", c,
+        public void onConnectionCapabilitiesChanged(Connection c, int callCapabilities) {
+            Log.d(this, "onConnectionCapabilitiesChanged: Connection: %s, callCapabilities: %s", c,
                     callCapabilities);
             int capabilites = ImsConference.this.getCapabilities();
             capabilites = applyMergeCapabilities(capabilites, callCapabilities);
@@ -229,10 +228,12 @@ public class ImsConference extends Conference {
             Log.v(this, "set phacc to " + mPhoneAccount);
         }
 
-        // TODO: Do we want to instead just transfer all mConferenceHost capabilities
-        // to ImsConference?
-        int capabilities = PhoneCapabilities.SUPPORT_HOLD | PhoneCapabilities.HOLD |
-                PhoneCapabilities.MUTE | PhoneCapabilities.ADD_PARTICIPANT;
+        //Re-visit later
+        /*int capabilities = PhoneCapabilities.SUPPORT_HOLD | PhoneCapabilities.HOLD |
+                PhoneCapabilities.MUTE | PhoneCapabilities.ADD_PARTICIPANT;*/
+        int capabilities = Connection.CAPABILITY_SUPPORT_HOLD |
+                Connection.CAPABILITY_HOLD |
+                Connection.CAPABILITY_MUTE | Connection.ADD_PARTICIPANT;
 
         capabilities = applyMergeCapabilities(capabilities, mConferenceHost.getCallCapabilities());
         capabilities = applyVideoCapabilities(capabilities, mConferenceHost.getCallCapabilities());
@@ -457,22 +458,19 @@ public class ImsConference extends Conference {
      * are no conference event package participants, conference management is not permitted.
      */
     private void updateManageConference() {
-        boolean couldManageConference = PhoneCapabilities.can(getCapabilities(),
-                PhoneCapabilities.MANAGE_CONFERENCE);
+        boolean couldManageConference = can(Connection.CAPABILITY_MANAGE_CONFERENCE);
         boolean canManageConference = !mConferenceParticipantConnections.isEmpty();
         Log.v(this, "updateManageConference was:%s is:%s", couldManageConference ? "Y" : "N",
                 canManageConference ? "Y" : "N");
 
         if (couldManageConference != canManageConference) {
-            int newCapabilities = getCapabilities();
+            int newCapabilities = getConnectionCapabilities();
 
             if (canManageConference) {
-                newCapabilities |= PhoneCapabilities.MANAGE_CONFERENCE;
+                addCapability(Connection.CAPABILITY_MANAGE_CONFERENCE);
             } else {
-                newCapabilities = PhoneCapabilities.remove(newCapabilities,
-                        PhoneCapabilities.MANAGE_CONFERENCE);
+                removeCapability(Connection.CAPABILITY_MANAGE_CONFERENCE);
             }
-            setCapabilities(newCapabilities);
         }
     }
 

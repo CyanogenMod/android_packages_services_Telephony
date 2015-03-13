@@ -214,7 +214,7 @@
     <string name="settings_label">Network settings</string>
 
     <!-- Label for settings screen for phone accounts. -->
-    <string name="phone_accounts">Phone account settings</string>
+    <string name="phone_accounts">Calling accounts</string>
     <!-- Label for list item which opens a dialog to select the default outgoing account -->
     <string name="phone_accounts_make_calls_with">Make calls with</string>
     <!-- Label for list item which opens a dialog to select the default outgoing account for SIP calls. -->
@@ -248,7 +248,7 @@
     <!-- Label for selectecting a Wi-Fi call manager -->
     <string name="wifi_calling_select_call_assistant">Choose call assistant</string>
     <!-- Summary for the label of a setting to select the SIM call managers to use.-->
-    <string name="wifi_calling_select_call_assistant_summary">Choose an app or service to manage the networks used for calls</string>
+    <string name="wifi_calling_select_call_assistant_summary">Manage the networks used for calls with</string>
     <!-- Summary for the label of a switch setting to enable/disable the use of SIM call managers. -->
     <string name="wifi_calling_use_call_assistant_summary">Let apps or services manage networks used for calls</string>
     <!-- Label for setting to configure the selected call assistant. -->
@@ -349,6 +349,10 @@
 
     <!-- Title of the progress dialog displayed while updating Call settings -->
     <string name="updating_title">Call settings</string>
+    <!-- Toast in Call settings when asked to launch settings for a secondary user -->
+    <string name="call_settings_primary_user_only">Call settings can only be changed by the primary user.</string>
+    <!-- Title of the "Call settings" settings screen, with a text label identifying which SIM the settings are for. -->
+    <string name="call_settings_with_label">Call settings (<xliff:g id="subscriptionlabel" example="Verizon">%s</xliff:g>)</string>
     <!-- Title of the alert dialog displayed if an error occurs while updating Call settings -->
     <string name="error_updating_title">Call settings error</string>
     <!-- Toast in Call settings dialog while settings are being read -->

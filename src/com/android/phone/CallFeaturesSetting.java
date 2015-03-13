@@ -56,6 +56,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ListAdapter;
+import android.widget.Toast;
 
 import com.android.internal.telephony.CallForwardInfo;
 import com.android.internal.telephony.CommandsInterface;
@@ -1502,6 +1503,16 @@ public class CallFeaturesSetting extends PreferenceActivity
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        if (DBG) log("onCreate: Intent is " + getIntent());
+
+        // Make sure we are running as the primary user.
+        if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
+            Toast.makeText(this, R.string.call_settings_primary_user_only,
+                    Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         mPhone = PhoneGlobals.getPhone();
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
@@ -1527,8 +1538,8 @@ public class CallFeaturesSetting extends PreferenceActivity
         // Show the voicemail preference in onResume if the calling intent specifies the
         // ACTION_ADD_VOICEMAIL action.
         mShowVoicemailPreference = (icicle == null) &&
-                getIntent().getAction().equals(ACTION_ADD_VOICEMAIL);
-    }
+                TextUtils.equals(getIntent().getAction(), ACTION_ADD_VOICEMAIL);
+   }
 
     private void initPhoneAccountPreferences() {
         mPhoneAccountSettingsPreference = findPreference(PHONE_ACCOUNT_SETTINGS_KEY);
@@ -1643,20 +1654,29 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
 
             int phoneType = mPhone.getPhoneType();
-            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
-                Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
-                if (fdnButton != null) {
-                    prefSet.removePreference(fdnButton);
-                }
-                if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
-                    addPreferencesFromResource(R.xml.cdma_call_privacy);
-                }
-            } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
-                if (getResources().getBoolean(R.bool.config_additional_call_setting)) {
-                    addPreferencesFromResource(R.xml.gsm_umts_call_options);
+            Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
+            boolean shouldHideCarrierSettings = Settings.Global.getInt(
+                    getContentResolver(), Settings.Global.HIDE_CARRIER_NETWORK_SETTINGS, 0) == 1;
+            if (shouldHideCarrierSettings) {
+                prefSet.removePreference(fdnButton);
+                if (mButtonDTMF != null) {
+                    prefSet.removePreference(mButtonDTMF);
                 }
             } else {
-                throw new IllegalStateException("Unexpected phone type: " + phoneType);
+                if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                    if (fdnButton != null) {
+                        prefSet.removePreference(fdnButton);
+                    }
+                    if (!getResources().getBoolean(R.bool.config_voice_privacy_disable)) {
+                        addPreferencesFromResource(R.xml.cdma_call_privacy);
+                    }
+                } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+                    if (getResources().getBoolean(R.bool.config_additional_call_setting)) {
+                        addPreferencesFromResource(R.xml.gsm_umts_call_options);
+                    }
+                } else {
+                    throw new IllegalStateException("Unexpected phone type: " + phoneType);
+                }
             }
         }
 

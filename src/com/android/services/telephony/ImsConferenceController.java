@@ -71,9 +71,9 @@ public class ImsConferenceController {
         }
 
         @Override
-        public void onCallCapabilitiesChanged(Connection c, int callCapabilities) {
-            Log.v(this, "onCallCapabilitiesChanged: %s", Log.pii(c.getAddress()));
-            recalculate();
+        public void onConnectionCapabilitiesChanged(Connection c, int callCapabilities) {
+            Log.v(this, "onConnectionCapabilitiesChanged: %s", Log.pii(c.getAddress()));
+            recalculateConference();
         }
 
         @Override
