@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Nem sikerült beállítani a videó minőségét</string>
   <string name="perm_change_mobile_network">Hálózat módosítása (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Az ilyen engedéllyel rendelkező alkalmazás, bármikor válthat 2G és 3G közt. A 3G gyorsabb, jobban meríti az akkumulátort, és több pénzbe is kerülhet a nagyobb adatforgalom miatt.</string>
+  <string name="phone_number_label">Saját telefonszám</string>
+  <string name="phone_number_summary">Telefonszám beállítása az eszközhöz</string>
 </resources>

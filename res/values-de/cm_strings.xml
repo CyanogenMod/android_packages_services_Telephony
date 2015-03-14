@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Fehler beim Festlegen der Videoqualität</string>
   <string name="perm_change_mobile_network">Netzmodus wechseln (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Ermöglicht der App, jederzeit zwischen 2G- und 3G-Netz zu wechseln</string>
+  <string name="phone_number_label">Meine Rufnummer</string>
+  <string name="phone_number_summary">Rufnummer für dieses Gerät setzen</string>
 </resources>
