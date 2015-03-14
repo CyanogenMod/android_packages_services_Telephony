@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Videon laadun asettaminen epäonnistui</string>
   <string name="perm_change_mobile_network">vaihtaa verkkotilaa (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Sallii sovelluksen vaihtaa 2G ja 3G verkon välillä milloin tahansa. 3G on nopeampi, mutta kuluttaa enemmän akkua ja voi aiheuttaa lisäkustannuksia.</string>
+  <string name="phone_number_label">Oma puhelinnumero</string>
+  <string name="phone_number_summary">Aseta tämän laitteen puhelinnumero</string>
 </resources>

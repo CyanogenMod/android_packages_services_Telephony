@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Kunne ikke indstille video kvalitet</string>
   <string name="perm_change_mobile_network">Skift netværkstilstand (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Tillader app\'en at skifte mellem 2G og 3G når som helst. 3G er hurtigere, men bruger mere batteri og kan forårsage flere udgifter.</string>
+  <string name="phone_number_label">Mit telefonnummer</string>
+  <string name="phone_number_summary">Angiv telefonnummeret for denne enhed</string>
 </resources>

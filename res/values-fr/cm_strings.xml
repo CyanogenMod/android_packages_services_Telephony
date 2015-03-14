@@ -93,7 +93,7 @@
   <string name="vt_imagereplace_setting">Image alternative</string>
   <string name="vt_imagereplace_setting_sum">Image à afficher lorsque la caméra frontale est désactivée</string>
   <string name="preferred_network_mode_global_summary_cm">Mode réseau préféré : Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
-  <string name="preferred_network_mode_td_scdma_only_summary">Mode réseau préféré : TD-SCDMA seulement</string>
+  <string name="preferred_network_mode_td_scdma_only_summary">Mode réseau préféré : TD-SCDMA uniquement</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Mode réseau préféré : TD-SCDMA/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_summary">Mode réseau préféré : TD-SCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_summary">Mode réseau préféré : TD-SCDMA/GSM</string>
