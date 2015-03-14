@@ -81,7 +81,6 @@
   <string name="voicemail_abbreviated">دەنگەنامە:</string>
   <string name="networks">به‌کارگێڕی سیمه‌که‌ت</string>
   <string name="cell_broadcast_settings">بڵاوکردنەوەکانی فریاگوزاری</string>
-  <string name="phone_account_settings">ڕێکخستنەکانی هەژماری مۆبایل</string>
   <string name="call_settings">ڕێکخستنەکانی پەیوەندی</string>
   <string name="additional_gsm_call_settings">ڕێکخستنەکانی زیادە</string>
   <string name="sum_gsm_call_settings">ڕێکخستنەکانی زیادەی پەیوەندی GSM</string>

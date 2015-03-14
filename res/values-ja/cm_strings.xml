@@ -196,8 +196,8 @@
   <string name="ims_edit_title">IMSアカウントの詳細</string>
   <string name="ims_accounts_title">IMSアカウント</string>
   <string name="ims_vt_call_quality_title">ビデオ通話の画質</string>
-  <string name="ims_vt_call_quality_low">低い</string>
-  <string name="ims_vt_call_quality_high">高い</string>
+  <string name="ims_vt_call_quality_low">低画質</string>
+  <string name="ims_vt_call_quality_high">高画質</string>
   <string name="ims_vt_call_quality_unknown">不明</string>
   <string name="ims_vt_call_quality_set_failed">画質を設定できませんでした</string>
   <string name="perm_change_mobile_network">ネットワークモード（2G/3G）の変更</string>

@@ -202,4 +202,6 @@
   <string name="ims_vt_call_quality_set_failed">Nepavyko nustatyti vaizdo kokybės</string>
   <string name="perm_change_mobile_network">Pakeisti tinklą (2G / 3G)</string>
   <string name="perm_change_mobile_network_desc">Leisti programai keisti tarp 2G ir 3G duomenų bet kuriuo metu. 3G yra greitesnis bet sunaudoja daugiau akumuliatoriaus, taip pat tai jums gali kainuoti daugiau pinigų.</string>
+  <string name="phone_number_label">Mano telefono numeris</string>
+  <string name="phone_number_summary">Nustatyti telefono numerį šiam įrenginiui</string>
 </resources>
