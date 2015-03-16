@@ -225,7 +225,7 @@
   <string name="no_volte">IMS-puhelu ei onnistu</string>
   <string name="no_vt_allowed">Soittaaksesi videopuhelun, ota TTY-tila pois käytöstä</string>
   <string name="ims_edit_title">IMS-tilin tiedot</string>
-  <string name="ims_accounts_title">IMS tili</string>
+  <string name="ims_accounts_title">IMS-tili</string>
   <string name="mo_call_type_title">MO puhelutyyppi</string>
   <string name="ims_service_capability">Ota palvelun kapasiteetti käyttöön/poista käytöstä</string>
   <string name="ims_service_capability_title">IMS-palvelun kapasiteetti</string>
