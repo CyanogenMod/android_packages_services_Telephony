@@ -34,8 +34,8 @@ import android.telecom.TelecomManager;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
-import android.telephony.TelephonyManager;
 import android.widget.Toast;
+import android.telephony.TelephonyManager;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallManager;
@@ -82,14 +82,13 @@ abstract class TelephonyConnection extends Connection {
     private static final String ACTION_SUPP_SERVICE_FAILURE =
             "org.codeaurora.ACTION_SUPP_SERVICE_FAILURE";
 
+    private SuppServiceNotification mSsNotification = null;
     private String[] mSubName = {"SUB 1", "SUB 2", "SUB 3"};
-    private String mDisplayName;
-    private boolean mVoicePrivacyState = false;
+	private String mDisplayName;
+	private boolean mVoicePrivacyState = false;
     protected boolean mIsOutgoing;
     private boolean[] mIsPermDiscCauseReceived = new
             boolean[TelephonyManager.getDefault().getPhoneCount()];
-
-    protected static SuppServiceNotification mSsNotification = null;
 
     private static final boolean DBG = false;
 
@@ -235,7 +234,9 @@ abstract class TelephonyConnection extends Connection {
         return mIsOutgoing;
     }
 
-    private String getSuppSvcNotificationText(SuppServiceNotification suppSvcNotification) {
+// Add code here	
+//	
+private String getSuppSvcNotificationText(SuppServiceNotification suppSvcNotification) {
         final int SUPP_SERV_NOTIFICATION_TYPE_MO = 0;
         final int SUPP_SERV_NOTIFICATION_TYPE_MT = 1;
         String callForwardTxt = "";
@@ -269,7 +270,7 @@ abstract class TelephonyConnection extends Connection {
                 callForwardTxt = TelephonyGlobals.getApplicationContext().getString(
                         R.string.card_title_forwarded_MTcall);
                 break;
-
+				
             case SuppServiceNotification.MT_CODE_CUG_CALL:
                 //This message is displayed on B, when A makes call to B, both A & B
                 //belong to a CUG group
@@ -320,7 +321,7 @@ abstract class TelephonyConnection extends Connection {
                 break;
 
             case SuppServiceNotification.MT_CODE_CALL_CONNECTED_ECT:
-                //This message is displayed on B,when Call is connected through
+                //This message is displayed on B,when Call is connected through	
                 //Explicit Cold Transfer
                 callForwardTxt = TelephonyGlobals.getApplicationContext().getString(
                         R.string.card_title_callconnectedect);
@@ -333,8 +334,8 @@ abstract class TelephonyConnection extends Connection {
                         R.string.card_title_deflectedcall);
                 break;
 
-            case SuppServiceNotification.MT_CODE_ADDITIONAL_CALL_FORWARDED:
-                // This message is displayed on B when it is busy and the incoming call
+            case SuppServiceNotification.MT_CODE_ADDITIONAL_CALL_FORWARDED:	
+                // This message is displayed on B when it is busy and the incoming call	
                 // gets forwarded to C
                 callForwardTxt = TelephonyGlobals.getApplicationContext().getString(
                         R.string.card_title_MTcall_forwarding);
@@ -348,9 +349,9 @@ abstract class TelephonyConnection extends Connection {
         return callForwardTxt;
     }
 
-    private String getMoSsNotificationText(int code) {
-        String callForwardTxt = "";
-        switch (code) {
+    private String getMoSsNotificationText(int code) {	
+        String callForwardTxt = "";	
+        switch (code) {	
             case SuppServiceNotification.MO_CODE_UNCONDITIONAL_CF_ACTIVE:
                 // This message is displayed when an outgoing call is made
                 // and unconditional forwarding is enabled.
@@ -369,19 +370,19 @@ abstract class TelephonyConnection extends Connection {
                 //This message is displayed on A when the outgoing call
                 //actually gets forwarded to C
                 callForwardTxt = TelephonyGlobals.getApplicationContext().getString(
-                        R.string.card_title_MOcall_forwarding);
+                        R.string.card_title_MOcall_forwarding);	
                 break;
 
             case SuppServiceNotification.MO_CODE_CALL_IS_WAITING:
                 //This message is displayed on A when the B is busy on another call
                 //and Call waiting is enabled on B
                 callForwardTxt = TelephonyGlobals.getApplicationContext().getString(
-                        R.string.card_title_calliswaiting);
-                break;
+                        R.string.card_title_calliswaiting);	
+                break;	
 
             case SuppServiceNotification.MO_CODE_CUG_CALL:
                 //This message is displayed on A, when A makes call to B, both A & B
-                //belong to a CUG group
+                //belong to a CUG group	
                 callForwardTxt = TelephonyGlobals.getApplicationContext()
                         .getString(R.string.card_title_cugcall);
                 break;
@@ -394,12 +395,12 @@ abstract class TelephonyConnection extends Connection {
 
             case SuppServiceNotification.MO_CODE_INCOMING_CALLS_BARRED:
                 //This message is displayed on A, when A is calling B
-                //& incoming is barred on B
+                //& incoming is barred on B	
                 callForwardTxt = TelephonyGlobals.getApplicationContext().getString(
                         R.string.card_title_incoming_barred);
                 break;
 
-            case SuppServiceNotification.MO_CODE_CLIR_SUPPRESSION_REJECTED:
+            case SuppServiceNotification.MO_CODE_CLIR_SUPPRESSION_REJECTED:	
                 //This message is displayed on A, when CLIR suppression is rejected
                 callForwardTxt = TelephonyGlobals.getApplicationContext().getString(
                         R.string.card_title_clir_suppression_rejected);
@@ -418,8 +419,7 @@ abstract class TelephonyConnection extends Connection {
                 break;
         }
         return callForwardTxt;
-    }
-
+	}
     /**
      * A listener/callback mechanism that is specific communication from TelephonyConnections
      * to TelephonyConnectionService (for now). It is more specific that Connection.Listener
@@ -857,7 +857,6 @@ abstract class TelephonyConnection extends Connection {
                 mHandler, MSG_HANDOVER_STATE_CHANGED, null);
         getPhone().registerForRingbackTone(mHandler, MSG_RINGBACK_TONE, null);
         getPhone().registerForDisconnect(mHandler, MSG_DISCONNECT, null);
-        getPhone().registerForSuppServiceNotification(mHandler, MSG_SUPP_SERVICE_NOTIFY, null);
         getPhone().registerForInCallVoicePrivacyOn(mHandler, MSG_PHONE_VP_ON, null);
         getPhone().registerForInCallVoicePrivacyOff(mHandler, MSG_PHONE_VP_OFF, null);
         getPhone().registerForSuppServiceFailed(mHandler, MSG_SUPP_SERVICE_FAILED, null);
@@ -891,7 +890,6 @@ abstract class TelephonyConnection extends Connection {
             getPhone().unregisterForRingbackTone(mHandler);
             getPhone().unregisterForHandoverStateChanged(mHandler);
             getPhone().unregisterForDisconnect(mHandler);
-            getPhone().unregisterForSuppServiceNotification(mHandler);
             getPhone().unregisterForInCallVoicePrivacyOn(mHandler);
             getPhone().unregisterForInCallVoicePrivacyOff(mHandler);
             getPhone().unregisterForSuppServiceFailed(mHandler);
@@ -1081,6 +1079,7 @@ abstract class TelephonyConnection extends Connection {
                     setRinging();
                     break;
                 case DISCONNECTED:
+                    mSsNotification = TelephonyGlobals.mSsNotification[getPhone().getPhoneId()];
                     if (mSsNotification != null) {
                         setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
                                 mOriginalConnection.getDisconnectCause(),
