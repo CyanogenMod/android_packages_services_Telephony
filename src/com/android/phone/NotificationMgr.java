@@ -569,10 +569,10 @@ public class NotificationMgr {
             SharedPreferences sp =
                     PreferenceManager.getDefaultSharedPreferences(mContext);
             String networkSelection =
-                    sp.getString(PhoneBase.NETWORK_SELECTION_NAME_KEY, "");
+                    sp.getString(PhoneBase.NETWORK_SELECTION_NAME_KEY + phone.getSubId(), "");
             if (TextUtils.isEmpty(networkSelection)) {
                 networkSelection =
-                        sp.getString(PhoneBase.NETWORK_SELECTION_KEY, "");
+                        sp.getString(PhoneBase.NETWORK_SELECTION_KEY + phone.getSubId(), "");
             }
 
             if (DBG) log("updateNetworkSelection()..." + "state = " +
