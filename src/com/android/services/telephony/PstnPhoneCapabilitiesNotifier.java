@@ -141,7 +141,7 @@ final class PstnPhoneCapabilitiesNotifier {
                     .setAddress(oldPhoneAccount.getAddress())
                     .setSubscriptionAddress(oldPhoneAccount.getSubscriptionAddress())
                     .setCapabilities(capabilites)
-//                    .setIconResId(oldPhoneAccount.getIconResId())
+                    .setIcon(oldPhoneAccount.getIconBitmap())
                     .setShortDescription(oldPhoneAccount.getShortDescription())
                     .setSupportedUriSchemes(oldPhoneAccount.getSupportedUriSchemes())
                     .build();
