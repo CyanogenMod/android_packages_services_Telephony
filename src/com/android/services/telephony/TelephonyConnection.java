@@ -106,10 +106,12 @@ abstract class TelephonyConnection extends Connection {
                     AsyncResult ar = (AsyncResult) msg.obj;
                     com.android.internal.telephony.Connection connection =
                          (com.android.internal.telephony.Connection) ar.result;
-                    if ((connection.getAddress() != null &&
-                                    mOriginalConnection.getAddress() != null &&
+                    if ((mOriginalConnection != null && connection != null) &&
+                            ((connection.getAddress() != null &&
+                            mOriginalConnection.getAddress() != null &&
                             mOriginalConnection.getAddress().contains(connection.getAddress())) ||
-                            mOriginalConnection.getStateBeforeHandover() == connection.getState()) {
+                            mOriginalConnection.getStateBeforeHandover()
+                            == connection.getState())) {
                         Log.d(TelephonyConnection.this, "SettingOriginalConnection " +
                                 mOriginalConnection.toString() + " with " + connection.toString());
                         setOriginalConnection(connection);
