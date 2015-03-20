@@ -2494,6 +2494,7 @@ public class PhoneUtils {
             || network == Phone.NT_MODE_LTE_ONLY
             || network == Phone.NT_MODE_LTE_CDMA_EVDO_GSM_WCDMA
             || network == Phone.NT_MODE_LTE_GSM_WCDMA
-            || network == Phone.NT_MODE_LTE_CDMA_AND_EVDO);
+            || network == Phone.NT_MODE_LTE_CDMA_AND_EVDO
+            || network == Phone.NT_MODE_LTE_CDMA_EVDO_GSM);
     }
 }
