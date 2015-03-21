@@ -188,7 +188,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                         PhoneConstants.FAILURE);
                 int state = intent.getIntExtra(TelephonyIntents.EXTRA_NEW_SUB_STATE,
                         SubscriptionManager.INACTIVE);
-                long subId = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                int subId = intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
                         SubscriptionManager.DEFAULT_SUBSCRIPTION_ID);
                 Log.d(TAG, "ACTION_SUBSCRIPTION_SET_UICC_RESULT status = " + status + ", state = "
                         + state + " subId: " + subId + " and subId from DB:"
@@ -210,8 +210,8 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         return subId;
     }
 
-    private void setUserPrefDataSubIdInDB(long subId) {
-        android.provider.Settings.Global.putLong(mContext.getContentResolver(),
+    private void setUserPrefDataSubIdInDB(int subId) {
+        android.provider.Settings.Global.putInt(mContext.getContentResolver(),
                 SETTING_USER_PREF_DATA_SUB, subId);
         logd("updating preferred data subId: " + subId + " in DB");
     }
