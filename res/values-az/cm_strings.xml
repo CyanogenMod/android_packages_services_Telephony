@@ -34,7 +34,11 @@
   <string name="blacklist_summary">Qara siyahıdakı nömrәlәrdәn gәlәn zәnglәr qәbul edilmәyәcәkdir</string>
   <string name="blacklist_call_notification">%s nömrәsindәn zәng qәbul olunmayıb</string>
   <string name="blacklist_call_notification_unknown_number">Tәyin edilmәyәn %s nömrәsindәn zәng qәbul edilmәyib</string>
+  <string name="perm_change_mobile_network_desc">Tətbiqetmənin 2G və 3G məlumatı arasında istənilən vaxt dəyişiklik etməsinə icazə verər. 3G çox sürətlidir, ancaq daha çox batareya sərfinə və əlavə xərclərə səbəb ola bilər.</string>
+  <string name="proximity_on_summary">Zəng vaxtı ekranı söndürmək üçün yaxınlıq sensorundan istifadə et</string>
   <string name="ipcall_sub_title">IP zəng yığma önəlavəsi</string>
   <string name="ipcall_sub_summery">IP xidməti ilə zəng etmək üçün önəlavəyə düzəliş et</string>
   <string name="ipcall_dialog_edit_hint">IP zəng yığma önəlavəsi</string>
+  <string name="cursorError">Etibarsız kursor verilənləri</string>
+  <string name="disconnect_data_confirm">Verilənlər xidməti bağlantısı müvəqqəti olaraq kəsilməlidir. Davam etmək istədiyinizə əminsiniz?</string>
 </resources>
