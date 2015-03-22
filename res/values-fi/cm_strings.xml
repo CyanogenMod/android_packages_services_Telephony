@@ -194,7 +194,7 @@
   <string name="china_telecom">China Telecom</string>
   <string name="disconnect_data_confirm">Yhteys datapalveluun pitää katkaista hetkeksi. Haluatko varmasti jatkaa?</string>
   <string name="ims_edit_title">IMS-tilin tiedot</string>
-  <string name="ims_accounts_title">IMS tilit</string>
+  <string name="ims_accounts_title">IMS-tilit</string>
   <string name="ims_vt_call_quality_title">Videopuhelun laatu</string>
   <string name="ims_vt_call_quality_low">Matala</string>
   <string name="ims_vt_call_quality_high">Korkea</string>
