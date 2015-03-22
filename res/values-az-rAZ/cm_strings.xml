@@ -146,6 +146,7 @@
   <string name="contactdeleteSuccess">SIM kartdakı şəxs uğurla silindi</string>
   <string name="contactdeleteFailed">SIM kartdakı şəxs silinə bilmədi</string>
   <string name="uplmn_list_setting_title">Üstünlük verilən şəbəkələr</string>
+  <string name="mobile_data">Verilənlər bağlantısı: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
   <string name="mobile_data_on">fəallaşdırıldı</string>
   <string name="mobile_data_off">ləğv edildi</string>
   <string name="sim_unknown">Bilinməyən</string>
