@@ -551,14 +551,17 @@ public class MobileNetworkSettings extends PreferenceActivity
         if (tm.isMultiSimEnabled()  &&
                 tm.getMultiSimConfiguration() ==
                         TelephonyManager.MultiSimVariants.DSDS) {
-            for (int i=0; i<tm.getPhoneCount(); i++) {
-                if (mPhone.getPhoneId() != i) {
+            for (int i = 0; i < tm.getPhoneCount(); i++) {
+                if (mPhone.getPhoneId() != i &&
+                        mPhone.getPhoneType() != TelephonyManager.PHONE_TYPE_CDMA) {
                     Phone phone = PhoneFactory.getPhone(i);
-                    phone.setPreferredNetworkType(Phone.NT_MODE_GSM_ONLY, mHandler
-                            .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM));
-                    TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
-                            android.provider.Settings.Global.PREFERRED_NETWORK_MODE, i,
-                            modemNetworkMode);
+                    if (phone.getPhoneType() != TelephonyManager.PHONE_TYPE_CDMA) {
+                        phone.setPreferredNetworkType(Phone.NT_MODE_GSM_ONLY, mHandler
+                                .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM));
+                        TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
+                                android.provider.Settings.Global.PREFERRED_NETWORK_MODE, i,
+                                modemNetworkMode);
+                    }
                 }
             }
             if (mButtonPreferredNetworkMode != null) {
