@@ -650,7 +650,7 @@ public class ImsConference extends Conference {
             PhoneAccountHandle phoneAccountHandle =
                     TelecomAccountRegistry.makePstnPhoneAccountHandle(mConferenceHost.getPhone());
             if (mConferenceHost.getPhone().getPhoneType() == TelephonyManager.PHONE_TYPE_GSM) {
-                GsmConnection c = new GsmConnection(originalConnection);
+                GsmConnection c = new GsmConnection(originalConnection, false);
                 c.updateState();
                 mTelephonyConnectionService.addExistingConnection(phoneAccountHandle, c);
                 mTelephonyConnectionService.addConnectionToConferenceController(c);

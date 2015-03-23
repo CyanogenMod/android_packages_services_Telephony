@@ -33,19 +33,20 @@ import android.telecom.PhoneCapabilities;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallManager;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection.PostDialListener;
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.SubscriptionController;
 import com.android.internal.telephony.cdma.CdmaCall;
-import com.android.internal.telephony.gsm.*;
 import com.android.internal.telephony.gsm.GsmConnection;
-import com.android.internal.telephony.imsphone.ImsPhoneConnection;
-import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.gsm.SuppServiceNotification;
+import com.android.internal.telephony.imsphone.ImsPhoneConnection;
 
 import com.android.phone.R;
 
@@ -939,7 +940,7 @@ protected final void updateCallCapabilities() {
                     }
                     resetDisconnectCause();
                     setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                            mOriginalConnection.getDisconnectCause()), 0xFF, 0xFF);
+                            mOriginalConnection.getDisconnectCause()));
                     close();
                     break;
                 case DISCONNECTING:

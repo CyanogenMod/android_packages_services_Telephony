@@ -47,8 +47,7 @@ public class MyPhoneNumber extends BroadcastReceiver {
         String simState = intent.getStringExtra(IccCardConstants.INTENT_KEY_ICC_STATE);
 
         //Get the sub from the slot
-        final long subId = SubscriptionManager
-                .getSubId(slot)[0];
+        final int subId = SubscriptionManager.getSubId(slot)[0];
         //Get the phone id from the sub
         final int phoneId = SubscriptionManager.getPhoneId(subId);
 

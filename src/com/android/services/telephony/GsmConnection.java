@@ -43,8 +43,10 @@ final class GsmConnection extends TelephonyConnection {
         setCallProperties(computeCallProperties());
     }
 
-    GsmConnection(Connection connection, Call.State state) {
+    GsmConnection(Connection connection, boolean isForwarded, Call.State state) {
         super(connection, state);
+        mIsForwarded = isForwarded;
+        setCallProperties(computeCallProperties());
     }
 
     /**
@@ -57,7 +59,7 @@ final class GsmConnection extends TelephonyConnection {
     @Override
     public TelephonyConnection cloneConnection() {
         GsmConnection gsmConnection = new GsmConnection(getOriginalConnection(),
-                getOriginalConnectionState());
+                mIsForwarded, getOriginalConnectionState());
         return gsmConnection;
     }
 
