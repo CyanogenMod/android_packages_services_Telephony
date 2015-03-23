@@ -549,9 +549,9 @@ public class MobileNetworkSettings extends PreferenceActivity
     private void setPreferredNetworkType(int modemNetworkMode) {
         TelephonyManager tm = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
         if (tm.isMultiSimEnabled()  &&
-                tm.getMultiSimConfiguration() ==
-                        TelephonyManager.MultiSimVariants.DSDS) {
-            for (int i=0; i<tm.getPhoneCount(); i++) {
+                tm.getMultiSimConfiguration() == TelephonyManager.MultiSimVariants.DSDS &&
+                !SystemProperties.getBoolean("ro.ril.multi_rat_capable", false)) {
+            for (int i = 0; i < tm.getPhoneCount(); i++) {
                 if (mPhone.getPhoneId() != i) {
                     Phone phone = PhoneFactory.getPhone(i);
                     phone.setPreferredNetworkType(Phone.NT_MODE_GSM_ONLY, mHandler
