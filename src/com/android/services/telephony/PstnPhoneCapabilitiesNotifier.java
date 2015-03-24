@@ -137,11 +137,17 @@ final class PstnPhoneCapabilitiesNotifier {
             PhoneAccount.Builder builder = PhoneAccount.builder(accountHandle,
                     oldPhoneAccount.getLabel());
 
+            if (oldPhoneAccount.getIconBitmap() != null) {
+                builder.setIcon(oldPhoneAccount.getIconBitmap());
+            } else {
+                builder.setIcon(mPhoneProxy.getContext(), oldPhoneAccount.getIconResId());
+            }
+
             PhoneAccount newPhoneAccount = builder
                     .setAddress(oldPhoneAccount.getAddress())
                     .setSubscriptionAddress(oldPhoneAccount.getSubscriptionAddress())
                     .setCapabilities(capabilites)
-                    .setIcon(mPhoneProxy.getContext(), oldPhoneAccount.getIconResId())
+                    .setHighlightColor(oldPhoneAccount.getHighlightColor())
                     .setShortDescription(oldPhoneAccount.getShortDescription())
                     .setSupportedUriSchemes(oldPhoneAccount.getSupportedUriSchemes())
                     .build();
