@@ -45,13 +45,7 @@ public class TelephonyGlobals {
      */
     public TelephonyGlobals(Context context) {
         mContext = context.getApplicationContext();
-    }
-
-    public static synchronized TelephonyGlobals getInstance(Context context) {
-        if (sInstance == null) {
-            sInstance = new TelephonyGlobals(context);
-        }
-        return sInstance;
+        sInstance = this;
     }
 
     public static synchronized Context getApplicationContext() {
