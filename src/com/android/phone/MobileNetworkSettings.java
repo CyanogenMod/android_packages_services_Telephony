@@ -557,7 +557,8 @@ public class MobileNetworkSettings extends PreferenceActivity
                     phone.setPreferredNetworkType(Phone.NT_MODE_GSM_ONLY, mHandler
                             .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM));
                     TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
-                            android.provider.Settings.Global.PREFERRED_NETWORK_MODE, i,
+                            android.provider.Settings.Global.PREFERRED_NETWORK_MODE,
+                            mPhone.getPhoneId(),
                             modemNetworkMode);
                 }
             }
