@@ -249,7 +249,9 @@ public class CallBarring extends TimeConsumingPreferenceActivity implements
                     if (status != MSG_OK) {
                         removeDialog(INITIAL_BUSY_DIALOG);
                         getPreferenceScreen().setEnabled(false);
-                        showDialog(EXCEPTION_ERROR);
+                        if (!isFinishing()) {
+                            showDialog(EXCEPTION_ERROR);
+                        }
                         return;
                     }
 
