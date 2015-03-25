@@ -595,11 +595,12 @@ public class MobileNetworkSettings extends PreferenceActivity
                     Phone phone = PhoneFactory.getPhone(i);
                     phone.setPreferredNetworkType(Phone.NT_MODE_GSM_ONLY, mHandler
                             .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM));
-                    TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
-                            android.provider.Settings.Global.PREFERRED_NETWORK_MODE, i,
-                            modemNetworkMode);
                 }
             }
+            TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
+                    android.provider.Settings.Global.PREFERRED_NETWORK_MODE,
+                    mPhone.getPhoneId(),
+                    modemNetworkMode);
             if (mButtonPreferredNetworkMode != null) {
                 mButtonPreferredNetworkMode.setEnabled(false);
             }  else if (mButtonEnabledNetworks != null) {
