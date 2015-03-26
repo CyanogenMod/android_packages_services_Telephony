@@ -251,6 +251,19 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                     prefSet.removePreference(mButtonPreferredNetworkMode);
                 }
                 break;
+            case Constants.NETWORK_MODE_DEFAULT:
+                if (getResources().getBoolean(R.bool.config_network_smartfren_feature)) {
+                    int phoneType = mPhone.getPhoneType();
+                    if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
+                        mButtonPreferredNetworkMode
+                                .setEntries(R.array.preferred_network_mode_options_smartfren);
+                        mButtonPreferredNetworkMode.setEntryValues(
+                                R.array.preferred_network_mode_options_values_smartfren);
+                    } else {
+                        prefSet.removePreference(mButtonPreferredNetworkMode);
+                    }
+                }
+                break;
             default:
                 break;
         }
@@ -382,6 +395,9 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
             buttonNetworkMode = Integer.valueOf((String) objValue).intValue();
             int settingsNetworkMode = getPreferredNetworkMode();
             if (buttonNetworkMode != settingsNetworkMode) {
+                if (showConfirmDialog(buttonNetworkMode)) {
+                    return true;
+                }
                 int modemNetworkMode = buttonNetworkMode;
                 // if new mode is invalid set mode to default preferred
                 if ((modemNetworkMode < Phone.NT_MODE_WCDMA_PREF)
@@ -399,6 +415,36 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
 
         // always let the preference setting proceed.
         return true;
+    }
+
+    private boolean showConfirmDialog(int buttonNetworkMode) {
+        if (getResources().getBoolean(R.bool.config_network_smartfren_feature)) {
+            if (buttonNetworkMode == Phone.NT_MODE_EVDO_NO_CDMA) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(R.string.attention)
+                        .setMessage(R.string.call_sms_cannot_conduct)
+                        .setNegativeButton(android.R.string.cancel,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        mButtonPreferredNetworkMode.setValue(Integer
+                                                .toString(getPreferredNetworkMode()));
+                                    }
+                                })
+                        .setPositiveButton(android.R.string.ok,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        UpdatePreferredNetworkModeSummary(
+                                                Phone.NT_MODE_EVDO_NO_CDMA);
+                                        setPreferredNetworkMode(Phone.NT_MODE_EVDO_NO_CDMA);
+                                        setPreferredNetworkType(Phone.NT_MODE_EVDO_NO_CDMA);
+                                    }
+                                }).create().show();
+                return true;
+            }
+        }
+        return false;
     }
 
     private void setPreferredNetworkType(int networkMode) {
@@ -599,18 +645,24 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 switch (mPhone.getLteOnCdmaMode()) {
                     case PhoneConstants.LTE_ON_CDMA_TRUE:
                         mButtonPreferredNetworkMode.setSummary(
-                            R.string.preferred_network_mode_cdma_summary);
+                                getResources().getBoolean(R.bool.config_network_smartfren_feature)
+                                        ? R.string.preferred_network_mode_1x_evdo_summary
+                                        : R.string.preferred_network_mode_cdma_summary);
                     break;
                     case PhoneConstants.LTE_ON_CDMA_FALSE:
                     default:
                         mButtonPreferredNetworkMode.setSummary(
-                            R.string.preferred_network_mode_cdma_evdo_summary);
+                                getResources().getBoolean(R.bool.config_network_smartfren_feature)
+                                        ? R.string.preferred_network_mode_1x_evdo_summary
+                                        : R.string.preferred_network_mode_cdma_evdo_summary);
                         break;
                 }
                 break;
             case Phone.NT_MODE_CDMA_NO_EVDO:
                 mButtonPreferredNetworkMode.setSummary(
-                        R.string.preferred_network_mode_cdma_only_summary);
+                        getResources().getBoolean(R.bool.config_network_smartfren_feature)
+                                ? R.string.preferred_network_mode_1x_only_summary
+                                : R.string.preferred_network_mode_cdma_only_summary);
                 break;
             case Phone.NT_MODE_EVDO_NO_CDMA:
                 mButtonPreferredNetworkMode.setSummary(

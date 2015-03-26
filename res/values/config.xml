@@ -357,4 +357,7 @@ as an enum (NONE, HFA, OTASP). -->
 
     <!-- config switching DDS switch back to the default sub -->
     <bool name="config_dds_switch_back">false</bool>
+
+    <!-- config network mode for smartfren carriers -->
+    <bool name="config_network_smartfren_feature">false</bool>
 </resources>
