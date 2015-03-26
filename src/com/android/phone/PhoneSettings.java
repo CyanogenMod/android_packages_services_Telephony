@@ -22,12 +22,7 @@ import android.preference.PreferenceManager;
 
 public final class PhoneSettings {
     public static boolean showInCallEvents(Context context) {
-        return showInCallEvents(context, -1);
-    }
-
-    public static boolean showInCallEvents(Context context, int subscription) {
-        String key = getKeyForSubscription("button_show_ssn_key", subscription);
-        return getPrefs(context).getBoolean(key, false);
+        return getPrefs(context).getBoolean("button_show_ssn_key", false);
     }
 
     private static String getKeyForSubscription(String key, int subscription) {

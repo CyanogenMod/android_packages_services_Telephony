@@ -197,6 +197,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String PHONE_ACCOUNT_SETTINGS_KEY =
             "phone_account_settings_preference_screen";
 
+    private static final String BUTTON_INCALL_EVENTS_KEY = "button_show_ssn_key";
     private static final String SIM_CATEGORY_KEY  = "sim_category_key";
 
     private Intent mContactListIntent;
@@ -1765,7 +1766,15 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         }
 
-        if (!getResources().getBoolean(R.bool.world_phone) && (!isMsim)) {
+        boolean isWorldPhone = getResources().getBoolean(R.bool.world_phone);
+        if (!isWorldPhone && mPhone.getPhoneType() != PhoneConstants.PHONE_TYPE_GSM) {
+            Preference inCallEvents = prefSet.findPreference(BUTTON_INCALL_EVENTS_KEY);
+            if (inCallEvents != null) {
+                prefSet.removePreference(inCallEvents);
+            }
+        }
+
+        if (!isWorldPhone && !isMsim) {
             Preference options = prefSet.findPreference(BUTTON_CDMA_OPTIONS);
             if (options != null) {
                 prefSet.removePreference(options);

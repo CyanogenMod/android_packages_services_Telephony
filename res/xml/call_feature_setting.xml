@@ -116,6 +116,12 @@
         android:persistent="true"
         android:summary="@string/hac_mode_summary"/>
 
+    <SwitchPreference
+        android:key="button_show_ssn_key"
+        android:title="@string/show_ssn_label"
+        android:defaultValue="false"
+        android:summary="@string/show_ssn_summary" />
+
     <ListPreference
         android:key="button_dtmf_settings"
         android:title="@string/dtmf_tones_title"
