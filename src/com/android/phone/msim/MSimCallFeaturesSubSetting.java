@@ -1619,7 +1619,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                             mPhone.getContext(),
                             mRingtoneLookupComplete,
                             RingtoneManager.TYPE_NOTIFICATION,
-                            mVoicemailNotificationRingtone,
+                            mVoicemailNotificationRingtone.getKey(),
                             MSG_UPDATE_VOICEMAIL_RINGTONE_SUMMARY);
                 }
                 if (mRingtonePreference != null) {
