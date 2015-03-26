@@ -58,6 +58,7 @@ import android.os.Vibrator;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract;
 import android.provider.Settings;
+import android.telecom.TelecomManager;
 import android.telephony.DisconnectCause;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
@@ -333,13 +334,18 @@ public class CallNotifier extends Handler {
                 onSuppServiceNotification((AsyncResult) msg.obj);
                 break;
 
+            case CallStateMonitor.PHONE_TTY_MODE_RECEIVED:
+                if (DBG) log("Received PHONE_TTY_MODE_RECEIVED event");
+                onTtyModeReceived((AsyncResult) msg.obj);
+                break;
+
             default:
                 // super.handleMessage(msg);
         }
     }
 
     private PhoneStateListener getPhoneStateListener(int phoneId) {
-        long[] subId = SubscriptionManager.getSubId(phoneId);
+        int[] subId = SubscriptionManager.getSubId(phoneId);
 
         mPhoneStateListener[phoneId]  = new PhoneStateListener(subId[0]) {
             @Override
@@ -854,6 +860,11 @@ public class CallNotifier extends Handler {
     }
 
     private void onMwiChanged(boolean visible, Phone phone) {
+        if (phone == null) {
+            Log.w(LOG_TAG, "Got onMwiChanged() with null phone obj, Ignoring...");
+            return;
+        }
+
         if (VDBG) log("onMwiChanged(): " + visible + " phoneId = " + phone.getPhoneId());
 
         // "Voicemail" is meaningless on non-voice-capable devices,
@@ -881,6 +892,11 @@ public class CallNotifier extends Handler {
     }
 
     private void onCfiChanged(boolean visible, Phone phone) {
+        if (phone == null) {
+            Log.w(LOG_TAG, "Got onCfiChanged() with null phone obj, Ignoring...");
+            return;
+        }
+
         if (VDBG) log("onCfiChanged(): " + visible);
         mApplication.notificationMgr.updateCfi(visible, phone);
     }
@@ -1188,6 +1204,42 @@ public class CallNotifier extends Handler {
         // start a timer that kills the dialog
         sendEmptyMessageDelayed(CallStateMonitor.INTERNAL_SHOW_MESSAGE_NOTIFICATION_DONE,
                 SHOW_MESSAGE_NOTIFICATION_TIME);
+    }
+
+    /**
+     * Displays a notification when the phone receives a notice that TTY mode
+     * has changed on remote end.
+     */
+    private void onTtyModeReceived(AsyncResult r) {
+        if (DBG) log("TtyModeReceived: displaying notification message");
+
+        int resId = 0;
+        switch (((Integer)r.result).intValue()) {
+            case TelecomManager.TTY_MODE_FULL:
+                resId = com.android.internal.R.string.peerTtyModeFull;
+                break;
+            case TelecomManager.TTY_MODE_HCO:
+                resId = com.android.internal.R.string.peerTtyModeHco;
+                break;
+            case TelecomManager.TTY_MODE_VCO:
+                resId = com.android.internal.R.string.peerTtyModeVco;
+                break;
+            case TelecomManager.TTY_MODE_OFF:
+                resId = com.android.internal.R.string.peerTtyModeOff;
+                break;
+            default:
+                Log.e(LOG_TAG, "Unsupported TTY mode: " + r.result);
+                break;
+        }
+        if (resId != 0) {
+            PhoneDisplayMessage.displayNetworkMessage(mApplication,
+                    mApplication.getResources().getString(resId));
+
+            // start a timer that kills the dialog
+            sendEmptyMessageDelayed(
+                    CallStateMonitor.INTERNAL_SHOW_MESSAGE_NOTIFICATION_DONE,
+                    SHOW_MESSAGE_NOTIFICATION_TIME);
+        }
     }
 
     /**

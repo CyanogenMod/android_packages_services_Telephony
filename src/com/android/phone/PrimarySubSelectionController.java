@@ -55,7 +55,7 @@ import android.os.SystemProperties;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
-import android.telephony.SubInfoRecord;
+import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.Html;
@@ -130,7 +130,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         mContext.registerReceiver(mReceiver, intentFilter);
 
         logd("get preferred data sub from DB:" + getUserPrefDataSubIdFromDB());
-        if (getUserPrefDataSubIdFromDB() == SubscriptionManager.INVALID_SUB_ID) {
+        if (getUserPrefDataSubIdFromDB() == SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
             setUserPrefDataSubIdInDB(SubscriptionManager.getDefaultDataSubId());
         }
     }
@@ -168,7 +168,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                     if (mRestoreDdsToPrimarySub) {
                         if (slot == primarySlot) {
                             logd("restore dds to primary card");
-                            SubscriptionManager.setDefaultDataSubId(SubscriptionManager
+                            SubscriptionManager.from(context).setDefaultDataSubId(SubscriptionManager
                                     .getSubId(slot)[0]);
                             mRestoreDdsToPrimarySub = false;
                         }
@@ -189,22 +189,22 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                 int state = intent.getIntExtra(TelephonyIntents.EXTRA_NEW_SUB_STATE,
                         SubscriptionManager.INACTIVE);
                 long subId = intent.getLongExtra(PhoneConstants.SUBSCRIPTION_KEY,
-                        SubscriptionManager.DEFAULT_SUB_ID);
+                        SubscriptionManager.DEFAULT_SUBSCRIPTION_ID);
                 Log.d(TAG, "ACTION_SUBSCRIPTION_SET_UICC_RESULT status = " + status + ", state = "
                         + state + " subId: " + subId + " and subId from DB:"
                         + getUserPrefDataSubIdFromDB());
                 if (mContext.getResources().getBoolean(R.bool.config_dds_switch_back) && status ==
                         PhoneConstants.SUCCESS && state == SubscriptionManager.ACTIVE &&
                         subId == getUserPrefDataSubIdFromDB()) {
-                    SubscriptionManager.setDefaultDataSubId(getUserPrefDataSubIdFromDB());
+                    SubscriptionManager.from(context).setDefaultDataSubId(getUserPrefDataSubIdFromDB());
                 }
             }
         }
     };
 
-    private long getUserPrefDataSubIdFromDB() {
-        long subId = SubscriptionManager.INVALID_SUB_ID;
-        subId = android.provider.Settings.Global.getLong(mContext.getContentResolver(),
+    private int getUserPrefDataSubIdFromDB() {
+        int subId = SubscriptionManager.INVALID_SUBSCRIPTION_ID;
+        subId = android.provider.Settings.Global.getInt(mContext.getContentResolver(),
                 SETTING_USER_PREF_DATA_SUB, subId);
         logd("getPreDataSubFromDB: " + subId);
         return subId;
@@ -344,9 +344,9 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
     }
 
     public String getSimName(int slot) {
-        SubInfoRecord subInfo = SubscriptionManager.getSubInfoForSubscriber(
+        SubscriptionInfo subInfo = SubscriptionManager.from(mContext).getActiveSubscriptionInfo(
                 SubscriptionManager.getSubId(slot)[0]);
-        return subInfo == null ? null : subInfo.displayName;
+        return subInfo == null ? null : subInfo.getDisplayName().toString();
     }
 
     private String getSimCardInfo(int slot) {
@@ -354,16 +354,16 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         if (uiccCard != null && uiccCard.getCardState() == CardState.CARDSTATE_ABSENT) {
             return mContext.getString(R.string.sim_absent);
         } else {
-            String carrierName = TelephonyManager.getDefault().getSimOperatorName(
+            String carrierName = TelephonyManager.getDefault().getSimOperatorNameForSubscription(
                     SubscriptionManager.getSubId(slot)[0]);
             carrierName = NativeTextHelper.getInternalLocalString(mContext, carrierName,
-                    R.array.origin_carrier_names, R.array.locale_carrier_names);
+                    R.array.original_carrier_names, R.array.locale_carrier_names);
             if (TextUtils.isEmpty(carrierName) || TextUtils.isDigitsOnly(carrierName)) {
                 String iccId = mCardStateMonitor.getIccId(slot);
                 String spn = IINList.getDefault(mContext).getSpn(iccId);
                 if (spn != null) {
                     carrierName = NativeTextHelper.getInternalLocalString(mContext, spn,
-                            R.array.origin_carrier_names, R.array.locale_carrier_names);
+                            R.array.original_carrier_names, R.array.locale_carrier_names);
                 } else {
                     carrierName = mContext.getString(R.string.sim_unknown);
                 }
@@ -417,7 +417,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                     + "] =" + mIccLoaded[primarySlot]);
             if (mIccLoaded[primarySlot]
                     && currentDds != primarySlot) {
-                SubscriptionManager
+                SubscriptionManager.from(mContext)
                         .setDefaultDataSubId(SubscriptionManager.getSubId(primarySlot)[0]);
                 mRestoreDdsToPrimarySub = false;
             } else {

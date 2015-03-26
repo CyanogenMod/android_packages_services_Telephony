@@ -229,7 +229,7 @@
     <string name="settings_label">Network settings</string>
 
     <!-- Label for settings screen for phone accounts. -->
-    <string name="phone_accounts">Phone account settings</string>
+    <string name="phone_accounts">Calling accounts</string>
     <!-- Label for list item which opens a dialog to select the default outgoing account -->
     <string name="phone_accounts_make_calls_with">Make calls with</string>
     <!-- Label for list item which opens a dialog to select the default outgoing account for SIP calls. -->
@@ -263,7 +263,7 @@
     <!-- Label for selectecting a Wi-Fi call manager -->
     <string name="wifi_calling_select_call_assistant">Choose call assistant</string>
     <!-- Summary for the label of a setting to select the SIM call managers to use.-->
-    <string name="wifi_calling_select_call_assistant_summary">Choose an app or service to manage the networks used for calls</string>
+    <string name="wifi_calling_select_call_assistant_summary">Manage the networks used for calls with</string>
     <!-- Summary for the label of a switch setting to enable/disable the use of SIM call managers. -->
     <string name="wifi_calling_use_call_assistant_summary">Let apps or services manage networks used for calls</string>
     <!-- Label for setting to configure the selected call assistant. -->
@@ -379,6 +379,8 @@
 
     <!-- Title of the progress dialog displayed while updating Call settings -->
     <string name="updating_title">Call settings</string>
+    <!-- Toast in Call settings when asked to launch settings for a secondary user -->
+    <string name="call_settings_primary_user_only">Call settings can only be changed by the primary user.</string>
     <!-- Title of the alert dialog displayed if an error occurs while updating Call settings -->
     <string name="error_updating_title">Call settings error</string>
     <!-- Toast in Call settings dialog while settings are being read -->
@@ -1624,21 +1626,6 @@
     <string name="CFDeactivate">Deactivate</string>
     <string name="null_phone_number">Phone number cannot be null !</string>
     <string name="labelCFDeactAll">Deactivate All</string>
-    <string-array name="origin_carrier_names" translateable="false">
-        <item>China Mobile</item>
-        <item>China Unicom</item>
-        <item>China Telecom</item>
-    </string-array>
-
-    <string-array name="locale_carrier_names" translatable="false">
-        <item>china_mobile</item>
-        <item>china_unicom</item>
-        <item>china_telecom</item>
-    </string-array>
-
-    <string name="china_mobile">China Mobile</string>
-    <string name="china_unicom">China Unicom</string>
-    <string name="china_telecom">China Telecom</string>
  <!-- Manual PLMN scan data disconnect dialog text -->
     <string name="disconnect_data_confirm">Data service temporarily would be disconnected. Are you sure?</string>
 

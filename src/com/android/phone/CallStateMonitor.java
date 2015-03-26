@@ -68,6 +68,7 @@ class CallStateMonitor extends Handler {
 
     // Other events from call manager
     public static final int EVENT_OTA_PROVISION_CHANGE = 19;
+    public static final int PHONE_TTY_MODE_RECEIVED = 20;
 
     private CallManager callManager;
     private ArrayList<Handler> registeredHandlers;
@@ -103,6 +104,7 @@ class CallStateMonitor extends Handler {
         //callManager.registerForResendIncallMute(this, PHONE_RESEND_MUTE, null);
         //callManager.registerForPostDialCharacter(this, PHONE_ON_DIAL_CHARS, null);
         callManager.registerForSuppServiceNotification(this, PHONE_SUPP_SERVICE_NOTIFY, null);
+        callManager.registerForTtyModeReceived(this, PHONE_TTY_MODE_RECEIVED, null);
     }
 
     public void addListener(Handler handler) {
@@ -149,6 +151,7 @@ class CallStateMonitor extends Handler {
         //callManager.unregisterForPostDialCharacter(this);
         callManager.unregisterForSuppServiceFailed(this);
         callManager.unregisterForSuppServiceNotification(this);
+        callManager.unregisterForTtyModeReceived(this);
 
         registerForNotifications();
     }

@@ -35,6 +35,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -47,20 +50,24 @@ import android.view.WindowManager;
 
 import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
 
+import java.util.List;
+
 public class ManagedRoaming extends Activity {
     private static final String LOG_TAG = "ManagedRoaming";
 
-    private long mSubscription = SubscriptionManager.DEFAULT_SUB_ID;
+    private int mSubscription = SubscriptionManager.DEFAULT_SUBSCRIPTION_ID;
     private boolean mIsMRDialogShown = false;
 
     // Key used to read and write the saved network selection numeric value
     private static final String NETWORK_SELECTION_KEY = "network_selection_key";
     private final int NETWORK_SCAN_ACTIVITY_REQUEST_CODE = 0;
+    private static final String ACTION_NETWORK_OPERATOR_SETTINGS_ASYNC =
+            "org.codeaurora.settings.NETWORK_OPERATOR_SETTINGS_ASYNC";
 
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
-        long subscription = intent.getLongExtra(SUBSCRIPTION_KEY,
+        int subscription = intent.getIntExtra(SUBSCRIPTION_KEY,
                 SubscriptionManager.getDefaultSubId());
         createManagedRoamingDialog(subscription);
     }
@@ -68,7 +75,7 @@ public class ManagedRoaming extends Activity {
     /*
      * Show Managed Roaming dialog if user preferred Network Selection mode is 'Manual'
      */
-    private void createManagedRoamingDialog(long subscription) {
+    private void createManagedRoamingDialog(int subscription) {
         Resources r = Resources.getSystem();
         String networkSelection = PreferenceManager.getDefaultSharedPreferences(ManagedRoaming.this)
                 .getString(NETWORK_SELECTION_KEY, "");
@@ -117,9 +124,14 @@ public class ManagedRoaming extends Activity {
             switch (which) {
                 case DialogInterface.BUTTON_POSITIVE:
                     log("Launch network settings activity sub = " + mSubscription);
-                    Intent networkSettingIntent = new Intent(Intent.ACTION_MAIN);
-                    networkSettingIntent.setClassName("com.android.phone",
-                            "com.android.phone.NetworkSetting");
+                    Intent networkSettingIntent;
+                    if (isAppInstalled(ACTION_NETWORK_OPERATOR_SETTINGS_ASYNC)) {
+                        networkSettingIntent = new Intent(ACTION_NETWORK_OPERATOR_SETTINGS_ASYNC);
+                    } else {
+                        networkSettingIntent = new Intent(Intent.ACTION_MAIN);
+                        networkSettingIntent.setClassName("com.android.phone",
+                                "com.android.phone.NetworkSetting");
+                    }
                     networkSettingIntent.putExtra(SUBSCRIPTION_KEY, mSubscription);
                     startActivityForResult(networkSettingIntent,
                             NETWORK_SCAN_ACTIVITY_REQUEST_CODE);
@@ -135,6 +147,22 @@ public class ManagedRoaming extends Activity {
             mIsMRDialogShown = false;
         }
     };
+
+    private boolean isAppInstalled(String action) {
+        boolean installed = false;
+        PackageManager pm = getPackageManager();
+        List<ResolveInfo> list = pm.queryIntentActivities(new Intent(action), 0);
+        int listSize = list.size();
+        for (int i = 0; i < listSize; i++) {
+            ResolveInfo resolveInfo = list.get(i);
+            if ((resolveInfo.activityInfo.applicationInfo.flags
+                    & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                installed = true;
+                break;
+            }
+        }
+        return installed;
+    }
 
     private void log(String msg) {
         Log.d(LOG_TAG, msg);

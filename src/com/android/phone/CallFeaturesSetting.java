@@ -65,6 +65,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ListAdapter;
+import android.widget.Toast;
 
 import com.android.ims.ImsManager;
 import com.android.ims.ImsException;
@@ -111,6 +112,8 @@ public class CallFeaturesSetting extends PreferenceActivity
                 EditPhoneNumberPreference.GetDefaultNumberListener {
     private static final String LOG_TAG = "CallFeaturesSetting";
     private static final boolean DBG = (PhoneGlobals.DBG_LEVEL >= 2);
+    // STOPSHIP if true. Flag to override behavior default behavior to hide VT setting.
+    private static final boolean ENABLE_VT_FLAG = false;
 
     /**
      * Intent action to bring up Voicemail Provider settings.
@@ -210,6 +213,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private static final String BUTTON_SELECT_SUB_KEY  = "button_call_independent_serv";
     private static final String BUTTON_XDIVERT_KEY = "button_xdivert";
+    private static final String ENABLE_VIDEO_CALLING_KEY = "button_enable_video_calling";
 
     private Intent mContactListIntent;
 
@@ -297,6 +301,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private CheckBoxPreference mButtonProximity;
     private CheckBoxPreference mVibrateAfterConnected;
     private CheckBoxPreference mShowDurationCheckBox;
+    private CheckBoxPreference mEnableVideoCalling;
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private boolean isSpeedDialListStarted = false;
     private PreferenceScreen mButtonBlacklist;
@@ -643,7 +648,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (DBG) {
-            log("onPreferenceChange(). preferenece: \"" + preference + "\""
+            log("onPreferenceChange(). preference: \"" + preference + "\""
                     + ", value: \"" + objValue + "\"");
         }
 
@@ -715,6 +720,8 @@ public class CallFeaturesSetting extends PreferenceActivity
                     log("setAdvanced4GMode failed");
                 }
             }
+        } else if (preference == mEnableVideoCalling) {
+            PhoneGlobals.getInstance().phoneMgr.enableVideoCalling((boolean) objValue);
         }
         // always let the preference setting proceed.
         return true;
@@ -1624,9 +1631,10 @@ public class CallFeaturesSetting extends PreferenceActivity
     }
 
     private void setIMS(boolean turnOn) {
-        SharedPreferences imsPref =
-            getSharedPreferences(ImsManager.IMS_SHARED_PREFERENCES, Context.MODE_WORLD_READABLE);
-        imsPref.edit().putBoolean(ImsManager.KEY_IMS_ON, turnOn).commit();
+        int value = (turnOn) ? 1:0;
+        android.provider.Settings.Global.putInt(
+                mPhone.getContext().getContentResolver(),
+                android.provider.Settings.Global.ENHANCED_4G_MODE_ENABLED, value);
     }
 
     /*
@@ -1637,6 +1645,16 @@ public class CallFeaturesSetting extends PreferenceActivity
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         mPhone = PhoneGlobals.getPhone();
+        if (DBG) log("onCreate: Intent is " + getIntent());
+
+        // Make sure we are running as the primary user.
+        if (UserHandle.myUserId() != UserHandle.USER_OWNER) {
+            Toast.makeText(this, R.string.call_settings_primary_user_only,
+                    Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         // create intent to bring up contact list
@@ -1661,7 +1679,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         // Show the voicemail preference in onResume if the calling intent specifies the
         // ACTION_ADD_VOICEMAIL action.
         mShowVoicemailPreference = (icicle == null) &&
-                getIntent().getAction().equals(ACTION_ADD_VOICEMAIL);
+                TextUtils.equals(getIntent().getAction(), ACTION_ADD_VOICEMAIL);
     }
 
     private void initPhoneAccountPreferences() {
@@ -1743,13 +1761,15 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButton4glte.setChecked(ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this));
 
         // Enable enhanced 4G LTE mode settings depending on whether exists on platform
-        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByPlatform(this) ||
+        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this) ||
                     !getResources().getBoolean(R.bool.cmcc_enhanced_lte)) {
             Preference pref = prefSet.findPreference(BUTTON_4G_LTE_KEY);
             if (pref != null) {
                 prefSet.removePreference(pref);
             }
         }
+        CheckBoxPreference mEnableVideoCalling =
+                (CheckBoxPreference) findPreference(ENABLE_VIDEO_CALLING_KEY);
 
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
@@ -1992,6 +2012,14 @@ public class CallFeaturesSetting extends PreferenceActivity
                 && mVoicemailNotificationVibrate != null) {
             mVoicemailNotificationVibrate.setChecked(prefs.getBoolean(
                     BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY + mPhone.getPhoneId(), false));
+        }
+
+        if (ImsUtil.isImsEnabled(mPhone.getContext()) && ENABLE_VT_FLAG) {
+            mEnableVideoCalling.setChecked(
+                    PhoneGlobals.getInstance().phoneMgr.isVideoCallingEnabled());
+            mEnableVideoCalling.setOnPreferenceChangeListener(this);
+        } else {
+            prefSet.removePreference(mEnableVideoCalling);
         }
 
         // Look up the voicemail ringtone name asynchronously and update its preference.

@@ -201,7 +201,8 @@ public class GsmUmtsOptions {
             return (PhoneConstants.SUB2 == sub
                     && TelephonyManager.getDefault().getMultiSimConfiguration()
                             .equals(TelephonyManager.MultiSimVariants.DSDS)
-                    && 2 == SubscriptionManager.getActiveSubInfoCount ());
+                    && 2 == SubscriptionManager.from(mPrefActivity).
+                    getActiveSubscriptionInfoCount());
         }
         return false;
     }

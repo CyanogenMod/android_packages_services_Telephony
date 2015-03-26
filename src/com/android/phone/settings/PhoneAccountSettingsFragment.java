@@ -1,15 +1,19 @@
 package com.android.phone.settings;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.sip.SipManager;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.util.Log;
 
 import com.android.phone.R;
@@ -45,6 +49,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private String LOG_TAG = PhoneAccountSettingsFragment.class.getSimpleName();
 
     private TelecomManager mTelecomManager;
+    private SubscriptionManager mSubscriptionManager;
 
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private AccountSelectionPreference mSelectCallAssistant;
@@ -59,6 +64,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         super.onCreate(icicle);
 
         mTelecomManager = TelecomManager.from(getActivity());
+        mSubscriptionManager = SubscriptionManager.from(getActivity());
     }
 
     @Override
@@ -73,7 +79,7 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
 
         mDefaultOutgoingAccount = (AccountSelectionPreference)
                 getPreferenceScreen().findPreference(DEFAULT_OUTGOING_ACCOUNT_KEY);
-        if (mTelecomManager.getAllPhoneAccountsCount() > 1) {
+        if (mTelecomManager.getCallCapablePhoneAccounts().size() > 1) {
             mDefaultOutgoingAccount.setListener(this);
             updateDefaultOutgoingAccountsModel();
         } else {
@@ -160,10 +166,19 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     @Override
     public boolean onPreferenceClick(Preference pref) {
         if (pref == mConfigureCallAssistant) {
-            try {
-                startActivity(CONNECTION_SERVICE_CONFIGURE_INTENT);
-            } catch (ActivityNotFoundException e) {
-                Log.d(LOG_TAG, "Could not resolve telecom connection service configure intent.");
+            Intent intent = getConfigureCallAssistantIntent();
+            if (intent != null) {
+                PhoneAccountHandle handle = mTelecomManager.getSimCallManager();
+                UserHandle userHandle = handle.getUserHandle();
+                try {
+                    if (userHandle != null) {
+                        getActivity().startActivityAsUser(intent, userHandle);
+                    } else {
+                        startActivity(intent);
+                    }
+                } catch (ActivityNotFoundException e) {
+                    Log.d(LOG_TAG, "Could not resolve call assistant configure intent: " + intent);
+                }
             }
             return true;
         }
@@ -214,13 +229,19 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     }
 
     private synchronized void handleSipReceiveCallsOption(boolean isEnabled) {
+        Context context = getActivity();
+        if (context == null) {
+            // Return if the fragment is detached from parent activity before executed by thread.
+            return;
+        }
+
         mSipSharedPreferences.setReceivingCallsEnabled(isEnabled);
 
-        SipUtil.useSipToReceiveIncomingCalls(getActivity(), isEnabled);
+        SipUtil.useSipToReceiveIncomingCalls(context, isEnabled);
 
         // Restart all Sip services to ensure we reflect whether we are receiving calls.
         SipAccountRegistry sipAccountRegistry = SipAccountRegistry.getInstance();
-        sipAccountRegistry.restartSipService(getActivity());
+        sipAccountRegistry.restartSipService(context);
     }
 
     /**
@@ -240,10 +261,9 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
      * call assistants, and the currently selected call assistant.
      */
     public void updateCallAssistantModel() {
-        List<PhoneAccountHandle> simCallManagers = mTelecomManager.getSimCallManagers();
         mSelectCallAssistant.setModel(
                 mTelecomManager,
-                simCallManagers,
+                mTelecomManager.getSimCallManagers(),
                 mTelecomManager.getSimCallManager(),
                 getString(R.string.wifi_calling_call_assistant_none));
 
@@ -265,5 +285,18 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
             mConfigureCallAssistant.setSummary(null);
             mConfigureCallAssistant.setEnabled(true);
         }
+    }
+
+    private Intent getConfigureCallAssistantIntent() {
+        PhoneAccountHandle handle = mTelecomManager.getSimCallManager();
+        if (handle != null) {
+            String packageName = handle.getComponentName().getPackageName();
+            if (packageName != null) {
+                return new Intent(TelecomManager.ACTION_CONNECTION_SERVICE_CONFIGURE)
+                        .addCategory(Intent.CATEGORY_DEFAULT)
+                        .setPackage(packageName);
+            }
+        }
+        return null;
     }
 }

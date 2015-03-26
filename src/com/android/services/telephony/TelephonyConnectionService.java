@@ -155,7 +155,7 @@ public class TelephonyConnectionService extends ConnectionService {
                 Log.d(this, "onCreateOutgoingConnection, phone is null");
                 return Connection.createFailedConnection(
                         DisconnectCauseUtil.toTelecomDisconnectCause(
-                                android.telephony.DisconnectCause.OUTGOING_FAILURE,
+                                android.telephony.DisconnectCause.OUT_OF_SERVICE,
                                 "Phone is null"));
             }
             number = phone.getVoiceMailNumber();
@@ -196,7 +196,7 @@ public class TelephonyConnectionService extends ConnectionService {
             Log.d(this, "onCreateOutgoingConnection, phone is null");
             return Connection.createFailedConnection(
                     DisconnectCauseUtil.toTelecomDisconnectCause(
-                            android.telephony.DisconnectCause.OUTGOING_FAILURE, "Phone is null"));
+                            android.telephony.DisconnectCause.OUT_OF_SERVICE, "Phone is null"));
         }
 
         int band = Constants.NW_BAND_LTE_NV;
@@ -550,7 +550,7 @@ public class TelephonyConnectionService extends ConnectionService {
             if (accountHandle.getId() != null) {
                 try {
                     int phoneId = SubscriptionController.getInstance().getPhoneId(
-                            Long.parseLong(accountHandle.getId()));
+                            Integer.parseInt(accountHandle.getId()));
                     return PhoneFactory.getPhone(phoneId);
                 } catch (NumberFormatException e) {
                     Log.w(this, "Could not get subId from account: " + accountHandle.getId());
@@ -615,7 +615,7 @@ public class TelephonyConnectionService extends ConnectionService {
 
         if (phoneId == -1) {
             for (int phId = 0; phId < phoneCount; phId++) {
-                long[] subId = scontrol.getSubId(phId);
+                int[] subId = scontrol.getSubId(phId);
                 if ((tm.getSimState(phId) == TelephonyManager.SIM_STATE_READY) &&
                         (scontrol.getSubState(subId[0]) == SubscriptionManager.ACTIVE)) {
                     phoneId = phId;

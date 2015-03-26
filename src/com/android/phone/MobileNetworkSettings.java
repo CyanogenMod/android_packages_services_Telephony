@@ -50,6 +50,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.telephony.PhoneStateListener;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -115,6 +116,22 @@ public class MobileNetworkSettings extends PreferenceActivity
     private boolean mShow4GForLTE;
     private boolean mIsGlobalCdma;
     private boolean mUnavailable;
+
+    private final PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
+        /*
+         * Enable/disable the 'Enhanced 4G LTE Mode' when in/out of a call.
+         * @see android.telephony.PhoneStateListener#onCallStateChanged(int,
+         * java.lang.String)
+         */
+        @Override
+        public void onCallStateChanged(int state, String incomingNumber) {
+            if (DBG) log("PhoneStateListener.onCallStateChanged: state=" + state);
+            Preference pref = getPreferenceScreen().findPreference(BUTTON_4G_LTE_KEY);
+            if (pref != null) {
+                pref.setEnabled(state == TelephonyManager.CALL_STATE_IDLE);
+            }
+        }
+    };
 
     //This is a method implemented for DialogInterface.OnClickListener.
     //  Used to dismiss the dialogs when they come up.
@@ -208,11 +225,10 @@ public class MobileNetworkSettings extends PreferenceActivity
     }
 
     private void setIMS(boolean turnOn) {
-        SharedPreferences imsPref =
-            getSharedPreferences(ImsManager.IMS_SHARED_PREFERENCES, Context.MODE_WORLD_READABLE);
-
-        imsPref.edit().putBoolean(ImsManager.KEY_IMS_ON, turnOn).commit();
-        Settings.System.putInt(getContentResolver(), ImsManager.KEY_IMS_ON, turnOn ? 1: 0);
+        int value = (turnOn) ? 1:0;
+        android.provider.Settings.Global.putInt(
+                  mPhone.getContext().getContentResolver(),
+                  android.provider.Settings.Global.ENHANCED_4G_MODE_ENABLED, value);
     }
 
     @Override
@@ -302,16 +318,27 @@ public class MobileNetworkSettings extends PreferenceActivity
                 break;
         }
 
+        if (ImsManager.isVolteEnabledByPlatform(this)
+                && ImsManager.isVolteProvisionedOnDevice(this)) {
+            TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            tm.listen(mPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
+        }
+
         boolean isLteOnCdma = mPhone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE;
         mIsGlobalCdma = isLteOnCdma && getResources().getBoolean(R.bool.config_show_cdma);
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         // mButtonEnabledNetworks is not needed anymore
         prefSet.removePreference(mButtonEnabledNetworks);
+        /* FIXME MR1_INTERNAL
         if (tm.getSimplifiedNetworkSettingsEnabledForSubscriber(SubscriptionManager.getDefaultSubId())) {
             prefSet.removePreference(mButtonPreferredNetworkMode);
             prefSet.removePreference(mButtonEnabledNetworks);
             prefSet.removePreference(mLteDataServicePref);
-        } else if (getResources().getBoolean(R.bool.world_phone) == true) {
+        } else */
+        if (getResources().getBoolean(R.bool.world_phone) == true) {
+            prefSet.removePreference(mButtonEnabledNetworks);
+            // mButtonEnabledNetworks = null as it is not needed anymore
+            mButtonEnabledNetworks = null;
             // set the listener for the mButtonPreferredNetworkMode list preference so we can issue
             // change Preferred Network Mode.
             mButtonPreferredNetworkMode.setOnPreferenceChangeListener(this);
@@ -398,7 +425,8 @@ public class MobileNetworkSettings extends PreferenceActivity
         }
 
         // Enable enhanced 4G LTE mode settings depending on whether exists on platform
-        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByPlatform(this)) {
+        if (!(ImsManager.isVolteEnabledByPlatform(this)
+                && ImsManager.isVolteProvisionedOnDevice(this))) {
             Preference pref = prefSet.findPreference(BUTTON_4G_LTE_KEY);
             if (pref != null) {
                 prefSet.removePreference(pref);
@@ -493,6 +521,12 @@ public class MobileNetworkSettings extends PreferenceActivity
     @Override
     protected void onPause() {
         super.onPause();
+
+        if (ImsManager.isVolteEnabledByPlatform(this)
+                && ImsManager.isVolteProvisionedOnDevice(this)) {
+            TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            tm.listen(mPhoneStateListener, PhoneStateListener.LISTEN_NONE);
+        }
     }
 
     /**
@@ -602,7 +636,7 @@ public class MobileNetworkSettings extends PreferenceActivity
             setIMS(ltePref.isChecked());
 
             ImsManager imsMan = ImsManager.getInstance(getBaseContext(),
-                    SubscriptionManager.getDefaultVoiceSubId());
+                    SubscriptionManager.getDefaultVoicePhoneId());
             if (imsMan != null) {
 
                 try {
