@@ -42,6 +42,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
@@ -49,6 +50,8 @@ import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.Settings;
 import android.telecom.TelecomManager;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -65,7 +68,7 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.phone.common.util.SettingsUtil;
-import com.android.phone.msim.SelectSubscription;
+import com.android.phone.msim.MSimCallFeaturesSubSetting;
 import com.android.phone.settings.AccountSelectionPreference;
 import com.android.services.telephony.sip.SipUtil;
 
@@ -194,7 +197,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String PHONE_ACCOUNT_SETTINGS_KEY =
             "phone_account_settings_preference_screen";
 
-    private static final String BUTTON_SELECT_SUB_KEY  = "button_call_independent_serv";
+    private static final String SIM_CATEGORY_KEY  = "sim_category_key";
 
     private Intent mContactListIntent;
 
@@ -1632,6 +1635,30 @@ public class CallFeaturesSetting extends PreferenceActivity
         if (DBG) log("onResume(). isMSim = " + isMsim);
         if (isMsim) {
             addPreferencesFromResource(R.xml.call_feature_setting_msim);
+
+            PreferenceCategory simCategory = (PreferenceCategory) findPreference(SIM_CATEGORY_KEY);
+            int numPhones = TelephonyManager.getDefault().getPhoneCount();
+            SubscriptionManager subscriptionManager = SubscriptionManager.from(this);
+
+            for (int i = 0; i < numPhones; i++) {
+                SubscriptionInfo sir =
+                        subscriptionManager.getActiveSubscriptionInfoForSimSlotIndex(i);
+                Preference pref = new Preference(this);
+
+                pref.setTitle(getString(R.string.sim_card_title, i + 1));
+                if (sir != null) {
+                    pref.setSummary(sir.getDisplayName());
+                } else {
+                    pref.setSummary(R.string.sim_card_summary_empty);
+                    pref.setEnabled(false);
+                }
+
+                Intent intent = new Intent(this, MSimCallFeaturesSubSetting.class);
+                SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i, sir.getSubscriptionId());
+                pref.setIntent(intent);
+
+                simCategory.addPreference(pref);
+            }
         } else {
             addPreferencesFromResource(R.xml.call_feature_setting);
         }
@@ -1799,14 +1826,6 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         // Blacklist screen - Needed for setting summary
         mButtonBlacklist = (PreferenceScreen) prefSet.findPreference(BUTTON_BLACKLIST);
-
-        PreferenceScreen selectSub = (PreferenceScreen) findPreference(BUTTON_SELECT_SUB_KEY);
-        if (selectSub != null) {
-            Intent intent = selectSub.getIntent();
-            intent.putExtra(SelectSubscription.PACKAGE, "com.android.phone");
-            intent.putExtra(SelectSubscription.TARGET_CLASS,
-                    "com.android.phone.msim.MSimCallFeaturesSubSetting");
-        }
 
         if (mMwiNotification != null) {
             int mwiNotification = Settings.System.getInt(getContentResolver(),
