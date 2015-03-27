@@ -156,21 +156,41 @@
     <string name="preferred_network_mode_lte_cdma_evdo_summary" msgid="228702246343742853">"पसंदीदा नेटवर्क मोड: CDMA+LTE/EVDO"</string>
     <string name="preferred_network_mode_global_summary" msgid="1633134285545730364">"पसंदीदा नेटवर्क मोड: वैश्विक"</string>
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"पसंदीदा नेटवर्क मोड: LTE / WCDMA"</string>
-  <string-array name="preferred_network_mode_choices">
-    <item msgid="7886739962255042385">"LTE / WCDMA"</item>
-    <item msgid="577652050447385699">"LTE"</item>
-    <item msgid="6813597571293773656">"वैश्विक"</item>
-    <item msgid="127064712132619032">"GSM/WCDMA/LTE"</item>
-    <item msgid="1126767511633425977">"CDMA + LTE/EvDo"</item>
-    <item msgid="6389676313771670660">"CDMA/EvDo/GSM/WCDMA"</item>
-    <item msgid="545430093607698090">"केवल EvDo"</item>
-    <item msgid="1508557726283094448">"EvDo के बिना CDMA"</item>
-    <item msgid="4341433122263841224">"CDMA/EvDo स्वतः"</item>
-    <item msgid="5958053792390386668">"GSM/WCDMA स्वत:"</item>
-    <item msgid="7913148405605373434">"केवल WCDMA"</item>
-    <item msgid="1524224863879435516">"केवल GSM"</item>
-    <item msgid="3817924849415716259">"GSM/WCDMA पसंदीदा"</item>
-  </string-array>
+    <string name="preferred_network_mode_td_scdma_only_summary">"पसंदीदा नेटवर्क मोड: TD-SCDMA only"</string>
+    <string name="preferred_network_mode_td_scdma_wcdma_summary">"पसंदीदा नेटवर्क मोड:  TD-SCDMA / WCDMA"</string>
+    <string name="preferred_network_mode_td_scdma_lte_summary">"पसंदीदा नेटवर्क मोड:  TD-SCDMA / LTE"</string>
+    <string name="preferred_network_mode_td_scdma_gsm_summary">"पसंदीदा नेटवर्क मोड:  TD-SCDMA / GSM"</string>
+    <string name="preferred_network_mode_td_scdma_gsm_lte_summary">"पसंदीदा नेटवर्क मोड:  TD-SCDMA/GSM/LTE"</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">"पसंदीदा नेटवर्क मोड:  TD-SCDMA/GSM/WCDMA"</string>
+    <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">"पसंदीदा नेटवर्क मोड:  TD-SCDMA/WCDMA/LTE"</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">"पसंदीदा नेटवर्क मोड:  TD-SCDMA/GSM/WCDMA/LTE"</string>
+    <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">"पसंदीदा नेटवर्क मोड:  TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA"</string>
+    <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">"पसंदीदा नेटवर्क मोड:  TD-SCDMA/CDMA/EvDo/GSM/WCDMA"</string>
+
+    <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
+    <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
+    <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
+    <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
+    <string name="preferred_network_mode_td_scdma_only_choice">"केवल TD-SCDMA"</string>
+    <string name="preferred_network_mode_lte_wcdma_choice">LTE / WCDMA</string>
+    <string name="preferred_network_mode_lte_choice">LTE</string>
+    <string name="preferred_network_mode_global_choice">"वैश्विक"</string>
+    <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
+    <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
+    <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
+    <string name="preferred_network_mode_evdo_only_choice">"केवल EvDo"</string>
+    <string name="preferred_network_mode_cdma_wo_evdo_choice">"EvDo के बिना CDMA"</string>
+    <string name="preferred_network_mode_cdma_evdo_auto_choice">"CDMA/EvDo स्वतः"</string>
+    <string name="preferred_network_mode_gsm_wcdma_auto_choice">"GSM/WCDMA स्वतः"</string>
+    <string name="preferred_network_mode_wcdma_only_choice">"केवल WCDMA"</string>
+    <string name="preferred_network_mode_gsm_only_choice">"केवल GSM"</string>
+    <string name="preferred_network_mode_gsm_wcdma_preferred_choice">"GSM/WCDMA पसंदीदा"</string>
+
     <string name="data_enabled" msgid="5972538663568715366">"डेटा सक्षम किया गया"</string>
     <string name="data_enable_summary" msgid="2382798156640007971">"डेटा उपयोग करने दें"</string>
     <string name="roaming" msgid="8871412572928323707">"डेटा रोमिंग"</string>
