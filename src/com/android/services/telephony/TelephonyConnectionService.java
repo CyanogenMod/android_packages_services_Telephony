@@ -235,7 +235,7 @@ public class TelephonyConnectionService extends ConnectionService {
 
         if (isEmergencyNumber) {
             mRequest = request;
-            if (state == ServiceState.STATE_POWER_OFF) {
+            if (phone.getBaseServiceState().getState() == ServiceState.STATE_POWER_OFF) {
                 useEmergencyCallHelper = true;
             }
         } else {
