@@ -586,6 +586,22 @@
     <string name="preferred_network_mode_gsm_only_choice">GSM only</string>
     <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferred</string>
 
+    <string name="preferred_network_mode_1x_evdo_summary">Preferred network mode: Hybrid</string>
+    <string name="preferred_network_mode_1x_only_summary">Preferred network mode: 1x only</string>
+    <string name="preferred_network_mode_evdo_only">"EvDo only"</string>
+    <string name="preferred_network_mode_1x_only">"1x only"</string>
+    <string name="preferred_network_mode_hybrid">"Hybrid"</string>
+
+    <string-array name="preferred_network_mode_options_smartfren">
+        <item>@string/preferred_network_mode_evdo_only</item>
+        <item>@string/preferred_network_mode_1x_only</item>
+        <item>@string/preferred_network_mode_hybrid</item>
+    </string-array>
+    <string-array name="preferred_network_mode_options_values_smartfren" translatable="false">
+        <item>"6"</item>
+        <item>"5"</item>
+        <item>"4"</item>
+    </string-array>
 
     <string-array name="preferred_network_mode_choices" translatable="false">
         <item>@string/preferred_network_mode_lte_cdma_evdo_gsm_choice</item>
@@ -1670,4 +1686,9 @@
     <string name="China_Unicom">China Unicom</string>
     <string name="China_Telecom">China Telecom</string>
     <string name="roamingTextSearching">Searching for Service</string>
+
+    <string name="attention">Attention</string>
+    <string name="call_sms_cannot_conduct">On EVDO Only mode, Call and SMS cannot be conducted,
+        proceed?
+    </string>
 </resources>
