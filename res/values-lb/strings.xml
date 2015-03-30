@@ -94,7 +94,7 @@
   <string name="messageCFNRc">Nummer wann net erreechbar</string>
   <string name="sum_cfnrc_enabled">Weiderleeden u(n) <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
   <string name="sum_cfnrc_disabled">Desaktivéiert</string>
-  <string name="disable_cfnrc_forbidden">Däin Netzbedreiwer ënnerstëtzt d\'Desaktivéiere vun der Uruffweiderleedunge bei Onerreechbarkeet net.</string>
+  <string name="disable_cfnrc_forbidden">Däi Provider ënnerstëtzt d\'Desaktivéiere vun der Uruffweiderleedunge bei Onerreechbarkeet net.</string>
   <string name="updating_title">Uruffastellungen</string>
   <string name="error_updating_title">Feeler bei den Uruffastellungen</string>
   <string name="reading_settings">Astellunge gi gelies\u2026</string>
@@ -114,8 +114,8 @@
     <item>Nummer uweisen</item>
   </string-array>
   <string name="vm_changed">Mailbox-Nummer geännert.</string>
-  <string name="vm_change_failed">Konnt d\'Mailboxnummer net änneren.\nKontaktéier däin Netzbedreiwer wann de Problem bestoe bleift.</string>
-  <string name="fw_change_failed">Konnt d\'Weiderleedungsnummer net änneren.\nKontaktéier däin Netzbedreiwer wann de Problem bestoe bleift.</string>
+  <string name="vm_change_failed">Konnt d\'Mailboxnummer net änneren.\nKontaktéier däi Provider wann de Problem bestoe bleift.</string>
+  <string name="fw_change_failed">Konnt d\'Weiderleedungsnummer net änneren.\nKontaktéier däi Provider wann de Problem bestoe bleift.</string>
   <string name="fw_get_in_vm_failed">Déi aktuell Astellunge fir d\'Weiderleedungsnummer kënnen net ofgeruff a gespäichert ginn.\nWëlls du trotzdeem bei deen anere Provider wiesselen?</string>
   <string name="no_change">Keng Ännerunge goufe gemaach.</string>
   <string name="sum_voicemail_choose_provider">Mailbox-Service auswielen</string>
@@ -186,7 +186,7 @@
   <string name="throttle_data_rate_reduced_subtext"><xliff:g id="used">%1$s</xliff:g> Maximum iwwerschratt\nDen Datentaux gouf op <xliff:g id="used">%2$d</xliff:g> kb/s reduzéiert</string>
   <string name="throttle_time_frame_subtext"><xliff:g id="used">%1$d</xliff:g>\u066A vum Zyklus ofgelaf\nDéi nächst Period start a(n) <xliff:g id="used">%2$d</xliff:g> Deeg (<xliff:g id="used">%3$s</xliff:g>)</string>
   <string name="throttle_rate_subtext">Den Datentaux gëtt op <xliff:g id="used">%1$d</xliff:g> kb/s reduzéiert wann d\'Datebenotzungslimitt iwwerschratt ass</string>
-  <string name="throttle_help_subtext">Méi Informatiounen iwwer d\'Richtlinne vum Netzbedreiwer fir d\'Benotzung vun de Mobilfunknetzdaten</string>
+  <string name="throttle_help_subtext">Méi Informatiounen iwwer d\'Richtlinne vum Provider fir d\'Benotzung vun de Mobilfunknetzdaten</string>
   <string name="cell_broadcast_sms">Zell-Iwwerdroungs-SMS</string>
   <string name="enable_disable_cell_bc_sms">Zell-Iwwerdroungs-SMS</string>
   <string name="cell_bc_sms_enable">Zell-Iwwerdroungs-SMS aktivéiert</string>
@@ -288,7 +288,7 @@
   </string-array>
   <string name="cdma_activate_device">Apparat aktivéieren</string>
   <string name="cdma_lte_data_service">Dateservice astellen</string>
-  <string name="carrier_settings_title">Netzbedreiwerastellungen</string>
+  <string name="carrier_settings_title">Providerastellungen</string>
   <string name="fdn">Zougeloosse Ruffnummeren</string>
   <string name="manage_fdn_list">Uruffbegrenzung</string>
   <string name="fdn_activation">FDN-Aktivéierung</string>
@@ -331,7 +331,7 @@
   <string name="simContacts_emptyLoading">Liese vun der SIM-Kaart\u2026</string>
   <string name="simContacts_empty">Keng Kontakter op der SIM-Kaart.</string>
   <string name="simContacts_title">Kontakter fir z\'importéiere auswielen</string>
-  <string name="simContacts_airplaneMode">Fir Kontakter vun der SIM-Kaart z\'importéieren muss du fir d\'éischt de Fliigermodus ausschalten.</string>
+  <string name="simContacts_airplaneMode">Fir Kontakter vun der SIM-Kaart z\'importéiere muss du fir d\'éischt de Fliigermodus ausschalten.</string>
   <string name="enable_pin">SIM-PIN aktivéieren/desaktivéieren</string>
   <string name="change_pin">SIM-PIN änneren</string>
   <string name="enter_pin_text">SIM-PIN:</string>
