@@ -60,10 +60,16 @@
   <string name="requesting_rc_unlock">מבקש פתיחת RUIM חברה/u2026</string>
   <string name="requesting_ruim_unlock">מבקש פתיחת RUIM\u2026</string>
   <string name="requesting_puk_unlock">מבקש פתיחת PUK\u2026</string>
+  <string name="unlock_failed_cm">בקשה לפתיחת רשת SIM נכשלה.</string>
+  <string name="nw_subset_unlock_failed">בקשה לפתיחת SIM לרשת פרטית נכשלה.</string>
+  <string name="sp_unlock_failed">בקשת פתיחת ספק שירות ה-SIM נכשלה.</string>
+  <string name="corporate_unlock_failed">בקשת פתיחת SIM חברה לא עבר בהצלחה.</string>
   <string name="sim_unlock_failed">בקשת פתיחת SIM נכשלה.</string>
   <string name="rnw1_unlock_failed">בקשת פתיחת RUIM רשת 1 נכשלה.</string>
   <string name="rnw2_unlock_failed">בקשת פתיחת RUIM רשת 2 נכשלה.</string>
   <string name="rhrpd_unlock_failed">בקשת פתיחת RUIM HRPD נכשלה.</string>
+  <string name="rsp_unlock_failed">בקשת פתיחת ספק שירות ה-RUIM נכשלה.</string>
+  <string name="rc_unlock_failed">בקשת פתיחת SIM חברה לא עבר בהצלחה.</string>
   <string name="ruim_unlock_failed">בקשת פתיחת RUIM נכשלה.</string>
   <string name="puk_unlock_failed">פתיחת PUK נכשלה.</string>
   <string name="unlock_success_cm">פתיחת SIM לרשת הצליחה.</string>
@@ -97,6 +103,8 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">מצב רשת מועדף: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="callFailed_incoming_cb_enabled">החברה הגבילה את כל השיחות הנכנסות.</string>
+  <string name="callUnanswered_forwarded">שיחה שהועברה מבלי להיענות</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
@@ -164,6 +172,7 @@
   <string name="change">הגדר</string>
   <string name="new_sim_detected">כרטיס SIM חדש זוהה:</string>
   <string name="default_sim_setting">הגדרות ברירת מחדל:</string>
+  <string name="mobile_data">חיבור נתונים: <xliff:g id="status" example="enabled">%1$s </xliff:g></string>
   <string name="mobile_data_on">פעיל</string>
   <string name="mobile_data_off">כבוי</string>
   <string name="sim_unknown">לא ידוע</string>
@@ -173,9 +182,13 @@
   <string name="lte_recognition_title">זיהוי כרטיס SIM</string>
   <string name="lte_recognize_summary">שני כרטיסי SIM דור 3/LTE זוהו, עליך להגדיר את כרטיס ה-SIM לברירת המחדל:</string>
   <string name="lte_select_title">כרטיס SIM דור 3/LTE ברירת מחדל</string>
+  <string name="lte_select_summary">המנוי הנבחר יזוהה ככרטיס SIM מדור 3\LTE והאחר יזוהה ככרטיס SIM דור 2.</string>
+  <string name="lte_checkbox_text">הגדר חיבור נתונים לכרטיס ה-SIM שנבחר לאחר שינוי של כרטיס סים דור 3/LTE ברירת מחדל</string>
   <string name="reg_failed">הרשמה נכשלה</string>
   <string name="reg_suc">הרשמה הצליחה</string>
+  <string name="reg_failed_msg">רישום ברירת מחדל של כרטיס SIM 3G/LTE נכשל, %1$s יזוהה ככרטיס SIM דור 2.</string>
   <string name="lte_set">הגדר</string>
+  <string name="lte_setting">כרטיס סים דור 3/LTE ברירת המחדל מוגדר</string>
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
