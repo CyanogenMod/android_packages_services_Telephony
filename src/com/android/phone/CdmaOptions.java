@@ -83,6 +83,7 @@ public class CdmaOptions {
                             // This will setup the Home and Search affordance
                             intent.putExtra(":settings:show_fragment_as_subsetting", true);
                             intent.putExtra("sub_id", mPhone.getSubId());
+                            intent.putExtra(PhoneConstants.SUBSCRIPTION_KEY, mPhone.getSubId());
                             mPrefActivity.startActivity(intent);
                             return true;
                         }
