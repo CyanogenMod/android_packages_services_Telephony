@@ -1691,4 +1691,6 @@
     <string name="call_sms_cannot_conduct">On EVDO Only mode, Call and SMS cannot be conducted,
         proceed?
     </string>
+    <string name="menu_dial_string">Call</string>
+
 </resources>

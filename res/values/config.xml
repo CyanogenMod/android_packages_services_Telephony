@@ -360,4 +360,7 @@ as an enum (NONE, HFA, OTASP). -->
 
     <!-- config network mode for smartfren carriers -->
     <bool name="config_network_smartfren_feature">false</bool>
+    <!-- config for showing dial option when fdn contact is selected.
+         By default feature is disabled -->
+    <bool name="config_fdn_direct_dial">false</bool>
 </resources>
