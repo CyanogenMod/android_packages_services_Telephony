@@ -57,8 +57,6 @@ public class CdmaVoicePrivacyCheckBoxPreference extends CheckBoxPreference {
                 mHandler.obtainMessage(MyHandler.MESSAGE_SET_VP));
     }
 
-
-
     private class MyHandler extends Handler {
         static final int MESSAGE_GET_VP = 0;
         static final int MESSAGE_SET_VP = 1;
