@@ -32,6 +32,8 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.TelephonyProperties;
 
+import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
+
 /**
  * List of Phone-specific settings screens.
  */
@@ -82,6 +84,7 @@ public class CdmaOptions {
                             final Intent intent = new Intent(Settings.ACTION_APN_SETTINGS);
                             // This will setup the Home and Search affordance
                             intent.putExtra(":settings:show_fragment_as_subsetting", true);
+                            intent.putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
                             mPrefActivity.startActivity(intent);
                             return true;
                         }
