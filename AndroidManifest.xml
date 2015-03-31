@@ -504,6 +504,14 @@
             </intent-filter>
         </activity>
 
+        <!-- Broadcast receiver to set default handlers for various actions
+             depending if MSim is available -->
+        <receiver android:name="ComponentEnableReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <!-- Broadcast Receiver that will process BOOT Complete and launch OTA -->
         <receiver android:name="OtaStartupReceiver" android:exported="false"
                 androidprv:primaryUserOnly="true">
