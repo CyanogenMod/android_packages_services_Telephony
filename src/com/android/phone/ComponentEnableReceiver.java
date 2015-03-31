@@ -50,7 +50,7 @@ public class ComponentEnableReceiver extends BroadcastReceiver {
     private boolean getEnabled(Context context, Class<?> klass) {
         PackageManager pm = context.getPackageManager();
         ComponentName component = new ComponentName(context, klass);
-        return pm.getComponentEnabledSetting(component) !=
+        return pm.getComponentEnabledSetting(component) ==
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
     }
 }
