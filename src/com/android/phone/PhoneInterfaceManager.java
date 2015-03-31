@@ -1611,7 +1611,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      * @return true if a ICC card is present for a slotId
      */
     public boolean hasIccCardUsingSlotId(int slotId) {
-        return getPhone(slotId).getIccCard().hasIccCard();
+        return PhoneFactory.getPhone(slotId).getIccCard().hasIccCard();
     }
 
     /**
