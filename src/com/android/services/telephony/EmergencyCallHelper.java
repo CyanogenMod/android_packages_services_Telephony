@@ -160,7 +160,7 @@ public class EmergencyCallHelper {
         // - STATE_EMERGENCY_ONLY    // Phone is locked; only emergency numbers are allowed
         // - STATE_POWER_OFF         // Radio is explicitly powered off (airplane mode)
 
-        if (isOkToCall(state.getState(), mPhone.getState())) {
+        if (isOkToCall(state, mPhone.getState())) {
             // Woo hoo!  It's OK to actually place the call.
             Log.d(this, "onServiceStateChanged: ok to call!");
 
@@ -178,14 +178,15 @@ public class EmergencyCallHelper {
         }
     }
 
-    private boolean isOkToCall(int serviceState, PhoneConstants.State phoneState) {
+    private boolean isOkToCall(ServiceState state, PhoneConstants.State phoneState) {
+        int serviceState = state.getState();
         // Once we reach either STATE_IN_SERVICE or STATE_EMERGENCY_ONLY, it's finally OK to place
         // the emergency call.
         Call.State callState = mPhone.getForegroundCall().getState();
         return ((phoneState == PhoneConstants.State.OFFHOOK
                 && callState != Call.State.DIALING)
                 || (serviceState == ServiceState.STATE_IN_SERVICE)
-                || (serviceState == ServiceState.STATE_EMERGENCY_ONLY)) ||
+                || (state.isEmergencyOnly())) ||
 
                 // Allow STATE_OUT_OF_SERVICE if we are at the max number of retries.
                 (mNumRetriesSoFar == MAX_NUM_RETRIES &&
@@ -207,7 +208,7 @@ public class EmergencyCallHelper {
         //   call.
         // - If the radio is still powered off, try powering it on again.
 
-        if (isOkToCall(serviceState, phoneState)) {
+        if (isOkToCall(mPhone.getServiceState(), phoneState)) {
             Log.d(this, "onRetryTimeout: Radio is on. Cleaning up.");
 
             // Woo hoo -- we successfully got out of airplane mode.
