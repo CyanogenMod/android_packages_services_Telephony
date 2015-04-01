@@ -177,4 +177,7 @@
 
     <!-- Some vendors don't want to allow non slot 0 to be set to default for calls/sms -->
     <bool name="config_hardcodeDefaultMobileNetworks">false</bool>
+
+   <!-- Config to enable/disable Packet Count/Packet Error Count UI option -->
+   <bool name="config_ims_enable_rtp_statistics">false</bool>
 </resources>

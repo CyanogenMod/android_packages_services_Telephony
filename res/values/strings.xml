@@ -1262,4 +1262,11 @@
     <string name="sim_label_emergency_calls">Emergency calls</string>
     <string name="sim_description_emergency_calls">Emergency calling only</string>
     <string name="sim_description_default">SIM card, slot: <xliff:g id="slot_id">%s</xliff:g></string>
+    <!-- Packet Count and Packet Erorr Count settings -->
+    <string translatable="false" name="ims_pc_count">ImsPacketCount</string>
+    <string translatable="false" name="ims_per_count">ImsPacketErrorCount</string>
+    <string name="ims_get_packet_count_failed">Failed to get packet count</string>
+    <string name="ims_get_packet_error_count_failed">Failed to get packet error count</string>
+    <string name="ims_get_packet_count_label">click here to get packet count</string>
+    <string name="ims_get_packet_error_count_label">click here to get packet error count</string>
 </resources>
