@@ -369,4 +369,5 @@ as an enum (NONE, HFA, OTASP). -->
 
     <!-- Flag indicating if video calling on enabled -->
     <bool name="enable_video_calling_on">true</bool>
+    <integer name="config_default_vibrate_after_connected">1</integer>
 </resources>
