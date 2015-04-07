@@ -257,6 +257,9 @@ public class CallFeaturesSetting extends PreferenceActivity
     private PreferenceScreen mButtonVideoCallForward;
     private PreferenceScreen mButtonVideoCallPictureSelect;
 
+    // Smart Calls
+    private static final String BUTTON_SMART_DIALER_KEY = "button_smart_dialer";
+
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
     private Runnable mVoicemailRingtoneLookupRunnable;
@@ -591,6 +594,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         } else if (preference == mButtonVideoCallForward) {
             startActivity(getVTCallFWSettingsIntent());
             return true;
+        } else if (preference == mSmartCall){
+            Settings.System.putInt(getContentResolver(), Settings.System.SMART_PHONE_CALLER,
+                    mSmartCall.isChecked() ? 1 : 0);
+                    return true;
         } else if (preference == mButtonVideoCallPictureSelect) {
             startActivity(getVTCallImageSettingsIntent());
             return true;
@@ -1579,6 +1586,10 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         mPhone = PhoneGlobals.getPhone();
         mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+        mSmartCall = (CheckBoxPreference) findPreference(BUTTON_SMART_DIALER_KEY);
+        mSmartCall.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.SMART_PHONE_CALLER, 0) != 0 ? true : false);
 
         // create intent to bring up contact list
         mContactListIntent = new Intent(Intent.ACTION_GET_CONTENT);
