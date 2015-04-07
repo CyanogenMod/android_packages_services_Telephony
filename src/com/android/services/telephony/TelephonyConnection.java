@@ -209,7 +209,7 @@ abstract class TelephonyConnection extends Connection {
 
     private void setCanMerge(boolean canMerge) {
         mCanMerge = canMerge;
-        updateCallCapabilities();
+        updateConnectionCapabilities();
     }
 
     /**
@@ -607,37 +607,6 @@ abstract class TelephonyConnection extends Connection {
 
         if (getConnectionCapabilities() != newCapabilities) {
             setConnectionCapabilities(newCapabilities);
-        }
-    }
-	/**
-* Builds call capabilities common to all TelephonyConnections. Namely, apply IMS-based
-* capabilities.
-*/
-protected int buildCallCapabilities() {
-    int callCapabilities = 0;
-    if (mCanMerge) {
-        callCapabilities |= PhoneCapabilities.MERGE_CONFERENCE;
-    }
-    if (isImsConnection()) {
-        callCapabilities |= PhoneCapabilities.SUPPORT_HOLD;
-        if (getState() == STATE_ACTIVE || getState() == STATE_HOLDING) {
-            callCapabilities |= PhoneCapabilities.HOLD;
-        }
-    }
-    return callCapabilities;
-}
-
-protected final void updateCallCapabilities() {
-        int newCallCapabilities = buildCallCapabilities();
-        newCallCapabilities = applyVideoCapabilities(newCallCapabilities);
-        newCallCapabilities = applyAudioQualityCapabilities(newCallCapabilities);
-        newCallCapabilities = applyConferenceTerminationCapabilities(newCallCapabilities);
-        newCallCapabilities = applyVoicePrivacyCapabilities(newCallCapabilities);
-        newCallCapabilities = applyAddParticipantCapabilities(newCallCapabilities);
-        newCallCapabilities = applyConferenceCapabilities(newCallCapabilities);
-
-        if (getCallCapabilities() != newCallCapabilities) {
-            setCallCapabilities(newCallCapabilities);
         }
     }
 
