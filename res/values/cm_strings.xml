@@ -327,4 +327,8 @@
     <string name="phone_number_label">My phone number</string>
     <string name="phone_number_summary">Set the phone number for this device</string>
     <string name="msisdn_alpha_tag" translatable="false">Voice Line 1</string>
+
+     <!-- Smart Call -->
+    <string name="smart_dialer_title">Smart Call</string>
+    <string name="smart_dialer_summary">Automatically call the contact by putting device near your ear</string>
 </resources>

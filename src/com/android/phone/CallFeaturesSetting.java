@@ -168,6 +168,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_VOICEMAIL_SETTING_KEY = "button_voicemail_setting_key";
     private static final String BUTTON_VOICEMAIL_CATEGORY_KEY = "button_voicemail_category_key";
     private static final String BUTTON_MWI_NOTIFICATION_KEY = "button_mwi_notification_key";
+    private static final String BUTTON_SMART_CALL = "button_smart_dialer";
     // New preference key for voicemail notification vibration
     /* package */ static final String BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY =
             "button_voicemail_notification_vibrate_key";
@@ -257,6 +258,9 @@ public class CallFeaturesSetting extends PreferenceActivity
     private PreferenceScreen mButtonVideoCallForward;
     private PreferenceScreen mButtonVideoCallPictureSelect;
 
+    // Smart Calls
+    private static final String BUTTON_SMART_DIALER_KEY = "button_smart_dialer";
+
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
     private Runnable mVoicemailRingtoneLookupRunnable;
@@ -283,6 +287,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private PreferenceScreen mVoicemailSettings;
     private Preference mVoicemailNotificationRingtone;
     private SwitchPreference mVoicemailNotificationVibrate;
+    private SwitchPreference mSmartCall;
     private AccountSelectionPreference mDefaultOutgoingAccount;
     private boolean isSpeedDialListStarted = false;
     private PreferenceScreen mButtonBlacklist;
@@ -591,6 +596,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         } else if (preference == mButtonVideoCallForward) {
             startActivity(getVTCallFWSettingsIntent());
             return true;
+        } else if (preference == mSmartCall){
+            Settings.System.putInt(getContentResolver(), Settings.System.SMART_PHONE_CALLER,
+                    mSmartCall.isChecked() ? 1 : 0);
+                    return true;
         } else if (preference == mButtonVideoCallPictureSelect) {
             startActivity(getVTCallImageSettingsIntent());
             return true;
@@ -1840,6 +1849,13 @@ public class CallFeaturesSetting extends PreferenceActivity
             int mwiNotification = Settings.System.getInt(getContentResolver(),
                     Settings.System.ENABLE_MWI_NOTIFICATION, 0);
             mMwiNotification.setChecked(mwiNotification != 0);
+        }
+
+        mSmartCall = (SwitchPreference) findPreference(BUTTON_SMART_DIALER_KEY);
+        if (mSmartCall != null) {
+            int mSmartCallCheck = Settings.System.getInt(getContentResolver(),
+                    Settings.System.SMART_PHONE_CALLER, 0);
+            mSmartCall.setChecked(mSmartCallCheck != 0);
         }
 
         if (mButtonDTMF != null) {
