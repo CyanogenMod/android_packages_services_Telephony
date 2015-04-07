@@ -198,6 +198,9 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
             } else if (TelephonyIntents.ACTION_SUBINFO_RECORD_UPDATED.equals(action)) {
                 List<SubscriptionInfo> subInfoList = SubscriptionManager.from(context)
                     .getActiveSubscriptionInfoList();
+                if (subInfoList == null) {
+                    return;
+                }
                 boolean havePrefSub = false;
                 int subId = getUserPrefDataSubIdFromDB();
                 for (SubscriptionInfo subInfo : subInfoList) {
