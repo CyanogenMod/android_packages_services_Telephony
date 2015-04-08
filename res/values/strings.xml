@@ -588,16 +588,25 @@
 
     <string name="preferred_network_mode_1x_evdo_summary">Preferred network mode: Hybrid</string>
     <string name="preferred_network_mode_1x_only_summary">Preferred network mode: 1x only</string>
+    <string name="preferred_network_mode_lte_evdo_1x_summary">Preferred network mode:
+        LTE Hybrid</string>
+    <string name="preferred_network_mode_lte_only_summary">"Preferred network mode: LTE only"</string>
+    <string name="preferred_network_mode_lte_hybrid">"LTE Hybrid"</string>
+    <string name="preferred_network_mode_lte_only">"LTE only"</string>
     <string name="preferred_network_mode_evdo_only">"EvDo only"</string>
     <string name="preferred_network_mode_1x_only">"1x only"</string>
     <string name="preferred_network_mode_hybrid">"Hybrid"</string>
 
     <string-array name="preferred_network_mode_options_smartfren">
+        <item>@string/preferred_network_mode_lte_hybrid</item>
+        <item>@string/preferred_network_mode_lte_only</item>
         <item>@string/preferred_network_mode_evdo_only</item>
         <item>@string/preferred_network_mode_1x_only</item>
         <item>@string/preferred_network_mode_hybrid</item>
     </string-array>
     <string-array name="preferred_network_mode_options_values_smartfren" translatable="false">
+        <item>"8"</item>
+        <item>"11"</item>
         <item>"6"</item>
         <item>"5"</item>
         <item>"4"</item>
