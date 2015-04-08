@@ -79,6 +79,22 @@
     <string name="time_formate_am">AM</string>
     <string name="time_formate_pm">PM</string>
 
+    <!-- Mobile network settings, preferred network modes -->
+    <string name="network_wcdma_only">@string/network_3G</string>
+    <string name="network_gsm_umts">@string/network_3G</string>
+    <string name="network_wcdma_pref">@string/network_3G</string>
+    <string name="network_gsm_only">@string/network_2G</string>
+    <string name="network_lte_gsm_wcdma">@string/network_lte</string>
+    <string name="network_lte_cdma">@string/network_lte</string>
+    <string name="network_lte_only">@string/network_lte</string>
+    <string name="network_lte_cdma_and_evdo">@string/network_lte</string>
+    <string name="network_cdma">@string/network_3G</string>
+    <string name="network_evdo_no_cdma">@string/network_3G</string>
+    <string name="network_3g_global">@string/network_3G</string>
+    <string name="network_cdma_no_evdo">@string/network_1x</string>
+    <string name="network_lte_cdma_evdo_gsm_wcdma">@string/network_global</string>
+    <string name="network_4G_only">@string/network_4G</string>
+
     <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_global_summary_cm">Preferred network mode: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
 
