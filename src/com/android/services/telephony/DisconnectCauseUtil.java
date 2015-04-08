@@ -418,6 +418,7 @@ public class DisconnectCauseUtil {
 
             case android.telephony.DisconnectCause.LIMIT_EXCEEDED:
                 resourceId = R.string.callFailed_limitExceeded;
+                break;
 
             case android.telephony.DisconnectCause.INVALID_NUMBER:
                 resourceId = R.string.callFailed_invalid_number_format;
@@ -577,6 +578,10 @@ public class DisconnectCauseUtil {
 
             case android.telephony.DisconnectCause.NORMAL:
                 resourceId = R.string.callFailed_normal;
+                break;
+
+            case android.telephony.DisconnectCause.NON_SELECTED_USER_CLEARING:
+                resourceId = R.string.callFailed_non_selected_user_clearing;
                 break;
 
             case android.telephony.DisconnectCause.OUTGOING_CANCELED:
