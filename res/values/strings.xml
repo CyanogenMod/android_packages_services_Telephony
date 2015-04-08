@@ -591,6 +591,20 @@
     <string name="network_1x" translatable="false">1x</string>
     <string name="network_global">Global</string>
 
+    <string name="network_wcdma_only">@string/network_3G</string>
+    <string name="network_gsm_umts">@string/network_3G</string>
+    <string name="network_wcdma_pref">@string/network_3G</string>
+    <string name="network_gsm_only">@string/network_2G</string>
+    <string name="network_lte_gsm_wcdma">@string/network_lte</string>
+    <string name="network_lte_cdma">@string/network_lte</string>
+    <string name="network_lte_only">@string/network_lte</string>
+    <string name="network_lte_cdma_and_evdo">@string/network_lte</string>
+    <string name="network_cdma">@string/network_3G</string>
+    <string name="network_evdo_no_cdma">@string/network_3G</string>
+    <string name="network_3g_global">@string/network_3G</string>
+    <string name="network_cdma_no_evdo">@string/network_1x</string>
+    <string name="network_lte_cdma_evdo_gsm_wcdma">@string/network_global</string>
+
     <string-array name="enabled_networks_except_gsm_choices" translatable="false">
         <item>@string/network_lte</item>
         <item>@string/network_3G</item>
