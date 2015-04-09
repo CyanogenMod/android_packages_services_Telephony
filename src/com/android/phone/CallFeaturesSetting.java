@@ -141,6 +141,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             "com.android.dialer.DialtactsActivity";
 
     private static final String BUTTON_4G_LTE_KEY = "enhanced_4g_lte";
+    private static final String BUTTON_ENABLE_VIDEO_CALLING = "button_enable_video_calling";
 
     // Used to tell the saving logic to leave forwarding number as is
     public static final CallForwardInfo[] FWD_SETTINGS_DONT_TOUCH = null;
@@ -1744,6 +1745,10 @@ public class CallFeaturesSetting extends PreferenceActivity
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_SP_KEY));
             if((PreferenceCategory)findPreference(BUTTON_VIDEO_CALL_KEY) != null)
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
+        }
+
+        if (!getResources().getBoolean(R.bool.enable_video_calling_on)) {
+            getPreferenceScreen().removePreference(findPreference(BUTTON_ENABLE_VIDEO_CALLING));
         }
 
         mButtonDTMF = (ListPreference) findPreference(BUTTON_DTMF_KEY);
