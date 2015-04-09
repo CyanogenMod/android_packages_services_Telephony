@@ -80,6 +80,12 @@ public class ImsConferenceController {
         public void onDestroyed(Connection connection) {
             remove(connection);
         }
+
+        @Override
+        public void onConferenceStarted() {
+            Log.v(this, "onConferenceStarted");
+            recalculateConference();
+        }
     };
 
     /**
