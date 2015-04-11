@@ -1766,7 +1766,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButton4glte.setChecked(ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this));
 
         // Enable enhanced 4G LTE mode settings depending on whether exists on platform
-        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this) ||
+        if (!ImsManager.isVolteEnabledByPlatform(this) ||
                     !getResources().getBoolean(R.bool.cmcc_enhanced_lte)) {
             Preference pref = prefSet.findPreference(BUTTON_4G_LTE_KEY);
             if (pref != null) {
