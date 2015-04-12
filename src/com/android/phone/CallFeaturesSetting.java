@@ -1988,8 +1988,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
 
         if (mVibrateAfterConnected != null) {
+            int defaultVibrateEnabled = getResources()
+                    .getInteger(R.integer.config_default_vibrate_after_connected);
             boolean checked = Settings.System.getInt(getContentResolver(),
-                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, 1) == 1;
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, defaultVibrateEnabled) == 1;
             mVibrateAfterConnected.setChecked(checked);
         }
 
