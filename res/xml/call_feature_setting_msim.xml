@@ -90,6 +90,16 @@
         android:persistent="false"
         android:summary="@string/enhanced_4g_lte_mode_summary"/>
 
+    <PreferenceScreen
+        android:key="ims_account_settings_key"
+        android:title="@string/ims_accounts_title"
+        android:persistent="false">
+
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.phone"
+            android:targetClass="com.android.phone.ImsEditor" />
+    </PreferenceScreen>
+
     <CheckBoxPreference
         android:key="button_enable_video_calling"
         android:title="@string/enable_video_calling_title"
