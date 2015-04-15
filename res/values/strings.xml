@@ -1269,4 +1269,34 @@
     <string name="ims_get_packet_error_count_failed">Failed to get packet error count</string>
     <string name="ims_get_packet_count_label">click here to get packet count</string>
     <string name="ims_get_packet_error_count_label">click here to get packet error count</string>
+
+    <!-- Wifi Call Settings -->
+    <string name="wifi_call_setting">Wifi Call Settings</string>
+    <string name="wifi_calling_title">Wifi Calling</string>
+    <string name="wifi_calling_summary">Enable Wifi Calling and Select Wifi Preference for Wifi Calling</string>
+
+    <string name="wifi_calling_preference_title">Wifi Calling Preference</string>
+    <string name="wifi_calling_preference_dialog_title">Wifi Calling Preference</string>
+    <string name="wifi_calling_preference_summary">Change the wifi calling preference</string>
+    <string name="ims_set_wifi_calling_preference_failed">Failed to set wifi calling preference</string>
+
+    <string name="wifi_pref_none">No Preference Selected</string>
+    <string name="wifi_preferred">Wifi Preferred</string>
+    <string name="wifi_only">Wifi Only</string>
+    <string name="cellular_preferred">Cellular Preferred</string>
+    <string name="cellular_only">Cellular Only</string>
+
+    <string-array name="wifi_calling_preference_choices">
+        <item>@string/wifi_preferred</item>
+        <item>@string/wifi_only</item>
+        <item>@string/cellular_preferred</item>
+        <item>@string/cellular_only</item>
+    </string-array>
+
+    <string-array name="wifi_calling_preference_values" translatable="false">
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+    </string-array>
 </resources>
