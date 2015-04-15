@@ -148,6 +148,15 @@ public class ImsEditor extends PreferenceActivity
         public void onSetFeatureResponse(int feature, int network, int value, int status) {
             //TODO not required as of now
         }
+
+        public void onGetWifiCallingPreference(int status, int wifiCallingStatus,
+                int wifiCallingPreference) {
+            //TODO not required as of now
+        }
+
+        public void onSetWifiCallingPreference(int status) {
+            //TODO not required as of now
+        }
     };
 
     private void onPcPrefClicked() {
