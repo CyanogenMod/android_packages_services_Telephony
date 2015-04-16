@@ -187,6 +187,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_VIDEO_CALL_FB_KEY = "videocall_setting_fb_key";
     private static final String BUTTON_VIDEO_CALL_FW_KEY = "videocall_setting_fw_key";
     private static final String BUTTON_VIDEO_CALL_SP_KEY = "vt_imageplacer";
+    private static final String BUTTON_VIDEO_CALL_SWITCH = "button_enable_video_calling";
 
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
@@ -256,6 +257,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private PreferenceScreen mButtonVideoCallFallback;
     private PreferenceScreen mButtonVideoCallForward;
     private PreferenceScreen mButtonVideoCallPictureSelect;
+    private Preference mVideoCallPreference;
 
     private EditPhoneNumberPreference mSubMenuVoicemailSettings;
 
@@ -1682,6 +1684,11 @@ public class CallFeaturesSetting extends PreferenceActivity
             mButtonVideoCallForward = (PreferenceScreen) findPreference(BUTTON_VIDEO_CALL_FW_KEY);
             mButtonVideoCallPictureSelect = (PreferenceScreen)
                     findPreference(BUTTON_VIDEO_CALL_SP_KEY);
+        } else {
+            mVideoCallPreference = findPreference(BUTTON_VIDEO_CALL_SWITCH);
+            if (mVideoCallPreference != null) {
+                prefSet.removePreference(mVideoCallPreference);
+            }
         }
 
         mMwiNotification = (SwitchPreference) findPreference(BUTTON_MWI_NOTIFICATION_KEY);
