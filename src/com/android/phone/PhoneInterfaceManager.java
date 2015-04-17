@@ -288,10 +288,11 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                 case EVENT_TRANSMIT_APDU_LOGICAL_CHANNEL_DONE:
                     ar = (AsyncResult) msg.obj;
                     request = (MainThreadRequest) ar.userObj;
-                    request.result = ar.result;
                     if (ar.exception == null && ar.result != null) {
                         if (DBG) log("EVENT_TRANSMIT_APDU_LOGICAL_CHANNEL_DONE successful");
+                        request.result = ar.result;
                     } else {
+                        request.result = new IccIoResult(0x6F, 0, (byte[])null);
                         if (ar.result == null) {
                             loge("iccTransmitApduLogicalChannel: Empty response");
                         } else if (ar.exception instanceof CommandException) {
@@ -327,10 +328,11 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                 case EVENT_TRANSMIT_APDU_BASIC_CHANNEL_DONE:
                     ar = (AsyncResult) msg.obj;
                     request = (MainThreadRequest) ar.userObj;
-                    request.result = ar.result;
                     if (ar.exception == null && ar.result != null) {
                         if (DBG) log("EVENT_TRANSMIT_APDU_BASIC_CHANNEL_DONE successful");
+                        request.result = ar.result;
                     } else {
+                        request.result = new IccIoResult(0x6F, 0, (byte[])null);
                         if (ar.result == null) {
                             loge("iccTransmitApduBasicChannel: Empty response");
                         } else if (ar.exception instanceof CommandException) {
@@ -366,10 +368,11 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                 case EVENT_EXCHANGE_SIM_IO_DONE:
                     ar = (AsyncResult) msg.obj;
                     request = (MainThreadRequest) ar.userObj;
-                    request.result = ar.result;
                     if (ar.exception == null && ar.result != null) {
                         if (DBG) log("EVENT_EXCHANGE_SIM_IO_DONE successful");
+                        request.result = ar.result;
                     } else {
+                        request.result = new IccIoResult(0x6f, 0, (byte[])null);
                         if (ar.result == null) {
                             loge("ccExchangeSimIO: Empty Response");
                         } else if (ar.exception instanceof CommandException) {
