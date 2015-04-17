@@ -184,4 +184,5 @@
   <string name="ims_vt_call_quality_set_failed">Setarea calității video nu a reușit</string>
   <string name="perm_change_mobile_network">schimbare mod rețea (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Permite aplicației să schimbe între date 2G și 3G în orice moment. 3G este mai rapid, dar bateria se consumă mai rapid și pot apare costuri suplimentare.</string>
+  <string name="phone_number_label">Numărul meu de telefon</string>
 </resources>
