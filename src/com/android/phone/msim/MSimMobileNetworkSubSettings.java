@@ -670,7 +670,9 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 break;
             case Phone.NT_MODE_LTE_ONLY:
                 mButtonPreferredNetworkMode.setSummary(
-                        R.string.preferred_network_mode_lte_summary);
+                        getResources().getBoolean(R.bool.config_network_smartfren_feature)
+                                ? R.string.preferred_network_mode_lte_only_summary
+                                : R.string.preferred_network_mode_lte_summary);
                 break;
             case Phone.NT_MODE_LTE_GSM_WCDMA:
                 mButtonPreferredNetworkMode.setSummary(
@@ -678,7 +680,9 @@ public class MSimMobileNetworkSubSettings extends PreferenceActivity
                 break;
             case Phone.NT_MODE_LTE_CDMA_AND_EVDO:
                 mButtonPreferredNetworkMode.setSummary(
-                        R.string.preferred_network_mode_lte_cdma_evdo_summary);
+                        getResources().getBoolean(R.bool.config_network_smartfren_feature)
+                                ? R.string.preferred_network_mode_lte_evdo_1x_summary
+                                : R.string.preferred_network_mode_lte_cdma_evdo_summary);
                 break;
             case Phone.NT_MODE_LTE_CDMA_EVDO_GSM_WCDMA:
                 mButtonPreferredNetworkMode.setSummary(

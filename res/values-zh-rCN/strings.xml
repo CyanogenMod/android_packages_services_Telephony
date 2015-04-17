@@ -179,6 +179,10 @@
 
     <string name="preferred_network_mode_1x_evdo_summary">"首选网络模式：1x/EvDo"</string>
     <string name="preferred_network_mode_1x_only_summary">"首选网络模式：仅限 1x"</string>
+    <string name="preferred_network_mode_lte_evdo_1x_summary">首选网络模式：LTE/EVDO/1x自动选择</string>
+    <string name="preferred_network_mode_lte_only_summary">"首选网络模式：仅LTE"</string>
+    <string name="preferred_network_mode_lte_hybrid">"LTE/EVDO/1x自动选择"</string>
+    <string name="preferred_network_mode_lte_only">"仅LTE"</string>
     <string name="preferred_network_mode_evdo_only">"仅EvDo"</string>
     <string name="preferred_network_mode_1x_only">"仅1x"</string>
     <string name="preferred_network_mode_hybrid">"1x/EvDo自动选择"</string>
