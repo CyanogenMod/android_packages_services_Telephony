@@ -17,11 +17,8 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="call_notif_unconditionalCF">Baldintzarik gabeko dei desbideraketa gaituta</string>
   <string name="call_notif_conditionalCF">Baldintzadun dei desbideraketa gaituta</string>
-  <string name="call_notif_MOcall_forwarding">Irtetzen diren deien birbidaltzea</string>
   <string name="call_notif_cugcall">Talde itxiako deia</string>
-  <string name="call_notif_outgoing_barred">Irtetzen diren deiak at utzita</string>
   <string name="call_notif_incoming_barred">Sartzen diren deiak at utzita</string>
   <string name="call_notif_clir_suppression_rejected">Dei izkutuak ukatuak</string>
   <string name="call_notif_call_deflected">Dei desbideratua</string>
@@ -36,7 +33,6 @@
   <string name="vibrate_call_waiting">Deia itxaroten dagoenean bibratu</string>
   <string name="vibrate_hangup">Esekitzean bibratu</string>
   <string name="vibrate_45">Minuturo bibratu</string>
-  <string name="vibrate_45_sum">Irtetzen diren deien minutu bakoitzeko 45. segunduan bibratu</string>
   <string name="show_ssn_label">Gertakarien jakinarazpenak</string>
   <string name="show_ssn_summary">Deien kudeaketarekin lotutako sare gertakarien jakinarazpena erakutsi</string>
   <string name="blacklist_title">Zerrenda beltza</string>
@@ -51,7 +47,6 @@
   <string name="blacklist_message_notification_unknown_number">%s zenbaki ezezagun baten mezua oztopatu egin da</string>
   <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> mezu oztopatu dira</string>
   <string name="blacklist_notification_list_private">Pribatua</string>
-  <string name="unblock_number">Deslokatu</string>
   <string name="mwi_notification_title">Ahots postontziaren adierazlea</string>
   <string name="mwi_notification_summary">Jakinarazpen bat ahots postontzian itxaroten dauden mezuentzako erakutsi</string>
   <string name="perm_change_mobile_network">sare modua aldatu (2G/3G)</string>
@@ -71,9 +66,7 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA lehentasuna</string>
   <string name="number_lookup">Telefono zenbakien bilaketa</string>
   <string name="enable_forward_lookup_title">Tokien bilaketa</string>
-  <string name="enable_forward_lookup_summary">Markadorean bilatzean toki gertuen emaitzak erakutsi</string>
   <string name="enable_people_lookup_title">Pertsonen bilaketa</string>
-  <string name="enable_people_lookup_summary">Markadorean bilatzean pertsonen emaitzak erakutsi</string>
   <string name="enable_reverse_lookup_title">Bilaketa alderantzikatua</string>
   <string name="enable_reverse_lookup_summary">Zenbaki ezezagunen deientzako pertsona edo lekuko informazioa bilatu</string>
   <string name="choose_lookup_providers">Bilaketa hornitzailea hautatu</string>
@@ -90,4 +83,7 @@
   <string name="incoming_call_style_title">Deiak jasotzeko pantaila estiloa</string>
   <string name="incoming_call_style_classic">Klasikoa</string>
   <string name="incoming_call_style_fullscreen_photo">Argazkia pantaila osoan</string>
+  <string name="stk_cc_ss_to_dial_error">SS eskaera DIAL eskaerara eraldatu da.</string>
+  <string name="stk_cc_ss_to_ussd_error">SS eskaera USSD eskaerara eraldatu da.</string>
+  <string name="stk_cc_ss_to_ss_error">SS eskaera SS eskaera berri batera eraldatu da.</string>
 </resources>
