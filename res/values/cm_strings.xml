@@ -183,6 +183,13 @@
     <string name="network_cdma_no_evdo" translatable="false">@string/network_1x</string>
     <string name="network_lte_cdma_evdo_gsm_wcdma" translatable="false">@string/network_global</string>
 
+    <!-- Mobile network settings, roaming modes -->
+    <string name="roaming_mode_title">Roaming mode</string>
+    <string name="roaming_mode_summary">International roaming mode</string>
+    <string name="roaming_gsm">GSM roaming</string>
+    <string name="roaming_cdma">CDMA roaming</string>
+    <string name="roaming_disabled">Disabled</string>
+
     <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_global_summary_cm">Preferred network mode: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
     <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
