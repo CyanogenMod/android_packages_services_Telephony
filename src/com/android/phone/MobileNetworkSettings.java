@@ -36,6 +36,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.AsyncResult;
 import android.os.Bundle;
@@ -57,6 +59,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
+import java.util.Arrays;
 
 /**
  * "Mobile network settings" screen.  This preference screen lets you
@@ -86,8 +89,13 @@ public class MobileNetworkSettings extends PreferenceActivity
     private static final String BUTTON_ENABLED_NETWORKS_KEY = "enabled_networks_key";
     private static final String BUTTON_4G_LTE_KEY = "enhanced_4g_lte";
     private static final String BUTTON_CELL_BROADCAST_SETTINGS = "cell_broadcast_settings";
+    private static final String BUTTON_ROAMING_MODE_KEY = "roaming_mode_key";
 
     static final int preferredNetworkMode = Phone.PREFERRED_NT_MODE;
+    static final int ROAMING_MODE_DISABLED = -1;
+    static final String SHARED_PREFERENCES = "MOBILE_NETWORK_SETTING_SHARED_PREFERENCES";
+    static final String SHARED_PREFERENCES_ROAMING_MODE = "ROAMING_MODE";
+    static final String SHARED_PREFERENCES_PREFNET = "PREFERRED_NETWORK_MODE";
 
     //Information about logical "up" Activity
     private static final String UP_ACTIVITY_PACKAGE = "com.android.settings";
@@ -97,6 +105,7 @@ public class MobileNetworkSettings extends PreferenceActivity
     //UI objects
     private ListPreference mButtonPreferredNetworkMode;
     private ListPreference mButtonEnabledNetworks;
+    private ListPreference mButtonRoamingOptions;
     private SwitchPreference mButtonDataRoam;
     private SwitchPreference mButton4glte;
     private Preference mLteDataServicePref;
@@ -107,6 +116,9 @@ public class MobileNetworkSettings extends PreferenceActivity
     private Phone mPhone;
     private MyHandler mHandler;
     private boolean mOkClicked;
+    private CharSequence[] mDefaultPrefNetEntries = null;
+    private CharSequence[] mDefaultPrefNetValues = null;
+    private int mNewRoamMode;
 
     //GsmUmts options and Cdma options
     GsmUmtsOptions mGsmUmtsOptions;
@@ -205,7 +217,9 @@ public class MobileNetworkSettings extends PreferenceActivity
             int settingsNetworkMode = getPreferredNetworkSetting();
             mButtonEnabledNetworks.setValue(Integer.toString(settingsNetworkMode));
             return true;
-        } else if (preference == mButtonDataRoam) {
+        }  else if (preference == mButtonRoamingOptions) {
+            return true;
+        }  else if (preference == mButtonDataRoam) {
             // Do not disable the preference screen if the user clicks Data roaming.
             return true;
         } else {
@@ -287,6 +301,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                 BUTTON_PREFERED_NETWORK_MODE);
         mButtonEnabledNetworks = (ListPreference) prefSet.findPreference(
                 BUTTON_ENABLED_NETWORKS_KEY);
+        mButtonRoamingOptions = (ListPreference) prefSet.findPreference(BUTTON_ROAMING_MODE_KEY);
         mButtonDataRoam.setOnPreferenceChangeListener(this);
 
         mLteDataServicePref = prefSet.findPreference(BUTTON_CDMA_LTE_DATA_SERVICE_KEY);
@@ -304,15 +319,19 @@ public class MobileNetworkSettings extends PreferenceActivity
         }
 
         boolean isLteOnCdma = mPhone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE;
-        mIsGlobalCdma = isLteOnCdma && getResources().getBoolean(R.bool.config_show_cdma);
+        int phoneId = mPhone.getPhoneId();
+        mIsGlobalCdma = isLteOnCdma &&
+                (getResources().getIntArray(R.array.config_show_cdma)[phoneId] != 0);
         int shouldHideCarrierSettings = android.provider.Settings.Global.getInt(mPhone.getContext().
                 getContentResolver(), android.provider.Settings.Global.HIDE_CARRIER_NETWORK_SETTINGS, 0);
         if (shouldHideCarrierSettings == 1) {
             prefSet.removePreference(mButtonPreferredNetworkMode);
             prefSet.removePreference(mButtonEnabledNetworks);
             prefSet.removePreference(mLteDataServicePref);
+            prefSet.removePreference(mButtonRoamingOptions);
         } else if (getResources().getBoolean(R.bool.world_phone) == true) {
             prefSet.removePreference(mButtonEnabledNetworks);
+            prefSet.removePreference(mButtonRoamingOptions);
             // mButtonEnabledNetworks = null as it is not needed anymore
             mButtonEnabledNetworks = null;
             // set the listener for the mButtonPreferredNetworkMode list preference so we can issue
@@ -330,8 +349,7 @@ public class MobileNetworkSettings extends PreferenceActivity
             mButtonPreferredNetworkMode = null;
             int phoneType = mPhone.getPhoneType();
             int settingsNetworkMode = getPreferredNetworkSetting();
-            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA ||
-                (isLteOnCdma && settingsNetworkMode == Phone.NT_MODE_LTE_ONLY)) {
+            if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
                 if (isLteOnCdma) {
                     mButtonEnabledNetworks.setEntries(
                             R.array.enabled_networks_cdma_choices);
@@ -377,6 +395,28 @@ public class MobileNetworkSettings extends PreferenceActivity
             mButtonEnabledNetworks.setOnPreferenceChangeListener(this);
             if (DBG) log("settingsNetworkMode: " + settingsNetworkMode);
             mButtonEnabledNetworks.setValue(Integer.toString(settingsNetworkMode));
+
+            if (getResources().getIntArray(R.array.config_show_roaming_mode_option)[phoneId] == 1) {
+                mDefaultPrefNetEntries = mButtonEnabledNetworks.getEntries();
+                mDefaultPrefNetValues = mButtonEnabledNetworks.getEntryValues();
+                int roamingMode = getRoamingMode();
+                int choicesResId;
+                int valuesResId;
+                if (phoneId == 0) {
+                    choicesResId = R.array.roaming_mode_choices_slot1;
+                    valuesResId = R.array.roaming_mode_values_slot1;
+                } else {
+                    choicesResId = R.array.roaming_mode_choices_slot2;
+                    valuesResId = R.array.roaming_mode_values_slot2;
+                }
+                mButtonRoamingOptions.setEntries(choicesResId);
+                mButtonRoamingOptions.setEntryValues(valuesResId);
+                mButtonRoamingOptions.setValue(Integer.toString(roamingMode));
+                mButtonRoamingOptions.setOnPreferenceChangeListener(this);
+                updatePreferredNetworkModeList(roamingMode);
+            } else {
+                prefSet.removePreference(mButtonRoamingOptions);
+            }
         }
 
         final boolean missingDataServiceUrl = TextUtils.isEmpty(
@@ -607,6 +647,77 @@ public class MobileNetworkSettings extends PreferenceActivity
                         .setOnDismissListener(this);
             } else {
                 mPhone.setDataRoamingEnabled(false);
+            }
+            return true;
+        } else if (preference == mButtonRoamingOptions) {
+            int idx = Integer.valueOf((String) objValue).intValue();
+            log("New mode: " + idx + " current mode: " + getRoamingMode());
+            if (idx == getRoamingMode())
+                return true;
+            if (idx == ROAMING_MODE_DISABLED) {
+                // Disabled, so restore the preferred network list to default
+                handleRoamingModeChange(idx);
+            } else {
+                // Display there is a warning message for this mode
+                int warningResId;
+                int modeEnableResId;
+                if (mPhone.getPhoneId() == 0) {
+                    warningResId = R.array.roaming_mode_warnings_slot1;
+                    modeEnableResId = R.array.roaming_mode_enable_slot1;
+                } else {
+                    warningResId = R.array.roaming_mode_warnings_slot2;
+                    modeEnableResId = R.array.roaming_mode_enable_slot2;
+                }
+                String[] warnings = null;
+                String[] modeEnable = null;
+                try {
+                    warnings = getResources().getStringArray(warningResId);
+                    modeEnable = getResources().getStringArray(modeEnableResId);
+                } catch(Resources.NotFoundException ex) {
+                    loge("Resource error " + ex.toString());
+                }
+                if (warnings == null || warnings.length <= idx ||
+                        TextUtils.isEmpty(warnings[idx])) {
+                    // No warning needed, change the mode now
+                    handleRoamingModeChange(idx);
+                    return true;
+                }
+
+                // Check if this roaming mode is enabled. This allows us to overlay the settings.
+                // For example, we can allow a roaming mode only if a specific SIM card is inserted,
+                // by setting the roaming_mode_enable_slotX to 0 (false) and overlaying it in a
+                // mccXXX xml file. When a mode is disabled, the setting UI only displays a warning
+                // dialog but does NO allow any change (e.g. Please insert XXX SIM card to enable
+                // XXX roaming mode)
+                final boolean enabled = !(modeEnable != null && modeEnable.length > idx &&
+                        !TextUtils.isEmpty(modeEnable[idx]) && modeEnable[idx].equals("0"));
+                // Display warnings before changing the roaming mode
+                AlertDialog.Builder b = new AlertDialog.Builder(this);
+                mNewRoamMode = idx;
+                if (enabled) {
+                    // "Cancel" buttions are available on if mode is enabled
+                    b.setNegativeButton(android.R.string.cancel,
+                            new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            mButtonRoamingOptions.setValue(Integer.toString(getRoamingMode()));
+                        }
+                    });
+                }
+                b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Restore the previous choice if this mode is disabled
+                        if (enabled)
+                            handleRoamingModeChange(mNewRoamMode);
+                        else
+                            mButtonRoamingOptions.setValue(Integer.toString(getRoamingMode()));
+                    }
+                });
+                b.setTitle(android.R.string.dialog_alert_title);
+                b.setMessage(warnings[idx]);
+                b.setIconAttribute(android.R.attr.alertDialogIcon);
+                b.create().show();
             }
             return true;
         }
@@ -1064,6 +1175,108 @@ public class MobileNetworkSettings extends PreferenceActivity
                 loge(errMsg);
                 mButtonEnabledNetworks.setSummary(errMsg);
         }
+    }
+
+    private int getRoamingMode()
+    {
+        int phoneId = mPhone.getPhoneId();
+        SharedPreferences pref = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE);
+        String key = SHARED_PREFERENCES_ROAMING_MODE + Integer.toString(phoneId);
+        return pref.getInt(key, ROAMING_MODE_DISABLED);
+    }
+
+    private String[] getStringArrayFrom2DRes(int resId, int idx)
+    {
+        String[] strArray = null;
+        TypedArray typedArray = null;
+        Resources res = getResources();
+
+        try {
+            typedArray = res.obtainTypedArray(resId);
+            if (typedArray.length() > idx)
+                strArray = res.getStringArray(typedArray.getResourceId(idx, 0));
+        } catch (Resources.NotFoundException ex) {
+            loge("Error parsing resource " + ex.toString());
+        }
+        if (typedArray != null)
+            typedArray.recycle();
+        return strArray;
+    }
+
+    private void handleRoamingModeChange(int newMode)
+    {
+        int currentMode = getRoamingMode();
+        log("Roaming mode: current mode " + currentMode + " new mode " + newMode);
+        if (getRoamingMode() == newMode)
+            return;
+        int phoneId = mPhone.getPhoneId();
+        SharedPreferences pref = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE);
+        // Save current roaming mode
+        String key;
+        key = SHARED_PREFERENCES_ROAMING_MODE + Integer.toString(phoneId);
+        pref.edit().putInt(key, newMode).commit();
+
+        // Update the preferred network mode list
+        updatePreferredNetworkModeList(newMode);
+
+        // Save current preferred network mode, restore the saved preferred network mode of
+        // the new roaming mode
+        key = SHARED_PREFERENCES_PREFNET + Integer.toString(phoneId) + Integer.toString(currentMode);
+        pref.edit().putInt(key, getPreferredNetworkSetting()).commit();
+        key = SHARED_PREFERENCES_PREFNET + Integer.toString(phoneId) + Integer.toString(newMode);
+        int prefNetMode = pref.getInt(key, -1);
+        if (prefNetMode != -1) {
+            setPreferredNetworkType(prefNetMode);
+            UpdateEnabledNetworksValueAndSummary(prefNetMode);
+        }
+    }
+
+    private void updatePreferredNetworkModeList(int idx)
+    {
+        log("updatePreferredNetworkModeList: new list id " + idx);
+
+        // Restore the default list if roaming mode is disabled
+        if (idx == ROAMING_MODE_DISABLED) {
+            mButtonEnabledNetworks.setEntries(mDefaultPrefNetEntries);
+            mButtonEnabledNetworks.setEntryValues(mDefaultPrefNetValues);
+            return;
+        }
+
+        // Otherwise load the new network modes from xml
+        int phoneId = mPhone.getPhoneId();
+        int choicesResId;
+        int valuesResId;
+        if (phoneId == 0) {
+            choicesResId = R.array.roaming_mode_preferred_network_choices_slot1;
+            valuesResId = R.array.roaming_mode_preferred_network_values_slot1;
+        } else {
+            choicesResId = R.array.roaming_mode_preferred_network_choices_slot2;
+            valuesResId = R.array.roaming_mode_preferred_network_values_slot2;
+        }
+
+        String[] roamingNetworkChoices = getStringArrayFrom2DRes(choicesResId, idx);
+        String[] roamingNetworkValues = getStringArrayFrom2DRes(valuesResId, idx);
+        if (roamingNetworkChoices == null || roamingNetworkValues == null ||
+                roamingNetworkChoices.length != roamingNetworkValues.length) {
+            loge("Roaming mode resource error");
+            return;
+        }
+
+        // Concatenate the new roaming network mode array to existing array
+        String[] entries = new String[mDefaultPrefNetEntries.length + roamingNetworkChoices.length];
+        System.arraycopy(mDefaultPrefNetEntries, 0, entries, 0, mDefaultPrefNetEntries.length);
+        System.arraycopy(roamingNetworkChoices, 0, entries,
+                mDefaultPrefNetEntries.length, roamingNetworkChoices.length);
+        String[] values = new String[mDefaultPrefNetValues.length + roamingNetworkValues.length];
+        System.arraycopy(mDefaultPrefNetValues, 0, values, 0, mDefaultPrefNetValues.length);
+        System.arraycopy(roamingNetworkValues, 0, values,
+                mDefaultPrefNetValues.length, roamingNetworkValues.length);
+
+        // Update the preferred network mode list
+        mButtonEnabledNetworks.setEntries(entries);
+        mButtonEnabledNetworks.setEntryValues(values);
+        log("New preferred network mode choices " + Arrays.toString(entries));
+        log("New preferred network mode values " + Arrays.toString(values));
     }
 
     @Override
