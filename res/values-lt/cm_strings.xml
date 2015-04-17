@@ -90,7 +90,7 @@
   <string name="videocall_settings">Vaizdo skambučio nustatymai</string>
   <string name="vt_fallback_setting">Perrinkti naudojant balso skambutį</string>
   <string name="vt_forward_setting">Vaizdo skambučio peradresavimas</string>
-  <string name="vt_imagereplace_setting">Alternatyvi nuotrauka</string>
+  <string name="vt_imagereplace_setting">Alternatyvus vaizdas</string>
   <string name="vt_imagereplace_setting_sum">Rodyti vaizdą, kai priekyje esanti kamera yra neleidžiama</string>
   <string name="preferred_network_mode_global_summary_cm">Pageidaujami tinklo režimai: pasaulinis (CDMA / EvDo / LTE / GSM / WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Pageidaujami tinklo režimai: tik TD-SCDMA</string>
@@ -177,7 +177,7 @@
   <string name="mobile_data_off">neleidžiamas</string>
   <string name="sim_unknown">Nežinoma</string>
   <string name="sim_absent">Nėra</string>
-  <string name="multi_sim_settings_title">Dvejopi SIM nustatymai</string>
+  <string name="multi_sim_settings_title">Dvejopų SIM nustatymai</string>
   <string name="lte_switch_unavailable">3G / LTE SIM kortelės perjungiklis yra nepasiekiamas</string>
   <string name="lte_recognition_title">SIM kortelės atpažinimas</string>
   <string name="lte_recognize_summary">Dvi 3G / LTE SIM kortelės aptiktos, jums reikia nustatyti numatytąją 3G / LTE SIM kortelę:</string>
