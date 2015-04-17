@@ -122,7 +122,15 @@
     <!-- Show enabled lte option for lte device -->
     <bool name="config_enabled_lte" translatable="false">false</bool>
     <!-- Show cdma auto network mode in (glabal) roaming -->
-    <bool name="config_show_cdma" translatable="false">false</bool>
+    <integer-array name="config_show_cdma">
+        <item name="slot1">0</item>
+        <item name="slot2">0</item>
+    </integer-array>
+    <!-- Show roaming mode options for slot 1/2-->
+    <integer-array name="config_show_roaming_mode_option">
+        <item name="slot1">0</item>
+        <item name="slot2">0</item>
+    </integer-array>
 
     <!-- Package name for the default in-call UI and dialer [DO NOT TRANSLATE] -->
     <string name="ui_default_package" translatable="false">com.android.dialer</string>
