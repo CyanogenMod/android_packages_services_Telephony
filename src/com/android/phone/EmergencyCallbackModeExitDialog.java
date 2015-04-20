@@ -24,7 +24,7 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -48,7 +48,7 @@ import com.android.internal.telephony.TelephonyProperties;
  *
  * @see EmergencyCallbackModeService
  */
-public class EmergencyCallbackModeExitDialog extends Activity implements OnDismissListener {
+public class EmergencyCallbackModeExitDialog extends Activity implements OnCancelListener {
 
     private static final String TAG = "EmergencyCallbackMode";
 
@@ -247,7 +247,7 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnDismi
                                     finish();
                                 }
                             }).create();
-            mAlertDialog.setOnDismissListener(this);
+            mAlertDialog.setOnCancelListener(this);
             return mAlertDialog;
 
         case EXIT_ECM_IN_EMERGENCY_CALL_DIALOG:
@@ -264,7 +264,7 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnDismi
                                     finish();
                                 }
                             }).create();
-            mAlertDialog.setOnDismissListener(this);
+            mAlertDialog.setOnCancelListener(this);
             return mAlertDialog;
 
         case EXIT_ECM_PROGRESS_DIALOG:
@@ -300,10 +300,10 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnDismi
     }
 
     /**
-     * Closes activity when dialog is dismissed
+     * Closes activity when dialog is canceled
      */
     @Override
-    public void onDismiss(DialogInterface dialog) {
+    public void onCancel(DialogInterface dialog) {
         EmergencyCallbackModeExitDialog.this.setResult(RESULT_OK, (new Intent())
                 .putExtra(EXTRA_EXIT_ECM_RESULT, false));
         finish();
