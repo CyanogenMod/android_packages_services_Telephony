@@ -43,6 +43,8 @@ public class ImsEditor extends PreferenceActivity
     private static final String TAG = ImsEditor.class.getSimpleName();
 
     private ListPreference mVideoCallQuality;
+    private Preference mPcPreference;
+    private Preference mPerPreference;
     private ImsConfig mImsConfig;
 
     @Override
@@ -63,6 +65,22 @@ public class ImsEditor extends PreferenceActivity
         mVideoCallQuality = (ListPreference) screen
                 .findPreference(getString(R.string.ims_vt_call_quality));
         mVideoCallQuality.setOnPreferenceChangeListener(this);
+
+        mPcPreference = (Preference) screen.findPreference(getString(R.string.ims_pc_count));
+        mPerPreference = (Preference) screen.findPreference(getString(R.string.ims_per_count));
+
+        //remove the references by default and add them only when config is enabled
+        screen.removePreference(mPcPreference);
+        screen.removePreference(mPerPreference);
+
+        //Show Packet Count/Packet Error Count UI only if the config is enabled
+        if (isRtpStatisticsQueryEnabled()) {
+            screen.addPreference(mPcPreference);
+            screen.addPreference(mPerPreference);
+
+            mPcPreference.setOnPreferenceClickListener(prefClickListener);
+            mPerPreference.setOnPreferenceClickListener(prefClickListener);
+        }
 
         try {
             ImsManager imsManager = ImsManager.getInstance(getBaseContext(),
@@ -95,12 +113,84 @@ public class ImsEditor extends PreferenceActivity
             }
         }
 
+        public void onGetPacketCount(int status, long packetCount) {
+            mPcPreference.setEnabled(true);
+            if (hasRequestFailed(status)) {
+                Log.e(TAG, "onGetPacketCount: get failed. errorCode = " + status);
+                Toast.makeText(getApplicationContext(), R.string.ims_get_packet_count_failed,
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Log.d(TAG, "onGetPacketCount: packetCount = " + packetCount);
+                Toast.makeText(getApplicationContext(), "packetCount = " + packetCount,
+                        Toast.LENGTH_LONG).show();
+            }
+
+        }
+
+        public void onGetPacketErrorCount(int status, long packetErrorCount) {
+            mPerPreference.setEnabled(true);
+            if (hasRequestFailed(status)) {
+                Log.e(TAG, "onGetPacketErrorCount: get failed. errorCode = " + status);
+                Toast.makeText(getApplicationContext(), R.string.ims_get_packet_error_count_failed,
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Log.d(TAG, "onGetPacketErrorCount: packetErrorCount = " + packetErrorCount);
+                Toast.makeText(getApplicationContext(), "packetErrorCount = " + packetErrorCount,
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+
         public void onGetFeatureResponse(int feature, int network, int value, int status) {
             //TODO not required as of now
         }
 
         public void onSetFeatureResponse(int feature, int network, int value, int status) {
             //TODO not required as of now
+        }
+    };
+
+    private void onPcPrefClicked() {
+        Log.d(TAG, "onPcPrefClicked");
+
+        try {
+            if (mImsConfig != null) {
+                mImsConfig.getPacketCount(imsConfigListener);
+                mPcPreference.setEnabled(false);
+            } else {
+                Log.e(TAG, "getPacketCount failed. mImsConfig is null");
+            }
+        } catch (ImsException e) {
+            Log.e(TAG, "getPacketCount failed. Exception = " + e);
+        }
+    }
+
+    private void onPerPrefClicked() {
+        Log.d(TAG, "onPerPrefClicked");
+
+        try {
+            if (mImsConfig != null) {
+                mImsConfig.getPacketErrorCount(imsConfigListener);
+                mPerPreference.setEnabled(false);
+            } else {
+                Log.e(TAG, "getPacketErrorCount failed. mImsConfig is null");
+            }
+        } catch (ImsException e) {
+            Log.e(TAG, "getPacketErrorCount failed. Exception = " + e);
+        }
+    }
+
+    Preference.OnPreferenceClickListener prefClickListener =
+            new Preference.OnPreferenceClickListener() {
+
+        @Override
+        public boolean onPreferenceClick(Preference pref) {
+            Log.d(TAG, "onPreferenceClick");
+            if (pref.equals(mPcPreference)) {
+                onPcPrefClicked();
+            } else if (pref.equals(mPerPreference)) {
+                onPerPrefClicked();
+            }
+            return true;
         }
     };
 
@@ -170,5 +260,10 @@ public class ImsEditor extends PreferenceActivity
             default:
                 return getString(R.string.ims_vt_call_quality_unknown);
         }
+    }
+
+    private boolean isRtpStatisticsQueryEnabled() {
+        return getApplicationContext().getResources().getBoolean(
+                R.bool.config_ims_enable_rtp_statistics);
     }
 }
