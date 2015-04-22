@@ -188,7 +188,7 @@
 
     <style name="NetworkOperatorsSettingsTheme" parent="@style/Theme.Material.Settings"/>
 
-    <style name="Empty" parent="@android:style/Theme.Holo">
+    <style name="Empty" parent="@android:style/Theme.Material.Light">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
