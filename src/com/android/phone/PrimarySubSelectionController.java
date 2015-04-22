@@ -165,8 +165,9 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                     if (mRestoreDdsToPrimarySub) {
                         if (slot == primarySlot) {
                             logd("restore dds to primary card");
-                            SubscriptionManager.from(context).setDefaultDataSubId(SubscriptionManager
-                                    .getSubId(slot)[0]);
+                            int subId = SubscriptionManager.getSubId(slot)[0];
+                            SubscriptionManager.from(context).setDefaultDataSubId(subId);
+                            setUserPrefDataSubIdInDB(subId);
                             mRestoreDdsToPrimarySub = false;
                         }
                     }
@@ -216,7 +217,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         }
     };
 
-    private int getUserPrefDataSubIdFromDB() {
+    public int getUserPrefDataSubIdFromDB() {
         int subId = SubscriptionManager.INVALID_SUBSCRIPTION_ID;
         subId = android.provider.Settings.Global.getInt(mContext.getContentResolver(),
                 SETTING_USER_PREF_DATA_SUB, subId);
@@ -224,7 +225,7 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
         return subId;
     }
 
-    private void setUserPrefDataSubIdInDB(int subId) {
+    public void setUserPrefDataSubIdInDB(int subId) {
         android.provider.Settings.Global.putInt(mContext.getContentResolver(),
                 SETTING_USER_PREF_DATA_SUB, subId);
         logd("updating preferred data subId: " + subId + " in DB");
@@ -431,8 +432,9 @@ public class PrimarySubSelectionController extends Handler implements OnClickLis
                     + "] =" + mIccLoaded[primarySlot]);
             if (mIccLoaded[primarySlot]
                     && currentDds != primarySlot) {
-                SubscriptionManager.from(mContext)
-                        .setDefaultDataSubId(SubscriptionManager.getSubId(primarySlot)[0]);
+                int subId = SubscriptionManager.getSubId(primarySlot)[0];
+                SubscriptionManager.from(mContext).setDefaultDataSubId(subId);
+                setUserPrefDataSubIdInDB(subId);
                 mRestoreDdsToPrimarySub = false;
             } else {
                 mRestoreDdsToPrimarySub = true;
