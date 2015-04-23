@@ -513,7 +513,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             return true;
         } else if (preference == mVoicemailSettings) {
             final Dialog dialog = mVoicemailSettings.getDialog();
-            if (dialog != null) {
+            if (dialog != null && dialog.getActionBar() != null) {
                 dialog.getActionBar().setDisplayHomeAsUpEnabled(false);
             }
             if (DBG)
@@ -543,7 +543,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
             }
         } else if (preference == mVoicemailSettingsScreen) {
                 final Dialog dialog = mVoicemailSettingsScreen.getDialog();
-                if (dialog != null) {
+                if (dialog != null && dialog.getActionBar() != null) {
                     dialog.getActionBar().setDisplayHomeAsUpEnabled(false);
                 }
                 return false;
