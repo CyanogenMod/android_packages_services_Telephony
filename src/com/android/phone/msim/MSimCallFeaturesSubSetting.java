@@ -165,6 +165,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
 
     // String keys for preference lookup
     // TODO: Naming these "BUTTON_*" is confusing since they're not actually buttons(!)
+    private static final String VOICEMAIL_SETTING_SCREEN_PREF_KEY = "button_voicemail_category_key";
     private static final String BUTTON_VOICEMAIL_KEY = "button_voicemail_key";
     private static final String BUTTON_VOICEMAIL_PROVIDER_KEY = "button_voicemail_provider_key";
     private static final String BUTTON_VOICEMAIL_SETTING_KEY = "button_voicemail_setting_key";
@@ -270,6 +271,7 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
 
     private DefaultRingtonePreference mRingtonePreference;
     private ListPreference mVoicemailProviders;
+    private PreferenceScreen mVoicemailSettingsScreen;
     private PreferenceScreen mVoicemailSettings;
     private Preference mVoicemailNotificationRingtone;
     private SwitchPreference mVoicemailNotificationVibrate;
@@ -510,7 +512,12 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                     .show();
             return true;
         } else if (preference == mVoicemailSettings) {
-            if (DBG) log("onPreferenceTreeClick: Voicemail Settings Preference is clicked.");
+            final Dialog dialog = mVoicemailSettings.getDialog();
+            if (dialog != null && dialog.getActionBar() != null) {
+                dialog.getActionBar().setDisplayHomeAsUpEnabled(false);
+            }
+            if (DBG)
+                log("onPreferenceTreeClick: Voicemail Settings Preference is clicked.");
             if (preference.getIntent() != null) {
                 if (DBG) {
                     log("onPreferenceTreeClick: Invoking cfg intent "
@@ -534,6 +541,12 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
                 // This should let the preference use default behavior in the xml.
                 return false;
             }
+        } else if (preference == mVoicemailSettingsScreen) {
+                final Dialog dialog = mVoicemailSettingsScreen.getDialog();
+                if (dialog != null && dialog.getActionBar() != null) {
+                    dialog.getActionBar().setDisplayHomeAsUpEnabled(false);
+                }
+                return false;
         } else if (preference == mButtonVideoCallFallback) {
             startActivity(getVTCallFBSettingsIntent());
             return true;
@@ -1548,6 +1561,8 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
         mVoicemailProviders = (ListPreference) findPreference(BUTTON_VOICEMAIL_PROVIDER_KEY);
         if (mVoicemailProviders != null) {
             mVoicemailProviders.setOnPreferenceChangeListener(this);
+            mVoicemailSettingsScreen =
+                    (PreferenceScreen) findPreference(VOICEMAIL_SETTING_SCREEN_PREF_KEY);
             mVoicemailSettings = (PreferenceScreen)findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
             mVoicemailNotificationRingtone =
                     findPreference(BUTTON_VOICEMAIL_NOTIFICATION_RINGTONE_KEY);
