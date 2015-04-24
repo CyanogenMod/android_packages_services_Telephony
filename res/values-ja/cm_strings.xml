@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">ビデオ通話の転送</string>
   <string name="vt_imagereplace_setting">代替画像</string>
   <string name="vt_imagereplace_setting_sum">フロントカメラが無効になっているときに表示する画像</string>
+  <string name="roaming_mode_title">ローミングモード</string>
+  <string name="roaming_mode_summary">国際ローミングモード</string>
+  <string name="roaming_gsm">GSMローミング</string>
+  <string name="roaming_cdma">CDMAローミング</string>
+  <string name="roaming_disabled">無効</string>
   <string name="preferred_network_mode_global_summary_cm">優先ネットワークモード: グローバル（CDMA/EvDo/LTE/GSM/WCDMA）</string>
   <string name="preferred_network_mode_td_scdma_only_summary">優先ネットワークモード: TD-SCDMAのみ</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">優先ネットワークモード: TD-SCDMA/WCDMA</string>

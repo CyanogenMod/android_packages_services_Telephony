@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Presmerovanie videohovorov</string>
   <string name="vt_imagereplace_setting">Alternatívny obrázok</string>
   <string name="vt_imagereplace_setting_sum">Obrázok, ktorý sa zobrazí, ak je zakázaný predný fotoaparát</string>
+  <string name="roaming_mode_title">Režim roamingu</string>
+  <string name="roaming_mode_summary">Režim medzinárodného roamingu</string>
+  <string name="roaming_gsm">GSM roaming</string>
+  <string name="roaming_cdma">CDMA roaming</string>
+  <string name="roaming_disabled">Zakázaný</string>
   <string name="preferred_network_mode_global_summary_cm">Uprednostňovaný režim siete: Globálne (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Uprednostňovaný režim siete: iba TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Uprednostňovaný režim siete: TD-SCDMA/WCDMA</string>
