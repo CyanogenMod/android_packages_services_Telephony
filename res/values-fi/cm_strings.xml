@@ -78,7 +78,7 @@
   <string name="enable_reverse_lookup_summary">Etsi tuntemattomasta numerosta soittavan henkilön tietoja tulevissa puheluissa</string>
   <string name="choose_lookup_providers">Valitse haun tarjoajat</string>
   <string name="choose_forward_lookup_provider_title">Paikkahauntarjoaja</string>
-  <string name="choose_people_lookup_provider_title">Ihmisen haun tarjoaja</string>
+  <string name="choose_people_lookup_provider_title">Henkilön haun tarjoaja</string>
   <string name="choose_reverse_lookup_provider_title">Käänteisen haun tarjoaja</string>
   <string name="sim_name">SIM-nimi</string>
   <string name="sub_no_sim">Ei SIMiä</string>
