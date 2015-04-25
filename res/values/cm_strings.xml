@@ -19,9 +19,9 @@
     <string name="show_ssn_summary">Show a notification for various network events related to call handling</string>
 
     <!-- Blacklist preferences -->
-    <string name="blacklist_title">Blacklist</string>
+    <string name="blacklist_title">Blocked caller list</string>
     <string name="blacklist_summary_disabled">Disabled</string>
-    <string name="blacklist_summary">Incoming calls from phone numbers in the blacklist will be blocked</string>
+    <string name="blacklist_summary">You will not receive incoming calls or messages from phone numbers on the blocked caller list</string>
 
     <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
     <string name="mwi_notification_title">Message wait indicator</string>
