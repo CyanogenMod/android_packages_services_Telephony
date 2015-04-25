@@ -1852,7 +1852,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private void updateBlacklistSummary() {
         if (mButtonBlacklist != null) {
             if (BlacklistUtils.isBlacklistEnabled(this)) {
-                mButtonBlacklist.setSummary(R.string.blacklist_summary);
+                mButtonBlacklist.setSummary(R.string.blocklist_summary);
             } else {
                 mButtonBlacklist.setSummary(R.string.blacklist_summary_disabled);
             }
