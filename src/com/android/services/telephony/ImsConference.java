@@ -170,10 +170,10 @@ public class ImsConference extends Conference {
 
         @Override
         public void onConnectionCapabilitiesChanged(Connection c, int connectionCapabilities) {
-            Log.d(this, "onCallCapabilitiesChanged: Connection: %s, callCapabilities: %s", c,
-                    connectionCapabilities);
+            Log.d(this, "onConnectionCapabilitiesChanged: Connection: %s," +
+                    " connectionCapabilities: %s", c, connectionCapabilities);
             int capabilites = ImsConference.this.getConnectionCapabilities();
-            setConnectionCapabilities(applyVideoCapabilities(capabilites, connectionCapabilities));
+            setConnectionCapabilities(applyHostCapabilities(capabilites, connectionCapabilities));
         }
 
         @Override
@@ -241,35 +241,40 @@ public class ImsConference extends Conference {
                 Connection.CAPABILITY_MUTE | Connection.CAPABILITY_CONFERENCE_HAS_NO_CHILDREN |
                 Connection.CAPABILITY_ADD_PARTICIPANT;
 
-        capabilities = applyVideoCapabilities(capabilities, mConferenceHost.getConnectionCapabilities());
+        capabilities = applyHostCapabilities(capabilities,
+                mConferenceHost.getConnectionCapabilities());
         setConnectionCapabilities(capabilities);
 
     }
 
-    private int applyVideoCapabilities(int conferenceCapabilities, int capabilities) {
-        if (can(capabilities, Connection.CAPABILITY_SUPPORTS_VT_LOCAL_BIDIRECTIONAL)) {
-            conferenceCapabilities = applyCapability(conferenceCapabilities,
-                    Connection.CAPABILITY_SUPPORTS_VT_LOCAL_BIDIRECTIONAL);
-        } else {
-            conferenceCapabilities = removeCapability(conferenceCapabilities,
-                    Connection.CAPABILITY_SUPPORTS_VT_LOCAL_BIDIRECTIONAL);
-        }
+    /**
+     * Transfers capabilities from the conference host to the conference itself.
+     *
+     * @param conferenceCapabilities The current conference capabilities.
+     * @param capabilities The new conference host capabilities.
+     * @return The merged capabilities to be applied to the conference.
+     */
+    private int applyHostCapabilities(int conferenceCapabilities, int capabilities) {
+        conferenceCapabilities = changeCapability(conferenceCapabilities,
+                    Connection.CAPABILITY_SUPPORTS_VT_LOCAL_BIDIRECTIONAL,
+                    can(capabilities, Connection.CAPABILITY_SUPPORTS_VT_LOCAL_BIDIRECTIONAL));
 
-        if (can(capabilities, Connection.CAPABILITY_SUPPORTS_VT_REMOTE_BIDIRECTIONAL)) {
-            conferenceCapabilities = applyCapability(conferenceCapabilities,
-                    Connection.CAPABILITY_SUPPORTS_VT_REMOTE_BIDIRECTIONAL);
-        } else {
-            conferenceCapabilities = removeCapability(conferenceCapabilities,
-                    Connection.CAPABILITY_SUPPORTS_VT_REMOTE_BIDIRECTIONAL);
-        }
+        conferenceCapabilities = changeCapability(conferenceCapabilities,
+                    Connection.CAPABILITY_SUPPORTS_VT_REMOTE_BIDIRECTIONAL,
+                    can(capabilities, Connection.CAPABILITY_SUPPORTS_VT_REMOTE_BIDIRECTIONAL));
 
-        if (can(capabilities, Connection.CAPABILITY_CAN_UPGRADE_TO_VIDEO)) {
-            conferenceCapabilities = applyCapability(conferenceCapabilities,
-                    Connection.CAPABILITY_CAN_UPGRADE_TO_VIDEO);
-        } else {
-            conferenceCapabilities = removeCapability(conferenceCapabilities,
-                    Connection.CAPABILITY_CAN_UPGRADE_TO_VIDEO);
-        }
+        conferenceCapabilities = changeCapability(conferenceCapabilities,
+                    Connection.CAPABILITY_SUPPORTS_DOWNGRADE_TO_VOICE_LOCAL,
+                    can(capabilities, Connection.CAPABILITY_SUPPORTS_DOWNGRADE_TO_VOICE_LOCAL));
+
+        conferenceCapabilities = changeCapability(conferenceCapabilities,
+                    Connection.CAPABILITY_SUPPORTS_DOWNGRADE_TO_VOICE_REMOTE,
+                    can(capabilities, Connection.CAPABILITY_SUPPORTS_DOWNGRADE_TO_VOICE_REMOTE));
+
+        conferenceCapabilities = changeCapability(conferenceCapabilities,
+                    Connection.CAPABILITY_CAN_UPGRADE_TO_VIDEO,
+                    can(capabilities, Connection.CAPABILITY_CAN_UPGRADE_TO_VIDEO));
+
         return conferenceCapabilities;
     }
 
@@ -442,14 +447,20 @@ public class ImsConference extends Conference {
         // No-op
     }
 
-    private int applyCapability(int capabilities, int capability) {
-        int newCapabilities = capabilities | capability;
-        return newCapabilities;
-    }
-
-    private int removeCapability(int capabilities, int capability) {
-        int newCapabilities = capabilities & ~capability;
-        return newCapabilities;
+    /**
+     * Changes a capabilities bit-mask to add or remove a capability.
+     *
+     * @param capabilities The capabilities bit-mask.
+     * @param capability The capability to change.
+     * @param enabled Whether the capability should be set or removed.
+     * @return The capabilities bit-mask with the capability changed.
+     */
+    private int changeCapability(int capabilities, int capability, boolean enabled) {
+        if (enabled) {
+            return capabilities | capability;
+        } else {
+            return capabilities & ~capability;
+        }
     }
 
     /**
