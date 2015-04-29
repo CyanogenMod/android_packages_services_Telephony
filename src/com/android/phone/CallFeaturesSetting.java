@@ -1657,7 +1657,8 @@ public class CallFeaturesSetting extends PreferenceActivity
                 }
 
                 Intent intent = new Intent(this, MSimCallFeaturesSubSetting.class);
-                SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i, sir.getSubscriptionId());
+                SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i,
+                        sir != null ? sir.getSubscriptionId() : -1);
                 pref.setIntent(intent);
 
                 simCategory.addPreference(pref);
