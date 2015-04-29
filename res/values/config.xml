@@ -357,4 +357,20 @@ as an enum (NONE, HFA, OTASP). -->
 
     <!-- config switching DDS switch back to the default sub -->
     <bool name="config_dds_switch_back">false</bool>
+
+    <!-- config network mode for smartfren carriers -->
+    <bool name="config_network_smartfren_feature">false</bool>
+    <!-- config for showing dial option when fdn contact is selected.
+         By default feature is disabled -->
+    <bool name="config_fdn_direct_dial">false</bool>
+
+    <!-- Flag indicating if SIP settings ennbled -->
+    <bool name="sip_settings_on">true</bool>
+
+    <!-- Flag indicating if video calling on enabled -->
+    <bool name="enable_video_calling_on">true</bool>
+    <integer name="config_default_vibrate_after_connected">1</integer>
+
+   <!-- Config to enable/disable Packet Count/Packet Error Count UI option -->
+   <bool name="config_ims_enable_rtp_statistics">false</bool>
 </resources>

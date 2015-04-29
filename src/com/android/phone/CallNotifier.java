@@ -247,7 +247,7 @@ public class CallNotifier extends Handler {
                     if (c != null && c.isRinging() && c.getCall() != null) {
                         Phone phone = c.getCall().getPhone();
                         String number = c.getAddress();
-                        int subscription = new Long(phone.getSubId()).intValue();
+                        int subscription = phone.getSubId();
 
                         Bundle extras = new Bundle();
                         extras.putInt(PhoneConstants.SUBSCRIPTION_KEY, subscription);

@@ -137,14 +137,14 @@ public class TelephonyConnectionService extends ConnectionService {
                 TelephonyProperties.EXTRA_SKIP_SCHEMA_PARSING, false) ||
                 bundle.getBoolean(TelephonyProperties.EXTRA_DIAL_CONFERENCE_URI, false));
         Uri handle = request.getAddress();
-        if (handle == null) {
+        if (!isSkipSchemaOrConfUri && handle == null) {
             Log.d(this, "onCreateOutgoingConnection, handle is null");
             return Connection.createFailedConnection(
                     DisconnectCauseUtil.toTelecomDisconnectCause(
                             android.telephony.DisconnectCause.NO_PHONE_NUMBER_SUPPLIED,
                             "No phone number supplied"));
         }
-
+        if (handle == null) handle = Uri.EMPTY;
         String scheme = handle.getScheme();
         final String number;
         if (PhoneAccount.SCHEME_VOICEMAIL.equals(scheme)) {
@@ -235,7 +235,7 @@ public class TelephonyConnectionService extends ConnectionService {
 
         if (isEmergencyNumber) {
             mRequest = request;
-            if (state == ServiceState.STATE_POWER_OFF) {
+            if (phone.getBaseServiceState().getState() == ServiceState.STATE_POWER_OFF) {
                 useEmergencyCallHelper = true;
             }
         } else {
@@ -447,6 +447,14 @@ public class TelephonyConnectionService extends ConnectionService {
                 connection2 instanceof TelephonyConnection) {
             ((TelephonyConnection) connection1).performConference(
                 (TelephonyConnection) connection2);
+        }
+
+    }
+
+    @Override
+    public void onAddParticipant(Connection connection, String participant) {
+        if (connection instanceof TelephonyConnection) {
+            ((TelephonyConnection) connection).performAddParticipant(participant);
         }
 
     }

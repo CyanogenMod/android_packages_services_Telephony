@@ -31,4 +31,11 @@
         android:enabled="true"
         android:dialogTitle="@string/ims_vt_call_quality_title"/>
 
+    <Preference
+        android:key="@string/ims_pc_count"
+        android:summary="@string/ims_get_packet_count_label" />
+
+    <Preference
+        android:key="@string/ims_per_count"
+        android:summary="@string/ims_get_packet_error_count_label" />
 </PreferenceScreen>

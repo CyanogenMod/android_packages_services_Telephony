@@ -161,6 +161,7 @@ public class PrimarySubSetting extends Activity implements View.OnClickListener 
                     if (targetSub != mPrimarySubSelectionController.getPrimarySlot()) {
                         showFailedDialog(targetSub);
                     } else {
+                        int ddsSubId = SubscriptionManager.getDefaultDataSubId();
                         if (mDdsChecBox.isChecked()) {
                             // After set NW mode done, in any case set dds to
                             // primary sub,
@@ -168,14 +169,15 @@ public class PrimarySubSetting extends Activity implements View.OnClickListener 
                             // icc loaded done.
                             android.util.Log.d(TAG,
                                   " Set dds to primary sub, if failed, restore dds once icc loaded");
-                            SubscriptionManager.from(PrimarySubSetting.this).setDefaultDataSubId(
-                                    SubscriptionManager.getSubId(targetSub)[0]);
+                            ddsSubId = SubscriptionManager.getSubId(targetSub)[0];
                             mPrimarySubSelectionController.setRestoreDdsToPrimarySub(true);
                         } else {
-                            int ddsSub = SubscriptionManager.getDefaultDataSubId();
-                            android.util.Log.d(TAG, " Set DDS back to previous sub :" + ddsSub);
-                            SubscriptionManager.from(PrimarySubSetting.this).setDefaultDataSubId(ddsSub);
+                            android.util.Log.d(TAG, " Set DDS back to previous sub :" + ddsSubId);
                         }
+
+                        SubscriptionManager.from(PrimarySubSetting.this)
+                                .setDefaultDataSubId(ddsSubId);
+                        mPrimarySubSelectionController.setUserPrefDataSubIdInDB(ddsSubId);
                         Toast.makeText(PrimarySubSetting.this, getString(R.string.reg_suc),
                                 Toast.LENGTH_LONG).show();
                     }

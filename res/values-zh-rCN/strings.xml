@@ -177,6 +177,16 @@
     <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">"首选网络模式: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA"</string>
     <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">"首选网络模式: TD-SCDMA/CDMA/EvDo/GSM/WCDMA"</string>
 
+    <string name="preferred_network_mode_1x_evdo_summary">"首选网络模式：1x/EvDo"</string>
+    <string name="preferred_network_mode_1x_only_summary">"首选网络模式：仅限 1x"</string>
+    <string name="preferred_network_mode_lte_evdo_1x_summary">首选网络模式：LTE/EVDO/1x自动选择</string>
+    <string name="preferred_network_mode_lte_only_summary">"首选网络模式：仅LTE"</string>
+    <string name="preferred_network_mode_lte_hybrid">"LTE/EVDO/1x自动选择"</string>
+    <string name="preferred_network_mode_lte_only">"仅LTE"</string>
+    <string name="preferred_network_mode_evdo_only">"仅EvDo"</string>
+    <string name="preferred_network_mode_1x_only">"仅1x"</string>
+    <string name="preferred_network_mode_hybrid">"1x/EvDo自动选择"</string>
+
     <string name="preferred_network_mode_td_scdma_only_choice">"仅 TD-SCDMA"</string>
     <string name="preferred_network_mode_global_choice">"通用"</string>
     <string name="preferred_network_mode_evdo_only_choice">"仅 EvDo"</string>
@@ -602,6 +612,9 @@
     <string name="enable_video_calling_dialog_msg" msgid="6547569773866546434">"要开启视频通话功能，您需要在系统设置中启用增强型4G LTE模式。"</string>
     <string name="enable_video_calling_dialog_settings" msgid="576528473599603249">"网络设置"</string>
     <string name="enable_video_calling_dialog_close" msgid="7411471282167927991">"关闭"</string>
+    <string name="sim_label_emergency_calls">紧急呼叫</string>
+    <string name="sim_description_emergency_calls">只允许紧急呼叫</string>
+    <string name="sim_description_default">SIM卡, 卡槽: <xliff:g id="slot_id">%s</xliff:g></string>
     <string name="proximity_mode_title">"打开距离传感器"</string>
     <string name="proximity_on_summary">"接听电话时，屏幕会关闭，从而节省电量"</string>
     <string name="proximity_off_summary">"接听电话时，屏幕保持开启状态"</string>
@@ -672,4 +685,7 @@
     <string name="China_Unicom">中国联通</string>
     <string name="China_Telecom">中国电信</string>
     <string name="roamingTextSearching">"正在搜索服务"</string>
+
+    <string name="attention">注意</string>
+    <string name="call_sms_cannot_conduct">EVDO模式下不能使用通话和短信功能，是否继续？</string>
 </resources>

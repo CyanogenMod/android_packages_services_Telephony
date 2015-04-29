@@ -295,7 +295,8 @@ final class TelecomAccountRegistry {
         for (Phone phone : phones) {
             int subscriptionId = phone.getSubId();
             Log.d(this, "Phone with subscription id %d", subscriptionId);
-            if (subscriptionId >= 0) {
+            if ((subscriptionId >= 0) && (SubscriptionManager.getSubState(subscriptionId) ==
+                    SubscriptionManager.ACTIVE)) {
                 mAccounts.add(new AccountEntry(phone, false /* emergency */, false /* isDummy */));
             }
         }

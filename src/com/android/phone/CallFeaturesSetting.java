@@ -141,6 +141,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             "com.android.dialer.DialtactsActivity";
 
     private static final String BUTTON_4G_LTE_KEY = "enhanced_4g_lte";
+    private static final String BUTTON_ENABLE_VIDEO_CALLING = "button_enable_video_calling";
 
     // Used to tell the saving logic to leave forwarding number as is
     public static final CallForwardInfo[] FWD_SETTINGS_DONT_TOUCH = null;
@@ -1746,6 +1747,10 @@ public class CallFeaturesSetting extends PreferenceActivity
                 getPreferenceScreen().removePreference(findPreference(BUTTON_VIDEO_CALL_KEY));
         }
 
+        if (!getResources().getBoolean(R.bool.enable_video_calling_on)) {
+            getPreferenceScreen().removePreference(findPreference(BUTTON_ENABLE_VIDEO_CALLING));
+        }
+
         mButtonDTMF = (ListPreference) findPreference(BUTTON_DTMF_KEY);
         mButtonAutoRetry = (CheckBoxPreference) findPreference(BUTTON_RETRY_KEY);
         mButtonHAC = (CheckBoxPreference) findPreference(BUTTON_HAC_KEY);
@@ -1761,7 +1766,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mButton4glte.setChecked(ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this));
 
         // Enable enhanced 4G LTE mode settings depending on whether exists on platform
-        if (!ImsManager.isEnhanced4gLteModeSettingEnabledByUser(this) ||
+        if (!ImsManager.isVolteEnabledByPlatform(this) ||
                     !getResources().getBoolean(R.bool.cmcc_enhanced_lte)) {
             Preference pref = prefSet.findPreference(BUTTON_4G_LTE_KEY);
             if (pref != null) {
@@ -1983,8 +1988,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         }
 
         if (mVibrateAfterConnected != null) {
+            int defaultVibrateEnabled = getResources()
+                    .getInteger(R.integer.config_default_vibrate_after_connected);
             boolean checked = Settings.System.getInt(getContentResolver(),
-                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, 1) == 1;
+                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, defaultVibrateEnabled) == 1;
             mVibrateAfterConnected.setChecked(checked);
         }
 
