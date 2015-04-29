@@ -1656,11 +1656,13 @@ public class CallFeaturesSetting extends PreferenceActivity
                     pref.setEnabled(false);
                 }
 
-                Intent intent = new Intent(this, MSimCallFeaturesSubSetting.class);
-                SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i, sir.getSubscriptionId());
-                pref.setIntent(intent);
+                if (sir != null) {
+                    Intent intent = new Intent(this, MSimCallFeaturesSubSetting.class);
+                    SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i, sir.getSubscriptionId());
+                    pref.setIntent(intent);
 
-                simCategory.addPreference(pref);
+                    simCategory.addPreference(pref);
+                }
             }
         } else {
             addPreferencesFromResource(R.xml.call_feature_setting);
