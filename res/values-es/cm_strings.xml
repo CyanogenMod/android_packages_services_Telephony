@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notificación de eventos</string>
   <string name="show_ssn_summary">Mostrar la notificación de eventos de red relacionados con la gestión de llamadas</string>
-  <string name="blacklist_title">Lista negra</string>
   <string name="blacklist_summary_disabled">Deshabilitada</string>
-  <string name="blacklist_summary">Las llamadas entrantes de los números en la lista negra serán bloqueadas</string>
   <string name="mwi_notification_title">Notificación buzón de voz</string>
   <string name="mwi_notification_summary">Mostrar una notificación para los mensajes en espera del buzón de voz</string>
   <string name="call_notif_unconditionalCF">Desvío incondicional de llamada activo</string>

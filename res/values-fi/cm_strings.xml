@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Tapahtumailmoitus</string>
   <string name="show_ssn_summary">Näytä eri verkkotapahtumien ilmoitus liittyen puheluiden käsittelyyn</string>
-  <string name="blacklist_title">Musta lista</string>
   <string name="blacklist_summary_disabled">Pois käytöstä</string>
-  <string name="blacklist_summary">Tulevat puhelut mustalla listalla olevista puhelinnumeroista estetään</string>
   <string name="mwi_notification_title">Viesti odottaa-merkki</string>
   <string name="mwi_notification_summary">Näytä merkki viestin odottaessa vastaajassa</string>
   <string name="call_notif_unconditionalCF">Ehdoton soitonsiirto aktiivinen</string>

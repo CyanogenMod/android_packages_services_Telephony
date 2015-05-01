@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">事件通知</string>
   <string name="show_ssn_summary">為通話處理相關的各種網絡事件顯示一個通知</string>
-  <string name="blacklist_title">黑名單</string>
   <string name="blacklist_summary_disabled">已停用</string>
-  <string name="blacklist_summary">從黑名單中的電話號碼的來電通話將被阻止</string>
   <string name="mwi_notification_title">訊息等候指示</string>
   <string name="mwi_notification_summary">顯示訊息等待指示語音留言通知</string>
   <string name="call_notif_unconditionalCF">開啟無條件地來電轉駁</string>
