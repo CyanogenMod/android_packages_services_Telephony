@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">แจ้งเตือนเหตุการณ์</string>
   <string name="show_ssn_summary">แสดงการแจ้งเตือนสำหรับกิจกรรมเครือข่ายต่างๆที่เกี่ยวข้องกับการจัดการเรียก</string>
-  <string name="blacklist_title">บัญชีดำ</string>
   <string name="blacklist_summary_disabled">ปิดการใช้งาน</string>
-  <string name="blacklist_summary">ข้อความเข้าจากหมายเลขในบัญชีดำจะถูกบล็อค</string>
   <string name="mwi_notification_title">ตัวบ่งชี้ที่รอข้อความ</string>
   <string name="mwi_notification_summary">แสดงข้อความรอตัวบ่งชี้ระบบฝากข้อความแจ้งเตือน</string>
   <string name="call_notif_unconditionalCF">ส่งต่อสายแบบไม่มีเงื่อนไขถูกเปิดใช้งาน</string>

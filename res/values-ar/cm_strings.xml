@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">إعلام الحدث</string>
   <string name="show_ssn_summary">إظهار إعلام لمختلف أحداث الشبكة المتصلة بالتعامل مع المكالمات</string>
-  <string name="blacklist_title">القائمة السوداء</string>
   <string name="blacklist_summary_disabled">معطل</string>
-  <string name="blacklist_summary">سيتم حظر المكالمات الواردة من أرقام الهاتف في القائمة السوداء</string>
   <string name="mwi_notification_title">مؤشر الانتظار رسالة</string>
   <string name="mwi_notification_summary">يظهر رسالة البريد الصوتي مؤشر الإعلام</string>
   <string name="call_notif_unconditionalCF">غير مشروط إعادة توجية الإتصال نشط</string>

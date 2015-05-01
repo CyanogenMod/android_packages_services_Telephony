@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">התראת אירוע</string>
   <string name="show_ssn_summary">הצג התראה לאירועי רשת שונים הקשורים בטיפול בשיחה</string>
-  <string name="blacklist_title">רשימה שחורה</string>
   <string name="blacklist_summary_disabled">מושבת</string>
-  <string name="blacklist_summary">הודעות נכנסות ממספרי טלפון שברשימה השחורה ייחסמו</string>
   <string name="mwi_notification_title">מחוון הודעה ממתינה</string>
   <string name="mwi_notification_summary">הצג מחוון עבור הודעה קולית ממתינה</string>
   <string name="call_notif_unconditionalCF">העברת שיחות לא מותנת פעילה</string>

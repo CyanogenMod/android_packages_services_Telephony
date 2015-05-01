@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notificació d\'esdeveniments</string>
   <string name="show_ssn_summary">Mostra una notificació pels diferents esdeveniments de xarxa relacionats amb la gestió de trucades</string>
-  <string name="blacklist_title">Llista negra</string>
   <string name="blacklist_summary_disabled">Desactivada</string>
-  <string name="blacklist_summary">Les trucades entrants de números de telèfon dins la llista negra seran bloquejades</string>
   <string name="mwi_notification_title">Indicador de missatges en espera</string>
   <string name="mwi_notification_summary">Mostra un indicador de missatges en espera en les notificacions de la bústia de veu</string>
   <string name="call_notif_unconditionalCF">Desviament sense condicions de trucades actiu</string>

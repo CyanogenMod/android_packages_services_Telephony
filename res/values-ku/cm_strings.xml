@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">ئاگاداری ڕووداو</string>
   <string name="show_ssn_summary">نیشاندانی ئاگادارکردنه‌وه‌ بۆ هێڵی ڕوداوی جیاواز بۆ په‌یوه‌ندی سه‌رپه‌رشتکراو</string>
-  <string name="blacklist_title">لیستی ڕەش</string>
   <string name="blacklist_summary_disabled">ناچالاکە</string>
-  <string name="blacklist_summary">نامه‌ی هاتوو له‌ ژماره‌ی مۆبایله‌کانه‌وه‌ له‌ لیستی ڕه‌ش بلۆک ده‌بێت</string>
   <string name="mwi_notification_title">نامه‌ چاوه‌ڕێی نیشانده‌ر</string>
   <string name="mwi_notification_summary">نیشاندانی نامه‌ چاوه‌ڕێکه‌ری نیشانده‌ر له‌ ئاگادری ده‌نگه‌ نامه‌کان</string>
   <string name="call_notif_unconditionalCF">به‌دواکه‌وتنی په‌یوه‌ندی بێ مه‌رجی کارده‌کات</string>

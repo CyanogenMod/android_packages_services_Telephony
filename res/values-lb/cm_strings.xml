@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notifikatioun bei Evenementer</string>
   <string name="show_ssn_summary">Bei verschiddenen Uruff-Evenementer eng Notifikatioun uweisen</string>
-  <string name="blacklist_title">Schwaarz Lëscht</string>
   <string name="blacklist_summary_disabled">Desaktivéiert</string>
-  <string name="blacklist_summary">Erakommend Uriff vun Telefonsnummeren op der schwaarzer Lëscht gi blockéiert</string>
   <string name="mwi_notification_title">Indikator uweisen</string>
   <string name="mwi_notification_summary">En Indikator uweise wa Mailbox-Messagen drop waarden ofgeruff ze ginn</string>
   <string name="call_notif_unconditionalCF">Bédéngungslos Uruffweiderleedung aktiv</string>
@@ -92,6 +90,11 @@
   <string name="vt_forward_setting">Weiderleedung vu Videouriff</string>
   <string name="vt_imagereplace_setting">Alternatiivt Bild</string>
   <string name="vt_imagereplace_setting_sum">Bild dat soll gewise ginn, wann d\'Kamera vir desaktivéiert ass</string>
+  <string name="roaming_mode_title">Roaming-Modus</string>
+  <string name="roaming_mode_summary">Internationale Roaming-Modus</string>
+  <string name="roaming_gsm">GSM-Roaming</string>
+  <string name="roaming_cdma">CDMA-Roaming</string>
+  <string name="roaming_disabled">Deaktivéiert</string>
   <string name="preferred_network_mode_global_summary_cm">Preferéierten Netzwierktyp: Global (CDMA/EVDO/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Preferéierten Netzwierktyp: just TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferéierten Netzwierktyp: TD-SCDMA/WCDMA</string>

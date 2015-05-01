@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Kennisgewings</string>
   <string name="show_ssn_summary">Wys \'n kennisgewing vir verskeie netwerk gebeure wat verband hou met die hantering van telefoon oproepe</string>
-  <string name="blacklist_title">Swartlys</string>
   <string name="blacklist_summary_disabled">Deaktiveer</string>
-  <string name="blacklist_summary">Inkomende oproepe van telefoonnommers in die swartlys sal geblokkeer word.</string>
   <string name="mwi_notification_title">Boodskap wag aanwyser</string>
   <string name="mwi_notification_summary">Wys boodskap wag aanwyser vir stempos boodskappe</string>
   <string name="call_notif_unconditionalCF">Onvoorwaardelike oproep aanstuuring aktief</string>

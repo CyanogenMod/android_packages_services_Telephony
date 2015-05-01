@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Oznámenia o udalostiach</string>
   <string name="show_ssn_summary">Zobraziť oznámenia na rôzne udalosti siete, ktoré súvisia s hovormi</string>
-  <string name="blacklist_title">Čierna listina</string>
   <string name="blacklist_summary_disabled">Zakázané</string>
-  <string name="blacklist_summary">Prichádzajúce hovory z čísiel, ktoré sú na čiernej listine, budú blokované</string>
   <string name="mwi_notification_title">Indikátor čakajúcej správy</string>
   <string name="mwi_notification_summary">Zobraziť indikátor čakajúcej správy pre hlasové správy</string>
   <string name="call_notif_unconditionalCF">Nepodmienené presmerovanie hovorov aktívne</string>

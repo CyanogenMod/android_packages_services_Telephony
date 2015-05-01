@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Händelsemeddelanden</string>
   <string name="show_ssn_summary">Visa en avisering för olika nätverkshändelser relaterade till samtalshantering</string>
-  <string name="blacklist_title">Svartlista</string>
   <string name="blacklist_summary_disabled">Inaktiverad</string>
-  <string name="blacklist_summary">Inkommande samtal från telefonnummer i svartlistan kommer att blockeras</string>
   <string name="mwi_notification_title">Indikator för väntande meddelande</string>
   <string name="mwi_notification_summary">Visa meddelande väntar indikator som telefonsvararavisering</string>
   <string name="call_notif_unconditionalCF">Ovillkorlig vidarekoppling aktiv</string>
