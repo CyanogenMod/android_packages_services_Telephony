@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Повідомлення про події</string>
   <string name="show_ssn_summary">Показувати повідомлення щодо подій у мережі, які пов\'язані з викликом</string>
-  <string name="blacklist_title">Чорний список</string>
   <string name="blacklist_summary_disabled">Вимкнено</string>
-  <string name="blacklist_summary">Вхідні дзвінки від номерів доданих в чорний список, будуть заблоковані</string>
   <string name="mwi_notification_title">Індикатор очікування повідомлення</string>
   <string name="mwi_notification_summary">Показувати індикатор очікування повідомлення сповіщень голосової пошти</string>
   <string name="call_notif_unconditionalCF">Увімкнена безумовна переадресація виклику</string>
@@ -92,6 +90,11 @@
   <string name="vt_forward_setting">Переадресація відеовикликів</string>
   <string name="vt_imagereplace_setting">Альтернативне фото</string>
   <string name="vt_imagereplace_setting_sum">Зображення для відображення, коли вимкнуто фронтальну камеру</string>
+  <string name="roaming_mode_title">Режим роумінгу</string>
+  <string name="roaming_mode_summary">Режим міжнародного роумінгу</string>
+  <string name="roaming_gsm">GSM роумінг</string>
+  <string name="roaming_cdma">CDMA роумінг</string>
+  <string name="roaming_disabled">Вимкнено</string>
   <string name="preferred_network_mode_global_summary_cm">Пріоритетний режим мережі: Глобальний (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Пріоритетний режим мережі: TD-SCDMA тільки</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Пріоритетний режим мережі: TD-SCDMA/WCDMA</string>

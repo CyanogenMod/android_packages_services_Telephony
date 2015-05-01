@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">සිදුවීම් දැනුම්දීම</string>
   <string name="show_ssn_summary">ඇමතුම් හැසිරවීමට අදාළ නොයෙක් ජාලමය සිදුවීම සඳහා දැනුම්දීමක් පෙන්වන්න</string>
-  <string name="blacklist_title">අපලේඛණය</string>
   <string name="blacklist_summary_disabled">අබලයි</string>
-  <string name="blacklist_summary">අපලේඛණයේ ඇති දුරකථන අංක මගින් පැමිණෙන ඇමතුම් අවහිර කෙරේ</string>
   <string name="mwi_notification_title">පණිවිඩ පොරොත්තුවේ දර්ශකය</string>
   <string name="mwi_notification_summary">පණිවිඩ පොරොත්තු දර්ශකයේ, හඬ තැපෑලේ දැනුම්දීම් පෙන්වන්න</string>
   <string name="call_notif_unconditionalCF">කොන්දේසි විරහිතව ඇමතුම් ඉදිරියට යැවීම සක්‍රීයයි</string>

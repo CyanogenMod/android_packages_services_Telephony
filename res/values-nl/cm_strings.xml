@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Gebeurtenissen melden</string>
   <string name="show_ssn_summary">Melding weergeven van netwerkgebeurtenissen tijdens gesprekken</string>
-  <string name="blacklist_title">Zwarte lijst</string>
   <string name="blacklist_summary_disabled">Uitgeschakeld</string>
-  <string name="blacklist_summary">Inkomende oproepen van telefoonnummers op de zwarte lijst worden geblokkeerd</string>
   <string name="mwi_notification_title">Voicemailmeldingen</string>
   <string name="mwi_notification_summary">Meldingen weergeven voor nieuwe voicemailberichten</string>
   <string name="call_notif_unconditionalCF">Permanent doorschakelen actief</string>

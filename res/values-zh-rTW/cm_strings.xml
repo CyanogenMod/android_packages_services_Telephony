@@ -16,7 +16,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="blacklist_title">黑名單</string>
   <string name="blacklist_summary_disabled">已停用</string>
   <string name="call_notif_unconditionalCF">無限制來電轉接啟用中</string>
   <string name="call_notif_conditionalCF">限制來電轉接啟用中</string>

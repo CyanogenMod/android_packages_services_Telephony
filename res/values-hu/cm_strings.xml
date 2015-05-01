@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Esemény értesítés</string>
   <string name="show_ssn_summary">Híváskezelési értesítés megjelenítése különböző hálózati események kapcsán</string>
-  <string name="blacklist_title">Tiltólista</string>
   <string name="blacklist_summary_disabled">Letiltva</string>
-  <string name="blacklist_summary">Bejövő hívások blokkolása, melyek szerepelnek a tiltólistán</string>
   <string name="mwi_notification_title">Várakozó üzenet</string>
   <string name="mwi_notification_summary">Várakozó hangposta üzenet megjelenítése</string>
   <string name="call_notif_unconditionalCF">Feltétel nélküli hívásátirányítás aktív</string>

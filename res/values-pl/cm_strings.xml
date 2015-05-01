@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Powiadomienia</string>
   <string name="show_ssn_summary">Pokaż powiadomienie o różnych wydarzeniach sieciowych związanych z rozmowami</string>
-  <string name="blacklist_title">Czarna lista</string>
   <string name="blacklist_summary_disabled">Wyłączona</string>
-  <string name="blacklist_summary">Przychodzące połączenia z numerów na czarnej liście będą zablokowane</string>
   <string name="mwi_notification_title">Wskaźnik oczekiwania wiadomości</string>
   <string name="mwi_notification_summary">Pokaż powiadomienie oczekiwania na pocztę głosową</string>
   <string name="call_notif_unconditionalCF">Bezwarunkowe przekazywanie połączeń aktywne</string>

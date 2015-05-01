@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Уведомления о событиях</string>
   <string name="show_ssn_summary">Показывать уведомления о разных событиях сети, связанных с вызовом</string>
-  <string name="blacklist_title">Чёрный список</string>
   <string name="blacklist_summary_disabled">Выключен</string>
-  <string name="blacklist_summary">Автоматически отклонять звонки и сообщения от указанных абонентов</string>
   <string name="mwi_notification_title">Индикатор ожидания сообщения</string>
   <string name="mwi_notification_summary">Показывать индикатор ожидания сообщения уведомлений голосовой почты</string>
   <string name="call_notif_unconditionalCF">Включена безусловная переадресация вызова</string>

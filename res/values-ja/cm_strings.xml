@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">イベントの通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
-  <string name="blacklist_title">ブラックリスト</string>
   <string name="blacklist_summary_disabled">無効</string>
-  <string name="blacklist_summary">ブラックリストにある電話番号からの着信をブロックする</string>
   <string name="mwi_notification_title">メッセージ待機インジケータ</string>
   <string name="mwi_notification_summary">ボイスメール通知のメッセージ待機インジケータを表示する</string>
   <string name="call_notif_unconditionalCF">無条件の着信転送が有効です</string>

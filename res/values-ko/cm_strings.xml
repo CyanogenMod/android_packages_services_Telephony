@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">이벤트 알림</string>
   <string name="show_ssn_summary">통화와 관련된 다양한 네트워크 이벤트에 대한 알림 표시</string>
-  <string name="blacklist_title">블랙리스트</string>
   <string name="blacklist_summary_disabled">비활성화 됨</string>
-  <string name="blacklist_summary">블랙리스트에 등록된 번호에서 오는 전화는 차단됩니다</string>
   <string name="mwi_notification_title">메시지 대기 표시</string>
   <string name="mwi_notification_summary">음성메일 알림에 대한 메시지 대기 표시 보이기</string>
   <string name="call_notif_unconditionalCF">무조건 착신 전환 활성</string>
