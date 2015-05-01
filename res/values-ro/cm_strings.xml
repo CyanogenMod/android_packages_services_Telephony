@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notificare eveniment</string>
   <string name="show_ssn_summary">Arată o notificare pentru diversele evenimente ale rețelei, legat de manipularea apelului</string>
-  <string name="blacklist_title">Lista neagră</string>
   <string name="blacklist_summary_disabled">Dezactivat</string>
-  <string name="blacklist_summary">Mesajele primite de la nr de telefon aflate în lista neagră vor fi blocate</string>
   <string name="mwi_notification_title">Indicator așteptare mesaj</string>
   <string name="mwi_notification_summary">Arată mesajul indicator de așteptare pentru notificări de poștă vocală</string>
   <string name="call_notif_unconditionalCF">Redirecționarea necondiționată pentru apel este activă</string>

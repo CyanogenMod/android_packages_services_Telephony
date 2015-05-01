@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Обавештење о догађају</string>
   <string name="show_ssn_summary">Прикажи обавештење за разне мрежне догађаје везане за управљање позивом</string>
-  <string name="blacklist_title">Црна листа</string>
   <string name="blacklist_summary_disabled">Онемогућено</string>
-  <string name="blacklist_summary">Долазни позиви са телефонских бројева у црној листи ће бити блокирани</string>
   <string name="mwi_notification_title">Индикатор чекања поруке</string>
   <string name="mwi_notification_summary">Прикажи индикатор чекања говорне поште</string>
   <string name="call_notif_unconditionalCF">Безусловно прослеђивање позива је активно</string>

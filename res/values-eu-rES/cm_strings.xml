@@ -17,9 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Gertakarien jakinarazpenak</string>
-  <string name="blacklist_title">Zerrenda beltza</string>
   <string name="blacklist_summary_disabled">Ezgaituta</string>
-  <string name="blacklist_summary">Zerrenda beltzeko sartzen diren deiak oztopatuko dira</string>
   <string name="mwi_notification_title">Ahots postontziaren adierazlea</string>
   <string name="mwi_notification_summary">Jakinarazpen bat ahots postontzian itxaroten dauden mezuentzako erakutsi</string>
   <string name="call_notif_unconditionalCF">Baldintzarik gabeko dei desbideraketa gaituta</string>

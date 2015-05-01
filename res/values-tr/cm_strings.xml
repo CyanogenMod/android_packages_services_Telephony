@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Olay bildirimi</string>
   <string name="show_ssn_summary">Arama yönetimiyle ilgili şebeke olayları için bildirim göster</string>
-  <string name="blacklist_title">Kara liste</string>
   <string name="blacklist_summary_disabled">Devre dışı</string>
-  <string name="blacklist_summary">Kara listedeki telefon numaralarından gelen çağrılar engellenecek</string>
   <string name="mwi_notification_title">Mesaj bekleme göstergesi</string>
   <string name="mwi_notification_summary">Mesaj bekleme göstergesinde sesli mesaj bildirimlerini göster</string>
   <string name="call_notif_unconditionalCF">Koşulsuz çağrı yönlendirme etkin</string>

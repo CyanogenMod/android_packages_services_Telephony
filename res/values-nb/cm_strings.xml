@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Hendelsesvarsling</string>
   <string name="show_ssn_summary">Vis en melding for ulike nettverkshendelser relatert til anrop</string>
-  <string name="blacklist_title">Blokkeringsliste</string>
   <string name="blacklist_summary_disabled">Deaktivert</string>
-  <string name="blacklist_summary">Innkommende meldinger fra telefonnumre i svartelisten blokkeres</string>
   <string name="mwi_notification_title">Melding venter indikator</string>
   <string name="mwi_notification_summary">Vis melding venter indikator som voicemail varsler</string>
   <string name="call_notif_unconditionalCF">Ubetinget viderekobling aktiv</string>

@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">ھادىسە ئۇقتۇرۇشى</string>
   <string name="show_ssn_summary">چاقىرىشنى بىر تەرەپ قىلىشقا ئائىت ھەر خىل تور ھادىسىلىرى ئۈچۈن ئۇقتۇرۇشتىن بىرنى كۆرسىتىدۇ</string>
-  <string name="blacklist_title">قارا تىزىم</string>
   <string name="blacklist_summary_disabled">چەكلەنگەن</string>
-  <string name="blacklist_summary">قارا تىزىمغا كىرگۈزۈلگەن تېلېفون نومۇرىدىن چاقىرىش توسۇلىدۇ</string>
   <string name="mwi_notification_title">ئۇچۇر كۈتۈش كۆرسەتكۈچى</string>
   <string name="mwi_notification_summary">ئۈنخەت ئۇقتۇرۇشىنىڭ ئۇچۇر كۈتۈش كۆرسەتكۈچىنى كۆرسىتىدۇ</string>
   <string name="call_notif_unconditionalCF">شەرتسىز ئۇلاپ يەتكۈزۈش ئاكتىپ</string>

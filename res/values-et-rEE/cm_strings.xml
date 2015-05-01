@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Sündmuse teavitus</string>
   <string name="show_ssn_summary">Kuva teavitus erinevate võrgu sündmuste puhul seotud kõne haldamisega</string>
-  <string name="blacklist_title">Must nimekiri</string>
   <string name="blacklist_summary_disabled">Keelatud</string>
-  <string name="blacklist_summary">Sissetulevad kõned telefoninumbritelt mustas nimekirjas blokeeritakse</string>
   <string name="mwi_notification_title">Sõnumi ootamise indikaator</string>
   <string name="mwi_notification_summary">Näita \'sõnum ootel\' tulukest kõneposti teate korral</string>
   <string name="call_notif_unconditionalCF">Tingimusteta kõnesuunamine aktiivne</string>

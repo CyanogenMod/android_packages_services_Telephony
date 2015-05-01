@@ -18,9 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notification d\'événement</string>
   <string name="show_ssn_summary">Afficher une notification pour divers événements de réseau associés à la gestion des appels</string>
-  <string name="blacklist_title">Liste noire</string>
   <string name="blacklist_summary_disabled">Désactivé</string>
-  <string name="blacklist_summary">Les appels entrants des numéros de téléphone présents dans la liste noire seront bloqués</string>
   <string name="mwi_notification_title">Indicateur de message en attente</string>
   <string name="mwi_notification_summary">Afficher un indicateur de message en attente sur la messagerie vocale</string>
   <string name="call_notif_unconditionalCF">Renvoi d\'appel inconditionnel actif</string>
@@ -92,6 +90,11 @@
   <string name="vt_forward_setting">Transfert d\'appels vidéo</string>
   <string name="vt_imagereplace_setting">Image alternative</string>
   <string name="vt_imagereplace_setting_sum">Image à afficher lorsque la caméra frontale est désactivée</string>
+  <string name="roaming_mode_title">Mode d\'itinérance</string>
+  <string name="roaming_mode_summary">Mode d\'itinérance internationale</string>
+  <string name="roaming_gsm">Itinérance GSM</string>
+  <string name="roaming_cdma">Itinérance CDMA</string>
+  <string name="roaming_disabled">Désactivé</string>
   <string name="preferred_network_mode_global_summary_cm">Mode réseau préféré : Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Mode réseau préféré : TD-SCDMA uniquement</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Mode réseau préféré : TD-SCDMA/WCDMA</string>
