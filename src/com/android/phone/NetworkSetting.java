@@ -244,7 +244,14 @@ public class NetworkSetting extends PreferenceActivity
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
-        finish();
+
+        if (!mIsForeground) {
+            finish();
+        } else {
+            getPreferenceScreen().setEnabled(true);
+            clearList();
+            displayEmptyNetworkList(true);
+        }
     }
 
     public String getNormalizedCarrierName(OperatorInfo ni) {
@@ -428,6 +435,8 @@ public class NetworkSetting extends PreferenceActivity
 
         // delegate query request to the service.
         try {
+            // Avoid registering callback twice by unregistering first
+            mNetworkQueryService.stopNetworkQuery(mCallback);
             mNetworkQueryService.startNetworkQuery(mCallback);
         } catch (RemoteException e) {
         }
@@ -473,13 +482,39 @@ public class NetworkSetting extends PreferenceActivity
             if (result != null){
                 displayEmptyNetworkList(false);
 
+                TelephonyManager telephonyManager =
+                        (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+                String simOperatorName = telephonyManager.getSimOperatorName();
+
+                if (DBG) log("Default sim operator: " + simOperatorName);
+
                 // create a preference for each item in the list.
                 // just use the operator name instead of the mildly
                 // confusing mcc/mnc.
+                int orderPrioMin = mNetworkList.getPreferenceCount();
+                int orderPrioLow = orderPrioMin + 1;
+                int orderPrioHigh = result.size() + 1;
                 for (OperatorInfo ni : result) {
                     Preference carrier = new Preference(this, null);
                     carrier.setTitle(getNetworkTitle(ni));
                     carrier.setPersistent(false);
+                    // arrange home (sim default) carrier to top and show sim icon
+                    // arrange locked operators to bottom and show lock icon
+                    // arrange all others in between, show icon for currently selected network
+                    if (ni.getState() == OperatorInfo.State.FORBIDDEN) {
+                        carrier.setWidgetLayoutResource(R.layout.pref_network_select_lock);
+                        carrier.setOrder(orderPrioHigh);
+                        orderPrioHigh++;
+                    } else if (TextUtils.equals(getNetworkTitle(ni), simOperatorName)) {
+                        carrier.setWidgetLayoutResource(R.layout.pref_network_select_sim);
+                        carrier.setOrder(orderPrioMin);
+                    } else {
+                        if (ni.getState() == OperatorInfo.State.CURRENT) {
+                            carrier.setWidgetLayoutResource(R.layout.pref_network_select_current);
+                        }
+                        carrier.setOrder(orderPrioLow);
+                        orderPrioLow++;
+                    }
                     mNetworkList.addPreference(carrier);
                     mNetworkMap.put(carrier, ni);
 
