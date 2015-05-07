@@ -244,7 +244,14 @@ public class NetworkSetting extends PreferenceActivity
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
-        finish();
+
+        if (!mIsForeground) {
+            finish();
+        } else {
+            getPreferenceScreen().setEnabled(true);
+            clearList();
+            displayEmptyNetworkList(true);
+        }
     }
 
     public String getNormalizedCarrierName(OperatorInfo ni) {
@@ -428,6 +435,8 @@ public class NetworkSetting extends PreferenceActivity
 
         // delegate query request to the service.
         try {
+            // Avoid registering callback twice by unregistering first
+            mNetworkQueryService.stopNetworkQuery(mCallback);
             mNetworkQueryService.startNetworkQuery(mCallback);
         } catch (RemoteException e) {
         }
@@ -476,10 +485,21 @@ public class NetworkSetting extends PreferenceActivity
                 // create a preference for each item in the list.
                 // just use the operator name instead of the mildly
                 // confusing mcc/mnc.
+                int orderPrioLow = mNetworkList.getPreferenceCount();
+                int orderPrioHigh = result.size() + 1;
                 for (OperatorInfo ni : result) {
                     Preference carrier = new Preference(this, null);
                     carrier.setTitle(getNetworkTitle(ni));
                     carrier.setPersistent(false);
+                    // arrange locked operators to bottom and show lock icon
+                    if (ni.getState() == OperatorInfo.State.FORBIDDEN) {
+                        carrier.setIcon(getDrawable(R.drawable.ic_lock));
+                        carrier.setOrder(orderPrioHigh);
+                        orderPrioHigh++;
+                    } else {
+                        carrier.setOrder(orderPrioLow);
+                        orderPrioLow++;
+                    }
                     mNetworkList.addPreference(carrier);
                     mNetworkMap.put(carrier, ni);
 
