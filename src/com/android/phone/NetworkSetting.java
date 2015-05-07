@@ -35,9 +35,14 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.telephony.ServiceState;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.telephony.SubscriptionManager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.app.ActionBar;
 
 import com.android.internal.telephony.CommandException;
 import com.android.internal.telephony.Phone;
@@ -69,7 +74,6 @@ public class NetworkSetting extends PreferenceActivity
 
     //String keys for preference lookup
     private static final String LIST_NETWORKS_KEY = "list_networks_key";
-    private static final String BUTTON_SRCH_NETWRKS_KEY = "button_srch_netwrks_key";
     private static final String BUTTON_AUTO_SELECT_KEY = "button_auto_select_key";
     private static final String BUTTON_PREFERRED_NETWORK_KEY = "button_preferred_networks_key";
 
@@ -91,9 +95,11 @@ public class NetworkSetting extends PreferenceActivity
 
     //preference objects
     private PreferenceGroup mNetworkList;
-    private Preference mSearchButton;
     private Preference mAutoSelect;
     private Preference mPreferredNetworks;
+
+    //Menu Item(s)
+    private MenuItem mSearchButton;
 
     private final Handler mHandler = new Handler() {
         @Override
@@ -107,7 +113,7 @@ public class NetworkSetting extends PreferenceActivity
                 case EVENT_NETWORK_SELECTION_DONE:
                     if (DBG) log("hideProgressPanel");
                     removeDialog(DIALOG_NETWORK_SELECTION);
-                    getPreferenceScreen().setEnabled(true);
+                    mNetworkList.setEnabled(true);
 
                     ar = (AsyncResult) msg.obj;
                     if (ar.exception != null) {
@@ -132,7 +138,7 @@ public class NetworkSetting extends PreferenceActivity
                         // this exception, and Log it.
                         Log.w(LOG_TAG, "[NetworksList] Fail to dismiss auto select dialog ", e);
                     }
-                    getPreferenceScreen().setEnabled(true);
+                    mNetworkList.setEnabled(true);
 
                     ar = (AsyncResult) msg.obj;
                     if (ar.exception != null) {
@@ -196,10 +202,7 @@ public class NetworkSetting extends PreferenceActivity
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean handled = false;
 
-        if (preference == mSearchButton) {
-            loadNetworksList();
-            handled = true;
-        } else if (preference == mAutoSelect) {
+        if (preference == mAutoSelect) {
             selectNetworkAutomatic();
             handled = true;
         } else if (mPreferredNetworks == preference) {
@@ -219,8 +222,6 @@ public class NetworkSetting extends PreferenceActivity
             } else {
                 log("Error selecting network. phone is null.");
             }
-
-
         }
 
         return handled;
@@ -234,7 +235,14 @@ public class NetworkSetting extends PreferenceActivity
         } catch (RemoteException e) {
             log("onCancel: exception from stopNetworkQuery " + e);
         }
-        finish();
+
+        if (!mIsForeground) {
+            finish();
+        } else {
+            mNetworkList.setEnabled(true);
+            clearList();
+            displayEmptyNetworkList();
+        }
     }
 
     public String getNormalizedCarrierName(OperatorInfo ni) {
@@ -258,6 +266,12 @@ public class NetworkSetting extends PreferenceActivity
 
         addPreferencesFromResource(R.xml.carrier_select);
 
+        //Provide "Back"-Arrow in ActionBar
+        final ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         int subId;
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
@@ -272,7 +286,6 @@ public class NetworkSetting extends PreferenceActivity
         mRatMap = new HashMap<String, String>();
         initRatMap();
 
-        mSearchButton = getPreferenceScreen().findPreference(BUTTON_SRCH_NETWRKS_KEY);
         mAutoSelect = getPreferenceScreen().findPreference(BUTTON_AUTO_SELECT_KEY);
 
         mPreferredNetworks = getPreferenceScreen().findPreference(BUTTON_PREFERRED_NETWORK_KEY);
@@ -291,6 +304,37 @@ public class NetworkSetting extends PreferenceActivity
         startService (new Intent(this, NetworkQueryService.class));
         bindService (new Intent(this, NetworkQueryService.class), mNetworkQueryServiceConnection,
                 Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.carrier_select_options, menu);
+
+        mSearchButton = menu.findItem(R.id.action_search_networks);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        if (item == mSearchButton) {
+            loadNetworksList();
+            return true;
+        } else if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void enableSearchButton (boolean enabled) {
+        if (mSearchButton != null) {
+            mSearchButton.setEnabled(enabled);
+        }
     }
 
     @Override
@@ -366,12 +410,19 @@ public class NetworkSetting extends PreferenceActivity
                 (id == DIALOG_NETWORK_AUTO_SELECT)) {
             // when the dialogs come up, we'll need to indicate that
             // we're in a busy state to dissallow further input.
-            getPreferenceScreen().setEnabled(false);
+            mNetworkList.setEnabled(false);
         }
     }
 
-    private void displayEmptyNetworkList(boolean flag) {
-        mNetworkList.setTitle(flag ? R.string.empty_networks_list : R.string.label_available);
+
+    private void displayEmptyNetworkList() {
+        //Add "no networks"-text as a disabled preference
+        Preference emptyPref = new Preference(this);
+        emptyPref.setTitle(R.string.empty_networks_list);
+        emptyPref.setSelectable(false);
+        emptyPref.setEnabled(false);
+
+        mNetworkList.addPreference(emptyPref);
     }
 
     private void displayNetworkSeletionInProgress(String networkStr) {
@@ -431,6 +482,8 @@ public class NetworkSetting extends PreferenceActivity
 
         // delegate query request to the service.
         try {
+            // Avoid registering callback twice by unregistering first
+            mNetworkQueryService.stopNetworkQuery(mCallback);
             mNetworkQueryService.startNetworkQuery(mCallback, mPhoneId);
         } catch (RemoteException e) {
             log("loadNetworksList: exception from startNetworkQuery " + e);
@@ -442,8 +495,6 @@ public class NetworkSetting extends PreferenceActivity
                 }
             }
         }
-
-        displayEmptyNetworkList(false);
     }
 
     /**
@@ -476,32 +527,55 @@ public class NetworkSetting extends PreferenceActivity
             // connected after this activity is moved to background.
             if (DBG) log("Fail to dismiss network load list dialog " + e);
         }
-
-        getPreferenceScreen().setEnabled(true);
+        mNetworkList.setEnabled(true);
         clearList();
 
         if (status != NetworkQueryService.QUERY_OK) {
             if (DBG) log("error while querying available networks");
             displayNetworkQueryFailed(status);
-            displayEmptyNetworkList(true);
+            displayEmptyNetworkList();
         } else {
             if (result != null){
-                displayEmptyNetworkList(false);
+                TelephonyManager telephonyManager =
+                        (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+                String simOperatorName = telephonyManager.getSimOperatorName();
+
+                if (DBG) log("Default sim operator: " + simOperatorName);
 
                 // create a preference for each item in the list.
                 // just use the operator name instead of the mildly
                 // confusing mcc/mnc.
+                int orderPrioMin = mNetworkList.getPreferenceCount();
+                int orderPrioLow = orderPrioMin + 1;
+                int orderPrioHigh = result.size() + 1;
                 for (OperatorInfo ni : result) {
                     Preference carrier = new Preference(this, null);
                     carrier.setTitle(getNetworkTitle(ni));
                     carrier.setPersistent(false);
+                    // arrange home (sim default) carrier to top and show sim icon
+                    // arrange locked operators to bottom and show lock icon
+                    // arrange all others in between, show icon for currently selected network
+                    if (ni.getState() == OperatorInfo.State.FORBIDDEN) {
+                        carrier.setWidgetLayoutResource(R.layout.pref_network_select_lock);
+                        carrier.setOrder(orderPrioHigh);
+                        orderPrioHigh++;
+                    } else if (TextUtils.equals(getNetworkTitle(ni), simOperatorName)) {
+                        carrier.setWidgetLayoutResource(R.layout.pref_network_select_sim);
+                        carrier.setOrder(orderPrioMin);
+                    } else {
+                        if (ni.getState() == OperatorInfo.State.CURRENT) {
+                            carrier.setWidgetLayoutResource(R.layout.pref_network_select_current);
+                        }
+                        carrier.setOrder(orderPrioLow);
+                        orderPrioLow++;
+                    }
                     mNetworkList.addPreference(carrier);
                     mNetworkMap.put(carrier, ni);
 
                     if (DBG) log("  " + ni);
                 }
             } else {
-                displayEmptyNetworkList(true);
+                displayEmptyNetworkList();
             }
         }
     }
@@ -533,9 +607,7 @@ public class NetworkSetting extends PreferenceActivity
     }
 
     private void clearList() {
-        for (Preference p : mNetworkMap.keySet()) {
-            mNetworkList.removePreference(p);
-        }
+        mNetworkList.removeAll();
         mNetworkMap.clear();
     }
 
