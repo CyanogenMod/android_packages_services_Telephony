@@ -17,6 +17,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="call_notif_unconditionalCF">Baldintzarik gabeko dei desbideratzea gaituta</string>
   <string name="call_notif_conditionalCF">Baldintzadun dei desbideraketa gaituta</string>
   <string name="call_notif_cugcall">Talde itxiako deia</string>
   <string name="call_notif_incoming_barred">Sartzen diren deiak at utzita</string>
@@ -86,4 +87,5 @@
   <string name="stk_cc_ss_to_dial_error">SS eskaera DIAL eskaerara eraldatu da.</string>
   <string name="stk_cc_ss_to_ussd_error">SS eskaera USSD eskaerara eraldatu da.</string>
   <string name="stk_cc_ss_to_ss_error">SS eskaera SS eskaera berri batera eraldatu da.</string>
+  <string name="remove_ims_account">Ezabatu kontua</string>
 </resources>
