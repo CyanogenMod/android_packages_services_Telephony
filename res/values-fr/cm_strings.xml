@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notification d\'événement</string>
   <string name="show_ssn_summary">Afficher une notification pour divers événements de réseau associés à la gestion des appels</string>
+  <string name="blacklist_title">Liste des appelants bloqués</string>
   <string name="blacklist_summary_disabled">Désactivé</string>
+  <string name="blacklist_summary">Vous ne recevrez pas d’appels ou de messages de numéros présents dans la liste des appelants bloqués</string>
   <string name="mwi_notification_title">Indicateur de message en attente</string>
   <string name="mwi_notification_summary">Afficher un indicateur de message en attente sur la messagerie vocale</string>
   <string name="call_notif_unconditionalCF">Renvoi d\'appel inconditionnel actif</string>

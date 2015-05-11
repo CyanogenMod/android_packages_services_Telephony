@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Įvykio pranešimas</string>
   <string name="show_ssn_summary">Rodyti pranešimą dėl įvairių tinklo įvykių susijusių su skambučių tvarkymu</string>
+  <string name="blacklist_title">Užblokuotų skambintojų sąrašas</string>
   <string name="blacklist_summary_disabled">Neleidžiamas</string>
+  <string name="blacklist_summary">Jūs negausite įeinančių skambučių ar pranešimų iš telefonų numerių kurie yra užblokuotų skambintojų sąraše</string>
   <string name="mwi_notification_title">Pranešimų laukimo rodiklis</string>
   <string name="mwi_notification_summary">Rodyti pranešimų laukimo rodiklį gaunamiems balso pašto pranešimams</string>
   <string name="call_notif_unconditionalCF">Besąlygiškas skambučių peradresavimas aktyvus</string>

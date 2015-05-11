@@ -90,6 +90,11 @@
   <string name="vt_forward_setting">Penerusan panggilan video</string>
   <string name="vt_imagereplace_setting">Gambar alternatif</string>
   <string name="vt_imagereplace_setting_sum">Gambar yang ditampilkan ketika kamera depan dinonaktifkan</string>
+  <string name="roaming_mode_title">Modus jelajah</string>
+  <string name="roaming_mode_summary">Modus jelajah internasional</string>
+  <string name="roaming_gsm">Jelajah dengan GSM</string>
+  <string name="roaming_cdma">Jelajah dengan CDMA</string>
+  <string name="roaming_disabled">Dinonaktifkan</string>
   <string name="preferred_network_mode_global_summary_cm">Modus jaringan pilihan: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Modus jaringan pilihan: TD-SCDMA saja</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Modus jaringan pilihan: TD-SCDMA/WCDMA</string>
@@ -200,4 +205,6 @@
   <string name="ims_vt_call_quality_set_failed">Gagal untuk mengatur kualitas video</string>
   <string name="perm_change_mobile_network">mengubah modus jaringan (2G / 3G)</string>
   <string name="perm_change_mobile_network_desc">Izinkan aplikasi untuk mengubah antara data 2G dan data 3G setiap saat. 3G lebih cepat, tapi mengkonsumsi baterai lebih banyak dan dapat menyebabkan biaya tambahan.</string>
+  <string name="phone_number_label">Nomor telepon saya</string>
+  <string name="phone_number_summary">Tetapkan nomor telepon untuk perangkat ini</string>
 </resources>

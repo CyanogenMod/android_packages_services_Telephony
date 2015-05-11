@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notifiche eventi</string>
   <string name="show_ssn_summary">Mostra una notifica per vari eventi di rete relativi alla gestione delle chiamate</string>
+  <string name="blacklist_title">Elenco chiamanti bloccati</string>
   <string name="blacklist_summary_disabled">Disattivata</string>
+  <string name="blacklist_summary">Non riceverai nessuna chiamata o messaggio da numeri nella lista dei chiamanti bloccati</string>
   <string name="mwi_notification_title">Indicatore di messaggio in attesa</string>
   <string name="mwi_notification_summary">Mostra le notifiche per i messaggi in attesa in segreteria</string>
   <string name="call_notif_unconditionalCF">Deviazione incondizionata attiva</string>
