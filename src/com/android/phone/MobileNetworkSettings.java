@@ -245,6 +245,25 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         addPreferencesFromResource(R.xml.network_setting);
 
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        int slotIndex = getIntent().getIntExtra(PhoneConstants.SLOT_KEY,
+                SubscriptionManager.INVALID_SIM_SLOT_INDEX);
+        if (slotIndex != SubscriptionManager.INVALID_SIM_SLOT_INDEX) {
+            setTitle(getString(R.string.msim_mobile_network_settings_title, slotIndex + 1));
+            int subId = getIntent().getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                    SubscriptionManager.INVALID_SUBSCRIPTION_ID);
+            SubscriptionManager subManager = SubscriptionManager.from(this);
+            SubscriptionInfo sir = subManager.getActiveSubscriptionInfo(subId);
+            if (actionBar != null && sir != null) {
+                actionBar.setSubtitle(sir.getDisplayName());
+            }
+        }
+
         mButton4glte = (SwitchPreference)findPreference(BUTTON_4G_LTE_KEY);
 
         mButton4glte.setOnPreferenceChangeListener(this);
@@ -376,12 +395,6 @@ public class MobileNetworkSettings extends PreferenceActivity
             if (pref != null) {
                 prefSet.removePreference(pref);
             }
-        }
-
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            // android.R.id.home will be triggered in onOptionsItemSelected()
-            actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         final boolean isSecondaryUser = UserHandle.myUserId() != UserHandle.USER_OWNER;
