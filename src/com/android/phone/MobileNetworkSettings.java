@@ -245,6 +245,12 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         addPreferencesFromResource(R.xml.network_setting);
 
+        int slotIndex = getIntent().getIntExtra(PhoneConstants.SLOT_KEY,
+                SubscriptionManager.INVALID_SIM_SLOT_INDEX);
+        if (slotIndex != SubscriptionManager.INVALID_SIM_SLOT_INDEX) {
+            setTitle(getString(R.string.msim_mobile_network_settings_title, slotIndex + 1));
+        }
+
         mButton4glte = (SwitchPreference)findPreference(BUTTON_4G_LTE_KEY);
 
         mButton4glte.setOnPreferenceChangeListener(this);
