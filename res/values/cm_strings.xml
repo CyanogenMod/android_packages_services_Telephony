@@ -342,4 +342,6 @@
     <string name="phone_number_label">My phone number</string>
     <string name="phone_number_summary">Set the phone number for this device</string>
     <string name="msisdn_alpha_tag" translatable="false">Voice Line 1</string>
+
+    <string name="msim_mobile_network_settings_title">SIM %d mobile network settings</string>
 </resources>
