@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        parent="@android:style/Theme.Material.Settings">
+    <item
+        android:id="@+id/action_search_networks"
+        android:icon="@drawable/ic_refresh"
+        android:title="@string/search_networks"
+        android:showAsAction="ifRoom" />
+
+</menu>
