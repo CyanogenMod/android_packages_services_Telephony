@@ -90,11 +90,6 @@
   <string name="vt_forward_setting">वीडियो कॉल अग्रेषण</string>
   <string name="vt_imagereplace_setting">विकल्पिक चित्र</string>
   <string name="vt_imagereplace_setting_sum">जब आगे की ओर के कैमरे को अक्षम किया गया हो, तब किस छवि को प्रदर्शित करना है</string>
-  <string name="roaming_mode_title">रोमिंग मोड</string>
-  <string name="roaming_mode_summary">अंतर्राष्ट्रीय रोमिंग मोड</string>
-  <string name="roaming_gsm">जीएसएम रोमिंग</string>
-  <string name="roaming_cdma">सीडीएमए रोमिंग</string>
-  <string name="roaming_disabled">अक्षम है</string>
   <string name="preferred_network_mode_global_summary_cm">पसंदीदा नेटवर्क मोड: वैश्विक (सीडीएमए/ईवीडीओ/एलटीई/जीएसएम/डब्ल्यूसीडीएमए)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">पसंदीदा नेटवर्क मोड: केवल टीडी-एससीडीएमए</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/डब्ल्यूसीडीएमए</string>

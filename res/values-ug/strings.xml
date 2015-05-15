@@ -320,7 +320,6 @@
   </string-array>
   <string name="dtmf_tones_title">DTMF ئۈن</string>
   <string name="dtmf_tones_summary">DTMF ئۈن ئۇزۇنلۇق تەڭشىكى</string>
-  <string name="network_message">تور ئۇچۇرى</string>
   <string name="ota_title_activate">تېلېفونىڭىزنى ئاكتىپلاڭ</string>
   <string name="ota_touch_activate">ئالاھىدە نومۇرنى بۇرىسىڭىز ئاندىن تېلېفون مۇلازىمىتىڭىزنى ئاكتىپلىيالايسىز.\n\n«ئاكتىپلا»نى باسقاندىن كېيىن ئاۋازلىق ئەسكەرتىش بويىچە تېلېفونىڭىزنى ئاكتىپلاڭ.</string>
   <string name="ota_hfa_activation_title">ئاكتىپلاۋاتىدۇ…</string>

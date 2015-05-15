@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Gebeurtenissen melden</string>
   <string name="show_ssn_summary">Melding weergeven van netwerkgebeurtenissen tijdens gesprekken</string>
+  <string name="blacklist_title">Zwarte lijst</string>
   <string name="blacklist_summary_disabled">Uitgeschakeld</string>
+  <string name="blacklist_summary">U ontvangt geen inkomende oproepen of berichten van telefoonnummers op de zwarte lijst</string>
   <string name="mwi_notification_title">Voicemailmeldingen</string>
   <string name="mwi_notification_summary">Meldingen weergeven voor nieuwe voicemailberichten</string>
   <string name="call_notif_unconditionalCF">Permanent doorschakelen actief</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Videogesprek doorsturen</string>
   <string name="vt_imagereplace_setting">Alternatieve afbeelding</string>
   <string name="vt_imagereplace_setting_sum">Weer te geven afbeelding als camera aan de voorzijde is uitgeschakeld</string>
-  <string name="roaming_mode_title">Roamingmodus</string>
-  <string name="roaming_mode_summary">Internationale roamingmodus</string>
-  <string name="roaming_gsm">GSM-roaming</string>
-  <string name="roaming_cdma">CDMA-roaming</string>
-  <string name="roaming_disabled">Uitgeschakeld</string>
   <string name="preferred_network_mode_global_summary_cm">Voorkeursnetwerkmodus: Wereldwijd (CDMA/EVDO/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Voorkeursnetwerkmodus: alleen TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Voorkeursnetwerkmodus: TD-SCDMA/WCDMA</string>

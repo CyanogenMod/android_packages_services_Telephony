@@ -200,4 +200,6 @@
   <string name="ims_vt_call_quality_set_failed">Gagal untuk mengatur kualitas video</string>
   <string name="perm_change_mobile_network">mengubah modus jaringan (2G / 3G)</string>
   <string name="perm_change_mobile_network_desc">Izinkan aplikasi untuk mengubah antara data 2G dan data 3G setiap saat. 3G lebih cepat, tapi mengkonsumsi baterai lebih banyak dan dapat menyebabkan biaya tambahan.</string>
+  <string name="phone_number_label">Nomor telepon saya</string>
+  <string name="phone_number_summary">Tetapkan nomor telepon untuk perangkat ini</string>
 </resources>

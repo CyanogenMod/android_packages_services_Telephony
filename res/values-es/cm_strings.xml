@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notificación de eventos</string>
   <string name="show_ssn_summary">Mostrar la notificación de eventos de red relacionados con la gestión de llamadas</string>
+  <string name="blacklist_title">Lista de contactos bloqueados</string>
   <string name="blacklist_summary_disabled">Deshabilitada</string>
+  <string name="blacklist_summary">No recibirás llamadas ni mensajes de los números incluidos en la lista negra de contactos</string>
   <string name="mwi_notification_title">Notificación buzón de voz</string>
   <string name="mwi_notification_summary">Mostrar una notificación para los mensajes en espera del buzón de voz</string>
   <string name="call_notif_unconditionalCF">Desvío incondicional de llamada activo</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Desvío de videollamadas</string>
   <string name="vt_imagereplace_setting">Imagen alternativa</string>
   <string name="vt_imagereplace_setting_sum">Imagen que se mostrará cuando se desactive la cámara frontal</string>
-  <string name="roaming_mode_title">Modo de itinerancia</string>
-  <string name="roaming_mode_summary">Modo de itinerancia internacional</string>
-  <string name="roaming_gsm">Itinerancia GSM</string>
-  <string name="roaming_cdma">Itinerancia CDMA</string>
-  <string name="roaming_disabled">Deshabilitada</string>
   <string name="preferred_network_mode_global_summary_cm">Modo de red preferido: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Modo de red preferido: Solo TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Modo de red preferido: TD-SCDMA/WCDMA</string>

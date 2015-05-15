@@ -56,7 +56,6 @@
   <string name="labelCDMAMore">ڕێکخستنەکانی پەیوەندی CDMA</string>
   <string name="apn_settings">ناوی خاڵەکانی دەستپێگەیشتن</string>
   <string name="settings_label">ڕێکخستنەکانی تۆڕ</string>
-  <string name="phone_accounts">ڕێکخستنەکانی هەژماری مۆبایل</string>
   <string name="phone_accounts_make_calls_with">گرتنی پەیوەندییەکان لەڕێگەی</string>
   <string name="phone_accounts_make_sip_calls_with">گرتنی پەیوەندییە ئینتەرنێتییەکان لەڕێگەی</string>
   <string name="phone_accounts_ask_every_time">لەپێشدا بپرسە</string>
@@ -72,7 +71,6 @@
   <string name="wifi_calling_call_assistant">هاریکاری پەیوەندی</string>
   <string name="wifi_calling_use_call_assistant">بەکارهێنانی هاریکاری پەیوەندی</string>
   <string name="wifi_calling_select_call_assistant">هاریکاری پەیوەندی هەڵبژێرە</string>
-  <string name="wifi_calling_select_call_assistant_summary">بەرنامە یان ڕاژەیەک هەڵبژێرە بۆ بەڕێوەبردنی تۆڕەکان کە بۆ پەیوەندییەکان بەکار هاتوون</string>
   <string name="wifi_calling_use_call_assistant_summary">ڕێگە بە بەرنامەکان و ڕاژەکان بدە بۆ بەڕێوەبردنی تۆڕەکان کە بۆ پەیوەندییەکان بەکار هاتوون</string>
   <string name="wifi_calling_call_assistant_configure">شێوەپێدان</string>
   <string name="wifi_calling_call_assistant_configure_no_selection">هاریکاری پەیوەندی کوژاوەیە</string>
@@ -476,7 +474,6 @@
     <item>ئاسایی</item>
     <item>درێژ</item>
   </string-array>
-  <string name="network_message">نامەی تۆڕ</string>
   <string name="ota_title_activate">مۆبایلەکەت چالاک بکە</string>
   <string name="ota_touch_activate">پەیوەندییەکی تایبەت پێویستە بۆ چالاککردنی خزمەتگوزاری تەلەفۆن.
     \n\nدوای لێدانی \u201Cچالاکسازی\u201D, ئەو فێرکارییانە کە بۆ چالاککردنی تەلەفۆنەکەت نووسراون ڕەچاو بکە.</string>

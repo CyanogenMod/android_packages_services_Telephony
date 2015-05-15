@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Olay bildirimi</string>
   <string name="show_ssn_summary">Arama yönetimiyle ilgili şebeke olayları için bildirim göster</string>
+  <string name="blacklist_title">Engellenen arayan listesi</string>
   <string name="blacklist_summary_disabled">Devre dışı</string>
+  <string name="blacklist_summary">Engellenen arayan listesindeki numaralardan gelen çağrıları ya da mesajları almayacaksınız</string>
   <string name="mwi_notification_title">Mesaj bekleme göstergesi</string>
   <string name="mwi_notification_summary">Mesaj bekleme göstergesinde sesli mesaj bildirimlerini göster</string>
   <string name="call_notif_unconditionalCF">Koşulsuz çağrı yönlendirme etkin</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Görüntülü arama yönlendirmesi</string>
   <string name="vt_imagereplace_setting">Alternatif resim</string>
   <string name="vt_imagereplace_setting_sum">Ön kamera devre dışı bırakıldığında görüntülenecek resim</string>
-  <string name="roaming_mode_title">Dolaşım modu</string>
-  <string name="roaming_mode_summary">Uluslararası dolaşım modu</string>
-  <string name="roaming_gsm">GSM dolaşımı</string>
-  <string name="roaming_cdma">CDMA dolaşımı</string>
-  <string name="roaming_disabled">Devre dışı</string>
   <string name="preferred_network_mode_global_summary_cm">Tercih edilen şebeke modu: Genel (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Tercih edilen şebeke modu: Sadece TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Tercih edilen şebeke modu: TD-SCDMA/WCDMA</string>

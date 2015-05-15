@@ -16,9 +16,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="show_ssn_label">Notificação de Evento</string>
+  <string name="show_ssn_label">Notificação de evento</string>
   <string name="show_ssn_summary">Mostrar uma notificação para vários eventos de rede relacionados com o tratamento de chamadas</string>
+  <string name="blacklist_title">Lista de números bloqueados</string>
   <string name="blacklist_summary_disabled">Desativado</string>
+  <string name="blacklist_summary">Não receberá chamadas ou mensagens de números de telefone na lista de números bloqueados</string>
   <string name="mwi_notification_title">Indicador de mensagem em espera</string>
   <string name="mwi_notification_summary">Mostrar notificações de voicemal do indicador de mensagem em espera</string>
   <string name="call_notif_unconditionalCF">Reencaminhamento incondicional de chamada  ativo</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Encaminhamento de chamada de vídeo</string>
   <string name="vt_imagereplace_setting">Imagens alternativas</string>
   <string name="vt_imagereplace_setting_sum">Imagem a ser exibida quando a câmara frontal é desativada</string>
-  <string name="roaming_mode_title">Modo de roaming</string>
-  <string name="roaming_mode_summary">Modo de roaming internacional</string>
-  <string name="roaming_gsm">Roaming GSM</string>
-  <string name="roaming_cdma">Roaming CDMA</string>
-  <string name="roaming_disabled">Desativado</string>
   <string name="preferred_network_mode_global_summary_cm">Modo de rede preferida: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Modo de rede preferida: Só TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Modo de rede preferida: TD-SCDMA/WCDMA</string>
@@ -132,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Só GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferido</string>
   <string name="callind_multi_sim">Definições de cartão SIM</string>
+  <string name="sim_card_title">Cartão SIM %d</string>
+  <string name="sim_card_summary_empty">Ranhura do cartão SIM está vazia</string>
   <string name="tty_mode_not_allowed_vt_call">Alteração do modo TTY não é permitida durante uma chamada VT</string>
   <string name="ipcall_sub_title">Definições de chamada por IP</string>
   <string name="ipcall_sub_summery">Editar o prefixo para chamada através de serviço IP</string>

@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Upozornění na událost</string>
   <string name="show_ssn_summary">Zobrazit upozornění na různé události sítě, které souvisejí s hovory</string>
+  <string name="blacklist_title">Seznam blokovaných čísel</string>
   <string name="blacklist_summary_disabled">Vypnuta</string>
+  <string name="blacklist_summary">Nebudou se přijímat příchozí hovory nebo zprávy od telefonní čísla na seznamu blokovaných čísel</string>
   <string name="mwi_notification_title">Upozornění na hlasovou zprávu</string>
   <string name="mwi_notification_summary">Zobrazit upozornění na čekající hlasovou zprávu</string>
   <string name="call_notif_unconditionalCF">Nepodmíněné přesměrování hovorů aktivní</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Přesměrování video hovorů</string>
   <string name="vt_imagereplace_setting">Alternativní obrázek</string>
   <string name="vt_imagereplace_setting_sum">Obrázek se zobrazí když je čelní fotoaparát je zakázán</string>
-  <string name="roaming_mode_title">Roaming režim</string>
-  <string name="roaming_mode_summary">Mezinárodní roaming režim</string>
-  <string name="roaming_gsm">GSM roaming</string>
-  <string name="roaming_cdma">CDMA roaming</string>
-  <string name="roaming_disabled">Vypnuto</string>
   <string name="preferred_network_mode_global_summary_cm">Upřednostňovaný režim sítě: globálně (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Upřednostňovaný režim sítě: pouze TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/WCDMA</string>
@@ -132,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Pouze GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferované GSM/WCDMA</string>
   <string name="callind_multi_sim">Nastavení karty SIM</string>
+  <string name="sim_card_title">SIM karta %d</string>
+  <string name="sim_card_summary_empty">Slot pro SIM kartu je prázdný</string>
   <string name="tty_mode_not_allowed_vt_call">Při video-hovoru není možná změna režimu TTY</string>
   <string name="ipcall_sub_title">Nastavení IP volání</string>
   <string name="ipcall_sub_summery">Změnit prefix pro volání pomocí služby IP</string>

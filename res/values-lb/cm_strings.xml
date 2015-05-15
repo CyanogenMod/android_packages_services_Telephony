@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notifikatioun bei Evenementer</string>
   <string name="show_ssn_summary">Bei verschiddenen Uruff-Evenementer eng Notifikatioun uweisen</string>
+  <string name="blacklist_title">Lëscht vu blockéierten Nummeren</string>
   <string name="blacklist_summary_disabled">Desaktivéiert</string>
+  <string name="blacklist_summary">Du wäerts keng Uriff oder Messagë vun den Telefonsnummeren op dëser Lëscht empfänken</string>
   <string name="mwi_notification_title">Indikator uweisen</string>
   <string name="mwi_notification_summary">En Indikator uweise wa Mailbox-Messagen drop waarden ofgeruff ze ginn</string>
   <string name="call_notif_unconditionalCF">Bédéngungslos Uruffweiderleedung aktiv</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Weiderleedung vu Videouriff</string>
   <string name="vt_imagereplace_setting">Alternatiivt Bild</string>
   <string name="vt_imagereplace_setting_sum">Bild dat soll gewise ginn, wann d\'Kamera vir desaktivéiert ass</string>
-  <string name="roaming_mode_title">Roaming-Modus</string>
-  <string name="roaming_mode_summary">Internationale Roaming-Modus</string>
-  <string name="roaming_gsm">GSM-Roaming</string>
-  <string name="roaming_cdma">CDMA-Roaming</string>
-  <string name="roaming_disabled">Deaktivéiert</string>
   <string name="preferred_network_mode_global_summary_cm">Preferéierten Netzwierktyp: Global (CDMA/EVDO/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Preferéierten Netzwierktyp: just TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferéierten Netzwierktyp: TD-SCDMA/WCDMA</string>
@@ -132,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Just GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferéiert</string>
   <string name="callind_multi_sim">SIM-Kaarten-Astellungen</string>
+  <string name="sim_card_title">Sim-Kaart %d</string>
+  <string name="sim_card_summary_empty">SIM-Schlitz ass eidel</string>
   <string name="tty_mode_not_allowed_vt_call">TTY-Moduswiessel ass während engem Video-Uruff net erlaabt</string>
   <string name="ipcall_sub_title">Astellunge fir VOIP-Uriff</string>
   <string name="ipcall_sub_summery">Prefix fir VOIP-Uriff änneren</string>

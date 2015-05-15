@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notifiche eventi</string>
   <string name="show_ssn_summary">Mostra una notifica per vari eventi di rete relativi alla gestione delle chiamate</string>
+  <string name="blacklist_title">Elenco chiamanti bloccati</string>
   <string name="blacklist_summary_disabled">Disattivata</string>
+  <string name="blacklist_summary">Non riceverai nessuna chiamata o messaggio da numeri nella lista dei chiamanti bloccati</string>
   <string name="mwi_notification_title">Indicatore di messaggio in attesa</string>
   <string name="mwi_notification_summary">Mostra le notifiche per i messaggi in attesa in segreteria</string>
   <string name="call_notif_unconditionalCF">Deviazione incondizionata attiva</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Inoltro di chiamata video</string>
   <string name="vt_imagereplace_setting">Foto alternativa</string>
   <string name="vt_imagereplace_setting_sum">Immagine da visualizzare quando la fotocamera frontale è disattivata</string>
-  <string name="roaming_mode_title">Modalità roaming</string>
-  <string name="roaming_mode_summary">Modalità roaming internazionale</string>
-  <string name="roaming_gsm">Roaming GSM</string>
-  <string name="roaming_cdma">Roaming CDMA</string>
-  <string name="roaming_disabled">Disattivato</string>
   <string name="preferred_network_mode_global_summary_cm">Modalità di rete preferito: globale (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Modalità rete preferita: solo TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Modalità rete preferita: TD-SCDMA / WCDMA</string>
@@ -132,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Solo GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferito</string>
   <string name="callind_multi_sim">Impostazioni scheda SIM</string>
+  <string name="sim_card_title">SIM card %d</string>
+  <string name="sim_card_summary_empty">Slot SIM vuoto</string>
   <string name="tty_mode_not_allowed_vt_call">Il cambiamento di modalità TTY non è consentito durante una videochiamata</string>
   <string name="ipcall_sub_title">Impostazioni chiamata IP</string>
   <string name="ipcall_sub_summery">Modifica il prefisso per effettuare chiamate tramite il servizio IP</string>

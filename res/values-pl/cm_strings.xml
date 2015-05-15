@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Powiadomienia</string>
   <string name="show_ssn_summary">Pokaż powiadomienie o różnych wydarzeniach sieciowych związanych z rozmowami</string>
+  <string name="blacklist_title">Lista zablokowanych rozmówców</string>
   <string name="blacklist_summary_disabled">Wyłączona</string>
+  <string name="blacklist_summary">Nie otrzymasz żadnych połączeń przychodzących ani wiadomości od numerów znajdujących się na liście zablokowanych rozmówców</string>
   <string name="mwi_notification_title">Wskaźnik oczekiwania wiadomości</string>
   <string name="mwi_notification_summary">Pokaż powiadomienie oczekiwania na pocztę głosową</string>
   <string name="call_notif_unconditionalCF">Bezwarunkowe przekazywanie połączeń aktywne</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Przekazywanie połączeń wideo</string>
   <string name="vt_imagereplace_setting">Alternatywne zdjęcie</string>
   <string name="vt_imagereplace_setting_sum">Obraz do wyświetlenia, gdy przednia kamera jest wyłączona</string>
-  <string name="roaming_mode_title">Tryb roamingu</string>
-  <string name="roaming_mode_summary">Międzynarodowy tryb roamingu</string>
-  <string name="roaming_gsm">Roaming GSM</string>
-  <string name="roaming_cdma">Roaming CDMA</string>
-  <string name="roaming_disabled">Wyłączony</string>
   <string name="preferred_network_mode_global_summary_cm">Preferowany tryb sieci: Globalny (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Preferowany tryb sieci: Tylko TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferowany tryb sieci: TD-SCDMA/WCDMA</string>
@@ -132,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Tylko GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferowane GSM/WCDMA</string>
   <string name="callind_multi_sim">Ustawienia karty SIM</string>
+  <string name="sim_card_title">Karta SIM %d</string>
+  <string name="sim_card_summary_empty">Brak karty SIM</string>
   <string name="tty_mode_not_allowed_vt_call">Zmiana trybu TTY jest niedozwolona podczas rozmowy wideo</string>
   <string name="ipcall_sub_title">Ustawienia połączeń IP</string>
   <string name="ipcall_sub_summery">Edytuj prefiks dla połączeń przez usługę IP</string>

@@ -56,7 +56,6 @@
   <string name="labelCDMAMore">Axustes de llamaes CDMA</string>
   <string name="apn_settings">APN</string>
   <string name="settings_label">Configuración de rede</string>
-  <string name="phone_accounts">Axustes de cuenta de teléfonu</string>
   <string name="phone_accounts_make_calls_with">Facer llamaes con</string>
   <string name="phone_accounts_make_sip_calls_with">Facer llamaes SIP con</string>
   <string name="phone_accounts_ask_every_time">Entrugar primero</string>
@@ -72,7 +71,6 @@
   <string name="wifi_calling_call_assistant">Encontu de llamaes</string>
   <string name="wifi_calling_use_call_assistant">Usar encontu de llamaes</string>
   <string name="wifi_calling_select_call_assistant">Escoyer encontu de llamaes</string>
-  <string name="wifi_calling_select_call_assistant_summary">Esbillar una app o serviciu pa remanar les redes usaes pa llamaes</string>
   <string name="wifi_calling_use_call_assistant_summary">Permitir a les apps o servicios remanar redes usaes pa llamaes</string>
   <string name="wifi_calling_call_assistant_configure">Configurar</string>
   <string name="wifi_calling_call_assistant_configure_no_selection">Encontu de llamaes desactiváu</string>
@@ -476,7 +474,6 @@
     <item>Normal</item>
     <item>Llargu</item>
   </string-array>
-  <string name="network_message">Mensaxe de rede</string>
   <string name="ota_title_activate">Activar el to teléfonu</string>
   <string name="ota_touch_activate">Ye necesario facer una llamada especial p\'activar el serviciu telefónicu. \n\nTres de primir \"Activar\", escucha les instrucciones sobre cómo activar el teléfonu.</string>
   <string name="ota_hfa_activation_title">Activando...</string>

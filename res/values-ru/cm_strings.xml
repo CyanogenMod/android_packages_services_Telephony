@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Уведомления о событиях</string>
   <string name="show_ssn_summary">Показывать уведомления о разных событиях сети, связанных с вызовом</string>
+  <string name="blacklist_title">Чёрный список</string>
   <string name="blacklist_summary_disabled">Выключен</string>
+  <string name="blacklist_summary">Вы не будете получать входящие вызовы или сообщения от телефонных номеров из черного списка</string>
   <string name="mwi_notification_title">Индикатор ожидания сообщения</string>
   <string name="mwi_notification_summary">Показывать индикатор ожидания сообщения уведомлений голосовой почты</string>
   <string name="call_notif_unconditionalCF">Включена безусловная переадресация вызова</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Переадресация видеозвонков</string>
   <string name="vt_imagereplace_setting">Альтернативное изображение</string>
   <string name="vt_imagereplace_setting_sum">Изображение, отображающееся при отключенной передней камере</string>
-  <string name="roaming_mode_title">Режим роуминга</string>
-  <string name="roaming_mode_summary">Международный роуминг</string>
-  <string name="roaming_gsm">Роуминг GSM</string>
-  <string name="roaming_cdma">Роуминг CDMA</string>
-  <string name="roaming_disabled">Отключено</string>
   <string name="preferred_network_mode_global_summary_cm">Предпочтительный режим сети: Глобальный (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Предпочтительный режим сети: только TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Предпочтительный режим сети: TD-SCDMA/WCDMA</string>
@@ -132,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Только GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/предпочт. WCDMA</string>
   <string name="callind_multi_sim">Параметры SIM</string>
+  <string name="sim_card_title">SIM-карта %d</string>
+  <string name="sim_card_summary_empty">Слот SIM-карты пуст</string>
   <string name="tty_mode_not_allowed_vt_call">Не допускается изменение режима TTY во время видеовызова</string>
   <string name="ipcall_sub_title">Настройки IP-телефонии</string>
   <string name="ipcall_sub_summery">Изменить префикс для вызовов IP-телефонии</string>

@@ -24,7 +24,7 @@
   <string name="call_notif_unconditionalCF">به‌دواکه‌وتنی په‌یوه‌ندی بێ مه‌رجی کارده‌کات</string>
   <string name="call_notif_conditionalCF">به‌دواکه‌وتنی په‌یوه‌ندی مه‌رجی کارده‌کات</string>
   <string name="call_notif_MOcall_forwarding">په‌یوه‌ندی ده‌ره‌کی به‌دواکراوه‌</string>
-  <string name="call_notif_cugcall">په‌یوه‌ندی له‌ نزیکه‌وه‌ بۆ به‌کارهێنانی گروپ</string>
+  <string name="call_notif_cugcall">په‌یوه‌ندی له‌ نزیکه‌وه‌ بۆ به‌کارهێنانی کۆمەڵ</string>
   <string name="call_notif_outgoing_barred">په‌یوه‌ندی ده‌ره‌وه‌ ڕێگری لێکرا</string>
   <string name="call_notif_incoming_barred">په‌یوه‌ندی ناوه‌کی ڕێگری لێکرا له‌ به‌شی دوور</string>
   <string name="call_notif_clir_suppression_rejected">ژماره‌ی خاوه‌نی کپکردن ڕه‌دکرایه‌وه‌ له‌لایه‌ن هێڵ</string>

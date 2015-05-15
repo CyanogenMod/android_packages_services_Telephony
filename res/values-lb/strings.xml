@@ -56,7 +56,6 @@
   <string name="labelCDMAMore">CDMA-Uruffastellungen</string>
   <string name="apn_settings">Zougangspunkten (APNen)</string>
   <string name="settings_label">Netzwierkastellungen</string>
-  <string name="phone_accounts">Astellunge vum Telefonskont</string>
   <string name="phone_accounts_make_calls_with">Uruffe mat</string>
   <string name="phone_accounts_make_sip_calls_with">SIP-Uriff maache mat</string>
   <string name="phone_accounts_ask_every_time">Fir d\'éischt froen</string>
@@ -72,7 +71,6 @@
   <string name="wifi_calling_call_assistant">Uruffassistent</string>
   <string name="wifi_calling_use_call_assistant">Uruffassistent benotzen</string>
   <string name="wifi_calling_select_call_assistant">Uruffassistent auswielen</string>
-  <string name="wifi_calling_select_call_assistant_summary">Wiel eng App oder e Service fir d\'Gestioun vun den Netzwierker déi fir Uriff benotzt ginn</string>
   <string name="wifi_calling_use_call_assistant_summary">Appen oder Servicer d\'Netzwierker geréiere loossen déi fir Uriff gebraucht ginn</string>
   <string name="wifi_calling_call_assistant_configure">Astellen</string>
   <string name="wifi_calling_call_assistant_configure_no_selection">Uruffassistent aus</string>
@@ -476,7 +474,6 @@
     <item>Normal</item>
     <item>Laang</item>
   </string-array>
-  <string name="network_message">Netzwierkmessage</string>
   <string name="ota_title_activate">Däin Telefon aktivéieren</string>
   <string name="ota_touch_activate">E speziellen Uruff muss gemaach gi fir den Telefonsservice z\'aktivéieren.\n\nNom drécken op \u201CAktivéieren\u201D muss du d\'Uleedunge suivéiere fir däin Telefon z\'aktivéieren.</string>
   <string name="ota_hfa_activation_title">Gëtt aktivéiert...</string>

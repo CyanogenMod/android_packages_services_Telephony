@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notificació d\'esdeveniments</string>
   <string name="show_ssn_summary">Mostra una notificació pels diferents esdeveniments de xarxa relacionats amb la gestió de trucades</string>
+  <string name="blacklist_title">Llista de números bloquejats</string>
   <string name="blacklist_summary_disabled">Desactivada</string>
+  <string name="blacklist_summary">No rebràs trucades entrants o missatges dels números de telèfon que siguin dins la llista de números bloquejats</string>
   <string name="mwi_notification_title">Indicador de missatges en espera</string>
   <string name="mwi_notification_summary">Mostra un indicador de missatges en espera en les notificacions de la bústia de veu</string>
   <string name="call_notif_unconditionalCF">Desviament sense condicions de trucades actiu</string>
@@ -90,11 +92,6 @@
   <string name="vt_forward_setting">Desviament de vídeotrucada</string>
   <string name="vt_imagereplace_setting">Imatge alternativa</string>
   <string name="vt_imagereplace_setting_sum">Imatge a mostrar quan la càmera frontal estigui inhabilitada</string>
-  <string name="roaming_mode_title">Mode d\'itinerància</string>
-  <string name="roaming_mode_summary">Mode d\'itinerància internacional</string>
-  <string name="roaming_gsm">Itinerància GSM</string>
-  <string name="roaming_cdma">Itinerància CDMA</string>
-  <string name="roaming_disabled">Deshabilitat</string>
   <string name="preferred_network_mode_global_summary_cm">Mode de xarxa preferit: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Mode de xarxa preferit: només TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Mode de xarxa preferit: TD-SCDMA/WCDMA</string>
@@ -132,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Només GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferent</string>
   <string name="callind_multi_sim">Configuració de targeta SIM</string>
+  <string name="sim_card_title">Targeta SIM %d</string>
+  <string name="sim_card_summary_empty">La ranura SIM està buida</string>
   <string name="tty_mode_not_allowed_vt_call">No es permet el canvi de modalitat TTY durant una vídeo-trucada</string>
   <string name="ipcall_sub_title">Ajustaments de trucada IP</string>
   <string name="ipcall_sub_summery">Edita el prefix per trucar a través del servei d\'IP</string>
