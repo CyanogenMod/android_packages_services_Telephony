@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<!--
+     Copyright (C) 2015 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,15 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <Preference
-        android:key="button_auto_select_key"
-        android:title="@string/select_automatically"
-        android:summary="@string/sum_select_automatically"
-        android:persistent="false"/>
-
-    <PreferenceCategory
-        android:title="@string/label_available"
-        android:key="list_networks_key">
-    </PreferenceCategory>
-</PreferenceScreen>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        parent="@android:style/Theme.Material.Settings">
+    <item
+        android:id="@+id/action_search_networks"
+        android:icon="@*android:drawable/ic_menu_refresh"
+        android:title="@string/search_networks"
+        android:showAsAction="ifRoom|withText" />
+</menu>
