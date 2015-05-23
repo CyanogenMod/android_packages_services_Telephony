@@ -16,20 +16,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="show_ssn_label">Gertakarien jakinarazpenak</string>
+  <string name="show_ssn_label">Gertaeraren jakinarazpena</string>
   <string name="show_ssn_summary">Erakutsi dei kudeaketarekin lotutako sare gertaeren jakinarazpenak</string>
   <string name="blacklist_title">Blokeatutako deitzaileen zerrenda</string>
   <string name="blacklist_summary_disabled">Ezgaituta</string>
   <string name="blacklist_summary">Ez duzu dei edo mezurik jasoko blokeatutako deitzaileen zerrendan dauden telefono zenbakietatik</string>
   <string name="mwi_notification_title">Ahots postontziaren adierazlea</string>
-  <string name="mwi_notification_summary">Jakinarazpen bat ahots postontzian itxaroten dauden mezuentzako erakutsi</string>
+  <string name="mwi_notification_summary">Erakutsi mezua zain jakinarazpena ahots postontziko mezuentzako</string>
   <string name="call_notif_unconditionalCF">Baldintzarik gabeko dei desbideraketa gaituta</string>
-  <string name="call_notif_conditionalCF">Baldintzadun dei desbideraketa gaituta</string>
+  <string name="call_notif_conditionalCF">Baldintzapeko dei desbideratzea gaituta</string>
   <string name="call_notif_MOcall_forwarding">Egindako deia desbideratu da</string>
   <string name="call_notif_cugcall">Talde itxiako deia</string>
   <string name="call_notif_outgoing_barred">Deiak egitea trabatuta</string>
-  <string name="call_notif_incoming_barred">Sartzen diren deiak at utzita</string>
-  <string name="call_notif_clir_suppression_rejected">Dei izkutuak ukatuak</string>
+  <string name="call_notif_incoming_barred">Hartzaileak deiak jasotzea trabatu du</string>
+  <string name="call_notif_clir_suppression_rejected">Sareak norberaren zenbakia ezkutatzea ukatzen du</string>
   <string name="call_notif_call_deflected">Dei desbideratua</string>
   <string name="call_notif_MTcall_forwarding">Sartzen diren deiak desbideratuta daude</string>
   <string name="call_notif_multipartycall">Dei anitza</string>
@@ -72,7 +72,7 @@
   <string name="rc_unlock_failed">RUIM korporatiboaren desblokeo eskaerak huts egin du.</string>
   <string name="ruim_unlock_failed">RUIMaren desblokeo eskaerak huts egin du.</string>
   <string name="puk_unlock_failed">PUK bidezko desblokeoak huts egin du.</string>
-  <string name="unlock_success_cm">SIM sarea arrakastaz desblokeatu da.</string>
+  <string name="unlock_success_cm">SIM sarea ondo desblokeatu da.</string>
   <string name="nw_subset_unlock_success">SIMaren azpisarearen desblokeoa ondo burutu da.</string>
   <string name="sp_unlock_success">SIMaren zerbitzu hornitzailearen desblokeoa ondo burutu da.</string>
   <string name="corporate_unlock_success">SIM korporatiboaren desblokeoa ondo burutu da.</string>
@@ -80,8 +80,8 @@
   <string name="rnw1_unlock_success">RUIMaren 1. sarearen desblokeoa ondo burutu da.</string>
   <string name="rnw2_unlock_success">RUIMaren 2. sarearen desblokeoa ondo burutu da.</string>
   <string name="rhrpd_unlock_success">RUIMaren HRPDaren desblokeoa ondo burutu da.</string>
-  <string name="rsp_unlock_success">RUIMaren zerbitzu hornitzailearen desblokeoa arrakastaz burutu da.</string>
-  <string name="rc_unlock_success">RUIM korporatiboaren desblokeoa arrakastaz ondo da.</string>
+  <string name="rsp_unlock_success">RUIM zerbitzu hornitzailearen desblokeoa ondo burutu da.</string>
+  <string name="rc_unlock_success">RUIM korporatiboaren desblokeoa ondo burutu da.</string>
   <string name="ruim_unlock_success">RUIMaren desblokeoa ondo burutu da.</string>
   <string name="puk_unlock_success">PUK bidezko desblokeoa ondo burutu da.</string>
   <string name="stk_cc_ss_to_dial_error">SS eskaera DIAL eskaerara eraldatu da.</string>
@@ -129,9 +129,11 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM besterik ez</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA hobetsia</string>
   <string name="callind_multi_sim">SIM txartelaren ezarpenak</string>
+  <string name="sim_card_title">%d. SIM txartela</string>
+  <string name="sim_card_summary_empty">SIM erretena hutsik dago</string>
   <string name="tty_mode_not_allowed_vt_call">TTY modurako aldaketa ez dago bideo-dei batean zehar eskuragarri</string>
   <string name="ipcall_sub_title">IP deien hobespenak</string>
-  <string name="ipcall_sub_summery">IP dei zerbitzuaren aurrezenbakia aldatu</string>
+  <string name="ipcall_sub_summery">Editatu IP dei zerbitzuaren aurrezenbakia</string>
   <string name="ipcall_dialog_title">IP aurrezenbakia</string>
   <string name="ipcall_dialog_edit_hint">IP deien aurrezenbakia</string>
   <string name="fdn_service_unavailable">FDN zerbitzua ez dago eskuragarri.</string>
@@ -162,7 +164,7 @@
   <string name="exportAllcontatsFailed">Huts egin du kontaktu guztiak SIM txartelera esportatzean</string>
   <string name="exportAllcontatsNoContacts">Ez da kontakturik aurkitu SIM txartelera esportatzeko</string>
   <string name="uplmn_list_setting_title">Sare hobetsiak</string>
-  <string name="network_id">Sare ID-a</string>
+  <string name="network_id">Sare IDa</string>
   <string name="dialog_network_priority_title">Lehentasuna</string>
   <string name="uplmn_list_setting_add_plmn">PLMN berria</string>
   <string name="gsm_umts_network_preferences_title">Sare modua</string>
@@ -200,7 +202,7 @@
   <string name="ims_vt_call_quality_high">Altua</string>
   <string name="ims_vt_call_quality_unknown">Ezezaguna</string>
   <string name="ims_vt_call_quality_set_failed">Bideo kalitatea ezartzeak huts egin du</string>
-  <string name="perm_change_mobile_network">sare modua aldatu (2G/3G)</string>
+  <string name="perm_change_mobile_network">aldatu sare modua (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Edozein unetan sarea 2G eta 3G artean aldatzea ahalbidetzen dio aplikazioari. 3G-a azkarragoa da, baina bateria gehiago kontsumitzen du eta gastu handiagoak ekar ditzake.</string>
   <string name="phone_number_label">Nire telefono zenbakia</string>
   <string name="phone_number_summary">Gailu honetara loturiko zenbakia ezarri</string>

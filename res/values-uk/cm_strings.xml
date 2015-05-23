@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Повідомлення про події</string>
   <string name="show_ssn_summary">Показувати повідомлення щодо подій у мережі, які пов\'язані з викликом</string>
+  <string name="blacklist_title">Список заблокованих абонентів</string>
   <string name="blacklist_summary_disabled">Вимкнено</string>
+  <string name="blacklist_summary">Ви не будете отримувати вхідні дзвінки чи повідомлення від абонентів, які знаходяться у списку заблокованих</string>
   <string name="mwi_notification_title">Індикатор очікування повідомлення</string>
   <string name="mwi_notification_summary">Показувати індикатор очікування повідомлення сповіщень голосової пошти</string>
   <string name="call_notif_unconditionalCF">Увімкнена безумовна переадресація виклику</string>
@@ -127,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Тільки GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Переважно GSM/WCDMA</string>
   <string name="callind_multi_sim">Налаштування SIM-картки</string>
+  <string name="sim_card_title">SIM-картка %d</string>
+  <string name="sim_card_summary_empty">Слот SIM-картки порожній</string>
   <string name="tty_mode_not_allowed_vt_call">Змінення режиму TTY заборонено під час відео дзвінка</string>
   <string name="ipcall_sub_title">Налаштування IP-викликів</string>
   <string name="ipcall_sub_summery">Відредагуйте префікс для виклику через службу IP</string>

@@ -129,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Kun GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA foretrukket</string>
   <string name="callind_multi_sim">SIM-kort indstillinger</string>
+  <string name="sim_card_title">SIM-kort %d</string>
+  <string name="sim_card_summary_empty">SIM-kort skuffe er tom</string>
   <string name="tty_mode_not_allowed_vt_call">TTY-tilstandsændring er ikke tilladt under et video-opkald</string>
   <string name="ipcall_sub_title">IP-opkaldsindstillinger</string>
   <string name="ipcall_sub_summery">Redigér præfikset for opkald via IP-tjeneste</string>
