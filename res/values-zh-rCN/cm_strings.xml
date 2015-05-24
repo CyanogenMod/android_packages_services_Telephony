@@ -130,6 +130,7 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">首选 GSM/WCDMA</string>
   <string name="callind_multi_sim">SIM 卡设置</string>
   <string name="sim_card_title">SIM 卡 %d</string>
+  <string name="sim_card_summary_empty">SIM 卡槽是空的</string>
   <string name="tty_mode_not_allowed_vt_call">视频通话期间不允许更改 TTY 模式</string>
   <string name="ipcall_sub_title">IP 呼叫设置</string>
   <string name="ipcall_sub_summery">编辑通过 IP 服务呼叫的前缀</string>

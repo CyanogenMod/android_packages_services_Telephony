@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Kennisgewings</string>
   <string name="show_ssn_summary">Wys \'n kennisgewing vir verskeie netwerk gebeure wat verband hou met die hantering van telefoon oproepe</string>
+  <string name="blacklist_title">Lys geblokkeerde oproepers</string>
   <string name="blacklist_summary_disabled">Deaktiveer</string>
+  <string name="blacklist_summary">Jy sal nie inkomende oproepe of boodskappe van persone ontvang op die lys van geblokkeerde oproepe</string>
   <string name="mwi_notification_title">Boodskap wag aanwyser</string>
   <string name="mwi_notification_summary">Wys boodskap wag aanwyser vir stempos boodskappe</string>
   <string name="call_notif_unconditionalCF">Onvoorwaardelike oproep aanstuuring aktief</string>
@@ -127,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM alleenlik</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Verkies GSM/WCDMA</string>
   <string name="callind_multi_sim">SIM-kaart instellings</string>
+  <string name="sim_card_title">SIM kaaart %d</string>
+  <string name="sim_card_summary_empty">SIM slot is leeg</string>
   <string name="tty_mode_not_allowed_vt_call">TTY Modus verandering word nie toegelaat tydens \'n VT oproep</string>
   <string name="ipcall_sub_title">IP oproep instellings</string>
   <string name="ipcall_sub_summery">Wysig voorvoegsel om te bel deur IP diens</string>

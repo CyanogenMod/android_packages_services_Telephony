@@ -92,7 +92,7 @@
   <string name="vt_forward_setting">Přesměrování video hovorů</string>
   <string name="vt_imagereplace_setting">Alternativní obrázek</string>
   <string name="vt_imagereplace_setting_sum">Obrázek se zobrazí když je čelní fotoaparát je zakázán</string>
-  <string name="preferred_network_mode_global_summary_cm">Upřednostňovaný režim sítě: globálně (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <string name="preferred_network_mode_global_summary_cm">Upřednostňovaný režim sítě: globální (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Upřednostňovaný režim sítě: pouze TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_summary">Upřednostňovaný režim sítě: TD-SCDMA/LTE</string>
@@ -117,7 +117,7 @@
   <string name="preferred_network_mode_td_scdma_only_choice">Pouze TD-SCDMA</string>
   <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
   <string name="preferred_network_mode_lte_choice">LTE</string>
-  <string name="preferred_network_mode_global_choice">Globalní</string>
+  <string name="preferred_network_mode_global_choice">Globální</string>
   <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
   <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
@@ -127,7 +127,7 @@
   <string name="preferred_network_mode_gsm_wcdma_auto_choice">Automaticky GSM/WCDMA</string>
   <string name="preferred_network_mode_wcdma_only_choice">Pouze WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Pouze GSM</string>
-  <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferované GSM/WCDMA</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferované WCDMA/GSM</string>
   <string name="callind_multi_sim">Nastavení karty SIM</string>
   <string name="sim_card_title">SIM karta %d</string>
   <string name="sim_card_summary_empty">Slot pro SIM kartu je prázdný</string>

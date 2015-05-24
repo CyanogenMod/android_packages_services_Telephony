@@ -129,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Sadece GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA tercihli</string>
   <string name="callind_multi_sim">SIM kart ayarları</string>
+  <string name="sim_card_title">SIM kart %d</string>
+  <string name="sim_card_summary_empty">SIM yuvası boş</string>
   <string name="tty_mode_not_allowed_vt_call">TTY modu değişimine görüntülü arama esnasında izin verilmiyor</string>
   <string name="ipcall_sub_title">IP arama ayarları</string>
   <string name="ipcall_sub_summery">IP hizmeti ile aramak için öneki düzenle</string>
