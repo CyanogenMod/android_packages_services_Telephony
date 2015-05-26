@@ -123,6 +123,8 @@ public class CallNotifier extends Handler {
 
     private PhoneStateListener[] mPhoneStateListener;
 
+    // This retains the old Mwi notification visibility on Phone State change.
+    private boolean mMwiOldVisibleState = false;
     /**
      * Initialize the singleton CallNotifier instance.
      * This is only done once, at startup, from PhoneApp.onCreate().
@@ -308,7 +310,13 @@ public class CallNotifier extends Handler {
             @Override
             public void onMessageWaitingIndicatorChanged(boolean mwi) {
                 Phone phone = PhoneUtils.getPhoneFromSubId(mSubId);
-                onMwiChanged(mwi, phone);
+
+                // This will prevent the mwi notification to be shown
+                // at every phone State change.
+                if(mMwiOldVisibleState != mwi) {
+                    mMwiOldVisibleState = mwi;
+                    onMwiChanged(mwi, phone);
+                }
             }
 
             @Override
