@@ -127,9 +127,9 @@ public class MSimCallFeaturesSubSetting extends PreferenceActivity
     private static final String SIGNOUT_EXTRA = "com.android.phone.Signout";
 
     //Information about logical "up" Activity
-    private static final String UP_ACTIVITY_PACKAGE = "com.android.contacts";
+    private static final String UP_ACTIVITY_PACKAGE = "com.android.phone";
     private static final String UP_ACTIVITY_CLASS =
-            "com.android.contacts.activities.DialtactsActivity";
+            "com.android.phone.CallFeaturesSetting";
 
     // Used to tell the saving logic to leave forwarding number as is
     private static final CallForwardInfo[] FWD_SETTINGS_DONT_TOUCH = null;
