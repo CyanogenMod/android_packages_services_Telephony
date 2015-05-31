@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">이벤트 알림</string>
   <string name="show_ssn_summary">통화와 관련된 다양한 네트워크 이벤트에 대한 알림 표시</string>
+  <string name="blacklist_title">차단된 발신자 목록</string>
   <string name="blacklist_summary_disabled">비활성화 됨</string>
+  <string name="blacklist_summary">차단된 발신자 목록에 있는 전화 번호의 통화나 메세지를 받지 않습니다</string>
   <string name="mwi_notification_title">메시지 대기 표시</string>
   <string name="mwi_notification_summary">음성메일 알림에 대한 메시지 대기 표시 보이기</string>
   <string name="call_notif_unconditionalCF">무조건 착신 전환 활성</string>
@@ -127,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM 전용</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA 우선</string>
   <string name="callind_multi_sim">SIM 카드 설정</string>
+  <string name="sim_card_title">SIM 카드 %d</string>
+  <string name="sim_card_summary_empty">SIM 슬롯이 비었습니다</string>
   <string name="tty_mode_not_allowed_vt_call">영상통화 중에는 TTY 모드를 변경할 수 없습니다</string>
   <string name="ipcall_sub_title">IP 통화 설정</string>
   <string name="ipcall_sub_summery">IP 통화 서비스로 전화할 때 사용할 접두사 수정</string>

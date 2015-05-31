@@ -91,7 +91,7 @@
   <string name="vt_fallback_setting">Berriz deitu ahots deia erabilita</string>
   <string name="vt_forward_setting">Bideo-deia birbidaltzea</string>
   <string name="vt_imagereplace_setting">Ordezko irudia</string>
-  <string name="vt_imagereplace_setting_sum">Bistaratuko den irudia aurreko kamara itzalita dagoenean</string>
+  <string name="vt_imagereplace_setting_sum">Bistaratuko den irudia aurreko kamera itzalita dagoenean</string>
   <string name="preferred_network_mode_global_summary_cm">Sare modu hobetsia: Globala (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Sare modu hobetsia: TD-SCDMA besterik ez</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Sare modu hobetsia: TD-SCDMA/WCDMA</string>

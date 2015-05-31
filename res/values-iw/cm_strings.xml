@@ -129,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM בלבד</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">‏GSM/WCDMA מועדף</string>
   <string name="callind_multi_sim">הגדרות כרטיס ה-SIM</string>
+  <string name="sim_card_title">כרטיס SIM %d</string>
+  <string name="sim_card_summary_empty">חריץ ה-SIM ריק</string>
   <string name="tty_mode_not_allowed_vt_call">שינוי מצב TTY אינו מורשה במהלך שיחת וידאו</string>
   <string name="ipcall_sub_title">הגדרות שיחת IP</string>
   <string name="ipcall_sub_summery">עריכת קידומת עבור התקשרות דרך שירות ה-IP</string>
