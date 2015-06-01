@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Kennisgewings</string>
   <string name="show_ssn_summary">Wys \'n kennisgewing vir verskeie netwerk gebeure wat verband hou met die hantering van telefoon oproepe</string>
+  <string name="blacklist_title">Geblokkeerde oproepers lys</string>
   <string name="blacklist_summary_disabled">Deaktiveer</string>
+  <string name="blacklist_summary">Jy sal nie inkomende oproepe of boodskappe van persone ontvang op die blokkeer lys nie</string>
   <string name="mwi_notification_title">Boodskap wag aanwyser</string>
   <string name="mwi_notification_summary">Wys boodskap wag aanwyser vir stempos boodskappe</string>
   <string name="call_notif_unconditionalCF">Onvoorwaardelike oproep aanstuuring aktief</string>
@@ -90,6 +92,11 @@
   <string name="vt_forward_setting">Video-oproep aangestuur</string>
   <string name="vt_imagereplace_setting">Alternatiewe prentjie</string>
   <string name="vt_imagereplace_setting_sum">Foto om te vertoon wanneer voorste kamera gedeaktiveer is</string>
+  <string name="roaming_mode_title">Swerwing mode</string>
+  <string name="roaming_mode_summary">Internasionale swerwing mode</string>
+  <string name="roaming_gsm">GSM swerwing</string>
+  <string name="roaming_cdma">CDMA swerwing</string>
+  <string name="roaming_disabled">Afgeskakel</string>
   <string name="preferred_network_mode_global_summary_cm">Voorkeur-modus: Globaal (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Voorkeur-modus: TD-SCDMA alleenlik</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Voorkeur-modus: TD-SCDMA/WCDMA</string>

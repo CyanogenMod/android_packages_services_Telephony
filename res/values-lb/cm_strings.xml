@@ -94,7 +94,7 @@
   <string name="roaming_mode_summary">Internationale Roaming-Modus</string>
   <string name="roaming_gsm">GSM-Roaming</string>
   <string name="roaming_cdma">CDMA-Roaming</string>
-  <string name="roaming_disabled">Deaktivéiert</string>
+  <string name="roaming_disabled">Desaktivéiert</string>
   <string name="preferred_network_mode_global_summary_cm">Preferéierten Netzwierktyp: Global (CDMA/EVDO/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Preferéierten Netzwierktyp: just TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferéierten Netzwierktyp: TD-SCDMA/WCDMA</string>

@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">이벤트 알림</string>
   <string name="show_ssn_summary">통화와 관련된 다양한 네트워크 이벤트에 대한 알림 표시</string>
+  <string name="blacklist_title">차단된 발신자 목록</string>
   <string name="blacklist_summary_disabled">비활성화 됨</string>
+  <string name="blacklist_summary">통화 차단 목록에 있는 전화 번호의 통화나 메세지를 받지 않습니다</string>
   <string name="mwi_notification_title">메시지 대기 표시</string>
   <string name="mwi_notification_summary">음성메일 알림에 대한 메시지 대기 표시 보이기</string>
   <string name="call_notif_unconditionalCF">무조건 착신 전환 활성</string>
@@ -90,6 +92,11 @@
   <string name="vt_forward_setting">영상통화 전달</string>
   <string name="vt_imagereplace_setting">대체 그림</string>
   <string name="vt_imagereplace_setting_sum">전면 카메라를 사용 하지 않을 때 표시할 이미지</string>
+  <string name="roaming_mode_title">로밍 모드</string>
+  <string name="roaming_mode_summary">국제 로밍 모드</string>
+  <string name="roaming_gsm">GSM 로밍</string>
+  <string name="roaming_cdma">CDMA 로밍</string>
+  <string name="roaming_disabled">비활성화됨</string>
   <string name="preferred_network_mode_global_summary_cm">선호 네트워크 모드: 글로벌 (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">선호 네트워크 모드: TD-SCDMA 전용</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">선호 네트워크 모드: TD-SCDMA/WCDMA</string>

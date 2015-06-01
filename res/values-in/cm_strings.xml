@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notifikasi acara</string>
   <string name="show_ssn_summary">Tampilkan notifikasi untuk berbagai acara jaringan yang terkait penangangan panggilan</string>
+  <string name="blacklist_title">Daftar penelepon yang diblokir</string>
   <string name="blacklist_summary_disabled">Dinonaktifkan</string>
+  <string name="blacklist_summary">Anda tidak akan menerima panggilan atau pesan dari nomor telepon yang ada di daftar penelepon yang diblokir</string>
   <string name="mwi_notification_title">Indikator pesan menunggu</string>
   <string name="mwi_notification_summary">Tampilkan notifikasi indikator pesan tunggu untuk pesan suara</string>
   <string name="call_notif_unconditionalCF">Penerusan panggilan tanpa syarat aktif</string>
