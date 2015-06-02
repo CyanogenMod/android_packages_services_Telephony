@@ -959,7 +959,9 @@ public class PhoneUtils {
                 // places the message at the forefront of the UI.
 
                 if (sUssdDialog == null) {
-                    sUssdDialog = new AlertDialog.Builder(context)
+                    ContextThemeWrapper contextThemeWrapper =
+                            new ContextThemeWrapper(context, R.style.DialerAlertDialogTheme);
+                    sUssdDialog = new AlertDialog.Builder(contextThemeWrapper)
                             .setPositiveButton(R.string.ok, null)
                             .setCancelable(true)
                             .setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -984,6 +986,8 @@ public class PhoneUtils {
                 sUssdMsg.insert(0, text);
                 sUssdDialog.setMessage(sUssdMsg.toString());
                 sUssdDialog.show();
+                sUssdDialog.getButton(DialogInterface.BUTTON_POSITIVE)
+                        .setTextColor(context.getResources().getColor(R.color.dialer_theme_color));
             } else {
                 if (DBG) log("USSD code has requested user input. Constructing input dialog.");
 
