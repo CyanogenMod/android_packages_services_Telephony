@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Lar programmet bytte mellom 2G og 3G data når som helst. 3G er raskere, men bruker mer batteri og kan forårsake ekstra kostnad.</string>
   <string name="phone_number_label">Telefonnummeret mitt</string>
   <string name="phone_number_summary">Angi telefonnummeret for denne enheten</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobile nettverksinnstillinger</string>
 </resources>

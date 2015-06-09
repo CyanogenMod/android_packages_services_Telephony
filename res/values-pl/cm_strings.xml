@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Pozwól aplikacji na przełączanie pomiędzy trybem 2G a 3G.</string>
   <string name="phone_number_label">Mój numer telefonu</string>
   <string name="phone_number_summary">Ustaw numer telefonu dla tego urządzenia</string>
+  <string name="msim_mobile_network_settings_title">Ustawienia sieci komórkowej karty SIM %d</string>
 </resources>

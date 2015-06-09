@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Umožňuje kdykoliv změnit typ datového připojení mezi 2G a 3G. Režim 3G je rychlejší, ale je náročnější na baterii a může být dražší.</string>
   <string name="phone_number_label">Moje telefonní číslo</string>
   <string name="phone_number_summary">Nastavení telefonního čísla pro toto zařízení</string>
+  <string name="msim_mobile_network_settings_title">Nastavení mobilní sítě SIM %d</string>
 </resources>

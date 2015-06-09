@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Leisti programai keisti tarp 2G ir 3G duomenų bet kuriuo metu. 3G yra greitesnis bet sunaudoja daugiau akumuliatoriaus, taip pat tai jums gali kainuoti daugiau pinigų.</string>
   <string name="phone_number_label">Mano telefono numeris</string>
   <string name="phone_number_summary">Nustatyti telefono numerį šiam įrenginiui</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiliojo tinklo nustatymai</string>
 </resources>

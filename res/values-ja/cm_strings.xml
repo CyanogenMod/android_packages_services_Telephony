@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">いつでも2Gデータと3Gデータ間を変更することをアプリに許可します。3Gは高速ですが、電池の消費が増えたり、追加の料金が発生する恐れがあります。</string>
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
+  <string name="msim_mobile_network_settings_title">SIM %dのモバイルネットワーク設定</string>
 </resources>

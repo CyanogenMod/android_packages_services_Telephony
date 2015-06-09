@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Edozein unetan sarea 2G eta 3G artean aldatzea ahalbidetzen dio aplikazioari. 3G-a azkarragoa da, baina bateria gehiago kontsumitzen du eta gastu handiagoak ekar ditzake.</string>
   <string name="phone_number_label">Nire telefono zenbakia</string>
   <string name="phone_number_summary">Gailu honetara loturiko zenbakia ezarri</string>
+  <string name="msim_mobile_network_settings_title">%d. SIM txartelaren sare mugikor ezarpenak</string>
 </resources>

@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Позволяет приложению в любое время изменять режим сети между 2G и 3G. 3G быстрее, но потребляет больше заряда аккумулятора и может повлечь дополнительные расходы.</string>
   <string name="phone_number_label">Мой номер телефона</string>
   <string name="phone_number_summary">Задать телефонный номер для этого устройства</string>
+  <string name="msim_mobile_network_settings_title">Настройки мобильной сети SIM %d</string>
 </resources>

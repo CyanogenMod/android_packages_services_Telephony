@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Permite a uma aplicação alterar entre 2G e 3G a qualquer momento. 3G é mais rápido, mas consome mais bateria e pode causar um custo adicional.</string>
   <string name="phone_number_label">Meu número de telefone</string>
   <string name="phone_number_summary">Definir o número de telefone para este dispositivo</string>
+  <string name="msim_mobile_network_settings_title">Definições de rede móvel do SIM %d</string>
 </resources>

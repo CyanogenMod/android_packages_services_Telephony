@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Ermöglicht der App, jederzeit zwischen 2G- und 3G-Netz zu wechseln</string>
   <string name="phone_number_label">Meine Rufnummer</string>
   <string name="phone_number_summary">Rufnummer für dieses Gerät setzen</string>
+  <string name="msim_mobile_network_settings_title">SIM %d-Mobilnetzeinstellungen</string>
 </resources>

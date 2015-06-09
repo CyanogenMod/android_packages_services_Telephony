@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Sallii sovelluksen vaihtaa 2G ja 3G verkon välillä milloin tahansa. 3G on nopeampi, mutta kuluttaa enemmän akkua ja voi aiheuttaa lisäkustannuksia.</string>
   <string name="phone_number_label">Oma puhelinnumero</string>
   <string name="phone_number_summary">Aseta tämän laitteen puhelinnumero</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiiliverkon asetukset</string>
 </resources>

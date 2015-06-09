@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Омогућава апликацији да промени између 2G и 3G података у било ком тренутку. 3G је бржи, али троши више батерију и може изазвати додатне трошкове.</string>
   <string name="phone_number_label">Мој телефонски број</string>
   <string name="phone_number_summary">Подеси телефонски број за овај уређај</string>
+  <string name="msim_mobile_network_settings_title">SIM %d подешавање мобилне мреже</string>
 </resources>

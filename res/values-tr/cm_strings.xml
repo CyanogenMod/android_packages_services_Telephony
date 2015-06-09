@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Uygulamanın 2G ve 3G verisi arasında değişiklik yapmasına izin verir. 3g daha hızlıdır fakat daha fazla pil tüketir ve ek ücretlere neden olabilir.</string>
   <string name="phone_number_label">Telefon numaram</string>
   <string name="phone_number_summary">Bu cihaz için telefon numarasını ayarla</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobil şebeke ayarları</string>
 </resources>

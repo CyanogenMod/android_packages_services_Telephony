@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Επιτρέπει στην εφαρμογή να κάνει εναλλαγή μεταξύ 2G και 3G δεδομένων. Το 3G είναι γρηγορότερο, καταναλώνει περισσότερο μπαταρία και μπορεί επίσης να σας κοστίσει περισσότερα χρήματα.</string>
   <string name="phone_number_label">Ο αριθμός μου</string>
   <string name="phone_number_summary">Ορίστε τον αριθμό τηλεφώνου για αυτή τη συσκευή</string>
+  <string name="msim_mobile_network_settings_title">Ρυθμίσεις δικτύων κινητής τηλεφωνίας SIM %d</string>
 </resources>

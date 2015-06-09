@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Povolí aplikácii kedykoľvek prepínať medzi sieťami 2G a 3G. 3G je rýchlejšie, viac využíva batériu a taktiež Vás môže stáť viac peňazí.</string>
   <string name="phone_number_label">Moje telefónne číslo</string>
   <string name="phone_number_summary">Nastaviť telefónne číslo pre toto zariadenie</string>
+  <string name="msim_mobile_network_settings_title">Nastavenia mobilnej siete SIM %d</string>
 </resources>

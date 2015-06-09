@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">任何时候都允许应用在 2G 和 3G 数据之间切换。3G 更快，但消耗更多电量以及可能引起额外的花费。</string>
   <string name="phone_number_label">我的电话号码</string>
   <string name="phone_number_summary">设定此设备的电话号码</string>
+  <string name="msim_mobile_network_settings_title">SIM 卡 %d 移动网络设置</string>
 </resources>

@@ -129,6 +129,8 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM uniquement</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA préféré</string>
   <string name="callind_multi_sim">Paramètres de la carte SIM</string>
+  <string name="sim_card_title">Carte SIM %d</string>
+  <string name="sim_card_summary_empty">Emplacement SIM vide</string>
   <string name="tty_mode_not_allowed_vt_call">Le changement en mode TTY n\'est pas autorisé pendant un appel vidéo</string>
   <string name="ipcall_sub_title">Paramètres des appels IP</string>
   <string name="ipcall_sub_summery">Modifier le préfixe d\'appel du service IP</string>
