@@ -23,6 +23,7 @@ import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import com.android.internal.telephony.Phone;
@@ -41,6 +42,7 @@ public class PhoneToggler extends BroadcastReceiver  {
     public static final String ACTION_MOBILE_DATA_CHANGED =
             "com.android.internal.telephony.MOBILE_DATA_CHANGED";
     public static final String EXTRA_NETWORK_MODE = "networkMode";
+    public static final String EXTRA_PHONE_ID = "phoneId";
 
     public static final String CHANGE_NETWORK_MODE_PERM =
             "com.android.phone.CHANGE_NETWORK_MODE";
@@ -58,6 +60,14 @@ public class PhoneToggler extends BroadcastReceiver  {
         return mPhone;
     }
 
+    private Phone getPhone(int phoneId) {
+        if (mPhone != null && mPhone.getPhoneId() == phoneId) {
+            return mPhone;
+        } else {
+            return PhoneFactory.getPhone(phoneId);
+        }
+    }
+
     private MyHandler getHandler() {
         if (mHandler == null) {
             mHandler = new MyHandler();
@@ -72,8 +82,9 @@ public class PhoneToggler extends BroadcastReceiver  {
             if (DBG) Log.d(LOG_TAG, "Got modify intent");
             if (intent.getExtras() != null) {
                 int networkMode = intent.getExtras().getInt(EXTRA_NETWORK_MODE);
+                int phoneId = intent.getExtras().getInt(EXTRA_PHONE_ID);
                 boolean networkModeOk = false;
-                Phone phone = getPhone();
+                Phone phone = getPhone(phoneId);
                 int phoneType = phone.getPhoneType();
                 boolean isLteOnCdma = phone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE;
 
@@ -100,7 +111,7 @@ public class PhoneToggler extends BroadcastReceiver  {
 
                 if (networkModeOk) {
                     if (DBG) Log.d(LOG_TAG, "Changing network mode to " + networkMode);
-                    changeNetworkMode(networkMode);
+                    changeNetworkMode(phoneId, networkMode);
                 } else {
                     Log.e(LOG_TAG,"Invalid network mode: "+networkMode);
                 }
@@ -113,8 +124,8 @@ public class PhoneToggler extends BroadcastReceiver  {
         }
     }
 
-    private void changeNetworkMode(int modemNetworkMode) {
-        getPhone().setPreferredNetworkType(modemNetworkMode,
+    private void changeNetworkMode(int phoneId, int modemNetworkMode) {
+        getPhone(phoneId).setPreferredNetworkType(modemNetworkMode,
                 getHandler().obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
 
     }
@@ -147,9 +158,13 @@ public class PhoneToggler extends BroadcastReceiver  {
             if (ar.exception == null) {
                 Context context = getPhone().getContext();
                 int modemNetworkMode = ((int[]) ar.result)[0];
-                int settingsNetworkMode = Settings.Global.getInt(context.getContentResolver(),
-                        Settings.Global.PREFERRED_NETWORK_MODE,
-                        MobileNetworkSettings.preferredNetworkMode);
+                int settingsNetworkMode;
+                try {
+                    settingsNetworkMode = TelephonyManager.getIntAtIndex(getPhone().getContext().getContentResolver(),
+                            Settings.Global.PREFERRED_NETWORK_MODE, getPhone().getPhoneId());
+                } catch (Settings.SettingNotFoundException e) {
+                    settingsNetworkMode = Phone.PREFERRED_NT_MODE;
+                }
 
                 if (DBG) {
                     Log.d(LOG_TAG,"handleGetPreferredNetworkTypeResponse: modemNetworkMode = "
@@ -165,8 +180,8 @@ public class PhoneToggler extends BroadcastReceiver  {
                         settingsNetworkMode = modemNetworkMode;
 
                         //changes the Settings.System accordingly to modemNetworkMode
-                        Settings.Global.putInt(context.getContentResolver(),
-                                Settings.Global.PREFERRED_NETWORK_MODE, settingsNetworkMode);
+                        TelephonyManager.putIntAtIndex(getPhone().getContext().getContentResolver(),
+                            Settings.Global.PREFERRED_NETWORK_MODE, getPhone().getPhoneId(), settingsNetworkMode);
                     }
 
                     Intent intent = new Intent(ACTION_NETWORK_MODE_CHANGED);
@@ -189,8 +204,8 @@ public class PhoneToggler extends BroadcastReceiver  {
         }
 
         private void resetNetworkModeToDefault() {
-            Settings.Global.putInt(getPhone().getContext().getContentResolver(),
-                        Settings.Global.PREFERRED_NETWORK_MODE,
+            TelephonyManager.putIntAtIndex(getPhone().getContext().getContentResolver(),
+                        Settings.Global.PREFERRED_NETWORK_MODE, getPhone().getPhoneId(), 
                         MobileNetworkSettings.preferredNetworkMode);
             //Set the Modem
             getPhone().setPreferredNetworkType(MobileNetworkSettings.preferredNetworkMode,
