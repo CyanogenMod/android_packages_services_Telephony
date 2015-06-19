@@ -28,8 +28,10 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
+import android.telephony.SubscriptionManager;
 import android.util.AttributeSet;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -48,6 +50,7 @@ public class AccountSelectionPreference extends ListPreference implements
     private String[] mEntryValues;
     private CharSequence[] mEntries;
     private boolean mShowSelectionInSummary = true;
+    private boolean mDisableAltAlways;
 
     public AccountSelectionPreference(Context context) {
         this(context, null);
@@ -57,6 +60,8 @@ public class AccountSelectionPreference extends ListPreference implements
         super(context, attrs);
         mContext = context;
         setOnPreferenceChangeListener(this);
+        mDisableAltAlways = context.getResources().getBoolean(
+                R.bool.config_hardcodeDefaultMobileNetworks);
     }
 
     public void setListener(AccountSelectionListener listener) {
@@ -69,9 +74,28 @@ public class AccountSelectionPreference extends ListPreference implements
 
     public void setModel(
             TelecomManager telecomManager,
-            List<PhoneAccountHandle> accountsList,
+            List<PhoneAccountHandle> phoneAccountHandleList,
             PhoneAccountHandle currentSelection,
             CharSequence nullSelectionString) {
+
+        List<PhoneAccountHandle> accountsList;
+        if (mDisableAltAlways) {
+            accountsList = new ArrayList<PhoneAccountHandle>();
+            for (PhoneAccountHandle handle : phoneAccountHandleList) {
+                try {
+                    // Assume subId == accountId
+                    int subId = Integer.parseInt(handle.getId());
+                    int slotId = SubscriptionManager.getSlotId(subId);
+                    if (slotId == 0) {
+                        accountsList.add(handle);
+                        break;
+                    }
+                } catch (NumberFormatException e) {
+                }
+            }
+        } else {
+            accountsList = phoneAccountHandleList;
+        }
 
         mAccounts = accountsList.toArray(new PhoneAccountHandle[accountsList.size()]);
         mEntryValues = new String[mAccounts.length + 1];

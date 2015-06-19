@@ -174,4 +174,7 @@
 
     <!-- After a CDMA conference call is merged, the swap button should be displayed. -->
     <bool name="support_swap_after_merge" translatable="false">true</bool>
+
+    <!-- Some vendors don't want to allow non slot 0 to be set to default for calls/sms -->
+    <bool name="config_hardcodeDefaultMobileNetworks">false</bool>
 </resources>
