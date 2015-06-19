@@ -31,6 +31,7 @@ import android.telecom.TelecomManager;
 import android.util.AttributeSet;
 
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Objects;
 
 public class AccountSelectionPreference extends ListPreference implements
@@ -48,6 +49,7 @@ public class AccountSelectionPreference extends ListPreference implements
     private String[] mEntryValues;
     private CharSequence[] mEntries;
     private boolean mShowSelectionInSummary = true;
+    private boolean mDisableAltAlways;
 
     public AccountSelectionPreference(Context context) {
         this(context, null);
@@ -57,6 +59,8 @@ public class AccountSelectionPreference extends ListPreference implements
         super(context, attrs);
         mContext = context;
         setOnPreferenceChangeListener(this);
+        mDisableAltAlways = context.getResources().getBoolean(com.android.internal.
+                R.bool.config_disableAltAlwaysSmsCallSimPref);
     }
 
     public void setListener(AccountSelectionListener listener) {
@@ -72,6 +76,21 @@ public class AccountSelectionPreference extends ListPreference implements
             List<PhoneAccountHandle> accountsList,
             PhoneAccountHandle currentSelection,
             CharSequence nullSelectionString) {
+
+        if (mDisableAltAlways) {
+            ListIterator<PhoneAccountHandle> iterator = accountsList.listIterator();
+            while (iterator.hasNext()) {
+                PhoneAccountHandle accountHandle = iterator.next();
+                try {
+                    // Assume subId == accountId
+                    int subId = Integer.parseInt(accountHandle.getId());
+                    if (subId != 1) {
+                        iterator.remove();
+                    }
+                } catch (NumberFormatException e) {
+                }
+            }
+        }
 
         mAccounts = accountsList.toArray(new PhoneAccountHandle[accountsList.size()]);
         mEntryValues = new String[mAccounts.length + 1];
