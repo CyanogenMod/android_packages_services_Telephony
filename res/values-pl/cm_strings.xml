@@ -209,4 +209,5 @@
   <string name="perm_change_mobile_network_desc">Pozwól aplikacji na przełączanie pomiędzy trybem 2G a 3G.</string>
   <string name="phone_number_label">Mój numer telefonu</string>
   <string name="phone_number_summary">Ustaw numer telefonu dla tego urządzenia</string>
+  <string name="call_recording_format">Format nagranej rozmowy</string>
 </resources>

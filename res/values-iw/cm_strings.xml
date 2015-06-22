@@ -209,4 +209,5 @@
   <string name="perm_change_mobile_network_desc">אפשר ליישום לשנות בין 2G ו-3G בחיבור לרשת. 3G מהיר יותר, אבל דורש יותר סוללה ויכול לגרום להוצאות נוספות.</string>
   <string name="phone_number_label">מספר הטלפון שלי</string>
   <string name="phone_number_summary">הגדר מספר טלפון למכשיר זה</string>
+  <string name="call_recording_format">פורמט הקלטת שיחה</string>
 </resources>
