@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">העברת שיחות וידאו</string>
   <string name="vt_imagereplace_setting">תמונה חלופית</string>
   <string name="vt_imagereplace_setting_sum">תמונה להצגה כאשר המצלמה הקדמית לא זמינה</string>
+  <string name="roaming_mode_title">מצב נדידה</string>
+  <string name="roaming_mode_summary">מצב נדידה בינלאומי</string>
+  <string name="roaming_gsm">נדידת GSM</string>
+  <string name="roaming_cdma">נדידת CDMA</string>
+  <string name="roaming_disabled">מושבת</string>
   <string name="preferred_network_mode_global_summary_cm">מצב רשת מועדף: גלובלי (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">מצב רשת מועדף: TD-SCDMA בלבד</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">מצב רשת מועדף: TD-SCDMA / WCDMA</string>
@@ -206,4 +211,6 @@
   <string name="perm_change_mobile_network_desc">אפשר ליישום לשנות בין 2G ו-3G בחיבור לרשת. 3G מהיר יותר, אבל דורש יותר סוללה ויכול לגרום להוצאות נוספות.</string>
   <string name="phone_number_label">מספר הטלפון שלי</string>
   <string name="phone_number_summary">הגדר מספר טלפון למכשיר זה</string>
+  <string name="msim_mobile_network_settings_title">הגדרות רשת סלולרית של SIM %d</string>
+  <string name="call_recording_format">פורמט הקלטת שיחה</string>
 </resources>

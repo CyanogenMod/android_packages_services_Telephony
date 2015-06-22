@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Přesměrování video hovorů</string>
   <string name="vt_imagereplace_setting">Alternativní obrázek</string>
   <string name="vt_imagereplace_setting_sum">Obrázek se zobrazí když je čelní fotoaparát je zakázán</string>
+  <string name="roaming_mode_title">Roaming režim</string>
+  <string name="roaming_mode_summary">Mezinárodní roaming režim</string>
+  <string name="roaming_gsm">GSM roaming</string>
+  <string name="roaming_cdma">CDMA roaming</string>
+  <string name="roaming_disabled">Vypnuto</string>
   <string name="preferred_network_mode_global_summary_cm">Upřednostňovaný režim sítě: globální (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Upřednostňovaný režim sítě: pouze TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">Moje telefonní číslo</string>
   <string name="phone_number_summary">Nastavení telefonního čísla pro toto zařízení</string>
   <string name="msim_mobile_network_settings_title">Nastavení mobilní sítě SIM %d</string>
+  <string name="call_recording_format">Formát záznamu hovoru</string>
 </resources>

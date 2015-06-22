@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">อนุญาตให้โปรแกรมประยุกต์เพื่อเปลี่ยนระหว่างข้อมูลของ 2G และ 3G ข้อมูลตลอดเวลา 3G จะเร็ว แต่ใช้มาก และอาจทำให้ต้นทุนเพิ่มเติม</string>
   <string name="phone_number_label">หมายเลขโทรศัพท์ของฉัน</string>
   <string name="phone_number_summary">ตั้งค่าหมายเลขโทรศัพท์สำหรับอุปกรณ์นี้</string>
+  <string name="msim_mobile_network_settings_title">ตั้งค่าเครือข่ายโทรศัพท์มือถือซิม %d</string>
 </resources>
