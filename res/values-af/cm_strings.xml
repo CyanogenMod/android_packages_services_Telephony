@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Laat die program toe om te verander tussen 2G data en 3G data op enige tyd. 3G is vinniger, maar verbruik meer battery en kan lei tot bykomende koste.</string>
   <string name="phone_number_label">My telefoonnommer</string>
   <string name="phone_number_summary">Stel die telefoonnommer vir hierdie toestel</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiele netwerk instellings</string>
 </resources>

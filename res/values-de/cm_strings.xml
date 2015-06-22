@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Videoanruf-Weiterleitung</string>
   <string name="vt_imagereplace_setting">Alternatives Bild</string>
   <string name="vt_imagereplace_setting_sum">Anzuzeigendes Bild bei deaktivierter Frontkamera</string>
+  <string name="roaming_mode_title">Roaming-Modus</string>
+  <string name="roaming_mode_summary">Internationaler Roaming-Modus</string>
+  <string name="roaming_gsm">GSM-Roaming</string>
+  <string name="roaming_cdma">CDMA-Roaming</string>
+  <string name="roaming_disabled">Deaktiviert</string>
   <string name="preferred_network_mode_global_summary_cm">Bevorzugter Netzwerkmodus: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Bevorzugter Netzmodus: TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Bevorzugter Netzmodus: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">Meine Rufnummer</string>
   <string name="phone_number_summary">Rufnummer für dieses Gerät setzen</string>
   <string name="msim_mobile_network_settings_title">SIM %d-Mobilnetzeinstellungen</string>
+  <string name="call_recording_format">Anrufaufnahme-Format</string>
 </resources>

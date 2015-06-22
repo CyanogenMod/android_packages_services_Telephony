@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Прослеђивање видео позива</string>
   <string name="vt_imagereplace_setting">Алтернативна слика</string>
   <string name="vt_imagereplace_setting_sum">Слика за приказ када је предња камера онемогућена</string>
+  <string name="roaming_mode_title">Роминг режим</string>
+  <string name="roaming_mode_summary">Међународни роминг режим</string>
+  <string name="roaming_gsm">GSM роминг</string>
+  <string name="roaming_cdma">CDMA роминг</string>
+  <string name="roaming_disabled">Онемогућено</string>
   <string name="preferred_network_mode_global_summary_cm">Жељени режим мреже: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Жељени режим мреже: само TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Жељени режим мреже: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">Мој телефонски број</string>
   <string name="phone_number_summary">Подеси телефонски број за овај уређај</string>
   <string name="msim_mobile_network_settings_title">SIM %d подешавање мобилне мреже</string>
+  <string name="call_recording_format">Формат снимања позива</string>
 </resources>
