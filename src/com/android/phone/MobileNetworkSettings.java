@@ -128,6 +128,8 @@ public class MobileNetworkSettings extends PreferenceActivity
     private boolean mIsGlobalCdma;
     private boolean mUnavailable;
 
+    private int mSubId;
+
     private final PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
         /*
          * Enable/disable the 'Enhanced 4G LTE Mode' when in/out of a call.
@@ -266,12 +268,12 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         int slotIndex = getIntent().getIntExtra(PhoneConstants.SLOT_KEY,
                 SubscriptionManager.INVALID_SIM_SLOT_INDEX);
+        SubscriptionManager subManager = SubscriptionManager.from(this);
         if (slotIndex != SubscriptionManager.INVALID_SIM_SLOT_INDEX) {
             setTitle(getString(R.string.msim_mobile_network_settings_title, slotIndex + 1));
-            int subId = getIntent().getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
+            mSubId = getIntent().getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
                     SubscriptionManager.INVALID_SUBSCRIPTION_ID);
-            SubscriptionManager subManager = SubscriptionManager.from(this);
-            SubscriptionInfo sir = subManager.getActiveSubscriptionInfo(subId);
+            SubscriptionInfo sir = subManager.getActiveSubscriptionInfo(mSubId);
             if (actionBar != null && sir != null) {
                 actionBar.setSubtitle(sir.getDisplayName());
             }
@@ -304,6 +306,17 @@ public class MobileNetworkSettings extends PreferenceActivity
         mButtonDataRoam.setOnPreferenceChangeListener(this);
 
         mLteDataServicePref = prefSet.findPreference(BUTTON_CDMA_LTE_DATA_SERVICE_KEY);
+
+        if (subManager.getDefaultDataSubId() != mSubId) {
+            if (mButtonPreferredNetworkMode != null) {
+                mButtonPreferredNetworkMode.setEnabled(false);
+            }
+            if (mButtonEnabledNetworks != null) {
+                mButtonEnabledNetworks.setEnabled(false);
+            }
+            // TODO: Set summary like "3G (Current: 2G)" for example on a non multi rat device
+            // with this sub set to 3G but the other sub being the active data sub.
+        }
 
         if (!getResources().getBoolean(R.bool.config_uplmn_for_usim)) {
             Preference mUPLMNPref = prefSet.findPreference(BUTTON_UPLMN_KEY);
@@ -473,23 +486,42 @@ public class MobileNetworkSettings extends PreferenceActivity
             return;
         }
 
+        PreferenceScreen prefSet = getPreferenceScreen();
+        SubscriptionManager subManager = SubscriptionManager.from(this);
+
         // upon resumption from the sub-activity, make sure we re-enable the
         // preferences.
-        getPreferenceScreen().setEnabled(true);
+        prefSet.setEnabled(true);
 
         // Set UI state in onResume because a user could go home, launch some
         // app to change this setting's backend, and re-launch this settings app
         // and the UI state would be inconsistent with actual state
         mButtonDataRoam.setChecked(mPhone.getDataRoamingEnabled());
 
-        if (getPreferenceScreen().findPreference(BUTTON_PREFERED_NETWORK_MODE) != null)  {
+        ListPreference buttonPreferredNetworkMode = (ListPreference) prefSet.findPreference(
+                BUTTON_PREFERED_NETWORK_MODE);
+        ListPreference buttonEnabledNetworks = (ListPreference) prefSet.findPreference(
+                BUTTON_ENABLED_NETWORKS_KEY);
+
+        if (buttonPreferredNetworkMode != null)  {
             mPhone.getPreferredNetworkType(mHandler.obtainMessage(
                     MyHandler.MESSAGE_GET_PREFERRED_NETWORK_TYPE));
         }
 
-        if (getPreferenceScreen().findPreference(BUTTON_ENABLED_NETWORKS_KEY) != null)  {
+        if (buttonEnabledNetworks != null)  {
             mPhone.getPreferredNetworkType(mHandler.obtainMessage(
                     MyHandler.MESSAGE_GET_PREFERRED_NETWORK_TYPE));
+        }
+
+        if (subManager.getDefaultDataSubId() != mSubId) {
+            if (buttonPreferredNetworkMode != null) {
+                buttonPreferredNetworkMode.setEnabled(false);
+            }
+            if (buttonEnabledNetworks != null) {
+                buttonEnabledNetworks.setEnabled(false);
+            }
+            // TODO: Set summary like "3G (Current: 2G)" for example on a non multi rat device
+            // with this sub set to 3G but the other sub being the active data sub.
         }
     }
 
