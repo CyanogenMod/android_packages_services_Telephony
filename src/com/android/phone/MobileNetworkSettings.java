@@ -21,7 +21,6 @@ import com.android.ims.ImsManager;
 import com.android.ims.ImsException;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
-import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 
@@ -559,7 +558,8 @@ public class MobileNetworkSettings extends PreferenceActivity
                 UpdatePreferredNetworkModeSummary(buttonNetworkMode);
 
                 //Set the modem network mode
-                setPreferredNetworkType(modemNetworkMode);
+                mPhone.setPreferredNetworkType(modemNetworkMode, mHandler
+                        .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
 
                 Intent intent = new Intent(PhoneToggler.ACTION_NETWORK_MODE_CHANGED);
                 intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, buttonNetworkMode);
@@ -609,7 +609,8 @@ public class MobileNetworkSettings extends PreferenceActivity
                 UpdateEnabledNetworksValueAndSummary(buttonNetworkMode);
 
                 //Set the modem network mode
-                setPreferredNetworkType(modemNetworkMode);
+                mPhone.setPreferredNetworkType(modemNetworkMode, mHandler
+                        .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
 
                 Intent intent = new Intent(PhoneToggler.ACTION_NETWORK_MODE_CHANGED);
                 intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, buttonNetworkMode);
@@ -726,38 +727,10 @@ public class MobileNetworkSettings extends PreferenceActivity
         return true;
     }
 
-    private void setPreferredNetworkType(int modemNetworkMode) {
-        TelephonyManager tm = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        if (tm.isMultiSimEnabled()  &&
-                tm.getMultiSimConfiguration() == TelephonyManager.MultiSimVariants.DSDS &&
-                !SystemProperties.getBoolean("ro.ril.multi_rat_capable", false)) {
-            for (int i = 0; i < tm.getPhoneCount(); i++) {
-                if (mPhone.getPhoneId() != i) {
-                    Phone phone = PhoneFactory.getPhone(i);
-                    phone.setPreferredNetworkType(Phone.NT_MODE_GSM_ONLY, mHandler
-                            .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM));
-                }
-            }
-            TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
-                    android.provider.Settings.Global.PREFERRED_NETWORK_MODE,
-                    mPhone.getPhoneId(),
-                    modemNetworkMode);
-            if (mButtonPreferredNetworkMode != null) {
-                mButtonPreferredNetworkMode.setEnabled(false);
-            }  else if (mButtonEnabledNetworks != null) {
-                mButtonEnabledNetworks.setEnabled(false);
-            }
-        } else {
-            mPhone.setPreferredNetworkType(modemNetworkMode, mHandler
-                        .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
-        }
-    }
-
     private class MyHandler extends Handler {
 
         static final int MESSAGE_GET_PREFERRED_NETWORK_TYPE = 0;
         static final int MESSAGE_SET_PREFERRED_NETWORK_TYPE = 1;
-        static final int MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM = 2;
 
         @Override
         public void handleMessage(Message msg) {
@@ -768,22 +741,6 @@ public class MobileNetworkSettings extends PreferenceActivity
 
                 case MESSAGE_SET_PREFERRED_NETWORK_TYPE:
                     handleSetPreferredNetworkTypeResponse(msg);
-                    break;
-                case MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM:
-                    int networkMode;
-                    if (mButtonPreferredNetworkMode != null) {
-                        networkMode = Integer.valueOf(
-                                mButtonPreferredNetworkMode.getValue()).intValue();
-                    } else if (mButtonEnabledNetworks != null) {
-                        networkMode = Integer.valueOf(
-                                mButtonEnabledNetworks.getValue()).intValue();
-                    } else {
-                        networkMode = -1;
-                    }
-                    if (networkMode != -1) {
-                        mPhone.setPreferredNetworkType(networkMode, mHandler
-                                .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
-                    }
                     break;
             }
         }
@@ -818,7 +775,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                             log("handleGetPreferredNetworkTypeResponse: if 2: " +
                                     "modemNetworkMode != settingsNetworkMode");
                         }
-                        setPreferredNetworkSetting(modemNetworkMode);
+
                         settingsNetworkMode = modemNetworkMode;
 
                         if (DBG) { log("handleGetPreferredNetworkTypeResponse: if 2: " +
@@ -871,11 +828,6 @@ public class MobileNetworkSettings extends PreferenceActivity
                 }
             } else {
                 mPhone.getPreferredNetworkType(obtainMessage(MESSAGE_GET_PREFERRED_NETWORK_TYPE));
-            }
-            if (mButtonPreferredNetworkMode != null) {
-                mButtonPreferredNetworkMode.setEnabled(true);
-            }  else if (mButtonEnabledNetworks != null) {
-                mButtonEnabledNetworks.setEnabled(true);
             }
         }
 
@@ -1226,7 +1178,8 @@ public class MobileNetworkSettings extends PreferenceActivity
         key = SHARED_PREFERENCES_PREFNET + Integer.toString(phoneId) + Integer.toString(newMode);
         int prefNetMode = pref.getInt(key, -1);
         if (prefNetMode != -1) {
-            setPreferredNetworkType(prefNetMode);
+            mPhone.setPreferredNetworkType(prefNetMode,
+                    mHandler.obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
             UpdateEnabledNetworksValueAndSummary(prefNetMode);
         }
     }
