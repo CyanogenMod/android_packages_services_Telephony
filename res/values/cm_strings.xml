@@ -243,6 +243,7 @@
     <string name="preferred_network_mode_gsm_only_choice">GSM only</string>
     <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferred</string>
 
+    <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (current: <xliff:g id="current">%2$s</xliff:g>)</string>
     <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
     <string name="callind_multi_sim">SIM card settings</string>
     <string name="sim_card_title">SIM card %d</string>
