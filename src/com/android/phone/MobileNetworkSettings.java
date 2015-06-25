@@ -21,7 +21,6 @@ import com.android.ims.ImsManager;
 import com.android.ims.ImsException;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
-import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 
@@ -848,33 +847,15 @@ public class MobileNetworkSettings extends PreferenceActivity
     }
 
     private void setPreferredNetworkType(int modemNetworkMode) {
-        TelephonyManager tm = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        if (tm.isMultiSimEnabled()  &&
-                tm.getMultiSimConfiguration() == TelephonyManager.MultiSimVariants.DSDS &&
-                !SystemProperties.getBoolean("ro.ril.multi_rat_capable", false)) {
-            for (int i = 0; i < tm.getPhoneCount(); i++) {
-                if (mPhone.getPhoneId() != i) {
-                    Phone phone = PhoneFactory.getPhone(i);
-                    TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
-                            android.provider.Settings.Global.PREFERRED_NETWORK_MODE, i,
-                            Phone.NT_MODE_GSM_ONLY);
-                    phone.setPreferredNetworkType(Phone.NT_MODE_GSM_ONLY, mHandler
-                            .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM));
-                }
-            }
-            setPreferredNetworkSetting(modemNetworkMode);
-        } else {
-            mPhone.setPreferredNetworkType(modemNetworkMode, mHandler
-                        .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
-        }
         disableNetworkButtons();
+        mPhone.setPreferredNetworkType(modemNetworkMode, mHandler
+                .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
     }
 
     private class MyHandler extends Handler {
 
         static final int MESSAGE_GET_PREFERRED_NETWORK_TYPE = 0;
         static final int MESSAGE_SET_PREFERRED_NETWORK_TYPE = 1;
-        static final int MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM = 2;
 
         @Override
         public void handleMessage(Message msg) {
@@ -885,22 +866,6 @@ public class MobileNetworkSettings extends PreferenceActivity
 
                 case MESSAGE_SET_PREFERRED_NETWORK_TYPE:
                     handleSetPreferredNetworkTypeResponse(msg);
-                    break;
-                case MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM:
-                    int networkMode;
-                    if (mButtonPreferredNetworkMode != null) {
-                        networkMode = Integer.valueOf(
-                                mButtonPreferredNetworkMode.getValue()).intValue();
-                    } else if (mButtonEnabledNetworks != null) {
-                        networkMode = Integer.valueOf(
-                                mButtonEnabledNetworks.getValue()).intValue();
-                    } else {
-                        networkMode = -1;
-                    }
-                    if (networkMode != -1) {
-                        mPhone.setPreferredNetworkType(networkMode, mHandler
-                                .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE));
-                    }
                     break;
             }
         }
