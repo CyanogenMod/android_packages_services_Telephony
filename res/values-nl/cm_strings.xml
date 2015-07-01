@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Videogesprek doorsturen</string>
   <string name="vt_imagereplace_setting">Alternatieve afbeelding</string>
   <string name="vt_imagereplace_setting_sum">Weer te geven afbeelding als camera aan de voorzijde is uitgeschakeld</string>
+  <string name="roaming_mode_title">Roamingmodus</string>
+  <string name="roaming_mode_summary">Internationale roamingmodus</string>
+  <string name="roaming_gsm">GSM-roaming</string>
+  <string name="roaming_cdma">CDMA-roaming</string>
+  <string name="roaming_disabled">Uitgeschakeld</string>
   <string name="preferred_network_mode_global_summary_cm">Voorkeursnetwerkmodus: Wereldwijd (CDMA/EVDO/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Voorkeursnetwerkmodus: alleen TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Voorkeursnetwerkmodus: TD-SCDMA/WCDMA</string>
@@ -206,4 +211,6 @@
   <string name="perm_change_mobile_network_desc">Hiermee kan de app op elk moment wisselen tussen 2G en 3G. 3G is sneller, maar verbruikt meer stroom en kan extra kosten met zich meebrengen.</string>
   <string name="phone_number_label">Mijn telefoonnummer</string>
   <string name="phone_number_summary">Telefoonnummer instellen voor deze telefoon</string>
+  <string name="msim_mobile_network_settings_title">Instellingen mobiel netwerk SIM %d</string>
+  <string name="call_recording_format">Formaat gespreksopname</string>
 </resources>

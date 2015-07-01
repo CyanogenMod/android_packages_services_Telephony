@@ -20,7 +20,7 @@
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
   <string name="blacklist_title">着信拒否リスト</string>
   <string name="blacklist_summary_disabled">無効</string>
-  <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようにする</string>
+  <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようになります</string>
   <string name="mwi_notification_title">メッセージ待機インジケータ</string>
   <string name="mwi_notification_summary">ボイスメール通知のメッセージ待機インジケータを表示する</string>
   <string name="call_notif_unconditionalCF">無条件の着信転送が有効です</string>
@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">ビデオ通話の転送</string>
   <string name="vt_imagereplace_setting">代替画像</string>
   <string name="vt_imagereplace_setting_sum">フロントカメラが無効になっているときに表示する画像</string>
+  <string name="roaming_mode_title">ローミングモード</string>
+  <string name="roaming_mode_summary">国際ローミングモード</string>
+  <string name="roaming_gsm">GSMローミング</string>
+  <string name="roaming_cdma">CDMAローミング</string>
+  <string name="roaming_disabled">無効</string>
   <string name="preferred_network_mode_global_summary_cm">優先ネットワークモード: グローバル（CDMA/EvDo/LTE/GSM/WCDMA）</string>
   <string name="preferred_network_mode_td_scdma_only_summary">優先ネットワークモード: TD-SCDMAのみ</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">優先ネットワークモード: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
   <string name="msim_mobile_network_settings_title">SIM %dのモバイルネットワーク設定</string>
+  <string name="call_recording_format">通話録音のファイル形式</string>
 </resources>

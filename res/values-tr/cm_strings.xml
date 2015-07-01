@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Görüntülü arama yönlendirmesi</string>
   <string name="vt_imagereplace_setting">Alternatif resim</string>
   <string name="vt_imagereplace_setting_sum">Ön kamera devre dışı bırakıldığında görüntülenecek resim</string>
+  <string name="roaming_mode_title">Dolaşım modu</string>
+  <string name="roaming_mode_summary">Uluslararası dolaşım modu</string>
+  <string name="roaming_gsm">GSM dolaşımı</string>
+  <string name="roaming_cdma">CDMA dolaşımı</string>
+  <string name="roaming_disabled">Devre dışı</string>
   <string name="preferred_network_mode_global_summary_cm">Tercih edilen şebeke modu: Genel (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Tercih edilen şebeke modu: Sadece TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Tercih edilen şebeke modu: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">Telefon numaram</string>
   <string name="phone_number_summary">Bu cihaz için telefon numarasını ayarla</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobil şebeke ayarları</string>
+  <string name="call_recording_format">Çağrı kayıt biçimi</string>
 </resources>

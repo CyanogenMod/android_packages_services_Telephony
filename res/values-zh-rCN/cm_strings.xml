@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">视频呼叫转移</string>
   <string name="vt_imagereplace_setting">替代图片</string>
   <string name="vt_imagereplace_setting_sum">前置摄像头被禁用时将显示的图片</string>
+  <string name="roaming_mode_title">漫游模式</string>
+  <string name="roaming_mode_summary">国际漫游模式</string>
+  <string name="roaming_gsm">GSM 漫游</string>
+  <string name="roaming_cdma">CDMA 漫游</string>
+  <string name="roaming_disabled">已禁用</string>
   <string name="preferred_network_mode_global_summary_cm">首选网络模式：全球 (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">首选网络模式：仅 TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">首选网络模式：TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">我的电话号码</string>
   <string name="phone_number_summary">设定此设备的电话号码</string>
   <string name="msim_mobile_network_settings_title">SIM 卡 %d 移动网络设置</string>
+  <string name="call_recording_format">通话录音格式</string>
 </resources>

@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Encaminhamento de chamada de vídeo</string>
   <string name="vt_imagereplace_setting">Imagens alternativas</string>
   <string name="vt_imagereplace_setting_sum">Imagem a ser exibida quando a câmara frontal é desativada</string>
+  <string name="roaming_mode_title">Modo de roaming</string>
+  <string name="roaming_mode_summary">Modo de roaming internacional</string>
+  <string name="roaming_gsm">Roaming GSM</string>
+  <string name="roaming_cdma">Roaming CDMA</string>
+  <string name="roaming_disabled">Desativado</string>
   <string name="preferred_network_mode_global_summary_cm">Modo de rede preferida: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Modo de rede preferida: Só TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Modo de rede preferida: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">Meu número de telefone</string>
   <string name="phone_number_summary">Definir o número de telefone para este dispositivo</string>
   <string name="msim_mobile_network_settings_title">Definições de rede móvel do SIM %d</string>
+  <string name="call_recording_format">Formato de gravação de chamada</string>
 </resources>

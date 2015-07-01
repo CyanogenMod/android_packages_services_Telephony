@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Videopuhelun siirto</string>
   <string name="vt_imagereplace_setting">Vaihtoehtoinen kuva</string>
   <string name="vt_imagereplace_setting_sum">Näytettävä kuva, kun etukamera on poistettu käytöstä</string>
+  <string name="roaming_mode_title">Roaming-tila</string>
+  <string name="roaming_mode_summary">Kansainvälinen roaming-tila</string>
+  <string name="roaming_gsm">GSM-roaming</string>
+  <string name="roaming_cdma">CDMA-roaming</string>
+  <string name="roaming_disabled">Pois käytöstä</string>
   <string name="preferred_network_mode_global_summary_cm">Ensisijainen verkkotila: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Ensisijainen verkkotila: Vain TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">Oma puhelinnumero</string>
   <string name="phone_number_summary">Aseta tämän laitteen puhelinnumero</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiiliverkon asetukset</string>
+  <string name="call_recording_format">Soiton tallennuksen muoto</string>
 </resources>
