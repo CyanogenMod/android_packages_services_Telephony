@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">영상통화 전달</string>
   <string name="vt_imagereplace_setting">대체 그림</string>
   <string name="vt_imagereplace_setting_sum">전면 카메라를 사용 하지 않을 때 표시할 이미지</string>
+  <string name="roaming_mode_title">로밍 모드</string>
+  <string name="roaming_mode_summary">국제 로밍 모드</string>
+  <string name="roaming_gsm">GSM 로밍</string>
+  <string name="roaming_cdma">CDMA 로밍</string>
+  <string name="roaming_disabled">비활성화됨</string>
   <string name="preferred_network_mode_global_summary_cm">선호 네트워크 모드: 글로벌 (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">선호 네트워크 모드: TD-SCDMA 전용</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">선호 네트워크 모드: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">내 전화번호</string>
   <string name="phone_number_summary">이 장치의 전화번호 설정</string>
   <string name="msim_mobile_network_settings_title">SIM %d 모바일 네트워크 설정</string>
+  <string name="call_recording_format">통화 녹음 형식</string>
 </resources>

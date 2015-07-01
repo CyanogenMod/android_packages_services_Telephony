@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Переадресація відеовикликів</string>
   <string name="vt_imagereplace_setting">Альтернативне фото</string>
   <string name="vt_imagereplace_setting_sum">Зображення для відображення, коли вимкнуто фронтальну камеру</string>
+  <string name="roaming_mode_title">Режим роумінгу</string>
+  <string name="roaming_mode_summary">Режим міжнародного роумінгу</string>
+  <string name="roaming_gsm">GSM роумінг</string>
+  <string name="roaming_cdma">CDMA роумінг</string>
+  <string name="roaming_disabled">Вимкнено</string>
   <string name="preferred_network_mode_global_summary_cm">Пріоритетний режим мережі: Глобальний (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Пріоритетний режим мережі: TD-SCDMA тільки</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Пріоритетний режим мережі: TD-SCDMA/WCDMA</string>
@@ -206,4 +211,6 @@
   <string name="perm_change_mobile_network_desc">Дозволяє програмам в будь-який час змінювати режим мережі між 2G і 3G. 3G швидший, але споживає більше заряду акумулятора і може викликати додаткові витрати.</string>
   <string name="phone_number_label">Мій номер телефону</string>
   <string name="phone_number_summary">Встановити телефонний номер для цього пристрою</string>
+  <string name="msim_mobile_network_settings_title">Налаштування мобільної мережі SIM %d</string>
+  <string name="call_recording_format">Формат запису виклику</string>
 </resources>

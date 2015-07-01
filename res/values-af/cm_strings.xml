@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Video-oproep aangestuur</string>
   <string name="vt_imagereplace_setting">Alternatiewe prentjie</string>
   <string name="vt_imagereplace_setting_sum">Foto om te vertoon wanneer voorste kamera gedeaktiveer is</string>
+  <string name="roaming_mode_title">Swerwing modus</string>
+  <string name="roaming_mode_summary">Internasionale swerwing mode</string>
+  <string name="roaming_gsm">GSM swerwing</string>
+  <string name="roaming_cdma">CDMA swerwing</string>
+  <string name="roaming_disabled">Af</string>
   <string name="preferred_network_mode_global_summary_cm">Voorkeur-modus: Globaal (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Voorkeur-modus: TD-SCDMA alleenlik</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Voorkeur-modus: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">My telefoonnommer</string>
   <string name="phone_number_summary">Stel die telefoonnommer vir hierdie toestel</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiele netwerk instellings</string>
+  <string name="call_recording_format">Oproep opname formaat</string>
 </resources>

@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Videóhívás átirányítása</string>
   <string name="vt_imagereplace_setting">Alternatív kép</string>
   <string name="vt_imagereplace_setting_sum">Megjelenítendő kép, amikor az előlapi kamera le van tiltva</string>
+  <string name="roaming_mode_title">Barangoló mód</string>
+  <string name="roaming_mode_summary">Nemzetközi barangoló mód</string>
+  <string name="roaming_gsm">GSM barangolás</string>
+  <string name="roaming_cdma">CDMA barangolás</string>
+  <string name="roaming_disabled">Letiltva</string>
   <string name="preferred_network_mode_global_summary_cm">Preferált hálózati mód: Globális (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Preferált hálózati mód: Csak TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferált hálózati mód: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">Saját telefonszám</string>
   <string name="phone_number_summary">Telefonszám beállítása az eszközhöz</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobilhálózati beállítások</string>
+  <string name="call_recording_format">Hívásfelvétel formátuma</string>
 </resources>

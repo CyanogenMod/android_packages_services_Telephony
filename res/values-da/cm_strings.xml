@@ -206,4 +206,5 @@
   <string name="perm_change_mobile_network_desc">Tillader app\'en at skifte mellem 2G og 3G når som helst. 3G er hurtigere, men bruger mere batteri og kan forårsage flere udgifter.</string>
   <string name="phone_number_label">Mit telefonnummer</string>
   <string name="phone_number_summary">Angiv telefonnummeret for denne enhed</string>
+  <string name="msim_mobile_network_settings_title">Opsætning af SIM %d mobile netværk</string>
 </resources>

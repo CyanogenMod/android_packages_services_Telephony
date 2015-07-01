@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Vaizdo skambučio peradresavimas</string>
   <string name="vt_imagereplace_setting">Alternatyvus vaizdas</string>
   <string name="vt_imagereplace_setting_sum">Rodyti vaizdą, kai priekyje esanti kamera yra neleidžiama</string>
+  <string name="roaming_mode_title">Tarptinklinio ryšio režimas</string>
+  <string name="roaming_mode_summary">Tarptautinio tarptinklinio ryšio režimas</string>
+  <string name="roaming_gsm">GSM tarptinklinis ryšys</string>
+  <string name="roaming_cdma">CDMA tarptinklinis ryšys</string>
+  <string name="roaming_disabled">Neleidžiamas</string>
   <string name="preferred_network_mode_global_summary_cm">Pageidaujami tinklo režimai: pasaulinis (CDMA / EvDo / LTE / GSM / WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Pageidaujami tinklo režimai: tik TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Pageidaujami tinklo režimai: TD-SCDMA / WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">Mano telefono numeris</string>
   <string name="phone_number_summary">Nustatyti telefono numerį šiam įrenginiui</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiliojo tinklo nustatymai</string>
+  <string name="call_recording_format">Skambučio įrašymo formatas</string>
 </resources>
