@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Desvío de videollamadas</string>
   <string name="vt_imagereplace_setting">Imagen alternativa</string>
   <string name="vt_imagereplace_setting_sum">Imagen que se mostrará cuando se desactive la cámara frontal</string>
+  <string name="roaming_mode_title">Modo de itinerancia</string>
+  <string name="roaming_mode_summary">Modo de itinerancia internacional</string>
+  <string name="roaming_gsm">Itinerancia sobre GSM</string>
+  <string name="roaming_cdma">Itinerancia sobre CDMA</string>
+  <string name="roaming_disabled">Desactivado</string>
   <string name="preferred_network_mode_global_summary_cm">Modo de red preferido: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Modo de red preferido: Solo TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Modo de red preferido: TD-SCDMA/WCDMA</string>
@@ -206,4 +211,6 @@
   <string name="perm_change_mobile_network_desc">Las aplicaciones con este permiso pueden, en cualquier momento, cambiar entre datos 2G y 3G. Es más rápido 3G, pero consume más batería y puede costar más dinero.</string>
   <string name="phone_number_label">Mi número de teléfono</string>
   <string name="phone_number_summary">Establecer el número asociado a este dispositivo</string>
+  <string name="msim_mobile_network_settings_title">Ajustes de red móvil de la SIM %d</string>
+  <string name="call_recording_format">Formato de grabación de llamada</string>
 </resources>

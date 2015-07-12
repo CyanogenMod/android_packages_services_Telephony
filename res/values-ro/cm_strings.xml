@@ -86,6 +86,7 @@
   <string name="stk_cc_ss_to_ussd_error">Cererea SS este modificată în cerere USSD.</string>
   <string name="stk_cc_ss_to_ss_error">Cererea SS este modificată într-o cerere SS nouă.</string>
   <string name="videocall_settings">Setări apel video</string>
+  <string name="roaming_disabled">Dezactivat</string>
   <string name="preferred_network_mode_global_summary_cm">Mod rețea preferat: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Mod rețea preferat: doar TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Mod rețea preferat: TD-SCDMA/WCDMA</string>
