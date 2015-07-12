@@ -28,12 +28,12 @@
   <string name="call_notif_MOcall_forwarding">שיחה יוצאת הועברה</string>
   <string name="call_notif_cugcall">שיחה בקבוצת משתמשים סגורה</string>
   <string name="call_notif_outgoing_barred">שיחות יוצאות מבוקרות</string>
-  <string name="call_notif_incoming_barred">שיחות נכנסות מבוקרות בועידה מרוחקת</string>
+  <string name="call_notif_incoming_barred">שיחות נכנסות חסומות בועידה מרוחקת</string>
   <string name="call_notif_clir_suppression_rejected">המספר המדוחק נדחה על ידי הרשת</string>
   <string name="call_notif_call_deflected">שיחה הועברה על ידי צד מרוחק</string>
   <string name="call_notif_MTcall_forwarding">שיחה נכנסת מועברת</string>
   <string name="call_notif_multipartycall">שיחה משותפת</string>
-  <string name="call_notif_callonhold_released">השיחה שוחחרה מרחוק</string>
+  <string name="call_notif_callonhold_released">השיחה שוחררה מרחוק</string>
   <string name="call_notif_forwardcheckreceived">השיחה הועברה</string>
   <string name="call_notif_callconnectingect">השיחה מתחברת דרך העברת שיחה מפורשת</string>
   <string name="call_notif_callconnectedect">השיחה מחוברת דרך העברת שיחה מפורשת</string>
@@ -108,7 +108,7 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">מצב רשת מועדף: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
-  <string name="callFailed_incoming_cb_enabled">שיחת ועידה הגבילה את האפשרות לקבלת שיחות נכנסות.</string>
+  <string name="callFailed_incoming_cb_enabled">הועידה חסמה קבלת שיחות נכנסות.</string>
   <string name="callUnanswered_forwarded">שיחה שהועברה מבלי להיענות</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>

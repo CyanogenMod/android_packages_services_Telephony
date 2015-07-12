@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Viderestilling af videoopkald</string>
   <string name="vt_imagereplace_setting">Alternativt billede</string>
   <string name="vt_imagereplace_setting_sum">Billede der skal vises når det forreste kamera er deaktiveret</string>
+  <string name="roaming_mode_title">Roaming-tilstand</string>
+  <string name="roaming_mode_summary">International roaming-tilstand</string>
+  <string name="roaming_gsm">GSM-roaming</string>
+  <string name="roaming_cdma">CDMA-roaming</string>
+  <string name="roaming_disabled">Deaktiveret</string>
   <string name="preferred_network_mode_global_summary_cm">Foretrukket netværkstilstand: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Foretrukket netværkstilstand: Kun TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Foretrukket netværkstilstand: TD-SCDMA/WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">Mit telefonnummer</string>
   <string name="phone_number_summary">Angiv telefonnummeret for denne enhed</string>
   <string name="msim_mobile_network_settings_title">Opsætning af SIM %d mobile netværk</string>
+  <string name="call_recording_format">Format til optagelse af opkald</string>
 </resources>

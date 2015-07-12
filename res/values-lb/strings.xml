@@ -56,6 +56,7 @@
   <string name="labelCDMAMore">CDMA-Uruffastellungen</string>
   <string name="apn_settings">Zougangspunkten (APNen)</string>
   <string name="settings_label">Netzwierkastellungen</string>
+  <string name="phone_accounts">Uruffkonten</string>
   <string name="phone_accounts_make_calls_with">Uruffe mat</string>
   <string name="phone_accounts_make_sip_calls_with">SIP-Uriff maache mat</string>
   <string name="phone_accounts_ask_every_time">Fir d\'éischt froen</string>
@@ -71,6 +72,7 @@
   <string name="wifi_calling_call_assistant">Uruffassistent</string>
   <string name="wifi_calling_use_call_assistant">Uruffassistent benotzen</string>
   <string name="wifi_calling_select_call_assistant">Uruffassistent auswielen</string>
+  <string name="wifi_calling_select_call_assistant_summary">Netzwierker fir d\'Uriff geréiere mat</string>
   <string name="wifi_calling_use_call_assistant_summary">Appen oder Servicer d\'Netzwierker geréiere loossen déi fir Uriff gebraucht ginn</string>
   <string name="wifi_calling_call_assistant_configure">Astellen</string>
   <string name="wifi_calling_call_assistant_configure_no_selection">Uruffassistent aus</string>
@@ -117,6 +119,8 @@
   <string name="sum_cfnrc_disabled">Desaktivéiert</string>
   <string name="disable_cfnrc_forbidden">Däi Provider ënnerstëtzt d\'Desaktivéiere vun der Uruffweiderleedunge bei Onerreechbarkeet net.</string>
   <string name="updating_title">Uruffastellungen</string>
+  <string name="call_settings_primary_user_only">Uruffastellunge kënne just vu primäre Benotzer geännert ginn.</string>
+  <string name="call_settings_with_label">Uruffastellungen (<xliff:g id="subscriptionlabel" example="Verizon">%s</xliff:g>)</string>
   <string name="error_updating_title">Feeler bei den Uruffastellungen</string>
   <string name="reading_settings">Astellunge gi gelies\u2026</string>
   <string name="updating_settings">Astellunge ginn aktualiséiert\u2026</string>
@@ -141,7 +145,7 @@
   <string name="no_change">Keng Ännerunge goufe gemaach.</string>
   <string name="sum_voicemail_choose_provider">Mailbox-Service auswielen</string>
   <string name="voicemail_default">Däi Provider</string>
-  <string name="mobile_networks">Astellunge vum mobilen Netzwierk</string>
+  <string name="mobile_networks">Astellunge vum mobillen Netzwierk</string>
   <string name="label_available">Disponibel Netzwierker</string>
   <string name="load_networks_progress">Gëtt gesicht\u2026</string>
   <string name="empty_networks_list">Keng Netzwierker fonnt.</string>
@@ -474,12 +478,14 @@
     <item>Normal</item>
     <item>Laang</item>
   </string-array>
+  <string name="network_info_message">Netzwierkmessage</string>
+  <string name="network_error_message">Feelermessage</string>
   <string name="ota_title_activate">Däin Telefon aktivéieren</string>
   <string name="ota_touch_activate">E speziellen Uruff muss gemaach gi fir den Telefonsservice z\'aktivéieren.\n\nNom drécken op \u201CAktivéieren\u201D muss du d\'Uleedunge suivéiere fir däin Telefon z\'aktivéieren.</string>
   <string name="ota_hfa_activation_title">Gëtt aktivéiert...</string>
-  <string name="ota_hfa_activation_dialog_message">Däin Telefon aktivéiert däi mobilen Dateservice.\n\nDat ka bis zu 5 Minutten daueren.</string>
+  <string name="ota_hfa_activation_dialog_message">Däin Telefon aktivéiert däi mobillen Dateservice.\n\nDat ka bis zu 5 Minutten daueren.</string>
   <string name="ota_skip_activation_dialog_title">Aktivéierung iwwersprangen\?</string>
-  <string name="ota_skip_activation_dialog_message">Wann s du d\'Aktivéierung iwwerspréngs, kanns du keng Uriff maachen oder dech mam mobilen Datennetzwierk connectéieren (mat WLAN-Netzwierker bleift et awer méiglech). Bis de däin Telefon aktivéiers hues, gëss de all Kéier gefrot en z\'aktivéiere wann s de en uschalts. </string>
+  <string name="ota_skip_activation_dialog_message">Wann s du d\'Aktivéierung iwwerspréngs, kanns du keng Uriff maachen oder dech mam mobillen Datennetzwierk connectéieren (mat WLAN-Netzwierker bleift et awer méiglech). Bis de däin Telefon aktivéiers hues, gëss de all Kéier gefrot en z\'aktivéiere wann s de en uschalts. </string>
   <string name="ota_skip_activation_dialog_skip_label">Iwwersprangen</string>
   <string name="ota_activate">Aktivéieren</string>
   <string name="ota_title_activate_success">Den Telefon ass aktivéiert.</string>
