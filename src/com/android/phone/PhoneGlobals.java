@@ -66,6 +66,7 @@ import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.SubscriptionController;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.TelephonyIntents;
+import com.android.internal.telephony.TelephonyPluginDelegate;
 import com.android.phone.common.CallLogAsync;
 import com.android.phone.settings.SettingsConstants;
 import com.android.server.sip.SipService;
@@ -337,6 +338,8 @@ public class PhoneGlobals extends ContextWrapper {
 
         if (mCM == null) {
             // Initialize the telephony framework
+            TelephonyPluginDelegate.init(this);
+
             PhoneFactory.makeDefaultPhones(this);
 
             // Start TelephonyDebugService After the default phone is created.
