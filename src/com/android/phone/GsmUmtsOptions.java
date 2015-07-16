@@ -29,7 +29,7 @@ import android.content.ComponentName;
 
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
-
+import com.android.internal.telephony.gsm.GSMPhone;
 /**
  * List of Network-specific settings screens.
  */
@@ -64,7 +64,9 @@ public class GsmUmtsOptions {
         if (PhoneFactory.getDefaultPhone().getPhoneType() != PhoneConstants.PHONE_TYPE_GSM) {
             log("Not a GSM phone");
             mButtonAPNExpand.setEnabled(false);
-            mButtonOperatorSelectionExpand.setEnabled(false);
+            log("Manual network selection not allowed: Disabling Operator Selection Menu");
+            mPrefScreen.removePreference(mPrefScreen
+                .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
         } else {
             log("Not a CDMA phone");
             Resources res = mPrefActivity.getResources();
@@ -86,18 +88,24 @@ public class GsmUmtsOptions {
                 mPrefScreen.removePreference(mPrefScreen
                         .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
             }
-
-            if (carrierConfig.getBoolean(CarrierConfigManager.KEY_CSP_ENABLED_BOOL)) {
-                if (PhoneFactory.getDefaultPhone().isCspPlmnEnabled()) {
-                    log("[CSP] Enabling Operator Selection menu.");
-                    mButtonOperatorSelectionExpand.setEnabled(true);
-                } else {
-                    log("[CSP] Disabling Operator Selection menu.");
-                    mPrefScreen.removePreference(mPrefScreen
-                          .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
+            final GSMPhone gsmPhone = (GSMPhone) PhoneFactory.getGsmPhone(PhoneFactory
+                .getDefaultPhone().getPhoneId());
+            if(!gsmPhone.isManualNetSelAllowed()) {
+                log("Manual network selection not allowed: Disabling Operator Selection menu");
+                mPrefScreen.removePreference(mPrefScreen
+                    .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
+            } else {
+                if (carrierConfig.getBoolean(CarrierConfigManager.KEY_CSP_ENABLED_BOOL)) {
+                    if (PhoneFactory.getDefaultPhone().isCspPlmnEnabled()) {
+                        log("[CSP] Enabling Operator Selection menu.");
+                        mButtonOperatorSelectionExpand.setEnabled(true);
+                    } else {
+                        log("[CSP] Disabling Operator Selection menu.");
+                        mPrefScreen.removePreference(mPrefScreen
+                            .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
+                    }
                 }
             }
-
             // Read platform settings for carrier settings
             final boolean isCarrierSettingsEnabled = carrierConfig.getBoolean(
                 CarrierConfigManager.KEY_CARRIER_SETTINGS_ENABLE_BOOL);
