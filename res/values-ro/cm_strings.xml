@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notificare eveniment</string>
   <string name="show_ssn_summary">Arată o notificare pentru diversele evenimente ale rețelei, legat de manipularea apelului</string>
+  <string name="blacklist_title">Lista apelanților blocați</string>
   <string name="blacklist_summary_disabled">Dezactivat</string>
+  <string name="blacklist_summary">Nu veți primi apeluri sau mesaje de la numere de telefon pe lista apelanților blocați</string>
   <string name="mwi_notification_title">Indicator așteptare mesaj</string>
   <string name="mwi_notification_summary">Arată mesajul indicator de așteptare pentru notificări de poștă vocală</string>
   <string name="call_notif_unconditionalCF">Redirecționarea necondiționată pentru apel este activă</string>
@@ -161,6 +163,7 @@
   <string name="gsm_umts_network_preferences_title">Mod de rețea</string>
   <string name="gsm_umts_network_preferences_dialogtitle">Mod de rețea</string>
   <string name="sim_info">Informaţii cartelă SIM</string>
+  <string name="new_sim_detected">Cartelă SIM nouă detectată:</string>
   <string name="default_sim_setting">Setări implicite:</string>
   <string name="mobile_data">Conexiune de date: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
   <string name="mobile_data_on">activat</string>
@@ -168,7 +171,10 @@
   <string name="sim_unknown">Necunoscut</string>
   <string name="sim_absent">Absent</string>
   <string name="multi_sim_settings_title">Setări Dual SIM</string>
+  <string name="lte_switch_unavailable">Comutatorul de cartelă SIM 3G/LTE nu este disponibil</string>
   <string name="lte_recognition_title">Recunoaștere cartelă SIM</string>
+  <string name="lte_recognize_summary">Două cartele SIM 3G/LTE sunt detectate, trebuie să setați cartela SIM 3G/LTE implicită:</string>
+  <string name="lte_select_summary">Abonamentul selectat va fi recunoscut ca o cartelă SIM 3G/LTE şi celălalt ca o cartelă SIM 2G.</string>
   <string name="reg_suc">Înregistrare reuşită</string>
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
