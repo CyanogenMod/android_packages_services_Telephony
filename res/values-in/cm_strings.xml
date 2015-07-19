@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notifikasi acara</string>
   <string name="show_ssn_summary">Tampilkan notifikasi untuk berbagai acara jaringan yang terkait penangangan panggilan</string>
+  <string name="blacklist_title">Daftar penelepon yang diblokir</string>
   <string name="blacklist_summary_disabled">Dinonaktifkan</string>
+  <string name="blacklist_summary">Anda tidak akan menerima panggilan atau pesan dari nomor telepon yang ada di daftar penelepon yang diblokir</string>
   <string name="mwi_notification_title">Indikator pesan menunggu</string>
   <string name="mwi_notification_summary">Tampilkan notifikasi indikator pesan tunggu untuk pesan suara</string>
   <string name="call_notif_unconditionalCF">Penerusan panggilan tanpa syarat aktif</string>
@@ -90,6 +92,11 @@
   <string name="vt_forward_setting">Penerusan panggilan video</string>
   <string name="vt_imagereplace_setting">Gambar alternatif</string>
   <string name="vt_imagereplace_setting_sum">Gambar yang ditampilkan ketika kamera depan dinonaktifkan</string>
+  <string name="roaming_mode_title">Modus Roaming</string>
+  <string name="roaming_mode_summary">Modus Roaming Internasional</string>
+  <string name="roaming_gsm">Roaming GSM</string>
+  <string name="roaming_cdma">Roaming CDMA</string>
+  <string name="roaming_disabled">Dinonaktifkan</string>
   <string name="preferred_network_mode_global_summary_cm">Modus jaringan pilihan: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Modus jaringan pilihan: TD-SCDMA saja</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Modus jaringan pilihan: TD-SCDMA/WCDMA</string>
@@ -127,6 +134,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Hanya GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA diutamakan</string>
   <string name="callind_multi_sim">Pengaturan kartu SIM</string>
+  <string name="sim_card_title">Kartu SIM %d</string>
+  <string name="sim_card_summary_empty">Slot kartu SIM kosong</string>
   <string name="tty_mode_not_allowed_vt_call">Perubahan mode TTY tidak diperbolehkan selama panggilan VT</string>
   <string name="ipcall_sub_title">Pengaturan panggilan IP</string>
   <string name="ipcall_sub_summery">Edit awalan untuk panggilan melalui Layanan IP</string>
@@ -202,4 +211,6 @@
   <string name="perm_change_mobile_network_desc">Izinkan aplikasi untuk mengubah antara data 2G dan data 3G setiap saat. 3G lebih cepat, tapi mengkonsumsi baterai lebih banyak dan dapat menyebabkan biaya tambahan.</string>
   <string name="phone_number_label">Nomor telepon saya</string>
   <string name="phone_number_summary">Tetapkan nomor telepon untuk perangkat ini</string>
+  <string name="msim_mobile_network_settings_title">Pengaturan jaringan mobile SIM %d</string>
+  <string name="call_recording_format">Format perekaman telepon</string>
 </resources>

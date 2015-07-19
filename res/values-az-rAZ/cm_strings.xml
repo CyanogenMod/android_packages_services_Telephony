@@ -84,6 +84,7 @@
   <string name="vt_forward_setting">Görüntülü zəng yönləndirilir</string>
   <string name="vt_imagereplace_setting">Alternativ şəkil</string>
   <string name="vt_imagereplace_setting_sum">Ön kamera ləğv ediləndə göstəriləcək təsvir</string>
+  <string name="roaming_disabled">Ləğv edildi</string>
   <string name="preferred_network_mode_global_summary_cm">Üstünlük verilən şəbəkə rejimi: Qlobal (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Üstünlük verilən şəbəkə rejimi: Yalnız TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Üstünlük verilən şəbəkə rejimi: TD-SCDMA/WCDMA</string>
