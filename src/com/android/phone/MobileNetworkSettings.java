@@ -715,7 +715,8 @@ public class MobileNetworkSettings extends PreferenceActivity
         boolean canChange4glte = (tm.getCallState() == TelephonyManager.CALL_STATE_IDLE) &&
                 ImsManager.isNonTtyOrTtyOnVolteEnabled(getApplicationContext());
         mButtonDataRoam.setEnabled(hasActiveSubscriptions);
-        mButtonPreferredNetworkMode.setEnabled(hasActiveSubscriptions);
+        mButtonPreferredNetworkMode.setEnabled(hasActiveSubscriptions || (getResources().
+                getBoolean(R.bool.config_no_sim_display_network_modes)));
         mButtonEnabledNetworks.setEnabled(hasActiveSubscriptions);
         mButton4glte.setEnabled(hasActiveSubscriptions && canChange4glte);
         mLteDataServicePref.setEnabled(hasActiveSubscriptions);
