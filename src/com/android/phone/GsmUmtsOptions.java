@@ -26,9 +26,12 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.CarrierConfigManager;
 import android.content.ComponentName;
+import android.telephony.SubscriptionManager;
 
+import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.android.internal.telephony.PhoneProxy;
 import com.android.internal.telephony.gsm.GSMPhone;
 /**
  * List of Network-specific settings screens.
@@ -46,13 +49,25 @@ public class GsmUmtsOptions {
     private PreferenceActivity mPrefActivity;
     private PreferenceScreen mPrefScreen;
     private int mSubId;
+    private Phone mPhone;
 
     public GsmUmtsOptions(PreferenceActivity prefActivity, PreferenceScreen prefScreen,
             final int subId) {
         mPrefActivity = prefActivity;
         mPrefScreen = prefScreen;
         mSubId = subId;
+        mPhone = getPhone(subId);
         create();
+    }
+
+    private Phone getPhone(int subId) {
+        int phoneId = SubscriptionManager.getPhoneId(subId);
+        log("getPhone: subId = " + subId + " phoneid = " + phoneId);
+        if (!SubscriptionManager.isValidPhoneId(phoneId)) {
+            phoneId = 0;
+        }
+        PhoneProxy proxyPhone = (PhoneProxy)PhoneFactory.getPhone(phoneId);
+        return proxyPhone.getActivePhone();
     }
 
     protected void create() {
@@ -61,7 +76,7 @@ public class GsmUmtsOptions {
         boolean removedAPNExpand = false;
         mButtonOperatorSelectionExpand =
                 (PreferenceScreen) mPrefScreen.findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY);
-        if (PhoneFactory.getDefaultPhone().getPhoneType() != PhoneConstants.PHONE_TYPE_GSM) {
+        if (mPhone.getPhoneType() != PhoneConstants.PHONE_TYPE_GSM) {
             log("Not a GSM phone");
             mButtonAPNExpand.setEnabled(false);
             log("Manual network selection not allowed: Disabling Operator Selection Menu");
@@ -88,15 +103,14 @@ public class GsmUmtsOptions {
                 mPrefScreen.removePreference(mPrefScreen
                         .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
             }
-            final GSMPhone gsmPhone = (GSMPhone) PhoneFactory.getGsmPhone(PhoneFactory
-                .getDefaultPhone().getPhoneId());
+            final GSMPhone gsmPhone = (GSMPhone)mPhone;
             if(!gsmPhone.isManualNetSelAllowed()) {
                 log("Manual network selection not allowed: Disabling Operator Selection menu");
                 mPrefScreen.removePreference(mPrefScreen
                     .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
             } else {
                 if (carrierConfig.getBoolean(CarrierConfigManager.KEY_CSP_ENABLED_BOOL)) {
-                    if (PhoneFactory.getDefaultPhone().isCspPlmnEnabled()) {
+                    if (mPhone.isCspPlmnEnabled()) {
                         log("[CSP] Enabling Operator Selection menu.");
                         mButtonOperatorSelectionExpand.setEnabled(true);
                     } else {
