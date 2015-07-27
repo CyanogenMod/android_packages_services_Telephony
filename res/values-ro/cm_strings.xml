@@ -88,6 +88,7 @@
   <string name="stk_cc_ss_to_ussd_error">Cererea SS este modificată în cerere USSD.</string>
   <string name="stk_cc_ss_to_ss_error">Cererea SS este modificată într-o cerere SS nouă.</string>
   <string name="videocall_settings">Setări apel video</string>
+  <string name="vt_imagereplace_setting">Poză alternativă</string>
   <string name="roaming_disabled">Dezactivat</string>
   <string name="preferred_network_mode_global_summary_cm">Mod rețea preferat: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Mod rețea preferat: doar TD-SCDMA</string>
@@ -124,6 +125,7 @@
   <string name="preferred_network_mode_gsm_only_choice">doar GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferat</string>
   <string name="callind_multi_sim">Setări cartelă SIM</string>
+  <string name="sim_card_title">Cartelă SIM %d</string>
   <string name="tty_mode_not_allowed_vt_call">Schimbarea modului TTY nu este permisă în timpul apelului video</string>
   <string name="ipcall_sub_title">Setări apel IP</string>
   <string name="ipcall_sub_summery">Editare prefix pentru apelare prin serviciul IP</string>

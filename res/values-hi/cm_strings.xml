@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">घटना अधिसूचना</string>
   <string name="show_ssn_summary">कॉल व्यवस्था से संबंधित विभिन्न नेटवर्क घटना के लिए अधिसूचना दिखाएँ</string>
+  <string name="blacklist_title">अवरुद्ध किए गए कॉलरों की सूची</string>
   <string name="blacklist_summary_disabled">अक्षम</string>
+  <string name="blacklist_summary">आपको अवरुद्ध किए गए कॉलरों की सूची में मौजूद फ़ोन नंबरों से कॉल और संदेश नहीं आया करेंगे</string>
   <string name="mwi_notification_title">संदेश प्रतीक्षा सूचक</string>
   <string name="mwi_notification_summary">संदेश प्रतीक्षा सूचक ध्वनि डाक सूचनाएँ दिखाएँ</string>
   <string name="call_notif_unconditionalCF">बिना शर्त कॉल अग्रेषण सक्रिय</string>
@@ -90,6 +92,11 @@
   <string name="vt_forward_setting">वीडियो कॉल अग्रेषण</string>
   <string name="vt_imagereplace_setting">विकल्पिक चित्र</string>
   <string name="vt_imagereplace_setting_sum">जब आगे की ओर के कैमरे को अक्षम किया गया हो, तब किस छवि को प्रदर्शित करना है</string>
+  <string name="roaming_mode_title">रोमिंग मोड</string>
+  <string name="roaming_mode_summary">अंतर्राष्ट्रीय रोमिंग मोड</string>
+  <string name="roaming_gsm">जीएसएम रोमिंग</string>
+  <string name="roaming_cdma">सीडीएमए रोमिंग</string>
+  <string name="roaming_disabled">अक्षम कर दिया गया</string>
   <string name="preferred_network_mode_global_summary_cm">पसंदीदा नेटवर्क मोड: वैश्विक (सीडीएमए/ईवीडीओ/एलटीई/जीएसएम/डब्ल्यूसीडीएमए)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">पसंदीदा नेटवर्क मोड: केवल टीडी-एससीडीएमए</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/डब्ल्यूसीडीएमए</string>
@@ -127,6 +134,8 @@
   <string name="preferred_network_mode_gsm_only_choice">केवल जीएसएम</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">जीएसम/डब्ल्यूसीडीएमए बेहतर रहेगा</string>
   <string name="callind_multi_sim">सिम कार्ड सेटिंग</string>
+  <string name="sim_card_title">सिम कार्ड %d</string>
+  <string name="sim_card_summary_empty">सिम स्लॉट खाली है</string>
   <string name="tty_mode_not_allowed_vt_call">वीडियो कॉल के दौरान टीटीवाई मोड परिवर्तन की अनुमति नहीं है</string>
   <string name="ipcall_sub_title">आईपी कॉल सेटिंग</string>
   <string name="ipcall_sub_summery">आईपी सेवा के ज़रिए कॉल करने के लिए उपसर्ग को संपादित करें</string>
@@ -202,4 +211,6 @@
   <string name="perm_change_mobile_network_desc">ऐप को किसी भी समय 2जी और 3जी में बदलने देता है। 3जी अधिक तेज़ होता है, लेकिन बैटरी की अधिक खपत करता है और उसके कारण अतिरिक्त लागत भी आ सकता है।</string>
   <string name="phone_number_label">मेरा फ़ोन नंबर</string>
   <string name="phone_number_summary">इस उपकरण के लिए फ़ोन नंबर सेट करें</string>
+  <string name="msim_mobile_network_settings_title">सिम %d मोबाइल नेटवर्क सेटिंग</string>
+  <string name="call_recording_format">कॉल रिकॉर्डिंग स्वरूप</string>
 </resources>
