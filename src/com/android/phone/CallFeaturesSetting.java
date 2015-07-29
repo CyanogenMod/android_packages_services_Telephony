@@ -230,6 +230,8 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         Preference cdmaOptions = prefSet.findPreference(BUTTON_CDMA_OPTIONS);
         Preference gsmOptions = prefSet.findPreference(BUTTON_GSM_UMTS_OPTIONS);
+        Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
+        fdnButton.setIntent(mSubscriptionInfoHelper.getIntent(FdnSetting.class));
         if (carrierConfig.getBoolean(CarrierConfigManager.KEY_WORLD_PHONE_BOOL)) {
             cdmaOptions.setIntent(mSubscriptionInfoHelper.getIntent(CdmaCallOptions.class));
             gsmOptions.setIntent(mSubscriptionInfoHelper.getIntent(GsmUmtsCallOptions.class));
@@ -238,7 +240,6 @@ public class CallFeaturesSetting extends PreferenceActivity
             prefSet.removePreference(gsmOptions);
 
             int phoneType = mPhone.getPhoneType();
-            Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
             if (carrierConfig.getBoolean(CarrierConfigManager.KEY_HIDE_CARRIER_NETWORK_SETTINGS_BOOL)) {
                 prefSet.removePreference(fdnButton);
             } else {
@@ -250,7 +251,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                         addPreferencesFromResource(R.xml.cdma_call_privacy);
                     }
                 } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
-                    fdnButton.setIntent(mSubscriptionInfoHelper.getIntent(FdnSetting.class));
 
                     if (carrierConfig.getBoolean(
                             CarrierConfigManager.KEY_ADDITIONAL_CALL_SETTING_BOOL)) {
