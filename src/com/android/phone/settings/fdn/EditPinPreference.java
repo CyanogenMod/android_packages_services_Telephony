@@ -39,7 +39,7 @@ public class EditPinPreference extends EditTextPreference {
 
     private boolean shouldHideButtons;
 
-    interface OnPinEnteredListener {
+    public interface OnPinEnteredListener {
         void onPinEntered(EditPinPreference preference, boolean positiveResult);
     }
 
