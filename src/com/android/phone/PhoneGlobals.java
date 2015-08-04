@@ -340,7 +340,7 @@ public class PhoneGlobals extends ContextWrapper {
             // Initialize the telephony framework
             TelephonyPluginDelegate.init(this);
 
-            PhoneFactory.makeDefaultPhones(this);
+            TelephonyPluginDelegate.getInstance().makeDefaultPhones(this);
 
             // Start TelephonyDebugService After the default phone is created.
             Intent intent = new Intent(this, TelephonyDebugService.class);
