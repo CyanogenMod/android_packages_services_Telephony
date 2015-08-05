@@ -208,7 +208,7 @@
   <string name="ims_vt_call_quality_unknown">Neznana</string>
   <string name="ims_vt_call_quality_set_failed">Nastavitev kakovosti slike je spodletela</string>
   <string name="perm_change_mobile_network">spremeni način omrežja  (2G/3G)</string>
-  <string name="perm_change_mobile_network_desc">Kadarkoli omogoča aplikaciji spreminjanje med podatki za 2G in 3G. 3G je hitrejši, vendar porabi več energije in lahko povzroči dodatne stroške.</string>
+  <string name="perm_change_mobile_network_desc">Kadarkoli omogoča programu spreminjanje med podatki za 2G in 3G. 3G je hitrejši, vendar porabi več energije in lahko povzroči dodatne stroške.</string>
   <string name="phone_number_label">Moja telefonska številka</string>
   <string name="phone_number_summary">Nastavite telefonsko številko za to napravo</string>
   <string name="msim_mobile_network_settings_title">Nastavitve mobilnega omrežja za SIM %d</string>
