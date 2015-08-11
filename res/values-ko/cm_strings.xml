@@ -20,7 +20,7 @@
   <string name="show_ssn_summary">통화와 관련된 다양한 네트워크 이벤트에 대한 알림 표시</string>
   <string name="blacklist_title">차단된 발신자 목록</string>
   <string name="blacklist_summary_disabled">비활성화 됨</string>
-  <string name="blacklist_summary">차단된 발신자 목록에 있는 전화 번호의 통화나 메세지를 받지 않습니다</string>
+  <string name="blacklist_summary">차단된 발신자 목록에 있는 전화번호의 통화나 메세지를 받지 않습니다</string>
   <string name="mwi_notification_title">메시지 대기 표시</string>
   <string name="mwi_notification_summary">음성메일 알림에 대한 메시지 대기 표시 보이기</string>
   <string name="call_notif_unconditionalCF">무조건 착신 전환 활성</string>
@@ -156,7 +156,7 @@
   <string name="enterName">이름:</string>
   <string name="enterNumber">전화번호:</string>
   <string name="hintName">이름</string>
-  <string name="hintPhonenumber">전화 번호</string>
+  <string name="hintPhonenumber">전화번호</string>
   <string name="contactAddSuccess">연락처를 SIM에 추가했습니다</string>
   <string name="contactAddFailed">연락처를 SIM에 추가하지 못했습니다</string>
   <string name="contactUpdateSuccess">SIM 연락처를 갱신했습니다</string>
@@ -190,7 +190,7 @@
   <string name="lte_recognize_summary">두개의 3G/LTE SIM 카드 감지, 기본 3G/LTE SIM 카드 설정 필요:</string>
   <string name="lte_select_title">기본 3G/LTE SIM 카드</string>
   <string name="lte_select_summary">선택한 가입 서비스는 3G / LTE SIM 카드로 다른 카드는 2G SIM 카드로 인식됩니다.</string>
-  <string name="lte_checkbox_text">기본 3G / LTE SIM 카드가 변경된 경우 데이터 통신을 선택한 SIM 카드로 설정</string>
+  <string name="lte_checkbox_text">기본 3G / LTE SIM 카드가 변경된 경우 모바일 데이터를 선택한 SIM 카드로 설정</string>
   <string name="reg_failed">등록 실패</string>
   <string name="reg_suc">등록 성공</string>
   <string name="reg_failed_msg">기본 3G/LTE SIM 카드 등록 실패, %1$s는 2G SIM 카드로 인식됩니다.</string>
