@@ -60,7 +60,7 @@
   <string name="requesting_rc_unlock">Se solicită deblocare RUIM corporativ\u2026</string>
   <string name="requesting_ruim_unlock">Se solicită deblocare RUIM\u2026</string>
   <string name="requesting_puk_unlock">Se solicită deblocare PUK\u2026</string>
-  <string name="unlock_failed_cm">Solicitare deblocare reţea SIM eşuată.</string>
+  <string name="unlock_failed_cm">Solicitare deblocare rețea SIM eșuată.</string>
   <string name="nw_subset_unlock_failed">Cererea de deblocare pentru rețeaua subnet SIM a eșuat.</string>
   <string name="sp_unlock_failed">Cererea de deblocare pentru furnizorul de servicii SIM a eșuat.</string>
   <string name="corporate_unlock_failed">Cererea de deblocare pentru SIM corporativ a eșuat.</string>
@@ -72,7 +72,7 @@
   <string name="rc_unlock_failed">Cererea de deblocare pentru RUIM corporativ a eșuat.</string>
   <string name="ruim_unlock_failed">Cererea de deblocare RUIM a eșuat.</string>
   <string name="puk_unlock_failed">Deblocarea PUK a eșuat.</string>
-  <string name="unlock_success_cm">Reţea SIM deblocată cu succes.</string>
+  <string name="unlock_success_cm">Rețea SIM deblocată cu succes.</string>
   <string name="nw_subset_unlock_success">Deblocarea SIM rețea subnet a reușit.</string>
   <string name="sp_unlock_success">Deblocarea furnizorului de servicii SIM a reușit.</string>
   <string name="corporate_unlock_success">Deblocarea SIM corporativ a reușit.</string>
@@ -88,7 +88,12 @@
   <string name="stk_cc_ss_to_ussd_error">Cererea SS este modificată în cerere USSD.</string>
   <string name="stk_cc_ss_to_ss_error">Cererea SS este modificată într-o cerere SS nouă.</string>
   <string name="videocall_settings">Setări apel video</string>
+  <string name="vt_forward_setting">Redirecționare apel video</string>
   <string name="vt_imagereplace_setting">Poză alternativă</string>
+  <string name="roaming_mode_title">Modul de roaming</string>
+  <string name="roaming_mode_summary">Modul de roaming internațional</string>
+  <string name="roaming_gsm">GSM roaming</string>
+  <string name="roaming_cdma">CDMA roaming</string>
   <string name="roaming_disabled">Dezactivat</string>
   <string name="preferred_network_mode_global_summary_cm">Mod rețea preferat: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Mod rețea preferat: doar TD-SCDMA</string>
@@ -101,6 +106,7 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Mod rețea preferat: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Mod rețea preferat: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Mod rețea preferat: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="callUnanswered_forwarded">Apel nerăspuns și redirecționat</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
@@ -137,7 +143,7 @@
   <string name="contactScreen">Gestionare contacte SIM</string>
   <string name="exportContactScreen">Exportaţi contactele din telefon în SIM</string>
   <string name="addSimEntries">Adăugare contact în SIM</string>
-  <string name="deleteAllSimEntries">Şterge toate contactele din SIM</string>
+  <string name="deleteAllSimEntries">Șterge toate contactele din SIM</string>
   <string name="deleteSimContacts">Se șterg contactele din SIM\u2026</string>
   <string name="editContact">Editare</string>
   <string name="sendSms">Trimite SMS</string>
@@ -165,6 +171,8 @@
   <string name="gsm_umts_network_preferences_title">Mod de rețea</string>
   <string name="gsm_umts_network_preferences_dialogtitle">Mod de rețea</string>
   <string name="sim_info">Informaţii cartelă SIM</string>
+  <string name="close">Închide</string>
+  <string name="change">Setați</string>
   <string name="new_sim_detected">Cartelă SIM nouă detectată:</string>
   <string name="default_sim_setting">Setări implicite:</string>
   <string name="mobile_data">Conexiune de date: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
@@ -176,8 +184,14 @@
   <string name="lte_switch_unavailable">Comutatorul de cartelă SIM 3G/LTE nu este disponibil</string>
   <string name="lte_recognition_title">Recunoaștere cartelă SIM</string>
   <string name="lte_recognize_summary">Două cartele SIM 3G/LTE sunt detectate, trebuie să setați cartela SIM 3G/LTE implicită:</string>
+  <string name="lte_select_title">Cartela 3G/LTE implicită</string>
   <string name="lte_select_summary">Abonamentul selectat va fi recunoscut ca o cartelă SIM 3G/LTE şi celălalt ca o cartelă SIM 2G.</string>
+  <string name="lte_checkbox_text">Setați conexiunea de date pe cartela SIM selectată odată ce cartela de 3G/LTE SIM implicită este schimbată</string>
+  <string name="reg_failed">Înregistrare eșuată</string>
   <string name="reg_suc">Înregistrare reuşită</string>
+  <string name="reg_failed_msg">Înregistrarea cartelei SIM 3G/LTE implicite nu a reușit, %1$s va fi recunoscută ca o cartelă SIM de 2G.</string>
+  <string name="lte_set">Setați</string>
+  <string name="lte_setting">Cartela 3G/LTE implicită este stabilită</string>
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
@@ -192,4 +206,6 @@
   <string name="perm_change_mobile_network">schimbare mod rețea (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Permite aplicației să schimbe între date 2G și 3G în orice moment. 3G este mai rapid, dar bateria se consumă mai rapid și pot apare costuri suplimentare.</string>
   <string name="phone_number_label">Numărul meu de telefon</string>
+  <string name="phone_number_summary">Setați nr de telefon pentru acest dispozitiv</string>
+  <string name="call_recording_format">Formatul de înregistrare a apelului</string>
 </resources>
