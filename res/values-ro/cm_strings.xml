@@ -47,7 +47,7 @@
   <string name="label_rcdp">PIN deblocare RUIM corporativ</string>
   <string name="label_rspdp">PIN deblocare furnizor de servicii RUIM</string>
   <string name="label_rdp">PIN deblocare RUIM</string>
-  <string name="label_puk">Introduceţi codul PUK</string>
+  <string name="label_puk">Introduceți codul PUK</string>
   <string name="requesting_unlock_cm">Se solicită codul SIM de deblocare rețea\u2026</string>
   <string name="requesting_nw_subset_unlock">Se solicită deblocare SIM pentru rețeaua subnet\u2026</string>
   <string name="requesting_sp_unlock">Se solicită deblocare SIM pentru furnizorul de servicii\u2026</string>
@@ -149,7 +149,7 @@
   <string name="sendSms">Trimite SMS</string>
   <string name="delete">Ștergere</string>
   <string name="dial">Apelare</string>
-  <string name="enterName">Introduceţi numele:</string>
+  <string name="enterName">Introduceți numele:</string>
   <string name="enterNumber">Introduceți un număr de telefon:</string>
   <string name="hintName">Nume</string>
   <string name="hintPhonenumber">Număr de telefon</string>
@@ -165,7 +165,7 @@
   <string name="exportAllcontatsFailed">Nu s-a reușit exportarea tuturor contactelor în SIM</string>
   <string name="exportAllcontatsNoContacts">Fără contacte găsite pentru exportarea în SIM</string>
   <string name="uplmn_list_setting_title">Rețele preferate</string>
-  <string name="network_id">ID reţea</string>
+  <string name="network_id">ID rețea</string>
   <string name="dialog_network_priority_title">Prioritate</string>
   <string name="uplmn_list_setting_add_plmn">Nou PLMN</string>
   <string name="gsm_umts_network_preferences_title">Mod de rețea</string>
@@ -185,10 +185,10 @@
   <string name="lte_recognition_title">Recunoaștere cartelă SIM</string>
   <string name="lte_recognize_summary">Două cartele SIM 3G/LTE sunt detectate, trebuie să setați cartela SIM 3G/LTE implicită:</string>
   <string name="lte_select_title">Cartela 3G/LTE implicită</string>
-  <string name="lte_select_summary">Abonamentul selectat va fi recunoscut ca o cartelă SIM 3G/LTE şi celălalt ca o cartelă SIM 2G.</string>
+  <string name="lte_select_summary">Abonamentul selectat va fi recunoscut ca o cartelă SIM 3G/LTE și celălalt ca o cartelă SIM 2G.</string>
   <string name="lte_checkbox_text">Setați conexiunea de date pe cartela SIM selectată odată ce cartela de 3G/LTE SIM implicită este schimbată</string>
   <string name="reg_failed">Înregistrare eșuată</string>
-  <string name="reg_suc">Înregistrare reuşită</string>
+  <string name="reg_suc">Înregistrare reușită</string>
   <string name="reg_failed_msg">Înregistrarea cartelei SIM 3G/LTE implicite nu a reușit, %1$s va fi recunoscută ca o cartelă SIM de 2G.</string>
   <string name="lte_set">Setați</string>
   <string name="lte_setting">Cartela 3G/LTE implicită este stabilită</string>
