@@ -16,6 +16,10 @@
 
 package com.android.services.telephony;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
 
@@ -28,6 +32,7 @@ import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.imsphone.ImsPhoneConnection;
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.TelephonyIntents;
 import com.android.phone.settings.SettingsConstants;
 
 import java.util.LinkedList;
@@ -64,7 +69,7 @@ final class CdmaConnection extends TelephonyConnection {
     /**
      * {@code True} if the CDMA connection should allow mute.
      */
-    private final boolean mAllowMute;
+    private boolean mAllowMute;
     private final boolean mIsOutgoing;
     // Queue of pending short-DTMF characters.
     private final Queue<Character> mDtmfQueue = new LinkedList<>();
@@ -89,6 +94,10 @@ final class CdmaConnection extends TelephonyConnection {
         if (mIsCallWaiting && !isImsCall) {
             startCallWaitingTimer();
         }
+        // Register receiver for ECBM exit
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED);
+        TelephonyGlobals.getApplicationContext().registerReceiver(mEcmExitReceiver, filter);
     }
 
     /** {@inheritDoc} */
@@ -288,4 +297,28 @@ final class CdmaConnection extends TelephonyConnection {
                 PhoneNumberUtils.isLocalEmergencyNumber(
                     phone.getContext(), getAddress().getSchemeSpecificPart());
     }
+
+    @Override
+    void close() {
+        TelephonyGlobals.getApplicationContext().unregisterReceiver(mEcmExitReceiver);
+        super.close();
+    }
+
+    /**
+     * Listens for Emergency Callback Mode state change intents
+     */
+    private BroadcastReceiver mEcmExitReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Received exit Emergency Callback Mode notification and update mute state
+            if (intent.getAction().equals(
+                    TelephonyIntents.ACTION_EMERGENCY_CALLBACK_MODE_CHANGED)) {
+                Log.d(this,"Received ACTION_EMERGENCY_CALLBACK_MODE_CHANGED");
+                if ((intent.getBooleanExtra("phoneinECMState", false) == false) && !mAllowMute) {
+                    mAllowMute = true;
+                    updateConnectionCapabilities();
+                }
+            }
+        }
+    };
 }

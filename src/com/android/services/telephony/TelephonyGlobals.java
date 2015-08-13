@@ -37,7 +37,7 @@ public class TelephonyGlobals {
     private static TelephonyGlobals sInstance;
 
     /** The application context. */
-    private final Context mContext;
+    private static Context mContext;
 
     // For supporting MSIM phone, change Phone and TtyManager as 1 to 1
     private List<TtyManager> mTtyManagers = new ArrayList<>();
@@ -66,5 +66,9 @@ public class TelephonyGlobals {
         }
 
         TelecomAccountRegistry.getInstance(mContext).setupOnBoot();
+    }
+
+    public static Context getApplicationContext() {
+        return mContext;
     }
 }
