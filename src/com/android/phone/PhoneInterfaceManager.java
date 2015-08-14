@@ -80,7 +80,7 @@ import java.util.List;
 public class PhoneInterfaceManager extends ITelephony.Stub {
     private static final String LOG_TAG = "PhoneInterfaceManager";
     private static final boolean DBG = (PhoneGlobals.DBG_LEVEL >= 2);
-    private static final boolean DBG_LOC = false;
+    private static final boolean DBG_LOC = true;
 
     // Message codes used with mMainThreadHandler
     private static final int CMD_HANDLE_PIN_MMI = 1;
