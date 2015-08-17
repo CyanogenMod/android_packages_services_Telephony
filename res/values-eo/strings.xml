@@ -16,6 +16,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="phoneAppLabel" product="default">Telefono</string>
+  <string name="emergencyDialerIconLabel">Urĝa ciferilo</string>
+  <string name="phoneIconLabel">Telefono</string>
   <string name="unknown">Nekonate</string>
   <string name="onHold">Atendanta</string>
   <string name="cancel">Nuligi</string>
