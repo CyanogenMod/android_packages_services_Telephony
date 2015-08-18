@@ -680,7 +680,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                         return true;
                 }
 
-                UpdatePreferredNetworkModeSummary(buttonNetworkMode);
+                updatePreferredNetworkModeSummary(buttonNetworkMode);
 
                 //Set the modem network mode
                 setPreferredNetworkType(modemNetworkMode);
@@ -730,7 +730,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                         return true;
                 }
 
-                UpdateEnabledNetworksValueAndSummary(buttonNetworkMode);
+                updateEnabledNetworksValueAndSummary(buttonNetworkMode);
 
                 //Set the modem network mode
                 setPreferredNetworkType(modemNetworkMode);
@@ -862,10 +862,6 @@ public class MobileNetworkSettings extends PreferenceActivity
                             .obtainMessage(MyHandler.MESSAGE_SET_PREFERRED_NETWORK_TYPE_OTHER_SIM));
                 }
             }
-            TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
-                    android.provider.Settings.Global.PREFERRED_NETWORK_MODE,
-                    mPhone.getPhoneId(),
-                    modemNetworkMode);
             if (mButtonPreferredNetworkMode != null) {
                 mButtonPreferredNetworkMode.setEnabled(false);
             }  else if (mButtonEnabledNetworks != null) {
@@ -951,11 +947,11 @@ public class MobileNetworkSettings extends PreferenceActivity
                     }
 
                     if (mButtonPreferredNetworkMode != null) {
-                        UpdatePreferredNetworkModeSummary(modemNetworkMode);
+                        updatePreferredNetworkModeSummary(modemNetworkMode);
                         // changes the mButtonPreferredNetworkMode accordingly to modemNetworkMode
                         mButtonPreferredNetworkMode.setValue(Integer.toString(modemNetworkMode));
                     } else if (mButtonEnabledNetworks != null) {
-                        UpdateEnabledNetworksValueAndSummary(modemNetworkMode);
+                        updateEnabledNetworksValueAndSummary(modemNetworkMode);
                         // changes the mButtonEnabledNetworks accordingly to modemNetworkMode
                         mButtonEnabledNetworks.setValue(Integer.toString(modemNetworkMode));
                     }
@@ -1055,13 +1051,13 @@ public class MobileNetworkSettings extends PreferenceActivity
         return false;
     }
 
-    private void UpdatePreferredNetworkModeSummary(int NetworkMode) {
+    private void updatePreferredNetworkModeSummary(int NetworkMode) {
         int summaryResId = mPreferredNetworkModeSummaries.get(NetworkMode,
                 R.string.preferred_network_mode_global_summary_cm);
         mButtonPreferredNetworkMode.setSummary(summaryResId);
     }
 
-    private void UpdateEnabledNetworksValueAndSummary(int NetworkMode) {
+    private void updateEnabledNetworksValueAndSummary(int NetworkMode) {
         int networkModeSummaryResId = mEnabledNetworksSummaries.get(NetworkMode, -1);
         if (networkModeSummaryResId == -1) {
             loge("Invalid Network Mode (" + NetworkMode + "). Ignore.");
@@ -1122,7 +1118,7 @@ public class MobileNetworkSettings extends PreferenceActivity
         int prefNetMode = pref.getInt(key, -1);
         if (prefNetMode != -1) {
             setPreferredNetworkType(prefNetMode);
-            UpdateEnabledNetworksValueAndSummary(prefNetMode);
+            updateEnabledNetworksValueAndSummary(prefNetMode);
         }
     }
 
