@@ -107,7 +107,7 @@
     <uses-permission android:name="android.permission.REGISTER_CALL_PROVIDER" />
     <uses-permission android:name="android.permission.REGISTER_SIM_SUBSCRIPTION" />
     <uses-permission android:name="android.permission.BIND_CARRIER_MESSAGING_SERVICE" />
-    <uses-permission android:name="android.permission.HARDWARE_ABSTRACTION_ACCESS" />
+    <uses-permission android:name="cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS" />
 
     <!-- This tells the activity manager to not delay any of our activity
          start requests, even if they happen immediately after the user
