@@ -209,4 +209,5 @@
   <string name="perm_change_mobile_network_desc">Дозволяє програмам в будь-який час змінювати режим мережі між 2G і 3G. 3G швидший, але споживає більше заряду акумулятора і може викликати додаткові витрати.</string>
   <string name="phone_number_label">Мій номер телефону</string>
   <string name="phone_number_summary">Встановити телефонний номер для цього пристрою</string>
+  <string name="call_recording_format">Формат запису виклику</string>
 </resources>

@@ -209,4 +209,5 @@
   <string name="perm_change_mobile_network_desc">Izinkan aplikasi untuk mengubah antara data 2G dan data 3G setiap saat. 3G lebih cepat, tapi mengkonsumsi baterai lebih banyak dan dapat menyebabkan biaya tambahan.</string>
   <string name="phone_number_label">Nomor telepon saya</string>
   <string name="phone_number_summary">Tetapkan nomor telepon untuk perangkat ini</string>
+  <string name="call_recording_format">Format perekaman panggilan</string>
 </resources>
