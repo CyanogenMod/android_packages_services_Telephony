@@ -209,4 +209,5 @@
   <string name="perm_change_mobile_network_desc">Las aplicaciones con este permiso pueden, en cualquier momento, cambiar entre datos 2G y 3G. Es más rápido 3G, pero consume más batería y puede costar más dinero.</string>
   <string name="phone_number_label">Mi número de teléfono</string>
   <string name="phone_number_summary">Establecer el número asociado a este dispositivo</string>
+  <string name="call_recording_format">Formato de grabación de llamada</string>
 </resources>
