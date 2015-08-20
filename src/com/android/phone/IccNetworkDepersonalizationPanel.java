@@ -37,6 +37,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.internal.telephony.Phone;
+import com.android.internal.telephony.PhoneFactory;
+import com.android.internal.telephony.uicc.IccCardApplicationStatus;
+import com.android.internal.telephony.uicc.IccCardApplicationStatus.PersoSubState;
+
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 
 /**
  * "SIM network unlock" PIN entry screen.
@@ -55,15 +61,119 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
     private static final int EVENT_ICC_NTWRK_DEPERSONALIZATION_RESULT = 100;
 
     private Phone mPhone;
+    private int mPersoSubtype;
 
     //UI elements
     private EditText     mPinEntry;
     private LinearLayout mEntryPanel;
     private LinearLayout mStatusPanel;
     private TextView     mStatusText;
+    private TextView     mPersoSubtypeText;
 
     private Button       mUnlockButton;
     private Button       mDismissButton;
+
+    private final int ENTRY = 0;
+    private final int IN_PROGRESS = 1;
+    private final int ERROR = 2;
+    private final int SUCCESS = 3;
+
+    //Initialize the Persosubtype labels.
+    //{ENTRY,   IN_PROGRESS,
+    //ERROR,        SUCCESS},
+    private final int[][] mPersoSubtypeLabels = new int[][] {
+        {0,0,0,0}, // PERSOSUBSTATE_UNKNOWN,
+        {0,0,0,0}, //PERSOSUBSTATE_IN_PROGRESS,
+        {0,0,0,0}, //PERSOSUBSTATE_READY,
+
+        //PERSOSUBSTATE_SIM_NETWORK,
+        {R.string.label_ndp,                R.string.requesting_unlock,
+        R.string.unlock_failed,             R.string.unlock_success},
+
+        //PERSOSUBSTATE_SIM_NETWORK_SUBSET,
+        {R.string.label_nsdp,               R.string.requesting_nw_subset_unlock,
+        R.string.nw_subset_unlock_failed,   R.string.nw_subset_unlock_success},
+
+        //PERSOSUBSTATE_SIM_CORPORATE,
+        {R.string.label_cdp,                R.string.requesting_corporate_unlock,
+        R.string.corporate_unlock_failed,   R.string.corporate_unlock_success},
+
+        //PERSOSUBSTATE_SIM_SERVICE_PROVIDER,
+        {R.string.label_spdp,               R.string.requesting_sp_unlock,
+        R.string.sp_unlock_failed,          R.string.sp_unlock_success},
+
+        //PERSOSUBSTATE_SIM_SIM,
+        {R.string.label_sdp,                R.string.requesting_sim_unlock,
+        R.string.sim_unlock_failed,         R.string.sim_unlock_success},
+
+        //PERSOSUBSTATE_SIM_NETWORK_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_SIM_NETWORK_SUBSET_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_SIM_CORPORATE_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_SIM_SERVICE_PROVIDER_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_SIM_SIM_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_NETWORK1,
+        {R.string.label_rn1dp,              R.string.requesting_rnw1_unlock,
+        R.string.rnw1_unlock_failed,        R.string.rnw1_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_NETWORK2,
+        {R.string.label_rn2dp,              R.string.requesting_rnw2_unlock,
+        R.string.rnw2_unlock_failed,        R.string.rnw2_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_HRPD,
+        {R.string.label_rhrpd,              R.string.requesting_rhrpd_unlock,
+        R.string.rhrpd_unlock_failed,       R.string.rhrpd_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_CORPORATE,
+        {R.string.label_rcdp,               R.string.requesting_rc_unlock,
+        R.string.rc_unlock_failed,          R.string.rc_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_SERVICE_PROVIDER,
+        {R.string.label_rspdp,              R.string.requesting_rsp_unlock,
+        R.string.rsp_unlock_failed,         R.string.rsp_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_RUIM,
+        {R.string.label_rdp,                R.string.requesting_ruim_unlock,
+        R.string.ruim_unlock_failed,        R.string.ruim_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_NETWORK1_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_NETWORK2_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_HRPD_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_CORPORATE_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+
+        //PERSOSUBSTATE_RUIM_RUIM_PUK,
+        {R.string.label_puk,                R.string.requesting_puk_unlock,
+        R.string.puk_unlock_failed,         R.string.puk_unlock_success},
+    };
 
     //private textwatcher to control text entry.
     private TextWatcher mPinEntryWatcher = new TextWatcher() {
@@ -88,7 +198,7 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
                 AsyncResult res = (AsyncResult) msg.obj;
                 if (res.exception != null) {
                     if (DBG) log("network depersonalization request failure.");
-                    indicateError();
+                    displayStatus(ERROR);
                     postDelayed(new Runnable() {
                                     public void run() {
                                         hideAlert();
@@ -98,7 +208,7 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
                                 }, 3000);
                 } else {
                     if (DBG) log("network depersonalization success.");
-                    indicateSuccess();
+                    displayStatus(SUCCESS);
                     postDelayed(new Runnable() {
                                     public void run() {
                                         dismiss();
@@ -112,6 +222,13 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
     //constructor
     public IccNetworkDepersonalizationPanel(Context context) {
         super(context);
+        mPersoSubtype = IccCardApplicationStatus.PersoSubState.PERSOSUBSTATE_SIM_NETWORK.ordinal();
+    }
+
+    //constructor
+    public IccNetworkDepersonalizationPanel(Context context, int subtype) {
+        super(context);
+        mPersoSubtype = subtype;
     }
 
     @Override
@@ -130,6 +247,8 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
         span.setSpan(mPinEntryWatcher, 0, text.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
 
         mEntryPanel = (LinearLayout) findViewById(R.id.entry_panel);
+        mPersoSubtypeText = (TextView) findViewById(R.id.perso_subtype_text);
+        displayStatus(ENTRY);
 
         mUnlockButton = (Button) findViewById(R.id.ndp_unlock);
         mUnlockButton.setOnClickListener(mUnlockListener);
@@ -177,29 +296,30 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
                 return;
             }
 
-            if (DBG) log("requesting network depersonalization with code " + pin);
-            mPhone.getIccCard().supplyNetworkDepersonalization(pin,
+            log("Requesting De-Personalization for subtype " + mPersoSubtype);
+            mPhone.getIccCard().supplyNetworkDepersonalization(pin, Integer.toString(mPersoSubtype),
                     Message.obtain(mHandler, EVENT_ICC_NTWRK_DEPERSONALIZATION_RESULT));
-            indicateBusy();
+            displayStatus(IN_PROGRESS);
         }
     };
 
-    private void indicateBusy() {
-        mStatusText.setText(R.string.requesting_unlock);
-        mEntryPanel.setVisibility(View.GONE);
-        mStatusPanel.setVisibility(View.VISIBLE);
-    }
+    private void displayStatus(int type) {
+        int label = 0;
 
-    private void indicateError() {
-        mStatusText.setText(R.string.unlock_failed);
-        mEntryPanel.setVisibility(View.GONE);
-        mStatusPanel.setVisibility(View.VISIBLE);
-    }
+        label = mPersoSubtypeLabels[mPersoSubtype][type];
 
-    private void indicateSuccess() {
-        mStatusText.setText(R.string.unlock_success);
-        mEntryPanel.setVisibility(View.GONE);
-        mStatusPanel.setVisibility(View.VISIBLE);
+        if (label == 0) {
+            log ("Unsupported Perso Subtype :" + mPersoSubtype);
+            return;
+        }
+        if (type == ENTRY) {
+            String displayText = getContext().getString(label);
+            mPersoSubtypeText.setText(displayText);
+        } else {
+            mStatusText.setText(label);
+            mEntryPanel.setVisibility(View.GONE);
+            mStatusPanel.setVisibility(View.VISIBLE);
+        }
     }
 
     private void hideAlert() {
@@ -208,13 +328,13 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
     }
 
     View.OnClickListener mDismissListener = new View.OnClickListener() {
-            public void onClick(View v) {
-                if (DBG) log("mDismissListener: skipping depersonalization...");
-                dismiss();
-            }
-        };
+        public void onClick(View v) {
+            if (DBG) log("mDismissListener: skipping depersonalization...");
+            dismiss();
+        }
+    };
 
     private void log(String msg) {
-        Log.v(TAG, "[IccNetworkDepersonalizationPanel] " + msg);
+        Log.d(TAG, "[IccNetworkDepersonalizationPanel] " + msg);
     }
 }
