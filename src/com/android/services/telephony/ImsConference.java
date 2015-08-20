@@ -582,6 +582,7 @@ public class ImsConference extends Conference {
         // active call.
         ConferenceParticipantConnection connection = new ConferenceParticipantConnection(
                 parent.getOriginalConnection(), participant);
+        connection.setConnectTimeMillis(parent.getConnectTimeMillis());
         connection.addConnectionListener(mParticipantListener);
 
         if (Log.VERBOSE) {
