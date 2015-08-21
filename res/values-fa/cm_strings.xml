@@ -37,8 +37,8 @@
   <string name="call_notif_forwardcheckreceived">تماس انتقال یافت</string>
   <string name="call_notif_callconnectingect">تماس از طریق انتقال صریح تماس متصل می‌شود</string>
   <string name="call_notif_callconnectedect">تماس از طریق انتقال صریح تماس متصل شد</string>
-  <string name="label_nsdp">پین بازگشایی قفل زیرمجموعه شبکه سیمکارت</string>
-  <string name="label_cdp">پین بازگشایی قفل شرکت سیمکارت</string>
+  <string name="label_nsdp">پین بازگشایی زیرمجموعه شبکه سیم کارت</string>
+  <string name="label_cdp">پین بازگشایی شرکت سیم کارت</string>
   <string name="label_spdp">پین بازگشایی قفل ارائه‌دهنده خدمات سیمکارت</string>
   <string name="label_sdp">پین بازگشایی قفل سیمکارت</string>
   <string name="label_rn1dp">پین بازگشایی قفل شبکه 1 RUIM</string>

@@ -88,6 +88,7 @@
   <string name="stk_cc_ss_to_ussd_error">Cererea SS este modificată în cerere USSD.</string>
   <string name="stk_cc_ss_to_ss_error">Cererea SS este modificată într-o cerere SS nouă.</string>
   <string name="videocall_settings">Setări apel video</string>
+  <string name="vt_fallback_setting">Reapelarea prin apel voce</string>
   <string name="vt_forward_setting">Redirecționare apel video</string>
   <string name="vt_imagereplace_setting">Poză alternativă</string>
   <string name="roaming_mode_title">Modul de roaming</string>
