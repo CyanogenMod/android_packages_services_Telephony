@@ -1386,7 +1386,10 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             if (DBG_LOC) log("getAllCellInfo: is active user");
             List<CellInfo> cellInfos = new ArrayList<CellInfo>();
             for (Phone phone : PhoneFactory.getPhones()) {
-                cellInfos.addAll(phone.getAllCellInfo());
+                List<CellInfo> cellInfo = phone.getAllCellInfo();
+                if (cellInfo != null) {
+                    cellInfos.addAll(phone.getAllCellInfo());
+                }
             }
             return cellInfos;
         } else {
