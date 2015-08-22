@@ -37,8 +37,8 @@
   <string name="call_notif_forwardcheckreceived">تماس انتقال یافت</string>
   <string name="call_notif_callconnectingect">تماس به تصریح کننده تماس هدایت می شود</string>
   <string name="call_notif_callconnectedect">تماس به تصریح کننده تماس هدایت شد</string>
-  <string name="label_nsdp">PIN بازگشایی زیر مجموعه شبکه سیم کارت</string>
-  <string name="label_cdp">PIN بازگشایی شرکت سیم کارت</string>
+  <string name="label_nsdp">پین بازگشایی زیرمجموعه شبکه سیم کارت</string>
+  <string name="label_cdp">پین بازگشایی شرکت سیم کارت</string>
   <string name="label_spdp">PIN بازگشایی ارائه دهنده ی خدمات سیم کارت</string>
   <string name="label_sdp">PIN بازگشایی سیم کارت</string>
   <string name="label_rn1dp">PIN بازگشایی شبکه 1 RUIM</string>
