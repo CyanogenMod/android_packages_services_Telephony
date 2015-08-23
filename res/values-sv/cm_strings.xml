@@ -93,6 +93,7 @@
   <string name="incoming_call_style_classic">Klassisk</string>
   <string name="incoming_call_style_fullscreen_photo">Kontaktbild i helskärm</string>
   <string name="network_forbidden">(Förbjudet)</string>
+  <string name="proximity_mode_title">Aktivera avståndssensor</string>
   <string name="call_barring">Samtalsspärr</string>
   <string name="call_barring_off">Av</string>
   <string name="call_barring_outgoing_international">Internationella samtal</string>
@@ -168,9 +169,12 @@
   <string name="xdivert_not_active">Inaktiv</string>
   <string name="xdivert_imsi_not_read">SIM-initiering pågår. Var god försök igen senare.</string>
   <string name="no_volte">Kunde inte göra IMS-samtal</string>
+  <string name="no_vt_allowed">För att göra ett videosamtal, stäng av TTY-läge</string>
   <string name="ims_edit_title">IMS-kontodetaljer</string>
   <string name="ims_accounts_title">IMS-konto</string>
   <string name="mo_call_type_title">MO-samtalstyp</string>
+  <string name="ims_service_capability">Aktivera/inaktivera tjänstekapabilitet</string>
+  <string name="ims_service_capability_title">IMS-tjänstekapabilitet</string>
   <string name="ims_menu_save">Spara</string>
   <string name="ims_menu_discard">Avbryt</string>
   <string name="remove_ims_account">Ta bort konto</string>
@@ -192,12 +196,14 @@
   <string name="enterNumber">Ange telefonnummer:</string>
   <string name="hintName">Namn</string>
   <string name="hintPhonenumber">Telefonnummer</string>
+  <string name="contactAddSuccess">Lade till kontakt till SIM</string>
   <string name="contactAddFailed">Misslyckades att lägga till kontakt till SIM</string>
   <string name="contactUpdateFailed">Kunde inte uppdatera kontakten på SIM-kortet</string>
   <string name="contactdeleteFailed">Misslyckades att ta bort kontakt från SIM</string>
   <string name="allContactdeleteSuccess">Tog bort alla kontakter från SIM</string>
   <string name="allContactdeleteFailed">Misslyckades med att ta bort alla kontakter från SIM</string>
   <string name="exportAllcontatsSuccess">Exporterade alla kontakter till SIM</string>
+  <string name="exportAllcontatsFailed">Misslyckades med export av alla kontakter till SIM</string>
   <string name="exportAllcontatsNoContacts">Inga kontakter hittades att exportera till SIM</string>
   <string name="cursorError">Ogiltig markördata</string>
   <string name="set_subscription">Konfigurera SIM-kort</string>
