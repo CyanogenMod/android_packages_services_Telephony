@@ -17,10 +17,5 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="call_notif_unconditionalCF">انتقال بی قید و شرط تماس فعال</string>
-  <string name="call_notif_conditionalCF">هدایت تماس شرطی فعال</string>
-  <string name="label_puk">PUK را وارد کنید</string>
-  <string name="ims_menu_save">ذخیره</string>
-  <string name="ims_vt_call_quality_unknown">ناشناخته</string>
-  <string name="delete">حذف</string>
+  <string name="ims_menu_save">Konservi</string>
 </resources>

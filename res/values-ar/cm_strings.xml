@@ -53,7 +53,7 @@
   <string name="blacklist_notification_list_private">شخصي</string>
   <string name="unblock_number">إلغاء حظر</string>
   <string name="mwi_notification_title">مؤشر الانتظار رسالة</string>
-  <string name="mwi_notification_summary">يظهر رسالة البريد الصوتي مؤشر الإعلام</string>
+  <string name="mwi_notification_summary">يظهر رسالة البريد الصوتي مؤشر الإشعار</string>
   <string name="perm_change_mobile_network">تغيير وضع الشبكة (2g/3G)</string>
   <string name="perm_change_mobile_network_desc">يسمح التطبيق لتغيير بين البيانات 2g والجيل الثالث 3g البيانات في أي وقت. الجيل الثالث 3g هو أسرع، ولكن يستهلك البطارية أكثر وقد يتسبب في تكاليف إضافية.</string>
   <string name="phone_number_label">رقم الهاتف الخاص بي</string>

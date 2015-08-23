@@ -31,6 +31,7 @@
   <string name="vibrate_outgoing">Cavab verәrkәn vibrasiyalamaq</string>
   <string name="vibrate_call_waiting">Zәngi gözlәyәrkәn vibrasiyalamaq</string>
   <string name="blacklist_title">Qara siyahı</string>
+  <string name="blacklist_summary_disabled">Ləğv edildi</string>
   <string name="blacklist_summary">Qara siyahıdakı nömrәlәrdәn gәlәn zәnglәr qәbul edilmәyәcәkdir</string>
   <string name="blacklist_call_notification">%s nömrәsindәn zәng qәbul olunmayıb</string>
   <string name="blacklist_call_notification_unknown_number">Tәyin edilmәyәn %s nömrәsindәn zәng qәbul edilmәyib</string>

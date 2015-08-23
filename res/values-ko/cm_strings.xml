@@ -69,7 +69,7 @@
   <string name="preferred_network_mode_wcdma_only">WCDMA 전용</string>
   <string name="preferred_network_mode_gsm_only">GSM 전용</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred">GSM/WCDMA 우선</string>
-  <string name="number_lookup">전화 번호 조회</string>
+  <string name="number_lookup">전화번호 조회</string>
   <string name="enable_forward_lookup_title">정방향 조회</string>
   <string name="enable_forward_lookup_summary">다이얼러 검색시 근처 장소 보이기</string>
   <string name="enable_people_lookup_title">사람 조회</string>
@@ -249,7 +249,7 @@
   <string name="enterName">이름:</string>
   <string name="enterNumber">전화번호:</string>
   <string name="hintName">이름</string>
-  <string name="hintPhonenumber">전화 번호</string>
+  <string name="hintPhonenumber">전화번호</string>
   <string name="contactAddSuccess">연락처를 SIM에 추가했습니다</string>
   <string name="contactAddFailed">연락처를 SIM에 추가하지 못했습니다</string>
   <string name="contactUpdateSuccess">SIM 연락처를 갱신했습니다</string>
