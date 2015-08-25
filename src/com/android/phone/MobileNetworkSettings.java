@@ -962,7 +962,6 @@ public class MobileNetworkSettings extends PreferenceActivity
                     resetNetworkModeToDefault();
                 }
             }
-            enableNetworkButtons();
         }
 
         private void handleSetPreferredNetworkTypeResponse(Message msg) {
@@ -987,6 +986,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                     intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, networkMode);
                     mPhone.getContext().sendBroadcast(intent, PhoneToggler.CHANGE_NETWORK_MODE_PERM);
                 }
+                enableNetworkButtons();
             } else {
                 mPhone.getPreferredNetworkType(obtainMessage(MESSAGE_GET_PREFERRED_NETWORK_TYPE));
             }
