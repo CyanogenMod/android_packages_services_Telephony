@@ -718,10 +718,6 @@ public class MobileNetworkSettings extends PreferenceActivity
                 setUserNetworkSetting(modemNetworkMode);
 
                 UpdatePreferredNetworkModeSummary(buttonNetworkMode);
-
-                Intent intent = new Intent(PhoneToggler.ACTION_NETWORK_MODE_CHANGED);
-                intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, buttonNetworkMode);
-                mPhone.getContext().sendBroadcast(intent, PhoneToggler.CHANGE_NETWORK_MODE_PERM);
             }
         } else if (preference == mButtonEnabledNetworks) {
             mButtonEnabledNetworks.setValue((String) objValue);
@@ -773,10 +769,6 @@ public class MobileNetworkSettings extends PreferenceActivity
                 setUserNetworkSetting(modemNetworkMode);
 
                 UpdateEnabledNetworksValueAndSummary(modemNetworkMode);
-
-                Intent intent = new Intent(PhoneToggler.ACTION_NETWORK_MODE_CHANGED);
-                intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, buttonNetworkMode);
-                mPhone.getContext().sendBroadcast(intent, PhoneToggler.CHANGE_NETWORK_MODE_PERM);
             }
         } else if (preference == mButton4glte) {
             SwitchPreference ltePref = (SwitchPreference)preference;
@@ -956,11 +948,6 @@ public class MobileNetworkSettings extends PreferenceActivity
                     } else if (mButtonEnabledNetworks != null) {
                         UpdateEnabledNetworksValueAndSummary(modemNetworkMode);
                     }
-
-                    Intent intent = new Intent(PhoneToggler.ACTION_NETWORK_MODE_CHANGED);
-                    intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, modemNetworkMode);
-                    mPhone.getContext().sendBroadcast(intent,
-                            PhoneToggler.CHANGE_NETWORK_MODE_PERM);
                 } else {
                     if (DBG) log("handleGetPreferredNetworkTypeResponse: else: reset to default");
                     resetNetworkModeToDefault();
@@ -978,18 +965,10 @@ public class MobileNetworkSettings extends PreferenceActivity
                     networkMode = Integer.valueOf(
                             mButtonPreferredNetworkMode.getValue()).intValue();
                     setPreferredNetworkSetting(networkMode);
-
-                    Intent intent = new Intent(PhoneToggler.ACTION_NETWORK_MODE_CHANGED);
-                    intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, networkMode);
-                    mPhone.getContext().sendBroadcast(intent, PhoneToggler.CHANGE_NETWORK_MODE_PERM);
                 } else if (mButtonEnabledNetworks != null) {
                     networkMode = Integer.valueOf(
                             mButtonEnabledNetworks.getValue()).intValue();
                     setPreferredNetworkSetting(networkMode);
-
-                    Intent intent = new Intent(PhoneToggler.ACTION_NETWORK_MODE_CHANGED);
-                    intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, networkMode);
-                    mPhone.getContext().sendBroadcast(intent, PhoneToggler.CHANGE_NETWORK_MODE_PERM);
                 }
                 enableNetworkButtons();
             } else {
