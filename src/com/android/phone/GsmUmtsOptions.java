@@ -82,6 +82,8 @@ public class GsmUmtsOptions {
         boolean removedAPNExpand = false;
         mButtonOperatorSelectionExpand =
                 (PreferenceScreen) mPrefScreen.findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY);
+        PersistableBundle carrierConfig =
+                PhoneGlobals.getInstance().getCarrierConfigForSubId(mSubId);
         if (mPhone.getPhoneType() != PhoneConstants.PHONE_TYPE_GSM) {
             log("Not a GSM phone");
             mButtonAPNExpand.setEnabled(false);
@@ -91,8 +93,6 @@ public class GsmUmtsOptions {
         } else {
             log("Not a CDMA phone");
             Resources res = mPrefActivity.getResources();
-            PersistableBundle carrierConfig =
-                    PhoneGlobals.getInstance().getCarrierConfigForSubId(mSubId);
 
             // Determine which options to display. For GSM these are defaulted to true in
             // CarrierConfigManager, but they maybe overriden by DefaultCarrierConfigService or a
@@ -127,14 +127,14 @@ public class GsmUmtsOptions {
                     }
                 }
             }
-            // Read platform settings for carrier settings
-            final boolean isCarrierSettingsEnabled = carrierConfig.getBoolean(
-                CarrierConfigManager.KEY_CARRIER_SETTINGS_ENABLE_BOOL);
-            if (!isCarrierSettingsEnabled) {
-                Preference pref = mPrefScreen.findPreference(BUTTON_CARRIER_SETTINGS_KEY);
-                if (pref != null) {
-                    mPrefScreen.removePreference(pref);
-                }
+        }
+        // Read platform settings for carrier settings
+        final boolean isCarrierSettingsEnabled = carrierConfig.getBoolean(
+            CarrierConfigManager.KEY_CARRIER_SETTINGS_ENABLE_BOOL);
+        if (!isCarrierSettingsEnabled) {
+            Preference pref = mPrefScreen.findPreference(BUTTON_CARRIER_SETTINGS_KEY);
+            if (pref != null) {
+                mPrefScreen.removePreference(pref);
             }
         }
         if (!removedAPNExpand) {
