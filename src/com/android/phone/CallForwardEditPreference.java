@@ -299,6 +299,10 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
 
         public void onGetPacketErrorCount(int status, long packetErrorCount) {
         }
+
+        public void receiveCallDeflectResponse(int result) {
+            /* Not implemented, dummy implementation to avoid compilation errors */
+        }
     };
 
     private void handleGetCFTimerResponse() {
