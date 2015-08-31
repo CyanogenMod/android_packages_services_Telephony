@@ -1112,7 +1112,8 @@ public class MobileNetworkSettings extends PreferenceActivity
             mButtonEnabledNetworks.setSummary(null);
         } else {
             mButtonEnabledNetworks.setValue(Integer.toString(userConfiguredMode));
-            if (networkModeSummaryResId == userNetworkModeSummaryResId) {
+            if (networkModeSummaryResId == userNetworkModeSummaryResId
+                    || userNetworkModeSummaryResId == -1) {
                 mButtonEnabledNetworks.setSummary(networkModeSummaryResId);
             } else {
                 String summary = getString(R.string.preferred_network_mode_summary_mismatch,
