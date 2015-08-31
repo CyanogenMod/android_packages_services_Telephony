@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">Presmerovanie videohovorov</string>
   <string name="vt_imagereplace_setting">Alternatívny obrázok</string>
   <string name="vt_imagereplace_setting_sum">Obrázok, ktorý sa zobrazí, ak je zakázaný predný fotoaparát</string>
+  <string name="roaming_mode_title">Režim roamingu</string>
+  <string name="roaming_mode_summary">Režim medzinárodného roamingu</string>
+  <string name="roaming_gsm">GSM roaming</string>
+  <string name="roaming_cdma">CDMA roaming</string>
+  <string name="roaming_disabled">Zakázané</string>
   <string name="preferred_network_mode_global_summary_cm">Uprednostňovaný režim siete: Globálne (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Uprednostňovaný režim siete: iba TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Uprednostňovaný režim siete: TD-SCDMA/WCDMA</string>
@@ -128,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">Iba WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Iba GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferované GSM/WCDMA</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s </xliff:g> (aktuálne: <xliff:g id="current">%2$s </xliff:g>)</string>
   <string name="callind_multi_sim">Nastavenia karty SIM</string>
   <string name="sim_card_title">Karta SIM %d</string>
   <string name="sim_card_summary_empty">Slot karty SIM je prázdny</string>
@@ -207,4 +213,5 @@
   <string name="phone_number_label">Moje telefónne číslo</string>
   <string name="phone_number_summary">Nastaviť telefónne číslo pre toto zariadenie</string>
   <string name="msim_mobile_network_settings_title">Nastavenia mobilnej siete SIM %d</string>
+  <string name="call_recording_format">Formát nahrávky hovoru</string>
 </resources>

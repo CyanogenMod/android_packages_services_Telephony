@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">تنها WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">تنها GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ترجیح داده شده</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g>(فعلی: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">تنظیمات سیم کارت</string>
   <string name="sim_card_title">سیم کارت %d</string>
   <string name="sim_card_summary_empty">شکاف سیمکارت خالی است</string>
