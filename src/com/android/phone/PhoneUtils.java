@@ -129,6 +129,12 @@ public class PhoneUtils {
     /** Noise suppression status as selected by user */
     private static boolean sIsNoiseSuppressionEnabled = true;
 
+    /** Define serviceClass type for CallForward */
+    public static final int SERVICE_CLASS_VOICE = 1;
+    public static final int SERVICE_CLASS_VIDEO = 2;
+    /** Extra key to identify the service class voice or video */
+    public static final String SERVICE_CLASS = "service_class";
+
     private static class FgRingCalls {
         private Call fgCall;
         private Call ringing;
