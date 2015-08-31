@@ -74,8 +74,6 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
 
         TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.CallForwardEditPreference, 0, R.style.EditPhoneNumberPreference);
-        mServiceClass = a.getInt(R.styleable.CallForwardEditPreference_serviceClass,
-                CommandsInterface.SERVICE_CLASS_VOICE);
         reason = a.getInt(R.styleable.CallForwardEditPreference_reason,
                 CommandsInterface.CF_REASON_UNCONDITIONAL);
         a.recycle();
@@ -87,7 +85,9 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
         this(context, null);
     }
 
-    void init(TimeConsumingPreferenceListener listener, boolean skipReading, Phone phone) {
+    void init(TimeConsumingPreferenceListener listener, boolean skipReading, Phone phone,
+            int serviceClass) {
+        mServiceClass = serviceClass;
         mPhone = phone;
         mTcpListener = listener;
         isTimerEnabled = isTimerEnabled();
@@ -100,7 +100,7 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
                 intent.setPackage(IMS_SERVICE_PKG_NAME);
                 getContext().bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
             } else {
-                mPhone.getCallForwardingOption(reason,
+                mPhone.getCallForwardingOption(reason, mServiceClass,
                         mHandler.obtainMessage(MyHandler.MESSAGE_GET_CF,
                         // unused in this case
                         CommandsInterface.CF_ACTION_DISABLE,
@@ -207,9 +207,7 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
                         Log.d(LOG_TAG, "setCallForwardUncondTimer exception!" +e);
                     }
                 } else {
-                    // the interface of Phone.setCallForwardingOption has error:
-                    // should be action, reason...
-                    mPhone.setCallForwardingOption(action, reason, number, time,
+                    mPhone.setCallForwardingOption(action, reason, number, mServiceClass, time,
                         mHandler.obtainMessage(MyHandler.MESSAGE_SET_CF, action,
                                 MyHandler.MESSAGE_SET_CF));
                 }
@@ -423,7 +421,7 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
                 // setEnabled(false);
             }
             if (DBG) Log.d(LOG_TAG, "handleSetCFResponse: re get");
-            mPhone.getCallForwardingOption(reason,
+            mPhone.getCallForwardingOption(reason, mServiceClass,
                     obtainMessage(MESSAGE_GET_CF, msg.arg1, MESSAGE_SET_CF, ar.exception));
         }
     }
