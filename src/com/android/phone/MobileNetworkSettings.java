@@ -1106,7 +1106,8 @@ public class MobileNetworkSettings extends PreferenceActivity
     private void UpdateEnabledNetworksValueAndSummary(int NetworkMode) {
         int userConfiguredMode = getUserNetworkSetting();
         int networkModeSummaryResId = mEnabledNetworksSummaries.get(NetworkMode, -1);
-        int userNetworkModeSummaryResId = mEnabledNetworksSummaries.get(userConfiguredMode, -1);
+        int userNetworkModeSummaryResId = mEnabledNetworksSummaries.get(userConfiguredMode,
+                networkModeSummaryResId);
         if (networkModeSummaryResId == -1) {
             loge("Invalid Network Mode (" + NetworkMode + "). Ignore.");
             mButtonEnabledNetworks.setSummary(null);
