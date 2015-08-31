@@ -91,6 +91,7 @@
   <string name="vt_fallback_setting">Reapelarea prin apel voce</string>
   <string name="vt_forward_setting">Redirecționare apel video</string>
   <string name="vt_imagereplace_setting">Poză alternativă</string>
+  <string name="vt_imagereplace_setting_sum">Imagine de afișat atunci când camera frontală este dezactivată</string>
   <string name="roaming_mode_title">Modul de roaming</string>
   <string name="roaming_mode_summary">Modul de roaming internațional</string>
   <string name="roaming_gsm">GSM roaming</string>
@@ -209,5 +210,6 @@
   <string name="perm_change_mobile_network_desc">Permite aplicației să schimbe între date 2G și 3G în orice moment. 3G este mai rapid, dar bateria se consumă mai rapid și pot apare costuri suplimentare.</string>
   <string name="phone_number_label">Numărul meu de telefon</string>
   <string name="phone_number_summary">Setați nr de telefon pentru acest dispozitiv</string>
+  <string name="msim_mobile_network_settings_title">Setări rețea mobilă SIM %d</string>
   <string name="call_recording_format">Formatul de înregistrare a apelului</string>
 </resources>

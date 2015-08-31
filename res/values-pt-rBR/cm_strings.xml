@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">Somente WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Somente GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferencialmente GSM/WCDMA</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configurado">%1$s</xliff:g> (atual: <xliff:g id="Corrente">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">Configurações de cartão SIM</string>
   <string name="sim_card_title">Cartão SIM %d</string>
   <string name="sim_card_summary_empty">Slot do SIM está vazio</string>

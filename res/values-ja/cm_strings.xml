@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMAのみ</string>
   <string name="preferred_network_mode_gsm_only_choice">GSMのみ</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA優先</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g>（現在: <xliff:g id="current">%2$s</xliff:g>）</string>
   <string name="callind_multi_sim">SIMカードの設定</string>
   <string name="sim_card_title">SIMカード%d</string>
   <string name="sim_card_summary_empty">SIMスロットは空です</string>

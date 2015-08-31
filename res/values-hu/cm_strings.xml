@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">Csak WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Csak GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferált</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (aktuális: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">SIM-kártya beállítások</string>
   <string name="sim_card_title">SIM-kártya %d</string>
   <string name="sim_card_summary_empty">SIM foglalat üres</string>
