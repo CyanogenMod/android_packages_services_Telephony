@@ -1112,6 +1112,10 @@
     <string name="incall_error_supp_service_hangup">Can\'t release call(s).</string>
     <!-- In-call screen: call failure message displayed in an error dialog when WFC is enabled, is wifi-only, and not connected to a wireless network. [CHAR_LIMIT=NONE] -->
     <string name="incall_error_wfc_only_no_wireless_network">Connect to a wireless network to make a call.</string>
+    <!-- In-call screen: call failure message displayed in errror dialog -->
+    <string name="incall_error_local_low_battery">Call is failed due to low battery!!!.</string>
+    <!-- In-call screen: call failure message displayed in errror dialog -->
+    <string name="incall_error_low_battery">Call is failed due to remote device low battery!!!.</string>
 
     <!-- Dialog title for the "radio enable" UI for emergency calls -->
     <string name="emergency_enable_radio_dialog_title">Emergency call</string>
