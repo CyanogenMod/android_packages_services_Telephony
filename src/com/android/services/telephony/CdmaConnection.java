@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2014 The Android Open Source Project
  *
@@ -45,6 +46,7 @@ final class CdmaConnection extends TelephonyConnection {
 
     private static final int MSG_CALL_WAITING_MISSED = 1;
     private static final int MSG_DTMF_SEND_CONFIRMATION = 2;
+    private static final int MSG_CDMA_LINE_CONTROL_INFO_REC = 3;
     private static final int TIMEOUT_CALL_WAITING_MILLIS = 20 * 1000;
 
     private final Handler mHandler = new Handler() {
@@ -58,6 +60,9 @@ final class CdmaConnection extends TelephonyConnection {
                     break;
                 case MSG_DTMF_SEND_CONFIRMATION:
                     handleBurstDtmfConfirmation();
+                    break;
+                case MSG_CDMA_LINE_CONTROL_INFO_REC:
+                    onCdmaLineControlInfoRec();
                     break;
                 default:
                     break;
@@ -78,6 +83,7 @@ final class CdmaConnection extends TelephonyConnection {
     // Indicates that the DTMF confirmation from telephony is pending.
     private boolean mDtmfBurstConfirmationPending = false;
     private boolean mIsCallWaiting;
+    private boolean mConnectionTimeReset = false;
 
     CdmaConnection(
             Connection connection,
@@ -187,6 +193,22 @@ final class CdmaConnection extends TelephonyConnection {
         }
 
         super.onStateChanged(state);
+    }
+
+    @Override
+    void setOriginalConnection(com.android.internal.telephony.Connection originalConnection) {
+        super.setOriginalConnection(originalConnection);
+        getPhone().registerForLineControlInfo(mHandler, MSG_CDMA_LINE_CONTROL_INFO_REC, null);
+    }
+
+    private void onCdmaLineControlInfoRec() {
+        if (mOriginalConnection != null && mOriginalConnection.getState() == Call.State.ACTIVE) {
+            if (mOriginalConnection.getDurationMillis() > 0 &&
+                    !mOriginalConnection.isIncoming() && !mConnectionTimeReset) {
+                mConnectionTimeReset = true;
+                resetCdmaConnectionTime();
+            }
+        }
     }
 
     @Override
@@ -309,6 +331,10 @@ final class CdmaConnection extends TelephonyConnection {
     void close() {
         TelephonyGlobals.getApplicationContext().unregisterReceiver(mEcmExitReceiver);
         super.close();
+        if (getPhone() != null) {
+            getPhone().unregisterForLineControlInfo(mHandler);
+        }
+        mConnectionTimeReset = false;
     }
 
     /**
