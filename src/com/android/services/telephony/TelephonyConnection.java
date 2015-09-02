@@ -73,6 +73,7 @@ abstract class TelephonyConnection extends Connection {
     private static final int MSG_SET_CONFERENCE_PARTICIPANTS = 13;
     private static final int MSG_PHONE_VP_ON = 14;
     private static final int MSG_PHONE_VP_OFF = 15;
+    private static final int MSG_CONNECTION_EXTRAS_CHANGED = 16;
 
     private boolean mIsVoicePrivacyOn = false;
     private SuppServiceNotification mSsNotification = null;
@@ -196,13 +197,13 @@ abstract class TelephonyConnection extends Connection {
                         }
                         Toast.makeText(TelephonyGlobals.getApplicationContext(),
                                 mDisplayName, Toast.LENGTH_LONG).show();
-                        if (mOriginalConnection != null && mSsNotification.history != null) {
-                            Bundle extras = mOriginalConnection.getExtras();
+                        if (mSsNotification.history != null) {
+                            final Bundle extras = getExtras();
                             if (extras != null) {
                                 Log.v(TelephonyConnection.this,
                                         "Updating call history info in extras.");
                                 extras.putStringArrayList(EXTRA_CALL_HISTORY_INFO,
-                                        new ArrayList(Arrays.asList(mSsNotification.history)));
+                                     new ArrayList(Arrays.asList(mSsNotification.history)));
                                 setExtras(extras);
                             }
                         }
@@ -210,6 +211,11 @@ abstract class TelephonyConnection extends Connection {
                         Log.v(this,
                                 "MSG_SUPP_SERVICE_NOTIFY event processing failed");
                     }
+                    break;
+
+                case MSG_CONNECTION_EXTRAS_CHANGED:
+                    final Bundle extras = (Bundle) msg.obj;
+                    updateExtras(extras);
                     break;
             }
         }
@@ -502,6 +508,11 @@ abstract class TelephonyConnection extends Connection {
         @Override
         public void onConferenceMergedFailed() {
             handleConferenceMergeFailed();
+        }
+
+        @Override
+        public void onExtrasChanged(Bundle extras) {
+            mHandler.obtainMessage(MSG_CONNECTION_EXTRAS_CHANGED, extras).sendToTarget();
         }
     };
 
@@ -1021,10 +1032,8 @@ abstract class TelephonyConnection extends Connection {
         return true;
     }
 
-    protected void updateExtras() {
-        Bundle extras = null;
+    protected void updateExtras(Bundle extras) {
         if (mOriginalConnection != null) {
-            extras = mOriginalConnection.getExtras();
             if (extras != null) {
                 // Check if extras have changed and need updating.
                 if (!areBundlesEqual(mOriginalConnectionExtras, extras)) {
@@ -1126,7 +1135,6 @@ abstract class TelephonyConnection extends Connection {
         updateConnectionCapabilities();
         updateAddress();
         updateMultiparty();
-        updateExtras();
     }
 
     /**
