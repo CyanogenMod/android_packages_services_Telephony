@@ -28,6 +28,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
+import android.telephony.TelephonyManager;
 import android.telephony.SubscriptionManager;
 import android.util.AttributeSet;
 
@@ -105,25 +106,54 @@ public class AccountSelectionPreference extends ListPreference implements
 
         int selectedIndex = mAccounts.length;  // Points to nullSelectionString by default
         int i = 0;
-        for ( ; i < mAccounts.length; i++) {
+        int mEntryIndex = 0;
+        int slotId = 0;
+        int enabledCount = mAccounts.length;
+        for (; i < mAccounts.length; i++, mEntryIndex++) {
             CharSequence label = telecomManager.getPhoneAccount(mAccounts[i]).getLabel();
             if (label != null) {
                 label = pm.getUserBadgedLabel(label, mAccounts[i].getUserHandle());
             }
-            mEntries[i] = label == null ? null : label.toString();
-            mEntryValues[i] = Integer.toString(i);
-            if (Objects.equals(currentSelection, mAccounts[i])) {
-                selectedIndex = i;
+            CharSequence accountInfo = telecomManager.getPhoneAccount(mAccounts[i]).getShortDescription();
+            if (accountInfo.toString().contains("slot")) {
+                if (TelephonyManager.getDefault().getSimState(slotId) != TelephonyManager.SIM_STATE_READY) {
+                    enabledCount--;
+                    mEntryIndex--;
+                    slotId++;
+                    continue;
+                }
+                slotId++;
+            }
+            mEntries[mEntryIndex] = label == null ? null : label.toString();
+            mEntryValues[mEntryIndex] = Integer.toString(mEntryIndex);
+            if (Objects.equals(currentSelection, mAccounts[mEntryIndex])) {
+                selectedIndex = mEntryIndex;
             }
         }
-        mEntryValues[i] = Integer.toString(i);
-        mEntries[i] = nullSelectionString;
-
-        setEntryValues(mEntryValues);
-        setEntries(mEntries);
-        setValueIndex(selectedIndex);
+        if (enabledCount >= 2) {
+            String[] mNewEntryValues = new String[enabledCount + 1];
+            CharSequence[] mNewEntries = new CharSequence[enabledCount + 1];
+            // more than two accounts, add "ask first" option at the end.
+            mEntryValues[enabledCount] = Integer.toString(enabledCount);
+            mEntries[enabledCount] = nullSelectionString;
+            for (int k = 0; k <= enabledCount; k++) {
+                mNewEntryValues[k] = mEntryValues[k];
+                mNewEntries[k] = mEntries[k];
+            }
+            setEntryValues(mNewEntryValues);
+            setEntries(mNewEntries);
+            setValueIndex(selectedIndex);
+        } else {
+            String[] mNewEntryValues = new String[1];
+            CharSequence[] mNewEntries = new CharSequence[1];
+            mNewEntryValues[0] = mEntryValues[0];
+            mNewEntries[0] = mEntries[0];
+            setEntryValues(mNewEntryValues);
+            setEntries(mNewEntries);
+            setValueIndex(0);
+        }
         if (mShowSelectionInSummary) {
-            setSummary(mEntries[selectedIndex]);
+            setSummary(mEntries[enabledCount == 1 ? 0 : selectedIndex]);
         }
     }
 
