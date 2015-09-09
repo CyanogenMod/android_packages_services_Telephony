@@ -837,7 +837,8 @@ abstract class TelephonyConnection extends Connection {
         Uri address;
         if (mOriginalConnection != null) {
             if (((getAddress() != null) &&
-                    (getPhone().getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA))) {
+                    (getPhone().getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA)) &&
+                    !isValidRingingCall()) {
                 address = getAddressFromNumber(mOriginalConnection.getOrigDialString());
             } else {
                 address = getAddressFromNumber(mOriginalConnection.getAddress());
@@ -884,8 +885,6 @@ abstract class TelephonyConnection extends Connection {
             mIsEmergencyNumber = PhoneNumberUtils.isEmergencyNumber(mOriginalConnection.
                     getAddress());
         }
-
-        updateAddress();
 
         // Set video state and capabilities
         setVideoState(mOriginalConnection.getVideoState());
