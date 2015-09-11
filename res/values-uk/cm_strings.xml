@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">Тільки WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Тільки GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Переважно GSM/WCDMA</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g>(поточний: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">Налаштування SIM-картки</string>
   <string name="sim_card_title">SIM-картка %d</string>
   <string name="sim_card_summary_empty">Слот SIM-картки порожній</string>

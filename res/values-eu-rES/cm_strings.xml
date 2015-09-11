@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA besterik ez</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM besterik ez</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA hobetsia</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (oraingoa: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">SIM txartelaren ezarpenak</string>
   <string name="sim_card_title">%d. SIM txartela</string>
   <string name="sim_card_summary_empty">SIM erretena hutsik dago</string>

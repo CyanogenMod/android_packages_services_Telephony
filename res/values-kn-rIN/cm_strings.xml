@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA ಮಾತ್ರ</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM ಮಾತ್ರ</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ಆದ್ಯತೆಯ</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (current: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">ಸಿಮ್ ಕಾರ್ಡ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <string name="sim_card_title">ಸಿಮ್ ಕಾರ್ಡ್ %d</string>
   <string name="sim_card_summary_empty">ಸಿಮ್ ಸ್ಲಾಟ್ ಖಾಲಿಯಾಗಿದೆ</string>
