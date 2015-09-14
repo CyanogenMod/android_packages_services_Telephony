@@ -272,6 +272,8 @@ public class MobileNetworkSettings extends PreferenceActivity
             if (mActiveSubInfos == null || mActiveSubInfos.size() != newSil.size()) {
                 initializeSubscriptions();
             } else {
+                boolean subsChanged = false;
+                outer:
                 for (SubscriptionInfo si : mActiveSubInfos) {
                     for(SubscriptionInfo newSi : newSil) {
                         //Compare SubscriptionInfo of same slot
@@ -281,10 +283,14 @@ public class MobileNetworkSettings extends PreferenceActivity
                             if (!newSi.getDisplayName().equals(si.getDisplayName()) ||
                                     newSi.getSubscriptionId() != si.getSubscriptionId()) {
                                 if (DBG) log("onSubscriptionsChanged: subs changed ");
-                                initializeSubscriptions();
+                                subsChanged = true;
+                                break outer;
                             }
                         }
                     }
+                }
+                if (subsChanged) {
+                    initializeSubscriptions();
                 }
             }
         }
