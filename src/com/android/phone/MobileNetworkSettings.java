@@ -870,8 +870,12 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         private void resetNetworkModeToDefault() {
             //set the mButtonPreferredNetworkMode
-            mButtonPreferredNetworkMode.setValue(Integer.toString(preferredNetworkMode));
-            mButtonEnabledNetworks.setValue(Integer.toString(preferredNetworkMode));
+            if (mButtonPreferredNetworkMode != null) {
+                mButtonPreferredNetworkMode.setValue(Integer.toString(preferredNetworkMode));
+            }
+            if (mButtonEnabledNetworks != null) {
+                mButtonEnabledNetworks.setValue(Integer.toString(preferredNetworkMode));
+            }
             //set the Settings.System
             setPreferredNetworkSetting(preferredNetworkMode);
 
