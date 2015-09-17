@@ -94,26 +94,27 @@ public class SelectSubscription extends TabActivity {
         String pkg = intent.getStringExtra(PACKAGE);
         String targetClass = intent.getStringExtra(TARGET_CLASS);
 
-        int numPhones = TelephonyManager.getDefault().getPhoneCount();
-
         SubscriptionManager subscriptionManager =
-                       SubscriptionManager.from(super.getApplicationContext());
-        for (int i = 0; i < numPhones; i++) {
-            SubscriptionInfo sir =
-                    subscriptionManager.getActiveSubscriptionInfoForSimSlotIndex(i);
+                SubscriptionManager.from(super.getApplicationContext());
+
+        List<SubscriptionInfo> subscriptionInfoList =
+                subscriptionManager.getActiveSubscriptionInfoList();
+
+        for (SubscriptionInfo sir : subscriptionInfoList) {
             String displayName =
                     ((sir != null)) ?
-                    sir.getDisplayName().toString() : tabLabel[i];
+                    sir.getDisplayName().toString() : tabLabel[sir.getSubscriptionId()];
 
-            log("Creating SelectSub activity = " + i + " displayName = " + displayName);
+            log("Creating SelectSub activity = " +
+                    sir.getSubscriptionId() + " displayName = " + displayName);
 
-
-            subscriptionPref = tabHost.newTabSpec(Integer.toString(i));
+            subscriptionPref = tabHost.newTabSpec(Integer.toString(sir.getSubscriptionId()));
             subscriptionPref.setIndicator(displayName);
             intent = new Intent().setClassName(pkg, targetClass)
                     .setAction(intent.getAction());
 
-            SubscriptionManager.putPhoneIdAndSubIdExtra(intent, i,
+            SubscriptionManager.putPhoneIdAndSubIdExtra(intent,
+                    SubscriptionManager.getPhoneId(sir.getSubscriptionId()),
                     sir != null ? sir.getSubscriptionId() : -1);
 
             subscriptionPref.setContent(intent);
