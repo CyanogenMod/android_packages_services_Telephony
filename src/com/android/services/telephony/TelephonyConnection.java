@@ -23,6 +23,7 @@ import android.os.AsyncResult;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.telecom.AudioState;
 import android.telecom.CallProperties;
 import android.telecom.Conference;
@@ -979,6 +980,19 @@ abstract class TelephonyConnection extends Connection {
                     if (Long.toString(subId).equals(sub)){
                         Log.d(this,"EMERGENCY REDIAL");
                         for (TelephonyConnectionListener l : mTelephonyListeners) {
+                            // If the device's modem is capable of failing over to a different voice
+                            // technology we need to clean up and disconnect the existing call prior
+                            // to even attempting a redial. Otherwise we end up tearing down the
+                            // telephony stack on voice tech change without notifying the original
+                            // phone object of the disconnect.
+                            boolean voiceTechEmergencyFailover =
+                                    SystemProperties.getBoolean("ro.ril.em_redial_vt_failover",
+                                            false);
+                            if (voiceTechEmergencyFailover) {
+                                resetDisconnectCause();
+                                setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                                        mOriginalConnection.getDisconnectCause()));
+                            }
                             l.onEmergencyRedial(this, handle, PhoneIdToCall);
                         }
                     }
