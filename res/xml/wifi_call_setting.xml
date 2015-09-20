@@ -34,17 +34,15 @@
     <SwitchPreference
         android:key="wifi_calling"
         android:title="@string/wifi_calling_title"
-        android:persistent="false"
-        android:summary="@string/wifi_calling_summary"/>
+        android:persistent="false" />
 
     <ListPreference
         android:key="wifi_calling_preferrence"
         android:persistent="false"
         android:title="@string/wifi_calling_preference_title"
-        android:summary="@string/wifi_calling_preference_summary"
         android:entries="@array/wifi_calling_preference_choices"
         android:entryValues="@array/wifi_calling_preference_values"
-        android:dialogTitle="@string/wifi_calling_preference_dialog_title"
+        android:dialogTitle="@string/wifi_calling_preference_title"
         android:dependency="wifi_calling" />
 
 </PreferenceScreen>

@@ -358,4 +358,24 @@
     <string name="wb_amr_format" translatable="false">AMR-WB</string>
     <string name="aac_format" translatable="false">AAC</string>
 
+    <!-- Packet Count and Packet Error Count settings -->
+    <string name="ims_pc_count" translatable="false">ImsPacketCount</string>
+    <string name="ims_per_count" translatable="false">ImsPacketErrorCount</string>
+    <string name="ims_get_packet_count_failed">Failed to get packet count</string>
+    <string name="ims_get_packet_error_count_failed">Failed to get packet error count</string>
+    <string name="ims_get_packet_count_label">Tap here to get packet count</string>
+    <string name="ims_get_packet_error_count_label">Tap here to get packet error count</string>
+
+    <!-- Wi-Fi calling settings -->
+    <string name="wifi_call_setting">Wi-Fi calling settings</string>
+    <string name="wifi_calling_title">Wi-Fi calling</string>
+
+    <string name="wifi_calling_preference_title">Wi-Fi calling preference</string>
+    <string name="ims_set_wifi_calling_preference_failed">Failed to set Wi-Fi calling preference</string>
+
+    <string name="wifi_pref_none">No preference</string>
+    <string name="wifi_preferred">Wi-Fi preferred</string>
+    <string name="wifi_only">Wi-Fi only</string>
+    <string name="cellular_preferred">Cellular preferred</string>
+    <string name="cellular_only">Cellular only</string>
 </resources>
