@@ -765,10 +765,10 @@ abstract class TelephonyConnection extends Connection {
      */
     protected int buildConnectionCapabilities() {
         int callCapabilities = 0;
+        if ((mOriginalConnection != null) && mOriginalConnection.isIncoming()) {
+            callCapabilities |= CAPABILITY_SPEED_UP_MT_AUDIO;
+        }
         if (isImsConnection()) {
-            if (mOriginalConnection.isIncoming()) {
-                callCapabilities |= CAPABILITY_SPEED_UP_MT_AUDIO;
-            }
             callCapabilities |= CAPABILITY_SUPPORT_HOLD;
             if (getState() == STATE_ACTIVE || getState() == STATE_HOLDING) {
                 callCapabilities |= CAPABILITY_HOLD;
