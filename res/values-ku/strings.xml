@@ -533,7 +533,6 @@
   <string name="voicemail_notification_ringtone_title">ئاواز</string>
   <string name="dial_pad_autocomplete">تەواوکردنی خۆکارانەی ژمارەگر</string>
   <string name="preference_category_ringtone">لەرینەوەی &amp; زەنگ</string>
-  <string name="call_settings_title_font_family">sans-serif-light</string>
   <string name="pstn_connection_service_label">سیمکارتە تووکارەکان</string>
   <string name="enable_video_calling_title">هەڵکردنی پەیوەندیی ڤیدیۆیی</string>
   <string name="enable_video_calling_dialog_msg">

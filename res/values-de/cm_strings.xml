@@ -214,4 +214,9 @@
   <string name="phone_number_summary">Rufnummer für dieses Gerät setzen</string>
   <string name="msim_mobile_network_settings_title">SIM %d-Mobilnetzeinstellungen</string>
   <string name="call_recording_format">Anrufaufnahme-Format</string>
+  <string name="ims_get_packet_count_failed">Fehler beim Ermitteln der Paketanzahl</string>
+  <string name="wifi_preferred">WLAN bevorzugt</string>
+  <string name="wifi_only">Nur WLAN</string>
+  <string name="cellular_preferred">Mobilfunk bevorzugt</string>
+  <string name="cellular_only">Nur Mobilfunk</string>
 </resources>

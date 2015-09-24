@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Aseta tämän laitteen puhelinnumero</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiiliverkon asetukset</string>
   <string name="call_recording_format">Soiton tallennuksen muoto</string>
+  <string name="ims_get_packet_count_failed">Ei saatu pakettien määrää</string>
+  <string name="ims_get_packet_error_count_failed">Ei saatu pakettien virheiden määrää</string>
+  <string name="ims_get_packet_count_label">Napauta saadaksesi pakettien määrän</string>
+  <string name="ims_get_packet_error_count_label">Napauta saadaksesi pakettien virheiden määrän</string>
+  <string name="wifi_call_setting">Wi-Fi-puheluiden asetukset</string>
+  <string name="wifi_calling_title">Wi-Fi-puhelut</string>
+  <string name="wifi_calling_preference_title">Wi-Fi-puheluasetus</string>
+  <string name="ims_set_wifi_calling_preference_failed">Wi-Fi-puheluasetuksen järjestys epäonnistui</string>
+  <string name="wifi_pref_none">Ei asetusta</string>
+  <string name="wifi_preferred">Ensisijaisesti Wi-Fi</string>
+  <string name="wifi_only">Vain Wi-Fi</string>
+  <string name="cellular_preferred">Ensisijaisesti puhelinverkko</string>
+  <string name="cellular_only">Vain puhelinverkko</string>
 </resources>

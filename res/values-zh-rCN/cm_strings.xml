@@ -214,4 +214,17 @@
   <string name="phone_number_summary">设定此设备的电话号码</string>
   <string name="msim_mobile_network_settings_title">SIM 卡 %d 移动网络设置</string>
   <string name="call_recording_format">通话录音格式</string>
+  <string name="ims_get_packet_count_failed">数据包计数获取失败</string>
+  <string name="ims_get_packet_error_count_failed">数据包错误计数获取失败</string>
+  <string name="ims_get_packet_count_label">点击此处以获得数据包计数</string>
+  <string name="ims_get_packet_error_count_label">点击此处以获取数据包错误计数</string>
+  <string name="wifi_call_setting">Wi-Fi 通话设置</string>
+  <string name="wifi_calling_title">Wi-Fi 通话</string>
+  <string name="wifi_calling_preference_title">Wi-Fi 通话优先设置</string>
+  <string name="ims_set_wifi_calling_preference_failed">设置 Wi-Fi 通话失败</string>
+  <string name="wifi_pref_none">没有优先</string>
+  <string name="wifi_preferred">Wi-Fi 优先</string>
+  <string name="wifi_only">仅使用 Wi-Fi</string>
+  <string name="cellular_preferred">蜂窝网络优先</string>
+  <string name="cellular_only">仅使用蜂窝网络</string>
 </resources>

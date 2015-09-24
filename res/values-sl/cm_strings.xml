@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Obvestilo o dogodku</string>
-  <string name="show_ssn_summary">Prikaži obvestilo za različne omrežne dogodke, ki se nanašajo na obravnavo klicev</string>
+  <string name="show_ssn_summary">Prikaži obvestilo za razne omrežne dogodke, ki se nanašajo na obravnavo klicev</string>
   <string name="blacklist_title">Seznam blokiranih klicateljev</string>
   <string name="blacklist_summary_disabled">Onemogočeno</string>
   <string name="blacklist_summary">Ne boste več prejemali dohodnih klicev in sporočil iz telefonskih številk, ki so na seznamu blokiranih klicateljev</string>
@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Nastavite telefonsko številko za to napravo</string>
   <string name="msim_mobile_network_settings_title">Nastavitve mobilnega omrežja za SIM %d</string>
   <string name="call_recording_format">Oblika snemanja klicev</string>
+  <string name="ims_get_packet_count_failed">Dobivanje števila paketov je spodletelo</string>
+  <string name="ims_get_packet_error_count_failed">Dobivanje števila napak paketov je spodletelo</string>
+  <string name="ims_get_packet_count_label">Tapnite tukaj, da dobite število paketov</string>
+  <string name="ims_get_packet_error_count_label">Tapnite tukaj, da dobite število napak paketov</string>
+  <string name="wifi_call_setting">Nastavitve klicev Wi-Fi</string>
+  <string name="wifi_calling_title">Klici Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Nastavitev klicev Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">Nastavitev klicev Wi-Fi je spodletela</string>
+  <string name="wifi_pref_none">Brez nastavitve</string>
+  <string name="wifi_preferred">Daj prednost omrežju Wi-Fi</string>
+  <string name="wifi_only">Samo Wi-Fi</string>
+  <string name="cellular_preferred">Daj prednost mob. omrežju</string>
+  <string name="cellular_only">Samo mob. omrežje</string>
 </resources>

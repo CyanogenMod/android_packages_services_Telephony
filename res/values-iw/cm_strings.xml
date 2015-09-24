@@ -214,4 +214,17 @@
   <string name="phone_number_summary">הגדר מספר טלפון למכשיר זה</string>
   <string name="msim_mobile_network_settings_title">הגדרות רשת סלולרית של SIM %d</string>
   <string name="call_recording_format">פורמט הקלטת שיחה</string>
+  <string name="ims_get_packet_count_failed">נכשל בקבלת ספירת חבילות</string>
+  <string name="ims_get_packet_error_count_failed">נכשל בקבלת ספירת חבילות שגויות</string>
+  <string name="ims_get_packet_count_label">הקש כאן לקבלת ספירת חבילות</string>
+  <string name="ims_get_packet_error_count_label">הקש כאן לקבלת ספירת חבילות שגויות</string>
+  <string name="wifi_call_setting">הגדרות התקשרות Wi-Fi</string>
+  <string name="wifi_calling_title">התקשרות Wi-Fi</string>
+  <string name="wifi_calling_preference_title">העדפות התקשרות Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">נכשל בהגדרת העדפת התקשרות Wi-Fi</string>
+  <string name="wifi_pref_none">ללא העדפה</string>
+  <string name="wifi_preferred">Wi-Fi מועדף</string>
+  <string name="wifi_only">Wi-Fi בלבד</string>
+  <string name="cellular_preferred">סלולר מועדף</string>
+  <string name="cellular_only">סלולר בלבד</string>
 </resources>
