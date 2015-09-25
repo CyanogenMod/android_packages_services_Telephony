@@ -988,9 +988,6 @@ public class PhoneGlobals extends ContextWrapper {
      * while we are now assuming it is "com.android.contacts"
      */
     public static final String EXTRA_CALL_ORIGIN = "com.android.phone.CALL_ORIGIN";
-    private static final String DEFAULT_CALL_ORIGIN_PACKAGE = "com.android.dialer";
-    private static final String ALLOWED_EXTRA_CALL_ORIGIN =
-            "com.android.dialer.DialtactsActivity";
     /**
      * Used to determine if the preserved call origin is fresh enough.
      */
