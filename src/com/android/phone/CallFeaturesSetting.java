@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -131,9 +132,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     // choose another VM provider
     public static final String SIGNOUT_EXTRA = "com.android.phone.Signout";
     //Information about logical "up" Activity
-    private static final String UP_ACTIVITY_PACKAGE = "com.android.dialer";
-    private static final String UP_ACTIVITY_CLASS =
-            "com.android.dialer.DialtactsActivity";
 
     // Used to tell the saving logic to leave forwarding number as is
     public static final CallForwardInfo[] FWD_SETTINGS_DONT_TOUCH = null;
@@ -2330,7 +2328,11 @@ public class CallFeaturesSetting extends PreferenceActivity
         boolean recordingEnabled = false;
         try {
             PackageManager pm = getPackageManager();
-            String phonePackage = "com.android.dialer";
+            ComponentName defaultDialer = PhoneUtils.getDefaultDialerComponent(this);
+            if (defaultDialer == null) {
+                return false;
+            }
+            String phonePackage = defaultDialer.getPackageName();
             Resources res;
             res = pm.getResourcesForApplication(phonePackage);
             int booleanID =
