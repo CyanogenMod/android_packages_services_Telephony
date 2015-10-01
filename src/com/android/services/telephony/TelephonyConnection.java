@@ -209,6 +209,7 @@ abstract class TelephonyConnection extends Connection {
                         Log.v(this,
                                 "MSG_SUPP_SERVICE_NOTIFY event processing failed");
                     }
+                    break;
 
                 case MSG_SET_CONNECTION_CAPABILITY:
                     setConnectionCapability(msg.arg1);
