@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Nastaviť telefónne číslo pre toto zariadenie</string>
   <string name="msim_mobile_network_settings_title">Nastavenia mobilnej siete SIM %d</string>
   <string name="call_recording_format">Formát nahrávky hovoru</string>
+  <string name="ims_get_packet_count_failed">Nepodarilo sa získať počet paketov</string>
+  <string name="ims_get_packet_error_count_failed">Nepodarilo sa získať počet chýb paketov</string>
+  <string name="ims_get_packet_count_label">Kliknite sem pre získanie počtu paketov</string>
+  <string name="ims_get_packet_error_count_label">Kliknite sem pre získanie počtu chýb paketov</string>
+  <string name="wifi_call_setting">Nastavenia volania cez Wi-Fi</string>
+  <string name="wifi_calling_title">Volanie cez Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Predvoľby volania cez Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">Nepodarilo sa nastaviť predvoľby volania cez Wi-Fi</string>
+  <string name="wifi_pref_none">Žiadna predvoľba</string>
+  <string name="wifi_preferred">Uprednostniť Wi-Fi</string>
+  <string name="wifi_only">Iba Wi-Fi</string>
+  <string name="cellular_preferred">Uprednostniť mobilné</string>
+  <string name="cellular_only">Iba mobilné</string>
 </resources>

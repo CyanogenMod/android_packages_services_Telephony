@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Definir o número de telefone para este dispositivo</string>
   <string name="msim_mobile_network_settings_title">Definições de rede móvel do SIM %d</string>
   <string name="call_recording_format">Formato de gravação de chamada</string>
+  <string name="ims_get_packet_count_failed">Falha ao obter a contagem de pacotes</string>
+  <string name="ims_get_packet_error_count_failed">Falha ao obter a contagem de erro de pacotes</string>
+  <string name="ims_get_packet_count_label">Toque aqui para obter a contagem de pacotes</string>
+  <string name="ims_get_packet_error_count_label">Toque aqui para obter a contagem de erro de pacotes</string>
+  <string name="wifi_call_setting">Definições de chamada Wi-Fi</string>
+  <string name="wifi_calling_title">Chamada Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Preferência de chamada Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">Falha ao definir a preferência de chamada Wi-Fi</string>
+  <string name="wifi_pref_none">Sem preferência</string>
+  <string name="wifi_preferred">Wi-Fi preferido</string>
+  <string name="wifi_only">Apenas Wi-Fi</string>
+  <string name="cellular_preferred">Rede móvel preferida</string>
+  <string name="cellular_only">Apenas rede móvel</string>
 </resources>
