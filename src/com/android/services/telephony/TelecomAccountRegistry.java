@@ -405,29 +405,36 @@ final class TelecomAccountRegistry {
             IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
 
         for (Phone phone : phones) {
-            int provisionStatus = INVALID_STATE;
+            int provisionStatus = PROVISIONED;
             int subscriptionId = phone.getSubId();
-            SubscriptionInfo record =
-                    mSubscriptionManager.getActiveSubscriptionInfo(subscriptionId);
 
-            if (record == null) {
-                Log.d(this, "Record not created for dummy subscription id %d", subscriptionId);
-                continue;
+            if (mTelephonyManager.getPhoneCount() > 1) {
+                SubscriptionInfo record =
+                        mSubscriptionManager.getActiveSubscriptionInfo(subscriptionId);
+
+                if (record == null) {
+                    Log.d(this, "Record not created for dummy subscription id %d", subscriptionId);
+                    continue;
+                }
+
+                int slotId = record.getSimSlotIndex();
+
+                try {
+                    //get current provision state of the SIM.
+                    provisionStatus =
+                            mExtTelephony.getCurrentUiccCardProvisioningStatus(slotId);
+                } catch (RemoteException ex) {
+                    provisionStatus = INVALID_STATE;
+                    Log.w(this, "Failed to get status for, slotId: "+ slotId +" Exception: " + ex);
+                } catch (NullPointerException ex) {
+                    provisionStatus = INVALID_STATE;
+                    Log.w(this, "Failed to get status for, slotId: "+ slotId +" Exception: " + ex);
+                }
+
+                Log.d(this, "Phone with subscription id: " + subscriptionId +
+                                " slotId: " + slotId + " provisionStatus: " + provisionStatus);
             }
 
-            int slotId = record.getSimSlotIndex();
-
-            try {
-                //get current provision state of the SIM.
-               provisionStatus =
-                        mExtTelephony.getCurrentUiccCardProvisioningStatus(slotId);
-            } catch (RemoteException ex) {
-                Log.w(this, "Failed to get status for, slotId: "+ slotId +" Exception: " + ex);
-            } catch (NullPointerException ex) {
-                Log.w(this, "Failed to get status for, slotId: "+ slotId +" Exception: " + ex);
-            }
-            Log.d(this, "Phone with subscription id: " + subscriptionId +
-                            " slotId: " + slotId + " provisionStatus: " + provisionStatus);
             if ((subscriptionId >= 0) && (provisionStatus == PROVISIONED)){
                 mAccounts.add(new AccountEntry(phone, false /* emergency */, false /* isDummy */));
             }
