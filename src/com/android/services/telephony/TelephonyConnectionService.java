@@ -22,6 +22,8 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.telecom.Connection;
 import android.telecom.ConnectionRequest;
 import android.telecom.ConnectionService;
@@ -37,6 +39,7 @@ import android.text.TextUtils;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
+import com.android.internal.telephony.IExtTelephony;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
@@ -456,6 +459,16 @@ public class TelephonyConnectionService extends ConnectionService {
             TelephonyConnection connection, Phone phone, ConnectionRequest request) {
         String number = connection.getAddress().getSchemeSpecificPart();
 
+        PhoneAccountHandle pHandle = PhoneUtils.makePstnPhoneAccountHandle(phone);
+        // For ECall handling on MSIM, till the request reaches here(i.e PhoneApp)
+        // we dont know on which phone account ECall can be placed, once after deciding
+        // the phone account for ECall we should inform Telecomm so that
+        // the proper sub information will be displayed on InCallUI.
+        if (!Objects.equals(pHandle, request.getAccountHandle())) {
+            Log.i(this, "setPhoneAccountHandle, account = " + pHandle);
+            connection.setPhoneAccountHandle(pHandle);
+        }
+
         Bundle bundle = request.getExtras();
         boolean isAddParticipant = (bundle != null) && bundle
                 .getBoolean(TelephonyProperties.ADD_PARTICIPANT_KEY, false);
@@ -543,7 +556,17 @@ public class TelephonyConnectionService extends ConnectionService {
 
     private Phone getPhoneForAccount(PhoneAccountHandle accountHandle, boolean isEmergency) {
         if (isEmergency) {
-            return PhoneFactory.getDefaultPhone();
+            IExtTelephony mExtTelephony =
+                    IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
+            int phoneId = 0; // default phoneId
+            try {
+                phoneId = mExtTelephony.getPhoneIdForECall();
+            } catch (RemoteException ex) {
+                Log.e(this, ex, "Exception : " + ex);
+            } catch (NullPointerException ex) {
+                Log.e(this, ex, "Exception : " + ex);
+            }
+            return PhoneFactory.getPhone(phoneId);
         }
 
         int subId = PhoneUtils.getSubIdForPhoneAccountHandle(accountHandle);
