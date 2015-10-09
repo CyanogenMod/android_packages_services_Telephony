@@ -26,4 +26,12 @@
         android:title="@string/select_automatically"
         android:summary="@string/sum_select_automatically"
         android:persistent="false"/>
+    <PreferenceScreen
+        android:key="button_preferred_networks_key"
+        android:title="@string/preferred_networks"
+        android:summary="@string/summary_preferred_networks"
+        android:persistent="false">
+
+        <intent android:action="org.codeaurora.carrier.ACTION_TELEPHONY_PREFERRED_NETWORK_LIST"/>
+    </PreferenceScreen>
 </PreferenceScreen>

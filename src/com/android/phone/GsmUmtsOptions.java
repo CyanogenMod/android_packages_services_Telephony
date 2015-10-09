@@ -115,7 +115,9 @@ public class GsmUmtsOptions {
                 mPrefScreen.removePreference(mPrefScreen
                     .findPreference(BUTTON_OPERATOR_SELECTION_EXPAND_KEY));
             } else {
-                mIsPlmnIncSearchEnabled = isPlmnIncSearchEnabled();
+                if (!res.getBoolean(R.bool.config_ef_plmn_sel)) {
+                    mIsPlmnIncSearchEnabled = isPlmnIncSearchEnabled();
+                }
                 if (carrierConfig.getBoolean(CarrierConfigManager.KEY_CSP_ENABLED_BOOL)) {
                     if (mPhone.isCspPlmnEnabled()) {
                         log("[CSP] Enabling Operator Selection menu.");

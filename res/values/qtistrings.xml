@@ -133,4 +133,7 @@
     <!-- Setting option name to enable or disable vibration after connected -->
     <string name="vibrate_after_connected_title">Vibrating after connected</string>
     <string name="vibrate_after_connected_summary">Vibrate when answers</string>
+    <!-- Preferred networks -->
+    <string name="preferred_networks"></string>
+    <string name="summary_preferred_networks"></string>
 </resources>
