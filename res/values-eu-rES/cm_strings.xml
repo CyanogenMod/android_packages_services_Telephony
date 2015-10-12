@@ -209,9 +209,22 @@
   <string name="ims_vt_call_quality_unknown">Ezezaguna</string>
   <string name="ims_vt_call_quality_set_failed">Bideo kalitatea ezartzeak huts egin du</string>
   <string name="perm_change_mobile_network">aldatu sare modua (2G/3G)</string>
-  <string name="perm_change_mobile_network_desc">Edozein unetan sarea 2G eta 3G artean aldatzea ahalbidetzen dio aplikazioari. 3G-a azkarragoa da, baina bateria gehiago kontsumitzen du eta gastu handiagoak ekar ditzake.</string>
+  <string name="perm_change_mobile_network_desc">Edozein unetan sarea 2G eta 3G artean aldatzea ahalbidetzen dio aplikazioari. 3G azkarragoa da, baina bateria gehiago kontsumitzen du eta gastu handiagoak ekar ditzake.</string>
   <string name="phone_number_label">Nire telefono zenbakia</string>
   <string name="phone_number_summary">Gailu honetara loturiko zenbakia ezarri</string>
   <string name="msim_mobile_network_settings_title">%d. SIM txartelaren sare mugikor ezarpenak</string>
   <string name="call_recording_format">Dei grabaketaren formatua</string>
+  <string name="ims_get_packet_count_failed">Huts egin du pakete kontaketa jasotzea</string>
+  <string name="ims_get_packet_error_count_failed">Huts egin du pakete erroreen kontaketa jasotzea</string>
+  <string name="ims_get_packet_count_label">Ukitu hemen pakete kontaketa jasotzeko</string>
+  <string name="ims_get_packet_error_count_label">Ukitu hemen pakete erroreen kontaketa jasotzeko</string>
+  <string name="wifi_call_setting">Wi-Fi deien ezarpenak</string>
+  <string name="wifi_calling_title">Wi-Fi deiak</string>
+  <string name="wifi_calling_preference_title">Wi-Fi deien hobespena</string>
+  <string name="ims_set_wifi_calling_preference_failed">Huts egin du WiFi deien hobespena ezartzean</string>
+  <string name="wifi_pref_none">Hobespenik ez</string>
+  <string name="wifi_preferred">Wi-Fi nahiago</string>
+  <string name="wifi_only">Wi-Fi soilik</string>
+  <string name="cellular_preferred">Zelularra nahiago</string>
+  <string name="cellular_only">Zelularra soilik</string>
 </resources>

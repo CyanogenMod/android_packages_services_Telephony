@@ -215,6 +215,14 @@
   <string name="msim_mobile_network_settings_title">SIM %d-Mobilnetzeinstellungen</string>
   <string name="call_recording_format">Anrufaufnahme-Format</string>
   <string name="ims_get_packet_count_failed">Fehler beim Ermitteln der Paketanzahl</string>
+  <string name="ims_get_packet_error_count_failed">Fehler beim Ermitteln der Anzahl der Paketfehler</string>
+  <string name="ims_get_packet_count_label">Tippen, um die Paketanzahl zu erhalten</string>
+  <string name="ims_get_packet_error_count_label">Tippen, um die Anzahl der Paketfehler zu erhalten</string>
+  <string name="wifi_call_setting">WLAN-Anruf-Einstellungen</string>
+  <string name="wifi_calling_title">WLAN-Anruf</string>
+  <string name="wifi_calling_preference_title">Bevorzugung von WLAN-Anrufen</string>
+  <string name="ims_set_wifi_calling_preference_failed">Festlegen der Bevorzugung von WLAN-Anrufen fehlgeschlagen</string>
+  <string name="wifi_pref_none">Kein Vorrang</string>
   <string name="wifi_preferred">WLAN bevorzugt</string>
   <string name="wifi_only">Nur WLAN</string>
   <string name="cellular_preferred">Mobilfunk bevorzugt</string>
