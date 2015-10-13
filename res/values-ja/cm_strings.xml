@@ -214,4 +214,17 @@
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
   <string name="msim_mobile_network_settings_title">SIM %dのモバイルネットワーク設定</string>
   <string name="call_recording_format">通話録音のファイル形式</string>
+  <string name="ims_get_packet_count_failed">パケット数を取得できませんでした</string>
+  <string name="ims_get_packet_error_count_failed">パケットエラー数を取得できませんでした</string>
+  <string name="ims_get_packet_count_label">ここをタップしてパケット数を取得</string>
+  <string name="ims_get_packet_error_count_label">ここをタップしてパケットエラー数を取得</string>
+  <string name="wifi_call_setting">Wi-Fi通話の設定</string>
+  <string name="wifi_calling_title">Wi-Fi通話</string>
+  <string name="wifi_calling_preference_title">Wi-Fi通話の設定</string>
+  <string name="ims_set_wifi_calling_preference_failed">Wi-Fi通話を設定できませんでした</string>
+  <string name="wifi_pref_none">優先なし</string>
+  <string name="wifi_preferred">Wi-Fi優先</string>
+  <string name="wifi_only">Wi-Fiのみ</string>
+  <string name="cellular_preferred">セルラー優先</string>
+  <string name="cellular_only">セルラーのみ</string>
 </resources>

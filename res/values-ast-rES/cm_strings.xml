@@ -90,6 +90,10 @@
   <string name="vt_forward_setting">Esvíu de videollamaes</string>
   <string name="vt_imagereplace_setting">Imaxe alternativa</string>
   <string name="vt_imagereplace_setting_sum">Imaxe que se va amosar cuando la cámara frontal tea deshabilitada</string>
+  <string name="roaming_mode_title">Mou roaming</string>
+  <string name="roaming_mode_summary">Mou roaming internacional</string>
+  <string name="roaming_gsm">Roaming GSM</string>
+  <string name="roaming_cdma">Roaming CDMA</string>
   <string name="preferred_network_mode_global_summary_cm">Mou de rede preferíu: Global(CDMA/EVDO/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Mou de rede preferíu: Namái TD-SCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Mou de rede preferíu: TD-SCDMA / WCDMA</string>
@@ -200,4 +204,9 @@
   <string name="ims_vt_call_quality_set_failed">Nun pudo afitase la calidá de videu</string>
   <string name="perm_change_mobile_network">Camudar rede (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Permite a les app, camudar en cualquier momentu ente datos 2G y 3G. L\'usu de 3G ye más rápidu, pero consume más batería y pue costar más dineru.</string>
+  <string name="phone_number_label">El mio númberu de teléfonu</string>
+  <string name="msim_mobile_network_settings_title">Axustes de rede de SIM %d</string>
+  <string name="call_recording_format">Formatu de grabación de llamaes</string>
+  <string name="wifi_only">Namái Wi-Fi</string>
+  <string name="cellular_only">Namái rede móvil</string>
 </resources>

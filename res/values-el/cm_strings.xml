@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Ορίστε τον αριθμό τηλεφώνου για αυτή τη συσκευή</string>
   <string name="msim_mobile_network_settings_title">Ρυθμίσεις δικτύων κινητής τηλεφωνίας SIM %d</string>
   <string name="call_recording_format">Μορφή ηχογράφησης κλήσεων</string>
+  <string name="ims_get_packet_count_failed">Αποτυχία λήψης αριθμού πακέτων</string>
+  <string name="ims_get_packet_error_count_failed">Αποτυχία λήψης αριθμού σφαλμάτων πακέτων</string>
+  <string name="ims_get_packet_count_label">Πιέστε εδώ για λήψη αριθμού πακέτων</string>
+  <string name="ims_get_packet_error_count_label">Πιέστε εδώ για λήψη αριθμού σφαλμάτων πακέτων</string>
+  <string name="wifi_call_setting">Ρυθμίσεις κλήσεων Wi-Fi</string>
+  <string name="wifi_calling_title">Κλήσεις Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Προτίμηση κλήσεων Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">Αποτυχία ορισμού προτίμησης κλήσεων Wi-Fi</string>
+  <string name="wifi_pref_none">Καμία προτίμηση</string>
+  <string name="wifi_preferred">Προτίμηση Wi-Fi</string>
+  <string name="wifi_only">Μόνο Wi-Fi</string>
+  <string name="cellular_preferred">Προτίμηση δικτύου τηλεφωνίας</string>
+  <string name="cellular_only">Μόνο δίκτυο τηλεφωνίας</string>
 </resources>

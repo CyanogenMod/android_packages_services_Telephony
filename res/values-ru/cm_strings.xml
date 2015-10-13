@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Задать телефонный номер для этого устройства</string>
   <string name="msim_mobile_network_settings_title">Настройки мобильной сети SIM %d</string>
   <string name="call_recording_format">Формат записи вызова</string>
+  <string name="ims_get_packet_count_failed">Не удалось получить число пакетов</string>
+  <string name="ims_get_packet_error_count_failed">Не удалось получить количество ошибок при передаче пакетов</string>
+  <string name="ims_get_packet_count_label">Нажмите, чтобы получить количество пакетов</string>
+  <string name="ims_get_packet_error_count_label">Нажмите, чтобы получить количество ошибок при передаче пакетов</string>
+  <string name="wifi_call_setting">Настройки вызовов через Wi-Fi</string>
+  <string name="wifi_calling_title">Вызовы через Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Предпочт. сеть для вызовов</string>
+  <string name="ims_set_wifi_calling_preference_failed">Не удалось задать предпочт. сеть</string>
+  <string name="wifi_pref_none">Без предпочтения</string>
+  <string name="wifi_preferred">Предпочитать Wi-Fi</string>
+  <string name="wifi_only">Только Wi-Fi</string>
+  <string name="cellular_preferred">Предпочитать моб. данные</string>
+  <string name="cellular_only">Только моб. данные</string>
 </resources>

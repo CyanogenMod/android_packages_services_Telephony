@@ -213,4 +213,8 @@
   <string name="phone_number_summary">Angiv telefonnummeret for denne enhed</string>
   <string name="msim_mobile_network_settings_title">Opsætning af SIM %d mobile netværk</string>
   <string name="call_recording_format">Format til optagelse af opkald</string>
+  <string name="wifi_call_setting">Wi-Fi opkaldsindstillinger</string>
+  <string name="wifi_calling_title">Wi-Fi opkald</string>
+  <string name="wifi_preferred">Wi-Fi foretrukken</string>
+  <string name="wifi_only">Kun Wi-Fi</string>
 </resources>

@@ -531,7 +531,6 @@
   <string name="ringtone_title">Tonu del teléfonu</string>
   <string name="dial_pad_autocomplete">Autocompletar con tecláu</string>
   <string name="preference_category_ringtone">Tonu y vibración</string>
-  <string name="call_settings_title_font_family">sans-serif-light</string>
   <string name="pstn_connection_service_label">Tarxetes SIM integraes</string>
   <string name="enable_video_calling_title">Habilitar llamada de videu</string>
   <string name="enable_video_calling_dialog_msg">

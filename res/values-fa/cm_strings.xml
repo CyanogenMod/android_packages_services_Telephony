@@ -214,4 +214,17 @@
   <string name="phone_number_summary">تنظیم شماره تلفن این دستگاه</string>
   <string name="msim_mobile_network_settings_title">تنظیمات شبکه تلفن همراه سیمکارت %d</string>
   <string name="call_recording_format">فرمت ضبط تماس</string>
+  <string name="ims_get_packet_count_failed">خطا در دریافت تعداد بسته</string>
+  <string name="ims_get_packet_error_count_failed">خطای دریافت شمارش خطای بسته</string>
+  <string name="ims_get_packet_count_label">اینجا را جهت دریافت تعداد بسته لمس کنید</string>
+  <string name="ims_get_packet_error_count_label">اینجا را جهت دریافت تعداد خطای بسته لمس نمایید</string>
+  <string name="wifi_call_setting">تنظیمات تماس وای‌فای</string>
+  <string name="wifi_calling_title">تماس وای‌فای</string>
+  <string name="wifi_calling_preference_title">اولویت‌های تماس وای‌فای</string>
+  <string name="ims_set_wifi_calling_preference_failed">عدم موفقیت در تعیین اولویت‌های تماس وای‌فای</string>
+  <string name="wifi_pref_none">بدون اولویت</string>
+  <string name="wifi_preferred">وای‌فای ترجیح داده شود</string>
+  <string name="wifi_only">فقط وای‌فای</string>
+  <string name="cellular_preferred">تماس عادی ترجیح داده شود</string>
+  <string name="cellular_only">فقط تماس عادی</string>
 </resources>

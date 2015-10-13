@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">Само WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Само GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Преферирај GSM/WCDMA</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (тренутно: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">Подешавања SIM картице</string>
   <string name="sim_card_title">SIM картица %d</string>
   <string name="sim_card_summary_empty">SIM слот је празан</string>
@@ -213,4 +214,17 @@
   <string name="phone_number_summary">Подеси телефонски број за овај уређај</string>
   <string name="msim_mobile_network_settings_title">SIM %d подешавање мобилне мреже</string>
   <string name="call_recording_format">Формат снимања позива</string>
+  <string name="ims_get_packet_count_failed">Неуспело бројање пакета</string>
+  <string name="ims_get_packet_error_count_failed">Неуспело бројање грешака пакета</string>
+  <string name="ims_get_packet_count_label">Додирни да изброји пакете</string>
+  <string name="ims_get_packet_error_count_label">Додирни да изброји грешке пакета</string>
+  <string name="wifi_call_setting">Позивање поставки Wi-Fi</string>
+  <string name="wifi_calling_title">Позивање Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Поставке позивања Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">Неуспело подешавање поставки позива Wi-Fi</string>
+  <string name="wifi_pref_none">Нема поставки</string>
+  <string name="wifi_preferred">Приоритетан Wi-Fi</string>
+  <string name="wifi_only">Само Wi-Fi</string>
+  <string name="cellular_preferred">Приоритетан Мобилни</string>
+  <string name="cellular_only">Само Мобилни</string>
 </resources>

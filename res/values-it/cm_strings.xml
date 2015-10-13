@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Imposta il numero di telefono di questo dispositivo</string>
   <string name="msim_mobile_network_settings_title">Impostazioni rete mobile SIM %d</string>
   <string name="call_recording_format">Formato registrazione chiamata</string>
+  <string name="ims_get_packet_count_failed">Impossibile ottenere il numero di pacchetti</string>
+  <string name="ims_get_packet_error_count_failed">Impossibile ottenere il numero di errori nei pacchetti</string>
+  <string name="ims_get_packet_count_label">Tocca qui per ottenere il numero dei pacchetti</string>
+  <string name="ims_get_packet_error_count_label">Tocca qui per ottenere il numero di errori nei pacchetti</string>
+  <string name="wifi_call_setting">Impostazioni chiamate Wi-Fi</string>
+  <string name="wifi_calling_title">Chiamate Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Preferenze di chiamata Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">Impossibile impostare le preferenze di chiamata Wi-Fi</string>
+  <string name="wifi_pref_none">Nessuna preferenza</string>
+  <string name="wifi_preferred">Preferisci Wi-Fi</string>
+  <string name="wifi_only">Solo Wi-Fi</string>
+  <string name="cellular_preferred">Preferisci rete mobile</string>
+  <string name="cellular_only">Solo rete mobile</string>
 </resources>

@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Bu cihaz için telefon numarasını ayarla</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobil şebeke ayarları</string>
   <string name="call_recording_format">Çağrı kayıt biçimi</string>
+  <string name="ims_get_packet_count_failed">Paket sayısı alınamadı</string>
+  <string name="ims_get_packet_error_count_failed">Paket hata sayısı alınamadı</string>
+  <string name="ims_get_packet_count_label">Paket sayısını almak için dokunun</string>
+  <string name="ims_get_packet_error_count_label">Paket hata sayısını almak için dokunun</string>
+  <string name="wifi_call_setting">Wi-Fi arama ayarları</string>
+  <string name="wifi_calling_title">Wi-Fi arama</string>
+  <string name="wifi_calling_preference_title">Wi-Fi arama tercihleri</string>
+  <string name="ims_set_wifi_calling_preference_failed">Wi-Fi arama tercihi ayarlanamadı</string>
+  <string name="wifi_pref_none">Tercih yok</string>
+  <string name="wifi_preferred">Wi-Fi tercihli</string>
+  <string name="wifi_only">Sadece Wi-Fi</string>
+  <string name="cellular_preferred">Hücresel tercihli</string>
+  <string name="cellular_only">Sadece hücresel</string>
 </resources>

@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Estableix el número de telèfon per aquest dispositiu</string>
   <string name="msim_mobile_network_settings_title">Configuració de xarxes mòbils de la SIM %d</string>
   <string name="call_recording_format">Format de gravació de trucades</string>
+  <string name="ims_get_packet_count_failed">No s\'ha pogut obtenir el nombre de paquets</string>
+  <string name="ims_get_packet_error_count_failed">No s\'ha pogut obtenir el nombre de paquets d\'error</string>
+  <string name="ims_get_packet_count_label">Pica per obtenir el nombre de paquets</string>
+  <string name="ims_get_packet_error_count_label">Pica per obtenir el nombre de paquets d\'error</string>
+  <string name="wifi_call_setting">Ajustaments de trucada Wi-Fi</string>
+  <string name="wifi_calling_title">Trucada Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Preferències de trucada Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">No s\'ha pogut establir la preferència de trucada Wi-Fi</string>
+  <string name="wifi_pref_none">Cap preferència</string>
+  <string name="wifi_preferred">Wi-Fi preferida</string>
+  <string name="wifi_only">Només Wi-Fi</string>
+  <string name="cellular_preferred">Mòbil preferit</string>
+  <string name="cellular_only">Només Mòbil</string>
 </resources>

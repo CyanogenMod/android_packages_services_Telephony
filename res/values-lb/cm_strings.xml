@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">Just WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Just GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferéiert</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (aktuell: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">SIM-Kaarten-Astellungen</string>
   <string name="sim_card_title">Sim-Kaart %d</string>
   <string name="sim_card_summary_empty">SIM-Schlitz ass eidel</string>
@@ -213,4 +214,8 @@
   <string name="phone_number_summary">Telefonsnummer fir dësen Apparat definéieren</string>
   <string name="msim_mobile_network_settings_title">SIM %d-Datennetzwierkastellungen</string>
   <string name="call_recording_format">Format vun der Uruffopnam</string>
+  <string name="wifi_preferred">WLAN léiwer</string>
+  <string name="wifi_only">Just WLAN</string>
+  <string name="cellular_preferred">Mobilfunk léiwer</string>
+  <string name="cellular_only">Just Mobilfunk</string>
 </resources>

@@ -92,6 +92,11 @@
   <string name="vt_forward_setting">การส่งต่อสายวิดีโอ</string>
   <string name="vt_imagereplace_setting">รูปภาพแสดงแทน</string>
   <string name="vt_imagereplace_setting_sum">จะแสดงภาพอื่นแทน เมื่อปิดการใช้งานกล้องหน้า</string>
+  <string name="roaming_mode_title">รูปแบบโรมมิ่ง</string>
+  <string name="roaming_mode_summary">รูปแบบโรมมิ่งระหว่างประเทศ</string>
+  <string name="roaming_gsm">โรมมิ่ง GSM</string>
+  <string name="roaming_cdma">โรมมิ่ง CDMA</string>
+  <string name="roaming_disabled">ปิดการใช้งาน</string>
   <string name="preferred_network_mode_global_summary_cm">รูปแบบเครือข่ายที่ต้องการ : ทั่วไป (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA เท่านั้น</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA / WCDMA</string>
@@ -207,4 +212,5 @@
   <string name="phone_number_label">หมายเลขโทรศัพท์ของฉัน</string>
   <string name="phone_number_summary">ตั้งค่าหมายเลขโทรศัพท์สำหรับอุปกรณ์นี้</string>
   <string name="msim_mobile_network_settings_title">ตั้งค่าเครือข่ายโทรศัพท์มือถือซิม %d</string>
+  <string name="call_recording_format">นามสกุลไฟล์บันทึการโทร</string>
 </resources>
