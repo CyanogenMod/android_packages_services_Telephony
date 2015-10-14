@@ -29,6 +29,7 @@ import android.view.View;
 
 import org.codeaurora.ims.qtiims.IQtiImsInterfaceListener;
 import org.codeaurora.ims.qtiims.IQtiImsInterface;
+import org.codeaurora.ims.qtiims.QtiViceInfo;
 
 import static com.android.phone.TimeConsumingPreferenceActivity.RESPONSE_ERROR;
 import static com.android.phone.TimeConsumingPreferenceActivity.EXCEPTION_ERROR;
@@ -302,6 +303,9 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
 
         public void receiveCallDeflectResponse(int result) {
             /* Not implemented, dummy implementation to avoid compilation errors */
+        }
+
+        public void notifyRefreshViceInfo(QtiViceInfo qtiViceInfo) {
         }
     };
 
