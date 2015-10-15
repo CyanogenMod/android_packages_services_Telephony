@@ -22,6 +22,8 @@ import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
+import com.android.internal.telephony.uicc.IccCardApplicationStatus.AppType;
+import com.android.internal.telephony.uicc.UiccController;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -98,6 +100,7 @@ public class MobileNetworkSettings extends PreferenceActivity
     private static final String BUTTON_OPERATOR_SELECTION_EXPAND_KEY = "button_carrier_sel_key";
     private static final String BUTTON_CARRIER_SETTINGS_KEY = "carrier_settings_key";
     private static final String BUTTON_CDMA_SYSTEM_SELECT_KEY = "cdma_system_select_key";
+    private static final String PRIMARY_CARD_PROPERTY_NAME = "persist.radio.primarycard";
 
     private int preferredNetworkMode = Phone.PREFERRED_NT_MODE;
 
@@ -584,6 +587,22 @@ public class MobileNetworkSettings extends PreferenceActivity
             prefSet.addPreference(mButtonPreferredNetworkMode);
             prefSet.addPreference(mButtonEnabledNetworks);
             prefSet.addPreference(mButton4glte);
+        }
+
+        /** Some carriers required that network mode UI need to be hidden in below conditions:
+          * 1. The absence of sim cards.
+          * 2. Non-USIM card is inserted.
+          * 3. Network type is GSM only or Global
+          */
+        if (SystemProperties.getBoolean(PRIMARY_CARD_PROPERTY_NAME, false)) {
+            int phoneId = mPhone.getPhoneId();
+            if (UiccController.getInstance().getUiccCard(phoneId) == null ||
+                    !UiccController.getInstance().getUiccCard(phoneId)
+                    .isApplicationOnIcc(AppType.APPTYPE_USIM) ||
+                    getPreferredNetworkModeForPhoneId() == Phone.NT_MODE_GSM_ONLY ||
+                    getPreferredNetworkModeForPhoneId() == Phone.NT_MODE_GLOBAL) {
+                prefSet.removePreference(mButtonPreferredNetworkMode);
+            }
         }
 
         int settingsNetworkMode = getPreferredNetworkModeForSubId();
