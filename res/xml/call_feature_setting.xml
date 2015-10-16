@@ -58,13 +58,6 @@
         android:persistent="false"
         android:summary="@string/auto_retry_mode_summary"/>
 
-     <CheckBoxPreference
-        android:key="duration_enable_key"
-        android:persistent="false"
-        android:title="@string/preferred_duration_title"
-        android:summaryOn="@string/duration_enable_summary"
-        android:summaryOff="@string/duration_disable_summary" />
-
     <PreferenceScreen
         android:key="button_gsm_more_expand_key"
         android:title="@string/labelGSMMore"
@@ -86,12 +79,5 @@
             android:targetPackage="com.qualcomm.qti.ims"
             android:targetClass="com.qualcomm.qti.ims.ImsSettings"/>
     </PreferenceScreen>
-
-    <CheckBoxPreference
-      android:key="button_vibrate_after_connected"
-      android:title="@string/vibrate_after_connected_title"
-      android:persistent="false"
-      android:defaultValue="true"
-      android:summary="@string/vibrate_after_connected_summary" />
 
 </PreferenceScreen>

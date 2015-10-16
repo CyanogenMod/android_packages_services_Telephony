@@ -81,6 +81,20 @@
             android:summary="@string/sip_receive_calls_summary"
             android:persistent="true"/>
 
+        <CheckBoxPreference
+            android:key="duration_enable_key"
+            android:persistent="false"
+            android:title="@string/preferred_duration_title"
+            android:summaryOn="@string/duration_enable_summary"
+            android:summaryOff="@string/duration_disable_summary" />
+
+        <CheckBoxPreference
+            android:key="button_vibrate_after_connected"
+            android:title="@string/vibrate_after_connected_title"
+            android:persistent="false"
+            android:defaultValue="true"
+            android:summary="@string/vibrate_after_connected_summary" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

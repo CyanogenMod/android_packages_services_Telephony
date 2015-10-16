@@ -94,10 +94,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String VOICEMAIL_SETTING_SCREEN_PREF_KEY = "button_voicemail_category_key";
     private static final String BUTTON_FDN_KEY   = "button_fdn_key";
     private static final String BUTTON_RETRY_KEY       = "button_auto_retry_key";
-    private static final String BUTTON_VIBRATE_CONNECTED_KEY = "button_vibrate_after_connected";
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
-    private static final String SHOW_DURATION_KEY      = "duration_enable_key";
 
     private static final String PHONE_ACCOUNT_SETTINGS_KEY =
             "phone_account_settings_preference_screen";
@@ -111,8 +109,6 @@ public class CallFeaturesSetting extends PreferenceActivity
     private CheckBoxPreference mButtonAutoRetry;
     private PreferenceScreen mVoicemailSettingsScreen;
     private CheckBoxPreference mEnableVideoCalling;
-    private CheckBoxPreference mShowDurationCheckBox;
-    private CheckBoxPreference mVibrateAfterConnected;
 
     /*
      * Click Listeners, handle click based on objects attached to UI.
@@ -164,16 +160,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                         .show();
                 return false;
             }
-        } else if (preference == mShowDurationCheckBox) {
-            boolean checked = (Boolean) objValue;
-            Settings.System.putInt(mPhone.getContext().getContentResolver(),
-                    Constants.SETTINGS_SHOW_CALL_DURATION, checked ? 1 : 0);
-            mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
-                    : R.string.duration_disable_summary);
-        } else if (preference == mVibrateAfterConnected) {
-            boolean doVibrate = (Boolean) objValue;
-            Settings.System.putInt(mPhone.getContext().getContentResolver(),
-                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, doVibrate ? 1 : 0);
         }
 
         // Always let the preference setting proceed.
@@ -229,16 +215,6 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         mEnableVideoCalling = (CheckBoxPreference) findPreference(ENABLE_VIDEO_CALLING_KEY);
 
-        mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
-
-        mVibrateAfterConnected = (CheckBoxPreference) findPreference(BUTTON_VIBRATE_CONNECTED_KEY);
-        if (mVibrateAfterConnected != null) {
-            mVibrateAfterConnected.setOnPreferenceChangeListener(this);
-            boolean checked = Settings.System.getInt(getContentResolver(),
-                    Constants.SETTINGS_VIBRATE_WHEN_ACCEPTED, 1) == 1;
-            mVibrateAfterConnected.setChecked(checked);
-        }
-
         PersistableBundle carrierConfig =
                 PhoneGlobals.getInstance().getCarrierConfigForSubId(mPhone.getSubId());
 
@@ -252,9 +228,6 @@ public class CallFeaturesSetting extends PreferenceActivity
             mButtonAutoRetry = null;
         }
 
-        if (mShowDurationCheckBox != null) {
-            mShowDurationCheckBox.setOnPreferenceChangeListener(this);
-        }
         Preference cdmaOptions = prefSet.findPreference(BUTTON_CDMA_OPTIONS);
         Preference gsmOptions = prefSet.findPreference(BUTTON_GSM_UMTS_OPTIONS);
         Preference fdnButton = prefSet.findPreference(BUTTON_FDN_KEY);
@@ -306,14 +279,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                         CarrierConfigManager.KEY_CARRIER_VOLTE_TTY_SUPPORTED_BOOL)) {
             TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             /* tm.listen(mPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE); */
-        }
-
-        if (mShowDurationCheckBox != null) {
-            boolean checked = Settings.System.getInt(getContentResolver(),
-                    Constants.SETTINGS_SHOW_CALL_DURATION, 1) == 1;
-                    mShowDurationCheckBox.setChecked(checked);
-                    mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
-                            : R.string.duration_disable_summary);
         }
 
         Preference wifiCallingSettings = findPreference(
