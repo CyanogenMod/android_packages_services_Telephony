@@ -589,8 +589,11 @@
     <string name="multi_category_disable">Multi-category disabled</string>
 
     <string name="network_lte">LTE (recommended)</string>
+    <string name="network_lte_only" translatable="false">LTE Only</string>
     <string name="network_4G">4G (recommended)</string>
+    <string name="network_4G_only" translatable="false">4G Only</string>
     <string name="network_3G" translatable="false">3G</string>
+    <string name="network_3G_only" translatable="false">3G Only</string>
     <string name="network_2G" translatable="false">2G</string>
     <string name="network_1x" translatable="false">1x</string>
     <string name="network_global">Global</string>
@@ -626,17 +629,23 @@
 
     <string-array name="enabled_networks_choices" translatable="false">
         <item>@string/network_lte</item>
+        <item>@string/network_lte_only</item>
         <item>@string/network_3G</item>
+        <item>@string/network_3G_only</item>
         <item>@string/network_2G</item>
     </string-array>
     <string-array name="enabled_networks_4g_choices" translatable="false">
         <item>@string/network_4G</item>
+        <item>@string/network_4G_only</item>
         <item>@string/network_3G</item>
+        <item>@string/network_3G_only</item>
         <item>@string/network_2G</item>
     </string-array>
     <string-array name="enabled_networks_values" translatable="false">
         <item>"9"</item>
+        <item>"11"</item>
         <item>"0"</item>
+        <item>"2"</item>
         <item>"1"</item>
     </string-array>
 
