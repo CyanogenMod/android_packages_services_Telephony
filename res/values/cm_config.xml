@@ -18,4 +18,6 @@
   <string-array name="dialer_default_classes" translatable="false">
       <item>com.android.dialer/com.android.dialer.DialtactsActivity</item>
   </string-array>
+
+    <bool name="config_mwi_notification_ongoing" translatable="false">false</bool>
 </resources>
