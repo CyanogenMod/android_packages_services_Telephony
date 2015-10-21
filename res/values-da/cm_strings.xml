@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">Kun WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Kun GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA foretrukket</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (nuværende: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">SIM-kort indstillinger</string>
   <string name="sim_card_title">SIM-kort %d</string>
   <string name="sim_card_summary_empty">SIM-kort skuffe er tom</string>
@@ -213,8 +214,17 @@
   <string name="phone_number_summary">Angiv telefonnummeret for denne enhed</string>
   <string name="msim_mobile_network_settings_title">Opsætning af SIM %d mobile netværk</string>
   <string name="call_recording_format">Format til optagelse af opkald</string>
+  <string name="ims_get_packet_count_failed">Kunne ikke hente antallet af pakker</string>
+  <string name="ims_get_packet_error_count_failed">Kunne ikke hente antallet af pakkefejl</string>
+  <string name="ims_get_packet_count_label">Tryk her for at hente antallet af pakker</string>
+  <string name="ims_get_packet_error_count_label">Tryk her for at hente antallet af pakkefejl</string>
   <string name="wifi_call_setting">Wi-Fi opkaldsindstillinger</string>
   <string name="wifi_calling_title">Wi-Fi opkald</string>
+  <string name="wifi_calling_preference_title">Præference for Wi-Fi opkald</string>
+  <string name="ims_set_wifi_calling_preference_failed">Kunne ikke indstille præference for Wi-Fi opkald</string>
+  <string name="wifi_pref_none">Ingen præference</string>
   <string name="wifi_preferred">Wi-Fi foretrukken</string>
   <string name="wifi_only">Kun Wi-Fi</string>
+  <string name="cellular_preferred">Mobilopkald foretrukket</string>
+  <string name="cellular_only">Kun mobilopkald</string>
 </resources>

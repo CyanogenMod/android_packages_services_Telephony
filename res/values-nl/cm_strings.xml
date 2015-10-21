@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Telefoonnummer instellen voor deze telefoon</string>
   <string name="msim_mobile_network_settings_title">Instellingen mobiel netwerk SIM %d</string>
   <string name="call_recording_format">Formaat gespreksopname</string>
+  <string name="ims_get_packet_count_failed">Fout bij het ophalen van pakketaantal</string>
+  <string name="ims_get_packet_error_count_failed">Fout bij het ophalen van pakketfoutaantal</string>
+  <string name="ims_get_packet_count_label">Tik hier om pakketaantal op te halen</string>
+  <string name="ims_get_packet_error_count_label">Tik hier om pakketfoutaantal op te halen</string>
+  <string name="wifi_call_setting">Instellingen wifi-oproepen</string>
+  <string name="wifi_calling_title">Wifi-oproepen</string>
+  <string name="wifi_calling_preference_title">Wifi-oproepenvoorkeur</string>
+  <string name="ims_set_wifi_calling_preference_failed">Fout bij het instellen van wifi-oproepenvoorkeur</string>
+  <string name="wifi_pref_none">Geen voorkeur</string>
+  <string name="wifi_preferred">Voorkeur voor wifi</string>
+  <string name="wifi_only">Alleen wifi</string>
+  <string name="cellular_preferred">Voorkeur voor mobiele data</string>
+  <string name="cellular_only">Alleen mobiele data</string>
 </resources>
