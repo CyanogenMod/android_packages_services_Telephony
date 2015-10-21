@@ -214,4 +214,17 @@
   <string name="phone_number_summary">ಈ ಸಾಧನಕ್ಕಾಗಿ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ಹೊಂದಿಸಿ</string>
   <string name="msim_mobile_network_settings_title">ಸಿಮ್ %d ಮೊಬೈಲ್ ನೆಟ್‍ವರ್ಕ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <string name="call_recording_format">ಕರೆ ರಿಕಾರ್ಡಿಂಗ್ ಸ್ವರೂಪ</string>
+  <string name="ims_get_packet_count_failed">ಪ್ಯಾಕೆಟ್ ಎಣಿಕೆ ತೆಗೆದುಕೊಳ್ಳಲು ವಿಫಲವಾಗಿದೆ</string>
+  <string name="ims_get_packet_error_count_failed">ಪ್ಯಾಕೆಟ್ ದೋಷ ಎಣಿಕೆ ತೆಗೆದುಕೊಳ್ಳಲು ವಿಫಲವಾಗಿದೆ</string>
+  <string name="ims_get_packet_count_label">ಪ್ಯಾಕೆಟ್ ಎಣಿಕೆ ತೆಗೆದುಕೊಳ್ಳಲು ಇಲ್ಲಿ ಒತ್ತಿ</string>
+  <string name="ims_get_packet_error_count_label">ಪ್ಯಾಕೆಟ್ ದೋಷ ಎಣಿಕೆ ತೆಗೆದುಕೊಳ್ಳಲು ಇಲ್ಲಿ ಒತ್ತಿ</string>
+  <string name="wifi_call_setting">ವೈ-ಫೈ ಕರೆ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
+  <string name="wifi_calling_title">ವೈ-ಫೈ ಕರೆ</string>
+  <string name="wifi_calling_preference_title">ವೈ-ಫೈ ಕರೆ ಆದ್ಯತೆಗಳು</string>
+  <string name="ims_set_wifi_calling_preference_failed">ವೈ-ಫೈ ಕರೆ ಆದ್ಯತೆಗಳನ್ನು ಹೊಂದಿಸಲು ವಿಫಲವಾಗಿದೆ</string>
+  <string name="wifi_pref_none">ಯಾವುದೇ ಆದ್ಯತೆಗಳಿಲ್ಲ</string>
+  <string name="wifi_preferred">ವೈ-ಪೈ ಆದ್ಯತೆ</string>
+  <string name="wifi_only">ವೈ-ಫೈ ಮಾತ್ರ</string>
+  <string name="cellular_preferred">ಸೆಲ್ಯುಲರ್ ಆದ್ಯತೆ</string>
+  <string name="cellular_only">ಸೆಲ್ಯುಲರ್ ಮಾತ್ರ</string>
 </resources>
