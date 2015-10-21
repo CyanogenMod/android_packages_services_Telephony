@@ -440,6 +440,7 @@ public class MobileNetworkSettings extends PreferenceActivity
             // Do the best we can
             mPhone = PhoneFactory.getDefaultPhone();
         }
+        preferredNetworkMode = getPreferredNetworkModeForPhoneId();
         if (DBG) log("updatePhone:- slotId=" + slotId);
     }
 
@@ -928,6 +929,7 @@ public class MobileNetworkSettings extends PreferenceActivity
         final int phoneId = mPhone.getPhoneId();
         if (DBG) log("setPreferredNetworkMode: nwMode = " + nwMode +
                 " phoneSubId = " + phoneSubId + " phoneId = " + phoneId);
+        preferredNetworkMode = nwMode;
         android.provider.Settings.Global.putInt(mPhone.getContext().getContentResolver(),
                 android.provider.Settings.Global.PREFERRED_NETWORK_MODE + phoneSubId,
                 nwMode );
