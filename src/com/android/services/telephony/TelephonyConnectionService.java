@@ -67,6 +67,7 @@ public class TelephonyConnectionService extends ConnectionService {
             Pattern.compile("\\*228[0-9]{0,2}");
 
     private static final int sPhoneCount = TelephonyManager.getDefault().getPhoneCount();
+    private static final String EMR_DIAL_ACCOUNT = "emr_dial_account";
 
     private final TelephonyConferenceController[] mTelephonyConferenceController =
             new TelephonyConferenceController[sPhoneCount];
@@ -101,14 +102,19 @@ public class TelephonyConnectionService extends ConnectionService {
             Phone phone = PhoneFactory.getPhone(phoneId);
 
             Log.i(this, "setPhoneAccountHandle, account = " + redialPhoneAccount);
-            connection.setPhoneAccountHandle(redialPhoneAccount);
+            Bundle connExtras = connection.getExtras();
+            if (connExtras == null) {
+                connExtras = new Bundle();
+            }
+            connExtras.putParcelable(EMR_DIAL_ACCOUNT, redialPhoneAccount);
+            connection.setExtras(connExtras);
 
             Bundle bundle = mRequest.getExtras();
             com.android.internal.telephony.Connection originalConnection;
             try {
                 originalConnection = phone.dial(number, null, mRequest.getVideoState(), bundle);
             } catch (CallStateException e) {
-                Log.e(this, e, "placeOutgoingConnection, phone.dial exception: " + e);
+                Log.e(this, e, "onEmergencyRedial, phone.dial exception: " + e);
                 connection.setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
                         android.telephony.DisconnectCause.OUTGOING_FAILURE,
                         e.getMessage()));
@@ -117,7 +123,7 @@ public class TelephonyConnectionService extends ConnectionService {
 
             if (originalConnection == null) {
                 int telephonyDisconnectCause = android.telephony.DisconnectCause.OUTGOING_FAILURE;
-                Log.d(this, "placeOutgoingConnection, phone.dial returned null");
+                Log.d(this, "onEmergencyRedial, phone.dial returned null");
                 connection.setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
                         telephonyDisconnectCause, "Connection is null"));
             } else {
@@ -464,11 +470,11 @@ public class TelephonyConnectionService extends ConnectionService {
         // we dont know on which phone account ECall can be placed, once after deciding
         // the phone account for ECall we should inform Telecomm so that
         // the proper sub information will be displayed on InCallUI.
-        if (!Objects.equals(pHandle, request.getAccountHandle())) {
+        if (TelephonyManager.getDefault().isMultiSimEnabled() && !Objects.equals(pHandle,
+                request.getAccountHandle())) {
             Log.i(this, "setPhoneAccountHandle, account = " + pHandle);
-            connection.setPhoneAccountHandle(pHandle);
+            request.setAccountHandle(pHandle);
         }
-
         Bundle bundle = request.getExtras();
         boolean isAddParticipant = (bundle != null) && bundle
                 .getBoolean(TelephonyProperties.ADD_PARTICIPANT_KEY, false);
