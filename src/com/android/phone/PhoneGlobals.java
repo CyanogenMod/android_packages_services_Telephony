@@ -251,7 +251,8 @@ public class PhoneGlobals extends ContextWrapper {
                         // Some products don't have the concept of a "SIM network lock"
                         Log.i(LOG_TAG, "Ignoring EVENT_SIM_NETWORK_LOCKED event; "
                               + "not showing 'SIM network unlock' PIN entry screen");
-                    } else {
+                    } else if (getResources()
+                            .getBoolean(R.bool.icc_depersonalizationPanelEnabled)) {
                         // Normal case: show the "SIM network unlock" PIN entry screen.
                         // The user won't be able to do anything else until
                         // they enter a valid SIM network PIN.

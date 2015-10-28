@@ -195,4 +195,6 @@
 
     <!-- Config to enabled reading and displaying of EF_PLMN_SEL SIM file -->
     <bool name="config_ef_plmn_sel">false</bool>
+    <!-- Config to enable/disable showing depersonalizationpanel dialog -->
+    <bool name="icc_depersonalizationPanelEnabled">true</bool>
 </resources>
