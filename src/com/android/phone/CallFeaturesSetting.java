@@ -59,6 +59,8 @@ import com.android.phone.settings.VoicemailSettingsActivity;
 import com.android.phone.settings.fdn.FdnSetting;
 import com.android.services.telephony.sip.SipUtil;
 
+import org.cyanogenmod.internal.util.PackageManagerUtils;
+
 import java.lang.String;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +98,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private static final String BUTTON_RETRY_KEY       = "button_auto_retry_key";
     private static final String BUTTON_GSM_UMTS_OPTIONS = "button_gsm_more_expand_key";
     private static final String BUTTON_CDMA_OPTIONS = "button_cdma_more_expand_key";
+    private static final String IMS_SETTINGS_KEY      = "ims_settings_key";
+    private static final String QTI_IMS_PACKAGE_NAME = "com.qualcomm.qti.ims";
 
     private static final String PHONE_ACCOUNT_SETTINGS_KEY =
             "phone_account_settings_preference_screen";
@@ -351,6 +355,12 @@ public class CallFeaturesSetting extends PreferenceActivity
                         CarrierConfigManager.KEY_CARRIER_VOLTE_TTY_SUPPORTED_BOOL)) {
             TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             /* tm.listen(mPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE); */
+        }
+
+        Preference imsSettings = findPreference(IMS_SETTINGS_KEY);
+
+        if (!PackageManagerUtils.isAppInstalled(this, QTI_IMS_PACKAGE_NAME)) {
+            prefSet.removePreference(imsSettings);
         }
 
         Preference wifiCallingSettings = findPreference(

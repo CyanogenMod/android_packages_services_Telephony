@@ -12,6 +12,7 @@ res_dirs := res $(phone_common_dir)/res sip/res
 LOCAL_JAVA_LIBRARIES := telephony-common voip-common ims-common telephony-ext
 LOCAL_STATIC_JAVA_LIBRARIES := \
         org.apache.http.legacy \
+        org.cyanogenmod.platform.internal \
         guava \
         volley \
         ims-ext-common
