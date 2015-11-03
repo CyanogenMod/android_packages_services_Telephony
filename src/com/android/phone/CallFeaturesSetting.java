@@ -59,6 +59,8 @@ import com.android.phone.settings.VoicemailSettingsActivity;
 import com.android.phone.settings.fdn.FdnSetting;
 import com.android.services.telephony.sip.SipUtil;
 
+import org.cyanogenmod.internal.util.PackageManagerUtils;
+
 import java.lang.String;
 import java.util.ArrayList;
 import java.util.List;
@@ -351,6 +353,10 @@ public class CallFeaturesSetting extends PreferenceActivity
                         CarrierConfigManager.KEY_CARRIER_VOLTE_TTY_SUPPORTED_BOOL)) {
             TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             /* tm.listen(mPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE); */
+        }
+
+        if (!PackageManagerUtils.isAppInstalled(this, "com.qualcomm.qti.ims")) {
+            prefSet.removePreference(findPreference("ims_settings_key"));
         }
 
         Preference wifiCallingSettings = findPreference(
