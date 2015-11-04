@@ -213,7 +213,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             switch (msg.what) {
                 case CMD_HANDLE_PIN_MMI:
                     request = (MainThreadRequest) msg.obj;
-                    request.result = mPhone.handlePinMmi((String) request.argument);
+                    request.result = getPhoneFromRequest(request)
+                            .handlePinMmi((String) request.argument);
                     // Wake up the requesting thread
                     synchronized (request) {
                         request.notifyAll();
@@ -645,8 +646,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                     request = (MainThreadRequest) msg.obj;
                     onCompleted = obtainMessage(EVENT_SET_VOICEMAIL_NUMBER_DONE, request);
                     Pair<String, String> tagNum = (Pair<String, String>) request.argument;
-                    Phone phone = (request.subId == null) ? mPhone : getPhone(request.subId);
-                    phone.setVoiceMailNumber(tagNum.first, tagNum.second, onCompleted);
+                    getPhoneFromRequest(request).setVoiceMailNumber(tagNum.first,
+                            tagNum.second, onCompleted);
                     break;
 
                 case EVENT_SET_VOICEMAIL_NUMBER_DONE:
@@ -767,6 +768,10 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         if (DBG) log("publish: " + this);
 
         ServiceManager.addService("phone", this);
+    }
+
+    private Phone getPhoneFromRequest(MainThreadRequest request) {
+        return (request.subId == null) ? mPhone : getPhone(request.subId);
     }
 
     // returns phone associated with the subId.
