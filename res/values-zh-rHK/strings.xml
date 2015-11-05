@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"流動數據"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"手機"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"手機服務"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"緊急撥號"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"電話"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"FDN 清單"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"正在還原設定…"</string>
     <string name="response_error" msgid="6674110501330139405">"網絡傳回非預期回應。"</string>
     <string name="exception_error" msgid="7027667130619518211">"網絡或 SIM 卡錯誤。"</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"SS 要求已修改為 DIAL 要求。"</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"SS 要求已修改為 USSD 要求。"</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"SS 要求已修改為新的 SS 要求。"</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"您的「手機」應用程式已開啟固定撥號設定，因此部分撥號相關功能無法正常運作。"</string>
     <string name="radio_off_error" msgid="2304459933248513376">"查看這些設定前，請先開啟無線電。"</string>
     <string name="close_dialog" msgid="2365884406356986917">"確定"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"首選網絡模式：LTE/WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"首選網絡模式：LTE / GSM / UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"慣用網絡模式：LTE / CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"首選網絡模式：TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE/WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -311,6 +315,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (建議)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (建議)"</string>
     <string name="network_global" msgid="1323190488685355309">"通用"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"只限 TDSCDMA"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"選取系統"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"更改 CDMA 漫遊模式"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"選取系統"</string>
@@ -430,6 +435,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"您所選取的網絡 (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) 無法使用"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"關閉飛行模式以撥打電話。"</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"關閉飛行模式或連接無線網絡，以撥打電話。"</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"離開緊急回撥模式即可撥打非緊急電話。"</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"未在網絡上完成註冊。"</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"無法連線至流動網絡。"</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"無法使用流動網絡。連接無線網絡，以撥打電話。"</string>

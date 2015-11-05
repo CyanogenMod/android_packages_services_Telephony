@@ -180,6 +180,19 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     /**
+     * A request object to use for transmitting data to an ICC.
+     */
+    private static final class ManualNetworkSelectionArgument {
+        public OperatorInfo operatorInfo;
+        public boolean persistSelection;
+
+        public ManualNetworkSelectionArgument(OperatorInfo operatorInfo, boolean persistSelection) {
+            this.operatorInfo = operatorInfo;
+            this.persistSelection = persistSelection;
+        }
+    }
+
+    /**
      * A request object for use with {@link MainThreadHandler}. Requesters should wait() on the
      * request after sending. The main thread will notify the request when it is complete.
      */
@@ -720,10 +733,12 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
 
                 case CMD_SET_NETWORK_SELECTION_MODE_MANUAL:
                     request = (MainThreadRequest) msg.obj;
-                    OperatorInfo operator = (OperatorInfo) request.argument;
+                    ManualNetworkSelectionArgument selArg =
+                            (ManualNetworkSelectionArgument) request.argument;
                     onCompleted = obtainMessage(EVENT_SET_NETWORK_SELECTION_MODE_MANUAL_DONE,
                             request);
-                    getPhoneFromRequest(request).selectNetworkManually(operator, onCompleted);
+                    getPhoneFromRequest(request).selectNetworkManually(selArg.operatorInfo,
+                            selArg.persistSelection, onCompleted);
                     break;
 
                 case EVENT_SET_NETWORK_SELECTION_MODE_MANUAL_DONE:
@@ -2390,10 +2405,13 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      * Set the network selection mode to manual with the selected carrier.
      */
     @Override
-    public boolean setNetworkSelectionModeManual(int subId, OperatorInfo operator) {
+    public boolean setNetworkSelectionModeManual(int subId, OperatorInfo operator,
+            boolean persistSelection) {
         enforceModifyPermissionOrCarrierPrivilege();
         if (DBG) log("setNetworkSelectionModeManual: subId:" + subId + " operator:" + operator);
-        return (Boolean) sendRequest(CMD_SET_NETWORK_SELECTION_MODE_MANUAL, operator, subId);
+        ManualNetworkSelectionArgument arg = new ManualNetworkSelectionArgument(operator,
+                persistSelection);
+        return (Boolean) sendRequest(CMD_SET_NETWORK_SELECTION_MODE_MANUAL, arg, subId);
     }
 
     /**
@@ -2902,7 +2920,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      * {@hide}
      * Returns the IMS Registration Status
      */
-    public boolean isWifiCallingEnabled() {
+    public boolean isWifiCallingAvailable() {
         return mPhone.isWifiCallingEnabled();
     }
 
@@ -2910,8 +2928,15 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
      * {@hide}
      * Returns the IMS Registration Status
      */
-    public boolean isVolteEnabled() {
+    public boolean isVolteAvailable() {
         return mPhone.isVolteEnabled();
+    }
+
+    /*
+     * {@hide} Returns the IMS Registration Status
+     */
+    public boolean isVideoTelephonyAvailable() {
+        return mPhone.isVideoEnabled();
     }
 
     private boolean canReadPhoneState(String callingPackage, String message) {

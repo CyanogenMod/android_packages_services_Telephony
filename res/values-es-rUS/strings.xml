@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"Datos móviles"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"Teléfono"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"Servicios telefónicos"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"Marcador de emergencia"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"Teléfono"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"Lista de NMF"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"Revirtiendo configuraciones..."</string>
     <string name="response_error" msgid="6674110501330139405">"Respuesta inesperada de la red."</string>
     <string name="exception_error" msgid="7027667130619518211">"Error en la red o en la tarjeta SIM."</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"La solicitud SS cambió por una solicitud DIAL."</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"La solicitud SS cambió por una solicitud USSD."</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"La solicitud SS cambió por una nueva solicitud SS."</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"Está activada la configuración de los números de marcación fija de tu teléfono. Por lo tanto, algunas de las características relacionados con las llamadas no funcionan."</string>
     <string name="radio_off_error" msgid="2304459933248513376">"Enciende la radio antes de ver esta configuración."</string>
     <string name="close_dialog" msgid="2365884406356986917">"Aceptar"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"Modo de red preferido: LTE/WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"Modo de red preferido: LTE/GSM/UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"Modo de red preferido: LTE / CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"Modo de red preferido: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE/WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (recomendado)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (recomendado)"</string>
     <string name="network_global" msgid="1323190488685355309">"Global"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"Solo TDSCDMA"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"Sistema seleccionado"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"Cambiar el modo itinerancia CDMA"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"Sistema seleccionado"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"La red seleccionada (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) no está disponible"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"Desactivar modo de avión para hacer una llamada"</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"Desactivar el modo de avión o conectarse a una red inalámbrica para hacer una llamada"</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"Para realizar una llamada que no sea de emergencia, sal del modo de devolución de llamada de emergencia."</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"No registrado en la red."</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"Red móvil no disponible"</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"La red móvil no está disponible. Conéctate a una red inalámbrica para realizar una llamada."</string>
@@ -520,7 +526,7 @@
     <string name="voicemail_settings" msgid="72448049107749316">"Configuración"</string>
     <string name="voicemail_number_not_set" msgid="6724904736891087856">"&lt;Sin configurar&gt;"</string>
     <string name="other_settings" msgid="3672912580359716394">"Otras configuraciones de llamada"</string>
-    <string name="calling_via_template" msgid="4839419581866928142">"Llamada a través de <xliff:g id="PROVIDER_NAME">%s</xliff:g>"</string>
+    <string name="calling_via_template" msgid="4839419581866928142">"Llamada vía <xliff:g id="PROVIDER_NAME">%s</xliff:g>"</string>
     <string name="contactPhoto" msgid="4713193418046639466">"foto de contacto"</string>
     <string name="goPrivate" msgid="865837794424530980">"pasar a modo privado"</string>
     <string name="selectContact" msgid="781975788478987237">"seleccionar contacto"</string>

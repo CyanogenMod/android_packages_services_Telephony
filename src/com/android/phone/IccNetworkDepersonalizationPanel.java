@@ -54,6 +54,12 @@ import java.nio.ByteOrder;
  */
 public class IccNetworkDepersonalizationPanel extends IccPanel {
 
+    /**
+     * Tracks whether there is an instance of the network depersonalization dialog showing or not.
+     * Ensures only a single instance of the dialog is visible.
+     */
+    private static boolean sShowingDialog = false;
+
     //debug constants
     private static final boolean DBG = false;
 
@@ -175,6 +181,21 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
         R.string.puk_unlock_failed,         R.string.puk_unlock_success},
     };
 
+    /**
+     * Shows the network depersonalization dialog, but only if it is not already visible.
+     */
+    public static void showDialog() {
+        if (sShowingDialog) {
+            Log.i(TAG, "[IccNetworkDepersonalizationPanel] - showDialog; skipped already shown.");
+            return;
+        }
+        Log.i(TAG, "[IccNetworkDepersonalizationPanel] - showDialog; showing dialog.");
+        sShowingDialog = true;
+        IccNetworkDepersonalizationPanel ndpPanel =
+                new IccNetworkDepersonalizationPanel(PhoneGlobals.getInstance());
+        ndpPanel.show();
+    }
+
     //private textwatcher to control text entry.
     private TextWatcher mPinEntryWatcher = new TextWatcher() {
         public void beforeTextChanged(CharSequence buffer, int start, int olen, int nlen) {
@@ -277,6 +298,13 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
     @Override
     protected void onStart() {
         super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.i(TAG, "[IccNetworkDepersonalizationPanel] - showDialog; hiding dialog.");
+        sShowingDialog = false;
     }
 
     //Mirrors IccPinUnlockPanel.onKeyDown().
