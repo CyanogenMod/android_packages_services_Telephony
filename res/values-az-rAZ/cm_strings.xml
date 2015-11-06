@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="show_ssn_label">Tədbir bildirişi</string>
   <string name="show_ssn_summary">Zəng etmək üsulu ilə bağlı müxtəlif şəbəkə hadisələri üçün bildiriş göstər</string>
   <string name="blacklist_title">Əngəllənən zəng edənlərin siyahısı</string>
   <string name="blacklist_summary_disabled">Ləğv edildi</string>
