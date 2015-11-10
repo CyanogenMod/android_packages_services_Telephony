@@ -9,7 +9,10 @@ phone_common_dir := ../../apps/PhoneCommon
 src_dirs := src $(phone_common_dir)/src sip/src
 res_dirs := res $(phone_common_dir)/res sip/res
 
-LOCAL_JAVA_LIBRARIES := telephony-common voip-common ims-common
+LOCAL_JAVA_LIBRARIES := \
+        telephony-common \
+        voip-common ims-common \
+        org.cyanogenmod.platform.internal
 LOCAL_STATIC_JAVA_LIBRARIES := \
         com.android.services.telephony.common \
         libphonenumbergoogle \
