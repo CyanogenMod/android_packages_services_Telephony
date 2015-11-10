@@ -80,6 +80,7 @@ import com.android.internal.util.HexDump;
 
 import static com.android.internal.telephony.PhoneConstants.SUBSCRIPTION_KEY;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import cyanogenmod.providers.CMSettings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1634,16 +1635,16 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         String normalized = PhoneNumberUtil.normalizeDigitsOnly(address);
 
         List<String> settings =
-                Settings.Secure.getDelimitedStringAsList(mApp.getContentResolver(),
-                        Settings.Secure.PROTECTED_SMS_ADDRESSES, "|");
+                CMSettings.Secure.getDelimitedStringAsList(mApp.getContentResolver(),
+                        CMSettings.Secure.PROTECTED_SMS_ADDRESSES, "|");
         if (!settings.contains(normalized)) {
             // Add the address
             settings.add(normalized);
         }
 
         // Commit
-        Settings.Secure.putListAsDelimitedString(mApp.getContentResolver(),
-                Settings.Secure.PROTECTED_SMS_ADDRESSES, "|", settings);
+        CMSettings.Secure.putListAsDelimitedString(mApp.getContentResolver(),
+                CMSettings.Secure.PROTECTED_SMS_ADDRESSES, "|", settings);
     }
 
     /**
@@ -1667,14 +1668,14 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         String normalized = PhoneNumberUtil.normalizeDigitsOnly(address);
 
         List<String> settings =
-                Settings.Secure.getDelimitedStringAsList(mApp.getContentResolver(),
-                        Settings.Secure.PROTECTED_SMS_ADDRESSES, "\\|");
+                CMSettings.Secure.getDelimitedStringAsList(mApp.getContentResolver(),
+                        CMSettings.Secure.PROTECTED_SMS_ADDRESSES, "\\|");
 
         if (settings.contains(normalized)) {
             settings.remove(normalized);
             // Commit
-            Settings.Secure.putString(mApp.getContentResolver(),
-                    Settings.Secure.PROTECTED_SMS_ADDRESSES, TextUtils.join("\\|", settings));
+            CMSettings.Secure.putString(mApp.getContentResolver(),
+                    CMSettings.Secure.PROTECTED_SMS_ADDRESSES, TextUtils.join("\\|", settings));
             return true;
         } else {
             return false;
