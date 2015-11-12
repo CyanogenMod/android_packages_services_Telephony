@@ -119,7 +119,9 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
     }
 
     private boolean isTimerEnabled() {
-        return getContext().getResources().getBoolean(R.bool.config_enable_cfu_time);
+        //Timer is enabled only when UT services are enabled
+        return getContext().getResources().getBoolean(
+                R.bool.config_enable_cfu_time) && mPhone.isUtEnabled();
     }
 
     /*This will be invoked once service is bound to client*/
@@ -296,6 +298,7 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
         @Override
         public void onUTReqFailed(int errCode, String errString) {
             if (DBG) Log.d(LOG_TAG, "onUTReqFailed errCode= "+errCode + "errString ="+ errString);
+            mTcpListener.onFinished(CallForwardEditPreference.this, true);
             mTcpListener.onError(CallForwardEditPreference.this, RESPONSE_ERROR);
         }
 
