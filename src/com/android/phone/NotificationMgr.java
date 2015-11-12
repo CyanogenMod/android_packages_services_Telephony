@@ -62,6 +62,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import cyanogenmod.providers.CMSettings;
+
 /**
  * NotificationManager-related utility code for the Phone app.
  *
@@ -169,19 +171,19 @@ public class NotificationMgr {
         notification.flags |= Notification.FLAG_SHOW_LIGHTS;
 
         // Get Voice mail values if they are to be used
-        boolean customEnabled = Settings.System.getInt(resolver,
-                Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE, 0) == 1;
+        boolean customEnabled = CMSettings.System.getInt(resolver,
+                CMSettings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE, 0) == 1;
         if (!customEnabled) {
             notification.defaults |= Notification.DEFAULT_LIGHTS;
             return;
         }
 
-        notification.ledARGB = Settings.System.getInt(resolver,
-            Settings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR, DEFAULT_COLOR);
-        notification.ledOnMS = Settings.System.getInt(resolver,
-            Settings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON, DEFAULT_TIME);
-        notification.ledOffMS = Settings.System.getInt(resolver,
-            Settings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF, DEFAULT_TIME);
+        notification.ledARGB = CMSettings.System.getInt(resolver,
+            CMSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR, DEFAULT_COLOR);
+        notification.ledOnMS = CMSettings.System.getInt(resolver,
+            CMSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON, DEFAULT_TIME);
+        notification.ledOffMS = CMSettings.System.getInt(resolver,
+            CMSettings.System.NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF, DEFAULT_TIME);
      }
 
     /**
