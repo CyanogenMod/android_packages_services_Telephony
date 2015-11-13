@@ -48,6 +48,7 @@ import android.widget.Toast;
 import com.android.ims.ImsConfig;
 import com.android.ims.ImsManager;
 import com.android.internal.telephony.CallForwardInfo;
+import com.android.internal.telephony.ConfigResourceUtil;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.phone.common.util.SettingsUtil;
@@ -113,6 +114,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private CheckBoxPreference mEnableVideoCalling;
     private CheckBoxPreference mShowDurationCheckBox;
     private CheckBoxPreference mVibrateAfterConnected;
+    private Preference mSdnButton;
+    private ConfigResourceUtil mConfigResUtil = new ConfigResourceUtil();
 
     /*
      * Click Listeners, handle click based on objects attached to UI.
@@ -126,7 +129,15 @@ public class CallFeaturesSetting extends PreferenceActivity
                     android.provider.Settings.Global.CALL_AUTO_RETRY,
                     mButtonAutoRetry.isChecked() ? 1 : 0);
             return true;
-        }
+        } else if (preference == mSdnButton) {
+            Log.d(LOG_TAG, "onPreferenceTreeClick : mSdnButton is selected.Start activity");
+            Intent sdnLaunchIntent = new Intent(mConfigResUtil
+                    .getStringValue(mPhone.getContext(), "launch_sdn"));
+            sdnLaunchIntent.addCategory(Intent.CATEGORY_DEFAULT);
+            sdnLaunchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(sdnLaunchIntent);
+            return true;
+       }
         return false;
     }
 
@@ -289,7 +300,19 @@ public class CallFeaturesSetting extends PreferenceActivity
                 }
             }
         }
-
+        if (mConfigResUtil.getBooleanValue(mPhone.getContext(),"config_enable_displaying_sdn")) {
+            mSdnButton = new Preference(prefSet.getContext());
+            if (mSdnButton != null) {
+                log("SDN feature enabled.");
+                mSdnButton.setTitle(mConfigResUtil
+                        .getStringValue(mPhone.getContext(),"sdn"));
+                mSdnButton.setSummary(mConfigResUtil
+                        .getStringValue(mPhone.getContext(),"summary_sdn"));
+                mSdnButton.setPersistent(false);
+                mSdnButton.setSelectable(true);
+                prefSet.addPreference(mSdnButton);
+           }
+       }
         if (ImsManager.isVtEnabledByPlatform(mPhone.getContext()) && ENABLE_VT_FLAG) {
             boolean currentValue =
                     ImsManager.isEnhanced4gLteModeSettingEnabledByUser(mPhone.getContext())
