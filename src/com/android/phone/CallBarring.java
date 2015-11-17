@@ -43,12 +43,14 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.telephony.ServiceState;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.CommandsInterface;
+import com.android.internal.telephony.ConfigResourceUtil;
 import com.android.phone.settings.fdn.EditPinPreference;
 
 public class CallBarring extends PreferenceActivity implements DialogInterface.OnClickListener,
@@ -129,6 +131,7 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
     private ListPreference mListIncoming = null;
     private EditPinPreference mDialogCancelAll = null;
     private EditPinPreference mDialogChangePSW = null;
+    private ConfigResourceUtil mCfgResUtil = new ConfigResourceUtil();
 
     @Override
     protected void onCreate(Bundle icicle) {
@@ -148,6 +151,11 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
         mListIncoming = (ListPreference) prefSet.findPreference(CALL_BARRING_INCOMING_KEY);
         mListOutgoing.setOnPreferenceChangeListener(this);
         mListIncoming.setOnPreferenceChangeListener(this);
+
+        if (mCfgResUtil.getBooleanValue(mPhone.getContext(),"config_enable_callbarring_over_ims")
+                && mPhone.isUtEnabled()) {
+            mListOutgoing.setEnabled(false);
+        }
 
         mDialogCancelAll = (EditPinPreference) prefSet.findPreference(CALL_BARRING_CANCEL_ALL_KEY);
         mDialogChangePSW = (EditPinPreference) prefSet.findPreference(CALL_BARRING_CHANGE_PSW_KEY);
@@ -224,8 +232,14 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
     // Request to begin querying for call barring.
     private void queryAllCBOptions() {
         showDialog(INITIAL_BUSY_DIALOG);
-        mPhone.getCallBarringOption (CommandsInterface.CB_FACILITY_BAOC, "",
-                Message.obtain(mGetAllCBOptionsComplete, EVENT_CB_QUERY_ALL, CB_BAOC, 0));
+        if (mCfgResUtil.getBooleanValue(mPhone.getContext(),"config_enable_callbarring_over_ims")
+                && mPhone.isUtEnabled()) {
+            mPhone.getCallBarringOption (CommandsInterface.CB_FACILITY_BAIC, "",
+                    Message.obtain(mGetAllCBOptionsComplete,EVENT_CB_QUERY_ALL, CB_BAIC, 0));
+        } else {
+            mPhone.getCallBarringOption (CommandsInterface.CB_FACILITY_BAOC, "",
+                    Message.obtain(mGetAllCBOptionsComplete, EVENT_CB_QUERY_ALL, CB_BAOC, 0));
+        }
     }
 
     // callback after each step of querying for all options.
