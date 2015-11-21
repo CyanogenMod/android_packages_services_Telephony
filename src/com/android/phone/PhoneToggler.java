@@ -23,6 +23,7 @@ import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import android.telephony.SubscriptionManager;
 import android.util.Log;
 
 import com.android.internal.telephony.Phone;
@@ -48,14 +49,11 @@ public class PhoneToggler extends BroadcastReceiver  {
     private static final String LOG_TAG = "PhoneToggler";
     private static final boolean DBG = true;
 
-    private Phone mPhone;
     private MyHandler mHandler;
 
     private Phone getPhone() {
-        if (mPhone == null) {
-            mPhone = PhoneFactory.getDefaultPhone();
-        }
-        return mPhone;
+        return PhoneFactory.getPhone(SubscriptionManager.getPhoneId(
+                SubscriptionManager.getDefaultDataSubId()));
     }
 
     private MyHandler getHandler() {
