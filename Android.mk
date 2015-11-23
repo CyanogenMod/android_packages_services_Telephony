@@ -12,7 +12,7 @@ res_dirs := res $(phone_common_dir)/res sip/res
 LOCAL_JAVA_LIBRARIES := telephony-common voip-common ims-common
 LOCAL_STATIC_JAVA_LIBRARIES := \
         com.android.services.telephony.common \
-        libphonenumbergoogle \
+        libphonenumber-platform \
         guava \
         org.cyanogenmod.platform.sdk
 
