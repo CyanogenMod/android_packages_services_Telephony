@@ -636,7 +636,7 @@ abstract class TelephonyConnection extends Connection {
         if (mOriginalConnection != null) {
             if (((getAddress() != null) &&
                     (getPhone().getPhoneType() == TelephonyManager.PHONE_TYPE_CDMA)) &&
-                    !isValidRingingCall()) {
+                    !mOriginalConnection.isIncoming()) {
                 address = getAddressFromNumber(mOriginalConnection.getOrigDialString());
             } else {
                 address = getAddressFromNumber(mOriginalConnection.getAddress());
