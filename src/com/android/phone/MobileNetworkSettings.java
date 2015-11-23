@@ -90,6 +90,7 @@ public class MobileNetworkSettings extends PreferenceActivity
     private static final int TAB_THRESHOLD = 2;
 
     //String keys for preference lookup
+    private static final String BUTTON_DATA_ENABLE_KEY = "button_data_enable_key";
     private static final String BUTTON_PREFERED_NETWORK_MODE = "preferred_network_mode_key";
     private static final String BUTTON_ROAMING_KEY = "button_roaming_key";
     private static final String BUTTON_CDMA_LTE_DATA_SERVICE_KEY = "cdma_lte_data_service_key";
@@ -115,6 +116,7 @@ public class MobileNetworkSettings extends PreferenceActivity
     //UI objects
     private ListPreference mButtonPreferredNetworkMode;
     private ListPreference mButtonEnabledNetworks;
+    private SwitchPreference mButtonDataEnable;
     private SwitchPreference mButtonDataRoam;
     private SwitchPreference mButton4glte;
     private Preference mLteDataServicePref;
@@ -248,6 +250,9 @@ public class MobileNetworkSettings extends PreferenceActivity
             return true;
         } else if (preference == mButtonDataRoam) {
             // Do not disable the preference screen if the user clicks Data roaming.
+            return true;
+        } else if (preference == mButtonDataEnable) {
+            // Do not disable the preference screen if the user clicks data enable.
             return true;
         } else {
             // if the button is anything but the simple toggle preference,
@@ -492,11 +497,13 @@ public class MobileNetworkSettings extends PreferenceActivity
         //get UI object references
         PreferenceScreen prefSet = getPreferenceScreen();
 
+        mButtonDataEnable = (SwitchPreference) prefSet.findPreference(BUTTON_DATA_ENABLE_KEY);
         mButtonDataRoam = (SwitchPreference) prefSet.findPreference(BUTTON_ROAMING_KEY);
         mButtonPreferredNetworkMode = (ListPreference) prefSet.findPreference(
                 BUTTON_PREFERED_NETWORK_MODE);
         mButtonEnabledNetworks = (ListPreference) prefSet.findPreference(
                 BUTTON_ENABLED_NETWORKS_KEY);
+        mButtonDataEnable.setOnPreferenceChangeListener(this);
         mButtonDataRoam.setOnPreferenceChangeListener(this);
 
         mLteDataServicePref = prefSet.findPreference(BUTTON_CDMA_LTE_DATA_SERVICE_KEY);
@@ -536,6 +543,7 @@ public class MobileNetworkSettings extends PreferenceActivity
         // Set UI state in onResume because a user could go home, launch some
         // app to change this setting's backend, and re-launch this settings app
         // and the UI state would be inconsistent with actual state
+        mButtonDataEnable.setChecked(mPhone.getDataEnabled());
         mButtonDataRoam.setChecked(mPhone.getDataRoamingEnabled());
 
         if (getPreferenceScreen().findPreference(BUTTON_PREFERED_NETWORK_MODE) != null
@@ -583,6 +591,7 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         if (prefSet != null) {
             prefSet.removeAll();
+            prefSet.addPreference(mButtonDataEnable);
             prefSet.addPreference(mButtonDataRoam);
             prefSet.addPreference(mButtonPreferredNetworkMode);
             prefSet.addPreference(mButtonEnabledNetworks);
@@ -778,6 +787,7 @@ public class MobileNetworkSettings extends PreferenceActivity
         }
 
         // Get the networkMode from Settings.System and displays it
+        mButtonDataEnable.setChecked(mPhone.getDataEnabled());
         mButtonDataRoam.setChecked(mPhone.getDataRoamingEnabled());
         mButtonEnabledNetworks.setValue(Integer.toString(settingsNetworkMode));
         mButtonPreferredNetworkMode.setValue(Integer.toString(settingsNetworkMode));
@@ -799,6 +809,7 @@ public class MobileNetworkSettings extends PreferenceActivity
         boolean canChange4glte = (tm.getCallState() == TelephonyManager.CALL_STATE_IDLE) &&
                 ImsManager.isNonTtyOrTtyOnVolteEnabled(getApplicationContext()) &&
                 carrierConfig.getBoolean(CarrierConfigManager.KEY_EDITABLE_ENHANCED_4G_LTE_BOOL);
+        mButtonDataEnable.setEnabled(hasActiveSubscriptions);
         mButtonDataRoam.setEnabled(hasActiveSubscriptions);
         mButtonPreferredNetworkMode.setEnabled(hasActiveSubscriptions || (getResources().
                 getBoolean(R.bool.config_no_sim_display_network_modes)));
@@ -969,6 +980,11 @@ public class MobileNetworkSettings extends PreferenceActivity
                 mPhone.setDataRoamingEnabled(false);
             }
             return true;
+        } else if (preference == mButtonDataEnable) {
+            if (DBG) log("onPreferenceTreeClick: preference == mButtonDataEnable.");
+            boolean dataEnabled = !mButtonDataEnable.isChecked();
+            mPhone.setDataEnabled(dataEnabled);
+            mButtonDataEnable.setChecked(dataEnabled);
         }
 
         // always let the preference setting proceed.

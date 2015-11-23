@@ -51,4 +51,9 @@
     <string name="phone_number_label">My phone number</string>
     <string name="phone_number_summary">Set the phone number for this device</string>
     <string name="msisdn_alpha_tag" translatable="false">Voice Line 1</string>
+
+    <!-- Data enabled -->
+    <string name="data_enable_title">Enable mobile data</string>
+    <string name="data_enable_on">Mobile data enabled</string>
+    <string name="data_enable_off">Mobile data disabled</string>
 </resources>

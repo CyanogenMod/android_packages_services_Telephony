@@ -28,6 +28,13 @@
         android:summaryOn="@string/roaming_enable"
         android:summaryOff="@string/roaming_disable"/>
 
+    <SwitchPreference
+        android:key="button_data_enable_key"
+        android:title="@string/data_enable_title"
+        android:persistent="false"
+        android:summaryOn="@string/data_enable_on"
+        android:summaryOff="@string/data_enable_off"/>
+
     <ListPreference
         android:key="preferred_network_mode_key"
         android:title="@string/preferred_network_mode_title"
