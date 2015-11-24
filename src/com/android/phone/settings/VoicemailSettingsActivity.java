@@ -249,7 +249,13 @@ public class VoicemailSettingsActivity extends PreferenceActivity
         mVoicemailProviders.setOnPreferenceChangeListener(this);
         mPreviousVMProviderKey = mVoicemailProviders.getValue();
 
-        mVoicemailSettings = (PreferenceScreen) findPreference(BUTTON_VOICEMAIL_SETTING_KEY);
+        mVoicemailSettings = (PreferenceScreen) prefSet.findPreference(
+                BUTTON_VOICEMAIL_SETTING_KEY);
+        if (getResources().getBoolean(
+                R.bool.config_regional_voicemail_address_editable)){
+            mVoicemailSettings.removePreference(mSubMenuVoicemailSettings);
+            prefSet.removePreference(mVoicemailSettings);
+        }
 
         mVoicemailNotificationRingtone = (VoicemailRingtonePreference) findPreference(
                 getResources().getString(R.string.voicemail_notification_ringtone_key));
