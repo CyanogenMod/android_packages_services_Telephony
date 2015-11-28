@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Telefonszám beállítása az eszközhöz</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobilhálózati beállítások</string>
   <string name="call_recording_format">Hívásfelvétel formátuma</string>
+  <string name="ims_get_packet_count_failed">Nem sikerült lekérni a csomagok számát</string>
+  <string name="ims_get_packet_error_count_failed">Nem sikerült lekérni a hibás csomagok számát</string>
+  <string name="ims_get_packet_count_label">Koppintson ide a csomagok számáért</string>
+  <string name="ims_get_packet_error_count_label">Koppintson ide a hibás csomagok számáért</string>
+  <string name="wifi_call_setting">Wi\u2011Fi hívás beállítások</string>
+  <string name="wifi_calling_title">Wi\u2011Fi hívás</string>
+  <string name="wifi_calling_preference_title">Wi\u2011Fi hívás preferencia</string>
+  <string name="ims_set_wifi_calling_preference_failed">Nem sikerült beállítani a Wi\u2011Fi hívás preferenciát</string>
+  <string name="wifi_pref_none">Nincs preferencia</string>
+  <string name="wifi_preferred">Wi\u2011Fi preferált</string>
+  <string name="wifi_only">Csak Wi\u2011Fi</string>
+  <string name="cellular_preferred">GSM preferált</string>
+  <string name="cellular_only">Csak GSM</string>
 </resources>

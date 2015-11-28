@@ -212,4 +212,5 @@
   <string name="phone_number_summary">Setați nr de telefon pentru acest dispozitiv</string>
   <string name="msim_mobile_network_settings_title">Setări rețea mobilă SIM %d</string>
   <string name="call_recording_format">Formatul de înregistrare a apelului</string>
+  <string name="wifi_pref_none">Nicio preferință</string>
 </resources>
