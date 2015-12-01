@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"Korinio ryšio duomenys"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"Telefonas"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"Telefono paslaugos"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"Pagalbos numerio rinkiklis"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"Telefonas"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"FRN sąrašas"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"Grąžinami nustatymai…"</string>
     <string name="response_error" msgid="6674110501330139405">"Netikėtas atsakas iš tinklo."</string>
     <string name="exception_error" msgid="7027667130619518211">"Tinklo ar SIM kortelės klaida."</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"SS užklausa pakeista į DIAL užklausą."</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"SS užklausa pakeista į USSD užklausą."</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"SS užklausa pakeista į naują SS užklausą."</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"Įjungtas jūsų telefono programos fiksuotojo rinkimo numerių nustatymas. Todėl neveikia kai kurios su skambinimu susijusios funkcijos."</string>
     <string name="radio_off_error" msgid="2304459933248513376">"Prieš žiūrėdami šiuos nustatymus, įjunkite radiją."</string>
     <string name="close_dialog" msgid="2365884406356986917">"Gerai"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"Pageidaujamas tinklo režimas: LTE / WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"Pageidautinas tinklo režimas: LTE / GSM / UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"Pageidaujamas tinklo režimas: LTE / CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"Pageidaujamas tinklo režimas: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE / WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (rekomenduojamas)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (rekomenduojamas)"</string>
     <string name="network_global" msgid="1323190488685355309">"Visuotinis"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"Tik veikiant TDSCDMA"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"Sistemos pasirinkimas"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"Pakeisti tarptinklinio CDMA ryšio režimą"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"Sistemos pasirinkimas"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"Pasirinktas tinklas (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) negalimas"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"Išjunkite lėktuvo režimą, kad galėtumėte skambinti."</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"Išjunkite lėktuvo režimą arba prisijunkite prie belaidžio ryšio tinklo, kad galėtumėte skambinti."</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"Jei norite skambinti ne pagalbos numeriu, išjunkite atgalinio skambinimo pagalbos numeriu režimą."</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"Neregistruota tinkle."</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"Korinis tinklas nepasiekiamas"</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"Mobiliojo ryšio tinklas nepasiekiamas. Prisijunkite prie belaidžio ryšio tinklo, kad galėtumėte skambinti."</string>
@@ -526,7 +532,7 @@
     <string name="voicemail_settings" msgid="72448049107749316">"Sąranka"</string>
     <string name="voicemail_number_not_set" msgid="6724904736891087856">"&lt;Nenustatyta&gt;"</string>
     <string name="other_settings" msgid="3672912580359716394">"Kiti skambučio nustatymai"</string>
-    <string name="calling_via_template" msgid="4839419581866928142">"Skambinama naudojantis „<xliff:g id="PROVIDER_NAME">%s</xliff:g>“ paslaugomis"</string>
+    <string name="calling_via_template" msgid="4839419581866928142">"Skam. naudojant „<xliff:g id="PROVIDER_NAME">%s</xliff:g>“"</string>
     <string name="contactPhoto" msgid="4713193418046639466">"kontakto nuotrauka"</string>
     <string name="goPrivate" msgid="865837794424530980">"naudoti privatų režimą"</string>
     <string name="selectContact" msgid="781975788478987237">"pasirinkti kontaktą"</string>

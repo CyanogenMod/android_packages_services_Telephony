@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"सेल्‍युलर डेटा"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"फोन"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"फोन सेवा"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"आणीबाणी डायलर"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"फोन"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"FDN सूची"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"सेटिंग्‍ज परत करत आहे…"</string>
     <string name="response_error" msgid="6674110501330139405">"नेटवर्क वरून अनपेक्षित प्रतिसाद."</string>
     <string name="exception_error" msgid="7027667130619518211">"नेटवर्क किंवा सिम कार्ड त्रुटी."</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"SS विनंती डायल विनंतीवर सुधारित केली."</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"SS विनंती USSD विनंतीवर सुधारित केली."</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"SS विनंती नवीन SS विनंतीवर सुधारित केली."</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"आपल्‍या फोन अ‍ॅप्‍सचे निश्चित डायलिंग नंबर सेटिंग चालू केले. परिणामी, काही कॉल संबंधित वैशिष्‍ट्ये कार्य करीत नाहीत."</string>
     <string name="radio_off_error" msgid="2304459933248513376">"या सेटिंग्‍ज पाहण्‍यापूर्वी रेडिओ चालू करा."</string>
     <string name="close_dialog" msgid="2365884406356986917">"ठीक"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"प्राधान्‍यकृत नेटवर्क मोड: LTE / WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"प्राधान्यीकृत नेटवर्क मोड: LTE / GSM / UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"प्राधान्‍यकृत नेटवर्क मोड: LTE / CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"प्राधान्यीकृत नेटवर्क मोड: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE / WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (शिफारस केलेले)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (शिफारस केलेले)"</string>
     <string name="network_global" msgid="1323190488685355309">"जागतिक"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"केवळ TDSCDMA"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"सिस्‍टीम निवडा"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"CDMA रोमिंग मोड बदला"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"सिस्‍टीम निवडा"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"निवडलेले नेटवर्क (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) अनुपलब्‍ध"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"कॉल करण्‍यासाठी विमान मोड बंद करा."</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"कॉल करण्‍यासाठी विमान मोड बंद करा किंवा वायरलेस नेटवर्कशी कनेक्‍ट करा."</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"आणीबाणी नसलेला कॉल करण्‍यासाठी आणीबाणी कॉलबॅक मोडमधून बाहेर पडा."</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"नेटवर्कवर नोंदणीकृत नाही."</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"सेल्युलर नेटवर्क उपलब्ध नाही."</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"सेल्युलर नेटवर्क उपलब्‍ध नाही. कॉल करण्‍यासाठी वायरलेस नेटवर्कशी कनेक्‍ट करा."</string>
@@ -520,7 +526,7 @@
     <string name="voicemail_settings" msgid="72448049107749316">"सेटअप"</string>
     <string name="voicemail_number_not_set" msgid="6724904736891087856">"&lt;सेट नाही&gt;"</string>
     <string name="other_settings" msgid="3672912580359716394">"इतर कॉल सेटिंग्ज"</string>
-    <string name="calling_via_template" msgid="4839419581866928142">"<xliff:g id="PROVIDER_NAME">%s</xliff:g> द्वारे कॉल करीत आहे"</string>
+    <string name="calling_via_template" msgid="4839419581866928142">"<xliff:g id="PROVIDER_NAME">%s</xliff:g> द्वारे कॉल करत आहे"</string>
     <string name="contactPhoto" msgid="4713193418046639466">"संपर्क फोटो"</string>
     <string name="goPrivate" msgid="865837794424530980">"खाजगी जा"</string>
     <string name="selectContact" msgid="781975788478987237">"संपर्क निवडा"</string>

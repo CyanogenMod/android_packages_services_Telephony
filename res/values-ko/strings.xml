@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"이동통신 데이터"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"휴대전화"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"전화 서비스"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"긴급 통화"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"휴대전화"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"FDN 목록"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"원래 설정으로 되돌리는 중..."</string>
     <string name="response_error" msgid="6674110501330139405">"네트워크에서 예기치 않은 응답이 전송되었습니다."</string>
     <string name="exception_error" msgid="7027667130619518211">"네트워크 또는 SIM 카드 오류입니다."</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"SS 요청이 DIAL 요청으로 수정되었습니다."</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"SS 요청이 USSD 요청으로 수정되었습니다."</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"SS 요청이 새로운 SS 요청으로 수정되었습니다."</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"휴대전화 앱의 발신 제한 번호 설정을 사용하기 때문에 일부 통화 관련 기능이 작동되지 않습니다."</string>
     <string name="radio_off_error" msgid="2304459933248513376">"이러한 설정을 보려면 무선을 사용해야 합니다."</string>
     <string name="close_dialog" msgid="2365884406356986917">"확인"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"기본 네트워크 모드: LTE/WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"기본 네트워크 모드: LTE/GSM/UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"기본 네트워크 모드: LTE/CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"기본 네트워크 모드: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE/WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE(권장)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G(권장)"</string>
     <string name="network_global" msgid="1323190488685355309">"전체"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"TDSCDMA 전용"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"시스템 선택"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"CDMA 로밍 모드 변경"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"시스템 선택"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"선택한 네트워크(<xliff:g id="OPERATOR_NAME">%s</xliff:g>)를 사용할 수 없음"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"전화를 걸려면 비행기 모드를 사용 중지하세요."</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"전화를 걸려면 비행기 모드를 사용 중지하거나 무선 네트워크에 연결하세요."</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"일반 전화를 걸려면 긴급 콜백 모드를 해제하세요."</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"네트워크에서 등록되지 않았습니다."</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"사용 가능한 이동통신망이 없습니다."</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"모바일 네트워크를 사용할 수 없습니다. 전화를 걸려면 무선 네트워크에 연결하세요."</string>

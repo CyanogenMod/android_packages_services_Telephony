@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"سیلولر ڈیٹا"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"فون"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"فون سروسز"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"ہنگامی ڈائلر"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"فون"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"‏FDN کی فہرست"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"ترتیبات لوٹا رہا ہے…"</string>
     <string name="response_error" msgid="6674110501330139405">"نیٹ ورک سے غیر متوقع جواب۔"</string>
     <string name="exception_error" msgid="7027667130619518211">"‏نیٹ ورک یا SIM کارڈ کی خرابی۔"</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"‏SS درخواست میں ترمیم کر کے DIAL درخواست بنا دی گئی ہے۔"</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"‏SS درخواست میں ترمیم کر کے USSD درخواست بنا دی گئی ہے۔"</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"‏SS درخواست میں ترمیم کر کے نئی SS درخواست بنا دی گئی ہے۔"</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"آپ کے فون کی ایپ کے فکسڈ ڈائلنگ نمبرز کی ترتیب آن ہے۔ نتیجتاًً، کال سے متعلقہ کچھ خصوصیات کام نہیں کر رہی ہیں۔"</string>
     <string name="radio_off_error" msgid="2304459933248513376">"یہ ترتیبات دیکھنے سے پہلے ریڈیو آن کریں۔"</string>
     <string name="close_dialog" msgid="2365884406356986917">"ٹھیک ہے"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"‏ترجیحی نیٹ ورک طرز: LTE / WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"‏ترجیحی نیٹ ورک وضع: LTE / GSM / UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"‏ترجیحی نیٹ ورک وضع: LTE / CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"‏ترجیحی نیٹ ورک موڈ: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE / WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"‏LTE (تجویز کردہ)"</string>
     <string name="network_4G" msgid="2723512640529983138">"‏4G (تجویز کردہ)"</string>
     <string name="network_global" msgid="1323190488685355309">"عالمی"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"‏صرف TDSCDMA"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"نظام کا انتخاب"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"‏CDMA رومنگ طرز تبدیل کریں"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"نظام کا انتخاب"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"منتخب کردہ نیٹ ورک (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) دستیاب نہیں ہے"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"کال کرنے کیلئے ہوائی جہاز وضع آف کریں۔"</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"کال کرنے کیلئے ہوائی جہاز وضع آف کریں یا کسی وائرلیس نیٹ ورک سے منسلک ہوں۔"</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"غیر ہنگامی کال کرنے کیلئے ہنگامی کال بیک موڈ سے اخراج کریں۔"</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"نیٹ ورک پر رجسٹرڈ نہیں ہے۔"</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"سیلولر نیٹ ورک دستیاب نہیں ہے۔"</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"سیلولر نیٹ ورک دستیاب نہیں ہے۔ کال کرنے کیلئے کسی وائرلیس نیٹ ورک سے منسلک ہوں۔"</string>
@@ -520,7 +526,7 @@
     <string name="voicemail_settings" msgid="72448049107749316">"سیٹ اپ"</string>
     <string name="voicemail_number_not_set" msgid="6724904736891087856">"‏&lt;سیٹ نہیں ہے&gt;"</string>
     <string name="other_settings" msgid="3672912580359716394">"دیگر کال کی ترتیبات"</string>
-    <string name="calling_via_template" msgid="4839419581866928142">"<xliff:g id="PROVIDER_NAME">%s</xliff:g> کی معرفت کال ہو رہی ہے"</string>
+    <string name="calling_via_template" msgid="4839419581866928142">"کالنگ بذریعہ <xliff:g id="PROVIDER_NAME">%s</xliff:g>"</string>
     <string name="contactPhoto" msgid="4713193418046639466">"رابطہ کی تصویر"</string>
     <string name="goPrivate" msgid="865837794424530980">"نجی ہوجائیں"</string>
     <string name="selectContact" msgid="781975788478987237">"رابطہ منتخب کریں"</string>
