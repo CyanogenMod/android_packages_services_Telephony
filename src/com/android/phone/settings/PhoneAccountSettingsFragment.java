@@ -54,8 +54,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private static final String USE_SIP_PREF_KEY = "use_sip_calling_options_key";
     private static final String SIP_RECEIVE_CALLS_PREF_KEY = "sip_receive_calls_key";
 
-    private static final String SHOW_DURATION_KEY = "duration_enable_key";
-
     private static final String LEGACY_ACTION_CONFIGURE_PHONE_ACCOUNT =
             "android.telecom.action.CONNECTION_SERVICE_CONFIGURE";
 
@@ -80,8 +78,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private ListPreference mUseSipCalling;
     private SwitchPreference mSipReceiveCallsPreference;
     private SipSharedPreferences mSipSharedPreferences;
-
-    private SwitchPreference mShowDurationSwitch;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -199,16 +195,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
             getPreferenceScreen().removePreference(
                     getPreferenceScreen().findPreference(SIP_SETTINGS_CATEGORY_PREF_KEY));
         }
-
-        mShowDurationSwitch = (SwitchPreference) findPreference(SHOW_DURATION_KEY);
-        if (mShowDurationSwitch != null) {
-            mShowDurationSwitch.setOnPreferenceChangeListener(this);
-            boolean checked = Settings.System.getInt(getContext().getContentResolver(),
-                    Constants.SETTINGS_SHOW_CALL_DURATION, 1) == 1;
-                    mShowDurationSwitch.setChecked(checked);
-                    mShowDurationSwitch.setSummary(checked ? R.string.duration_enable_summary
-                            : R.string.duration_disable_summary);
-        }
     }
 
     /**
@@ -233,13 +219,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
                     handleSipReceiveCallsOption(isEnabled);
                 }
             }).start();
-            return true;
-        } else if (pref == mShowDurationSwitch) {
-            boolean checked = (Boolean) objValue;
-            Settings.System.putInt(getContext().getContentResolver(),
-                    Constants.SETTINGS_SHOW_CALL_DURATION, checked ? 1 : 0);
-            mShowDurationSwitch.setSummary(checked ? R.string.duration_enable_summary
-                    : R.string.duration_disable_summary);
             return true;
         }
         return false;

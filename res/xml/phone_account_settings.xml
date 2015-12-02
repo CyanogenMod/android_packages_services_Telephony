@@ -81,13 +81,6 @@
             android:summary="@string/sip_receive_calls_summary"
             android:persistent="true"/>
 
-        <SwitchPreference
-            android:key="duration_enable_key"
-            android:persistent="false"
-            android:title="@string/preferred_duration_title"
-            android:summaryOn="@string/duration_enable_summary"
-            android:summaryOff="@string/duration_disable_summary" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
