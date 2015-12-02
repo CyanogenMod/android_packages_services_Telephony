@@ -55,8 +55,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private static final String USE_SIP_PREF_KEY = "use_sip_calling_options_key";
     private static final String SIP_RECEIVE_CALLS_PREF_KEY = "sip_receive_calls_key";
 
-    private static final String SHOW_DURATION_KEY = "duration_enable_key";
-
     private static final String LEGACY_ACTION_CONFIGURE_PHONE_ACCOUNT =
             "android.telecom.action.CONNECTION_SERVICE_CONFIGURE";
 
@@ -81,7 +79,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private ListPreference mUseSipCalling;
     private CheckBoxPreference mSipReceiveCallsPreference;
     private SipPreferences mSipPreferences;
-    private CheckBoxPreference mShowDurationCheckBox;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -204,16 +201,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
             getPreferenceScreen().removePreference(
                     getPreferenceScreen().findPreference(SIP_SETTINGS_CATEGORY_PREF_KEY));
         }
-
-        mShowDurationCheckBox = (CheckBoxPreference) findPreference(SHOW_DURATION_KEY);
-        if (mShowDurationCheckBox != null) {
-            mShowDurationCheckBox.setOnPreferenceChangeListener(this);
-            boolean checked = Settings.System.getInt(getContext().getContentResolver(),
-                    Constants.SETTINGS_SHOW_CALL_DURATION, 1) == 1;
-                    mShowDurationCheckBox.setChecked(checked);
-                    mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
-                            : R.string.duration_disable_summary);
-        }
     }
 
     /**
@@ -238,13 +225,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
                     handleSipReceiveCallsOption(isEnabled);
                 }
             }).start();
-            return true;
-        } else if (pref == mShowDurationCheckBox) {
-            boolean checked = (Boolean) objValue;
-            Settings.System.putInt(getContext().getContentResolver(),
-                    Constants.SETTINGS_SHOW_CALL_DURATION, checked ? 1 : 0);
-            mShowDurationCheckBox.setSummary(checked ? R.string.duration_enable_summary
-                    : R.string.duration_disable_summary);
             return true;
         }
         return false;
