@@ -88,13 +88,6 @@
             android:summaryOn="@string/duration_enable_summary"
             android:summaryOff="@string/duration_disable_summary" />
 
-        <SwitchPreference
-            android:key="button_vibrate_after_connected"
-            android:title="@string/vibrate_after_connected_title"
-            android:persistent="false"
-            android:defaultValue="true"
-            android:summary="@string/vibrate_after_connected_summary" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
