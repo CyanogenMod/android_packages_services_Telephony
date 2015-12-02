@@ -29,6 +29,7 @@ import android.view.View;
 
 import org.codeaurora.ims.qtiims.IQtiImsInterfaceListener;
 import org.codeaurora.ims.qtiims.IQtiImsInterface;
+import org.codeaurora.ims.qtiims.QtiImsInterfaceListenerBaseImpl;
 import org.codeaurora.ims.qtiims.QtiViceInfo;
 
 import static com.android.phone.TimeConsumingPreferenceActivity.RESPONSE_ERROR;
@@ -261,7 +262,10 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
 
     }
 
-    private IQtiImsInterfaceListener imsInterfaceListener = new IQtiImsInterfaceListener.Stub() {
+    private QtiImsInterfaceListenerBaseImpl imsInterfaceListener =
+            new QtiImsInterfaceListenerBaseImpl() {
+
+        @Override
         public void onSetCallForwardUncondTimer(int status) {
             if (DBG) Log.d(LOG_TAG, "onSetCallForwardTimer status= "+status);
             try {
@@ -273,6 +277,7 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
             }
         }
 
+        @Override
         public void onGetCallForwardUncondTimer(int startHour, int endHour, int startMinute,
                 int endMinute, int reason, int status, String number, int service) {
             Log.d(LOG_TAG,"onGetCallForwardUncondTimer startHour= " + startHour + " endHour = "
@@ -288,19 +293,10 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
             handleGetCFTimerResponse();
         }
 
+        @Override
         public void onUTReqFailed(int errCode, String errString) {
             if (DBG) Log.d(LOG_TAG, "onUTReqFailed errCode= "+errCode + "errString ="+ errString);
             mTcpListener.onError(CallForwardEditPreference.this, RESPONSE_ERROR);
-        }
-
-        public void onGetPacketCount(int status, long packetCount) {
-        }
-
-        public void onGetPacketErrorCount(int status, long packetErrorCount) {
-        }
-
-        public void receiveCallDeflectResponse(int result) {
-            /* Not implemented, dummy implementation to avoid compilation errors */
         }
 
         public void notifyRefreshViceInfo(QtiViceInfo qtiViceInfo) {
