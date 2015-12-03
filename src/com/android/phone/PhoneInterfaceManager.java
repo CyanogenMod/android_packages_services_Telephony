@@ -143,6 +143,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     private static final int EVENT_SET_NETWORK_SELECTION_MODE_MANUAL_DONE = 42;
     private static final int CMD_SIM_GET_ATR = 43;
     private static final int EVENT_SIM_GET_ATR_DONE = 44;
+    private static final int CMD_OPEN_CHANNEL_WITH_P2 = 45;
 
     /** The singleton instance. */
     private static PhoneInterfaceManager sInstance;
@@ -495,6 +496,23 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                         uiccCard.iccOpenLogicalChannel((String)request.argument, onCompleted);
                     }
                     break;
+
+                case CMD_OPEN_CHANNEL_WITH_P2:
+                    request = (MainThreadRequest) msg.obj;
+                    uiccCard = getUiccCardUsingSubId(request.subId);
+                    Pair<String, Byte> openChannelArgs = (Pair<String, Byte>) request.argument;
+                    if (uiccCard == null) {
+                        loge("iccOpenLogicalChannel: No UICC");
+                        request.result = new IccIoResult(0x6F, 0, (byte[])null);
+                        synchronized (request) {
+                            request.notifyAll();
+                        }
+                    } else {
+                        onCompleted = obtainMessage(EVENT_OPEN_CHANNEL_DONE, request);
+                        uiccCard.iccOpenLogicalChannel(openChannelArgs.first,
+                            openChannelArgs.second, onCompleted);
+                }
+                break;
 
                 case EVENT_OPEN_CHANNEL_DONE:
                     ar = (AsyncResult) msg.obj;
@@ -2152,12 +2170,29 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     }
 
     @Override
+    public IccOpenLogicalChannelResponse iccOpenLogicalChannelWithP2(String AID, byte p2) {
+       return iccOpenLogicalChannelUsingSubIdWithP2(getDefaultSubscription(), AID, p2);
+    }
+
+    @Override
     public IccOpenLogicalChannelResponse iccOpenLogicalChannelUsingSubId(int subId, String AID) {
         enforceModifyPermissionOrCarrierPrivilege(getPhone(subId));
 
         if (DBG) log("iccOpenLogicalChannel: " + AID);
         IccOpenLogicalChannelResponse response = (IccOpenLogicalChannelResponse)sendRequest(
             CMD_OPEN_CHANNEL, AID, subId);
+        if (DBG) log("iccOpenLogicalChannel: " + response);
+        return response;
+    }
+
+    @Override
+    public IccOpenLogicalChannelResponse iccOpenLogicalChannelUsingSubIdWithP2(int subId,
+            String AID, byte p2) {
+        enforceModifyPermissionOrCarrierPrivilege(getPhone(subId));
+
+        if (DBG) log("iccOpenLogicalChannel: " + p2 + " " + AID);
+        IccOpenLogicalChannelResponse response = (IccOpenLogicalChannelResponse)sendRequest(
+            CMD_OPEN_CHANNEL_WITH_P2, new Pair<String, Byte>(AID, p2), subId);
         if (DBG) log("iccOpenLogicalChannel: " + response);
         return response;
     }
