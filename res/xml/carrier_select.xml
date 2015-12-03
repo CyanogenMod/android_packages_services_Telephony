@@ -13,14 +13,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:key="list_networks_key"
-        android:title="@string/label_available">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <Preference
         android:key="button_auto_select_key"
         android:title="@string/select_automatically"
         android:summary="@string/sum_select_automatically"
         android:persistent="false"/>
+    <PreferenceCategory
+        android:title="@string/label_available"
+        android:key="list_networks_key">
+    </PreferenceCategory>
     <PreferenceScreen
         android:key="button_preferred_networks_key"
         android:title="@string/preferred_networks"
