@@ -13,9 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:key="list_networks_key"
-        android:title="@string/label_available">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <Preference
         android:key="button_auto_select_key"
         android:title="@string/select_automatically"
@@ -29,4 +27,8 @@
 
         <intent android:action="org.codeaurora.carrier.ACTION_TELEPHONY_PREFERRED_NETWORK_LIST"/>
     </PreferenceScreen>
+    <PreferenceCategory
+        android:title="@string/label_available"
+        android:key="list_networks_key">
+    </PreferenceCategory>
 </PreferenceScreen>
