@@ -18,10 +18,8 @@ package com.android.services.telephony;
 
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -72,6 +70,7 @@ final class TelecomAccountRegistry {
         private final PstnPhoneCapabilitiesNotifier mPhoneCapabilitiesNotifier;
         private boolean mIsVideoCapable;
         private boolean mIsVideoPauseSupported;
+        private boolean mIsMergeCallSupported;
 
         AccountEntry(Phone phone, boolean isEmergency, boolean isDummy) {
             mPhone = phone;
@@ -171,9 +170,11 @@ final class TelecomAccountRegistry {
             if (mIsVideoCapable) {
                 capabilities |= PhoneAccount.CAPABILITY_VIDEO_CALLING;
             }
-            if (record != null) {
-                updateVideoPauseSupport(record);
+            mIsVideoPauseSupported = isCarrierVideoPauseSupported();
+            if (isCarrierInstantLetteringSupported()) {
+                capabilities |= PhoneAccount.CAPABILITY_CALL_SUBJECT;
             }
+            mIsMergeCallSupported = isCarrierMergeCallSupported();
 
             if (icon == null) {
                 // TODO: Switch to using Icon.createWithResource() once that supports tinting.
@@ -214,34 +215,37 @@ final class TelecomAccountRegistry {
         }
 
         /**
-         * Updates indicator for this {@link AccountEntry} to determine if the carrier supports
-         * pause/resume signalling for IMS video calls.  The carrier setting is stored in MNC/MCC
-         * configuration files.
+         * Determines from carrier configuration whether pausing of IMS video calls is supported.
          *
-         * @param subscriptionInfo The subscription info.
+         * @return {@code true} if pausing IMS video calls is supported.
          */
-        private void updateVideoPauseSupport(SubscriptionInfo subscriptionInfo) {
-            // Get the configuration for the MNC/MCC specified in the current subscription info.
-            Configuration configuration = new Configuration();
-            if (subscriptionInfo.getMcc() == 0 && subscriptionInfo.getMnc() == 0) {
-                Configuration config = mContext.getResources().getConfiguration();
-                configuration.mcc = config.mcc;
-                configuration.mnc = config.mnc;
-                Log.i(this, "updateVideoPauseSupport -- no mcc/mnc for sub: " + subscriptionInfo +
-                        " using mcc/mnc from main context: " + configuration.mcc + "/" +
-                        configuration.mnc);
-            } else {
-                Log.i(this, "updateVideoPauseSupport -- mcc/mnc for sub: " + subscriptionInfo);
-
-                configuration.mcc = subscriptionInfo.getMcc();
-                configuration.mnc = subscriptionInfo.getMnc();
-            }
-
+        private boolean isCarrierVideoPauseSupported() {
             // Check if IMS video pause is supported.
             PersistableBundle b =
                     PhoneGlobals.getInstance().getCarrierConfigForSubId(mPhone.getSubId());
-            mIsVideoPauseSupported
-                    = b.getBoolean(CarrierConfigManager.KEY_SUPPORT_PAUSE_IMS_VIDEO_CALLS_BOOL);
+            return b.getBoolean(CarrierConfigManager.KEY_SUPPORT_PAUSE_IMS_VIDEO_CALLS_BOOL);
+        }
+
+        /**
+         * Determines from carrier config whether instant lettering is supported.
+         *
+         * @return {@code true} if instant lettering is supported, {@code false} otherwise.
+         */
+        private boolean isCarrierInstantLetteringSupported() {
+            PersistableBundle b =
+                    PhoneGlobals.getInstance().getCarrierConfigForSubId(mPhone.getSubId());
+            return b.getBoolean(CarrierConfigManager.KEY_CARRIER_INSTANT_LETTERING_AVAILABLE_BOOL);
+        }
+
+        /**
+         * Determines from carrier config whether merging calls is supported.
+         *
+         * @return {@code true} if merging calls is supported, {@code false} otherwise.
+         */
+        private boolean isCarrierMergeCallSupported() {
+            PersistableBundle b =
+                    PhoneGlobals.getInstance().getCarrierConfigForSubId(mPhone.getSubId());
+            return b.getBoolean(CarrierConfigManager.KEY_SUPPORT_CONFERENCE_CALL_BOOL);
         }
 
         /**
@@ -262,6 +266,14 @@ final class TelecomAccountRegistry {
          */
         public boolean isVideoPauseSupported() {
             return mIsVideoCapable && mIsVideoPauseSupported;
+        }
+
+        /**
+         * Indicates whether this account supports merging calls (i.e. conferencing).
+         * @return {@code true} if the account supports merging calls, {@code false} otherwise.
+         */
+        public boolean isMergeCallSupported() {
+            return mIsMergeCallSupported;
         }
     }
 
@@ -335,6 +347,37 @@ final class TelecomAccountRegistry {
             }
         }
         return false;
+    }
+
+    /**
+     * Determines if the {@link AccountEntry} associated with a {@link PhoneAccountHandle} supports
+     * merging calls.
+     *
+     * @param handle The {@link PhoneAccountHandle}.
+     * @return {@code True} if merging calls is supported.
+     */
+    boolean isMergeCallSupported(PhoneAccountHandle handle) {
+        for (AccountEntry entry : mAccounts) {
+            if (entry.getPhoneAccountHandle().equals(handle)) {
+                return entry.isMergeCallSupported();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Returns the address (e.g. the phone number) associated with a subscription.
+     *
+     * @param handle The phone account handle to find the subscription address for.
+     * @return The address.
+     */
+    Uri getAddress(PhoneAccountHandle handle) {
+        for (AccountEntry entry : mAccounts) {
+            if (entry.getPhoneAccountHandle().equals(handle)) {
+                return entry.mAccount.getAddress();
+            }
+        }
+        return null;
     }
 
     /**

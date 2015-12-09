@@ -16,7 +16,6 @@
 
 package com.android.services.telephony;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
@@ -40,6 +39,7 @@ import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 import android.telephony.PhoneNumberUtils;
 
+import com.android.ims.ImsCallProfile;
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection.Capability;
@@ -56,7 +56,9 @@ import java.lang.Override;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -91,6 +93,12 @@ abstract class TelephonyConnection extends Connection {
     private boolean[] mIsPermDiscCauseReceived = new
             boolean[TelephonyManager.getDefault().getPhoneCount()];
 
+    /**
+     * Mappings from {@link com.android.internal.telephony.Connection} extras keys to their
+     * equivalents defined in {@link android.telecom.Connection}.
+     */
+    private static final Map<String, String> sExtrasMap = createExtrasMap();
+
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -109,9 +117,10 @@ abstract class TelephonyConnection extends Connection {
                             ((connection.getAddress() != null &&
                             mOriginalConnection.getAddress() != null &&
                             mOriginalConnection.getAddress().contains(connection.getAddress())) ||
-                            mOriginalConnection.getStateBeforeHandover() == connection.getState())) {
-                            Log.d(TelephonyConnection.this, "SettingOriginalConnection " +
-                                    mOriginalConnection.toString() + " with " + connection.toString());
+                            connection.getState() == mOriginalConnection.getStateBeforeHandover())) {
+                            Log.d(TelephonyConnection.this,
+                                    "SettingOriginalConnection " + mOriginalConnection.toString()
+                                            + " with " + connection.toString());
                             setOriginalConnection(connection);
                             mWasImsConnection = false;
                         }
@@ -552,6 +561,11 @@ abstract class TelephonyConnection extends Connection {
     private boolean mIsVideoPauseSupported;
 
     /**
+     * Indicates whether this connection supports being a part of a conference..
+     */
+    private boolean mIsConferenceSupported;
+
+    /**
      * Listeners to our TelephonyConnection specific callbacks
      */
     private final Set<TelephonyConnectionListener> mTelephonyListeners = Collections.newSetFromMap(
@@ -847,7 +861,7 @@ abstract class TelephonyConnection extends Connection {
     void setOriginalConnection(com.android.internal.telephony.Connection originalConnection) {
         Log.v(this, "new TelephonyConnection, originalConnection: " + originalConnection);
         clearOriginalConnection();
-
+        mOriginalConnectionExtras.clear();
         mOriginalConnection = originalConnection;
         getPhone().registerForPreciseCallStateChanged(
                 mHandler, MSG_PRECISE_CALL_STATE_CHANGED, null);
@@ -1028,8 +1042,25 @@ abstract class TelephonyConnection extends Connection {
                         }
                     }
                     mOriginalConnectionExtras.clear();
+
                     mOriginalConnectionExtras.putAll(extras);
-                    setExtras(extras);
+
+                    // Remap any string extras that have a remapping defined.
+                    for (String key : mOriginalConnectionExtras.keySet()) {
+                        if (sExtrasMap.containsKey(key)) {
+                            String newKey = sExtrasMap.get(key);
+                            mOriginalConnectionExtras.putString(newKey, extras.getString(key));
+                            mOriginalConnectionExtras.remove(key);
+                        }
+                    }
+
+                    // Ensure extras are propagated to Telecom.
+                    Bundle connectionExtras = getExtras();
+                    if (connectionExtras == null) {
+                        connectionExtras = new Bundle();
+                    }
+                    connectionExtras.putAll(mOriginalConnectionExtras);
+                    setExtras(connectionExtras);
                 } else {
                     Log.d(this, "Extras update not required");
                 }
@@ -1452,6 +1483,22 @@ abstract class TelephonyConnection extends Connection {
     }
 
     /**
+     * Sets whether this connection supports conference calling.
+     * @param isConferenceSupported {@code true} if conference calling is supported by this
+     *                                         connection, {@code false} otherwise.
+     */
+    public void setConferenceSupported(boolean isConferenceSupported) {
+        mIsConferenceSupported = isConferenceSupported;
+    }
+
+    /**
+     * @return {@code true} if this connection supports merging calls into a conference.
+     */
+    public boolean isConferenceSupported() {
+        return mIsConferenceSupported;
+    }
+
+    /**
      * Whether the original connection is an IMS connection.
      * @return {@code True} if the original connection is an IMS connection, {@code false}
      *     otherwise.
@@ -1548,6 +1595,23 @@ abstract class TelephonyConnection extends Connection {
         for (TelephonyConnectionListener l : mTelephonyListeners) {
             l.onOriginalConnectionConfigured(this);
         }
+    }
+
+
+    /**
+     * Provides a mapping from extras keys which may be found in the
+     * {@link com.android.internal.telephony.Connection} to their equivalents defined in
+     * {@link android.telecom.Connection}.
+     *
+     * @return Map containing key mappings.
+     */
+    private static Map<String, String> createExtrasMap() {
+        Map<String, String> result = new HashMap<String, String>();
+        result.put(ImsCallProfile.EXTRA_CHILD_NUMBER,
+                android.telecom.Connection.EXTRA_CHILD_ADDRESS);
+        result.put(ImsCallProfile.EXTRA_DISPLAY_TEXT,
+                android.telecom.Connection.EXTRA_CALL_SUBJECT);
+        return Collections.unmodifiableMap(result);
     }
 
     /**

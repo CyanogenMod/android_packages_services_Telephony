@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"Prenos podatkov v mobilnih omrežjih"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"Telefon"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"Storitve telefona"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"Klicalnik za nujne primere"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"Telefon"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"Seznam FDN"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"Povrnitev nastavitev ..."</string>
     <string name="response_error" msgid="6674110501330139405">"Nepričakovan odgovor iz omrežja."</string>
     <string name="exception_error" msgid="7027667130619518211">"Napaka omrežja ali kartice SIM."</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"Zahteva SS je spremenjena v zahtevo DIAL."</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"Zahteva SS je spremenjena v zahtevo USSD."</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"Zahteva SS je spremenjena v novo zahtevo SS."</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"Nastavitev predpisanih številk aplikacije telefona je vklopljena. Zato nekatere funkcije, povezane s klici, ne delujejo."</string>
     <string name="radio_off_error" msgid="2304459933248513376">"Pred ogledom teh nastavitev vklopite radijski oddajnik."</string>
     <string name="close_dialog" msgid="2365884406356986917">"V redu"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"Prednostni način omrežja: LTE/WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"Prednostni omrežni način: LTE/GSM/UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"Prednostni način omrežja: LTE/CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"Prednostni način omrežja: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE/WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (priporočeno)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (priporočeno)"</string>
     <string name="network_global" msgid="1323190488685355309">"Globalno"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"Samo TDSCDMA"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"Sistemska izbira"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"Spremeni način gostovanja CDMA"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"Sistemska izbira"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"Izbrano omrežje (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) ni na voljo"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"Izklopite način za letalo, če želite opraviti klic."</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"Izklopite način za letalo ali se povežite v omrežje Wi-Fi, če želite opraviti klic."</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"Če ne gre za klic v sili, zaprite način za povratni klici v sili."</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"Ni registrirano v omrežju."</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"Mobilno omrežje ni na voljo."</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"Mobilno omrežje ni na voljo. Povežite se v omrežje Wi-Fi, če želite opraviti klic."</string>
@@ -526,7 +532,7 @@
     <string name="voicemail_settings" msgid="72448049107749316">"Nastavitev"</string>
     <string name="voicemail_number_not_set" msgid="6724904736891087856">"&lt;Ni nastavljeno&gt;"</string>
     <string name="other_settings" msgid="3672912580359716394">"Druge nastavitve klicev"</string>
-    <string name="calling_via_template" msgid="4839419581866928142">"Klicanje prek ponudnika <xliff:g id="PROVIDER_NAME">%s</xliff:g>"</string>
+    <string name="calling_via_template" msgid="4839419581866928142">"Klicanje prek <xliff:g id="PROVIDER_NAME">%s</xliff:g>"</string>
     <string name="contactPhoto" msgid="4713193418046639466">"fotografija stika"</string>
     <string name="goPrivate" msgid="865837794424530980">"zasebno"</string>
     <string name="selectContact" msgid="781975788478987237">"izbira stika"</string>

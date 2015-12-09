@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"ข้อมูลมือถือ"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"โทรศัพท์"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"บริการโทรศัพท์"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"โปรแกรมโทรออกฉุกเฉิน"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"โทรศัพท์"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"รายการ FDN"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"กำลังย้อนกลับการตั้งค่า…"</string>
     <string name="response_error" msgid="6674110501330139405">"พบการตอบกลับที่ไม่คาดหมายจากเครือข่าย"</string>
     <string name="exception_error" msgid="7027667130619518211">"ข้อผิดพลาดของเครือข่ายหรือซิมการ์ด"</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"คำขอ SS ที่แก้ไขเป็นคำขอ DIAL"</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"คำขอ SS ที่แก้ไขเป็นคำขอ USSD"</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"คำขอ SS ที่แก้ไขเป็นคำขอ SS ใหม่"</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"เนื่องจากมีการเปิดใช้การตั้งค่าการจำกัดหมายเลขโทรออกของแอปโทรศัพท์ จึงเป็นผลให้คุณลักษณะที่เกี่ยวกับการโทรบางอย่างไม่ทำงาน"</string>
     <string name="radio_off_error" msgid="2304459933248513376">"เปิดวิทยุก่อนดูการตั้งค่าเหล่านี้"</string>
     <string name="close_dialog" msgid="2365884406356986917">"ตกลง"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"โหมดเครือข่ายที่ต้องการ: LTE / WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"โหมดเครือข่ายที่ต้องการ: LTE/GSM/UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"โหมดเครือข่ายที่ต้องการ: LTE/CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"โหมดเครือข่ายที่ต้องการ: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE / WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (แนะนำ)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (แนะนำ)"</string>
     <string name="network_global" msgid="1323190488685355309">"ทั่วโลก"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"TDSCDMA เท่านั้น"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"การเลือกระบบ"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"เปลี่ยนโหมดการเชื่อมต่อกับเครือข่าย CDMA อื่น"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"การเลือกระบบ"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"เครือข่ายที่เลือกไว้ (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) ไม่พร้อมใช้งาน"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"ปิดโหมดบนเครื่องบินเพื่อโทรออก"</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"ปิดโหมดบนเครื่องบินหรือเชื่อมต่อเครือข่ายไร้สายเพื่อโทรออก"</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"โปรดออกจากโหมดการโทรกลับกรณีฉุกเฉินเพื่อโทรไปยังหมายเลขที่ไม่ใช่หมายเลขฉุกเฉิน"</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"ยังไม่ได้ลงทะเบียนบนเครือข่าย"</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"เครือข่ายมือถือใช้งานไม่ได้"</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"เครือข่ายมือถือไม่พร้อมใช้งาน โปรดเชื่อมต่อเครือข่ายไร้สายเพื่อโทรออก"</string>

@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"Mobilné dáta"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"Telefón"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"Telefónne služby"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"Tiesňové vytáčanie"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"Telefón"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"Zoznam povolených čísel"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"Prebieha vrátenie predchádzajúcich nastavení…"</string>
     <string name="response_error" msgid="6674110501330139405">"Neočakávaná odpoveď siete."</string>
     <string name="exception_error" msgid="7027667130619518211">"Došlo k chybe siete alebo SIM karty."</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"Žiadosť SS bola upravená na žiadosť DIAL."</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"Žiadosť SS bola upravená na žiadosť USSD."</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"Žiadosť SS bola upravená na novú žiadosť SS."</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"V aplikácii Telefón je zapnutý režim povolených čísel. Z toho dôvodu nefungujú niektoré funkcie volania."</string>
     <string name="radio_off_error" msgid="2304459933248513376">"Pred zobrazením nastavení zapnite rádio."</string>
     <string name="close_dialog" msgid="2365884406356986917">"OK"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"Preferovaný režim siete: LTE / WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"Uprednostňovaný režim siete: LTE / GSM / UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"Preferovaný režim siete: LTE / CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"Preferovaný režim siete: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE / WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (odporúčané)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (odporúčané)"</string>
     <string name="network_global" msgid="1323190488685355309">"Globálne"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"Iba TDSCDMA"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"Výber systému"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"Zmeniť režim roamingu CDMA"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"Výber systému"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"Vybratá sieť (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) nie je k dispozícii"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"Ak chcete volať, vypnite režim v lietadle"</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"Ak chcete volať, vypnite režim v lietadle alebo sa pripojte k bezdrôtovej sieti"</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"Ak chcete volať štandardným spôsobom, ukončite režim tiesňového spätného volania."</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"Prihlásenie do siete nebolo úspešné."</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"Mobilná sieť nie je k dispozícii."</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"Mobilná sieť nie je k dispozícii. Ak chcete volať, pripojte sa k bezdrôtovej sieti."</string>
@@ -526,7 +532,7 @@
     <string name="voicemail_settings" msgid="72448049107749316">"Nastavenie"</string>
     <string name="voicemail_number_not_set" msgid="6724904736891087856">"&lt;Nenastavené&gt;"</string>
     <string name="other_settings" msgid="3672912580359716394">"Ďalšie nastavenia hovorov"</string>
-    <string name="calling_via_template" msgid="4839419581866928142">"Voláte prostredníctvom poskytovateľa <xliff:g id="PROVIDER_NAME">%s</xliff:g>"</string>
+    <string name="calling_via_template" msgid="4839419581866928142">"Volanie cez <xliff:g id="PROVIDER_NAME">%s</xliff:g>"</string>
     <string name="contactPhoto" msgid="4713193418046639466">"fotografia kontaktu"</string>
     <string name="goPrivate" msgid="865837794424530980">"prepnúť na súkromné"</string>
     <string name="selectContact" msgid="781975788478987237">"vybrať kontakt"</string>

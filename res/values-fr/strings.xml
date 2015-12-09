@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"Données mobiles"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"Téléphone"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"Services téléphoniques"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"Appels d\'urgence"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"Téléphone"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"Liste de numéros autorisés"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"Rétablissement des paramètres…"</string>
     <string name="response_error" msgid="6674110501330139405">"Réponse inattendue du réseau"</string>
     <string name="exception_error" msgid="7027667130619518211">"Erreur de réseau ou de carte SIM."</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"La requête SS a été remplacée par une requête DIAL."</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"La requête SS a été remplacée par une requête USSD."</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"La requête SS a été remplacée par une autre requête SS."</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"Les numéros autorisés sont activés dans l\'application de votre téléphone. Par conséquent, certaines fonctionnalités d\'appel ne fonctionnent pas."</string>
     <string name="radio_off_error" msgid="2304459933248513376">"Activez le signal radio avant d\'afficher ces paramètres."</string>
     <string name="close_dialog" msgid="2365884406356986917">"OK"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"Mode réseau préféré : LTE / WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"Mode réseau préféré : LTE/GSM/UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"Mode réseau préféré : LTE/CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"Mode réseau préféré : TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE/WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (recommandé)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (recommandé)"</string>
     <string name="network_global" msgid="1323190488685355309">"International"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"TDSCDMA uniquement"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"Sélection système"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"Modifier le mode d\'itinérance CDMA"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"Sélection système"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"Réseau sélectionné (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) non disponible"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"Désactivez le mode Avion pour passer un appel."</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"Désactivez le mode Avion ou connectez-vous à un réseau sans fil pour passer un appel."</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"Veuillez quitter le mode de rappel d\'urgence pour passer un appel standard."</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"Non enregistré sur le réseau."</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"Réseau mobile non disponible."</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"Le réseau mobile n\'est pas disponible. Connectez-vous à un réseau sans fil pour passer un appel."</string>

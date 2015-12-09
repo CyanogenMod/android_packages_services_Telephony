@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"ಸೆಲ್ಯುಲಾರ್ ಡೇಟಾ"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"ಫೋನ್"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"ಫೋನ್ ಸೇವೆಗಳು"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"ತುರ್ತು ಡಯಲರ್"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"ಫೋನ್"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"FDN ಪಟ್ಟಿ"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಹಿಂತಿರುಗಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="response_error" msgid="6674110501330139405">"ನೆಟ್‌ವರ್ಕ್‌ನಿಂದ ಅನಿರೀಕ್ಷಿತ ಪ್ರತಿಕ್ರಿಯೆ."</string>
     <string name="exception_error" msgid="7027667130619518211">"ನೆಟ್‌ವರ್ಕ್‌ ಅಥವಾ ಸಿಮ್‌ ಕಾರ್ಡ್‌ ದೋಷ."</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"SS ವಿನಂತಿಯನ್ನು DIAL ವಿನಂತಿಗೆ ಮಾರ್ಪಡಿಸಲಾಗಿದೆ."</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"SS ವಿನಂತಿಯನ್ನು USSD ವಿನಂತಿಗೆ ಮಾರ್ಪಡಿಸಲಾಗಿದೆ."</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"SS ವಿನಂತಿಯನ್ನು ಹೊಸ SS ವಿನಂತಿಗೆ ಮಾರ್ಪಡಿಸಲಾಗಿದೆ."</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"ನಿಮ್ಮ ಫೋನ್‌ ಅಪ್ಲಿಕೇಶನ್‌‌ನ ಸ್ಥಿರ ಡಯಲಿಂಗ್‌‌ ಸಂಖ್ಯೆಗಳ ಸೆಟ್ಟಿಂಗ್‌ ಅನ್ನು ಆನ್‌ ಮಾಡಲಾಗಿದೆ. ಪರಿಣಾಮ, ಕೆಲವು ಕರೆ ಸಂಬಂಧಿತ ವೈಶಿಷ್ಟ್ಯಗಳು ಕಾರ್ಯ ನಿರ್ವಹಿಸುತ್ತಿಲ್ಲ."</string>
     <string name="radio_off_error" msgid="2304459933248513376">"ಈ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸುವ ಮೊದಲು ರೇಡಿಯೋ ಆನ್ ಮಾಡಿ."</string>
     <string name="close_dialog" msgid="2365884406356986917">"ಸರಿ"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"ಬಯಸಿದ ನೆಟ್‌ವರ್ಕ್‌ ಮೋಡ್‌‌: LTE / WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"ಆದ್ಯತೆಯ ನೆಟ್‌ವರ್ಕ್ ಮೋಡ್: LTE / GSM / UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"ಪ್ರಾಶಸ್ತ್ಯದ ನೆಟ್‌ವರ್ಕ್‌ ಮೋಡ್‌‌: LTE / CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"ಪ್ರಾಶಸ್ತ್ಯದ ನೆಟ್‌ವರ್ಕ್‌ ಮೋಡ್‌: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE / WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ)"</string>
     <string name="network_global" msgid="1323190488685355309">"ಜಾಗತಿಕ"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"TDSCDMA ಮಾತ್ರ"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"ಸಿಸ್ಟಂ ಆಯ್ಕೆ"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"CDMA ರೋಮಿಂಗ್ ಮೋಡ್ ಬದಲಾಯಿಸಿ"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"ಸಿಸ್ಟಂ ಆಯ್ಕೆ"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"ಆಯ್ಕೆಮಾಡಿದ (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) ನೆಟ್‌ವರ್ಕ್‌ ಲಭ್ಯವಿಲ್ಲ"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"ಕರೆ ಮಾಡಲು ಏರ್‌ಪ್ಲೇನ್ ಮೋಡ್ ಆಫ್ ಮಾಡಿ."</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"ಏರ್‌ಪ್ಲೇನ್ ಮೋಡ್ ಆಫ್ ಮಾಡಿ ಅಥವಾ ಕರೆ ಮಾಡಲು ವೈರ್‌ಲೆಸ್ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಪಡಿಸಿ."</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"ತುರ್ತು ರಹಿತ ಕರೆಯನ್ನು ಮಾಡಲು ತುರ್ತು ಮರು ಕರೆಮಾಡುವಿಕೆ ಮೋಡ್ ಅನ್ನು ನಿರ್ಗಮಿಸಿ."</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"ನೆಟ್‌ವರ್ಕ್‌ನಲ್ಲಿ ಇನ್ನೂ ನೋಂದಣಿಯಾಗಿಲ್ಲ."</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"ಸೆಲ್ಯುಲಾರ್ ನೆಟ್‌ವರ್ಕ್‌ ಲಭ್ಯವಿಲ್ಲ."</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"ಸೆಲ್ಯುಲಾರ್ ನೆಟ್‌ವರ್ಕ್ ಲಭ್ಯವಿಲ್ಲ. ಕರೆ ಮಾಡಲು ವೈರ್‌ಲೆಸ್ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಸಂಪರ್ಕಪಡಿಸಿ."</string>
@@ -520,7 +526,7 @@
     <string name="voicemail_settings" msgid="72448049107749316">"ಸೆಟಪ್"</string>
     <string name="voicemail_number_not_set" msgid="6724904736891087856">"&lt;ಹೊಂದಿಸಿಲ್ಲ&gt;"</string>
     <string name="other_settings" msgid="3672912580359716394">"ಇತರ ಕರೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
-    <string name="calling_via_template" msgid="4839419581866928142">"<xliff:g id="PROVIDER_NAME">%s</xliff:g> ಮೂಲಕ ಕರೆ ಮಾಡಲಾಗುತ್ತಿದೆ"</string>
+    <string name="calling_via_template" msgid="4839419581866928142">"<xliff:g id="PROVIDER_NAME">%s</xliff:g>ನಿಂದ ಕರೆ ಆಗುತ್ತಿದೆ"</string>
     <string name="contactPhoto" msgid="4713193418046639466">"ಸಂಪರ್ಕ ಫೋಟೋ"</string>
     <string name="goPrivate" msgid="865837794424530980">"ಖಾಸಗಿಯಾಗಿ ಹೋಗಿ"</string>
     <string name="selectContact" msgid="781975788478987237">"ಸಂಪರ್ಕವನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>

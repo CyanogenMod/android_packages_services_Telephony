@@ -17,7 +17,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="phoneAppLabel" product="tablet" msgid="1107073389495104784">"بيانات شبكة الجوّال"</string>
-    <string name="phoneAppLabel" product="default" msgid="906161039445636857">"الهاتف"</string>
+    <string name="phoneAppLabel" product="default" msgid="6790717591729922998">"خدمات الهاتف"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"طالب الطوارئ"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"الهاتف"</string>
     <string name="fdnListLabel" msgid="8630418672279521003">"‏قائمة FDN"</string>
@@ -125,6 +125,9 @@
     <string name="reverting_settings" msgid="4752151682666912828">"جارٍ إعادة الإعدادات..."</string>
     <string name="response_error" msgid="6674110501330139405">"رد غير متوقع من الشبكة."</string>
     <string name="exception_error" msgid="7027667130619518211">"‏خطأ في الشبكة أو في شريحة SIM"</string>
+    <string name="stk_cc_ss_to_dial_error" msgid="2816779198916570502">"‏تم تعديل طلب SS إلى طلب DIAL."</string>
+    <string name="stk_cc_ss_to_ussd_error" msgid="7490626178582654236">"‏تم تعديل طلب SS إلى طلب USSD."</string>
+    <string name="stk_cc_ss_to_ss_error" msgid="5057846756489053759">"‏تم تعديل طلب SS إلى طلب SS جديد."</string>
     <string name="fdn_check_failure" msgid="18200614306525434">"تم تشغيل إعداد أرقام الاتصال الثابتة بالتطبيق المثبت على هاتفك. ونتيجة لذلك، لن تعمل بعض الميزات المرتبطة بالمكالمات."</string>
     <string name="radio_off_error" msgid="2304459933248513376">"شغّل اللاسلكي قبل عرض هذه الإعدادات."</string>
     <string name="close_dialog" msgid="2365884406356986917">"موافق"</string>
@@ -177,6 +180,7 @@
     <string name="preferred_network_mode_lte_wcdma_summary" msgid="9180775701594742750">"‏وضع الشبكة المفضل: LTE / WCDMA"</string>
     <string name="preferred_network_mode_lte_gsm_umts_summary" msgid="633315028976225026">"‏وضع الشبكة المفضل: LTE / GSM / UMTS"</string>
     <string name="preferred_network_mode_lte_cdma_summary" msgid="3722647806454528426">"‏وضع الشبكة المفضل: LTE / CDMA"</string>
+    <string name="preferred_network_mode_tdscdma_summary" msgid="8021016193718678775">"‏وضع الشبكة المفضَّل: TDSCDMA"</string>
   <string-array name="preferred_network_mode_choices">
     <item msgid="7886739962255042385">"LTE / WCDMA"</item>
     <item msgid="577652050447385699">"LTE"</item>
@@ -305,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"‏LTE (مستحسن)"</string>
     <string name="network_4G" msgid="2723512640529983138">"الجيل الرابع (مستحسن)"</string>
     <string name="network_global" msgid="1323190488685355309">"عام"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"‏TDSCDMA فقط"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"تحديد النظام"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"‏تغيير وضع التجوال عبر CDMA"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"تحديد النظام"</string>
@@ -424,6 +429,7 @@
     <string name="notification_network_selection_text" msgid="2607085729661923269">"الشبكة المحددة (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) غير متاحة"</string>
     <string name="incall_error_power_off" msgid="2947938060513306698">"عليك إيقاف وضع الطائرة لإجراء مكالمة."</string>
     <string name="incall_error_power_off_wfc" msgid="8711428920632416575">"عليك إيقاف وضع الطائرة أو الاتصال بشبكة لاسلكية لإجراء مكالمة."</string>
+    <string name="incall_error_ecm_emergency_only" msgid="738708660612388692">"ينبغي الخروج من وضع معاودة الاتصال بالطوارئ لإجراء مكالمة غير طارئة."</string>
     <string name="incall_error_emergency_only" msgid="4678640422710818317">"غير مسجل على الشبكة."</string>
     <string name="incall_error_out_of_service" msgid="4100065333878929223">"شبكة الجوّال غير متاحة."</string>
     <string name="incall_error_out_of_service_wfc" msgid="323851839058697057">"شبكة الجوّال ليست متوفرة. اتصل بشبكة لاسلكية لإجراء مكالمة."</string>
