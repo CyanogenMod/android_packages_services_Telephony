@@ -29,6 +29,7 @@
 
 package com.android.phone;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -44,8 +45,10 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
+
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.CommandsInterface;
@@ -174,6 +177,12 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
             mNewPsw = null;
             mError = null;
         }
+
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            // android.R.id.home will be triggered in onOptionsItemSelected()
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -216,6 +225,15 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
         outState.putString(PASSWORD_KEY, mPassword);
         outState.putString(NEW_PSW_KEY, mNewPsw);
         outState.putString(ERROR_KEY, mError);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     // Request to begin querying for call barring.
@@ -517,7 +535,6 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
                         mOutgoingState = CB_CLOSE_OUT;
                         mIncomingState = CB_CLOSE_IN;
                         syncUiWithState();
-                        showToast(getResources().getString(R.string.operation_successfully));
                     }
                     break;
                 case EVENT_CB_SET_COMPLETE:
@@ -534,15 +551,12 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
                             mIncomingState = mSetIncoming;
                         }
                         syncUiWithState();
-                        showToast(getResources().getString(R.string.operation_successfully));
                     }
                     break;
                 case EVENT_CB_CHANGE_PSW:
                     dismissBusyDialog();
                     if (ar.exception != null) {
                         showToast(getResources().getString(R.string.response_error));
-                    } else {
-                        showToast(getResources().getString(R.string.operation_successfully));
                     }
                 default:
                     break;
