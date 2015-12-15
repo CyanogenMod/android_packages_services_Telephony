@@ -421,30 +421,6 @@
     <string name="card_title_on_hold" msgid="821463117892339942">"保持"</string>
     <string name="card_title_hanging_up" msgid="3999101620995182450">"正在挂断"</string>
     <string name="card_title_in_call" msgid="6346543933068225205">"正在通话"</string>
-    <string name="call_barring">呼叫限制</string>
-    <string name="call_barring_outgoing">呼出限制</string>
-    <string-array name="call_barring_outgoing_display_values">
-        <item>"关闭"</item>
-        <item>"限制国际漫游呼叫"</item>
-        <item>"限制国际呼叫"</item>
-        <item>"限制呼叫"</item>
-    </string-array>
-    <string-array name="call_barring_incoming_display_values">
-        <item>"关闭"</item>
-        <item>"限制漫游时来电"</item>
-        <item>"限制来电"</item>
-    </string-array>
-    <string name="call_barring_incoming">呼入限制</string>
-    <string name="input_password">输入密码</string>
-    <string name="labelCbCancelAll">取消全部限制</string>
-    <string name="psw_enter_old">旧密码</string>
-    <string name="labelCbChangePassword">修改限制密码</string>
-    <string name="psw_enter_new">新密码</string>
-    <string name="invalidPsw">输入 4 到 8 位数字的密码。</string>
-    <string name="psw_reenter_new">重新输入新密码</string>
-    <string name="no_call_barring">没有设置呼叫限制</string>
-    <string name="cb_psw_dont_match">密码不匹配！</string>
-    <string name="operation_successfully">操作成功！</string>
     <string name="notification_voicemail_title" msgid="8933468752045550523">"新语音邮件"</string>
     <string name="notification_voicemail_title_count" msgid="4366360747660929916">"新语音邮件 (<xliff:g id="COUNT">%d</xliff:g>)"</string>
     <string name="notification_voicemail_text_format" msgid="4447323569453981685">"拨打 <xliff:g id="VOICEMAIL_NUMBER">%s</xliff:g>"</string>
