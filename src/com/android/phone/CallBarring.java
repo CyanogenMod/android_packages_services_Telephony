@@ -534,7 +534,6 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
                         mOutgoingState = CB_CLOSE_OUT;
                         mIncomingState = CB_CLOSE_IN;
                         syncUiWithState();
-                        showToast(getResources().getString(R.string.operation_successfully));
                     }
                     break;
                 case EVENT_CB_SET_COMPLETE:
@@ -551,15 +550,12 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
                             mIncomingState = mSetIncoming;
                         }
                         syncUiWithState();
-                        showToast(getResources().getString(R.string.operation_successfully));
                     }
                     break;
                 case EVENT_CB_CHANGE_PSW:
                     dismissBusyDialog();
                     if (ar.exception != null) {
                         showToast(getResources().getString(R.string.response_error));
-                    } else {
-                        showToast(getResources().getString(R.string.operation_successfully));
                     }
                 default:
                     break;
