@@ -68,9 +68,7 @@
     <string name="unlock_success_cm">SIM network unlock successful.</string>
 
     <!-- Call forwarding settings screen, setting timer info for cfut case -->
-    <string name="set_time_period">Set time period</string>
     <string name="all_day">All day</string>
-    <string name="time_interval_char">: </string>
     <string name="time_start">From</string>
     <string name="time_start_hour">time start hour</string>
     <string name="time_start_minute">time start minute</string>
@@ -79,29 +77,28 @@
     <string name="time_end_minute">time end minute</string>
     <string name="time_formate_am">AM</string>
     <string name="time_formate_pm">PM</string>
-    <string name="cf_mobile_date">Please turn on mobile data and make sure that WLAN is off</string>
 
     <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_global_summary_cm">Preferred network mode: Global (CDMA/EVDO/LTE/GSM/WCDMA)</string>
+    <string name="preferred_network_mode_global_summary_cm">Preferred network mode: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
 
     <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
-    <string name="callFailed_incoming_cb_enabled">Party has barred all Incoming calls.</string>
+    <string name="callFailed_incoming_cb_enabled">Party has barred all incoming calls.</string>
     <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
-    <string name="callUnanswered_forwarded">Call Unanswered and Forwarded</string>
+    <string name="callUnanswered_forwarded">Call unanswered and forwarded</string>
 
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferred network mode: TD-SCDMA / WCDMA</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_lte_summary">Preferred network mode: TD-SCDMA / LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
-    <string name="preferred_network_mode_td_scdma_gsm_summary">Preferred network mode: TD-SCDMA / GSM</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferred network mode: TD-SCDMA/WCDMA</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_lte_summary">Preferred network mode: TD-SCDMA/LTE</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
+    <string name="preferred_network_mode_td_scdma_gsm_summary">Preferred network mode: TD-SCDMA/GSM</string>
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Preferred network mode: TD-SCDMA/GSM/LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Preferred network mode: TD-SCDMA/WCDMA/LTE</string>
-    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
+    <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA/LTE</string>
     <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
     <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Preferred network mode: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -175,38 +172,35 @@
     <string name="exportContacts">Exporting contacts to SIM card\u2026</string>
     <!-- Title of the List shown for SIM Contacts Management Activity.  -->
     <string name="simContacts_title_cm">Manage SIM card contacts</string>
-    <!-- Title of the dialog shown for SIM contact related operations. -->
-    <string name="Result_title">Result...</string>
 
     <!-- In-call screen: call failure message displayed in errror dialog -->
-    <string name="incall_error_local_low_battery">Call is failed due to low battery!!!.</string>
+    <string name="incall_error_local_low_battery">Call failed due to low battery.</string>
     <!-- In-call screen: call failure message displayed in errror dialog -->
-    <string name="incall_error_low_battery">Call is failed due to remote device low battery!!!.</string>
+    <string name="incall_error_low_battery">Call failed due to remote device low battery.</string>
 
     <!-- Sim contacts management -->
-    <string name="contactScreen"> Add/Edit SIM Contact</string>
-    <string name="exportContactScreen"> Export phone contacts to sim </string>
-    <string name="addSimEntries"> Add SIM Contact</string>
-    <string name="deleteAllSimEntries"> Delete All SIM Contacts</string>
-    <string name="deleteSimContacts">Deleting SIM contacts</string>
-    <string name="editContact"> Edit</string>
-    <string name="sendSms"> Send SMS</string>
-    <string name="delete"> Delete</string>
-    <string name="dial"> Dial</string>
-    <string name="enterName"> Enter Name:</string>
-    <string name="enterNumber"> Enter Phone Number:</string>
-    <string name="hintName">Name.</string>
-    <string name="hintPhonenumber">Phone Number.</string>
-    <string name="contactAddSuccess"> Succesfully added contact to SIM </string>
-    <string name="contactAddFailed"> Failed to add contact to SIM !!!</string>
-    <string name="contactUpdateSuccess"> Succesfully updated contact in SIM </string>
-    <string name="contactUpdateFailed"> Failed to update contact in SIM !!!</string>
-    <string name="contactdeleteSuccess"> Succesfully deleted contact from SIM </string>
-    <string name="contactdeleteFailed"> Failed to delete contact from SIM !!!</string>
-    <string name="allContactdeleteSuccess"> Succesfully deleted all contacts from SIM </string>
-    <string name="allContactdeleteFailed"> Failed to delete all contacts from SIM !!!</string>
-    <string name="exportAllcontatsSuccess">Succesfully exported all contacts to SIM </string>
-    <string name="exportAllcontatsFailed"> Failed to export all contacts to SIM !!!</string>
-    <string name="exportAllcontatsNoContacts"> No Contacts found to export to SIM !!!</string>
-    <string name="cursorError"> Cursor is not having proper data !!! </string>
+    <string name="contactScreen">Manage SIM contacts</string>
+    <string name="exportContactScreen">Export phone contacts to SIM</string>
+    <string name="addSimEntries">Add SIM contact</string>
+    <string name="deleteAllSimEntries">Delete all SIM contacts</string>
+    <string name="deleteSimContacts">Deleting SIM contacts\u2026</string>
+    <string name="editContact">Edit</string>
+    <string name="sendSms">Send SMS</string>
+    <string name="delete">Delete</string>
+    <string name="dial">Dial</string>
+    <string name="enterName">Enter name:</string>
+    <string name="enterNumber">Enter phone number:</string>
+    <string name="hintName">Name</string>
+    <string name="hintPhonenumber">Phone number</string>
+    <string name="contactAddSuccess">Succesfully added contact to SIM</string>
+    <string name="contactAddFailed">Failed to add contact to SIM</string>
+    <string name="contactUpdateSuccess">Succesfully updated contact in SIM</string>
+    <string name="contactUpdateFailed">Failed to update contact in SIM</string>
+    <string name="contactdeleteSuccess">Succesfully deleted contact from SIM</string>
+    <string name="contactdeleteFailed">Failed to delete contact from SIM</string>
+    <string name="allContactdeleteSuccess">Succesfully deleted all contacts from SIM</string>
+    <string name="allContactdeleteFailed">Failed to delete all contacts from SIM</string>
+    <string name="exportAllcontatsSuccess">Succesfully exported all contacts to SIM</string>
+    <string name="exportAllcontatsFailed">Failed to export all contacts to SIM</string>
+    <string name="exportAllcontatsNoContacts">No contacts found to export to SIM</string>
 </resources>
