@@ -78,24 +78,24 @@
             style="@style/cfut_value"
             android:visibility="gone"
             android:id="@+id/time_start_hour_24"
-            android:prompt="@string/time_start_hour"
+            android:prompt="@string/time_hour"
             android:entries="@array/hour_24_items"/>
         <Spinner
             style="@style/cfut_value"
             android:visibility="gone"
             android:id="@+id/time_start_hour_12"
-            android:prompt="@string/time_start_hour"
+            android:prompt="@string/time_hour"
             android:entries="@array/hour_12_items"/>
         <Spinner
             style="@style/cfut_value"
             android:id="@+id/time_start_minute"
-            android:prompt="@string/time_start_minute"
+            android:prompt="@string/time_minute"
             android:entries="@array/minute_items"/>
         <Spinner
             style="@style/cfut_value"
             android:visibility="gone"
             android:id="@+id/time_start_formate"
-            android:prompt="@string/time_start_minute"
+            android:prompt="@string/time_minute"
             android:entries="@array/time_formate_items"/>
     </LinearLayout>
 
@@ -125,24 +125,24 @@
             style="@style/cfut_value"
             android:visibility="gone"
             android:id="@+id/time_end_hour_24"
-            android:prompt="@string/time_end_hour"
+            android:prompt="@string/time_hour"
             android:entries="@array/hour_24_items"/>
         <Spinner
             style="@style/cfut_value"
             android:visibility="gone"
             android:id="@+id/time_end_hour_12"
-            android:prompt="@string/time_end_hour"
+            android:prompt="@string/time_hour"
             android:entries="@array/hour_12_items"/>
         <Spinner
             style="@style/cfut_value"
             android:id="@+id/time_end_minute"
-            android:prompt="@string/time_end_minute"
+            android:prompt="@string/time_minute"
             android:entries="@array/minute_items"/>
         <Spinner
             style="@style/cfut_value"
             android:visibility="gone"
             android:id="@+id/time_end_formate"
-            android:prompt="@string/time_end_minute"
+            android:prompt="@string/time_minute"
             android:entries="@array/time_formate_items"/>
     </LinearLayout>
 

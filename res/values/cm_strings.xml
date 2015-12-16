@@ -70,11 +70,9 @@
     <!-- Call forwarding settings screen, setting timer info for cfut case -->
     <string name="all_day">All day</string>
     <string name="time_start">From</string>
-    <string name="time_start_hour">time start hour</string>
-    <string name="time_start_minute">time start minute</string>
     <string name="time_end">To</string>
-    <string name="time_end_hour">time end hour</string>
-    <string name="time_end_minute">time end minute</string>
+    <string name="time_hour">Hour</string>
+    <string name="time_minute">Minute</string>
     <string name="time_formate_am">AM</string>
     <string name="time_formate_pm">PM</string>
 
