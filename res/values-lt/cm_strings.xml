@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">Tik WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Tik GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Pageidaujama GSM / WCDMA</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (dabartinis: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">SIM kortelės nustatymai</string>
   <string name="sim_card_title">SIM kortelė %d</string>
   <string name="sim_card_summary_empty">SIM lizdas yra tuščias</string>
@@ -213,4 +214,17 @@
   <string name="phone_number_summary">Nustatyti telefono numerį šiam įrenginiui</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiliojo tinklo nustatymai</string>
   <string name="call_recording_format">Skambučio įrašymo formatas</string>
+  <string name="ims_get_packet_count_failed">Nepavyko gauti paketų skaičiaus</string>
+  <string name="ims_get_packet_error_count_failed">Nepavyko gauti paketų klaidų skaičiaus</string>
+  <string name="ims_get_packet_count_label">Bakstelėkite čia, kad gauti paketų skaičių</string>
+  <string name="ims_get_packet_error_count_label">Bakstelėkite čia, kad gauti paketų klaidų skaičių</string>
+  <string name="wifi_call_setting">Wi-Fi skambučio nustatymai</string>
+  <string name="wifi_calling_title">Wi-Fi skambutis</string>
+  <string name="wifi_calling_preference_title">Wi-Fi skambučio prioritetas</string>
+  <string name="ims_set_wifi_calling_preference_failed">Nepavyko nustatyti Wi-Fi skambučio prioriteto</string>
+  <string name="wifi_pref_none">Nesvarbu</string>
+  <string name="wifi_preferred">Prioritetas Wi-Fi</string>
+  <string name="wifi_only">Tik Wi-Fi</string>
+  <string name="cellular_preferred">Prioritetas korinis ryšis</string>
+  <string name="cellular_only">Tik korinis ryšys</string>
 </resources>

@@ -225,6 +225,6 @@
   <string name="wifi_pref_none">Geen voorkeur</string>
   <string name="wifi_preferred">Voorkeur voor wifi</string>
   <string name="wifi_only">Alleen wifi</string>
-  <string name="cellular_preferred">Voorkeur voor mobiele data</string>
-  <string name="cellular_only">Alleen mobiele data</string>
+  <string name="cellular_preferred">Voorkeur voor mobiele gegevens</string>
+  <string name="cellular_only">Alleen mobiele gegevens</string>
 </resources>
