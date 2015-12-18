@@ -16,10 +16,12 @@
 
 package com.android.phone;
 
+import android.provider.Settings;
 import com.android.ims.ImsManager;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.android.internal.telephony.SubscriptionController;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 import com.android.internal.telephony.uicc.IccCardApplicationStatus.AppType;
@@ -532,7 +534,7 @@ public class MobileNetworkSettings extends PreferenceActivity
         // upon resumption from the sub-activity, make sure we re-enable the
         // preferences.
         getPreferenceScreen().setEnabled(true);
-        preferredNetworkMode = getPreferredNetworkModeForPhoneId();
+        preferredNetworkMode = getPreferredNetworkModeForSubId();
         // Set UI state in onResume because a user could go home, launch some
         // app to change this setting's backend, and re-launch this settings app
         // and the UI state would be inconsistent with actual state
@@ -599,8 +601,8 @@ public class MobileNetworkSettings extends PreferenceActivity
             if (UiccController.getInstance().getUiccCard(phoneId) == null ||
                     !UiccController.getInstance().getUiccCard(phoneId)
                     .isApplicationOnIcc(AppType.APPTYPE_USIM) ||
-                    getPreferredNetworkModeForPhoneId() == Phone.NT_MODE_GSM_ONLY ||
-                    getPreferredNetworkModeForPhoneId() == Phone.NT_MODE_GLOBAL) {
+                    getPreferredNetworkModeForSubId() == Phone.NT_MODE_GSM_ONLY ||
+                    getPreferredNetworkModeForSubId() == Phone.NT_MODE_GLOBAL) {
                 prefSet.removePreference(mButtonPreferredNetworkMode);
             }
         }
@@ -831,6 +833,16 @@ public class MobileNetworkSettings extends PreferenceActivity
         if (ps != null) {
             ps.setEnabled(hasActiveSubscriptions);
         }
+
+        boolean isDsds = TelephonyManager.getDefault().getMultiSimConfiguration()
+                == TelephonyManager.MultiSimVariants.DSDS;
+        boolean isMultiRat = SystemProperties.getBoolean("ro.ril.multi_rat_capable", false);
+        if (isDsds && !isMultiRat && (mPhone.getSubId()
+                != mSubscriptionManager.getDefaultDataSubscriptionInfo().getSubscriptionId())) {
+            root.removePreference(mButtonPreferredNetworkMode);
+            root.removePreference(mLteDataServicePref);
+            root.removePreference(mButtonEnabledNetworks);
+        }
     }
 
     @Override
@@ -985,44 +997,24 @@ public class MobileNetworkSettings extends PreferenceActivity
         final int phoneId = mPhone.getPhoneId();
         if (DBG) log("setPreferredNetworkMode: nwMode = " + nwMode +
                 " phoneSubId = " + phoneSubId + " phoneId = " + phoneId);
-        android.provider.Settings.Global.putInt(mPhone.getContext().getContentResolver(),
-                android.provider.Settings.Global.PREFERRED_NETWORK_MODE + phoneSubId,
-                nwMode );
-        TelephonyManager.putIntAtIndex(mPhone.getContext().getContentResolver(),
-                android.provider.Settings.Global.PREFERRED_NETWORK_MODE, phoneId,
-                nwMode );
-    }
-
-    //Get preferred network mode based on phoneId
-    private int getPreferredNetworkModeForPhoneId() {
-        final int phoneId = mPhone.getPhoneId();
-        int phoneNwMode;
-
-        try {
-            phoneNwMode = android.telephony.TelephonyManager.getIntAtIndex(
-                    mPhone.getContext().getContentResolver(),
-                    android.provider.Settings.Global.PREFERRED_NETWORK_MODE, phoneId);
-        } catch (SettingNotFoundException snfe) {
-            log("getPreferredNetworkModeForPhoneId: Could not find PREFERRED_NETWORK_MODE");
-            phoneNwMode = Phone.PREFERRED_NT_MODE;
-        }
-        if (DBG) log("getPreferredNetworkModeForPhoneId: phoneNwMode = " + phoneNwMode +
-                " phoneId = " + phoneId);
-        return phoneNwMode;
+        SubscriptionController.getInstance().setUserNwMode(phoneSubId, nwMode);
     }
 
     //Get preferred network mode based on subId
     private int getPreferredNetworkModeForSubId() {
         final int subId = mPhone.getSubId();
-        int phoneNwMode;
         int nwMode;
+        nwMode = SubscriptionController.getInstance().getUserNwMode(subId);
 
-        nwMode = android.provider.Settings.Global.getInt(
-                mPhone.getContext().getContentResolver(),
-                android.provider.Settings.Global.PREFERRED_NETWORK_MODE + subId,
-                preferredNetworkMode);
-        if (DBG) log("getPreferredNetworkModeForSubId: phoneNwMode = " + nwMode +
-                " subId = "+ subId);
+        //If its default nw mode, choose the nw mode from the overlays.
+        if (nwMode == SubscriptionManager.DEFAULT_NW_MODE) {
+            try {
+                nwMode = android.provider.Settings.Global.getInt(
+                        getContentResolver(), Settings.Global.PREFERRED_NETWORK_MODE + subId);
+            } catch (SettingNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
         return nwMode;
     }
 
