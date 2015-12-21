@@ -575,6 +575,7 @@ public class MobileNetworkSettings extends PreferenceActivity
         final Context context = getApplicationContext();
         PreferenceScreen prefSet = getPreferenceScreen();
         boolean isLteOnCdma = mPhone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE;
+	boolean mIsLteCapable = getResources().getBoolean(R.bool.config_enabled_lte);
         final int phoneSubId = mPhone.getSubId();
 
         if (DBG) {
@@ -695,13 +696,16 @@ public class MobileNetworkSettings extends PreferenceActivity
                     mGsmUmtsOptions = null;
                 }
             } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
+                
+                //check if phone has system property to control lte option
+                SystemProperties.getBoolean("ro.telephony.lte_capable",mIsLteCapable);
                 if (isSupportTdscdma()) {
                     mButtonEnabledNetworks.setEntries(
                             R.array.enabled_networks_tdscdma_choices);
                     mButtonEnabledNetworks.setEntryValues(
                             R.array.enabled_networks_tdscdma_values);
                 } else if (!carrierConfig.getBoolean(CarrierConfigManager.KEY_PREFER_2G_BOOL)
-                        && !getResources().getBoolean(R.bool.config_enabled_lte)) {
+                        && !mIsLteCapable) {
                     mButtonEnabledNetworks.setEntries(
                             R.array.enabled_networks_except_gsm_lte_choices);
                     mButtonEnabledNetworks.setEntryValues(
@@ -713,7 +717,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                     mButtonEnabledNetworks.setEntries(select);
                     mButtonEnabledNetworks.setEntryValues(
                             R.array.enabled_networks_except_gsm_values);
-                } else if (!getResources().getBoolean(R.bool.config_enabled_lte)) {
+                } else if (!mIsLteCapable) {
                     mButtonEnabledNetworks.setEntries(
                             R.array.enabled_networks_except_lte_choices);
                     mButtonEnabledNetworks.setEntryValues(
