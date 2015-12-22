@@ -523,11 +523,11 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         mEnabledNetworksSummaries = new SparseIntArray();
         mEnabledNetworksSummaries.append(Phone.NT_MODE_WCDMA_PREF,
-                R.string.network_wcdma_pref);
+                R.string.network_2G_3G);
         mEnabledNetworksSummaries.append(Phone.NT_MODE_GSM_ONLY,
-                R.string.network_gsm_only);
+                R.string.network_2G);
         mEnabledNetworksSummaries.append(Phone.NT_MODE_WCDMA_ONLY,
-                R.string.network_wcdma_only);
+                R.string.network_3G);
         mEnabledNetworksSummaries.append(Phone.NT_MODE_GSM_UMTS,
                R.string.network_gsm_umts);
         mEnabledNetworksSummaries.append(Phone.NT_MODE_CDMA,
@@ -567,18 +567,18 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         if (mShow4GForLTE) {
             mEnabledNetworksSummaries.append(Phone.NT_MODE_LTE_GSM_WCDMA,
-                    R.string.network_4G);
+                    R.string.network_4G_3G_2G);
             mEnabledNetworksSummaries.append(Phone.NT_MODE_LTE_WCDMA,
-                    R.string.network_4G);
+                    R.string.network_4G_3G);
             mEnabledNetworksSummaries.append(Phone.NT_MODE_LTE_ONLY,
                     R.string.network_4G);
             mEnabledNetworksSummaries.append(Phone.NT_MODE_LTE_CDMA_AND_EVDO,
                     R.string.network_4G);
         } else {
             mEnabledNetworksSummaries.append(Phone.NT_MODE_LTE_GSM_WCDMA,
-                    R.string.network_lte_gsm_wcdma);
+                    R.string.network_lte_3G_2G);
             mEnabledNetworksSummaries.append(Phone.NT_MODE_LTE_WCDMA,
-                    R.string.network_lte_cdma);
+                    R.string.network_lte_3G);
             mEnabledNetworksSummaries.append(Phone.NT_MODE_LTE_ONLY,
                     R.string.network_lte_only);
             mEnabledNetworksSummaries.append(Phone.NT_MODE_LTE_CDMA_AND_EVDO,

@@ -592,29 +592,39 @@
     <string name="network_4G">4G (recommended)</string>
     <string name="network_3G" translatable="false">3G</string>
     <string name="network_2G" translatable="false">2G</string>
+    <string name="network_2G_3G" translatable="false">3G preferred</string>
+    <string name="network_lte_3G" translatable="false">LTE preferred</string>
+    <string name="network_4G_3G" translatable="false">4G preferred</string>
+    <string name="network_4G_3G_2G" translatable="false">4G/3G preferred</string>
+    <string name="network_lte_3G_2G" translatable="false">LTE/3G preferred</string>
     <string name="network_1x" translatable="false">1x</string>
     <string name="network_global">Global</string>
 
     <string-array name="enabled_networks_except_gsm_choices" translatable="false">
         <item>@string/network_lte</item>
         <item>@string/network_3G</item>
+        <item>@string/network_lte_3G</item>
     </string-array>
     <string-array name="enabled_networks_except_gsm_4g_choices" translatable="false">
         <item>@string/network_4G</item>
         <item>@string/network_3G</item>
+        <item>@string/network_4G_3G</item>
     </string-array>
     <string-array name="enabled_networks_except_gsm_values" translatable="false">
         <item>"9"</item>
         <item>"0"</item>
+        <item>"2"</item>
     </string-array>
 
     <string-array name="enabled_networks_except_lte_choices" translatable="false">
         <item>@string/network_3G</item>
         <item>@string/network_2G</item>
+        <item>@string/network_2G_3G</item>
     </string-array>
     <string-array name="enabled_networks_except_lte_values" translatable="false">
-        <item>"0"</item>
+        <item>"2"</item>
         <item>"1"</item>
+        <item>"0"</item>
     </string-array>
 
     <string-array name="enabled_networks_except_gsm_lte_choices" translatable="false">
@@ -628,16 +638,25 @@
         <item>@string/network_lte</item>
         <item>@string/network_3G</item>
         <item>@string/network_2G</item>
+        <item>@string/network_lte_3G</item>
+        <item>@string/network_lte_3G_2G</item>
+        <item>@string/network_2G_3G</item>
     </string-array>
     <string-array name="enabled_networks_4g_choices" translatable="false">
         <item>@string/network_4G</item>
         <item>@string/network_3G</item>
         <item>@string/network_2G</item>
+        <item>@string/network_4G_3G</item>
+        <item>@string/network_4G_3G_2G</item>
+        <item>@string/network_2G_3G</item>
     </string-array>
     <string-array name="enabled_networks_values" translatable="false">
         <item>"9"</item>
         <item>"0"</item>
         <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
     </string-array>
 
     <string-array name="enabled_networks_cdma_choices" translatable="false">
