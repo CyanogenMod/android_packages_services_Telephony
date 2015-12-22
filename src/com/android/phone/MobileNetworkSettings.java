@@ -523,11 +523,11 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         mEnabledNetworksSummaries = new SparseIntArray();
         mEnabledNetworksSummaries.append(Phone.NT_MODE_WCDMA_PREF,
-                R.string.network_wcdma_pref);
+                R.string.network_2g_3g_preferred);
         mEnabledNetworksSummaries.append(Phone.NT_MODE_GSM_ONLY,
-                R.string.network_gsm_only);
+                R.string.network_2G);
         mEnabledNetworksSummaries.append(Phone.NT_MODE_WCDMA_ONLY,
-                R.string.network_wcdma_only);
+                R.string.network_3G);
         mEnabledNetworksSummaries.append(Phone.NT_MODE_GSM_UMTS,
                R.string.network_gsm_umts);
         mEnabledNetworksSummaries.append(Phone.NT_MODE_CDMA,
