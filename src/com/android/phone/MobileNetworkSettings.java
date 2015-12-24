@@ -1402,7 +1402,8 @@ public class MobileNetworkSettings extends PreferenceActivity
     }
 
     private boolean isSupportTdscdma() {
-        if (getResources().getBoolean(R.bool.config_support_tdscdma)) {
+        if (getResources().getBoolean(R.bool.config_support_tdscdma ||
+            SystemProperties.getBoolean("ro.telephony.support_tdscdma", false))) {
             return true;
         }
 
