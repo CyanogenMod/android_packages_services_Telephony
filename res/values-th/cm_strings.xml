@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="show_ssn_summary">แสดงการแจ้งเตือนสำหรับกิจกรรมเครือข่ายต่าง ๆ ที่เกี่ยวข้องกับการจัดการโทรเรียก</string>
   <string name="roaming_mode_title">รูปแบบโรมมิ่ง</string>
   <string name="roaming_mode_summary">รูปแบบโรมมิ่งระหว่างประเทศ</string>
   <string name="roaming_gsm">โรมมิ่ง GSM</string>

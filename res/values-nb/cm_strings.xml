@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">kun WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">kun GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA foretrukket</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s </xliff:g> (gjeldende: <xliff:g id="current">%2$s </xliff:g>)</string>
   <string name="callind_multi_sim">Innstillinger for SIM-kortet</string>
   <string name="sim_card_title">SIM-kort %d</string>
   <string name="sim_card_summary_empty">SIM sporet er tomt</string>
@@ -213,4 +214,5 @@
   <string name="phone_number_summary">Angi telefonnummeret for denne enheten</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobile nettverksinnstillinger</string>
   <string name="call_recording_format">Format ved samtaleopptak</string>
+  <string name="wifi_only">Kun Wi-Fi</string>
 </resources>
