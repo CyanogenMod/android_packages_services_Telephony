@@ -838,7 +838,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                 == TelephonyManager.MultiSimVariants.DSDS;
         boolean isMultiRat = SystemProperties.getBoolean("ro.ril.multi_rat_capable", false);
         if (isDsds && !isMultiRat && (mPhone.getSubId()
-                != mSubscriptionManager.getDefaultDataSubscriptionInfo().getSubscriptionId())) {
+                != mSubscriptionManager.getDefaultDataSubId())) {
             root.removePreference(mButtonPreferredNetworkMode);
             root.removePreference(mLteDataServicePref);
             root.removePreference(mButtonEnabledNetworks);
