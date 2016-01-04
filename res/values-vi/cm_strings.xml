@@ -214,4 +214,17 @@
   <string name="phone_number_summary">Thiết lập số điện thoại cho thiết bị này</string>
   <string name="msim_mobile_network_settings_title">Cài đặt mạng di động %d của SIM</string>
   <string name="call_recording_format">Định dạng ghi âm cuộc gọi</string>
+  <string name="ims_get_packet_count_failed">Không thể lấy số gói tin</string>
+  <string name="ims_get_packet_error_count_failed">Không thể lấy số lỗi gói tin</string>
+  <string name="ims_get_packet_count_label">Chạm vào đây để lấy số gói tin</string>
+  <string name="ims_get_packet_error_count_label">Chạm vào đây để lấy số lỗi gói tin</string>
+  <string name="wifi_call_setting">Cài đặt gọi WiFi</string>
+  <string name="wifi_calling_title">Gọi WiFi</string>
+  <string name="wifi_calling_preference_title">Tuỳ chọn gọi WiFi</string>
+  <string name="ims_set_wifi_calling_preference_failed">Không thể thiết lập tuỳ chọn gọi WiFi</string>
+  <string name="wifi_pref_none">Không có tuỳ chọn</string>
+  <string name="wifi_preferred">Ưu tiên WiFi</string>
+  <string name="wifi_only">Chỉ WiFi</string>
+  <string name="cellular_preferred">Ưu tiên mạng di động</string>
+  <string name="cellular_only">Chỉ mạng di động</string>
 </resources>

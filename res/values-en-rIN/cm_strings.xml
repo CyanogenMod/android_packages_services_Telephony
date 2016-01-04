@@ -18,7 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Event notification</string>
   <string name="show_ssn_summary">Show a notification for various network events related to call handling</string>
+  <string name="blacklist_title">Blocked caller list</string>
   <string name="blacklist_summary_disabled">Disabled</string>
+  <string name="blacklist_summary">You will not receive incoming calls or messages from phone numbers on the blocked caller list</string>
   <string name="mwi_notification_title">Message wait indicator</string>
   <string name="mwi_notification_summary">Show message wait indicator voicemail notifications</string>
   <string name="call_notif_unconditionalCF">Unconditional call forwarding active</string>
@@ -90,6 +92,11 @@
   <string name="vt_forward_setting">Video call forwarding</string>
   <string name="vt_imagereplace_setting">Alternative picture</string>
   <string name="vt_imagereplace_setting_sum">Image to display when front-facing camera is disabled</string>
+  <string name="roaming_mode_title">Roaming mode</string>
+  <string name="roaming_mode_summary">International roaming mode</string>
+  <string name="roaming_gsm">GSM roaming</string>
+  <string name="roaming_cdma">CDMA roaming</string>
+  <string name="roaming_disabled">Disabled</string>
   <string name="preferred_network_mode_global_summary_cm">Preferred network mode: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="preferred_network_mode_td_scdma_only_summary">Preferred network mode: TD-SCDMA only</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferred network mode: TD-SCDMA/WCDMA</string>
@@ -126,7 +133,10 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA only</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM only</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferred</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (current: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">SIM card settings</string>
+  <string name="sim_card_title">SIM card %d</string>
+  <string name="sim_card_summary_empty">SIM slot is empty</string>
   <string name="tty_mode_not_allowed_vt_call">TTY mode change is not allowed during a video call</string>
   <string name="ipcall_sub_title">IP call settings</string>
   <string name="ipcall_sub_summery">Edit prefix for calling through IP service</string>
@@ -202,4 +212,19 @@
   <string name="perm_change_mobile_network_desc">Allows the app to change between 2G data and 3G data at any time. 3G is faster, but consumes more battery and may cause additional cost.</string>
   <string name="phone_number_label">My phone number</string>
   <string name="phone_number_summary">Set the phone number for this device</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobile network settings</string>
+  <string name="call_recording_format">Call recording format</string>
+  <string name="ims_get_packet_count_failed">Failed to get packet count</string>
+  <string name="ims_get_packet_error_count_failed">Failed to get packet error count</string>
+  <string name="ims_get_packet_count_label">Tap here to get packet count</string>
+  <string name="ims_get_packet_error_count_label">Tap here to get packet error count</string>
+  <string name="wifi_call_setting">Wi-Fi calling settings</string>
+  <string name="wifi_calling_title">Wi-Fi calling</string>
+  <string name="wifi_calling_preference_title">Wi-Fi calling preference</string>
+  <string name="ims_set_wifi_calling_preference_failed">Failed to set Wi-Fi calling preference</string>
+  <string name="wifi_pref_none">No preference</string>
+  <string name="wifi_preferred">Wi-Fi preferred</string>
+  <string name="wifi_only">Wi-Fi only</string>
+  <string name="cellular_preferred">Cellular preferred</string>
+  <string name="cellular_only">Cellular only</string>
 </resources>
