@@ -104,6 +104,8 @@ public class VoicemailSettingsActivity extends PreferenceActivity
     private static final String BUTTON_VOICEMAIL_KEY = "button_voicemail_key";
     private static final String BUTTON_VOICEMAIL_PROVIDER_KEY = "button_voicemail_provider_key";
     private static final String BUTTON_VOICEMAIL_SETTING_KEY = "button_voicemail_setting_key";
+    private static final String BUTTON_VOICEMAIL_CATEGORY_KEY = "button_voicemail_category_key";
+    private static final String BUTTON_MWI_NOTIFICATION_KEY = "button_mwi_notification_key";
 
     /** Event for Async voicemail change call */
     private static final int EVENT_VOICEMAIL_CHANGED        = 500;
