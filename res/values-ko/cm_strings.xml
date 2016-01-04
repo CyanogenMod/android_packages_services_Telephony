@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA 전용</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM 전용</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA 우선</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s </xliff:g> (현재: <xliff:g id="current">%2$s </xliff:g>)</string>
   <string name="callind_multi_sim">SIM 카드 설정</string>
   <string name="sim_card_title">SIM 카드 %d</string>
   <string name="sim_card_summary_empty">SIM 슬롯이 비었습니다</string>
@@ -213,4 +214,17 @@
   <string name="phone_number_summary">이 장치의 전화번호 설정</string>
   <string name="msim_mobile_network_settings_title">SIM %d 모바일 네트워크 설정</string>
   <string name="call_recording_format">통화 녹음 형식</string>
+  <string name="ims_get_packet_count_failed">패킷 측정 실패</string>
+  <string name="ims_get_packet_error_count_failed">패킷 에러로 측정에 실패했습니다.</string>
+  <string name="ims_get_packet_count_label">패킷 개수를 가져오려면 여기를 탭하세요</string>
+  <string name="ims_get_packet_error_count_label">패킷 에러 개수를 가져오려면 여기를 탭하세요</string>
+  <string name="wifi_call_setting">Wi-Fi 전화 설정</string>
+  <string name="wifi_calling_title">Wi-Fi 전화</string>
+  <string name="wifi_calling_preference_title">Wi-Fi 전화 기본 설정</string>
+  <string name="ims_set_wifi_calling_preference_failed">Wi-Fi 전화 기본 설정 실패함</string>
+  <string name="wifi_pref_none">기본 설정 없음</string>
+  <string name="wifi_preferred">Wi-Fi 선호</string>
+  <string name="wifi_only">Wi-Fi 전용</string>
+  <string name="cellular_preferred">셀룰러 선호</string>
+  <string name="cellular_only">셀룰러 전용</string>
 </resources>
