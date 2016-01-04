@@ -147,6 +147,13 @@
     <!-- DEPRECATED: Use CarrierConfigManager#KEY_SHOW_CDMA_CHOICES_BOOL -->
     <bool name="config_show_cdma" translatable="false">false</bool>
 
+    <!-- Sprint Message Wait Indicator Quirk
+         If true, message wait indicators are hidden by default on this device
+         unless the user enables it in Call Settings.  This quirk is necessary
+         for the "Phantom Voicemail" issue where notifications are impossible
+         to dismiss on the Sprint network. -->
+    <bool name="sprint_mwi_quirk">false</bool>
+
     <!-- Package name for the default in-call UI and dialer [DO NOT TRANSLATE] -->
     <string name="ui_default_package" translatable="false">com.android.dialer</string>
 
