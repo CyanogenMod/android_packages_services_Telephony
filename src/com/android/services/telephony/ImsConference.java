@@ -803,6 +803,8 @@ public class ImsConference extends Conference {
                     PhoneUtils.makePstnPhoneAccountHandle(mConferenceHost.getPhone());
             if (mConferenceHost.getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_GSM) {
                 GsmConnection c = new GsmConnection(originalConnection, false);
+                // This is a newly created conference connection as a result of SRVCC
+                c.setConferenceSupported(true);
                 c.updateState();
                 // Copy the connect time from the conferenceHost
                 c.setConnectTimeMillis(mConferenceHost.getConnectTimeMillis());
