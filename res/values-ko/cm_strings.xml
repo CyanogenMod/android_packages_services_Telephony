@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">통화 내 설정</string>
   <string name="show_ssn_label">이벤트 알림</string>
   <string name="show_ssn_summary">통화와 관련된 다양한 네트워크 이벤트에 대한 알림 표시</string>
   <string name="blacklist_title">차단된 발신자 목록</string>
@@ -40,6 +41,13 @@
   <string name="requesting_unlock_cm">SIM 네트워크 언락 요청 중\u2026</string>
   <string name="unlock_failed_cm">SIM 네트워크 언락 요청 실패</string>
   <string name="unlock_success_cm">SIM 네트워크 언락 성공</string>
+  <string name="all_day">종일</string>
+  <string name="time_start">시작</string>
+  <string name="time_end">끝</string>
+  <string name="time_hour">시간</string>
+  <string name="time_minute">분</string>
+  <string name="time_formate_am">오전</string>
+  <string name="time_formate_pm">오후</string>
   <string name="preferred_network_mode_global_summary_cm">선호 네트워크 모드: 글로벌 (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="callFailed_incoming_cb_enabled">참가자가 모든 수신 통화를 차단했습니다.</string>
   <string name="callUnanswered_forwarded">응답되지 않고 전환된 통화</string>
@@ -50,7 +58,10 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">선호 네트워크 모드: TD-SCDMA/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">선호 네트워크 모드: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">선호 네트워크 모드: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">선호 네트워크 모드: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">선호 네트워크 모드: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -72,8 +83,34 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA 전용</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM 전용</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA 우선</string>
+  <string name="call_barring">호 제한</string>
+  <string name="call_barring_outgoing">발신호 제한</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>끔</item>
+    <item>국제 로밍 전화</item>
+    <item>국제 전화</item>
+    <item>발신 전화</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>끔</item>
+    <item>로밍</item>
+    <item>모두</item>
+  </string-array>
+  <string name="call_barring_incoming">수신호 제한</string>
+  <string name="input_password">비밀번호 입력</string>
+  <string name="invalidPsw">유효한 비밀번호를 입력하세요 (4-8자리)</string>
+  <string name="labelCbCancelAll">호 제한 해제</string>
+  <string name="labelCbChangePassword">비밀번호 변경</string>
+  <string name="psw_enter_old">이전 비밀번호</string>
+  <string name="psw_enter_new">새 비밀번호</string>
+  <string name="psw_reenter_new">비밀번호 다시 입력</string>
+  <string name="no_call_barring">호 제한 해제</string>
+  <string name="cb_psw_dont_match">비밀번호가 일치하지 않습니다</string>
+  <string name="fdn_invalid_number_cm">번호가 비어있거나 20자리를 초과하기 때문에 FDN이 업데이트되지 않았습니다.</string>
   <string name="exportContacts">연락처를 SIM 카드로 내보내는 중\u2026</string>
   <string name="simContacts_title_cm">SIM 카드 연락처 관리</string>
+  <string name="incall_error_local_low_battery">배터리 부족으로 통화 실패함.</string>
+  <string name="incall_error_low_battery">상대 장치의 배터리 부족으로 통화 실패함.</string>
   <string name="contactScreen">SIM 연락처 관리</string>
   <string name="exportContactScreen">휴대전화 연락처를 SIM으로 내보내기</string>
   <string name="addSimEntries">SIM 연락처 추가</string>
@@ -98,4 +135,5 @@
   <string name="exportAllcontatsSuccess">모든 연락처를 SIM으로 내보냈습니다</string>
   <string name="exportAllcontatsFailed">모든 연락처를 SIM으로 내보내지 못했습니다</string>
   <string name="exportAllcontatsNoContacts">SIM에 내보낼 연락처가 없습니다</string>
+  <string name="msim_mobile_network_settings_title">SIM %d 모바일 네트워크 설정</string>
 </resources>

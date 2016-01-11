@@ -31,6 +31,7 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <string name="ims_settings">Nastavitve IMS</string>
   <string name="label_nsdp">PIN za odklepanje podsklopa omrežja SIM</string>
   <string name="label_cdp">PIN za odklepanje pravne osebe SIM</string>
   <string name="label_spdp">PIN za odklepanje ponudnika storitev SIM</string>

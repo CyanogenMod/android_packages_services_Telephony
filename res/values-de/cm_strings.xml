@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">Anrufbildschirm-Einstellungen</string>
   <string name="show_ssn_label">Ereignis-Benachrichtigung</string>
   <string name="show_ssn_summary">Benachrichtigungen für verschiedene Anrufereignisse anzeigen</string>
   <string name="blacklist_title">Gesperrte Anruferliste</string>
@@ -40,6 +41,7 @@
   <string name="requesting_unlock_cm">Entsperren des SIM-Netzwerkes anfordern\u2026</string>
   <string name="unlock_failed_cm">Entsperren des SIM-Netzwerkes nicht erfolgreich.</string>
   <string name="unlock_success_cm">SIM-Netzwerk erfolgreich entsperrt.</string>
+  <string name="all_day">Ganztägig</string>
   <string name="time_start">Von</string>
   <string name="time_end">Bis</string>
   <string name="time_hour">Stunde</string>
@@ -79,20 +81,33 @@
   <string name="preferred_network_mode_wcdma_only_choice">Nur WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Nur GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA bevorzugt</string>
+  <string name="call_barring">Anrufsperre</string>
+  <string name="call_barring_outgoing">Anrufsperre für ausgehende Anrufe</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Aus</item>
+    <item>Internationale Roaming-Anrufe</item>
+    <item>Internationale Anrufe</item>
+    <item>Ausgehende Anrufe</item>
+  </string-array>
   <string-array name="call_barring_incoming_display_values">
-    <item>Off</item>
+    <item>Aus</item>
     <item>Roaming</item>
     <item>Alle</item>
   </string-array>
+  <string name="call_barring_incoming">Anrufsperre für eingehende Anrufe</string>
   <string name="input_password">Geben Sie Ihr Passwort ein</string>
   <string name="invalidPsw">Geben Sie ein gültiges Passwort (4 bis 8 Ziffern) ein</string>
+  <string name="labelCbCancelAll">Anrufsperre deaktivieren</string>
   <string name="labelCbChangePassword">Passwort ändern</string>
   <string name="psw_enter_old">Altes Passwort</string>
   <string name="psw_enter_new">Neues Passwort</string>
   <string name="psw_reenter_new">Geben Sie Ihr Passwort erneut ein</string>
+  <string name="no_call_barring">Anrufsperre deaktiviert</string>
   <string name="cb_psw_dont_match">Die Passwörter stimmen nicht überein</string>
   <string name="exportContacts">Kontakte werden auf die SIM-Karte exportiert\u2026</string>
   <string name="simContacts_title_cm">Kontakte auf SIM-Karte verwalten</string>
+  <string name="incall_error_local_low_battery">Anruf wegen geringem Akkustand fehlgeschlagen.</string>
+  <string name="incall_error_low_battery">Anruf wegen geringem Akkustand des Gesprächspartners fehlgeschlagen.</string>
   <string name="contactScreen">SIM-Kontakte verwalten</string>
   <string name="exportContactScreen">Telefonkontake auf SIM exportieren</string>
   <string name="addSimEntries">SIM-Kontakt hinzufügen</string>
@@ -117,4 +132,5 @@
   <string name="exportAllcontatsSuccess">Alle SIM-Kontakt erfolgreich exportiert</string>
   <string name="exportAllcontatsFailed">Export aller SIM-Kontakte fehlgeschlagen</string>
   <string name="exportAllcontatsNoContacts">Keine Kontakte für SIM-Export gefunden</string>
+  <string name="msim_mobile_network_settings_title">SIM %d-Mobilnetzeinstellungen</string>
 </resources>

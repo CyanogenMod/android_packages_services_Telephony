@@ -135,4 +135,5 @@
   <string name="exportAllcontatsSuccess">Tots contactes s\'han exportat a la SIM amb èxit</string>
   <string name="exportAllcontatsFailed">No s\'han pogut exportar tots els contactes a la SIM</string>
   <string name="exportAllcontatsNoContacts">No s\'han trobat contactes per exportar a la SIM</string>
+  <string name="msim_mobile_network_settings_title">Configuració de xarxes mòbils de la SIM %d</string>
 </resources>

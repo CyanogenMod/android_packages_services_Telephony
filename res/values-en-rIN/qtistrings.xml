@@ -31,6 +31,7 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <string name="ims_settings">IMS settings</string>
   <string name="label_nsdp">SIM network subset unlock PIN</string>
   <string name="label_cdp">SIM corporate unlock PIN</string>
   <string name="label_spdp">SIM service provider unlock PIN</string>

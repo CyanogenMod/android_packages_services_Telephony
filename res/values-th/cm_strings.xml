@@ -16,5 +16,124 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">การตั้งค่าหน้าจอระหว่างการโทร</string>
+  <string name="show_ssn_label">การแจ้งเตือนกิจกรรม</string>
   <string name="show_ssn_summary">แสดงการแจ้งเตือนสำหรับกิจกรรมเครือข่ายต่าง ๆ ที่เกี่ยวข้องกับการจัดการโทรเรียก</string>
+  <string name="blacklist_title">รายชื่อผู้ที่ถูกบล็อค</string>
+  <string name="blacklist_summary_disabled">ปิดใช้งานแล้ว</string>
+  <string name="blacklist_summary">คุณจะไม่ได้รับสายการโทรเข้าหรือข้อความจากหมายเลขที่อยู่ในรายชื่อผู้โทรที่ถูกบล็อค</string>
+  <string name="phone_number_label">หมายเลขโทรศัพท์ของฉัน</string>
+  <string name="phone_number_summary">ตั้งค่าหมายเลขโทรศัพท์สำหรับอุปกรณ์นี้</string>
+  <string name="call_notif_unconditionalCF">ส่งต่อสายแบบไม่มีเงื่อนไขเปิดใช้งานอยู่</string>
+  <string name="call_notif_conditionalCF">การส่งต่อสายเรียกเข้าแบบมีเงื่อนไขเปิดใช้งานอยู่</string>
+  <string name="call_notif_MOcall_forwarding">สายโทรออกถูกส่งต่อ</string>
+  <string name="call_notif_cugcall">การโทรในกลุ่มผู้ใช้แบบปิด</string>
+  <string name="call_notif_outgoing_barred">สายโทรออกถูกขัดขวาง</string>
+  <string name="call_notif_incoming_barred">สายเรียกเข้าถูกขัดขวางจากระยะไกล</string>
+  <string name="call_notif_clir_suppression_rejected">การระงับหมายเลขเจ้าของถูกปฏิเสธโดยเครือข่าย</string>
+  <string name="call_notif_call_deflected">สายถูกส่งต่อจากระยะไกล</string>
+  <string name="call_notif_MTcall_forwarding">สายเข้าถูกส่งต่อ</string>
+  <string name="call_notif_multipartycall">การโทรร่วมแบบหลายสาย</string>
+  <string name="call_notif_callonhold_released">สายถูกตัดจากระยะไกล</string>
+  <string name="call_notif_forwardcheckreceived">สายถูกส่งต่อ</string>
+  <string name="call_notif_callconnectingect">สายการโทรเชื่อมต่อผ่านเทคนิคการโอนสายแบบแม่นยำ</string>
+  <string name="call_notif_callconnectedect">สายถูกเชื่อมต่อผ่านเทคนิคการโอนสายแบบแม่นยำ</string>
+  <string name="requesting_unlock_cm">กำลังขอปลดล็อคเครือข่ายซิม\u2026</string>
+  <string name="unlock_failed_cm">ขอปลดล็อคเครือข่าย SIM ไม่สำเร็จ</string>
+  <string name="unlock_success_cm">ปลดล็อคเครือข่ายซิมเรียบร้อยแล้ว</string>
+  <string name="all_day">ตลอดทั้งวัน</string>
+  <string name="time_start">จาก</string>
+  <string name="time_end">ถึง</string>
+  <string name="time_hour">ชั่วโมง</string>
+  <string name="time_minute">นาที</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
+  <string name="preferred_network_mode_global_summary_cm">รูปแบบเครือข่ายที่ต้องการ : ทั่วไป (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <string name="callFailed_incoming_cb_enabled">บุคคลได้กีดกันสายเข้าทั้งหมด</string>
+  <string name="callUnanswered_forwarded">ไม่รับสายและส่งต่อ</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA / WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA / LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA / GSM</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_only_choice">TD-SCDMA เท่านั้น</string>
+  <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
+  <string name="preferred_network_mode_lte_choice">LTE</string>
+  <string name="preferred_network_mode_global_choice">ทั่วโลก</string>
+  <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_evdo_only_choice">EvDo เท่านั้น</string>
+  <string name="preferred_network_mode_cdma_wo_evdo_choice">CDMA w/o EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo อัตโนมัติ</string>
+  <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA อัตโนมัติ</string>
+  <string name="preferred_network_mode_wcdma_only_choice">WCDMA เท่านั้น</string>
+  <string name="preferred_network_mode_gsm_only_choice">GSM เท่านั้น</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred_choice">กำหนดใช้ GSM/WCDMA</string>
+  <string name="call_barring">จำกัดการโทร</string>
+  <string name="call_barring_outgoing">จำกัดการโทรออก</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>ปิด</item>
+    <item>โทรโรมมิ่งระหว่างประเทศ</item>
+    <item>โทรระหว่างประเทศ</item>
+    <item>โทรออก</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>ปืด</item>
+    <item>โรมมิ่ง</item>
+    <item>ทั้งหมด</item>
+  </string-array>
+  <string name="call_barring_incoming">จำกัดการโทรเข้า</string>
+  <string name="input_password">ป้อนรหัสผ่านของคุณ</string>
+  <string name="invalidPsw">ป้อนรหัสผ่านที่ถูกต้อง (4-8 หลัก)</string>
+  <string name="labelCbCancelAll">ปิดใช้งานการจำกัดการโทร</string>
+  <string name="labelCbChangePassword">เปลี่ยนรหัสผ่าน</string>
+  <string name="psw_enter_old">รหัสผ่านเดิม</string>
+  <string name="psw_enter_new">รหัสผ่านใหม่</string>
+  <string name="psw_reenter_new">ป้อนรหัสผ่านของคุณอีกครั้ง</string>
+  <string name="no_call_barring">จำกัดการโทรถูกปิดใช้งาน</string>
+  <string name="cb_psw_dont_match">รหัสผ่านไม่ตรงกัน</string>
+  <string name="fdn_invalid_number_cm">FDN ไม่ถูกเปลี่ยนเนื่องจากหมายเลขว่างเปล่าหรือเกิน 20 ตัว</string>
+  <string name="exportContacts">กำลังส่งออกรายชื่อติดต่อไปที่ซิม\u2026</string>
+  <string name="simContacts_title_cm">จัดการรายชื่อติดต่อในซิมการ์ด</string>
+  <string name="incall_error_local_low_battery">การโทรล้มเหลวเนื่องจากแบตเตอรี่ต่ำ</string>
+  <string name="incall_error_low_battery">โทรศัพท์ล้มเหลวเนื่องจากฟ่ายรับมีแบตเตอรี่ตํ่า</string>
+  <string name="contactScreen">จัดการรายชื่อติดต่อในซิม</string>
+  <string name="exportContactScreen">ส่งออกรายชื่อติดต่อไปที่ซิม</string>
+  <string name="addSimEntries">เพิ่มรายชื่อติดต่อในซิม</string>
+  <string name="deleteAllSimEntries">ลบรายชื่อติดต่อทั้งหมดของซิม</string>
+  <string name="deleteSimContacts">กำลังลบรายชื่อติดต่อในซิม\u2026</string>
+  <string name="editContact">แก้ไข</string>
+  <string name="sendSms">ส่งข้อความ SMS</string>
+  <string name="delete">ลบ</string>
+  <string name="dial">โทร</string>
+  <string name="enterName">ใส่ชื่อ:</string>
+  <string name="enterNumber">ใส่หมายเลขโทรศัพท์:</string>
+  <string name="hintName">ชื่อ</string>
+  <string name="hintPhonenumber">หมายเลขโทรศัพท์</string>
+  <string name="contactAddSuccess">เพิ่มรายชื่อติดต่อไปยังซิมเรียบร้อยแล้ว</string>
+  <string name="contactAddFailed">การเพิ่มรายชื่อติดต่อไปยังซิมล้มเหลว</string>
+  <string name="contactUpdateSuccess">อัปเดตรายชื่อติดต่อในซิมเรียบร้อยแล้ว</string>
+  <string name="contactUpdateFailed">การปรับปรุงรายชื่อติดต่อในซิมการ์ดล้มเหลว</string>
+  <string name="contactdeleteSuccess">ลบรายชื่อติดต่อจากซิมการ์ดเรียบร้อยแล้ว</string>
+  <string name="contactdeleteFailed">การลบผู้ติดต่อจากซิมการ์ดล้มเหลว</string>
+  <string name="allContactdeleteSuccess">ลบรายชื่อติดต่อทั้งหมดจากซิมการ์ดเรียบร้อยแล้ว</string>
+  <string name="allContactdeleteFailed">การลบรายชื่อติดต่อทั้งหมดจากซิมการ์ดล้มเหลว</string>
+  <string name="exportAllcontatsSuccess">ส่งออกผู้ติดต่อทั้งหมดไปยังซิมเรียบร้อยแล้ว</string>
+  <string name="exportAllcontatsFailed">การส่งออกรายชื่อติดต่อทั้งหมดไปยังซิมล้มเหลว</string>
+  <string name="exportAllcontatsNoContacts">ไม่พบรายชื่อติดต่อที่จะส่งออกไปยังซิม</string>
+  <string name="msim_mobile_network_settings_title">การตั้งค่าเครือข่ายโทรศัพท์มือถือซิม %d</string>
 </resources>

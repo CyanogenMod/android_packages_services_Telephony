@@ -40,6 +40,13 @@
   <string name="requesting_unlock_cm">Ber om SIM nettverk opplåsning\u2026</string>
   <string name="unlock_failed_cm">SIM nettverk opplåsningsforespørsel mislyktes.</string>
   <string name="unlock_success_cm">SIM nettverk opplåsning mislyktes.</string>
+  <string name="all_day">Hele dagen</string>
+  <string name="time_start">Fra</string>
+  <string name="time_end">Til</string>
+  <string name="time_hour">Time</string>
+  <string name="time_minute">Minutt</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <string name="preferred_network_mode_global_summary_cm">Foretrukket nettverksmodus: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="callFailed_incoming_cb_enabled">Gruppen har sperret alle innkommende oppringinger.</string>
   <string name="callUnanswered_forwarded">Ubesvarte og videresendte anrop</string>
@@ -50,7 +57,10 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Foretrukket nettverksmodus: TD-SCDMA/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Foretrukket nettverksmodus: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Foretrukket nettverksmodus: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Foretrukket nettverksmodus: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Foretrukket nettverksmodus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -72,8 +82,30 @@
   <string name="preferred_network_mode_wcdma_only_choice">kun WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">kun GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA foretrukket</string>
+  <string name="call_barring_outgoing">Utgående samtaleblokkering</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Av</item>
+    <item>Internasjonale roaming samtaler</item>
+    <item>Internasjonale samtaler</item>
+    <item>Utgående samtaler</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Av</item>
+    <item>Roaming</item>
+    <item>Alle</item>
+  </string-array>
+  <string name="call_barring_incoming">Innkommende samtaleblokkering</string>
+  <string name="input_password">Angi passordet</string>
+  <string name="invalidPsw">Angi et gyldig passord (4-8 sifre)</string>
+  <string name="labelCbChangePassword">Endre passord</string>
+  <string name="psw_enter_old">Gammelt passord</string>
+  <string name="psw_enter_new">Nytt passord</string>
+  <string name="psw_reenter_new">Oppgi passord på nytt</string>
+  <string name="no_call_barring">Nummersperring deaktivert</string>
+  <string name="cb_psw_dont_match">Passordene samsvarer ikke</string>
   <string name="exportContacts">Eksporterer kontakter til SIMkort\u2026</string>
   <string name="simContacts_title_cm">Administrere SIM-kortkontakter</string>
+  <string name="incall_error_local_low_battery">Oppringingen mislyktes på grunn av lavt batterinivå.</string>
   <string name="contactScreen">Administrere SIM-kontakter</string>
   <string name="exportContactScreen">Eksportere telefonkontakter til SIM</string>
   <string name="addSimEntries">Legge til SIM-kontakt</string>
@@ -98,4 +130,5 @@
   <string name="exportAllcontatsSuccess">Vellykket eksportering av alle kontakter til SIMkort</string>
   <string name="exportAllcontatsFailed">Klarte ikke å eksportere alle kontakter til SIMkort</string>
   <string name="exportAllcontatsNoContacts">Ingen kontakter funnet for eksportering</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobile nettverksinnstillinger</string>
 </resources>

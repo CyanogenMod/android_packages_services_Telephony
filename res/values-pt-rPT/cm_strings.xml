@@ -22,9 +22,9 @@
   <string name="blacklist_title">Lista de números bloqueados</string>
   <string name="blacklist_summary_disabled">Desativado</string>
   <string name="blacklist_summary">Não receberá chamadas ou mensagens de números de telefone na lista de números bloqueados</string>
-  <string name="phone_number_label">Meu número de telefone</string>
+  <string name="phone_number_label">O meu número de telefone</string>
   <string name="phone_number_summary">Definir o número de telefone para este dispositivo</string>
-  <string name="call_notif_unconditionalCF">Reencaminhamento incondicional de chamada  ativo</string>
+  <string name="call_notif_unconditionalCF">Reencaminhamento incondicional de chamada ativo</string>
   <string name="call_notif_conditionalCF">Reencaminhamento condicional de chamada ativo</string>
   <string name="call_notif_MOcall_forwarding">A chamada efetuada foi reencaminhada</string>
   <string name="call_notif_cugcall">Chamada num grupo fechado de utilizadores</string>
@@ -35,9 +35,9 @@
   <string name="call_notif_MTcall_forwarding">Chamada recebida encaminhada</string>
   <string name="call_notif_multipartycall">Chamada em grupo</string>
   <string name="call_notif_callonhold_released">Chamada desligada remotamente</string>
-  <string name="call_notif_forwardcheckreceived">Chamada foi encaminhada</string>
-  <string name="call_notif_callconnectingect">Chamada conectando através da transferência de chamada explícita</string>
-  <string name="call_notif_callconnectedect">Chamada conectada através da transferência de chamada explícita</string>
+  <string name="call_notif_forwardcheckreceived">A chamada foi encaminhada</string>
+  <string name="call_notif_callconnectingect">A realizar chamada através da transferência explícita de chamadas</string>
+  <string name="call_notif_callconnectedect">Chamada realizada através da transferência explícita de chamadas</string>
   <string name="requesting_unlock_cm">A solicitar o desbloqueio da rede SIM\u2026</string>
   <string name="unlock_failed_cm">Pedido de desbloqueio da rede SIM sem sucesso.</string>
   <string name="unlock_success_cm">Rede SIM desbloqueada com sucesso.</string>
@@ -82,7 +82,7 @@
   <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA auto</string>
   <string name="preferred_network_mode_wcdma_only_choice">Só WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Só GSM</string>
-  <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferido</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferida</string>
   <string name="call_barring">Barramento de chamadas</string>
   <string name="call_barring_outgoing">Barramento de chamadas efetuadas</string>
   <string-array name="call_barring_outgoing_display_values">
@@ -111,7 +111,7 @@
   <string name="simContacts_title_cm">Gerir os contactos do cartão SIM</string>
   <string name="incall_error_local_low_battery">A chamada falhou devido a bateria fraca.</string>
   <string name="incall_error_low_battery">A chamada falhou devido a bateria fraca do dispositivo remoto.</string>
-  <string name="contactScreen">Gerir contactos SIM</string>
+  <string name="contactScreen">Gerir contactos do cartão SIM</string>
   <string name="exportContactScreen">Exportar contactos do telefone para o SIM</string>
   <string name="addSimEntries">Adicionar contacto ao SIM</string>
   <string name="deleteAllSimEntries">Apagar todos os contactos do SIM</string>
@@ -124,8 +124,8 @@
   <string name="enterNumber">Introduzir número de telefone:</string>
   <string name="hintName">Nome</string>
   <string name="hintPhonenumber">Número de telefone</string>
-  <string name="contactAddSuccess">Adicionou com sucesso o contacto no cartão SIM</string>
-  <string name="contactAddFailed">Falha ao adicionar contacto no cartão SIM</string>
+  <string name="contactAddSuccess">Adicionou com sucesso o contacto ao cartão SIM</string>
+  <string name="contactAddFailed">Falha ao adicionar contacto ao cartão SIM</string>
   <string name="contactUpdateSuccess">Atualizou com sucesso o contacto do cartão SIM</string>
   <string name="contactUpdateFailed">Falha ao atualizar o contacto no SIM</string>
   <string name="contactdeleteSuccess">Apagou com sucesso o contacto do cartão SIM</string>
@@ -135,4 +135,5 @@
   <string name="exportAllcontatsSuccess">Exportou com sucesso todos os contactos para o cartão SIM</string>
   <string name="exportAllcontatsFailed">Falha ao exportar todos os contactos para o cartão SIM</string>
   <string name="exportAllcontatsNoContacts">Não foram encontrados contactos para exportar para o cartão SIM</string>
+  <string name="msim_mobile_network_settings_title">Definições de rede móvel do SIM %d</string>
 </resources>

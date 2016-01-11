@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Sėkmingai eksportuoti visi kontaktai į SIM</string>
   <string name="exportAllcontatsFailed">Nepavyko eksportuoti visų kontaktų į SIM</string>
   <string name="exportAllcontatsNoContacts">Kontaktų nerasta eksportuoti į SIM</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiliojo tinklo nustatymai</string>
 </resources>

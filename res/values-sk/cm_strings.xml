@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Všetky kontakty boli úspešne exportované na kartu SIM</string>
   <string name="exportAllcontatsFailed">Nepodarilo sa exportovať všetky kontakty na kartu SIM</string>
   <string name="exportAllcontatsNoContacts">Nenašli sa žiadne kontakty pre export na kartu SIM</string>
+  <string name="msim_mobile_network_settings_title">Nastavenia mobilnej siete SIM %d</string>
 </resources>

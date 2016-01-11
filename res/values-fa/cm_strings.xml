@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">تمام مخاطبین با موفقیت به سیمکارت برون‌ریزی شدند</string>
   <string name="exportAllcontatsFailed">برون‌ریزی تمام مخاطبین به سیمکارت ناموفق بود</string>
   <string name="exportAllcontatsNoContacts">هیچ مخاطبی برای برون‌ریزی به سیمکارت پیدا نشد</string>
+  <string name="msim_mobile_network_settings_title">تنظیمات شبکه تلفن همراه سیمکارت %d</string>
 </resources>

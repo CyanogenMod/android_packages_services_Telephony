@@ -135,4 +135,5 @@
   <string name="exportAllcontatsSuccess">SIMにすべての連絡先をエクスポートしました</string>
   <string name="exportAllcontatsFailed">SIMにすべての連絡先をエクスポートできませんでした</string>
   <string name="exportAllcontatsNoContacts">SIMにエクスポートする連絡先が見つかりませんでした</string>
+  <string name="msim_mobile_network_settings_title">SIM %dのモバイルネットワーク設定</string>
 </resources>
