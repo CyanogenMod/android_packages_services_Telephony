@@ -135,4 +135,5 @@
   <string name="exportAllcontatsSuccess">Успешно извежени сви контакти на SIM</string>
   <string name="exportAllcontatsFailed">Није успео извоз свих контаката на SIM</string>
   <string name="exportAllcontatsNoContacts">Није пронађен ниједан контакт за извоз на SIM</string>
+  <string name="msim_mobile_network_settings_title">SIM %d подешавање мобилне мреже</string>
 </resources>

@@ -95,4 +95,5 @@
   <string name="exportAllcontatsSuccess">Esportáronse tolos contautos a la tarxeta SIM</string>
   <string name="exportAllcontatsFailed">Fallu al esportar tolos contautos de la tarxeta SIM</string>
   <string name="exportAllcontatsNoContacts">Nun s\'atoparon contautos qu\'esportar a la tarxeta SIM</string>
+  <string name="msim_mobile_network_settings_title">Axustes de rede de SIM %d</string>
 </resources>

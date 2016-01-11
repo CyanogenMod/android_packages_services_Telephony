@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">Puhelunaikaiset asetukset</string>
   <string name="show_ssn_label">Tapahtumailmoitus</string>
   <string name="show_ssn_summary">Näytä eri verkkotapahtumien ilmoitus liittyen puheluiden käsittelyyn</string>
   <string name="blacklist_title">Estettyjen soittajien lista</string>
@@ -40,6 +41,13 @@
   <string name="requesting_unlock_cm">Pyydetään SIM verkon avausta\u2026</string>
   <string name="unlock_failed_cm">SIM verkon avauspyyntö epäonnistui.</string>
   <string name="unlock_success_cm">SIM verkon avaus onnistui.</string>
+  <string name="all_day">Koko päivä</string>
+  <string name="time_start">Alkaen</string>
+  <string name="time_end">Loppuu</string>
+  <string name="time_hour">Tunti</string>
+  <string name="time_minute">Minuutti</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <string name="preferred_network_mode_global_summary_cm">Ensisijainen verkkotila: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="callFailed_incoming_cb_enabled">Ryhmä on estänyt kaikki tulevat puhelut.</string>
   <string name="callUnanswered_forwarded">Puheluun ei vastattu ja se siirrettiin</string>
@@ -50,7 +58,10 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Ensisijainen verkkotila: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Ensisijainen verkkotila: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Ensisijainen verkkotila: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -72,8 +83,34 @@
   <string name="preferred_network_mode_wcdma_only_choice">Vain WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Vain GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Ensisij. GSM/WCDMA</string>
+  <string name="call_barring">Puhelun esto</string>
+  <string name="call_barring_outgoing">Lähtevän puhelun esto</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Ei käytössä</item>
+    <item>Kansainväliset roaming-puhelut</item>
+    <item>Ulkomaanpuhelut</item>
+    <item>Lähtevät puhelut</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Ei käytössä</item>
+    <item>Roaming</item>
+    <item>Kaikki</item>
+  </string-array>
+  <string name="call_barring_incoming">Saapuvan puhelun esto</string>
+  <string name="input_password">Kirjoita salasanasi</string>
+  <string name="invalidPsw">Kirjoita kelvollinen salasana (4-8 numeroa)</string>
+  <string name="labelCbCancelAll">Poista puhelun esto käytöstä</string>
+  <string name="labelCbChangePassword">Vaihda salasana</string>
+  <string name="psw_enter_old">Vanha salasana</string>
+  <string name="psw_enter_new">Uusi salasana</string>
+  <string name="psw_reenter_new">Kirjoita salasana uudelleen</string>
+  <string name="no_call_barring">Puhelun esto pois käytöstä</string>
+  <string name="cb_psw_dont_match">Salasanat eivät täsmää</string>
+  <string name="fdn_invalid_number_cm">FDN:ää ei päivitetty koska numero on tyhjä tai pidempi kuin 20 numeroa.</string>
   <string name="exportContacts">Viedään yhteystiedot SIM-kortille\u2026</string>
   <string name="simContacts_title_cm">Hallitse SIM-kortin yhteystietoja</string>
+  <string name="incall_error_local_low_battery">Puhelu epäonnistui koska akun varaus on alhainen.</string>
+  <string name="incall_error_low_battery">Puhelu onnistui koska etälaitteen akun varaus on alhainen.</string>
   <string name="contactScreen">Hallitse SIM-kortin yhteystietoja</string>
   <string name="exportContactScreen">Vie puhelimen yhteystiedot SIM-kortille</string>
   <string name="addSimEntries">Lisää SIM-yhteystieto</string>
@@ -98,4 +135,5 @@
   <string name="exportAllcontatsSuccess">Kaikki yhteystiedot vietiin SIM-kortille onnistuneesti</string>
   <string name="exportAllcontatsFailed">Kaikkien yhteystietojen vieminen SIM-kortille epäonnistui</string>
   <string name="exportAllcontatsNoContacts">SIM-kortille vietäviä yhteystietoja ei löydy</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiiliverkon asetukset</string>
 </resources>

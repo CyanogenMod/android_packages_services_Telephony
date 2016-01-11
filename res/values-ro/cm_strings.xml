@@ -99,4 +99,5 @@
   <string name="exportAllcontatsSuccess">S-a reușit exportarea tuturor contactelor în SIM</string>
   <string name="exportAllcontatsFailed">Nu s-a reușit exportarea tuturor contactelor în SIM</string>
   <string name="exportAllcontatsNoContacts">Fără contacte găsite pentru exportarea în SIM</string>
+  <string name="msim_mobile_network_settings_title">Setări rețea mobilă SIM %d</string>
 </resources>

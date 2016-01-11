@@ -135,4 +135,5 @@
   <string name="exportAllcontatsSuccess">Kontaktu guztiak ondo esportatu dira SIM txartelera</string>
   <string name="exportAllcontatsFailed">Huts egin du kontaktu guztiak SIM txartelera esportatzean</string>
   <string name="exportAllcontatsNoContacts">Ez da kontakturik aurkitu SIM txartelera esportatzeko</string>
+  <string name="msim_mobile_network_settings_title">%d. SIM txartelaren sare mugikor ezarpenak</string>
 </resources>

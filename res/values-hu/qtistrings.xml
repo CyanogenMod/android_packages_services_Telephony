@@ -31,6 +31,7 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <string name="ims_settings">IMS beállítások</string>
   <string name="label_nsdp">SIM hálózati subset feloldó PIN</string>
   <string name="label_cdp">Vállalati SIM feloldó PIN</string>
   <string name="label_spdp">Szolgáltatói SIM feloldó PIN</string>

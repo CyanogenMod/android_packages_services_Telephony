@@ -31,6 +31,7 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <string name="ims_settings">Configuración do IMS</string>
   <string name="label_nsdp">PIN de desbloqueo da subrede da tarxeta SIM</string>
   <string name="label_cdp">PIN de desbloqueo da tarxeta SIM corporativa</string>
   <string name="label_spdp">PIN de desbloqueo do fornecedor de servizos da tarxeta SIM</string>
@@ -64,4 +65,15 @@
   <string name="rc_unlock_failed">O desbloqueo da tarxeta RUIM corporativa non se puido realizar correctamente.</string>
   <string name="ruim_unlock_failed">O desbloqueo da tarxeta RUIM non se puido realizar correctamente.</string>
   <string name="puk_unlock_failed">Non se puido desbloquear co PUK.</string>
+  <string name="nw_subset_unlock_success">O desbloqueo da subrede da SIM realizouse correctamente.</string>
+  <string name="sp_unlock_success">O desbloqueo do fornecedor de servizos da SIM realizouse correctamente.</string>
+  <string name="corporate_unlock_success">O desbloqueo da SIM corporativa realizouse correctamente.</string>
+  <string name="sim_unlock_success">O desbloqueo da SIM realizouse correctamente.</string>
+  <string name="rnw1_unlock_success">O desbloqueo da rede 1 da tarxeta RUIM realizouse correctamente.</string>
+  <string name="rnw2_unlock_success">O desbloqueo da rede 2 da tarxeta RUIM realizouse correctamente.</string>
+  <string name="rhrpd_unlock_success">O desbloqueo de HRPD da tarxeta RUIM realizouse correctamente.</string>
+  <string name="rsp_unlock_success">O desbloqueo do fornecedor de servizos de tarxeta RUIM realizouse correctamente.</string>
+  <string name="rc_unlock_success">O desbloqueo da tarxeta RUIM corporativa realizouse correctamente.</string>
+  <string name="ruim_unlock_success">O desbloqueo da tarxeta RUIM realizouse correctamente.</string>
+  <string name="puk_unlock_success">O PUK desbloqueouse correctamente.</string>
 </resources>

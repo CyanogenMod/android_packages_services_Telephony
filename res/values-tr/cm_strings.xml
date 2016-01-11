@@ -135,4 +135,5 @@
   <string name="exportAllcontatsSuccess">Tüm kişiler SIM\'e başarıyla aktarıldı</string>
   <string name="exportAllcontatsFailed">Tüm kişiler SIM\'e aktarılamadı</string>
   <string name="exportAllcontatsNoContacts">SIM\'e aktarılacak kişi bulunamadı</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobil şebeke ayarları</string>
 </resources>

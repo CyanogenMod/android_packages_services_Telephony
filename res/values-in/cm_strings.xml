@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Semua kontak berhasil diekspor ke SIM</string>
   <string name="exportAllcontatsFailed">Semua kontak gagal diekspor ke SIM</string>
   <string name="exportAllcontatsNoContacts">Tidak ada kontak yang ditemukan untuk diekspor ke SIM</string>
+  <string name="msim_mobile_network_settings_title">Pengaturan jaringan mobile SIM %d</string>
 </resources>

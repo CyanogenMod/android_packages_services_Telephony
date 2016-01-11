@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Успішно експортовано всі контакти до SIM-картки</string>
   <string name="exportAllcontatsFailed">Не вдалося експортувати всі контакти до SIM-картки</string>
   <string name="exportAllcontatsNoContacts">Не знайдено контактів для експорту до SIM-картки</string>
+  <string name="msim_mobile_network_settings_title">Налаштування мобільної мережі SIM %d</string>
 </resources>

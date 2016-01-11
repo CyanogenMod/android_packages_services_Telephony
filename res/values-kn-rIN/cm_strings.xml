@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ಯಶಸ್ವಿಯಾಗಿ ರಫ್ತುಮಾಡಿದೆ</string>
   <string name="exportAllcontatsFailed">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ರಫ್ತುಮಾಡಲು ವಿಫಲವಾಗಿದೆ</string>
   <string name="exportAllcontatsNoContacts">ಸಿಮ್‍ಗೆ ರಫ್ತು ಮಾಡಲು ಯಾವುದೇ ಸಂಪರ್ಕಗಳು ಪತ್ತೆಯಾಗಲಿಲ್ಲ</string>
+  <string name="msim_mobile_network_settings_title">ಸಿಮ್ %d ಮೊಬೈಲ್ ನೆಟ್‍ವರ್ಕ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
 </resources>

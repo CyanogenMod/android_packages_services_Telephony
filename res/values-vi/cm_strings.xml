@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Đã xuất tất cả các số liên lạc sang SIM thành công</string>
   <string name="exportAllcontatsFailed">Không thể xuất tất cả các số liên lạc sang SIM</string>
   <string name="exportAllcontatsNoContacts">Không tìm thấy số liên lạc nào để xuất sang SIM</string>
+  <string name="msim_mobile_network_settings_title">Cài đặt mạng di động %d của SIM</string>
 </resources>
