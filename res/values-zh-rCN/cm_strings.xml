@@ -106,7 +106,7 @@
   <string name="psw_reenter_new">重新输入您的密码</string>
   <string name="no_call_barring">已禁用呼叫限制</string>
   <string name="cb_psw_dont_match">密码不匹配</string>
-  <string name="fdn_invalid_number_cm">FDN 未能更新，因为号码是空的或者超过了 20 位数字。</string>
+  <string name="fdn_invalid_number_cm">号码为空或超过 20 位数字，未能更新 FDN。</string>
   <string name="exportContacts">正在将联系人导出至 SIM 卡\u2026</string>
   <string name="simContacts_title_cm">管理 SIM 卡联系人</string>
   <string name="incall_error_local_low_battery">电量低，呼叫失败。</string>
@@ -135,4 +135,5 @@
   <string name="exportAllcontatsSuccess">已成功导出所有联系人到 SIM 卡</string>
   <string name="exportAllcontatsFailed">导出所有联系人到 SIM 卡失败</string>
   <string name="exportAllcontatsNoContacts">未找到要导出到 SIM 卡的联系人</string>
+  <string name="msim_mobile_network_settings_title">SIM 卡 %d 移动网络设置</string>
 </resources>

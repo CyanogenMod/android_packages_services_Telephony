@@ -31,6 +31,7 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <string name="ims_settings">IMS-instellingen</string>
   <string name="label_nsdp">Netwerksubset SIM-ontgrendelings-PIN</string>
   <string name="label_cdp">Zakelijke SIM-ontgrendelings-PIN</string>
   <string name="label_spdp">Netwerkaanbieder SIM-ontgrendelings-PIN</string>

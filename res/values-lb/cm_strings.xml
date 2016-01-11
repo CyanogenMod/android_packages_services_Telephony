@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">All d\'Kontakter goufen erfollegräich op d\'SIM exportéiert</string>
   <string name="exportAllcontatsFailed">Export vun alle Kontakter op d\'SIM feelgeschloen</string>
   <string name="exportAllcontatsNoContacts">Keng Kontakter fonnt fir op d\'SIM z\'exportéieren</string>
+  <string name="msim_mobile_network_settings_title">SIM %d-Datennetzwierkastellungen</string>
 </resources>

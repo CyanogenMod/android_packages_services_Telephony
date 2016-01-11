@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">सभी संपर्कों को सफलतापूर्वक सिम में निर्यात कर दिया</string>
   <string name="exportAllcontatsFailed">सभी संपर्कों को सिम में निर्यात नहीं कर सके</string>
   <string name="exportAllcontatsNoContacts">सिम में निर्यात करने के लिए कोई संपर्क नहीं मिला</string>
+  <string name="msim_mobile_network_settings_title">सिम %d मोबाइल नेटवर्क सेटिंग</string>
 </resources>

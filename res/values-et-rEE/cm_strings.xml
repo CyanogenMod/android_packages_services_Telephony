@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Kõik kontaktid said edukalt eksporditud SIMile</string>
   <string name="exportAllcontatsFailed">Ei suutnud kõiki kontakte eksportida SIMile</string>
   <string name="exportAllcontatsNoContacts">Ei leitud ühtegi kontakti, mida eksportida SIMile</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiilse võrgu seaded</string>
 </resources>

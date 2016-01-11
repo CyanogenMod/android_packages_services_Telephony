@@ -135,4 +135,5 @@
   <string name="exportAllcontatsSuccess">Επιτυχής εξαγωγή όλων των επαφών στη SIM</string>
   <string name="exportAllcontatsFailed">Αποτυχία εξαγωγής όλων των επαφών στη SIM</string>
   <string name="exportAllcontatsNoContacts">Δεν βρέθηκαν επαφές για εξαγωγή στη SIM</string>
+  <string name="msim_mobile_network_settings_title">Ρυθμίσεις δικτύων κινητής τηλεφωνίας SIM %d</string>
 </resources>

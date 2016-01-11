@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Eksporto de ĉiuj kontaktuloj el SIM sukcesis</string>
   <string name="exportAllcontatsFailed">Eksporto de ĉiuj kontaktuloj el SIM fiaskis</string>
   <string name="exportAllcontatsNoContacts">Neniu kontakto troveblas por eksporti al SIM</string>
+  <string name="msim_mobile_network_settings_title">Agordoj de reto por SIM %d</string>
 </resources>

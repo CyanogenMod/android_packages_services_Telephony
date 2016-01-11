@@ -135,4 +135,5 @@
   <string name="exportAllcontatsSuccess">Tutti i contatti esportati sulla SIM</string>
   <string name="exportAllcontatsFailed">Impossibile esportare tutti i contatti sulla SIM</string>
   <string name="exportAllcontatsNoContacts">Nessun contatto trovato da esportare sulla SIM</string>
+  <string name="msim_mobile_network_settings_title">Impostazioni rete mobile SIM %d</string>
 </resources>

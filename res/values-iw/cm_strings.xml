@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">הגדרות תצוגה במהלך שיחה</string>
   <string name="show_ssn_label">התראת אירוע</string>
   <string name="show_ssn_summary">הצג התראה לאירועי רשת שונים הקשורים בטיפול בשיחה</string>
   <string name="blacklist_title">רשימת המתקשרים החסומים</string>
@@ -82,6 +83,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">‏WCDMA בלבד</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM בלבד</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">‏GSM/WCDMA מועדף</string>
+  <string name="call_barring">חסימת שיחות</string>
   <string name="call_barring_outgoing">חסימת שיחות יוצאות</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>כבוי</item>
@@ -95,8 +97,13 @@
     <item>הכל</item>
   </string-array>
   <string name="call_barring_incoming">חסימת שיחות נכנסות</string>
+  <string name="input_password">הכנס את הסיסמה שלך</string>
+  <string name="invalidPsw">הזן סיסמה תקנית (4-8 ספרות)</string>
+  <string name="labelCbCancelAll">ביטול חסימת שיחות</string>
+  <string name="labelCbChangePassword">שנה סיסמה</string>
   <string name="psw_enter_old">סיסמה ישנה</string>
   <string name="psw_enter_new">סיסמה חדשה</string>
+  <string name="psw_reenter_new">הכנס שנית את סיסמתך</string>
   <string name="no_call_barring">חסימת שיחות מושבתת</string>
   <string name="cb_psw_dont_match">הסיסמאות אינן תואמות</string>
   <string name="fdn_invalid_number_cm">FDN לא עודכן כי המספר ריק או ארוך מ-20 ספרות.</string>
@@ -128,4 +135,5 @@
   <string name="exportAllcontatsSuccess">כל אנשי הקשר יוצאו בהצלחה ל-SIM</string>
   <string name="exportAllcontatsFailed">ייצוא כל אנשי הקשר ל-SIM נכשל</string>
   <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ל-SIM</string>
+  <string name="msim_mobile_network_settings_title">הגדרות רשת סלולרית של SIM %d</string>
 </resources>

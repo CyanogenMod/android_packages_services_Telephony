@@ -31,6 +31,7 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <string name="ims_settings">IMS 설정</string>
   <string name="label_nsdp">SIM 네트워크 서브셋 언락 PIN</string>
   <string name="label_cdp">SIM 코퍼레이트 언락 PIN</string>
   <string name="label_spdp">SIM 서비스 공급자 언락 PIN</string>

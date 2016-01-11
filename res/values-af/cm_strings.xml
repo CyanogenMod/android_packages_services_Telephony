@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Suksesvol kontakte na SIM uitgevoer</string>
   <string name="exportAllcontatsFailed">Het misluk om al die kontakte uit te voer na SIM</string>
   <string name="exportAllcontatsNoContacts">Geen kontakte gevind om uit te voer na SIM</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiele netwerk instellings</string>
 </resources>

@@ -41,6 +41,7 @@
   <string name="requesting_unlock_cm">Żądanie odblokowania sieci SIM\u2026</string>
   <string name="unlock_failed_cm">Żądanie odblokowania sieci SIM zakończone niepowodzeniem.</string>
   <string name="unlock_success_cm">Odblokowanie sieci SIM zakończone powodzeniem.</string>
+  <string name="all_day">Cały dzień</string>
   <string name="time_start">Od</string>
   <string name="time_end">Do</string>
   <string name="time_hour">Godzina</string>
@@ -57,7 +58,10 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Preferowany tryb sieci: TD-SCDMA/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Preferowany tryb sieci: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Preferowany tryb sieci: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Preferowany tryb sieci: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Preferowany tryb sieci: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -79,17 +83,34 @@
   <string name="preferred_network_mode_wcdma_only_choice">Tylko WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Tylko GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferowane GSM/WCDMA</string>
+  <string name="call_barring">Odrzucanie połączeń</string>
+  <string name="call_barring_outgoing">Odrzucanie połączeń wychodzących</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Wyłączone</item>
+    <item>Połączenia międzynarodowe w roamingu</item>
+    <item>Połączenia międzynarodowe</item>
+    <item>Połączenia wychodzące</item>
+  </string-array>
   <string-array name="call_barring_incoming_display_values">
-    <item>Off</item>
+    <item>Wyłączone</item>
     <item>Roaming</item>
     <item>Wszystkie</item>
   </string-array>
+  <string name="call_barring_incoming">Odrzucanie połączeń przychodzących</string>
   <string name="input_password">Wpisz swoje hasło</string>
+  <string name="invalidPsw">Wprowadź poprawne hasło (4-8 cyfr)</string>
+  <string name="labelCbCancelAll">Wyłącz odrzucanie połączeń</string>
   <string name="labelCbChangePassword">Zmień hasło</string>
   <string name="psw_enter_old">Stare hasło</string>
   <string name="psw_enter_new">Nowe hasło</string>
+  <string name="psw_reenter_new">Wprowadź ponownie hasło</string>
+  <string name="no_call_barring">Odrzucanie połączeń wyłączone</string>
+  <string name="cb_psw_dont_match">Podane hasła różnią się</string>
+  <string name="fdn_invalid_number_cm">FDN nie był aktualizowany, ponieważ numer jest pusty lub przekracza 20 cyfr.</string>
   <string name="exportContacts">Eksportowanie kontaktów do karty SIM\u2026</string>
   <string name="simContacts_title_cm">Zarządzanie kontaktami karty SIM</string>
+  <string name="incall_error_local_low_battery">Połączenie nie powiodło się z powodu niskiego poziomu baterii.</string>
+  <string name="incall_error_low_battery">Połączenie nie powiodło się z powodu niskiego poziomu baterii urządzenia zdalnego.</string>
   <string name="contactScreen">Zarządzanie kontaktami na karcie SIM</string>
   <string name="exportContactScreen">Eksport kontaktów z telefonu na kartę SIM</string>
   <string name="addSimEntries">Dodaj kontakt do karty SIM</string>
@@ -114,4 +135,5 @@
   <string name="exportAllcontatsSuccess">Skutecznie wyeksportowano kontakty na kartę SIM</string>
   <string name="exportAllcontatsFailed">Nie udało się wyeksportować kontaktów na kartę SIM</string>
   <string name="exportAllcontatsNoContacts">Nie odnaleziono kontaktów do wyeksportowania na kartę SIM</string>
+  <string name="msim_mobile_network_settings_title">Ustawienia sieci komórkowej karty SIM %d</string>
 </resources>

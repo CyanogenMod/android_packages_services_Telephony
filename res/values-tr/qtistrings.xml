@@ -32,16 +32,16 @@
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
   <string name="ims_settings">IMS ayarları</string>
-  <string name="label_nsdp">SIM alt şebeke kilit açma PINi</string>
-  <string name="label_cdp">SIM şirket kilidi açma PINi</string>
-  <string name="label_spdp">SIM servis sağlayıcısı kilidi açma PINi</string>
-  <string name="label_sdp">SIM kilidi açma PINi</string>
+  <string name="label_nsdp">SIM ağı alt şebeke kilit açma PİNi</string>
+  <string name="label_cdp">SIM şirket kilidi açma PİNİ</string>
+  <string name="label_spdp">SIM servis sağlayıcısı kilidi açma PİNi</string>
+  <string name="label_sdp">SIM kilidi açma PİNİ</string>
   <string name="label_rn1dp">1. RUIM ağı kilit açma PINi</string>
   <string name="label_rn2dp">2. RUIM ağı kilit açma PINi</string>
-  <string name="label_rhrpd">RUIM HRPD kilidi açma PINi</string>
-  <string name="label_rcdp">RUIM şirket kilidi açma PINi</string>
-  <string name="label_rspdp">RUIM servis sağlayıcı kilit açma PINi</string>
-  <string name="label_rdp">RUIM kilidi açma PINi</string>
+  <string name="label_rhrpd">RUIM HRPD kilidi açma PİNİ</string>
+  <string name="label_rcdp">RUIM şirket kilidi açma PİNİ</string>
+  <string name="label_rspdp">RUIM servis sağlayıcı kilit açma PİNİ</string>
+  <string name="label_rdp">RUIM kilidi açma PİNİ</string>
   <string name="label_puk">PUK girin</string>
   <string name="requesting_nw_subset_unlock">SIM alt şebekesi kilit açma isteği gönderiliyor\u2026</string>
   <string name="requesting_sp_unlock">SIM servis sağlayıcısı kilidi açma isteği gönderiliyor\u2026</string>

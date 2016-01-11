@@ -98,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Bütün şəxslər SIM\'ə uğurla köçürüldü</string>
   <string name="exportAllcontatsFailed">Bütün şəxslər SIM\'ə köçürülmədi</string>
   <string name="exportAllcontatsNoContacts">SIM\'ə köçürüləcək şəxs yoxdur</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobil şəbəkə tənzimləmələri</string>
 </resources>
