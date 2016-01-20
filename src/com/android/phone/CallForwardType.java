@@ -69,10 +69,9 @@ public class CallForwardType extends PreferenceActivity {
 
             /*onClicking Voice Button*/
             public boolean onPreferenceClick(Preference pref) {
-                Intent intent = new Intent( getBaseContext(), GsmUmtsCallForwardOptions.class );
+                Intent intent = mSubscriptionInfoHelper.getIntent(GsmUmtsCallForwardOptions.class);
                 Log.d(LOG_TAG, "Voice button clicked!");
                 intent.putExtra(PhoneUtils.SERVICE_CLASS, PhoneUtils.SERVICE_CLASS_VOICE);
-                intent.putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
                 startActivity(intent);
                 return true;
             }
@@ -84,10 +83,9 @@ public class CallForwardType extends PreferenceActivity {
 
              /*onClicking Video Button*/
              public boolean onPreferenceClick(Preference pref) {
-                 Intent intent = new Intent( getBaseContext(), GsmUmtsCallForwardOptions.class );
+                 Intent intent = mSubscriptionInfoHelper.getIntent(GsmUmtsCallForwardOptions.class);
                  Log.d(LOG_TAG, "Video button clicked!");
                  intent.putExtra(PhoneUtils.SERVICE_CLASS, PhoneUtils.SERVICE_CLASS_VIDEO);
-                 intent.putExtra(SUBSCRIPTION_KEY, mPhone.getSubId());
                  startActivity(intent);
                  return true;
              }
