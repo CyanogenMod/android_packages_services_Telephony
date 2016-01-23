@@ -37,6 +37,7 @@ import android.provider.Contacts.PhonesColumns;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.Settings;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.SubscriptionManager;
 import android.text.Selection;
 import android.text.Spannable;
 import android.text.TextUtils;
@@ -56,6 +57,7 @@ import com.android.phone.PhoneGlobals;
 import com.android.phone.R;
 import com.android.phone.SubscriptionInfoHelper;
 import com.android.internal.telephony.IccCardConstants;
+import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.TelephonyIntents;
 
@@ -113,8 +115,8 @@ public class EditFdnContactScreen extends Activity {
             if (intent != null && intent.getAction().equals(
                     TelephonyIntents.ACTION_SIM_STATE_CHANGED)) {
                 String stateExtra = intent.getStringExtra(IccCardConstants.INTENT_KEY_ICC_STATE);
-                SubscriptionInfoHelper subInfoHelper = new SubscriptionInfoHelper(context, intent);
-                int subId = subInfoHelper.getSubId();
+                int subId = intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
+                        SubscriptionManager.INVALID_SUBSCRIPTION_ID);
                 if (IccCardConstants.INTENT_VALUE_ICC_ABSENT.equals(stateExtra) &&
                         subId == mSubscriptionInfoHelper.getSubId()) {
                     handleSimAbsentIntent(context, intent);
