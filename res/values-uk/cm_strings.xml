@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">Параметри екрану виклику</string>
   <string name="show_ssn_label">Повідомлення про події</string>
   <string name="show_ssn_summary">Показувати повідомлення щодо подій у мережі, які пов\'язані з викликом</string>
   <string name="blacklist_title">Список заблокованих абонентів</string>
@@ -40,6 +41,13 @@
   <string name="requesting_unlock_cm">Запит розблокування мережі SIM\u2026</string>
   <string name="unlock_failed_cm">Не вдалося виконати запит на розблокування мережі SIM.</string>
   <string name="unlock_success_cm">Розблокування мережі SIM виконано успішно.</string>
+  <string name="all_day">Увесь день</string>
+  <string name="time_start">Від</string>
+  <string name="time_end">Кому</string>
+  <string name="time_hour">Година</string>
+  <string name="time_minute">Хвилина</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <string name="preferred_network_mode_global_summary_cm">Пріоритетний режим мережі: Глобальний (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="callFailed_incoming_cb_enabled">Абонент заборонив усі вхідні дзвінки.</string>
   <string name="callUnanswered_forwarded">Виклик залишився без відповіді та був переадресований</string>
@@ -50,7 +58,10 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Пріоритетний режим мережі: TD-SCDMA/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Пріоритетний режим мережі: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Пріоритетний режим мережі: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Бажаний режим мережі: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Пріоритетний режим мережі: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -72,8 +83,34 @@
   <string name="preferred_network_mode_wcdma_only_choice">Тільки WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Тільки GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Переважно GSM/WCDMA</string>
+  <string name="call_barring">Заборона виклику</string>
+  <string name="call_barring_outgoing">Заборона вихідного виклику</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Вимк</item>
+    <item>Міжнародні дзвінки у роумінгу</item>
+    <item>Міжнародні дзвінки</item>
+    <item>Вихідні дзвінки</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Вимк</item>
+    <item>Роумінг</item>
+    <item>Усі</item>
+  </string-array>
+  <string name="call_barring_incoming">Заборона вхідного виклику</string>
+  <string name="input_password">Введіть свій пароль</string>
+  <string name="invalidPsw">Введіть припустимий пароль (4-8 цифр)</string>
+  <string name="labelCbCancelAll">Вимкнення заборони виклику</string>
+  <string name="labelCbChangePassword">Змінити пароль</string>
+  <string name="psw_enter_old">Старий пароль</string>
+  <string name="psw_enter_new">Новий пароль</string>
+  <string name="psw_reenter_new">введіть пароль ще раз</string>
+  <string name="no_call_barring">Заборона викликів відключена</string>
+  <string name="cb_psw_dont_match">Паролі не співпадають</string>
+  <string name="fdn_invalid_number_cm">FDN не було оновлено оскільки номер пустий, або перевищує 20 цифр.</string>
   <string name="exportContacts">Експортування контактів на SIM-картку\u2026</string>
   <string name="simContacts_title_cm">Керувати контактами SIM-картки</string>
+  <string name="incall_error_local_low_battery">Виклик не вдалося через низький рівень заряду акумулятора.</string>
+  <string name="incall_error_low_battery">Виклик не вдалося через низький рівень заряду акумулятора віддаленого пристрою.</string>
   <string name="contactScreen">Керування контактами SIM-картки</string>
   <string name="exportContactScreen">Експортувати контакти телефону на SIM-картку</string>
   <string name="addSimEntries">Додати SIM-контакт</string>

@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">Nastavení obrazovky při hovoru</string>
   <string name="show_ssn_label">Upozornění na událost</string>
   <string name="show_ssn_summary">Zobrazit upozornění na různé události sítě, které souvisejí s hovory</string>
   <string name="blacklist_title">Seznam blokovaných čísel</string>
@@ -40,6 +41,13 @@
   <string name="requesting_unlock_cm">Požadavek SIM na odemknutí sítě\u2026</string>
   <string name="unlock_failed_cm">Požadavek odemknutí SIM sítě neúspěšný.</string>
   <string name="unlock_success_cm">Odemknutí sítě SIM provedeno.</string>
+  <string name="all_day">Celý den</string>
+  <string name="time_start">Od</string>
+  <string name="time_end">Do</string>
+  <string name="time_hour">Hodina</string>
+  <string name="time_minute">Minuta</string>
+  <string name="time_formate_am">Dop.</string>
+  <string name="time_formate_pm">Odp.</string>
   <string name="preferred_network_mode_global_summary_cm">Upřednostňovaný režim sítě: globální (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="callFailed_incoming_cb_enabled">Volaná skupina odmítá všechny příchozí hovory.</string>
   <string name="callUnanswered_forwarded">Zavolat (nepřijaté a přesměrované)</string>
@@ -50,7 +58,10 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Upřednostňovaný režim sítě: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Upřednostňovaný režim sítě: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Upřednostňované sítě: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -72,8 +83,34 @@
   <string name="preferred_network_mode_wcdma_only_choice">Pouze WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Pouze GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferované WCDMA/GSM</string>
+  <string name="call_barring">Blokování hovorů</string>
+  <string name="call_barring_outgoing">Blokování odchozích hovorů</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Vypnuto</item>
+    <item>Mezinárodní hovory v rámci roamingu</item>
+    <item>Mezinárodní hovory</item>
+    <item>Odchozí hovory</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Vypnuto</item>
+    <item>Roaming</item>
+    <item>Všechny</item>
+  </string-array>
+  <string name="call_barring_incoming">Blokování příchozích hovorů</string>
+  <string name="input_password">Zadejte heslo</string>
+  <string name="invalidPsw">Zadejte správné heslo (4-8 číslic)</string>
+  <string name="labelCbCancelAll">Zrušit blokování hovorů</string>
+  <string name="labelCbChangePassword">Změna hesla</string>
+  <string name="psw_enter_old">Původní heslo</string>
+  <string name="psw_enter_new">Nové heslo</string>
+  <string name="psw_reenter_new">Zadejte heslo znovu</string>
+  <string name="no_call_barring">Blokování hovorů zakázáno</string>
+  <string name="cb_psw_dont_match">Hesla se neshodují</string>
+  <string name="fdn_invalid_number_cm">FDN nebylo aktualizováno, protože číslo chybí nebo přesahuje 20 číslic.</string>
   <string name="exportContacts">Export kontaktů na kartu SIM\u2026</string>
   <string name="simContacts_title_cm">Spravovat kontakty na SIM kartě</string>
+  <string name="incall_error_local_low_battery">Volání se nezdařilo z důvodu vybité baterie.</string>
+  <string name="incall_error_low_battery">Volání se nezdařilo z důvodu vybité baterie na vzdáleném zařízení.</string>
   <string name="contactScreen">Spravovat kontakty SIM</string>
   <string name="exportContactScreen">Exportovat telefonní kontakty na kartu SIM</string>
   <string name="addSimEntries">Přidat kontakt SIM</string>

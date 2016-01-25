@@ -46,6 +46,8 @@
   <string name="time_end">Bis</string>
   <string name="time_hour">Stunde</string>
   <string name="time_minute">Minute</string>
+  <string name="time_formate_am">Vormittag</string>
+  <string name="time_formate_pm">Nachmittag</string>
   <string name="preferred_network_mode_global_summary_cm">Bevorzugter Netzwerkmodus: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="callFailed_incoming_cb_enabled">Alle eingehenden Anrufe sind auf der Gegenstelle blockiert.</string>
   <string name="callUnanswered_forwarded">Anruf unbeantwortet und weitergeleitet</string>
@@ -104,6 +106,7 @@
   <string name="psw_reenter_new">Geben Sie Ihr Passwort erneut ein</string>
   <string name="no_call_barring">Anrufsperre deaktiviert</string>
   <string name="cb_psw_dont_match">Die Passwörter stimmen nicht überein</string>
+  <string name="fdn_invalid_number_cm">Rufnummernbeschränkung wurde nicht aktualisiert, da die Nummer entweder leer ist oder 20 Ziffern überschreitet.</string>
   <string name="exportContacts">Kontakte werden auf die SIM-Karte exportiert\u2026</string>
   <string name="simContacts_title_cm">Kontakte auf SIM-Karte verwalten</string>
   <string name="incall_error_local_low_battery">Anruf wegen geringem Akkustand fehlgeschlagen.</string>
