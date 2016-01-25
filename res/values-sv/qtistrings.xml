@@ -31,6 +31,7 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <string name="ims_settings">IMS-inställningar</string>
   <string name="label_nsdp">PIN-kod till upplåsning av SIM-kort på undernätverk</string>
   <string name="label_cdp">PIN för upplåsning av arbets-SIM</string>
   <string name="label_spdp">PIN för upplåsning av SIM-tjänsteleverantör</string>

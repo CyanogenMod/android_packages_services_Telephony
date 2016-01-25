@@ -41,6 +41,13 @@
   <string name="requesting_unlock_cm">Se solicită codul SIM de deblocare rețea\u2026</string>
   <string name="unlock_failed_cm">Solicitare deblocare rețea SIM eșuată.</string>
   <string name="unlock_success_cm">Rețea SIM deblocată cu succes.</string>
+  <string name="all_day">Toată ziua</string>
+  <string name="time_start">De la</string>
+  <string name="time_end">Către</string>
+  <string name="time_hour">Oră</string>
+  <string name="time_minute">Minut</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <string name="preferred_network_mode_global_summary_cm">Mod rețea preferat: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="callFailed_incoming_cb_enabled">Apelatul a blocat toate apelurile primite.</string>
   <string name="callUnanswered_forwarded">Apel nerăspuns și redirecționat</string>
@@ -52,6 +59,8 @@
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Mod rețea preferat: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Mod rețea preferat: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Mod rețea preferat: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -73,6 +82,17 @@
   <string name="preferred_network_mode_wcdma_only_choice">doar WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">doar GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferat</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Off</item>
+    <item>International roaming calls</item>
+    <item>Apeluri internaționale</item>
+    <item>Apeluri efectuate</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Oprit</item>
+    <item>Roaming</item>
+    <item>Toate</item>
+  </string-array>
   <string name="exportContacts">Se exportă contactele în cardul SIM\u2026</string>
   <string name="simContacts_title_cm">Gestionează contactele de pe cartela SIM</string>
   <string name="contactScreen">Gestionare contacte SIM</string>

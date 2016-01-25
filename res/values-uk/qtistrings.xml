@@ -31,6 +31,7 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <string name="ims_settings">IMS налаштування</string>
   <string name="label_nsdp">PIN-код розблокування приватної мережі SIM</string>
   <string name="label_cdp">Корпоративний PIN-код розблокування SIM</string>
   <string name="label_spdp">PIN-код розблокування оператора SIM</string>
