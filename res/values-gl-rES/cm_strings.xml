@@ -21,6 +21,8 @@
   <string name="blacklist_title">Lista de números bloqueados</string>
   <string name="blacklist_summary_disabled">Desactivado</string>
   <string name="blacklist_summary">Non se recibirán chamadas e mensaxes dos números incluídos na lista de números bloqueados</string>
+  <string name="phone_number_label">O meu número de teléfono</string>
+  <string name="phone_number_summary">Estabelecer o número de teléfono deste dispositivo</string>
   <string name="call_notif_unconditionalCF">Desvío incondicional de chamada activado</string>
   <string name="call_notif_conditionalCF">Desvío condicional de chamada activado</string>
   <string name="call_notif_MOcall_forwarding">Chamada saínte desviada</string>
@@ -37,6 +39,28 @@
   <string name="call_notif_callconnectedect">Chamada conectada mediante transferencia explícita</string>
   <string name="requesting_unlock_cm">Solicitando desbloqueo da rede da tarxeta SIM\u2026</string>
   <string name="unlock_failed_cm">O desbloqueo da rede da tarxeta SIM non se puido realizar correctamente.</string>
+  <string name="unlock_success_cm">Non se puido desbloquear a rede da SIM.</string>
+  <string name="preferred_network_mode_global_summary_cm">Modo de rede preferida: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <string name="callFailed_incoming_cb_enabled">O receptor prohibiu todas as chamadas entrantes.</string>
+  <string name="callUnanswered_forwarded">Chamar ás perdidas e desviadas</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">Modo de rede preferida: TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_summary">Modo de rede preferida: TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_summary">Modo de rede preferida: TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Modo de rede preferida: TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Modo de rede preferida: TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Modo de rede preferida: TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Modo de rede preferida: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Modo de rede preferida: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_only_choice">Só TD-SCDMA</string>
+  <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
+  <string name="preferred_network_mode_lte_choice">LTE</string>
   <string name="preferred_network_mode_global_choice">Global</string>
   <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
@@ -74,4 +98,5 @@
   <string name="exportAllcontatsSuccess">Exportáronse con éxito todos os contactos da SIM</string>
   <string name="exportAllcontatsFailed">Non se puideron exportar todos os contactos da SIM</string>
   <string name="exportAllcontatsNoContacts">Non se atopou ningún contacto na SIM para exportar</string>
+  <string name="msim_mobile_network_settings_title">Configuración da rede móbil da SIM %d</string>
 </resources>

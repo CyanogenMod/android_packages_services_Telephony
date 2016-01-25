@@ -110,7 +110,7 @@
   <string name="exportContacts">Contacten exporteren naar simkaart\u2026</string>
   <string name="simContacts_title_cm">Contacten op simkaart beheren</string>
   <string name="incall_error_local_low_battery">Oproep mislukt als gevolg van lage accuspanning.</string>
-  <string name="incall_error_low_battery">Oproep mislukt door lage accuspanning van het andere toestel.</string>
+  <string name="incall_error_low_battery">Oproep mislukt als gevolg van lage accuspanning van het andere toestel.</string>
   <string name="contactScreen">SIM-contacten beheren</string>
   <string name="exportContactScreen">Telefooncontacten exporteren naar SIM</string>
   <string name="addSimEntries">SIM-contact toevoegen</string>
