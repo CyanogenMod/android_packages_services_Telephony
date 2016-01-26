@@ -80,7 +80,7 @@
         <SwitchPreference
             android:key="button_show_ssn_key"
             android:title="@string/show_ssn_label"
-            android:defaultValue="false"
+            android:defaultValue="@bool/def_show_ssn_toast_enabled"
             android:summary="@string/show_ssn_summary" />
 
     </PreferenceCategory>
