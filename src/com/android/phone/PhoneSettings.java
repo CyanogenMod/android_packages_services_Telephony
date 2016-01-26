@@ -22,7 +22,8 @@ import android.preference.PreferenceManager;
 
 public final class PhoneSettings {
     public static boolean showInCallEvents(Context context) {
-        return getPrefs(context).getBoolean("button_show_ssn_key", false);
+        return getPrefs(context).getBoolean("button_show_ssn_key",
+                context.getResources().getBoolean(R.bool.def_show_ssn_toast_enabled));
     }
 
     private static String getKeyForSubscription(String key, int subscription) {

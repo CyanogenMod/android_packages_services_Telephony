@@ -15,7 +15,9 @@
 -->
 
 <resources>
-  <string-array name="dialer_default_classes" translatable="false">
-      <item>com.android.dialer/com.android.dialer.DialtactsActivity</item>
-  </string-array>
+    <string-array name="dialer_default_classes" translatable="false">
+        <item>com.android.dialer/com.android.dialer.DialtactsActivity</item>
+    </string-array>
+
+    <bool name="def_show_ssn_toast_enabled" translatable="false">false</bool>
 </resources>
