@@ -156,7 +156,8 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
         mListIncoming.setOnPreferenceChangeListener(this);
 
         if (mCfgResUtil.getBooleanValue(mPhone.getContext(),"config_enable_callbarring_over_ims")
-                && mPhone.isUtEnabled()) {
+                && (mPhone.getServiceState().getState() == ServiceState.STATE_IN_SERVICE
+                || mPhone.isUtEnabled())) {
             mListOutgoing.setEnabled(false);
         }
 
@@ -251,7 +252,8 @@ public class CallBarring extends PreferenceActivity implements DialogInterface.O
     private void queryAllCBOptions() {
         showDialog(INITIAL_BUSY_DIALOG);
         if (mCfgResUtil.getBooleanValue(mPhone.getContext(),"config_enable_callbarring_over_ims")
-                && mPhone.isUtEnabled()) {
+                && (mPhone.getServiceState().getState() == ServiceState.STATE_IN_SERVICE
+                || mPhone.isUtEnabled())) {
             mPhone.getCallBarringOption (CommandsInterface.CB_FACILITY_BAIC, "",
                     Message.obtain(mGetAllCBOptionsComplete,EVENT_CB_QUERY_ALL, CB_BAIC, 0));
         } else {

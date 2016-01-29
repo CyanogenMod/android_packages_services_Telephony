@@ -19,6 +19,7 @@ package com.android.services.telephony;
 import android.content.Context;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
+import android.os.Bundle;
 import android.telecom.Conference;
 import android.telecom.ConferenceParticipant;
 import android.telecom.Connection.VideoProvider;
@@ -184,6 +185,12 @@ public class ImsConference extends Conference {
             Log.v(this, "onStatusHintsChanged");
             updateStatusHints();
         }
+
+        @Override
+        public void onExtrasChanged(Connection c, Bundle extras) {
+            Log.v(this, "onExtrasChanged: c=" + c + " Extras=" + extras);
+            setExtras(extras);
+        }
     };
 
     /**
@@ -298,7 +305,6 @@ public class ImsConference extends Conference {
         conferenceCapabilities = changeCapability(conferenceCapabilities,
                     Connection.CAPABILITY_HIGH_DEF_AUDIO,
                     can(capabilities, Connection.CAPABILITY_HIGH_DEF_AUDIO));
-
         return conferenceCapabilities;
     }
 

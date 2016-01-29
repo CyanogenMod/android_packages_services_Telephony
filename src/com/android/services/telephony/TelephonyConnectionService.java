@@ -20,6 +20,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.telecom.Connection;
@@ -51,7 +52,6 @@ import com.android.phone.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.os.Bundle;
 import java.util.Objects;
 import java.util.regex.Pattern;
 

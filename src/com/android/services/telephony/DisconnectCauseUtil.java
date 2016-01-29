@@ -576,6 +576,10 @@ public class DisconnectCauseUtil {
                 resourceId = R.string.callFailed_normal;
                 break;
 
+            case android.telephony.DisconnectCause.NON_SELECTED_USER_CLEARING:
+                resourceId = R.string.callFailed_non_selected_user_clearing;
+                break;
+
             case android.telephony.DisconnectCause.OUTGOING_CANCELED:
                 // We don't want to show any dialog for the canceled case since the call was
                 // either canceled by the user explicitly (end-call button pushed immediately)
