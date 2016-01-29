@@ -275,7 +275,9 @@ public class MobileNetworkSettings extends PreferenceActivity
             }
 
             List<SubscriptionInfo> infos = new ArrayList<SubscriptionInfo>();
-            infos.add(sir);
+            if (sir != null) {
+                infos.add(sir);
+            }
             return infos;
         }
         return mSubscriptionManager.getActiveSubscriptionInfoList();
@@ -289,7 +291,9 @@ public class MobileNetworkSettings extends PreferenceActivity
             List<SubscriptionInfo> newSil = determineSubscriptionsToUse();
             if (DBG) log("onSubscriptionsChanged: newSil: " + newSil +
                     " mActiveSubInfos: " + mActiveSubInfos);
-            if (newSil == null) {
+            if (newSil == null || newSil.isEmpty()) {
+                if (DBG) log("onSubscriptionsChanged: empty subscriptions, finishing");
+                finish();
                 return;
             }
             // Update UI when there is a change in number of active subscriptions or
