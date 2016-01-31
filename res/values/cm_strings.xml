@@ -217,5 +217,5 @@
     <string name="exportAllcontatsFailed">Failed to export all contacts to SIM</string>
     <string name="exportAllcontatsNoContacts">No contacts found to export to SIM</string>
 
-    <string name="msim_mobile_network_settings_title">SIM %d mobile network settings</string>
+    <string name="msim_mobile_network_settings_title">SIM %d cellular network settings</string>
 </resources>
