@@ -133,6 +133,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">Endast WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Endast GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA föredragen</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (nuvarande: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">Inställningar för SIM-kort</string>
   <string name="sim_card_title">SIM-kort %d</string>
   <string name="sim_card_summary_empty">SIM-kortfacket är tomt</string>
@@ -213,4 +214,30 @@
   <string name="phone_number_summary">Ställ in enhetens telefonnummer</string>
   <string name="msim_mobile_network_settings_title">SIM-%d mobila nätverksinställningar</string>
   <string name="call_recording_format">Inspelningsformat för samtal</string>
+  <string name="wifi_call_setting">Wi\u2011Fi samtalsinställningar</string>
+  <string name="wifi_calling_title">Wi\u2011Fi ringer</string>
+  <string name="wifi_calling_preference_title">Wi\u2011Fi samtalspreferens</string>
+  <string name="wifi_pref_none">Ingen preferens</string>
+  <string name="wifi_preferred">Wi\u2011Fi föredras</string>
+  <string name="wifi_only">Wi\u2011Fi enbart</string>
+  <string name="cellular_preferred">Mobil föredras</string>
+  <string name="cellular_only">Mobil enbart</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Av</item>
+    <item>International roaming calls</item>
+    <item>International calls</item>
+    <item>Utgående samtal</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Av</item>
+    <item>Roaming</item>
+    <item>Alla</item>
+  </string-array>
+  <string name="input_password">Ange ditt lösenord</string>
+  <string name="invalidPsw">Ange ett giltigt lösenord (4-8 siffror)</string>
+  <string name="labelCbChangePassword">Byt lösenord</string>
+  <string name="psw_enter_old">Tidigare lösenord</string>
+  <string name="psw_enter_new">Nytt lösenord</string>
+  <string name="psw_reenter_new">Ange ditt lösenord igen</string>
+  <string name="cb_psw_dont_match">Lösenorden matchar inte</string>
 </resources>

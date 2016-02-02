@@ -227,4 +227,27 @@
   <string name="wifi_only">Wi-Fi בלבד</string>
   <string name="cellular_preferred">סלולר מועדף</string>
   <string name="cellular_only">סלולר בלבד</string>
+  <string name="call_barring">חסימת שיחות</string>
+  <string name="call_barring_outgoing">חסימת שיחות יוצאות</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>כבוי</item>
+    <item>שיחות נדידה בינלאומיות</item>
+    <item>שיחות בינלאומיות</item>
+    <item>שיחות יוצאות</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>כבוי</item>
+    <item>נדידה</item>
+    <item>הכל</item>
+  </string-array>
+  <string name="call_barring_incoming">חסימת שיחות נכנסות</string>
+  <string name="input_password">הכנס את הסיסמה שלך</string>
+  <string name="invalidPsw">הזן סיסמה תקנית (4-8 ספרות)</string>
+  <string name="labelCbCancelAll">ביטול חסימת שיחות</string>
+  <string name="labelCbChangePassword">שנה סיסמה</string>
+  <string name="psw_enter_old">סיסמה ישנה</string>
+  <string name="psw_enter_new">סיסמה חדשה</string>
+  <string name="psw_reenter_new">הכנס שנית את סיסמתך</string>
+  <string name="no_call_barring">חסימת שיחות מושבתת</string>
+  <string name="cb_psw_dont_match">הסיסמאות אינן תואמות</string>
 </resources>

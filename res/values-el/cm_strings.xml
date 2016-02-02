@@ -227,4 +227,27 @@
   <string name="wifi_only">Μόνο Wi-Fi</string>
   <string name="cellular_preferred">Προτίμηση δικτύου τηλεφωνίας</string>
   <string name="cellular_only">Μόνο δίκτυο τηλεφωνίας</string>
+  <string name="call_barring">Φραγή κλήσεων</string>
+  <string name="call_barring_outgoing">Φραγή εξερχόμενων κλήσεων</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Ανενεργή</item>
+    <item>Διεθνείς κλήσεις περιαγωγής</item>
+    <item>Διεθνείς κλήσεις</item>
+    <item>Εξερχόμενες κλήσεις</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Ανενεργή</item>
+    <item>Περιαγωγή</item>
+    <item>Όλες</item>
+  </string-array>
+  <string name="call_barring_incoming">Φραγή εισερχόμενων κλήσεων</string>
+  <string name="input_password">Εισάγετε τον κωδικό πρόσβασής σας</string>
+  <string name="invalidPsw">Εισαγάγετε έναν έγκυρο κωδικό πρόσβασης (4-8 ψηφία)</string>
+  <string name="labelCbCancelAll">Απενεργοποίηση φραγής κλήσεων</string>
+  <string name="labelCbChangePassword">Αλλαγή κωδικού πρόσβασης</string>
+  <string name="psw_enter_old">Παλιός κωδικός πρόσβασης</string>
+  <string name="psw_enter_new">Νέος κωδικός πρόσβασης</string>
+  <string name="psw_reenter_new">πληκτρολογήστε ξανά τον κωδικό πρόσβασης</string>
+  <string name="no_call_barring">Η φραγή κλήσεων απενεργοποιήθηκε</string>
+  <string name="cb_psw_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
 </resources>

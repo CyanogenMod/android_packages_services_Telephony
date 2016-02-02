@@ -227,4 +227,27 @@
   <string name="wifi_only">Wi-Fi seulement</string>
   <string name="cellular_preferred">Réseau mobile préféré</string>
   <string name="cellular_only">Réseau mobile seulement</string>
+  <string name="call_barring">Interdiction d\'appels</string>
+  <string name="call_barring_outgoing">Interdiction des appels sortants</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Désactivé</item>
+    <item>Appels internationaux en itinérance</item>
+    <item>Appels internationaux</item>
+    <item>Appels sortants</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Désactivé</item>
+    <item>Itinérance</item>
+    <item>Toujours</item>
+  </string-array>
+  <string name="call_barring_incoming">Interdiction des appels entrants</string>
+  <string name="input_password">Entrez votre mot de passe</string>
+  <string name="invalidPsw">Entrez un mot de passe valide (4 à 8 chiffres)</string>
+  <string name="labelCbCancelAll">Désactiver l\'interdiction des appels</string>
+  <string name="labelCbChangePassword">Modifier le mot de passe</string>
+  <string name="psw_enter_old">Ancien mot de passe</string>
+  <string name="psw_enter_new">Nouveau mot de passe</string>
+  <string name="psw_reenter_new">Entrez à nouveau votre mot de passe</string>
+  <string name="no_call_barring">Interdiction d\'appel désactivée</string>
+  <string name="cb_psw_dont_match">Les mots de passe ne correspondent pas</string>
 </resources>

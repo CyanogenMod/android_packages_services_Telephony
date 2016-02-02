@@ -227,4 +227,27 @@
   <string name="wifi_only">Wi-Fi เท่านั้น</string>
   <string name="cellular_preferred">เครื่อข่ายเมื่อใช้ได้</string>
   <string name="cellular_only">เครื่อข่ายเท่านั้น</string>
+  <string name="call_barring">จำกัดการโทร</string>
+  <string name="call_barring_outgoing">จำกัดการโทรออก</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>ปิด</item>
+    <item>โทรโรมมิ่งระหว่างประเทศ</item>
+    <item>โทรระหว่างประเทศ</item>
+    <item>โทรออก</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>ปืด</item>
+    <item>โรมมิ่ง</item>
+    <item>ทั้งหมด</item>
+  </string-array>
+  <string name="call_barring_incoming">จำกัดการโทรเข้า</string>
+  <string name="input_password">ป้อนรหัสผ่านของคุณ</string>
+  <string name="invalidPsw">ป้อนรหัสผ่านที่ถูกต้อง (4-8 หลัก)</string>
+  <string name="labelCbCancelAll">ปิดใช้งานการจำกัดการโทร</string>
+  <string name="labelCbChangePassword">เปลี่ยนรหัสผ่าน</string>
+  <string name="psw_enter_old">รหัสผ่านเดิม</string>
+  <string name="psw_enter_new">รหัสผ่านใหม่</string>
+  <string name="psw_reenter_new">ป้อนรหัสผ่านของคุณอีกครั้ง</string>
+  <string name="no_call_barring">จำกัดการโทรถูกปิดใช้งาน</string>
+  <string name="cb_psw_dont_match">รหัสผ่านไม่ตรงกัน</string>
 </resources>

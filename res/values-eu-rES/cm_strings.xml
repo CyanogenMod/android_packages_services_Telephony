@@ -227,4 +227,27 @@
   <string name="wifi_only">Wi-Fi soilik</string>
   <string name="cellular_preferred">Zelularra nahiago</string>
   <string name="cellular_only">Zelularra soilik</string>
+  <string name="call_barring">Deien traba</string>
+  <string name="call_barring_outgoing">Deiak egitea trabatu</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Ez</item>
+    <item>Nazioarteko deiak ibiltaritzan</item>
+    <item>Nazioarteko deiak</item>
+    <item>Egindako deiak</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Ez</item>
+    <item>Ibiltaritza</item>
+    <item>Guztiak</item>
+  </string-array>
+  <string name="call_barring_incoming">Deiak jasotzea trabatu</string>
+  <string name="input_password">Sartu zure pasahitza</string>
+  <string name="invalidPsw">Sartu pasahitz zuzena (4-8 digitu)</string>
+  <string name="labelCbCancelAll">Desgaitu deien traba</string>
+  <string name="labelCbChangePassword">Aldatu pasahitza</string>
+  <string name="psw_enter_old">Pasahitz zaharra</string>
+  <string name="psw_enter_new">Pasahitz berria</string>
+  <string name="psw_reenter_new">Sartu zure pasahitza berriro</string>
+  <string name="no_call_barring">Deien traba desgaituta</string>
+  <string name="cb_psw_dont_match">Pasahitzak ez datoz bat</string>
 </resources>

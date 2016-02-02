@@ -87,9 +87,9 @@
   <string name="stk_cc_ss_to_dial_error">Zahteva SS spremenjena v zahtevo DIAL.</string>
   <string name="stk_cc_ss_to_ussd_error">Zahteva SS spremenjena v zahtevo USSD.</string>
   <string name="stk_cc_ss_to_ss_error">Zahteva SS spremenjena v novo zahtevo SS.</string>
-  <string name="videocall_settings">Nastavitve za video klice</string>
+  <string name="videocall_settings">Nastavitve za videoklice</string>
   <string name="vt_fallback_setting">Ponovno pokliči preko glasovnega klica</string>
-  <string name="vt_forward_setting">Posredovanje video klicev</string>
+  <string name="vt_forward_setting">Posredovanje videoklicev</string>
   <string name="vt_imagereplace_setting">Nadomestna slika</string>
   <string name="vt_imagereplace_setting_sum">Slika, ki se prikaže v primeru, da je prednja kamera onemogočena</string>
   <string name="roaming_mode_title">Način gostovanja</string>
@@ -137,7 +137,7 @@
   <string name="callind_multi_sim">Nastavitve kartice SIM</string>
   <string name="sim_card_title">Kartica SIM %d</string>
   <string name="sim_card_summary_empty">Reža SIM je prazna</string>
-  <string name="tty_mode_not_allowed_vt_call">Sprememba načina TTY ni dovoljena med video klicem</string>
+  <string name="tty_mode_not_allowed_vt_call">Sprememba načina TTY ni dovoljena med videoklicem</string>
   <string name="ipcall_sub_title">Nastavitve klicev IP</string>
   <string name="ipcall_sub_summery">Uredi predpone za klicanje preko storitve IP</string>
   <string name="ipcall_dialog_title">Predpona IP</string>
@@ -203,13 +203,13 @@
   <string name="disconnect_data_confirm">Podatkovna storitev se mora začasno prekiniti. Ali res želite nadaljevati?</string>
   <string name="ims_edit_title">Podrobnosti računa IMS</string>
   <string name="ims_accounts_title">Računi IMS</string>
-  <string name="ims_vt_call_quality_title">Kakovost video klica</string>
+  <string name="ims_vt_call_quality_title">Kakovost videoklica</string>
   <string name="ims_vt_call_quality_low">Nizka</string>
   <string name="ims_vt_call_quality_high">Visoka</string>
   <string name="ims_vt_call_quality_unknown">Neznana</string>
   <string name="ims_vt_call_quality_set_failed">Nastavitev kakovosti slike je spodletela</string>
   <string name="perm_change_mobile_network">spremeni način omrežja  (2G/3G)</string>
-  <string name="perm_change_mobile_network_desc">Kadarkoli dovoli programu spreminjanje med podatki 2G in 3G. 3G je hitrejši, vendar porabi več energije in lahko povzroči dodatne stroške.</string>
+  <string name="perm_change_mobile_network_desc">Kadarkoli dovoli aplikaciji spreminjanje med podatki 2G in 3G. 3G je hitrejši, vendar porabi več energije in lahko povzroči dodatne stroške.</string>
   <string name="phone_number_label">Moja telefonska številka</string>
   <string name="phone_number_summary">Nastavite telefonsko številko za to napravo</string>
   <string name="msim_mobile_network_settings_title">Nastavitve mobilnega omrežja za SIM %d</string>
@@ -227,4 +227,27 @@
   <string name="wifi_only">Samo Wi-Fi</string>
   <string name="cellular_preferred">Daj prednost mob. omrežju</string>
   <string name="cellular_only">Samo mob. omrežje</string>
+  <string name="call_barring">Zapora klicev</string>
+  <string name="call_barring_outgoing">Zapora odhodnih klicev</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Izklopljeno</item>
+    <item>Mednarodni klici v gostovanju</item>
+    <item>Mednarodni klici</item>
+    <item>Odhodni klici</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Izklopljeno</item>
+    <item>Gostovanje</item>
+    <item>Vsi</item>
+  </string-array>
+  <string name="call_barring_incoming">Zapora dohodnih klicev</string>
+  <string name="input_password">Vnesite svoje geslo</string>
+  <string name="invalidPsw">Vnesite veljavno geslo (4-8 številk)</string>
+  <string name="labelCbCancelAll">Onemogoči zaporo klicev</string>
+  <string name="labelCbChangePassword">Spremeni geslo</string>
+  <string name="psw_enter_old">Staro geslo</string>
+  <string name="psw_enter_new">Novo geslo</string>
+  <string name="psw_reenter_new">Ponovno vnesite svoje geslo</string>
+  <string name="no_call_barring">Zapora klicev onemogočena</string>
+  <string name="cb_psw_dont_match">Gesli se ne ujemata</string>
 </resources>

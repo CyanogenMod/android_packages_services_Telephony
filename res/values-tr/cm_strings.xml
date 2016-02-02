@@ -227,4 +227,27 @@
   <string name="wifi_only">Sadece Wi-Fi</string>
   <string name="cellular_preferred">Hücresel tercihli</string>
   <string name="cellular_only">Sadece hücresel</string>
+  <string name="call_barring">Arama engelleme</string>
+  <string name="call_barring_outgoing">Giden arama engelleme</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Kapalı</item>
+    <item>Uluslararası dolaşım aramaları</item>
+    <item>Uluslararası aramalar</item>
+    <item>Giden aramalar</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Kapalı</item>
+    <item>Dolaşım</item>
+    <item>Tümü</item>
+  </string-array>
+  <string name="call_barring_incoming">Gelen arama engelleme</string>
+  <string name="input_password">Şifrenizi giriniz</string>
+  <string name="invalidPsw">Geçerli bir şifre girin (4-8 basamaklı)</string>
+  <string name="labelCbCancelAll">Arama engellemeyi devre dışı bırak</string>
+  <string name="labelCbChangePassword">Şifreyi değiştir</string>
+  <string name="psw_enter_old">Eski şifre</string>
+  <string name="psw_enter_new">Yeni şifre</string>
+  <string name="psw_reenter_new">Şifrenizi tekrar girin</string>
+  <string name="no_call_barring">Arama engelleme devre dışı</string>
+  <string name="cb_psw_dont_match">Şifreler eşleşmiyor</string>
 </resources>

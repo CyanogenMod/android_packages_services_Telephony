@@ -227,4 +227,27 @@
   <string name="wifi_only">Само Wi-Fi</string>
   <string name="cellular_preferred">Приоритетан Мобилни</string>
   <string name="cellular_only">Само Мобилни</string>
+  <string name="call_barring">Забрана позива</string>
+  <string name="call_barring_outgoing">Забрана одлазног позива</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Искључено</item>
+    <item>Међународни роминг позиви</item>
+    <item>Међународни позиви</item>
+    <item>Одлазни позиви</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Искључено</item>
+    <item>Роминг</item>
+    <item>Све</item>
+  </string-array>
+  <string name="call_barring_incoming">Забрана долазних позива</string>
+  <string name="input_password">Унеси лозинку</string>
+  <string name="invalidPsw">Унеси важећу лозинку (4-8 цифара)</string>
+  <string name="labelCbCancelAll">Онемогући забрану позива</string>
+  <string name="labelCbChangePassword">Промени лозинку</string>
+  <string name="psw_enter_old">Стара лозинка</string>
+  <string name="psw_enter_new">Нова лозинка</string>
+  <string name="psw_reenter_new">Поново унеси лозинку</string>
+  <string name="no_call_barring">Забрана позива онемогућена</string>
+  <string name="cb_psw_dont_match">Лозинке се не подударају</string>
 </resources>

@@ -227,4 +227,27 @@
   <string name="wifi_only">Csak Wi\u2011Fi</string>
   <string name="cellular_preferred">GSM preferált</string>
   <string name="cellular_only">Csak GSM</string>
+  <string name="call_barring">Híváskorlátozás</string>
+  <string name="call_barring_outgoing">Kimenő hívás korlátozása</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Ki</item>
+    <item>Nemzetközi roaming hívások</item>
+    <item>Nemzetközi hívások</item>
+    <item>Kimenő hívások</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Ki</item>
+    <item>Roaming</item>
+    <item>Összes</item>
+  </string-array>
+  <string name="call_barring_incoming">Bejövő hívás korlátozása</string>
+  <string name="input_password">Adja meg jelszavát</string>
+  <string name="invalidPsw">Adjon meg egy érvényes jelszót (4-8 számjegy)</string>
+  <string name="labelCbCancelAll">Híváskorlátozás letiltása</string>
+  <string name="labelCbChangePassword">Jelszó megváltoztatása</string>
+  <string name="psw_enter_old">Régi jelszó</string>
+  <string name="psw_enter_new">Új jelszó</string>
+  <string name="psw_reenter_new">Jelszó újbóli megadása</string>
+  <string name="no_call_barring">Híváskorlátozás letiltva</string>
+  <string name="cb_psw_dont_match">A megadott jelszavak nem egyeznek</string>
 </resources>

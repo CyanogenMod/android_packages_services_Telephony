@@ -227,4 +227,27 @@
   <string name="wifi_only">Solo Wi-Fi</string>
   <string name="cellular_preferred">Preferisci rete mobile</string>
   <string name="cellular_only">Solo rete mobile</string>
+  <string name="call_barring">Blocco chiamate</string>
+  <string name="call_barring_outgoing">Blocco chiamate in uscita</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Spento</item>
+    <item>Chiamate roaming internazionale</item>
+    <item>Chiamate internazionali</item>
+    <item>Chiamate in uscita</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Off</item>
+    <item>Roaming</item>
+    <item>Tutti</item>
+  </string-array>
+  <string name="call_barring_incoming">Blocco chiamata in arrivo</string>
+  <string name="input_password">Inserisci la tua password</string>
+  <string name="invalidPsw">Immetti una password valida (4-8 cifre)</string>
+  <string name="labelCbCancelAll">Disattiva blocco chiamate</string>
+  <string name="labelCbChangePassword">Cambia password</string>
+  <string name="psw_enter_old">Vecchia password</string>
+  <string name="psw_enter_new">Nuova password</string>
+  <string name="psw_reenter_new">Inserisci nuovamente la password</string>
+  <string name="no_call_barring">Blocco chiamate disattivato</string>
+  <string name="cb_psw_dont_match">Le password non coincidono</string>
 </resources>

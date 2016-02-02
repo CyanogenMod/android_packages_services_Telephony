@@ -227,4 +227,27 @@
   <string name="wifi_only">Wi-Fi 전용</string>
   <string name="cellular_preferred">셀룰러 선호</string>
   <string name="cellular_only">셀룰러 전용</string>
+  <string name="call_barring">호 제한</string>
+  <string name="call_barring_outgoing">발신호 제한</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>끔</item>
+    <item>국제 로밍 전화</item>
+    <item>국제 전화</item>
+    <item>발신 전화</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>끔</item>
+    <item>로밍</item>
+    <item>모두</item>
+  </string-array>
+  <string name="call_barring_incoming">수신호 제한</string>
+  <string name="input_password">비밀번호 입력</string>
+  <string name="invalidPsw">유효한 비밀번호를 입력하세요 (4-8자리)</string>
+  <string name="labelCbCancelAll">호 제한 해제</string>
+  <string name="labelCbChangePassword">비밀번호 변경</string>
+  <string name="psw_enter_old">이전 비밀번호</string>
+  <string name="psw_enter_new">새 비밀번호</string>
+  <string name="psw_reenter_new">비밀번호 다시 입력</string>
+  <string name="no_call_barring">호 제한 해제</string>
+  <string name="cb_psw_dont_match">비밀번호가 일치하지 않습니다</string>
 </resources>

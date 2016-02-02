@@ -214,4 +214,27 @@
   <string name="phone_number_summary">Встановити телефонний номер для цього пристрою</string>
   <string name="msim_mobile_network_settings_title">Налаштування мобільної мережі SIM %d</string>
   <string name="call_recording_format">Формат запису виклику</string>
+  <string name="call_barring">Заборона виклику</string>
+  <string name="call_barring_outgoing">Заборона вихідного виклику</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Вимк</item>
+    <item>Міжнародні дзвінки у роумінгу</item>
+    <item>Міжнародні дзвінки</item>
+    <item>Вихідні дзвінки</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Вимк</item>
+    <item>Роумінг</item>
+    <item>Усі</item>
+  </string-array>
+  <string name="call_barring_incoming">Заборона вхідного виклику</string>
+  <string name="input_password">Введіть свій пароль</string>
+  <string name="invalidPsw">Введіть припустимий пароль (4-8 цифр)</string>
+  <string name="labelCbCancelAll">Вимкнення заборони виклику</string>
+  <string name="labelCbChangePassword">Змінити пароль</string>
+  <string name="psw_enter_old">Старий пароль</string>
+  <string name="psw_enter_new">Новий пароль</string>
+  <string name="psw_reenter_new">введіть пароль ще раз</string>
+  <string name="no_call_barring">Заборона викликів відключена</string>
+  <string name="cb_psw_dont_match">Паролі не співпадають</string>
 </resources>

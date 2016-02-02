@@ -227,4 +227,27 @@
   <string name="wifi_only">Только Wi-Fi</string>
   <string name="cellular_preferred">Предпочитать моб. данные</string>
   <string name="cellular_only">Только моб. данные</string>
+  <string name="call_barring">Запрет вызовов</string>
+  <string name="call_barring_outgoing">Запрет исходящих вызовов</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Отключить</item>
+    <item>Международные вызовы в роуминге</item>
+    <item>Международные вызовы</item>
+    <item>Исходящие вызовы</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Отключить</item>
+    <item>Роуминг</item>
+    <item>Все</item>
+  </string-array>
+  <string name="call_barring_incoming">Запрет входящих вызовов</string>
+  <string name="input_password">Введите пароль</string>
+  <string name="invalidPsw">Введите допустимый пароль (4-8 цифр)</string>
+  <string name="labelCbCancelAll">Отключить запрет вызовов</string>
+  <string name="labelCbChangePassword">Изменить пароль</string>
+  <string name="psw_enter_old">Старый пароль</string>
+  <string name="psw_enter_new">Новый пароль</string>
+  <string name="psw_reenter_new">Введите пароль ещё раз</string>
+  <string name="no_call_barring">Запрет вызовов отключен</string>
+  <string name="cb_psw_dont_match">Пароли не совпадают</string>
 </resources>
