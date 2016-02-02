@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">Skärminställningar under samtal</string>
   <string name="show_ssn_label">Händelsemeddelanden</string>
   <string name="show_ssn_summary">Visa en avisering för olika nätverkshändelser relaterade till samtalshantering</string>
   <string name="blacklist_title">Lista över blockerade nummer</string>
@@ -57,7 +58,10 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Föredraget nätverksläge: TD-SCDMA/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Föredraget nätverksläge: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Föredraget nätverksläge: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Förvalt nätverk säge: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Föredraget nätverksläge: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -96,6 +100,7 @@
   <string name="psw_enter_old">Tidigare lösenord</string>
   <string name="psw_enter_new">Nytt lösenord</string>
   <string name="psw_reenter_new">Ange ditt lösenord igen</string>
+  <string name="cb_psw_dont_match">Lösenorden matchar inte</string>
   <string name="exportContacts">Exporterar kontakter till SIM-kort\u2026</string>
   <string name="simContacts_title_cm">Hantera SIM-kortets kontakter</string>
   <string name="contactScreen">Hantera SIM-kontakter</string>
