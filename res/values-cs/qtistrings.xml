@@ -31,6 +31,7 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <string name="ims_settings">Nastavení IMS</string>
   <string name="label_nsdp">PIN pro odemknutí podsítě SIM</string>
   <string name="label_cdp">PIN pro odemknutí korporátní SIM</string>
   <string name="label_spdp">PIN pro odemknutí SIM poskytovatele služeb</string>
