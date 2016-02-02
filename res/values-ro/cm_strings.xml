@@ -93,6 +93,11 @@
     <item>Roaming</item>
     <item>Toate</item>
   </string-array>
+  <string name="input_password">Introduceți parola</string>
+  <string name="invalidPsw">Introduceți o parolă validă (4-8 cifre)</string>
+  <string name="psw_enter_old">Parola veche</string>
+  <string name="psw_enter_new">Parolă nouă</string>
+  <string name="cb_psw_dont_match">Parolele nu se potrivesc</string>
   <string name="exportContacts">Se exportă contactele în cardul SIM\u2026</string>
   <string name="simContacts_title_cm">Gestionează contactele de pe cartela SIM</string>
   <string name="contactScreen">Gestionare contacte SIM</string>
