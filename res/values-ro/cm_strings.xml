@@ -133,8 +133,10 @@
   <string name="preferred_network_mode_wcdma_only_choice">doar WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">doar GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferat</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (actual: <xliff:g id="current">%2$s</xliff:g>)</string>
   <string name="callind_multi_sim">Setări cartelă SIM</string>
   <string name="sim_card_title">Cartelă SIM %d</string>
+  <string name="sim_card_summary_empty">Lăcașul SIM este gol</string>
   <string name="tty_mode_not_allowed_vt_call">Schimbarea modului TTY nu este permisă în timpul apelului video</string>
   <string name="ipcall_sub_title">Setări apel IP</string>
   <string name="ipcall_sub_summery">Editare prefix pentru apelare prin serviciul IP</string>
@@ -212,5 +214,26 @@
   <string name="phone_number_summary">Setați nr de telefon pentru acest dispozitiv</string>
   <string name="msim_mobile_network_settings_title">Setări rețea mobilă SIM %d</string>
   <string name="call_recording_format">Formatul de înregistrare a apelului</string>
+  <string name="wifi_call_setting">Setări apelare Wi-Fi</string>
+  <string name="wifi_calling_title">Apelare Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Preferințe apelare Wi-Fi</string>
   <string name="wifi_pref_none">Nicio preferință</string>
+  <string name="wifi_preferred">Wi-Fi preferat</string>
+  <string name="wifi_only">Doar Wi-Fi</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Off</item>
+    <item>International roaming calls</item>
+    <item>Apeluri internaționale</item>
+    <item>Apeluri efectuate</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Oprit</item>
+    <item>Roaming</item>
+    <item>Toate</item>
+  </string-array>
+  <string name="input_password">Introduceți parola</string>
+  <string name="invalidPsw">Introduceți o parolă validă (4-8 cifre)</string>
+  <string name="psw_enter_old">Parola veche</string>
+  <string name="psw_enter_new">Parolă nouă</string>
+  <string name="cb_psw_dont_match">Parolele nu se potrivesc</string>
 </resources>

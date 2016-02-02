@@ -227,4 +227,27 @@
   <string name="wifi_only">Wi-Fi only</string>
   <string name="cellular_preferred">Cellular preferred</string>
   <string name="cellular_only">Cellular only</string>
+  <string name="call_barring">Call barring</string>
+  <string name="call_barring_outgoing">Outgoing call barring</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Off</item>
+    <item>International roaming calls</item>
+    <item>International calls</item>
+    <item>Outgoing calls</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Off</item>
+    <item>Roaming</item>
+    <item>All</item>
+  </string-array>
+  <string name="call_barring_incoming">Incoming call barring</string>
+  <string name="input_password">Enter your password</string>
+  <string name="invalidPsw">Enter a valid password (4-8 digits)</string>
+  <string name="labelCbCancelAll">Disable call barring</string>
+  <string name="labelCbChangePassword">Change password</string>
+  <string name="psw_enter_old">Old password</string>
+  <string name="psw_enter_new">New password</string>
+  <string name="psw_reenter_new">Re-enter your password</string>
+  <string name="no_call_barring">Call barring disabled</string>
+  <string name="cb_psw_dont_match">Passwords do not match</string>
 </resources>

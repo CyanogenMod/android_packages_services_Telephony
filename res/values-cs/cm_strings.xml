@@ -227,4 +227,27 @@
   <string name="wifi_only">Pouze Wi-Fi</string>
   <string name="cellular_preferred">Preferováno mobilní</string>
   <string name="cellular_only">Pouze mobilní</string>
+  <string name="call_barring">Blokování hovorů</string>
+  <string name="call_barring_outgoing">Blokování odchozích hovorů</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Vypnuto</item>
+    <item>Mezinárodní hovory v rámci roamingu</item>
+    <item>Mezinárodní hovory</item>
+    <item>Odchozí hovory</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Vypnuto</item>
+    <item>Roaming</item>
+    <item>Všechny</item>
+  </string-array>
+  <string name="call_barring_incoming">Blokování příchozích hovorů</string>
+  <string name="input_password">Zadejte heslo</string>
+  <string name="invalidPsw">Zadejte správné heslo (4-8 číslic)</string>
+  <string name="labelCbCancelAll">Zrušit blokování hovorů</string>
+  <string name="labelCbChangePassword">Změna hesla</string>
+  <string name="psw_enter_old">Původní heslo</string>
+  <string name="psw_enter_new">Nové heslo</string>
+  <string name="psw_reenter_new">Zadejte heslo znovu</string>
+  <string name="no_call_barring">Blokování hovorů zakázáno</string>
+  <string name="cb_psw_dont_match">Hesla se neshodují</string>
 </resources>

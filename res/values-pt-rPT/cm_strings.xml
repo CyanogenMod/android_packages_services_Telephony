@@ -227,4 +227,27 @@
   <string name="wifi_only">Apenas Wi-Fi</string>
   <string name="cellular_preferred">Rede móvel preferida</string>
   <string name="cellular_only">Apenas rede móvel</string>
+  <string name="call_barring">Barramento de chamadas</string>
+  <string name="call_barring_outgoing">Barramento de chamadas efetuadas</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Desativado</item>
+    <item>Chamadas internacionais em roaming</item>
+    <item>Chamadas internacionais</item>
+    <item>Chamadas efetuadas</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Desativado</item>
+    <item>Roaming</item>
+    <item>Todos</item>
+  </string-array>
+  <string name="call_barring_incoming">Barramento de chamadas recebidas</string>
+  <string name="input_password">Digite a sua palavra-passe</string>
+  <string name="invalidPsw">Digite uma palavra-passe válida (4-8 dígitos)</string>
+  <string name="labelCbCancelAll">Desativar o barramento de chamadas</string>
+  <string name="labelCbChangePassword">Alterar palavra-passe</string>
+  <string name="psw_enter_old">Palavra-passe antiga</string>
+  <string name="psw_enter_new">Nova palavra-passe</string>
+  <string name="psw_reenter_new">Reintroduza a palavra-passe</string>
+  <string name="no_call_barring">Barramento de chamadas desativado</string>
+  <string name="cb_psw_dont_match">As palavras-passe não coincidem</string>
 </resources>

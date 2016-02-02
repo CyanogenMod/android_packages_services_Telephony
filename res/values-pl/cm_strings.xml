@@ -227,4 +227,27 @@
   <string name="wifi_only">Tylko Wi-Fi</string>
   <string name="cellular_preferred">Preferowana sieć komórkowa</string>
   <string name="cellular_only">Tylko sieć komórkowa</string>
+  <string name="call_barring">Odrzucanie połączeń</string>
+  <string name="call_barring_outgoing">Odrzucanie połączeń wychodzących</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Wyłączone</item>
+    <item>Połączenia międzynarodowe w roamingu</item>
+    <item>Połączenia międzynarodowe</item>
+    <item>Połączenia wychodzące</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Wyłączone</item>
+    <item>Roaming</item>
+    <item>Wszystkie</item>
+  </string-array>
+  <string name="call_barring_incoming">Odrzucanie połączeń przychodzących</string>
+  <string name="input_password">Wpisz swoje hasło</string>
+  <string name="invalidPsw">Wprowadź poprawne hasło (4-8 cyfr)</string>
+  <string name="labelCbCancelAll">Wyłącz odrzucanie połączeń</string>
+  <string name="labelCbChangePassword">Zmień hasło</string>
+  <string name="psw_enter_old">Stare hasło</string>
+  <string name="psw_enter_new">Nowe hasło</string>
+  <string name="psw_reenter_new">Wprowadź ponownie hasło</string>
+  <string name="no_call_barring">Odrzucanie połączeń wyłączone</string>
+  <string name="cb_psw_dont_match">Podane hasła różnią się</string>
 </resources>

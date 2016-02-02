@@ -215,4 +215,25 @@
   <string name="msim_mobile_network_settings_title">SIM %d mobile nettverksinnstillinger</string>
   <string name="call_recording_format">Format ved samtaleopptak</string>
   <string name="wifi_only">Kun Wi-Fi</string>
+  <string name="call_barring_outgoing">Utgående samtaleblokkering</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Av</item>
+    <item>Internasjonale roaming samtaler</item>
+    <item>Internasjonale samtaler</item>
+    <item>Utgående samtaler</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Av</item>
+    <item>Roaming</item>
+    <item>Alle</item>
+  </string-array>
+  <string name="call_barring_incoming">Innkommende samtaleblokkering</string>
+  <string name="input_password">Angi passordet</string>
+  <string name="invalidPsw">Angi et gyldig passord (4-8 sifre)</string>
+  <string name="labelCbChangePassword">Endre passord</string>
+  <string name="psw_enter_old">Gammelt passord</string>
+  <string name="psw_enter_new">Nytt passord</string>
+  <string name="psw_reenter_new">Oppgi passord på nytt</string>
+  <string name="no_call_barring">Nummersperring deaktivert</string>
+  <string name="cb_psw_dont_match">Passordene samsvarer ikke</string>
 </resources>

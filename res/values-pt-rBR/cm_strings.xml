@@ -227,4 +227,27 @@
   <string name="wifi_only">Somente Wi-Fi</string>
   <string name="cellular_preferred">Preferência por celular</string>
   <string name="cellular_only">Somente celular</string>
+  <string name="call_barring">Bloquear chamadas</string>
+  <string name="call_barring_outgoing">Bloquear chamadas de saída</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Desativado</item>
+    <item>Chamadas de roaming internacional</item>
+    <item>Chamadas internacionais</item>
+    <item>Chamadas de saída</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Desativado</item>
+    <item>Roaming</item>
+    <item>Todas</item>
+  </string-array>
+  <string name="call_barring_incoming">Barramento de chamadas recebidas</string>
+  <string name="input_password">Digite sua senha</string>
+  <string name="invalidPsw">Digite uma senha válida (4-8 dígitos)</string>
+  <string name="labelCbCancelAll">Desativar bloqueio chamadas</string>
+  <string name="labelCbChangePassword">Alterar senha</string>
+  <string name="psw_enter_old">Senha antiga</string>
+  <string name="psw_enter_new">Nova senha</string>
+  <string name="psw_reenter_new">Re-digite sua senha</string>
+  <string name="no_call_barring">Bloqueio de chamadas desativado</string>
+  <string name="cb_psw_dont_match">As senhas não conferem</string>
 </resources>

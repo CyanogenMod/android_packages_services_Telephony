@@ -227,4 +227,27 @@
   <string name="wifi_only">仅使用 Wi-Fi</string>
   <string name="cellular_preferred">蜂窝网络优先</string>
   <string name="cellular_only">仅使用蜂窝网络</string>
+  <string name="call_barring">呼叫限制</string>
+  <string name="call_barring_outgoing">限制呼出</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>关闭</item>
+    <item>国际漫游呼叫</item>
+    <item>国际长途</item>
+    <item>去电</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>关闭</item>
+    <item>漫游</item>
+    <item>全部</item>
+  </string-array>
+  <string name="call_barring_incoming">限制呼入</string>
+  <string name="input_password">输入您的密码</string>
+  <string name="invalidPsw">输入一个有效的密码（4-8 位）</string>
+  <string name="labelCbCancelAll">禁用呼叫限制</string>
+  <string name="labelCbChangePassword">修改密码</string>
+  <string name="psw_enter_old">旧密码</string>
+  <string name="psw_enter_new">新密码</string>
+  <string name="psw_reenter_new">重新输入您的密码</string>
+  <string name="no_call_barring">已禁用呼叫限制</string>
+  <string name="cb_psw_dont_match">密码不匹配</string>
 </resources>

@@ -227,4 +227,27 @@
   <string name="wifi_only">Només Wi-Fi</string>
   <string name="cellular_preferred">Mòbil preferit</string>
   <string name="cellular_only">Només Mòbil</string>
+  <string name="call_barring">Bloqueig de trucades</string>
+  <string name="call_barring_outgoing">Bloqueig de trucades sortints</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Desactivat</item>
+    <item>Trucades internacionals en itinerància</item>
+    <item>Trucades internacionals</item>
+    <item>Trucades sortints</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Desactivat</item>
+    <item>Itinerància</item>
+    <item>Tots</item>
+  </string-array>
+  <string name="call_barring_incoming">Bloqueig de trucades entrants</string>
+  <string name="input_password">Introdueix la teva contrasenya</string>
+  <string name="invalidPsw">Introdueix una contrasenya vàlida (4-8 dígits)</string>
+  <string name="labelCbCancelAll">Desactiva el bloqueig de trucades</string>
+  <string name="labelCbChangePassword">Canvia la contrasenya</string>
+  <string name="psw_enter_old">Contrasenya antiga</string>
+  <string name="psw_enter_new">Contrasenya nova</string>
+  <string name="psw_reenter_new">Torna a introduir la teva contrasenya</string>
+  <string name="no_call_barring">Bloqueig de trucades desactivat</string>
+  <string name="cb_psw_dont_match">Les contrasenyes no coincideixen</string>
 </resources>

@@ -227,4 +227,27 @@
   <string name="wifi_only">Nur WLAN</string>
   <string name="cellular_preferred">Mobilfunk bevorzugt</string>
   <string name="cellular_only">Nur Mobilfunk</string>
+  <string name="call_barring">Anrufsperre</string>
+  <string name="call_barring_outgoing">Anrufsperre für ausgehende Anrufe</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Aus</item>
+    <item>Internationale Roaming-Anrufe</item>
+    <item>Internationale Anrufe</item>
+    <item>Ausgehende Anrufe</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Aus</item>
+    <item>Roaming</item>
+    <item>Alle</item>
+  </string-array>
+  <string name="call_barring_incoming">Anrufsperre für eingehende Anrufe</string>
+  <string name="input_password">Geben Sie Ihr Passwort ein</string>
+  <string name="invalidPsw">Geben Sie ein gültiges Passwort (4 bis 8 Ziffern) ein</string>
+  <string name="labelCbCancelAll">Anrufsperre deaktivieren</string>
+  <string name="labelCbChangePassword">Passwort ändern</string>
+  <string name="psw_enter_old">Altes Passwort</string>
+  <string name="psw_enter_new">Neues Passwort</string>
+  <string name="psw_reenter_new">Geben Sie Ihr Passwort erneut ein</string>
+  <string name="no_call_barring">Anrufsperre deaktiviert</string>
+  <string name="cb_psw_dont_match">Die Passwörter stimmen nicht überein</string>
 </resources>

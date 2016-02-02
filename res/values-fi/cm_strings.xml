@@ -227,4 +227,27 @@
   <string name="wifi_only">Vain Wi-Fi</string>
   <string name="cellular_preferred">Ensisijaisesti puhelinverkko</string>
   <string name="cellular_only">Vain puhelinverkko</string>
+  <string name="call_barring">Puhelun esto</string>
+  <string name="call_barring_outgoing">Lähtevän puhelun esto</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Ei käytössä</item>
+    <item>Kansainväliset roaming-puhelut</item>
+    <item>Ulkomaanpuhelut</item>
+    <item>Lähtevät puhelut</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Ei käytössä</item>
+    <item>Roaming</item>
+    <item>Kaikki</item>
+  </string-array>
+  <string name="call_barring_incoming">Saapuvan puhelun esto</string>
+  <string name="input_password">Kirjoita salasanasi</string>
+  <string name="invalidPsw">Kirjoita kelvollinen salasana (4-8 numeroa)</string>
+  <string name="labelCbCancelAll">Poista puhelun esto käytöstä</string>
+  <string name="labelCbChangePassword">Vaihda salasana</string>
+  <string name="psw_enter_old">Vanha salasana</string>
+  <string name="psw_enter_new">Uusi salasana</string>
+  <string name="psw_reenter_new">Kirjoita salasana uudelleen</string>
+  <string name="no_call_barring">Puhelun esto pois käytöstä</string>
+  <string name="cb_psw_dont_match">Salasanat eivät täsmää</string>
 </resources>
