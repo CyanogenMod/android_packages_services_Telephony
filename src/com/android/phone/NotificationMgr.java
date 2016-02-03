@@ -16,8 +16,6 @@
 
 package com.android.phone;
 
-import java.util.ArrayList;
-
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -46,9 +44,6 @@ import android.telephony.ServiceState;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
-import android.text.SpannableStringBuilder;
-import android.text.format.DateUtils;
-import android.text.style.RelativeSizeSpan;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -60,12 +55,9 @@ import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.phone.settings.VoicemailSettingsActivity;
 import com.android.phone.vvm.omtp.sync.VoicemailStatusQueryHelper;
 import com.android.phone.settings.VoicemailNotificationSettingsUtil;
-import com.android.phone.settings.VoicemailProviderSettingsUtil;
-import com.android.internal.telephony.util.BlacklistUtils;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import cyanogenmod.providers.CMSettings;
@@ -379,7 +371,7 @@ public class NotificationMgr {
             }
 
             int resId = android.R.drawable.stat_notify_voicemail;
-            if (mTelephonyManager.getPhoneCount() > 1) {
+            if (showSimSlotIcon()) {
                 resId = mwiIcon[phoneId];
             }
 
@@ -493,6 +485,15 @@ public class NotificationMgr {
                     notificationId,
                     UserHandle.ALL);
         }
+    }
+
+    private boolean showSimSlotIcon() {
+        final List<SubscriptionInfo> subInfoList =
+                SubscriptionManager.from(mContext).getActiveSubscriptionInfoList();
+        if (subInfoList == null) {
+            return false;
+        }
+        return subInfoList.size() > 1;
     }
 
     /**
