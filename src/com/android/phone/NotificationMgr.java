@@ -379,7 +379,7 @@ public class NotificationMgr {
             }
 
             int resId = android.R.drawable.stat_notify_voicemail;
-            if (mTelephonyManager.getPhoneCount() > 1) {
+            if (mTelephonyManager.getSimCount() > 1) {
                 resId = mwiIcon[phoneId];
             }
 
