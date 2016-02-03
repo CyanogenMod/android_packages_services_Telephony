@@ -85,4 +85,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="incall_echo_cancellation_key"
+        android:title="@string/incall_echo_cancellation">
+
+        <SwitchPreference
+            android:key="button_enable_aec_key"
+            android:title="@string/enable_aec_label"
+            android:defaultValue="true"
+            android:summary="@string/enable_aec_summary" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

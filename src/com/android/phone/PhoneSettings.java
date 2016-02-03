@@ -34,5 +34,9 @@ public final class PhoneSettings {
     private static SharedPreferences getPrefs(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context);
     }
+
+    public static boolean isAecDisabled(Context context) {
+        return !getPrefs(context).getBoolean("enable_aec", true);
+    }
 }
 

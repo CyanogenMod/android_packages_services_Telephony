@@ -19,6 +19,9 @@
     <string name="incall_screen_settings">In-call screen settings</string>
     <string name="show_ssn_label">Event notification</string>
     <string name="show_ssn_summary">Show a notification for various network events related to call handling</string>
+    <string name="incall_echo_cancellation">In-call noise reduction</string>
+    <string name="enable_aec_label">Echo cancellation</string>
+    <string name="enable_aec_summary">Reduce ambient noise for the remote party during voice calls</string>
 
     <!-- Blacklist preferences -->
     <string name="blacklist_title">Blocked caller list</string>
