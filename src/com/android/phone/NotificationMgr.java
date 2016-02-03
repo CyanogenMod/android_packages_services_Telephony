@@ -42,6 +42,7 @@ import android.provider.Settings;
 import android.telecom.PhoneAccount;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.ServiceState;
+import android.telephony.TelephonyManager;
 import android.text.SpannableStringBuilder;
 import android.text.format.DateUtils;
 import android.text.style.RelativeSizeSpan;
@@ -295,7 +296,7 @@ public class NotificationMgr {
         int notificationId = getNotificationId(VOICEMAIL_NOTIFICATION, phoneId);
         if (visible) {
             int resId = android.R.drawable.stat_notify_voicemail;
-            if (PhoneUtils.isMultiSimEnabled()) {
+            if (TelephonyManager.getDefault().getSimCount() > 1) {
                 resId = mwiIcon[phoneId];
             }
 
