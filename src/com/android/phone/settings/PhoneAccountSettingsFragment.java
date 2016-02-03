@@ -2,6 +2,8 @@ package com.android.phone.settings;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Icon;
@@ -11,6 +13,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.telecom.PhoneAccount;
@@ -58,6 +61,9 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private static final String USE_SIP_PREF_KEY = "use_sip_calling_options_key";
     private static final String SIP_RECEIVE_CALLS_PREF_KEY = "sip_receive_calls_key";
 
+    private static final String AEC_CATEGORY_KEY = "incall_echo_cancellation_key";
+    private static final String ENABLE_AEC_PREF_KEY = "button_enable_aec_key";
+
     private static final String LEGACY_ACTION_CONFIGURE_PHONE_ACCOUNT =
             "android.telecom.action.CONNECTION_SERVICE_CONFIGURE";
 
@@ -83,6 +89,8 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
     private ListPreference mUseSipCalling;
     private SwitchPreference mSipReceiveCallsPreference;
     private SipSharedPreferences mSipSharedPreferences;
+
+    private SwitchPreference mEnableAecPreference;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -209,6 +217,27 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
                 getPreferenceScreen().removePreference(incallSettings);
             }
         }
+
+        mEnableAecPreference = (SwitchPreference)
+                getPreferenceScreen().findPreference(ENABLE_AEC_PREF_KEY);
+        mEnableAecPreference.setChecked(
+                getAecState());
+        mEnableAecPreference.setOnPreferenceChangeListener(this);
+
+        String aecParam = getResources().getString(
+                R.string.incall_echo_cancellation_parameter);
+        String[] aecParamValues = getResources().getStringArray(
+                R.array.incall_echo_cancellation_values);
+
+        if (TextUtils.isEmpty(aecParam) || aecParamValues.length != 2) {
+            PreferenceCategory aecSettings = (PreferenceCategory)
+                    getPreferenceScreen().findPreference(AEC_CATEGORY_KEY);
+            aecSettings.removePreference(aecSettings.findPreference(ENABLE_AEC_PREF_KEY));
+            if (aecSettings.getPreferenceCount() == 0) {
+                getPreferenceScreen().removePreference(aecSettings);
+            }
+        }
+
     }
 
     /**
@@ -233,6 +262,13 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
                     handleSipReceiveCallsOption(isEnabled);
                 }
             }).start();
+            return true;
+        } else if (pref == mEnableAecPreference) {
+            final boolean isEnabled = !mEnableAecPreference.isChecked();
+            if (!setAecState(isEnabled)) {
+                // failed to set? revert state
+                mEnableAecPreference.setChecked(!!isEnabled);
+            }
             return true;
         }
         return false;
@@ -493,5 +529,29 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         }
 
         return intent;
+    }
+
+    private boolean getAecState() {
+        Context context = getActivity();
+        if (context == null) {
+            // Return if the fragment is detached from parent activity before executed by thread.
+            return true;
+        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("enable_aec",true);
+    }
+
+    private boolean setAecState(boolean aecState) {
+        Context context = getActivity();
+        if (context == null) {
+            // Return if the fragment is detached from parent activity before executed by thread.
+            return false;
+        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        Editor editor = prefs.edit();
+        editor.putBoolean("enable_aec", aecState);
+        editor.commit();
+        PhoneUtils.toggleAecState();
+        return true;
     }
 }

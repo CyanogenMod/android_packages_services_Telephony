@@ -31,6 +31,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.media.AudioManager;
 import android.net.Uri;
+import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PersistableBundle;
@@ -141,6 +142,15 @@ public class PhoneUtils {
     private static AlertDialog sUssdDialog = null;
     private static StringBuilder sUssdMsg = new StringBuilder();
 
+    private static void onPhoneStateChanged(AsyncResult r) {
+        PhoneConstants.State state = PhoneGlobals.getInstance().mCM.getState();
+        if (state == PhoneConstants.State.OFFHOOK ||
+               state == PhoneConstants.State.IDLE) {
+            toggleAecState();
+        }
+    }
+
+
     /**
      * Handler that tracks the connections and updates the value of the
      * Mute settings for each connection as needed.
@@ -149,6 +159,9 @@ public class PhoneUtils {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
+                case PHONE_STATE_CHANGED:
+                    onPhoneStateChanged((AsyncResult) msg.obj);
+                    break;
                 case MSG_CHECK_STATUS_ANSWERCALL:
                     FgRingCalls frC = (FgRingCalls) msg.obj;
                     // wait for finishing disconnecting
@@ -2563,4 +2576,21 @@ public class PhoneUtils {
         }
         return null;
     }
+
+    public static void toggleAecState() {
+        final PhoneGlobals app = PhoneGlobals.getInstance();
+        String aecParam = app.getResources().getString(
+                R.string.incall_echo_cancellation_parameter);
+        String[] aecParamValues = app.getResources().getStringArray(
+                R.array.incall_echo_cancellation_values);
+
+        if (!TextUtils.isEmpty(aecParam) && aecParamValues.length == 2) {
+            AudioManager audioManager = (AudioManager) app.getSystemService(Context.AUDIO_SERVICE);
+            boolean aecState = !PhoneSettings.isAecDisabled(app);
+
+            String aecToggle = aecParam + "=" + ( aecState ? aecParamValues[0] : aecParamValues[1] );
+            audioManager.setParameters(aecToggle);
+        }
+    }
+
 }
