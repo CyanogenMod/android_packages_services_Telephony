@@ -31,6 +31,7 @@ import android.telephony.ServiceState;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
@@ -471,12 +472,17 @@ public class TelephonyConnectionService extends ConnectionService {
             int telephonyDisconnectCause = android.telephony.DisconnectCause.OUTGOING_FAILURE;
             // On GSM phones, null connection means that we dialed an MMI code
             if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_GSM) {
-                Log.d(this, "dialed MMI code");
-                telephonyDisconnectCause = android.telephony.DisconnectCause.DIALED_MMI;
-                final Intent intent = new Intent(this, MMIDialogActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
-                        Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-                startActivity(intent);
+                if (number.length() == 1) {
+                    telephonyDisconnectCause = android.telephony.DisconnectCause.INVALID_NUMBER;
+                    Toast.makeText(getApplicationContext(), "invalid number", Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.d(this, "dialed MMI code: " + number);
+                    telephonyDisconnectCause = android.telephony.DisconnectCause.DIALED_MMI;
+                    final Intent intent = new Intent(this, MMIDialogActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                            Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+                    startActivity(intent);
+                }
             }
             Log.d(this, "placeOutgoingConnection, phone.dial returned null");
             connection.setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
