@@ -64,6 +64,8 @@ public class TelephonyConnectionService extends ConnectionService {
     private ConnectionRequest mRequest;
     static int [] sLchState = new int[TelephonyManager.getDefault().getPhoneCount()];
 
+    static final int SINGLE_DIGIT_DIALED =    1;
+
     /**
      * A listener to actionable events specific to the TelephonyConnection.
      */
@@ -472,9 +474,12 @@ public class TelephonyConnectionService extends ConnectionService {
             int telephonyDisconnectCause = android.telephony.DisconnectCause.OUTGOING_FAILURE;
             // On GSM phones, null connection means that we dialed an MMI code
             if (phone.getPhoneType() == PhoneConstants.PHONE_TYPE_GSM) {
-                if (number.length() == 1) {
+                if (number.length() == SINGLE_DIGIT_DIALED) {
                     telephonyDisconnectCause = android.telephony.DisconnectCause.INVALID_NUMBER;
-                    Toast.makeText(getApplicationContext(), "invalid number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                        getApplicationContext(), 
+                        getApplicationContext().getText(com.android.internal.R.string.mmiError).toString(),
+                        Toast.LENGTH_SHORT).show();
                 } else {
                     Log.d(this, "dialed MMI code: " + number);
                     telephonyDisconnectCause = android.telephony.DisconnectCause.DIALED_MMI;
