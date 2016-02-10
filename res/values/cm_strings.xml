@@ -229,4 +229,8 @@
     <!-- Permission to modify network mode via intent -->
     <string name="perm_change_mobile_network">change network mode</string>
     <string name="perm_change_mobile_network_desc">Allows an app to modify the current network mode.</string>
+
+    <!-- Network mode picker dialog title -->
+    <string name="choose_network_mode_title">Choose network mode</string>
+    <string name="choose_network_mode_system_default">System default</string>
 </resources>
