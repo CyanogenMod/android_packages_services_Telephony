@@ -731,6 +731,16 @@
               <data android:scheme="package"/>
           </intent-filter>
        </receiver>
+
+        <activity android:name=".NetworkModePickerActivity"
+                  android:theme="@*android:style/Theme.DeviceDefault.Light.Dialog"
+                  android:permission="com.android.phone.CHANGE_NETWORK_MODE"
+                  android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="cyanogenmod.platform.intent.action.NETWORK_MODE_PICKER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
     <permission android:name="com.android.phone.CHANGE_NETWORK_MODE"

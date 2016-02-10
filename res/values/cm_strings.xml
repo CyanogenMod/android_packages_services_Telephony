@@ -233,4 +233,8 @@
     <!-- Mobile network settings, COLP -->
     <string name="connected_line_identification_title">Connected line identification</string>
     <string name="connected_line_identification_summary">Disable this option if the numbers of the recipients don\'t show up in the call history</string>
+
+    <!-- Network mode picker dialog title -->
+    <string name="choose_network_mode_title">Choose network mode</string>
+    <string name="choose_network_mode_system_default">System default</string>
 </resources>
