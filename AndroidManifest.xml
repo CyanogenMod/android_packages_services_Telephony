@@ -126,6 +126,7 @@
     <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
     <uses-permission android:name="android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST" />
     <uses-permission android:name="cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS" />
+    <uses-permission android:name="com.android.phone.CHANGE_NETWORK_MODE" />
 
     <!-- This tells the activity manager to not delay any of our activity
          start requests, even if they happen immediately after the user
@@ -729,6 +730,16 @@
               <data android:scheme="package"/>
           </intent-filter>
        </receiver>
+
+        <activity android:name=".NetworkModePickerActivity"
+                  android:theme="@*android:style/Theme.DeviceDefault.Light.Dialog"
+                  android:permission="com.android.phone.CHANGE_NETWORK_MODE"
+                  android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="cyanogenmod.platform.intent.action.NETWORK_MODE_PICKER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
     <permission android:name="com.android.phone.CHANGE_NETWORK_MODE"
