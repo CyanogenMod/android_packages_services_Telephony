@@ -147,4 +147,27 @@
   <string name="phone_number_summary">設定本機號碼</string>
   <string name="msim_mobile_network_settings_title">Sim 卡 %d 移動網路設置</string>
   <string name="call_recording_format">通話記錄格式</string>
+  <string name="call_barring">限制通話</string>
+  <string name="call_barring_outgoing">限制撥出通話</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>關閉</item>
+    <item>國際漫遊通話</item>
+    <item>國際通話</item>
+    <item>撥出通話</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>關閉</item>
+    <item>漫遊服務</item>
+    <item>全部</item>
+  </string-array>
+  <string name="call_barring_incoming">限制來電</string>
+  <string name="input_password">輸入您的密碼</string>
+  <string name="invalidPsw">輸入有效的密碼 (4-8 位數字)</string>
+  <string name="labelCbCancelAll">停用通話限制</string>
+  <string name="labelCbChangePassword">變更密碼</string>
+  <string name="psw_enter_old">舊密碼</string>
+  <string name="psw_enter_new">新密碼</string>
+  <string name="psw_reenter_new">重新輸入您的密碼</string>
+  <string name="no_call_barring">已停用通話限制</string>
+  <string name="cb_psw_dont_match">密碼不符</string>
 </resources>

@@ -220,6 +220,8 @@
   <string name="wifi_pref_none">Nicio preferință</string>
   <string name="wifi_preferred">Wi-Fi preferat</string>
   <string name="wifi_only">Doar Wi-Fi</string>
+  <string name="cellular_preferred">Preferat mobil</string>
+  <string name="cellular_only">Doar mobil</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>Off</item>
     <item>International roaming calls</item>
