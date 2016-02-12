@@ -19,16 +19,13 @@ package com.android.phone;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncResult;
-import android.os.Handler;
-import android.os.Message;
-import android.provider.Settings;
 import android.telephony.SubscriptionManager;
 import android.util.Log;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
+import com.android.internal.telephony.SubscriptionController;
 
 public class PhoneToggler extends BroadcastReceiver  {
 
@@ -69,7 +66,8 @@ public class PhoneToggler extends BroadcastReceiver  {
                             || networkMode == Phone.NT_MODE_GSM_UMTS
                             || networkMode == Phone.NT_MODE_WCDMA_PREF
                             || networkMode == Phone.NT_MODE_LTE_GSM_WCDMA
-                            || networkMode == Phone.NT_MODE_WCDMA_ONLY) {
+                            || networkMode == Phone.NT_MODE_WCDMA_ONLY
+                            || networkMode == Phone.NT_MODE_LTE_ONLY) {
                         networkModeOk = true;
                     }
                 } else if (phoneType == PhoneConstants.PHONE_TYPE_CDMA) {
@@ -100,6 +98,8 @@ public class PhoneToggler extends BroadcastReceiver  {
     }
 
     private void changeNetworkMode(int modemNetworkMode) {
+        SubscriptionController.getInstance().setUserNwMode(
+                SubscriptionManager.getDefaultDataSubId(), modemNetworkMode);
         getPhone().setPreferredNetworkType(modemNetworkMode, null);
     }
 
