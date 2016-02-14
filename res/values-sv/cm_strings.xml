@@ -17,11 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="incall_screen_settings">Skärminställningar under samtal</string>
-  <string name="show_ssn_label">Händelsemeddelanden</string>
+  <string name="show_ssn_label">Händelseavisering</string>
   <string name="show_ssn_summary">Visa en avisering för olika nätverkshändelser relaterade till samtalshantering</string>
+  <string name="incall_echo_cancellation">Brusreducering vid samtal</string>
+  <string name="enable_aec_label">Ekocancellering</string>
+  <string name="enable_aec_summary">Reducera omgivningsljud för fjärrparten under röstsamtal</string>
   <string name="blacklist_title">Lista över blockerade nummer</string>
   <string name="blacklist_summary_disabled">Inaktiverad</string>
   <string name="blacklist_summary">Du kommer inte få inkommande samtal eller meddelanden från telefonnummer som är på listan över blockerade nummer</string>
+  <string name="mwi_notification_title">Indikator för väntande meddelande</string>
+  <string name="mwi_notification_summary">Visa meddelande väntar indikator som telefonsvararavisering</string>
   <string name="phone_number_label">Mitt telefonnummer</string>
   <string name="phone_number_summary">Ställ in enhetens telefonnummer</string>
   <string name="call_notif_unconditionalCF">Ovillkorlig vidarekoppling aktiv</string>
@@ -83,10 +88,12 @@
   <string name="preferred_network_mode_wcdma_only_choice">Endast WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Endast GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA föredragen</string>
+  <string name="call_barring">Samtalsspärrar</string>
+  <string name="call_barring_outgoing">Utgående samtalsspärr</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>Av</item>
-    <item>International roaming calls</item>
-    <item>International calls</item>
+    <item>Internationella roamingsamtal</item>
+    <item>Internationella samtal</item>
     <item>Utgående samtal</item>
   </string-array>
   <string-array name="call_barring_incoming_display_values">
@@ -94,15 +101,21 @@
     <item>Roaming</item>
     <item>Alla</item>
   </string-array>
+  <string name="call_barring_incoming">Inkommande samtalsspärr</string>
   <string name="input_password">Ange ditt lösenord</string>
   <string name="invalidPsw">Ange ett giltigt lösenord (4-8 siffror)</string>
+  <string name="labelCbCancelAll">Inaktivera samtalsspärr</string>
   <string name="labelCbChangePassword">Byt lösenord</string>
   <string name="psw_enter_old">Tidigare lösenord</string>
   <string name="psw_enter_new">Nytt lösenord</string>
   <string name="psw_reenter_new">Ange ditt lösenord igen</string>
+  <string name="no_call_barring">Samtalsspärr avaktiverad</string>
   <string name="cb_psw_dont_match">Lösenorden matchar inte</string>
+  <string name="fdn_invalid_number_cm">FDN uppdaterades inte eftersom numret är tomt eller överskrider 20 siffror.</string>
   <string name="exportContacts">Exporterar kontakter till SIM-kort\u2026</string>
   <string name="simContacts_title_cm">Hantera SIM-kortets kontakter</string>
+  <string name="incall_error_local_low_battery">Uppringningen misslyckades på grund av låg batterinivå.</string>
+  <string name="incall_error_low_battery">Uppringningen misslyckades på grund av låg batterinivå på fjärrenheten.</string>
   <string name="contactScreen">Hantera SIM-kontakter</string>
   <string name="exportContactScreen">Exportera telefonkontakter till SIM</string>
   <string name="addSimEntries">Lägg till SIM-kontakt</string>
@@ -127,5 +140,5 @@
   <string name="exportAllcontatsSuccess">Exporterade alla kontakter till SIM</string>
   <string name="exportAllcontatsFailed">Misslyckades med att exportera alla kontakter till SIM</string>
   <string name="exportAllcontatsNoContacts">Inga kontakter hittades att exportera till SIM</string>
-  <string name="msim_mobile_network_settings_title">SIM-%d mobila nätverksinställningar</string>
+  <string name="msim_mobile_network_settings_title">SIM-%d mobilnätsinställningar</string>
 </resources>

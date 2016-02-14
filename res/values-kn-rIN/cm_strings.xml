@@ -21,6 +21,8 @@
   <string name="blacklist_title">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಮಾಡುವರ ಪಟ್ಟಿ</string>
   <string name="blacklist_summary_disabled">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
   <string name="blacklist_summary">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಮಾಡುವರ ಪಟ್ಟಿಯಲ್ಲಿರುವ ದೂರವಾಣಿ ಸಂಖ್ಯೆಗಳಿಂದ ಒಳಬರುವ ಕರೆಗಳನ್ನು ಮತ್ತು ಸಂದೇಶಗಳನ್ನು ನೀವು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ</string>
+  <string name="mwi_notification_title">ಸಂದೇಶ ನಿರೀಕ್ಷೆ ಸೂಚಕ</string>
+  <string name="mwi_notification_summary">ಸಂದೇಶ ನಿರೀಕ್ಷೆ ಸೂಚಕ ಧ್ವನಿಮೇಲ್ ಅಧಿಸೂಚನೆಯನ್ನು ಪ್ರದರ್ಶಿಸು</string>
   <string name="phone_number_label">ನನ್ನ ದೂರವಾಣಿ ಸಂಖ್ಯೆ</string>
   <string name="phone_number_summary">ಈ ಸಾಧನಕ್ಕಾಗಿ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ಹೊಂದಿಸಿ</string>
   <string name="call_notif_unconditionalCF">ಷರತ್ತುಮುಕ್ತವಾದ ಕರೆ ಫಾರ್ವರ್ಡ್ ಮಾಡುವಿಕೆ ಸಕ್ರಿಯ</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ಯಶಸ್ವಿಯಾಗಿ ರಫ್ತುಮಾಡಿದೆ</string>
   <string name="exportAllcontatsFailed">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ರಫ್ತುಮಾಡಲು ವಿಫಲವಾಗಿದೆ</string>
   <string name="exportAllcontatsNoContacts">ಸಿಮ್‍ಗೆ ರಫ್ತು ಮಾಡಲು ಯಾವುದೇ ಸಂಪರ್ಕಗಳು ಪತ್ತೆಯಾಗಲಿಲ್ಲ</string>
-  <string name="msim_mobile_network_settings_title">ಸಿಮ್ %d ಮೊಬೈಲ್ ನೆಟ್‍ವರ್ಕ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
 </resources>

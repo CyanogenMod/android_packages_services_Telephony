@@ -21,6 +21,8 @@
   <string name="blacklist_title">لیست تماس‌گیرنده مسدود شده</string>
   <string name="blacklist_summary_disabled">غیرفعال</string>
   <string name="blacklist_summary">شما تماس یا پیامی از شماره تلفن‌های لیست تماس‌گیرنده مسدود شده دریافت نخواهید کرد</string>
+  <string name="mwi_notification_title">نشانگر انتظار پیام</string>
+  <string name="mwi_notification_summary">نمایش پیام شاخص انتظار برای اعلانات پست صوتی</string>
   <string name="phone_number_label">شماره تلفن من</string>
   <string name="phone_number_summary">تنظیم شماره تلفن این دستگاه</string>
   <string name="call_notif_unconditionalCF">انتقال نامحدود تماس فعال است</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">تمام مخاطبین با موفقیت به سیمکارت برون‌ریزی شدند</string>
   <string name="exportAllcontatsFailed">برون‌ریزی تمام مخاطبین به سیمکارت ناموفق بود</string>
   <string name="exportAllcontatsNoContacts">هیچ مخاطبی برای برون‌ریزی به سیمکارت پیدا نشد</string>
-  <string name="msim_mobile_network_settings_title">تنظیمات شبکه تلفن همراه سیمکارت %d</string>
 </resources>

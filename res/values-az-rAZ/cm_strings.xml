@@ -21,6 +21,8 @@
   <string name="blacklist_title">Əngəllənən zəng edənlərin siyahısı</string>
   <string name="blacklist_summary_disabled">Ləğv edildi</string>
   <string name="blacklist_summary">Əngəllənən zəng edənlərin siyahısındakı nömrələrdən gələn zənglər və ya mesajlar qəbul edilməyəcək</string>
+  <string name="mwi_notification_title">Mesaj gözləmə göstəricisi</string>
+  <string name="mwi_notification_summary">Mesaj gözləmə göstəricisində səsli poçt bildirişlərini göstər</string>
   <string name="phone_number_label">Telefon nömrəm</string>
   <string name="phone_number_summary">Bu cihaz üçün telefon nömrəsini tənzimlə</string>
   <string name="call_notif_unconditionalCF">Şərtsiz zəng yönləndirmə aktivdir</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">Bütün şəxslər SIM\'ə uğurla köçürüldü</string>
   <string name="exportAllcontatsFailed">Bütün şəxslər SIM\'ə köçürülmədi</string>
   <string name="exportAllcontatsNoContacts">SIM\'ə köçürüləcək şəxs yoxdur</string>
-  <string name="msim_mobile_network_settings_title">SIM %d mobil şəbəkə tənzimləmələri</string>
 </resources>

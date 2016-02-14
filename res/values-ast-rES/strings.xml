@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="phoneAppLabel" product="tablet">Datos móviles</string>
   <string name="emergencyDialerIconLabel">Llamada d\'emerxencia</string>
   <string name="phoneIconLabel">Teléfonu</string>
   <string name="fdnListLabel">Llista de FDN</string>
@@ -49,7 +48,6 @@
   <string name="requesting_unlock">Solicitando desbloquéu de rede\u2026</string>
   <string name="unlock_failed">La solicitú de desbloquéu de rede nun se fexo correcho.</string>
   <string name="unlock_success">El desbloquéu de rede féxose correcho.</string>
-  <string name="mobile_network_settings_not_available">Los axustes de rede móvil nun tán disponibles pa esti usuariu</string>
   <string name="labelGSMMore">Axustes de llamaes GSM</string>
   <string name="labelCDMAMore">Axustes de llamaes CDMA</string>
   <string name="apn_settings">APN</string>
@@ -127,7 +125,6 @@
   <string name="no_change">Nun se fexo nengún cambéu.</string>
   <string name="sum_voicemail_choose_provider">Seleicionar serviciu de buzón de voz</string>
   <string name="voicemail_default">La to operadora</string>
-  <string name="mobile_networks">Configuración de rede móvil</string>
   <string name="label_available">Redes disponibles</string>
   <string name="load_networks_progress">Guetando\u2026</string>
   <string name="empty_networks_list">Nun s\'atopó nenguna rede.</string>
@@ -363,6 +360,7 @@
   <string name="notification_network_selection_title">Ensin serviciu</string>
   <string name="notification_network_selection_text">La rede esbillada (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) nun ta disponible</string>
   <string name="incall_error_emergency_only">Non rexistráu na rede.</string>
+  <string name="incall_error_out_of_service">Rede móvil non disponible.</string>
   <string name="incall_status_dialed_mmi">Aniciando secuencia MMI\u2026</string>
   <string name="incall_error_supp_service_conference">Nun pudo facese la conferencia telefónica.</string>
   <string name="emergency_enable_radio_dialog_title">Llamada d\'emerxencia</string>
@@ -419,6 +417,18 @@
   <string name="phone_entered_ecm_text">Activóse\'l mou de devolución de llamada d\'emerxencia.</string>
   <string name="phone_in_ecm_notification_title">Mou de devolución de llamada d\'emerxencia</string>
   <string name="phone_in_ecm_call_notification_text">Conexón de datos inhabilitada</string>
+  <plurals name="phone_in_ecm_notification_time">
+    <item quantity="one">Nenguna conexón de datos mientres <xliff:g id="COUNT">%s</xliff:g> minutu</item>
+    <item quantity="other">Nenguna conexón de datos mientres <xliff:g id="COUNT">%s</xliff:g> minutos</item>
+  </plurals>
+  <plurals name="alert_dialog_exit_ecm">
+    <item quantity="one">El teléfonu va tar nel mou de devolución de llamada d\'emerxencia mientres <xliff:g id="COUNT">%s</xliff:g> minutu. Mentanto esti tiempu, nun van poder usase les aplicaciones qu\'usen una conexón de datos. ¿Quies colar agora?</item>
+    <item quantity="other">El teléfonu va tar nel mou de devolución de llamada mientres <xliff:g id="COUNT">%s</xliff:g> minutos. Mentanto esti tiempu, nun van poder usase les aplicaciones qu\'usen una conexón de datos. ¿Quies colar agora?</item>
+  </plurals>
+  <plurals name="alert_dialog_not_avaialble_in_ecm">
+    <item quantity="one">L\'aición esbillada nun ta disponible mentanto\'l mou de devolución de llamada d\'emerxencia. El teléfonu va tar nesti mou mientres <xliff:g id="COUNT">%s</xliff:g> minutos. ¿Quies colar agora?</item>
+    <item quantity="other">L\'aición esbillada nun ta disponible mentanto\'l mou de devolución de llamada d\'emerxencia. El teléfonu va tar nesti mou mientres <xliff:g id="COUNT">%s</xliff:g> minutos. ¿Quies colar agora?</item>
+  </plurals>
   <string name="alert_dialog_in_ecm_call">L\'aición esbillada nun ta disponible mentanto una llamada d\'emerxencia.</string>
   <string name="progress_dialog_exiting_ecm">Colando del mou de devolución de llamada d\'emerxencia</string>
   <string name="alert_dialog_yes">Sí</string>

@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Nastavitve zaslona klica</string>
   <string name="show_ssn_label">Obvestilo o dogodku</string>
   <string name="show_ssn_summary">Prikaži obvestilo za razne omrežne dogodke, ki se nanašajo na obravnavo klicev</string>
+  <string name="incall_echo_cancellation">Zmanjšanje šuma med klicem</string>
+  <string name="enable_aec_label">Izničevanje odmeva</string>
+  <string name="enable_aec_summary">Zmanjšaj okoliški hrup oddaljene osebe med glasovnim klicem</string>
   <string name="blacklist_title">Seznam blokiranih klicateljev</string>
   <string name="blacklist_summary_disabled">Onemogočeno</string>
   <string name="blacklist_summary">Ne boste več prejemali dohodnih klicev in sporočil iz telefonskih številk, ki so na seznamu blokiranih klicateljev</string>
+  <string name="mwi_notification_title">Kazalnik čakanja sporočila</string>
+  <string name="mwi_notification_summary">Prikaži obvestila glasovne pošte kazalnika čakanja sporočil</string>
   <string name="phone_number_label">Moja telefonska številka</string>
   <string name="phone_number_summary">Nastavite telefonsko številko za to napravo</string>
   <string name="call_notif_unconditionalCF">Brezpogojno posredovanje klicev dejavno</string>
@@ -136,4 +141,6 @@
   <string name="exportAllcontatsFailed">Izvoz vseh stikov s kartice SIM spodletel</string>
   <string name="exportAllcontatsNoContacts">Stikov za izvoz na SIM ni bilo mogoče najti</string>
   <string name="msim_mobile_network_settings_title">Nastavitve mobilnega omrežja za SIM %d</string>
+  <string name="perm_change_mobile_network">spreminjanje načina omrežja</string>
+  <string name="perm_change_mobile_network_desc">Dovoli aplikaciji spreminjanje trenutnega načina omrežja.</string>
 </resources>

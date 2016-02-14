@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Nastavení obrazovky při hovoru</string>
   <string name="show_ssn_label">Upozornění na událost</string>
   <string name="show_ssn_summary">Zobrazit upozornění na různé události sítě, které souvisejí s hovory</string>
+  <string name="incall_echo_cancellation">Redukce šumu v hovoru</string>
+  <string name="enable_aec_label">Potlačení ozvěny</string>
+  <string name="enable_aec_summary">Aktivní snížení okolního hluku při telefonování</string>
   <string name="blacklist_title">Seznam blokovaných čísel</string>
   <string name="blacklist_summary_disabled">Vypnuta</string>
   <string name="blacklist_summary">Nebudou se přijímat příchozí hovory nebo zprávy od telefonní čísla na seznamu blokovaných čísel</string>
+  <string name="mwi_notification_title">Upozornění na hlasovou zprávu</string>
+  <string name="mwi_notification_summary">Zobrazit upozornění na čekající hlasovou zprávu</string>
   <string name="phone_number_label">Moje telefonní číslo</string>
   <string name="phone_number_summary">Nastavení telefonního čísla pro toto zařízení</string>
   <string name="call_notif_unconditionalCF">Nepodmíněné přesměrování hovorů aktivní</string>

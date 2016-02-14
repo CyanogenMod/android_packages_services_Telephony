@@ -19,6 +19,8 @@
   <string name="show_ssn_label">සිදුවීම් දැනුම්දීම</string>
   <string name="show_ssn_summary">ඇමතුම් හැසිරවීමට අදාළ නොයෙක් ජාලමය සිදුවීම සඳහා දැනුම්දීමක් පෙන්වන්න</string>
   <string name="blacklist_summary_disabled">අබලයි</string>
+  <string name="mwi_notification_title">පණිවිඩ පොරොත්තුවේ දර්ශකය</string>
+  <string name="mwi_notification_summary">පණිවිඩ පොරොත්තු දර්ශකයේ, හඬ තැපෑලේ දැනුම්දීම් පෙන්වන්න</string>
   <string name="call_notif_unconditionalCF">කොන්දේසි විරහිතව ඇමතුම් ඉදිරියට යැවීම සක්‍රීයයි</string>
   <string name="call_notif_conditionalCF">කොන්දේසිමය ඇමතුම් යොමු කිරීම සක්‍රීයයි</string>
   <string name="call_notif_MOcall_forwarding">ලබාගන්නා ඇමතුම ඉදිරියට යැවුනි</string>
