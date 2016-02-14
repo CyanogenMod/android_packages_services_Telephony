@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="phoneAppLabel" product="tablet">كۆچمە سانلىق مەلۇمات</string>
   <string name="emergencyDialerIconLabel">جىددىي نومۇر بۇرىغۇچ</string>
   <string name="fdnListLabel">مۇقىم نومۇر بۇراش تىزىملىكى</string>
   <string name="mmiStarted">MMI كودى قوزغىتىلدى</string>
@@ -79,7 +78,6 @@
   <string name="fw_get_in_vm_failed">نۆۋەتتىكى ئۇلاپ يەتكۈزۈش نومۇر تەڭشىكىنى ئىزدەپ ساقلىيالمايدۇ.\nيەنىلا يېڭى تېلېفون مۇلازىمەت سودىگىرىگە ئالماشتۇرۇۋېرەمسىز؟</string>
   <string name="no_change">ھېچقانداق ئۆزگىرىش بولمىدى.</string>
   <string name="sum_voicemail_choose_provider">ئۈنخەت مۇلازىمىتىنى تاللاڭ</string>
-  <string name="mobile_networks">كۆچمە تور تەڭشىكى</string>
   <string name="label_available">ئىشلىتىلىشچان تورلار</string>
   <string name="empty_networks_list">تور تېپىلمىدى.</string>
   <string name="search_networks">تور ئىزدە</string>
@@ -301,6 +299,15 @@
   <string name="phone_entered_ecm_text">جىددىي چاقىرىش ھالىتىگە كىردى</string>
   <string name="phone_in_ecm_notification_title">جىددىي چاقىرىش ھالىتى</string>
   <string name="phone_in_ecm_call_notification_text">سانلىق مەلۇمات باغلىنىش چەكلەنگەن</string>
+  <plurals name="phone_in_ecm_notification_time">
+    <item quantity="other"><xliff:g id="COUNT">%s</xliff:g> مىنۇت سانلىق مەلۇمات باغلىنىشى يوق</item>
+  </plurals>
+  <plurals name="alert_dialog_exit_ecm">
+    <item quantity="other">تېلېفون <xliff:g id="COUNT">%s</xliff:g> مىنۇت جىددىي چاقىرىش ھالىتىدە تۇرىدۇ. بۇ ھالەتتە، سانلىق مەلۇمات باغلىنىشى ئېلىپ بېرىلىۋاتقان ئەپنى ئىشلەتكىلى بولمايدۇ. دەرھال چېكىنەمسىز؟</item>
+  </plurals>
+  <plurals name="alert_dialog_not_avaialble_in_ecm">
+    <item quantity="other">جىددىي چاقىرىش ھالىتىدە تاللانغان مەشغۇلاتنى ئىجرا قىلالمايدۇ. تېلېفون بۇ ھالەتتە <xliff:g id="COUNT">%s</xliff:g> مىنۇت داۋاملىشىدۇ. دەرھال چېكىنەمسىز؟</item>
+  </plurals>
   <string name="alert_dialog_in_ecm_call">جىددىي چاقىرىش ھالىتىدە تاللانغان مەشغۇلاتنى ئىجرا قىلالمايدۇ.</string>
   <string name="progress_dialog_exiting_ecm">جىددىي چاقىرىش ھالىتىدىن چېكىنىۋاتىدۇ</string>
   <string name="not_voice_capable">ئاۋازلىق چاقىرىشنى قوللىمايدۇ</string>

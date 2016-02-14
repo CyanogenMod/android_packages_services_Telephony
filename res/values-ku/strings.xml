@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="phoneAppLabel" product="tablet">داتای مۆبایل</string>
   <string name="emergencyDialerIconLabel">تەلەفۆنی خێرا</string>
   <string name="phoneIconLabel">تەلەفۆن</string>
   <string name="fdnListLabel">لیستی FDN</string>
@@ -49,7 +48,6 @@
   <string name="requesting_unlock">داوا بۆ کردنەوەی تۆڕ\u2026</string>
   <string name="unlock_failed">داواکردن بۆ کردنەوەی تۆڕ سەرکەوتوو نەبوو.</string>
   <string name="unlock_success">کردنەوەی تۆڕ سەرکەوتوو بوو.</string>
-  <string name="mobile_network_settings_not_available">ڕێکخستنەکانی تۆڕی مۆبایل بۆ ئەم بەکارهێنەرە بەردەست نییە</string>
   <string name="labelGSMMore">ڕێکخستنەکانی پەیوەندی GSM</string>
   <string name="labelCDMAMore">ڕێکخستنەکانی پەیوەندی CDMA</string>
   <string name="apn_settings">ناوی خاڵەکانی دەستپێگەیشتن</string>
@@ -127,7 +125,6 @@
   <string name="no_change">هیچ گۆڕانکارییەک پاشەکەوت نەکرا.</string>
   <string name="sum_voicemail_choose_provider">خزمەتگوزاری دەنگەنامە هەڵبژێرە</string>
   <string name="voicemail_default">هاوبەشگەی سیمکارتەکەت</string>
-  <string name="mobile_networks">ڕێکخستنەکانی تۆڕی مۆبایل</string>
   <string name="label_available">تۆڕەکانی بەر دەست</string>
   <string name="load_networks_progress">گەڕان\u2026</string>
   <string name="empty_networks_list">هیچ تۆڕیک نەدۆزرایەوە.</string>
@@ -363,6 +360,7 @@
   <string name="notification_network_selection_title">ڕاژە نییە</string>
   <string name="notification_network_selection_text">تۆڕی دیاریکراو (<xliff:g id="operator_name">%s</xliff:g>) ئاماده‌نییه‌</string>
   <string name="incall_error_emergency_only">تۆمارنه‌کراوە له‌سه‌ر تۆڕ.</string>
+  <string name="incall_error_out_of_service">تۆڕی مۆبایل بەردەست نییە.</string>
   <string name="incall_status_dialed_mmi">دەستپێکردنی زنجیرەی MMI\u2026</string>
   <string name="incall_error_supp_service_conference">ناتوانێت پەیوەندی کۆنگرەیی بگرێت.</string>
   <string name="emergency_enable_radio_dialog_title">پەیوەندیی فریاگوزاری</string>
@@ -422,6 +420,18 @@
   <string name="phone_entered_ecm_text">چووەناوەوە بۆ دۆخی پەیوەندی چالاککردنی فریاکەوتن</string>
   <string name="phone_in_ecm_notification_title">دۆخی پەیوەندی چالاککردنی فریاکەوتن</string>
   <string name="phone_in_ecm_call_notification_text">بەستنەوەی دراوە ناچالاککرا</string>
+  <plurals name="phone_in_ecm_notification_time">
+    <item quantity="one">هیچ گرێدانێکی دراوە نییە بۆ <xliff:g id="count">%s</xliff:g> خولەک</item>
+    <item quantity="other">هیچ گرێدانێکی دراوە نییە بۆ <xliff:g id="count">%s</xliff:g> خولەک</item>
+  </plurals>
+  <plurals name="alert_dialog_exit_ecm">
+    <item quantity="one">تەلەفۆنەکە لە دۆخی پەیوەندی کردنەوەی فریاکەوتن ئەبێت بۆ ماوەی <xliff:g id="count">%s</xliff:g> خۆلەک. لەم دۆخەدا هیچ نەرمەواڵایەک ناتوانێت بەستنەوەکانی دراوە بەکار بهێنێت. دەتەوێ ئێستا دەربچی؟</item>
+    <item quantity="other">تەلەفۆنەکە لە دۆخی پەیوەندی کردنەوەی فریاکەوتن ئەبێت بۆ ماوەی <xliff:g id="count">%s</xliff:g> خۆلەک. لەم دۆخەدا هیچ نەرمەواڵایەک ناتوانێت بەستنەوەکانی دراوە بەکار بهێنێت. دەتەوێ ئێستا دەربچی؟</item>
+  </plurals>
+  <plurals name="alert_dialog_not_avaialble_in_ecm">
+    <item quantity="one">ئەم فرمانە هەڵبژێردراوە بەر دەست نییە لە کاتی بوون لە دۆخی پەیوەندی کردنەوەی فریاکەوتن. تەلەفۆن لەم دۆخەدا ئەبێت بۆ ماوەی <xliff:g id="count">%s</xliff:g> خولەک. دەتەوێ ئێستا دەربچی؟</item>
+    <item quantity="other">ئەم فرمانە هەڵبژێردراوە بەر دەست نییە لە کاتی بوون لە دۆخی پەیوەندی کردنەوەی فریاکەوتن. تەلەفۆن لەم دۆخەدا ئەبێت بۆ ماوەی <xliff:g id="count">%s</xliff:g> خولەک. دەتەوێ ئێستا دەربچی؟</item>
+  </plurals>
   <string name="alert_dialog_in_ecm_call">ئەم فرمانە هەڵبژێردراوە بەر دەست نییە لا کاتی پەیوەندی فریاکەوتن.</string>
   <string name="progress_dialog_exiting_ecm">دەرچوون لە دۆخی پەیوەندی کردنەوەی فریاکەوتن</string>
   <string name="alert_dialog_yes">بەڵێ</string>

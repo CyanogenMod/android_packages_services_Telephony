@@ -21,6 +21,8 @@
   <string name="blacklist_title">Lista de números bloqueados</string>
   <string name="blacklist_summary_disabled">Desactivado</string>
   <string name="blacklist_summary">Non se recibirán chamadas e mensaxes dos números incluídos na lista de números bloqueados</string>
+  <string name="mwi_notification_title">Indicador de espera dunha mensaxe</string>
+  <string name="mwi_notification_summary">Amosa as notificacións da caixa de voz que informan dunha mensaxe en agarda</string>
   <string name="phone_number_label">O meu número de teléfono</string>
   <string name="phone_number_summary">Estabelecer o número de teléfono deste dispositivo</string>
   <string name="call_notif_unconditionalCF">Desvío incondicional de chamada activado</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">Exportáronse con éxito todos os contactos da SIM</string>
   <string name="exportAllcontatsFailed">Non se puideron exportar todos os contactos da SIM</string>
   <string name="exportAllcontatsNoContacts">Non se atopou ningún contacto na SIM para exportar</string>
-  <string name="msim_mobile_network_settings_title">Configuración da rede móbil da SIM %d</string>
 </resources>

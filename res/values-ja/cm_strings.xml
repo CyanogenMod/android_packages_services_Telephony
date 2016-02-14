@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">通話画面の設定</string>
   <string name="show_ssn_label">イベントの通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
+  <string name="incall_echo_cancellation">通話ノイズリダクション</string>
+  <string name="enable_aec_label">エコー除去</string>
+  <string name="enable_aec_summary">音声通話中にリモートパーティのために環境雑音を軽減する</string>
   <string name="blacklist_title">着信拒否リスト</string>
   <string name="blacklist_summary_disabled">無効</string>
   <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようになります</string>
+  <string name="mwi_notification_title">メッセージ待機インジケータ</string>
+  <string name="mwi_notification_summary">ボイスメール通知のメッセージ待機インジケータを表示する</string>
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
   <string name="call_notif_unconditionalCF">無条件の着信転送が有効です</string>
@@ -29,11 +34,11 @@
   <string name="call_notif_MOcall_forwarding">発信は転送されます</string>
   <string name="call_notif_cugcall">クローズドユーザーグループでの通話</string>
   <string name="call_notif_outgoing_barred">発信が阻止されました</string>
-  <string name="call_notif_incoming_barred">リモートパーティーで着信が阻止されました</string>
+  <string name="call_notif_incoming_barred">リモートパーティで着信が阻止されました</string>
   <string name="call_notif_clir_suppression_rejected">発信者番号通知制限がネットワークによって拒否されました</string>
-  <string name="call_notif_call_deflected">通話はリモートパーティーによって転送されました</string>
+  <string name="call_notif_call_deflected">通話はリモートパーティによって転送されました</string>
   <string name="call_notif_MTcall_forwarding">着信は転送されます</string>
-  <string name="call_notif_multipartycall">多者同時通話</string>
+  <string name="call_notif_multipartycall">マルチパーティ通話</string>
   <string name="call_notif_callonhold_released">リモートで通話が終了されました</string>
   <string name="call_notif_forwardcheckreceived">着信は転送されました</string>
   <string name="call_notif_callconnectingect">特定呼転送経由で呼接続中</string>
@@ -49,7 +54,6 @@
   <string name="time_formate_am">午前</string>
   <string name="time_formate_pm">午後</string>
   <string name="preferred_network_mode_global_summary_cm">優先ネットワークモード: グローバル（CDMA/EvDo/LTE/GSM/WCDMA）</string>
-  <string name="callFailed_incoming_cb_enabled">パーティーがすべての着信を禁止しています。</string>
   <string name="callUnanswered_forwarded">通話は応答されずに転送されました</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">優先ネットワークモード: TD-SCDMA/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_summary">優先ネットワークモード: TD-SCDMA/LTE</string>
@@ -135,5 +139,7 @@
   <string name="exportAllcontatsSuccess">SIMにすべての連絡先をエクスポートしました</string>
   <string name="exportAllcontatsFailed">SIMにすべての連絡先をエクスポートできませんでした</string>
   <string name="exportAllcontatsNoContacts">SIMにエクスポートする連絡先が見つかりませんでした</string>
-  <string name="msim_mobile_network_settings_title">SIM %dのモバイルネットワーク設定</string>
+  <string name="msim_mobile_network_settings_title">SIM %dのデータ通信の設定</string>
+  <string name="perm_change_mobile_network">ネットワークモードの変更</string>
+  <string name="perm_change_mobile_network_desc">現在のネットワークモードを変更することをアプリに許可します。</string>
 </resources>

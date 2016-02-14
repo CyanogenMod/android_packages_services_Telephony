@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Ajustaments de trucada en pantalla</string>
   <string name="show_ssn_label">Notificació d\'esdeveniments</string>
   <string name="show_ssn_summary">Mostra una notificació pels diferents esdeveniments de xarxa relacionats amb la gestió de trucades</string>
+  <string name="incall_echo_cancellation">Reducció de soroll durant la trucada</string>
+  <string name="enable_aec_label">Cancel·lació d\'eco</string>
+  <string name="enable_aec_summary">Redueix el soroll ambiental al costat remot durant les trucades de veu</string>
   <string name="blacklist_title">Llista de números bloquejats</string>
   <string name="blacklist_summary_disabled">Desactivada</string>
   <string name="blacklist_summary">No rebràs trucades entrants o missatges dels números de telèfon que siguin dins la llista de números bloquejats</string>
+  <string name="mwi_notification_title">Indicador de missatges en espera</string>
+  <string name="mwi_notification_summary">Mostra un indicador de missatges en espera en les notificacions de la bústia de veu</string>
   <string name="phone_number_label">El meu número de telèfon</string>
   <string name="phone_number_summary">Estableix el número de telèfon per aquest dispositiu</string>
   <string name="call_notif_unconditionalCF">Desviament sense condicions de trucades actiu</string>
@@ -135,5 +140,7 @@
   <string name="exportAllcontatsSuccess">Tots contactes s\'han exportat a la SIM amb èxit</string>
   <string name="exportAllcontatsFailed">No s\'han pogut exportar tots els contactes a la SIM</string>
   <string name="exportAllcontatsNoContacts">No s\'han trobat contactes per exportar a la SIM</string>
-  <string name="msim_mobile_network_settings_title">Configuració de xarxes mòbils de la SIM %d</string>
+  <string name="msim_mobile_network_settings_title">Configuració de xarxa mòbil SIM %d</string>
+  <string name="perm_change_mobile_network">canvia el mode de xarxa</string>
+  <string name="perm_change_mobile_network_desc">Permet a una aplicació modificar el mode de xarxa actual.</string>
 </resources>

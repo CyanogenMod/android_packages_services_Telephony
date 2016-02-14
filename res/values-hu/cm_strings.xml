@@ -22,6 +22,8 @@
   <string name="blacklist_title">Blokkolt hívók listája</string>
   <string name="blacklist_summary_disabled">Letiltva</string>
   <string name="blacklist_summary">Nem fog bejövő hívásokat és üzeneteket kapni a blokkolt hívó listán szereplő telefonszámokról</string>
+  <string name="mwi_notification_title">Várakozó üzenet</string>
+  <string name="mwi_notification_summary">Várakozó hangposta üzenet megjelenítése</string>
   <string name="phone_number_label">Saját telefonszám</string>
   <string name="phone_number_summary">Telefonszám beállítása az eszközhöz</string>
   <string name="call_notif_unconditionalCF">Feltétel nélküli hívásátirányítás aktív</string>
@@ -135,5 +137,4 @@
   <string name="exportAllcontatsSuccess">Az összes névjegy sikeresen exportálva a SIM-re</string>
   <string name="exportAllcontatsFailed">Nem sikerült exportálni az összes névjegyet a SIM-re</string>
   <string name="exportAllcontatsNoContacts">Nem található SIM-re exportálandó névjegy</string>
-  <string name="msim_mobile_network_settings_title">SIM %d mobilhálózati beállítások</string>
 </resources>

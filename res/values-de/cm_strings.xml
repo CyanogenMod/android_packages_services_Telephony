@@ -19,9 +19,13 @@
   <string name="incall_screen_settings">Anrufbildschirm-Einstellungen</string>
   <string name="show_ssn_label">Ereignis-Benachrichtigung</string>
   <string name="show_ssn_summary">Benachrichtigungen für verschiedene Anrufereignisse anzeigen</string>
-  <string name="blacklist_title">Gesperrte Anruferliste</string>
+  <string name="incall_echo_cancellation">Rauschunterdrückung während des Anrufs</string>
+  <string name="enable_aec_label">Echounterdrückung</string>
+  <string name="blacklist_title">Anrufer-Sperrliste</string>
   <string name="blacklist_summary_disabled">Deaktiviert</string>
-  <string name="blacklist_summary">Sie werden keine Anrufe oder Nachrichten von Nummern aus der Sperrliste empfangen</string>
+  <string name="blacklist_summary">Sie werden keine Anrufe oder Nachrichten von Nummern aus der Sperrliste empfangen.</string>
+  <string name="mwi_notification_title">Indikator für wartende Nachricht anzeigen</string>
+  <string name="mwi_notification_summary">Einen Indikator für wartende Anrufbenachrichtigungen anzeigen</string>
   <string name="phone_number_label">Meine Rufnummer</string>
   <string name="phone_number_summary">Rufnummer für dieses Gerät setzen</string>
   <string name="call_notif_unconditionalCF">Dauerhafte Anrufweiterleitung ist aktiviert</string>
@@ -30,7 +34,7 @@
   <string name="call_notif_cugcall">Anruf in geschlossener Benutzergruppe</string>
   <string name="call_notif_outgoing_barred">Ausgehende Anrufe sind gesperrt</string>
   <string name="call_notif_incoming_barred">Eingehende Anrufe sind bei der Gegenseite gesperrt</string>
-  <string name="call_notif_clir_suppression_rejected">Unterdrückung der ausgehenden Rufnummer wurde abgewiesen</string>
+  <string name="call_notif_clir_suppression_rejected">Unterdrückung der eigenen Rufnummer vom Netzwerk abgewiesen</string>
   <string name="call_notif_call_deflected">Anruf wird von der Gegenseite weitergeleitet</string>
   <string name="call_notif_MTcall_forwarding">Eingehender Anruf wird weitergeleitet</string>
   <string name="call_notif_multipartycall">Telefonkonferenz</string>
@@ -38,7 +42,7 @@
   <string name="call_notif_forwardcheckreceived">Anruf wurde weitergeleitet</string>
   <string name="call_notif_callconnectingect">Anruf wird in Vermittlungsstelle verbunden</string>
   <string name="call_notif_callconnectedect">Anruf wurde in Vermittlungsstelle verbunden</string>
-  <string name="requesting_unlock_cm">Entsperren des SIM-Netzwerkes anfordern\u2026</string>
+  <string name="requesting_unlock_cm">Entsperren des SIM-Netzwerkes wird angefordert\u2026</string>
   <string name="unlock_failed_cm">Entsperren des SIM-Netzwerkes nicht erfolgreich.</string>
   <string name="unlock_success_cm">SIM-Netzwerk erfolgreich entsperrt.</string>
   <string name="all_day">Ganztägig</string>
@@ -49,7 +53,7 @@
   <string name="time_formate_am">Vormittag</string>
   <string name="time_formate_pm">Nachmittag</string>
   <string name="preferred_network_mode_global_summary_cm">Bevorzugter Netzwerkmodus: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
-  <string name="callFailed_incoming_cb_enabled">Alle eingehenden Anrufe sind auf der Gegenstelle blockiert.</string>
+  <string name="callFailed_incoming_cb_enabled">Die Gegenseite blockiert alle eingehenden Anrufe.</string>
   <string name="callUnanswered_forwarded">Anruf unbeantwortet und weitergeleitet</string>
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Bevorzugter Netzmodus: TD-SCDMA/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_summary">Bevorzugter Netzmodus: TD-SCDMA/LTE</string>
@@ -127,13 +131,15 @@
   <string name="contactAddSuccess">SIM-Kontakt erfolgreich hinzugefügt</string>
   <string name="contactAddFailed">SIM-Kontakt hinzufügen fehlgeschlagen</string>
   <string name="contactUpdateSuccess">SIM-Kontakt erfolgreich aktualisiert</string>
-  <string name="contactUpdateFailed">SIM-Kontakt Aktualisierung fehlgeschlagen</string>
+  <string name="contactUpdateFailed">Aktualisierung des Kontakts im SIM fehlgeschlagen</string>
   <string name="contactdeleteSuccess">SIM-Kontakt wurde gelöscht</string>
-  <string name="contactdeleteFailed">Löschen des SIM-Kontaktes fehlgeschlagen</string>
-  <string name="allContactdeleteSuccess">Alle SIM-Kontakte erfolgreich gelöscht</string>
+  <string name="contactdeleteFailed">Löschen des Kontakts auf der SIM-Karte fehlgeschlagen</string>
+  <string name="allContactdeleteSuccess">Alle Kontakte erfolgreich von der SIM-Karte gelöscht</string>
   <string name="allContactdeleteFailed">Es konnten nicht alle Kontakte auf der SIM-Karte gelöscht werden</string>
-  <string name="exportAllcontatsSuccess">Alle SIM-Kontakt erfolgreich exportiert</string>
-  <string name="exportAllcontatsFailed">Export aller SIM-Kontakte fehlgeschlagen</string>
+  <string name="exportAllcontatsSuccess">Alle Kontakte erfolgreich auf SIM-Karte exportiert</string>
+  <string name="exportAllcontatsFailed">Export aller Kontakte aif die SIM-Karte fehlgeschlagen</string>
   <string name="exportAllcontatsNoContacts">Keine Kontakte für SIM-Export gefunden</string>
-  <string name="msim_mobile_network_settings_title">SIM %d-Mobilnetzeinstellungen</string>
+  <string name="msim_mobile_network_settings_title">Mobilfunknetz-Einstellungen für SIM %d</string>
+  <string name="perm_change_mobile_network">Netzwerkmodus ändern</string>
+  <string name="perm_change_mobile_network_desc">Ermöglicht der App, den aktuellen Netzwerkmodus zu ändern.</string>
 </resources>

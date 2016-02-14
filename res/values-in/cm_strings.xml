@@ -21,6 +21,8 @@
   <string name="blacklist_title">Daftar penelepon yang diblokir</string>
   <string name="blacklist_summary_disabled">Dinonaktifkan</string>
   <string name="blacklist_summary">Anda tidak akan menerima panggilan atau pesan dari nomor telepon yang ada di daftar penelepon yang diblokir</string>
+  <string name="mwi_notification_title">Indikator pesan menunggu</string>
+  <string name="mwi_notification_summary">Tampilkan notifikasi indikator pesan tunggu untuk pesan suara</string>
   <string name="phone_number_label">Nomor telepon saya</string>
   <string name="phone_number_summary">Tetapkan nomor telepon untuk perangkat ini</string>
   <string name="call_notif_unconditionalCF">Penerusan panggilan tanpa syarat aktif</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">Semua kontak berhasil diekspor ke SIM</string>
   <string name="exportAllcontatsFailed">Semua kontak gagal diekspor ke SIM</string>
   <string name="exportAllcontatsNoContacts">Tidak ada kontak yang ditemukan untuk diekspor ke SIM</string>
-  <string name="msim_mobile_network_settings_title">Pengaturan jaringan mobile SIM %d</string>
 </resources>

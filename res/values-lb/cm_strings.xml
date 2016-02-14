@@ -21,6 +21,8 @@
   <string name="blacklist_title">Lëscht vu blockéierten Nummeren</string>
   <string name="blacklist_summary_disabled">Desaktivéiert</string>
   <string name="blacklist_summary">Du wäerts keng Uriff oder Messagë vun den Telefonsnummeren op dëser Lëscht empfänken</string>
+  <string name="mwi_notification_title">Indikator uweisen</string>
+  <string name="mwi_notification_summary">En Indikator uweise wa Mailbox-Messagen drop waarden ofgeruff ze ginn</string>
   <string name="phone_number_label">Meng Telefonsnummer</string>
   <string name="phone_number_summary">Telefonsnummer fir dësen Apparat definéieren</string>
   <string name="call_notif_unconditionalCF">Bédéngungslos Uruffweiderleedung aktiv</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">All d\'Kontakter goufen erfollegräich op d\'SIM exportéiert</string>
   <string name="exportAllcontatsFailed">Export vun alle Kontakter op d\'SIM feelgeschloen</string>
   <string name="exportAllcontatsNoContacts">Keng Kontakter fonnt fir op d\'SIM z\'exportéieren</string>
-  <string name="msim_mobile_network_settings_title">SIM %d-Datennetzwierkastellungen</string>
 </resources>

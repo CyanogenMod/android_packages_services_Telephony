@@ -16,11 +16,17 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">In-oproep skerm instellings</string>
   <string name="show_ssn_label">Kennisgewings</string>
   <string name="show_ssn_summary">Wys \'n kennisgewing vir verskeie netwerk gebeure wat verband hou met die hantering van telefoon oproepe</string>
+  <string name="incall_echo_cancellation">In-oproep geraas vermindering</string>
+  <string name="enable_aec_label">Eggo kansellasie</string>
+  <string name="enable_aec_summary">Verminder die omgewings lawaai vir die afgeleë party tydens stem oproepe</string>
   <string name="blacklist_title">Lys geblokkeerde oproepers</string>
   <string name="blacklist_summary_disabled">Deaktiveer</string>
   <string name="blacklist_summary">Jy sal nie inkomende oproepe of boodskappe van persone ontvang op die lys van geblokkeerde oproepe</string>
+  <string name="mwi_notification_title">Boodskap wag aanwyser</string>
+  <string name="mwi_notification_summary">Wys boodskap wag aanwyser vir stempos boodskappe</string>
   <string name="phone_number_label">My telefoonnommer</string>
   <string name="phone_number_summary">Stel die telefoonnommer vir hierdie toestel</string>
   <string name="call_notif_unconditionalCF">Onvoorwaardelike oproep aanstuuring aktief</string>
@@ -40,6 +46,13 @@
   <string name="requesting_unlock_cm">Versoek SIM netwerk ontsluiting\u2026</string>
   <string name="unlock_failed_cm">SIM netwerk ontsluiting versoek was onsuksesvol.</string>
   <string name="unlock_success_cm">SIM netwerk ontsluiting was onsuksesvol.</string>
+  <string name="all_day">Heeldag</string>
+  <string name="time_start">Van</string>
+  <string name="time_end">Aan</string>
+  <string name="time_hour">Uur</string>
+  <string name="time_minute">Minuut</string>
+  <string name="time_formate_am">VM</string>
+  <string name="time_formate_pm">NM</string>
   <string name="preferred_network_mode_global_summary_cm">Voorkeur-modus: Globaal (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="callFailed_incoming_cb_enabled">Party het alle inkomende oproepe verbied.</string>
   <string name="callUnanswered_forwarded">Oproep was onbeantwoord en aangestuur</string>
@@ -50,7 +63,10 @@
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Voorkeur-modus: TD-SCDMA/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Voorkeur-modus: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Voorkeur-modus: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Verkose netwerk modus: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Voorkeur-modus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -72,8 +88,34 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA alleenlik</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM alleenlik</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Verkies GSM/WCDMA</string>
+  <string name="call_barring">Oproep blokkeerder</string>
+  <string name="call_barring_outgoing">Uitgaande oproep blokkeerder</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Af</item>
+    <item>Internasionale swerwing oproepe</item>
+    <item>Internasionale oproepe</item>
+    <item>Uitgaande oproepe</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Af</item>
+    <item>Swerwing</item>
+    <item>Alle</item>
+  </string-array>
+  <string name="call_barring_incoming">Inkomende oproep blokkeerder</string>
+  <string name="input_password">Tik jou wagwoord</string>
+  <string name="invalidPsw">Tik \'n geldige wagwoord in (4-8 syfers)</string>
+  <string name="labelCbCancelAll">Deaktiveer oproep blokkeerder</string>
+  <string name="labelCbChangePassword">Verander wagwoord</string>
+  <string name="psw_enter_old">Vorige Wagwoord</string>
+  <string name="psw_enter_new">Nuwe wagwoord</string>
+  <string name="psw_reenter_new">Tik jou wagwoord weer in</string>
+  <string name="no_call_barring">Oproep blokkeerder gedeaktiveer</string>
+  <string name="cb_psw_dont_match">Wagwoorde stem nie ooreen nie</string>
+  <string name="fdn_invalid_number_cm">FDN is nie opgedateer, want die nommer is leeg of meer as 20 syfers.</string>
   <string name="exportContacts">Uitvoer kontakte na SIM-kaart\u2026</string>
   <string name="simContacts_title_cm">Bestuur SIM kaart kontakte</string>
+  <string name="incall_error_local_low_battery">Oproep het misluk omdat battery pap is.</string>
+  <string name="incall_error_low_battery">Oproep het misluk omdat ander toestel se battery pap is.</string>
   <string name="contactScreen">Bestuur SIM kontakte</string>
   <string name="exportContactScreen">Uitvoer selfoon kontakte na SIM</string>
   <string name="addSimEntries">Voeg SIM Kontak by</string>
@@ -98,5 +140,7 @@
   <string name="exportAllcontatsSuccess">Suksesvol kontakte na SIM uitgevoer</string>
   <string name="exportAllcontatsFailed">Het misluk om al die kontakte uit te voer na SIM</string>
   <string name="exportAllcontatsNoContacts">Geen kontakte gevind om uit te voer na SIM</string>
-  <string name="msim_mobile_network_settings_title">SIM %d mobiele netwerk instellings</string>
+  <string name="msim_mobile_network_settings_title">SIM %d Selnetwerkinstellings</string>
+  <string name="perm_change_mobile_network">verander netwerk modus</string>
+  <string name="perm_change_mobile_network_desc">Laat \'n toep toe om die huidige netwerk modus te verander.</string>
 </resources>

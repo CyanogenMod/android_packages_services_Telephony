@@ -21,6 +21,8 @@
   <string name="blacklist_title">حظر قائمة المتصل</string>
   <string name="blacklist_summary_disabled">معطل</string>
   <string name="blacklist_summary">لن تتلقى المكالمات أو الرسائل الواردة من أرقام الهاتف في قائمة المتصلين المحظورين</string>
+  <string name="mwi_notification_title">مؤشر انتظار رسالة</string>
+  <string name="mwi_notification_summary">يظهر رسالة البريد الصوتي مؤشر الإشعار</string>
   <string name="phone_number_label">رقم هاتفي</string>
   <string name="phone_number_summary">تعيين رقم الهاتف لهذا الجهاز</string>
   <string name="call_notif_unconditionalCF">تنشيط إعادة توجيه المكالمة غير المشروطة</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">تصدير كافة جهات الاتصال إلى بطاقة SIM بنجاح</string>
   <string name="exportAllcontatsFailed">فشل تصدير كافة جهات الاتصال إلى بطاقة SIM</string>
   <string name="exportAllcontatsNoContacts">عدم العثور على جهات اتصال للتصدير إلى بطاقة SIM</string>
-  <string name="msim_mobile_network_settings_title">إعدادات شبكة الهاتف النقال %d شريحة SIM</string>
 </resources>

@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Dei bitarteko pantailaren ezarpenak</string>
   <string name="show_ssn_label">Gertaeraren jakinarazpena</string>
   <string name="show_ssn_summary">Erakutsi dei kudeaketarekin lotutako sare gertaeren jakinarazpenak</string>
+  <string name="incall_echo_cancellation">Dei bitarteko zarata murrizketa</string>
+  <string name="enable_aec_label">Oihartzunaren ezeztapena</string>
+  <string name="enable_aec_summary">Murriztu inguruko zarata beste aldearentzat ahots deietan</string>
   <string name="blacklist_title">Blokeatutako deitzaileen zerrenda</string>
   <string name="blacklist_summary_disabled">Ezgaituta</string>
   <string name="blacklist_summary">Ez duzu dei edo mezurik jasoko blokeatutako deitzaileen zerrendan dauden telefono zenbakietatik</string>
+  <string name="mwi_notification_title">Ahots postontziaren adierazlea</string>
+  <string name="mwi_notification_summary">Erakutsi mezua zain jakinarazpena ahots postontziko mezuentzako</string>
   <string name="phone_number_label">Nire telefono zenbakia</string>
   <string name="phone_number_summary">Gailu honetara loturiko zenbakia ezarri</string>
   <string name="call_notif_unconditionalCF">Baldintzarik gabeko dei desbideraketa gaituta</string>
@@ -135,5 +140,7 @@
   <string name="exportAllcontatsSuccess">Kontaktu guztiak ondo esportatu dira SIM txartelera</string>
   <string name="exportAllcontatsFailed">Huts egin du kontaktu guztiak SIM txartelera esportatzean</string>
   <string name="exportAllcontatsNoContacts">Ez da kontakturik aurkitu SIM txartelera esportatzeko</string>
-  <string name="msim_mobile_network_settings_title">%d. SIM txartelaren sare mugikor ezarpenak</string>
+  <string name="msim_mobile_network_settings_title">%d. SIM txartelaren sare mugikorraren ezarpenak</string>
+  <string name="perm_change_mobile_network">sare modua aldatu</string>
+  <string name="perm_change_mobile_network_desc">Uneko sare modua aldatzea ahalbidetzen dio aplikazioari.</string>
 </resources>

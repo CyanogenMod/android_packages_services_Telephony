@@ -21,6 +21,8 @@
   <string name="blacklist_title">Listo de blokitaj alvokantoj</string>
   <string name="blacklist_summary_disabled">Malŝaltita</string>
   <string name="blacklist_summary">Vi ricevos neniun alvokon nek mesaĝon el telefonnumeroj en la listo de blokitaj alvokantoj</string>
+  <string name="mwi_notification_title">Indikilo de atendanta mesaĝo</string>
+  <string name="mwi_notification_summary">Montri indikilon de voĉaj mesaĝoj</string>
   <string name="phone_number_label">Mia telefonnumero</string>
   <string name="phone_number_summary">Agordi la telefonnumeron por tiu aparato</string>
   <string name="call_notif_unconditionalCF">Senkondiĉa plusendado de alvokoj ŝaltita</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">Eksporto de ĉiuj kontaktuloj el SIM sukcesis</string>
   <string name="exportAllcontatsFailed">Eksporto de ĉiuj kontaktuloj el SIM fiaskis</string>
   <string name="exportAllcontatsNoContacts">Neniu kontakto troveblas por eksporti al SIM</string>
-  <string name="msim_mobile_network_settings_title">Agordoj de reto por SIM %d</string>
 </resources>
