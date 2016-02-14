@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Impostazioni schermata di chiamata</string>
   <string name="show_ssn_label">Notifiche eventi</string>
   <string name="show_ssn_summary">Mostra una notifica per vari eventi di rete relativi alla gestione delle chiamate</string>
+  <string name="incall_echo_cancellation">Riduzione rumore telefonate</string>
+  <string name="enable_aec_label">Cancellazione eco</string>
+  <string name="enable_aec_summary">Riduzione rumore ambientale del chiamante durante le chiamate</string>
   <string name="blacklist_title">Elenco chiamanti bloccati</string>
   <string name="blacklist_summary_disabled">Disattivata</string>
   <string name="blacklist_summary">Non riceverai nessuna chiamata o messaggio da numeri nella lista dei chiamanti bloccati</string>
+  <string name="mwi_notification_title">Indicatore di messaggio in attesa</string>
+  <string name="mwi_notification_summary">Mostra le notifiche per i messaggi in attesa in segreteria</string>
   <string name="phone_number_label">Numero di telefono</string>
   <string name="phone_number_summary">Imposta il numero di telefono di questo dispositivo</string>
   <string name="call_notif_unconditionalCF">Deviazione incondizionata attiva</string>

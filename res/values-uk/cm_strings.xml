@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Параметри екрану виклику</string>
   <string name="show_ssn_label">Повідомлення про події</string>
   <string name="show_ssn_summary">Показувати повідомлення щодо подій у мережі, які пов\'язані з викликом</string>
+  <string name="incall_echo_cancellation">Зниження шуму під час дзвінка</string>
+  <string name="enable_aec_label">Усунення відлуння</string>
+  <string name="enable_aec_summary">Зменшення навколишнього шуму співрозмовника під час голосових викликів</string>
   <string name="blacklist_title">Список заблокованих абонентів</string>
   <string name="blacklist_summary_disabled">Вимкнено</string>
   <string name="blacklist_summary">Ви не будете отримувати вхідні дзвінки чи повідомлення від абонентів, які знаходяться у списку заблокованих</string>
+  <string name="mwi_notification_title">Індикатор очікування повідомлення</string>
+  <string name="mwi_notification_summary">Показувати індикатор очікування повідомлення сповіщень голосової пошти</string>
   <string name="phone_number_label">Мій номер телефону</string>
   <string name="phone_number_summary">Встановити телефонний номер для цього пристрою</string>
   <string name="call_notif_unconditionalCF">Увімкнена безумовна переадресація виклику</string>
@@ -136,4 +141,6 @@
   <string name="exportAllcontatsFailed">Не вдалося експортувати всі контакти до SIM-картки</string>
   <string name="exportAllcontatsNoContacts">Не знайдено контактів для експорту до SIM-картки</string>
   <string name="msim_mobile_network_settings_title">Налаштування мобільної мережі SIM %d</string>
+  <string name="perm_change_mobile_network">змінити налаштування мережі</string>
+  <string name="perm_change_mobile_network_desc">Дозволяє програмі змінити поточні налаштування мережі.</string>
 </resources>

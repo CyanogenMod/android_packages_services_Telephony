@@ -21,6 +21,8 @@
   <string name="blacklist_title">Danh sách chặn người gọi</string>
   <string name="blacklist_summary_disabled">Đã tắt</string>
   <string name="blacklist_summary">Bạn sẽ không nhận được cuộc gọi đến hoặc tin nhắn từ các số điện thoại trên danh sách chặn người gọi</string>
+  <string name="mwi_notification_title">Chỉ báo có tin nhắn đang chờ</string>
+  <string name="mwi_notification_summary">Hiện chỉ báo có tin nhắn đang chờ dành cho thông báo thư thoại</string>
   <string name="phone_number_label">Số điện thoại của tôi</string>
   <string name="phone_number_summary">Thiết lập số điện thoại cho thiết bị này</string>
   <string name="call_notif_unconditionalCF">Cho phép chuyển hướng cuộc gọi không điều kiện</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">Đã xuất tất cả các số liên lạc sang SIM thành công</string>
   <string name="exportAllcontatsFailed">Không thể xuất tất cả các số liên lạc sang SIM</string>
   <string name="exportAllcontatsNoContacts">Không tìm thấy số liên lạc nào để xuất sang SIM</string>
-  <string name="msim_mobile_network_settings_title">Cài đặt mạng di động %d của SIM</string>
 </resources>

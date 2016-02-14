@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Ρυθμίσεις οθόνης κλήσης</string>
   <string name="show_ssn_label">Ειδοποιήσεις συμβάντων</string>
   <string name="show_ssn_summary">Εμφάνιση ειδοποίησης για διάφορα συμβάντα του δικτύου που σχετίζονται με το χειρισμό των κλήσεων</string>
+  <string name="incall_echo_cancellation">Μείωση του θορύβου κατά τις κλήσεις</string>
+  <string name="enable_aec_label">Ακύρωση ηχούς</string>
+  <string name="enable_aec_summary">Μειώνει τον περιβαλλοντικό θόρυβο στο μικρόφωνό σας κατά τη διάρκεια φωνητικών κλήσεων</string>
   <string name="blacklist_title">Λίστα αποκλεισμένων καλούντων</string>
   <string name="blacklist_summary_disabled">Απενεργοποιημένη</string>
   <string name="blacklist_summary">Δε θα λαμβάνετε εισερχόμενες κλήσεις ή μηνύματα από τηλεφωνικούς αριθμούς στη λίστα αποκλεισμένων καλούντων</string>
+  <string name="mwi_notification_title">Ένδειξη αναμονής μηνύματος</string>
+  <string name="mwi_notification_summary">Εμφάνιση ειδοποίησης μηνύματος τηλεφωνητή</string>
   <string name="phone_number_label">Ο αριθμός μου</string>
   <string name="phone_number_summary">Ορίστε τον αριθμό τηλεφώνου για αυτή τη συσκευή</string>
   <string name="call_notif_unconditionalCF">Προώθηση κλήσεων άνευ όρων ενεργή</string>
@@ -136,4 +141,6 @@
   <string name="exportAllcontatsFailed">Αποτυχία εξαγωγής όλων των επαφών στη SIM</string>
   <string name="exportAllcontatsNoContacts">Δεν βρέθηκαν επαφές για εξαγωγή στη SIM</string>
   <string name="msim_mobile_network_settings_title">Ρυθμίσεις δικτύων κινητής τηλεφωνίας SIM %d</string>
+  <string name="perm_change_mobile_network">αλλαγή τύπου δικτύου</string>
+  <string name="perm_change_mobile_network_desc">Επιτρέπει σε μια εφαρμογή να τροποποιήσει τον τρέχων τύπο δικτύου.</string>
 </resources>

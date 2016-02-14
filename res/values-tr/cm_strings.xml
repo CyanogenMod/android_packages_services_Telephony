@@ -22,6 +22,8 @@
   <string name="blacklist_title">Engellenen arayan listesi</string>
   <string name="blacklist_summary_disabled">Devre dışı</string>
   <string name="blacklist_summary">Engellenen arayan listesindeki numaralardan gelen çağrıları ya da mesajları almayacaksınız</string>
+  <string name="mwi_notification_title">Mesaj bekleme göstergesi</string>
+  <string name="mwi_notification_summary">Mesaj bekleme göstergesinde sesli mesaj bildirimlerini göster</string>
   <string name="phone_number_label">Telefon numaram</string>
   <string name="phone_number_summary">Bu cihaz için telefon numarasını ayarla</string>
   <string name="call_notif_unconditionalCF">Koşulsuz çağrı yönlendirme etkin</string>
@@ -135,5 +137,4 @@
   <string name="exportAllcontatsSuccess">Tüm kişiler SIM\'e başarıyla aktarıldı</string>
   <string name="exportAllcontatsFailed">Tüm kişiler SIM\'e aktarılamadı</string>
   <string name="exportAllcontatsNoContacts">SIM\'e aktarılacak kişi bulunamadı</string>
-  <string name="msim_mobile_network_settings_title">SIM %d mobil şebeke ayarları</string>
 </resources>

@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">הגדרות תצוגה במהלך שיחה</string>
   <string name="show_ssn_label">התראת אירוע</string>
   <string name="show_ssn_summary">הצג התראה לאירועי רשת שונים הקשורים בטיפול בשיחה</string>
+  <string name="incall_echo_cancellation">הפחתת רעש במהלך שיחה</string>
+  <string name="enable_aec_label">ביטול הד</string>
+  <string name="enable_aec_summary">הפחתת רעשי רקע למשוחחים המרוחקים במהלך שיחות קוליות</string>
   <string name="blacklist_title">רשימת המתקשרים החסומים</string>
   <string name="blacklist_summary_disabled">מושבת</string>
   <string name="blacklist_summary">לא יתקבלו שיחות נכנסות או הודעות ממספרי הטלפון הנמצאים ברשימת המתקשרים החסומים</string>
+  <string name="mwi_notification_title">מחוון הודעה ממתינה</string>
+  <string name="mwi_notification_summary">הצג מחוון עבור הודעה קולית ממתינה</string>
   <string name="phone_number_label">מספר הטלפון שלי</string>
   <string name="phone_number_summary">הגדר מספר טלפון למכשיר זה</string>
   <string name="call_notif_unconditionalCF">העברת שיחות לא מותנת פעילה</string>
@@ -135,5 +140,5 @@
   <string name="exportAllcontatsSuccess">כל אנשי הקשר יוצאו בהצלחה ל-SIM</string>
   <string name="exportAllcontatsFailed">ייצוא כל אנשי הקשר ל-SIM נכשל</string>
   <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ל-SIM</string>
-  <string name="msim_mobile_network_settings_title">הגדרות רשת סלולרית של SIM %d</string>
+  <string name="msim_mobile_network_settings_title">הגדרות רשת סלולרית SIM %d</string>
 </resources>

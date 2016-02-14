@@ -19,9 +19,12 @@
   <string name="incall_screen_settings">Instellingen scherm tijdens gesprek</string>
   <string name="show_ssn_label">Gebeurtenissen melden</string>
   <string name="show_ssn_summary">Melding weergeven van netwerkgebeurtenissen tijdens gesprekken</string>
+  <string name="incall_echo_cancellation">Ruisonderdrukking tijdens gesprek</string>
   <string name="blacklist_title">Zwarte lijst</string>
   <string name="blacklist_summary_disabled">Uitgeschakeld</string>
   <string name="blacklist_summary">U ontvangt geen inkomende oproepen of berichten van telefoonnummers op de zwarte lijst</string>
+  <string name="mwi_notification_title">Voicemailmeldingen</string>
+  <string name="mwi_notification_summary">Meldingen weergeven voor nieuwe voicemailberichten</string>
   <string name="phone_number_label">Mijn telefoonnummer</string>
   <string name="phone_number_summary">Telefoonnummer instellen voor deze telefoon</string>
   <string name="call_notif_unconditionalCF">Permanent doorschakelen actief</string>
@@ -135,5 +138,4 @@
   <string name="exportAllcontatsSuccess">Alle contacten geëxporteerd naar SIM</string>
   <string name="exportAllcontatsFailed">Kan niet alle contacten exporteren naar SIM</string>
   <string name="exportAllcontatsNoContacts">Geen contacten gevonden om te exporteren naar SIM</string>
-  <string name="msim_mobile_network_settings_title">Instellingen mobiel netwerk SIM %d</string>
 </resources>

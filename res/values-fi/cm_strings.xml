@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Puhelunaikaiset asetukset</string>
   <string name="show_ssn_label">Tapahtumailmoitus</string>
   <string name="show_ssn_summary">Näytä eri verkkotapahtumien ilmoitus liittyen puheluiden käsittelyyn</string>
+  <string name="incall_echo_cancellation">Puhelun melun vähentäminen</string>
+  <string name="enable_aec_label">Kai\'un vähentäminen</string>
+  <string name="enable_aec_summary">Vähennä taustamelua toiselle osapuolelle puheluiden aikana</string>
   <string name="blacklist_title">Estettyjen soittajien lista</string>
   <string name="blacklist_summary_disabled">Pois käytöstä</string>
   <string name="blacklist_summary">Tulevat puhelut ja viestit estettyjen soittajien listalla olevista puhelinnumeroista estetään</string>
+  <string name="mwi_notification_title">Viesti odottaa-merkki</string>
+  <string name="mwi_notification_summary">Näytä merkki viestin odottaessa vastaajassa</string>
   <string name="phone_number_label">Oma puhelinnumero</string>
   <string name="phone_number_summary">Aseta tämän laitteen puhelinnumero</string>
   <string name="call_notif_unconditionalCF">Ehdoton soitonsiirto aktiivinen</string>
@@ -135,5 +140,7 @@
   <string name="exportAllcontatsSuccess">Kaikki yhteystiedot vietiin SIM-kortille onnistuneesti</string>
   <string name="exportAllcontatsFailed">Kaikkien yhteystietojen vieminen SIM-kortille epäonnistui</string>
   <string name="exportAllcontatsNoContacts">SIM-kortille vietäviä yhteystietoja ei löydy</string>
-  <string name="msim_mobile_network_settings_title">SIM %d mobiiliverkon asetukset</string>
+  <string name="msim_mobile_network_settings_title">SIM %d matkapuhelinverkon asetukset</string>
+  <string name="perm_change_mobile_network">muuta verkkotilaa</string>
+  <string name="perm_change_mobile_network_desc">Antaa sovelluksen muuttaa nykyistä verkkotilaa.</string>
 </resources>

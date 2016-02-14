@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Setări ecran în apel</string>
   <string name="show_ssn_label">Notificare eveniment</string>
   <string name="show_ssn_summary">Arată o notificare pentru diversele evenimente ale rețelei, legat de manipularea apelului</string>
+  <string name="incall_echo_cancellation">Reducerea zgomotului în apel</string>
+  <string name="enable_aec_label">Anulare ecou</string>
+  <string name="enable_aec_summary">Reduce zgomotul ambiental pentru interlocutor în timpul apelurilor vocale</string>
   <string name="blacklist_title">Lista apelanților blocați</string>
   <string name="blacklist_summary_disabled">Dezactivat</string>
   <string name="blacklist_summary">Nu veți primi apeluri sau mesaje de la numere de telefon pe lista apelanților blocați</string>
+  <string name="mwi_notification_title">Indicator așteptare mesaj</string>
+  <string name="mwi_notification_summary">Arată mesajul indicator de așteptare pentru notificări de poștă vocală</string>
   <string name="phone_number_label">Numărul meu de telefon</string>
   <string name="phone_number_summary">Setați nr de telefon pentru acest dispozitiv</string>
   <string name="call_notif_unconditionalCF">Redirecționarea necondiționată pentru apel este activă</string>
@@ -82,6 +87,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">doar WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">doar GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferat</string>
+  <string name="call_barring_outgoing">Restricționare inițiere apel</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>Off</item>
     <item>International roaming calls</item>
@@ -100,6 +106,8 @@
   <string name="cb_psw_dont_match">Parolele nu se potrivesc</string>
   <string name="exportContacts">Se exportă contactele în cardul SIM\u2026</string>
   <string name="simContacts_title_cm">Gestionează contactele de pe cartela SIM</string>
+  <string name="incall_error_local_low_battery">Apelul nu a fost efectuat datorită bateriei descărcate.</string>
+  <string name="incall_error_low_battery">Apelul nu a fost efectuat datorită bateriei descărcate a dispozitivului de la distanță.</string>
   <string name="contactScreen">Gestionare contacte SIM</string>
   <string name="exportContactScreen">Exportați contactele din telefon în SIM</string>
   <string name="addSimEntries">Adăugare contact în SIM</string>
@@ -125,4 +133,5 @@
   <string name="exportAllcontatsFailed">Nu s-a reușit exportarea tuturor contactelor în SIM</string>
   <string name="exportAllcontatsNoContacts">Fără contacte găsite pentru exportarea în SIM</string>
   <string name="msim_mobile_network_settings_title">Setări rețea mobilă SIM %d</string>
+  <string name="perm_change_mobile_network">schimbă mod rețea</string>
 </resources>

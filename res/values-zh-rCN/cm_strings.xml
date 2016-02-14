@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">通话屏幕设置</string>
   <string name="show_ssn_label">事件提醒</string>
   <string name="show_ssn_summary">为通话处理相关的各种网络事件显示一个通知</string>
+  <string name="incall_echo_cancellation">通话降噪</string>
+  <string name="enable_aec_label">回音抵消</string>
+  <string name="enable_aec_summary">在通话期间为对方提供通话降噪</string>
   <string name="blacklist_title">呼叫黑名单列表</string>
   <string name="blacklist_summary_disabled">禁用</string>
   <string name="blacklist_summary">您将不会收到来自呼叫黑名单列表中的来电或短信</string>
+  <string name="mwi_notification_title">信息等待指示器</string>
+  <string name="mwi_notification_summary">显示信息等待指示器语音信箱提醒</string>
   <string name="phone_number_label">我的电话号码</string>
   <string name="phone_number_summary">设定此设备的电话号码</string>
   <string name="call_notif_unconditionalCF">启用无条件的来电转接</string>
@@ -136,4 +141,6 @@
   <string name="exportAllcontatsFailed">导出所有联系人到 SIM 卡失败</string>
   <string name="exportAllcontatsNoContacts">未找到要导出到 SIM 卡的联系人</string>
   <string name="msim_mobile_network_settings_title">SIM 卡 %d 移动网络设置</string>
+  <string name="perm_change_mobile_network">更改网络模式</string>
+  <string name="perm_change_mobile_network_desc">允许应用修改当前网络模式。</string>
 </resources>

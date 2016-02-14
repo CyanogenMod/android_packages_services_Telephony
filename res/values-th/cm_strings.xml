@@ -22,6 +22,8 @@
   <string name="blacklist_title">รายชื่อผู้ที่ถูกบล็อค</string>
   <string name="blacklist_summary_disabled">ปิดใช้งานแล้ว</string>
   <string name="blacklist_summary">คุณจะไม่ได้รับสายการโทรเข้าหรือข้อความจากหมายเลขที่อยู่ในรายชื่อผู้โทรที่ถูกบล็อค</string>
+  <string name="mwi_notification_title">ตัวบ่งชี้ที่รอข้อความ</string>
+  <string name="mwi_notification_summary">แสดงการแจ้งเตือนตัวบ่งขี้ข้อความที่รออยู่ของระบบฝากข้อความ</string>
   <string name="phone_number_label">หมายเลขโทรศัพท์ของฉัน</string>
   <string name="phone_number_summary">ตั้งค่าหมายเลขโทรศัพท์สำหรับอุปกรณ์นี้</string>
   <string name="call_notif_unconditionalCF">ส่งต่อสายแบบไม่มีเงื่อนไขเปิดใช้งานอยู่</string>
@@ -92,7 +94,7 @@
     <item>โทรออก</item>
   </string-array>
   <string-array name="call_barring_incoming_display_values">
-    <item>ปืด</item>
+    <item>Off</item>
     <item>โรมมิ่ง</item>
     <item>ทั้งหมด</item>
   </string-array>
@@ -135,5 +137,4 @@
   <string name="exportAllcontatsSuccess">ส่งออกผู้ติดต่อทั้งหมดไปยังซิมเรียบร้อยแล้ว</string>
   <string name="exportAllcontatsFailed">การส่งออกรายชื่อติดต่อทั้งหมดไปยังซิมล้มเหลว</string>
   <string name="exportAllcontatsNoContacts">ไม่พบรายชื่อติดต่อที่จะส่งออกไปยังซิม</string>
-  <string name="msim_mobile_network_settings_title">การตั้งค่าเครือข่ายโทรศัพท์มือถือซิม %d</string>
 </resources>
