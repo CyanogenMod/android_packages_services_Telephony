@@ -21,6 +21,8 @@
   <string name="blacklist_title">Blokeret opkaldsliste</string>
   <string name="blacklist_summary_disabled">Deaktiveret</string>
   <string name="blacklist_summary">Du vil ikke modtage indgående opkald eller beskeder fra telefonnumre på den blokeret opkaldsliste</string>
+  <string name="mwi_notification_title">Indikator for ventende besked</string>
+  <string name="mwi_notification_summary">Vis notifikationer for indikator for ventende beskeder på voicemail</string>
   <string name="phone_number_label">Mit telefonnummer</string>
   <string name="phone_number_summary">Angiv telefonnummeret for denne enhed</string>
   <string name="call_notif_unconditionalCF">Ubetinget opkaldsviderestilling aktiv</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">Alle kontakter blev eksporteret til SIM-kort</string>
   <string name="exportAllcontatsFailed">Kunne ikke eksportere alle kontakter til SIM-kort</string>
   <string name="exportAllcontatsNoContacts">Ingen kontakter fundet for eksport til SIM-kort</string>
-  <string name="msim_mobile_network_settings_title">Opsætning af SIM %d mobile netværk</string>
 </resources>

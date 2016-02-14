@@ -19,6 +19,8 @@
   <string name="show_ssn_label">ھادىسە ئۇقتۇرۇشى</string>
   <string name="show_ssn_summary">چاقىرىشنى بىر تەرەپ قىلىشقا ئائىت ھەر خىل تور ھادىسىلىرى ئۈچۈن ئۇقتۇرۇشتىن بىرنى كۆرسىتىدۇ</string>
   <string name="blacklist_summary_disabled">چەكلەنگەن</string>
+  <string name="mwi_notification_title">ئۇچۇر كۈتۈش كۆرسەتكۈچى</string>
+  <string name="mwi_notification_summary">ئۈنخەت ئۇقتۇرۇشىنىڭ ئۇچۇر كۈتۈش كۆرسەتكۈچىنى كۆرسىتىدۇ</string>
   <string name="phone_number_label">تېلېفون نومۇرۇم</string>
   <string name="phone_number_summary">بۇ ئۈسكۈنە ئۈچۈن تېلېفون نومۇر تەڭشىكى</string>
   <string name="call_notif_unconditionalCF">شەرتسىز ئۇلاپ يەتكۈزۈش ئاكتىپ</string>

@@ -21,6 +21,8 @@
   <string name="blacklist_title">Zoznam zablokovaných volajúcich</string>
   <string name="blacklist_summary_disabled">Zakázané</string>
   <string name="blacklist_summary">Nebudete prijímať prichádzajúce hovory alebo správy od telefónnych čísel v zozname zablokovaných volajúcich</string>
+  <string name="mwi_notification_title">Indikátor čakajúcej správy</string>
+  <string name="mwi_notification_summary">Zobraziť indikátor čakajúcej správy pre hlasové správy</string>
   <string name="phone_number_label">Moje telefónne číslo</string>
   <string name="phone_number_summary">Nastaviť telefónne číslo pre toto zariadenie</string>
   <string name="call_notif_unconditionalCF">Nepodmienené presmerovanie hovorov aktívne</string>
@@ -98,5 +100,4 @@
   <string name="exportAllcontatsSuccess">Všetky kontakty boli úspešne exportované na kartu SIM</string>
   <string name="exportAllcontatsFailed">Nepodarilo sa exportovať všetky kontakty na kartu SIM</string>
   <string name="exportAllcontatsNoContacts">Nenašli sa žiadne kontakty pre export na kartu SIM</string>
-  <string name="msim_mobile_network_settings_title">Nastavenia mobilnej siete SIM %d</string>
 </resources>

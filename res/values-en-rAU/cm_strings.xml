@@ -19,6 +19,8 @@
   <string name="show_ssn_label">Event notification</string>
   <string name="show_ssn_summary">Show a notification for various network events related to call handling</string>
   <string name="blacklist_summary_disabled">Disabled</string>
+  <string name="mwi_notification_title">Message wait indicator</string>
+  <string name="mwi_notification_summary">Show message wait indicator voicemail notifications</string>
   <string name="phone_number_label">My phone number</string>
   <string name="phone_number_summary">Set the phone number for this device</string>
   <string name="call_notif_unconditionalCF">Unconditional call forwarding active</string>

@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Настройка экрана вызова</string>
   <string name="show_ssn_label">Уведомления о событиях</string>
   <string name="show_ssn_summary">Показывать уведомления о разных событиях сети, связанных с вызовом</string>
+  <string name="incall_echo_cancellation">Шумоподавление</string>
+  <string name="enable_aec_label">Подавление эхо</string>
+  <string name="enable_aec_summary">Снизить фоновый шум для абонента во время голосовых вызовов</string>
   <string name="blacklist_title">Чёрный список</string>
   <string name="blacklist_summary_disabled">Выключен</string>
   <string name="blacklist_summary">Вы не будете получать входящие вызовы или сообщения от телефонных номеров из черного списка</string>
+  <string name="mwi_notification_title">Индикатор ожидания сообщения</string>
+  <string name="mwi_notification_summary">Показывать индикатор ожидания сообщения уведомлений голосовой почты</string>
   <string name="phone_number_label">Мой номер телефона</string>
   <string name="phone_number_summary">Задать телефонный номер для этого устройства</string>
   <string name="call_notif_unconditionalCF">Включена безусловная переадресация вызова</string>
@@ -136,4 +141,6 @@
   <string name="exportAllcontatsFailed">Не удалось экспортировать контакты на SIM</string>
   <string name="exportAllcontatsNoContacts">Не найдены контакты для экспорта на SIM</string>
   <string name="msim_mobile_network_settings_title">Настройки мобильной сети SIM %d</string>
+  <string name="perm_change_mobile_network">изменить режим сети</string>
+  <string name="perm_change_mobile_network_desc">Приложение сможет изменять текущий режим сети.</string>
 </resources>

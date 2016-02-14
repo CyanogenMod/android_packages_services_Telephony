@@ -19,6 +19,8 @@
   <string name="show_ssn_label">Notikmu paziņošana</string>
   <string name="show_ssn_summary">Parādīt paziņojumus par dažādiem, ar zvanu saistītajiem, tīkla notikumiem</string>
   <string name="blacklist_summary_disabled">Izslēgts</string>
+  <string name="mwi_notification_title">Gaidošas ziņas indikators</string>
+  <string name="mwi_notification_summary">Rādīt gaidošo ziņu indikatoru balss pasta ziņām</string>
   <string name="call_notif_unconditionalCF">Ieslēgta beznosacījuma zvanu pāradresācija</string>
   <string name="call_notif_conditionalCF">Ieslēgta nosacījuma zvanu pāradresācija</string>
   <string name="call_notif_MOcall_forwarding">Izejošais zvans ir pārsūtīts</string>

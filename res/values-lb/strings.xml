@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="phoneAppLabel" product="tablet">Mobil Daten</string>
   <string name="emergencyDialerIconLabel">Noutruff</string>
   <string name="phoneIconLabel">Telefon</string>
   <string name="fdnListLabel">Uruffbegrenzung</string>
@@ -49,7 +48,6 @@
   <string name="requesting_unlock">Netzwierkentspärung gëtt ugefrot\u2026</string>
   <string name="unlock_failed">Netzwierkentspärung net erfollegräich.</string>
   <string name="unlock_success">Netzwierkentspärung erfollegräich.</string>
-  <string name="mobile_network_settings_not_available">Mobil Netzwierkastellunge sinn net fir dëse Benotzer disponibel</string>
   <string name="labelGSMMore">GSM-Uruffastellungen</string>
   <string name="labelCDMAMore">CDMA-Uruffastellungen</string>
   <string name="apn_settings">Zougangspunkten (APNen)</string>
@@ -129,7 +127,6 @@
   <string name="no_change">Keng Ännerunge goufe gemaach.</string>
   <string name="sum_voicemail_choose_provider">Mailbox-Service auswielen</string>
   <string name="voicemail_default">Däi Provider</string>
-  <string name="mobile_networks">Astellunge vum mobillen Netzwierk</string>
   <string name="label_available">Disponibel Netzwierker</string>
   <string name="load_networks_progress">Gëtt gesicht\u2026</string>
   <string name="empty_networks_list">Keng Netzwierker fonnt.</string>
@@ -365,6 +362,7 @@
   <string name="notification_network_selection_title">Kee Service</string>
   <string name="notification_network_selection_text">Ausgewielt Netzwierk (<xliff:g id="operator_name">%s</xliff:g>) net erreechbar</string>
   <string name="incall_error_emergency_only">Net am Netzwierk registréiert.</string>
+  <string name="incall_error_out_of_service">Handynetzwierk net disponibel.</string>
   <string name="incall_status_dialed_mmi">MMI-Sequenz gëtt gestartet\u2026</string>
   <string name="incall_error_supp_service_conference">Keng Telefonskonferenz méiglech.</string>
   <string name="emergency_enable_radio_dialog_title">Noutruff</string>
@@ -423,6 +421,18 @@
   <string name="phone_entered_ecm_text">Noutfallréckruffmodus aktivéiert</string>
   <string name="phone_in_ecm_notification_title">Noutfallréckruffmodus</string>
   <string name="phone_in_ecm_call_notification_text">Dateconnectioun desaktivéiert</string>
+  <plurals name="phone_in_ecm_notification_time">
+    <item quantity="one">Keng Date-Connectioun fir <xliff:g id="count">%s</xliff:g> Minutt</item>
+    <item quantity="other">Keng Date-Connectioun fir <xliff:g id="count">%s</xliff:g> Minutten</item>
+  </plurals>
+  <plurals name="alert_dialog_exit_ecm">
+    <item quantity="one">Däin Telefon befënnt sech fir <xliff:g id="count">%s</xliff:g> Minutt am Noutfallréckruffmodus. An dësem Modus kënne keng Appen eng Dateconnectioun benotzen. Wëlls du en elo verloossen?</item>
+    <item quantity="other">Däin Telefon befënnt sech fir <xliff:g id="count">%s</xliff:g> Minutten am Noutfallréckruffmodus. An dësem Modus kënne keng Appen eng Dateconnectioun benotzen. Wëlls du en elo verloossen?</item>
+  </plurals>
+  <plurals name="alert_dialog_not_avaialble_in_ecm">
+    <item quantity="one">Déi ausgewielten Aktioun ass am Noutfallréckruffmodus net disponibel. Den Telefon befënnt sech fir <xliff:g id="count">%s</xliff:g> Minutt an dësem Modus. Wëlls du en elo verloossen?</item>
+    <item quantity="other">Déi ausgewielten Aktioun ass am Noutfallréckruffmodus net disponibel. Den Telefon befënnt sech fir <xliff:g id="count">%s</xliff:g> Minutten an dësem Modus. Wëlls du en elo verloossen?</item>
+  </plurals>
   <string name="alert_dialog_in_ecm_call">Déi ausgewielten Aktioun ass am Noutfallréckruffmodus net disponibel.</string>
   <string name="progress_dialog_exiting_ecm">Noutfallréckruffmodus gëtt verlooss</string>
   <string name="alert_dialog_yes">Jo</string>

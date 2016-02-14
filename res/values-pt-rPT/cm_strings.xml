@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Definições do ecrã de chamada</string>
   <string name="show_ssn_label">Notificação de evento</string>
   <string name="show_ssn_summary">Mostrar uma notificação para vários eventos de rede relacionados com o tratamento de chamadas</string>
+  <string name="incall_echo_cancellation">Redução de ruído durante a chamada</string>
+  <string name="enable_aec_label">Cancelamento de eco</string>
+  <string name="enable_aec_summary">Reduz o barulho ambiente transmitido durante as chamadas de voz</string>
   <string name="blacklist_title">Lista de números bloqueados</string>
   <string name="blacklist_summary_disabled">Desativado</string>
   <string name="blacklist_summary">Não receberá chamadas ou mensagens de números de telefone na lista de números bloqueados</string>
+  <string name="mwi_notification_title">Indicador de mensagem em espera</string>
+  <string name="mwi_notification_summary">Mostrar indicador de mensagem em espera para notificações do correio de voz</string>
   <string name="phone_number_label">O meu número de telefone</string>
   <string name="phone_number_summary">Definir o número de telefone para este dispositivo</string>
   <string name="call_notif_unconditionalCF">Reencaminhamento incondicional de chamada ativo</string>
@@ -135,5 +140,6 @@
   <string name="exportAllcontatsSuccess">Exportou com sucesso todos os contactos para o cartão SIM</string>
   <string name="exportAllcontatsFailed">Falha ao exportar todos os contactos para o cartão SIM</string>
   <string name="exportAllcontatsNoContacts">Não foram encontrados contactos para exportar para o cartão SIM</string>
-  <string name="msim_mobile_network_settings_title">Definições de rede móvel do SIM %d</string>
+  <string name="msim_mobile_network_settings_title">Definições de rede do cartão SIM %d</string>
+  <string name="perm_change_mobile_network">alterar o modo de rede</string>
 </resources>

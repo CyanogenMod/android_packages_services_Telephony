@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Поставке екрана при позиву</string>
   <string name="show_ssn_label">Обавештење о догађају</string>
   <string name="show_ssn_summary">Прикажи обавештење за разне мрежне догађаје везане за управљање позивом</string>
+  <string name="incall_echo_cancellation">Смањење буке при позиву</string>
+  <string name="enable_aec_label">Уклањање еха</string>
+  <string name="enable_aec_summary">Смањење амбијенталне буке удаљене забаве током позива</string>
   <string name="blacklist_title">Листа блокираних саговорника</string>
   <string name="blacklist_summary_disabled">Онемогућено</string>
   <string name="blacklist_summary">Нећеш примити позив или поруку са телефонског броја на листи блокираних саговорника</string>
+  <string name="mwi_notification_title">Индикатор чекања поруке</string>
+  <string name="mwi_notification_summary">Прикажи индикатор чекања говорне поште</string>
   <string name="phone_number_label">Мој телефонски број</string>
   <string name="phone_number_summary">Подеси телефонски број за овај уређај</string>
   <string name="call_notif_unconditionalCF">Безусловно прослеђивање позива је активно</string>
@@ -135,5 +140,7 @@
   <string name="exportAllcontatsSuccess">Успешно извежени сви контакти на SIM</string>
   <string name="exportAllcontatsFailed">Није успео извоз свих контаката на SIM</string>
   <string name="exportAllcontatsNoContacts">Није пронађен ниједан контакт за извоз на SIM</string>
-  <string name="msim_mobile_network_settings_title">SIM %d подешавање мобилне мреже</string>
+  <string name="msim_mobile_network_settings_title">Подешавање SIM %d мобилне мреже</string>
+  <string name="perm_change_mobile_network">промени режим мреже</string>
+  <string name="perm_change_mobile_network_desc">Дозвољава апликацији да измени тренутни режим мреже.</string>
 </resources>

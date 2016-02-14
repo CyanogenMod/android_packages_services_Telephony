@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">Ustawienia ekranu połączeń</string>
   <string name="show_ssn_label">Powiadomienia</string>
   <string name="show_ssn_summary">Pokaż powiadomienie o różnych wydarzeniach sieciowych związanych z rozmowami</string>
+  <string name="incall_echo_cancellation">Redukcja szumów podczas połączenia</string>
+  <string name="enable_aec_label">Niwelowanie echa</string>
+  <string name="enable_aec_summary">Zmniejszenie hałasu otoczenia dla rozmówcy podczas połączenia</string>
   <string name="blacklist_title">Lista zablokowanych rozmówców</string>
   <string name="blacklist_summary_disabled">Wyłączona</string>
   <string name="blacklist_summary">Nie otrzymasz żadnych połączeń przychodzących ani wiadomości od numerów znajdujących się na liście zablokowanych rozmówców</string>
+  <string name="mwi_notification_title">Wskaźnik oczekiwania wiadomości</string>
+  <string name="mwi_notification_summary">Pokaż powiadomienie oczekiwania na pocztę głosową</string>
   <string name="phone_number_label">Mój numer telefonu</string>
   <string name="phone_number_summary">Ustaw numer telefonu dla tego urządzenia</string>
   <string name="call_notif_unconditionalCF">Bezwarunkowe przekazywanie połączeń aktywne</string>
@@ -135,5 +140,5 @@
   <string name="exportAllcontatsSuccess">Skutecznie wyeksportowano kontakty na kartę SIM</string>
   <string name="exportAllcontatsFailed">Nie udało się wyeksportować kontaktów na kartę SIM</string>
   <string name="exportAllcontatsNoContacts">Nie odnaleziono kontaktów do wyeksportowania na kartę SIM</string>
-  <string name="msim_mobile_network_settings_title">Ustawienia sieci komórkowej karty SIM %d</string>
+  <string name="msim_mobile_network_settings_title">Ustawienia sieci komórkowej SIM %d</string>
 </resources>

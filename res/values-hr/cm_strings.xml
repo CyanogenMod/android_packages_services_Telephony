@@ -16,6 +16,28 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="incall_screen_settings">Postavke zaslona u pozivu</string>
+  <string name="show_ssn_label">Obavijest o događaju</string>
+  <string name="show_ssn_summary">Prikaži obavijest za razne mrežne događaje vezane za upravljanje pozivom</string>
+  <string name="blacklist_title">Popis blokiranih pozivatelja</string>
+  <string name="blacklist_summary_disabled">Onemogućeno</string>
+  <string name="blacklist_summary">Nećete primati dolazne pozive ili poruke od telefonskih brojeva na popisu blokiranih pozivatelja</string>
+  <string name="mwi_notification_title">Indikator čekanja poruke</string>
+  <string name="mwi_notification_summary">Prikaži indikator čekanja govorne pošte</string>
+  <string name="call_notif_unconditionalCF">Bezuvjetno prosljeđivanje poziva aktivno</string>
+  <string name="call_notif_conditionalCF">Uvjetno prosljeđivanje poziva aktivno</string>
+  <string name="call_notif_MOcall_forwarding">Odlazni poziv prosljeđen</string>
+  <string name="call_notif_cugcall">Poziv u zatvorenoj grupi korisnika</string>
+  <string name="call_notif_outgoing_barred">Odlazni pozivi zabranjeni</string>
+  <string name="call_notif_incoming_barred">Dolazni pozivi su zabranjeni od udaljene stranke</string>
+  <string name="call_notif_clir_suppression_rejected">Vlastiti broj je suzbijen od mreže</string>
+  <string name="call_notif_call_deflected">Poziv je proslijeđen od udaljene stranke</string>
+  <string name="call_notif_MTcall_forwarding">Dolazni poziv je proslijeđen</string>
+  <string name="call_notif_multipartycall">Konferencijski poziv</string>
+  <string name="call_notif_callonhold_released">Poziv je pušten na daljinu</string>
+  <string name="call_notif_forwardcheckreceived">Poziv je proslijeđen</string>
+  <string name="call_notif_callconnectingect">Uspostavljanje poziva preko eksplicitnog transfer poziva</string>
+  <string name="call_notif_callconnectedect">Uspostavljanje poziva preko eksplicitnog transfer poziva</string>
   <string name="all_day">Cijeli dan</string>
   <string name="time_start">Od</string>
   <string name="time_end">Do</string>

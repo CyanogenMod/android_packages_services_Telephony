@@ -19,6 +19,8 @@
   <string name="show_ssn_label">Notificación d\'eventos</string>
   <string name="show_ssn_summary">Amosar notificación pa dellos eventos de rede rellacionaos cola xestión de llamaes</string>
   <string name="blacklist_summary_disabled">Desactivada</string>
+  <string name="mwi_notification_title">Indicador de mensaxes n\'espera</string>
+  <string name="mwi_notification_summary">Amosar una notificación pa los mensaxes n\'espera del buzón de voz</string>
   <string name="phone_number_label">El mio númberu de teléfonu</string>
   <string name="call_notif_unconditionalCF">Esvíu incondicional de llamada activu</string>
   <string name="call_notif_conditionalCF">Esvíu condicional de llamada activu</string>
@@ -95,5 +97,4 @@
   <string name="exportAllcontatsSuccess">Esportáronse tolos contautos a la tarxeta SIM</string>
   <string name="exportAllcontatsFailed">Fallu al esportar tolos contautos de la tarxeta SIM</string>
   <string name="exportAllcontatsNoContacts">Nun s\'atoparon contautos qu\'esportar a la tarxeta SIM</string>
-  <string name="msim_mobile_network_settings_title">Axustes de rede de SIM %d</string>
 </resources>

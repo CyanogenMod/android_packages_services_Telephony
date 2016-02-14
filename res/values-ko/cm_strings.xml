@@ -19,9 +19,14 @@
   <string name="incall_screen_settings">통화 내 설정</string>
   <string name="show_ssn_label">이벤트 알림</string>
   <string name="show_ssn_summary">통화와 관련된 다양한 네트워크 이벤트에 대한 알림 표시</string>
+  <string name="incall_echo_cancellation">통화 중 소음 감소</string>
+  <string name="enable_aec_label">에코 감소</string>
+  <string name="enable_aec_summary">음성 통화 중 주변 소음을 줄입니다</string>
   <string name="blacklist_title">차단된 발신자 목록</string>
   <string name="blacklist_summary_disabled">비활성화 됨</string>
   <string name="blacklist_summary">차단된 발신자 목록에 있는 전화번호의 통화나 메세지를 받지 않습니다</string>
+  <string name="mwi_notification_title">메시지 대기 표시</string>
+  <string name="mwi_notification_summary">음성메일 알림에 대한 메시지 대기 표시 보이기</string>
   <string name="phone_number_label">내 전화번호</string>
   <string name="phone_number_summary">이 장치의 전화번호 설정</string>
   <string name="call_notif_unconditionalCF">무조건 착신 전환 활성</string>
@@ -135,5 +140,5 @@
   <string name="exportAllcontatsSuccess">모든 연락처를 SIM으로 내보냈습니다</string>
   <string name="exportAllcontatsFailed">모든 연락처를 SIM으로 내보내지 못했습니다</string>
   <string name="exportAllcontatsNoContacts">SIM에 내보낼 연락처가 없습니다</string>
-  <string name="msim_mobile_network_settings_title">SIM %d 모바일 네트워크 설정</string>
+  <string name="msim_mobile_network_settings_title">SIM %d 셀룰러 네트워크 설정</string>
 </resources>
