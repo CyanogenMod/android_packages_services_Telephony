@@ -214,14 +214,20 @@
   <string name="phone_number_summary">Setați nr de telefon pentru acest dispozitiv</string>
   <string name="msim_mobile_network_settings_title">Setări rețea mobilă SIM %d</string>
   <string name="call_recording_format">Formatul de înregistrare a apelului</string>
+  <string name="ims_get_packet_count_failed">Eșuare în obținerea numărului de pachete</string>
+  <string name="ims_get_packet_error_count_failed">Eșuare în obținerea numărului de erori de pachete</string>
+  <string name="ims_get_packet_count_label">Apasă aici pentru obținerea numărului de pachete</string>
+  <string name="ims_get_packet_error_count_label">Apasă aici pentru obținerea numărului de erori de pachete</string>
   <string name="wifi_call_setting">Setări apelare Wi-Fi</string>
   <string name="wifi_calling_title">Apelare Wi-Fi</string>
   <string name="wifi_calling_preference_title">Preferințe apelare Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">Eșuare în setarea preferinței de apel Wi-Fi</string>
   <string name="wifi_pref_none">Nicio preferință</string>
   <string name="wifi_preferred">Wi-Fi preferat</string>
   <string name="wifi_only">Doar Wi-Fi</string>
   <string name="cellular_preferred">Preferat mobil</string>
   <string name="cellular_only">Doar mobil</string>
+  <string name="call_barring_outgoing">Restricționare inițiere apel</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>Off</item>
     <item>International roaming calls</item>

@@ -49,22 +49,27 @@
   <string name="requesting_rnw2_unlock">Zahtijevanje otključavanja RUIM mreže 2\u2026</string>
   <string name="requesting_rhrpd_unlock">Zahtijevanje otključavanja RUIM HRPD-a\u2026</string>
   <string name="requesting_rsp_unlock">Zahtijevanje otključavanja RUIM servisnog provajdera\u2026</string>
+  <string name="call_barring">Zabrana poziva</string>
+  <string name="call_barring_outgoing">Zabrana odlaznog poziva</string>
   <string-array name="call_barring_outgoing_display_values">
-    <item>Off</item>
-    <item>International roaming calls</item>
-    <item>International calls</item>
+    <item>Isključen</item>
+    <item>Međunarodni roaming pozivi</item>
+    <item>Međunarodni pozivi</item>
     <item>Odlazni pozivi</item>
   </string-array>
   <string-array name="call_barring_incoming_display_values">
-    <item>Off</item>
+    <item>Isključen</item>
     <item>Roaming</item>
-    <item>All</item>
+    <item>Sve</item>
   </string-array>
+  <string name="call_barring_incoming">Zabrana dolaznih poziva</string>
   <string name="input_password">Unesite vašu lozinku</string>
   <string name="invalidPsw">Unesite ispravnu lozinku (4-8 znamenaka)</string>
+  <string name="labelCbCancelAll">Onemogući zabranu poziva</string>
   <string name="labelCbChangePassword">Promijeni lozinku</string>
   <string name="psw_enter_old">Stara lozinka</string>
   <string name="psw_enter_new">Nova lozinka</string>
   <string name="psw_reenter_new">Ponovno unesite lozinku</string>
+  <string name="no_call_barring">Zabrana poziva onemogućena</string>
   <string name="cb_psw_dont_match">Lozinke se ne podudaraju</string>
 </resources>

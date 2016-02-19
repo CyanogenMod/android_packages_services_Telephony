@@ -227,4 +227,27 @@
   <string name="wifi_only">Alleenlik Wi-Fi</string>
   <string name="cellular_preferred">Verkies Sellulêr</string>
   <string name="cellular_only">Alleenlik Sellulêr</string>
+  <string name="call_barring">Oproep blokkeerder</string>
+  <string name="call_barring_outgoing">Uitgaande oproep blokkeerder</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Af</item>
+    <item>Internasionale swerwing oproepe</item>
+    <item>Internasionale oproepe</item>
+    <item>Uitgaande oproepe</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Af</item>
+    <item>Swerwing</item>
+    <item>Alle</item>
+  </string-array>
+  <string name="call_barring_incoming">Inkomende oproep blokkeerder</string>
+  <string name="input_password">Tik jou wagwoord</string>
+  <string name="invalidPsw">Tik \'n geldige wagwoord in (4-8 syfers)</string>
+  <string name="labelCbCancelAll">Deaktiveer oproep blokkeerder</string>
+  <string name="labelCbChangePassword">Verander wagwoord</string>
+  <string name="psw_enter_old">Vorige Wagwoord</string>
+  <string name="psw_enter_new">Nuwe wagwoord</string>
+  <string name="psw_reenter_new">Tik jou wagwoord weer in</string>
+  <string name="no_call_barring">Oproep blokkeerder gedeaktiveer</string>
+  <string name="cb_psw_dont_match">Wagwoorde stem nie ooreen nie</string>
 </resources>
