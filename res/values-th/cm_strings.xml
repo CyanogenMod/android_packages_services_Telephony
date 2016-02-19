@@ -236,7 +236,7 @@
     <item>โทรออก</item>
   </string-array>
   <string-array name="call_barring_incoming_display_values">
-    <item>ปืด</item>
+    <item>Off</item>
     <item>โรมมิ่ง</item>
     <item>ทั้งหมด</item>
   </string-array>
