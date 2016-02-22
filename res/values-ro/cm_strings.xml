@@ -134,4 +134,5 @@
   <string name="exportAllcontatsNoContacts">Fără contacte găsite pentru exportarea în SIM</string>
   <string name="msim_mobile_network_settings_title">Setări rețea mobilă SIM %d</string>
   <string name="perm_change_mobile_network">schimbă mod rețea</string>
+  <string name="perm_change_mobile_network_desc">Permite unei aplicații să modifice modul de rețea actual.</string>
 </resources>

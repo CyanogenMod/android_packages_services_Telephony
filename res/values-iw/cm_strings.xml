@@ -141,4 +141,6 @@
   <string name="exportAllcontatsFailed">ייצוא כל אנשי הקשר ל-SIM נכשל</string>
   <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ל-SIM</string>
   <string name="msim_mobile_network_settings_title">הגדרות רשת סלולרית SIM %d</string>
+  <string name="perm_change_mobile_network">שינוי מצב רשת</string>
+  <string name="perm_change_mobile_network_desc">מאפשר ליישום לשנות את מצב הרשת הנוכחי.</string>
 </resources>

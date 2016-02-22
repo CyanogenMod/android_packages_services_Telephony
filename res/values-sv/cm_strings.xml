@@ -141,4 +141,6 @@
   <string name="exportAllcontatsFailed">Misslyckades med att exportera alla kontakter till SIM</string>
   <string name="exportAllcontatsNoContacts">Inga kontakter hittades att exportera till SIM</string>
   <string name="msim_mobile_network_settings_title">SIM-%d mobilnätsinställningar</string>
+  <string name="perm_change_mobile_network">ändra nätverksläge</string>
+  <string name="perm_change_mobile_network_desc">Ger en app tillåtelse att ändra nuvarande nätverksläget.</string>
 </resources>
