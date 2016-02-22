@@ -19,6 +19,9 @@
   <string name="incall_screen_settings">Hívás közbeni képernyő beállításai</string>
   <string name="show_ssn_label">Esemény értesítés</string>
   <string name="show_ssn_summary">Híváskezelési értesítés megjelenítése különböző hálózati események kapcsán</string>
+  <string name="incall_echo_cancellation">Hívás közbeni zajcsökkentés</string>
+  <string name="enable_aec_label">Visszhangszűrés</string>
+  <string name="enable_aec_summary">Csökkentse a környezeti zajt a távoli fél részére hanghívás közben</string>
   <string name="blacklist_title">Blokkolt hívók listája</string>
   <string name="blacklist_summary_disabled">Letiltva</string>
   <string name="blacklist_summary">Nem fog bejövő hívásokat és üzeneteket kapni a blokkolt hívó listán szereplő telefonszámokról</string>
@@ -137,4 +140,7 @@
   <string name="exportAllcontatsSuccess">Az összes névjegy sikeresen exportálva a SIM-re</string>
   <string name="exportAllcontatsFailed">Nem sikerült exportálni az összes névjegyet a SIM-re</string>
   <string name="exportAllcontatsNoContacts">Nem található SIM-re exportálandó névjegy</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobilhálózat beállításai</string>
+  <string name="perm_change_mobile_network">hálózati mód módosítása</string>
+  <string name="perm_change_mobile_network_desc">Lehetővé teszi az alkalmazás számára, hogy módosítsa az aktuális hálózati módot.</string>
 </resources>

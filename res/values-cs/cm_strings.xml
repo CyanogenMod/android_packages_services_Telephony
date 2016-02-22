@@ -141,4 +141,6 @@
   <string name="exportAllcontatsFailed">Export všech kontaktů na SIM kartu selhal</string>
   <string name="exportAllcontatsNoContacts">Nenalezen žádný kontakt pro export na SIM kartu</string>
   <string name="msim_mobile_network_settings_title">Nastavení mobilní sítě SIM %d</string>
+  <string name="perm_change_mobile_network">změnit režim sítě</string>
+  <string name="perm_change_mobile_network_desc">Umožňuje změnit stávající režim sítě.</string>
 </resources>
