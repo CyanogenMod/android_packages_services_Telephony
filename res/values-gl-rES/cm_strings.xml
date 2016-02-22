@@ -18,6 +18,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notificación de actividades</string>
   <string name="show_ssn_summary">Amosar unha notificación sobre diversas actividades de rede relacionadas coa xestión das chamadas</string>
+  <string name="incall_echo_cancellation">Redución do son durante a chamada</string>
+  <string name="enable_aec_summary">Reducir o barullo ambiental transmitido durante as chamadas de voz</string>
   <string name="blacklist_title">Lista de números bloqueados</string>
   <string name="blacklist_summary_disabled">Desactivado</string>
   <string name="blacklist_summary">Non se recibirán chamadas e mensaxes dos números incluídos na lista de números bloqueados</string>
@@ -42,6 +44,12 @@
   <string name="requesting_unlock_cm">Solicitando desbloqueo da rede da tarxeta SIM\u2026</string>
   <string name="unlock_failed_cm">O desbloqueo da rede da tarxeta SIM non se puido realizar correctamente.</string>
   <string name="unlock_success_cm">Non se puido desbloquear a rede da SIM.</string>
+  <string name="time_start">De</string>
+  <string name="time_end">Até</string>
+  <string name="time_hour">Hora</string>
+  <string name="time_minute">Minuto</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <string name="preferred_network_mode_global_summary_cm">Modo de rede preferida: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <string name="callFailed_incoming_cb_enabled">O receptor prohibiu todas as chamadas entrantes.</string>
   <string name="callUnanswered_forwarded">Chamar ás perdidas e desviadas</string>
@@ -53,6 +61,8 @@
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Modo de rede preferida: TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Modo de rede preferida: TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Modo de rede preferida: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -74,6 +84,14 @@
   <string name="preferred_network_mode_wcdma_only_choice">Só WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Só GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferir GSM/WCDMA</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Off</item>
+    <item>International roaming calls</item>
+    <item>Chamadas internacionais</item>
+    <item>Chamadas realizadas</item>
+  </string-array>
+  <string name="labelCbChangePassword">Cambiar o contrasinal</string>
+  <string name="cb_psw_dont_match">Os contrasinais non coinciden</string>
   <string name="exportContacts">Exportando contactos á tarxeta SIM\u2026</string>
   <string name="simContacts_title_cm">Xestionar os contactos da tarxeta SIM</string>
   <string name="contactScreen">Xestionar os contactos da SIM</string>
@@ -100,4 +118,5 @@
   <string name="exportAllcontatsSuccess">Exportáronse con éxito todos os contactos da SIM</string>
   <string name="exportAllcontatsFailed">Non se puideron exportar todos os contactos da SIM</string>
   <string name="exportAllcontatsNoContacts">Non se atopou ningún contacto na SIM para exportar</string>
+  <string name="perm_change_mobile_network">cambiar modo da rede</string>
 </resources>

@@ -19,6 +19,9 @@
   <string name="incall_screen_settings">Postavke zaslona u pozivu</string>
   <string name="show_ssn_label">Obavijest o događaju</string>
   <string name="show_ssn_summary">Prikaži obavijest za razne mrežne događaje vezane za upravljanje pozivom</string>
+  <string name="incall_echo_cancellation">Smanjenje buke u pozivu</string>
+  <string name="enable_aec_label">Uklanjanje jeke</string>
+  <string name="enable_aec_summary">Smanjenje ambijentne buke udaljene zabave tijekom poziva</string>
   <string name="blacklist_title">Popis blokiranih pozivatelja</string>
   <string name="blacklist_summary_disabled">Onemogućeno</string>
   <string name="blacklist_summary">Nećete primati dolazne pozive ili poruke od telefonskih brojeva na popisu blokiranih pozivatelja</string>
@@ -38,6 +41,9 @@
   <string name="call_notif_forwardcheckreceived">Poziv je proslijeđen</string>
   <string name="call_notif_callconnectingect">Uspostavljanje poziva preko eksplicitnog transfer poziva</string>
   <string name="call_notif_callconnectedect">Uspostavljanje poziva preko eksplicitnog transfer poziva</string>
+  <string name="requesting_unlock_cm">Zahtijevanje otključavanja SIM mreže\u2026</string>
+  <string name="unlock_failed_cm">Zahtjev otključavanja SIM mreže neuspješan.</string>
+  <string name="unlock_success_cm">Otključavanje SIM mreže uspješno.</string>
   <string name="all_day">Cijeli dan</string>
   <string name="time_start">Od</string>
   <string name="time_end">Do</string>
@@ -45,24 +51,74 @@
   <string name="time_minute">Minuta</string>
   <string name="time_formate_am">AM</string>
   <string name="time_formate_pm">PM</string>
+  <string name="preferred_network_mode_global_summary_cm">Željeni način mreže: Globalni (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <string name="callUnanswered_forwarded">Nazovi neodgovorene i proslijeđene pozive</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">Željeni način mreže: TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_summary">Željeni način mreže: TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_summary">Željeni način mreže: TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Željeni način mreže: TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Željeni način mreže: TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Željeni način mreže: TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Željeni način mreže: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Način mreže: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Željeni način mreže: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_only_choice">Samo TD-SCDMA</string>
+  <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
+  <string name="preferred_network_mode_evdo_only_choice">Samo EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo automatski</string>
+  <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA automatski</string>
+  <string name="preferred_network_mode_wcdma_only_choice">Samo WCDMA</string>
+  <string name="preferred_network_mode_gsm_only_choice">Samo GSM</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferirano</string>
+  <string name="call_barring">Zabrana poziva</string>
+  <string name="call_barring_outgoing">Zabrana odlaznog poziva</string>
   <string-array name="call_barring_outgoing_display_values">
-    <item>Off</item>
-    <item>International roaming calls</item>
-    <item>International calls</item>
+    <item>Isključen</item>
+    <item>Međunarodni roaming pozivi</item>
+    <item>Međunarodni pozivi</item>
     <item>Odlazni pozivi</item>
   </string-array>
   <string-array name="call_barring_incoming_display_values">
-    <item>Off</item>
+    <item>Isključen</item>
     <item>Roaming</item>
-    <item>All</item>
+    <item>Sve</item>
   </string-array>
+  <string name="call_barring_incoming">Zabrana dolaznih poziva</string>
   <string name="input_password">Unesite vašu lozinku</string>
   <string name="invalidPsw">Unesite ispravnu lozinku (4-8 znamenaka)</string>
+  <string name="labelCbCancelAll">Onemogući zabranu poziva</string>
   <string name="labelCbChangePassword">Promijeni lozinku</string>
   <string name="psw_enter_old">Stara lozinka</string>
   <string name="psw_enter_new">Nova lozinka</string>
   <string name="psw_reenter_new">Ponovno unesite lozinku</string>
+  <string name="no_call_barring">Zabrana poziva onemogućena</string>
   <string name="cb_psw_dont_match">Lozinke se ne podudaraju</string>
+  <string name="fdn_invalid_number_cm">FDN nije ažuriran jer je broj prazan ili prelazi 20 znamenki.</string>
+  <string name="incall_error_local_low_battery">Poziv nije uspio zbog slabe baterije.</string>
+  <string name="incall_error_low_battery">Poziv nije uspio zbog slabe baterije udaljenog uređaja.</string>
+  <string name="deleteAllSimEntries">Izbriši sve SIM kontakte</string>
+  <string name="deleteSimContacts">Brisanje SIM kontakata\u2026</string>
+  <string name="editContact">Uređivanje</string>
+  <string name="sendSms">Pošalji SMS</string>
+  <string name="delete">Obriši</string>
+  <string name="enterName">Upišite naziv:</string>
+  <string name="enterNumber">Unesite broj telefona:</string>
+  <string name="hintName">Naziv</string>
+  <string name="hintPhonenumber">Broj telefona</string>
+  <string name="contactdeleteSuccess">Kontakt sa SIM kartice uspješno izbrisan</string>
+  <string name="contactdeleteFailed">Nije uspjelo brisanje kontakta sa SIM kartice</string>
+  <string name="allContactdeleteSuccess">Uspješno izbrisani svi kontakti sa SIM kartice</string>
+  <string name="allContactdeleteFailed">Nije uspjelo brisanje svih kontakata sa SIM kartice</string>
+  <string name="msim_mobile_network_settings_title">Postavke SIM %d mobilne mreže</string>
+  <string name="perm_change_mobile_network">promijeni način mreže</string>
+  <string name="perm_change_mobile_network_desc">Dopušta aplikaciji izmijeniti trenutni način mreže.</string>
 </resources>
