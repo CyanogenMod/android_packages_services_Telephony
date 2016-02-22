@@ -141,4 +141,6 @@
   <string name="exportAllcontatsFailed">Nie udało się wyeksportować kontaktów na kartę SIM</string>
   <string name="exportAllcontatsNoContacts">Nie odnaleziono kontaktów do wyeksportowania na kartę SIM</string>
   <string name="msim_mobile_network_settings_title">Ustawienia sieci komórkowej SIM %d</string>
+  <string name="perm_change_mobile_network">zmiana trybu połączenia sieciowego</string>
+  <string name="perm_change_mobile_network_desc">Umożliwia aplikacji zmianę trybu połączenia sieciowego.</string>
 </resources>

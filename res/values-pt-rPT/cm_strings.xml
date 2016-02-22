@@ -142,4 +142,5 @@
   <string name="exportAllcontatsNoContacts">Não foram encontrados contactos para exportar para o cartão SIM</string>
   <string name="msim_mobile_network_settings_title">Definições de rede do cartão SIM %d</string>
   <string name="perm_change_mobile_network">alterar o modo de rede</string>
+  <string name="perm_change_mobile_network_desc">Permite que uma aplicação modifique o modo de rede atual.</string>
 </resources>
