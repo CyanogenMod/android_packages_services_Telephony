@@ -20,6 +20,7 @@ import android.os.AsyncResult;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemProperties;
+import android.provider.Settings
 import android.telephony.MSimTelephonyManager;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
@@ -853,7 +854,7 @@ public class CallModeler extends Handler {
                 canMergeCall = PhoneUtils.okToMergeCalls(mCallManager);
                 canSwapCall = PhoneUtils.okToSwapCalls(mCallManager);
             }
-            canAddCall = PhoneUtils.okToAddCall(mCallManager);
+            canAddCall = PhoneUtils.okToAddCall(mCallManager) && passedSetupWizard();
         } else {
             final int subscription = call.getSubscription();
             supportHold = PhoneUtils.okToSupportHold(mCallManager, subscription);
@@ -864,7 +865,7 @@ public class CallModeler extends Handler {
                 canMergeCall = PhoneUtils.okToMergeCalls(mCallManager, subscription);
                 canSwapCall = PhoneUtils.okToSwapCalls(mCallManager, subscription);
             }
-            canAddCall = PhoneUtils.okToAddCall(mCallManager, subscription);
+            canAddCall = PhoneUtils.okToAddCall(mCallManager, subscription) && passedSetupWizard();
         }
         if (callIsActive || callIsBackground) {
             canModifyCall = PhoneUtils.isVTModifyAllowed(connection);
@@ -1151,6 +1152,13 @@ public class CallModeler extends Handler {
         } while (!mNextCallId.compareAndSet(callId, newNextCallId));
 
         return new Call(callId);
+    }
+
+    private boolean passedSetupWizard() {
+        // Incoming calls are totally ignored if the device isn't provisioned yet.
+        return Settings.Global.getInt(
+                PhoneGlobals.getInstance().getContentResolver(),
+                Settings.Global.DEVICE_PROVISIONED, 0) != 0;
     }
 
     /**
