@@ -78,6 +78,12 @@
         android:entryValues="@array/flip_action_setting_values"
         android:persistent="false" />
 
+    <SwitchPreference
+        android:key="use_intrusive_call"
+        android:title="@string/use_intrusive_call_title"
+        android:summary="@string/use_intrusive_call_summary"
+        android:persistent="false" />
+
     <PreferenceCategory
             android:key="category_prox_auto_speaker"
             android:title="@string/display_category_prox_auto_speaker_title" >
