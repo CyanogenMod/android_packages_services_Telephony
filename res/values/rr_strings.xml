@@ -34,4 +34,8 @@
     <string name="summary_mute_ringer">mute the ringer</string>
     <string name="summary_dismiss_call">dismiss the call</string>
 
+    <!-- Title for the option managing whether or not to use intrusive incall UI. -->
+    <string name="use_intrusive_call_title">Intrusive incoming calls</string>
+    <string name="use_intrusive_call_summary">Show a full screen notification on incoming call even when not on lockscreen</string>
+
 </resources>
