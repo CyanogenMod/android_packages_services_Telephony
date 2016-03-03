@@ -1331,4 +1331,6 @@
         A SIM card has activated your service and updated your phone\'s roaming capabilities.
     </string>
 
+    <string name="connected_line_identification_title">Connected line identification</string>
+    <string name="connected_line_identification_summary">Disable this option if the numbers of the recipients don\'t show up in the call history</string>
 </resources>
