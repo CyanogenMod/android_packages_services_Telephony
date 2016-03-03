@@ -50,4 +50,9 @@
         android:persistent="false"
         android:summary="@string/enhanced_4g_lte_mode_summary"/>
 
+    <SwitchPreference
+        android:key="connected_line_identification_key"
+        android:title="@string/connected_line_identification_title"
+        android:defaultValue="true" />
+
 </PreferenceScreen>

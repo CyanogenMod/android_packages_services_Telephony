@@ -103,6 +103,7 @@ public class MobileNetworkSettings extends PreferenceActivity
     private static final String BUTTON_CARRIER_SETTINGS_KEY = "carrier_settings_key";
     private static final String BUTTON_CDMA_SYSTEM_SELECT_KEY = "cdma_system_select_key";
     private static final String PRIMARY_CARD_PROPERTY_NAME = "persist.radio.primarycard";
+    private static final String BUTTON_COLP_KEY = "connected_line_identification_key";
 
     private int preferredNetworkMode = Phone.PREFERRED_NT_MODE;
 
@@ -120,6 +121,7 @@ public class MobileNetworkSettings extends PreferenceActivity
     private SwitchPreference mButtonDataRoam;
     private SwitchPreference mButton4glte;
     private Preference mLteDataServicePref;
+    private SwitchPreference mButtonCOLP;
 
     private static final String iface = "rmnet0"; //TODO: this will go away
     private List<SubscriptionInfo> mActiveSubInfos;
@@ -250,6 +252,9 @@ public class MobileNetworkSettings extends PreferenceActivity
             return true;
         } else if (preference == mButtonDataRoam) {
             // Do not disable the preference screen if the user clicks Data roaming.
+            return true;
+        } else if (preference == mButtonCOLP) {
+            // Do not disable the preference screen if the user clicks COLP
             return true;
         } else {
             // if the button is anything but the simple toggle preference,
@@ -524,6 +529,9 @@ public class MobileNetworkSettings extends PreferenceActivity
 
         mLteDataServicePref = prefSet.findPreference(BUTTON_CDMA_LTE_DATA_SERVICE_KEY);
 
+        mButtonCOLP = (SwitchPreference)findPreference(BUTTON_COLP_KEY);
+        mButtonCOLP.setOnPreferenceChangeListener(this);
+
         // Initialize mActiveSubInfo
         int max = mSubscriptionManager.getActiveSubscriptionInfoCountMax();
         mActiveSubInfos = new ArrayList<SubscriptionInfo>(max);
@@ -610,6 +618,7 @@ public class MobileNetworkSettings extends PreferenceActivity
             prefSet.addPreference(mButtonPreferredNetworkMode);
             prefSet.addPreference(mButtonEnabledNetworks);
             prefSet.addPreference(mButton4glte);
+            prefSet.addPreference(mButtonCOLP);
         }
 
         /** Some carriers required that network mode UI need to be hidden in below conditions:
@@ -1012,6 +1021,10 @@ public class MobileNetworkSettings extends PreferenceActivity
                 mPhone.setDataRoamingEnabled(false);
             }
             return true;
+        } else if (preference == mButtonCOLP) {
+            Settings.Global.putInt(getContentResolver(),
+                    Settings.Global.CONNECTED_LINE_IDENTIFICATION,
+                    mButtonCOLP.isChecked() ? 1 : 0);
         }
 
         // always let the preference setting proceed.
