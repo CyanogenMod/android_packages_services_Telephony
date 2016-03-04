@@ -16,36 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">通話画面の設定</string>
   <string name="show_ssn_label">イベントの通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
   <string name="incall_echo_cancellation">通話ノイズリダクション</string>
   <string name="enable_aec_label">エコー除去</string>
   <string name="enable_aec_summary">音声通話中にリモートパーティのために環境雑音を軽減する</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">着信拒否リスト</string>
   <string name="blacklist_summary_disabled">無効</string>
   <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようになります</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">メッセージ待機インジケータ</string>
   <string name="mwi_notification_summary">ボイスメール通知のメッセージ待機インジケータを表示する</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">無条件の着信転送が有効です</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">条件付きの着信転送が有効です</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">発信は転送されます</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">クローズドユーザーグループでの通話</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">発信が阻止されました</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">リモートパーティで着信が阻止されました</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">発信者番号通知制限がネットワークによって拒否されました</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">通話はリモートパーティによって転送されました</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">着信は転送されます</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">マルチパーティ通話</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">リモートで通話が終了されました</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">着信は転送されました</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">特定呼転送経由で呼接続中</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">特定呼転送経由で呼接続されました</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIMネットワークロック解除をリクエスト中\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIMネットワークロック解除のリクエストを完了できませんでした。</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIMネットワークロック解除が完了しました。</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">終日</string>
   <string name="time_start">開始</string>
   <string name="time_end">終了</string>
@@ -53,16 +76,29 @@
   <string name="time_minute">分</string>
   <string name="time_formate_am">午前</string>
   <string name="time_formate_pm">午後</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">優先ネットワークモード: グローバル（CDMA/EvDo/LTE/GSM/WCDMA）</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">通話は応答されずに転送されました</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">優先ネットワークモード: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">優先ネットワークモード: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">優先ネットワークモード: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">優先ネットワークモード: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">優先ネットワークモード: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">優先ネットワークモード: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">優先ネットワークモード: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">優先ネットワークモード: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">優先ネットワークモード: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -110,11 +146,17 @@
   <string name="psw_reenter_new">パスワードを再入力してください</string>
   <string name="no_call_barring">着信拒否は無効になっています</string>
   <string name="cb_psw_dont_match">パスワードが一致しません</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">番号が空欄であるか20桁を超えているため、FDNは更新されませんでした。</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">SIMカードに連絡先をエクスポート中\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">SIMカードの連絡先を管理</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">電池の残量が少なくなっているため、通話できませんでした。</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">リモートの端末の電池の残量が少なくなっているため、通話できませんでした。</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">SIMの連絡先を管理</string>
   <string name="exportContactScreen">SIMに携帯電話の連絡先をエクスポート</string>
   <string name="addSimEntries">SIMの連絡先を追加</string>
@@ -140,6 +182,7 @@
   <string name="exportAllcontatsFailed">SIMにすべての連絡先をエクスポートできませんでした</string>
   <string name="exportAllcontatsNoContacts">SIMにエクスポートする連絡先が見つかりませんでした</string>
   <string name="msim_mobile_network_settings_title">SIM %dのデータ通信の設定</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">ネットワークモードの変更</string>
   <string name="perm_change_mobile_network_desc">現在のネットワークモードを変更することをアプリに許可します。</string>
 </resources>

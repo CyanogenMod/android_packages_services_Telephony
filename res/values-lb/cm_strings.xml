@@ -16,42 +16,78 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">Notifikatioun bei Evenementer</string>
   <string name="show_ssn_summary">Bei verschiddenen Uruff-Evenementer eng Notifikatioun uweisen</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Lëscht vu blockéierten Nummeren</string>
   <string name="blacklist_summary_disabled">Desaktivéiert</string>
   <string name="blacklist_summary">Du wäerts keng Uriff oder Messagë vun den Telefonsnummeren op dëser Lëscht empfänken</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator uweisen</string>
   <string name="mwi_notification_summary">En Indikator uweise wa Mailbox-Messagen drop waarden ofgeruff ze ginn</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Meng Telefonsnummer</string>
   <string name="phone_number_summary">Telefonsnummer fir dësen Apparat definéieren</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Bédéngungslos Uruffweiderleedung aktiv</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Bédéngungslos Uruffweiderleedung aktiv</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">De lafenden Uruff gëtt weidergeleet</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Uruff an enger geschlossener Benotzergrupp</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Erausgoend Uriff gespaart</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Erakommend Uriff si beim Gespréichspartner gespaart</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">D\'Verstoppe vun der eegener Nummer gouf vum Netzwierk refuséiert</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Uruff vum Gespréichspartner weidergeleet</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Erakommenden Uruff gëtt weidergeleet</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Telefonskonferenz</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Gehalenen Uruff vum Gespréichspartner ofgebrach</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Uruff gouf weidergeleet</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Uruff duerch eng explizit Weiderleedung verbonnen</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Uruff duerch eng explizit Weiderleedung verbonnen</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIM-Netzwierk-Entspärung gëtt ugefrot\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Entspäre vum SIM-Netzwierk net erfollegräich.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Netzwierk-Entspäre vun der SIM erfollegräich.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Preferéierten Netzwierktyp: Global (CDMA/EVDO/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">De Kontakt huet all erakommend Uriff gespaart.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Uruff net beäntwert a weidergeleet</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferéierten Netzwierktyp: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Preferéierten Netzwierktyp: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Preferéierten Netzwierktyp: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Preferéierten Netzwierktyp: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Preferéierten Netzwierktyp: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Preferéierten Netzwierktyp: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Preferéierten Netzwierktyp: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Preferéierten Netzwierktyp: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
@@ -74,8 +110,14 @@
   <string name="preferred_network_mode_wcdma_only_choice">Just WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Just GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferéiert</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Kontakter ginn op d\'SIM-Kaart exportéiert\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Kontakter vun der SIM-Kaart geréieren</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">SIM-Kontakter geréieren</string>
   <string name="exportContactScreen">Telefonskontakter op d\'SIM exportéieren</string>
   <string name="addSimEntries">SIM-Kontakt dobäisetzen</string>
@@ -100,4 +142,5 @@
   <string name="exportAllcontatsSuccess">All d\'Kontakter goufen erfollegräich op d\'SIM exportéiert</string>
   <string name="exportAllcontatsFailed">Export vun alle Kontakter op d\'SIM feelgeschloen</string>
   <string name="exportAllcontatsNoContacts">Keng Kontakter fonnt fir op d\'SIM z\'exportéieren</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

@@ -16,42 +16,78 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">Tədbir bildirişi</string>
   <string name="show_ssn_summary">Zəng etmək üsulu ilə bağlı müxtəlif şəbəkə hadisələri üçün bildiriş göstər</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Əngəllənən zəng edənlərin siyahısı</string>
   <string name="blacklist_summary_disabled">Ləğv edildi</string>
   <string name="blacklist_summary">Əngəllənən zəng edənlərin siyahısındakı nömrələrdən gələn zənglər və ya mesajlar qəbul edilməyəcək</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Mesaj gözləmə göstəricisi</string>
   <string name="mwi_notification_summary">Mesaj gözləmə göstəricisində səsli poçt bildirişlərini göstər</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Telefon nömrəm</string>
   <string name="phone_number_summary">Bu cihaz üçün telefon nömrəsini tənzimlə</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Şərtsiz zəng yönləndirmə aktivdir</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Şərti zəng yönləndirmə aktivdir</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Gedən zəng yönləndirildi</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Bağlı istifadəçi qrupu içində zəng</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Gedən zənglərə qadağa qoyulub</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Uzaq tərəfdə gələn zənglərə qadağa qoyulub</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Öz nömrənizi gizlətmək şəbəkə tərəfindən rədd edildi</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Zəng uzaq tərəf tərəfindən yönləndirildi</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Gələn zəng yönləndirildi</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Çox tərəfli zəng</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Zəngə geri qayıdıldı</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Zəng yönləndirildi</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Açıq zəng ötürmə vasitəsilə bağlanılır</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Açıq zəng ötürmə vasitəsilə bağlanıldı</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIM şəbəkə kilid açma sorğusu göndərilir\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM şəbəkə kilid açma sorğusu uğursuz oldu.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM şəbəkə kilidi uğurla açıldı.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Üstünlük verilən şəbəkə rejimi: Qlobal (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Qrup bütün gələn zəngləri əngəllədi.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Zəng cavablanmayıb yönləndirildi</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Üstünlük verilən şəbəkə rejimi: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Üstünlük verilən şəbəkə rejimi: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Üstünlük verilən şəbəkə rejimi: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Üstünlük verilən şəbəkə rejimi: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Üstünlük verilən şəbəkə rejimi: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Üstünlük verilən şəbəkə rejimi: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Üstünlük verilən şəbəkə rejimi: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Üstünlük verilən şəbəkə rejimi: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
@@ -74,8 +110,14 @@
   <string name="preferred_network_mode_wcdma_only_choice">Yalnız WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Yalnız GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA üstünlük verilən</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Şəxslər SIM karta köçürülür\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">SIM kart şəxslərini idarə et</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">SIM şəxslərini idarə et</string>
   <string name="exportContactScreen">Telefon şəxslərini SIM\'ə köçür</string>
   <string name="addSimEntries">SIM şəxsi əlavə et</string>
@@ -100,4 +142,5 @@
   <string name="exportAllcontatsSuccess">Bütün şəxslər SIM\'ə uğurla köçürüldü</string>
   <string name="exportAllcontatsFailed">Bütün şəxslər SIM\'ə köçürülmədi</string>
   <string name="exportAllcontatsNoContacts">SIM\'ə köçürüləcək şəxs yoxdur</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

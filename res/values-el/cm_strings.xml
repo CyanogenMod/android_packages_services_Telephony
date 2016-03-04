@@ -16,36 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">Ρυθμίσεις οθόνης κλήσης</string>
   <string name="show_ssn_label">Ειδοποιήσεις συμβάντων</string>
   <string name="show_ssn_summary">Εμφάνιση ειδοποίησης για διάφορα συμβάντα του δικτύου που σχετίζονται με το χειρισμό των κλήσεων</string>
   <string name="incall_echo_cancellation">Μείωση του θορύβου κατά τις κλήσεις</string>
   <string name="enable_aec_label">Ακύρωση ηχούς</string>
   <string name="enable_aec_summary">Μειώνει τον περιβαλλοντικό θόρυβο στο μικρόφωνό σας κατά τη διάρκεια φωνητικών κλήσεων</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Λίστα αποκλεισμένων καλούντων</string>
   <string name="blacklist_summary_disabled">Απενεργοποιημένη</string>
   <string name="blacklist_summary">Δε θα λαμβάνετε εισερχόμενες κλήσεις ή μηνύματα από τηλεφωνικούς αριθμούς στη λίστα αποκλεισμένων καλούντων</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Ένδειξη αναμονής μηνύματος</string>
   <string name="mwi_notification_summary">Εμφάνιση ειδοποίησης μηνύματος τηλεφωνητή</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Ο αριθμός μου</string>
   <string name="phone_number_summary">Ορίστε τον αριθμό τηλεφώνου για αυτή τη συσκευή</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Προώθηση κλήσεων άνευ όρων ενεργή</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Προώθηση κλήσεων υπό όρους ενεργή</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Η εξερχόμενη κλήση προωθείται</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Κλήση σε κλειστή ομάδα χρηστών</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Φραγή εξερχόμενων κλήσεων</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Φραγή εισερχόμενων κλήσεων από τον απομακρυσμένο χρήστη</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Η απόκρυψη αριθμού απορρίφθηκε από το δίκτυο</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Η κλήση προωθήθηκε από τον απομακρυσμένο χρήστη</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Η εισερχόμενη κλήση προωθείται</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Συνδιάλεξη πολλαπλών χρηστών</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Η κλήση απελευθερώθηκε απομακρυσμένα</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Η κλήση προωθήθηκε</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Η κλήση συνδέεται με μεταφορά κλήσης</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Η κλήση συνδέθηκε με μεταφορά κλήσης</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Αίτηση ξεκλειδώματος δικτύου SIM\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Αποτυχία ξεκλειδώματος δικτύου SIM.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Το ξεκλείδωμα του δικτύου SIM ήταν επιτυχές.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">Όλη την ημέρα</string>
   <string name="time_start">Από</string>
   <string name="time_end">Έως</string>
@@ -53,17 +76,30 @@
   <string name="time_minute">Λεπτό</string>
   <string name="time_formate_am">ΠΜ</string>
   <string name="time_formate_pm">ΜΜ</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Προτιμώμενη λειτουργία δικτύου: Παγκόσμια (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Ο συνομιλητής έχει μπλοκάρει όλες τις εισερχόμενες κλήσεις.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Η κλήση δεν απαντήθηκε και προωθήθηκε</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -111,11 +147,17 @@
   <string name="psw_reenter_new">πληκτρολογήστε ξανά τον κωδικό πρόσβασης</string>
   <string name="no_call_barring">Η φραγή κλήσεων απενεργοποιήθηκε</string>
   <string name="cb_psw_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">Το FDN δεν ενημερώθηκε, επειδή ο αριθμός είναι κενός ή υπερβαίνει τα 20 ψηφία.</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Εξαγωγή επαφών στην κάρτα SIM\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Διαχείριση επαφών κάρτας SIM</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Η κλήση απέτυχε λόγω χαμηλής μπαταρίας.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Η κλήση απέτυχε λόγω χαμηλής μπαταρίας της απομακρυσμένης συσκευής.</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Διαχείριση επαφών SIM</string>
   <string name="exportContactScreen">Εξαγωγή επαφών τηλεφώνου στη SIM</string>
   <string name="addSimEntries">Προσθήκη επαφής SIM</string>
@@ -141,6 +183,7 @@
   <string name="exportAllcontatsFailed">Αποτυχία εξαγωγής όλων των επαφών στη SIM</string>
   <string name="exportAllcontatsNoContacts">Δεν βρέθηκαν επαφές για εξαγωγή στη SIM</string>
   <string name="msim_mobile_network_settings_title">Ρυθμίσεις δικτύων κινητής τηλεφωνίας SIM %d</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">αλλαγή τύπου δικτύου</string>
   <string name="perm_change_mobile_network_desc">Επιτρέπει σε μια εφαρμογή να τροποποιήσει τον τρέχων τύπο δικτύου.</string>
 </resources>

@@ -16,21 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">來電畫面設定</string>
   <string name="show_ssn_label">事件通知</string>
   <string name="show_ssn_summary">處理通話時顯示各種相關網路訊息</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">已封鎖來電者名單</string>
   <string name="blacklist_summary_disabled">已停用</string>
   <string name="blacklist_summary">您將不會收到任何在已封鎖來電者名單上的電話號碼的來電或簡訊</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">訊息等後指示</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">我的電話號碼</string>
   <string name="phone_number_summary">設定本機號碼</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">無限制來電轉接啟用中</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">限制來電轉接啟用中</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">撥出電話已轉接</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
+  <!-- In-call screen: status label when MO calls are barred -->
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">多方通話</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">通話已轉接</string>
+  <!-- Toast text for incoming call connecting through ECT -->
+  <!-- Toast text for incoming call connected through ECT -->
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM 網路解鎖成功</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">全天</string>
   <string name="time_start">寄件者</string>
   <string name="time_end">收件者</string>
@@ -38,15 +61,28 @@
   <string name="time_minute">分鐘</string>
   <string name="time_formate_am">上午</string>
   <string name="time_formate_pm">下午</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">首選網絡模式：全球 (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">首選網絡模式：TD-SCDMA / WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">首選網絡模式：TD-SCDMA / LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">首選網絡模式：TD-SCDMA / GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">首選網絡模式：TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">首選網絡模式：TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">首選網絡模式：TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">首選網絡模式：TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">優先的網路模式：TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">首選網絡模式：TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -94,11 +130,17 @@
   <string name="psw_reenter_new">重新輸入您的密碼</string>
   <string name="no_call_barring">已停用通話限制</string>
   <string name="cb_psw_dont_match">密碼不符</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN 尚未更新，因為數字為空或超過 20 位。</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">匯出電話通訊錄到 SIM 卡\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">管理 SIM 卡聯絡人</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">電量不足，通話失敗。</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">遠端裝置電量不足，通話失敗。</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">管理 SIM 卡聯絡人</string>
   <string name="exportContactScreen">匯出電話聯絡人到SIM卡</string>
   <string name="addSimEntries">新增 SIM 卡聯絡人</string>
@@ -123,4 +165,5 @@
   <string name="exportAllcontatsSuccess">所有聯絡人已從 SIM 卡成功地匯出</string>
   <string name="exportAllcontatsFailed">無法匯出所有聯絡人到 SIM 卡</string>
   <string name="exportAllcontatsNoContacts">未找到要匯出到 SIM 卡的聯絡人</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

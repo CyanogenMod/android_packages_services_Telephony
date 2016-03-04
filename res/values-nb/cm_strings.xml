@@ -16,32 +16,55 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">Hendelsesvarsling</string>
   <string name="show_ssn_summary">Vis en melding for ulike nettverkshendelser relatert til anrop</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Blokkert anropsliste</string>
   <string name="blacklist_summary_disabled">Deaktivert</string>
   <string name="blacklist_summary">Du vil ikke motta innkommende samtaler eller meldinger fra telefonnumre på listen over blokkerte telefonnummer</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Melding venter indikator</string>
   <string name="mwi_notification_summary">Vis melding venter indikator som voicemail varsler</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Telefonnummeret mitt</string>
   <string name="phone_number_summary">Angi telefonnummeret for denne enheten</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Ubetinget viderekobling aktiv</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Betinget viderekobling aktiv</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Utgående samtale videresendes</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Ringe i lukket brukergruppe</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Utgående samtaler sperret</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Innkommende samtaler sperret på eksterne parten</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Eget nummer undertrykkelse avvist av nettverket</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Samtale videresendt av eksterne parten</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Innkommende anrop viderekobles</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Flerparti samtale</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Ringe ut eksternt</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Samtalen ble videresendt</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Oppringing kobles til gjennom samtaleoverføring</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Oppringing kobles til gjennom samtaleoverføring</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Ber om SIM nettverk opplåsning\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM nettverk opplåsningsforespørsel mislyktes.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM nettverk opplåsning mislyktes.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">Hele dagen</string>
   <string name="time_start">Fra</string>
   <string name="time_end">Til</string>
@@ -49,17 +72,30 @@
   <string name="time_minute">Minutt</string>
   <string name="time_formate_am">AM</string>
   <string name="time_formate_pm">PM</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Foretrukket nettverksmodus: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Gruppen har sperret alle innkommende oppringinger.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Ubesvarte og videresendte anrop</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Foretrukket nettverksmodus: TD-SCDMA / WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Foretrukket nettverksmodus: TD-SCDMA / LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Foretrukket nettverksmodus: TD-SCDMA / GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Foretrukket nettverksmodus: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Foretrukket nettverksmodus: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Foretrukket nettverksmodus: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Foretrukket nettverksmodus: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Foretrukket nettverksmodus: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Foretrukket nettverksmodus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -105,9 +141,15 @@
   <string name="psw_reenter_new">Oppgi passord på nytt</string>
   <string name="no_call_barring">Nummersperring deaktivert</string>
   <string name="cb_psw_dont_match">Passordene samsvarer ikke</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Eksporterer kontakter til SIMkort\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Administrere SIM-kortkontakter</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Oppringingen mislyktes på grunn av lavt batterinivå.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">Administrere SIM-kontakter</string>
   <string name="exportContactScreen">Eksportere telefonkontakter til SIM</string>
   <string name="addSimEntries">Legge til SIM-kontakt</string>
@@ -132,4 +174,5 @@
   <string name="exportAllcontatsSuccess">Vellykket eksportering av alle kontakter til SIMkort</string>
   <string name="exportAllcontatsFailed">Klarte ikke å eksportere alle kontakter til SIMkort</string>
   <string name="exportAllcontatsNoContacts">Ingen kontakter funnet for eksportering</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

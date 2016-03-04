@@ -16,36 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="incall_screen_settings">Настройка экрана вызова</string>
+  <!-- Advanced Settings -->
+  <string name="incall_screen_settings">Настройки экрана вызова</string>
   <string name="show_ssn_label">Уведомления о событиях</string>
   <string name="show_ssn_summary">Показывать уведомления о разных событиях сети, связанных с вызовом</string>
   <string name="incall_echo_cancellation">Шумоподавление</string>
   <string name="enable_aec_label">Подавление эхо</string>
-  <string name="enable_aec_summary">Снизить фоновый шум для абонента во время голосовых вызовов</string>
+  <string name="enable_aec_summary">Снижать фоновый шум для абонента во время голосовых вызовов</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Чёрный список</string>
   <string name="blacklist_summary_disabled">Выключен</string>
   <string name="blacklist_summary">Вы не будете получать входящие вызовы или сообщения от телефонных номеров из черного списка</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Индикатор ожидания сообщения</string>
   <string name="mwi_notification_summary">Показывать индикатор ожидания сообщения уведомлений голосовой почты</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Мой номер телефона</string>
   <string name="phone_number_summary">Задать телефонный номер для этого устройства</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Включена безусловная переадресация вызова</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Включена условная переадресация вызова</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Исходящий вызов переадресован</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Вызов в частную группу</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Исходящий вызов запрещён</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Входящий вызов удалённо запрещён</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Анти-АОН во время этого вызова отключён сетью</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Вызов удалённо переадресован</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Входящий вызов переадресован</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Входящая конференц-связь</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Вызов удалённо отменён</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Вызов был переадресован</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Вызов соединяется через явную передачу вызова</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Вызов соединен через явную передачу вызова</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Запрос разблокировки сети SIM\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Не удалось выполнить запрос на разблокировку сети SIM.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Не удалось выполнить запрос на разблокировку сети SIM.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">На весь день</string>
   <string name="time_start">С</string>
   <string name="time_end">До</string>
@@ -53,20 +76,33 @@
   <string name="time_minute">Минут</string>
   <string name="time_formate_am">AM</string>
   <string name="time_formate_pm">PM</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Предпочтительный режим сети: Глобальный (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Участник запретил все входящие вызовы.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Вызов не отвечен и переадресован</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Предпочтительный режим сети: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Предпочтительный режим сети: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Предпочтительный режим сети: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Предпочтительный режим сети: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Предпочтительный режим сети: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Предпочтительный режим сети: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Предпочтительный режим сети: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Режим сети: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Предпочтительный режим сети: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
-  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
-  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -103,19 +139,25 @@
   </string-array>
   <string name="call_barring_incoming">Запрет входящих вызовов</string>
   <string name="input_password">Введите пароль</string>
-  <string name="invalidPsw">Введите допустимый пароль (4-8 цифр)</string>
-  <string name="labelCbCancelAll">Отключить запрет вызовов</string>
+  <string name="invalidPsw">Введите допустимый пароль (4–8 цифр)</string>
+  <string name="labelCbCancelAll">Отключить запрет вызова</string>
   <string name="labelCbChangePassword">Изменить пароль</string>
   <string name="psw_enter_old">Старый пароль</string>
   <string name="psw_enter_new">Новый пароль</string>
   <string name="psw_reenter_new">Введите пароль ещё раз</string>
-  <string name="no_call_barring">Запрет вызовов отключен</string>
+  <string name="no_call_barring">Запрет вызовов отключён</string>
   <string name="cb_psw_dont_match">Пароли не совпадают</string>
-  <string name="fdn_invalid_number_cm">FDN не обновлен, поскольку номер не набран или превышает 20 цифр.</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">FDN не был обновлен, потому что номер не набран, или превышает 20 цифр.</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Экспорт контактов на SIM-карту\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Управление контактами SIM-карты</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Сбой вызова из-за низкого заряда батареи.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Сбой вызова из-за низкого заряда батареи на удалённом устройстве.</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Управление контактами на SIM-карте</string>
   <string name="exportContactScreen">Экспортировать контакты из телефона в SIM</string>
   <string name="addSimEntries">Добавить контакт SIM</string>
@@ -141,6 +183,7 @@
   <string name="exportAllcontatsFailed">Не удалось экспортировать контакты на SIM</string>
   <string name="exportAllcontatsNoContacts">Не найдены контакты для экспорта на SIM</string>
   <string name="msim_mobile_network_settings_title">Настройки мобильной сети SIM %d</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">изменить режим сети</string>
   <string name="perm_change_mobile_network_desc">Приложение сможет изменять текущий режим сети.</string>
 </resources>
