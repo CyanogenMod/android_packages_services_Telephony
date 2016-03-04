@@ -16,33 +16,56 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">Налады экрана выкліку</string>
   <string name="show_ssn_label">Паведамленні пра падзеі</string>
   <string name="show_ssn_summary">Паказваць апавяшчэнні пра розныя падзеі сеткі, злучаных з выклікам</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Чорны спіс</string>
   <string name="blacklist_summary_disabled">Выключана</string>
   <string name="blacklist_summary">Вы не будзеце атрымваць уваходныя выклікі ці паведамленні ад тэлефонных нумароў з чорнага спіса</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Індыкатар чакання паведамленняў</string>
   <string name="mwi_notification_summary">Паказваць індыкатар чакання паведамленняў апавяшчэнняў галасавой пошты</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Мой нумар тэлефона</string>
   <string name="phone_number_summary">Задаць тэлефонны нумар для гэтай прылады</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Уключана ўмоўнае пераадрасаванне выкліку</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Уключана ўмоўнае пераадрасаванне выкліку</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Уваходны выклік пераадрасаваны</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Выклік у прыватную групу</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Зыходныя выклікі забароненыя</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Уваходныя выклікі забароненыя на адлеглым баку</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">ААН падчас гэтага выкліку адключаны сеткай</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Выклік аддалена пераадрасаваны</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Уваходны выклік пераадрасаваны</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Канферэнц-сувязь</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Выклік аддалена адменены</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Выклік быў пераадрасаваны</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Выклік злучаецца праз выяўную перадачу выкліку</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Выклік злучаны праз выяўную перадачу выкліку</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Запыт разблакоўкі сеткі SIM\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Не атрымалася выканаць запыт на разблакоўку сеткі SIM.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Не атрымалася выканаць запыт на разблакоўку сеткі SIM.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">Увесь дзень</string>
   <string name="time_start">Ад</string>
   <string name="time_end">Каму</string>
@@ -50,17 +73,30 @@
   <string name="time_minute">Хвіліна</string>
   <string name="time_formate_am">AM</string>
   <string name="time_formate_pm">PM</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Пераважны рэжым сеткі: Глабальны (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Удзельнік забараніў усе ўваходныя выклікі.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Выклік не адказаны і пераадрасаваны</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Пераважны рэжым сеткі: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Пераважны рэжым сеткі: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Пераважны рэжым сеткі: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Пераважны рэжым сеткі: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Пераважны рэжым сеткі: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Пераважны рэжым сеткі: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Пераважны рэжым сеткі: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Рэжым сеткі: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Пераважны рэжым сеткі: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -108,11 +144,17 @@
   <string name="psw_reenter_new">Яшчэ раз</string>
   <string name="no_call_barring">Адключана забарона выклікаў</string>
   <string name="cb_psw_dont_match">Паролі та розныя</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN не абноўлены, бо нумар не набраны ці перавышае 20 лічбаў.</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Экспарт кантактаў на SIM-карту\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Кіраванне кантактамі SIM-карты</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Збой выкліку з-за нізкага ўзроўню батарэі.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Збой выкліку з-за нізкага ўзроўню батарэі на аддаленай прыладзе.</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Кіраванне кантактамі на SIM-карце</string>
   <string name="exportContactScreen">Экспартаваць кантакты з тэлефона ў SIM</string>
   <string name="addSimEntries">Дадаць кантакт SIM</string>
@@ -137,4 +179,5 @@
   <string name="exportAllcontatsSuccess">Усе кантакты паспяхова экспартаваны на SIM</string>
   <string name="exportAllcontatsFailed">Не атрымалася экспартаваць кантакты на SIM</string>
   <string name="exportAllcontatsNoContacts">Не знойдзены кантакты для экспарту на SIM</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

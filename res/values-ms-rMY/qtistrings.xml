@@ -31,5 +31,52 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <!-- IMS settings related strings -->
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
+  <!-- Status message displayed on PUK Depersonalization panel -->
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Tidak berjaya membuka kunci PUK.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
+  <!-- Success message displayed on PUK Depersonalization panel -->
+  <!-- Preferred networks -->
 </resources>

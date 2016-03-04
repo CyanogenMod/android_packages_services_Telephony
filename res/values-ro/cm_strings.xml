@@ -16,36 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">Setări ecran în apel</string>
   <string name="show_ssn_label">Notificare eveniment</string>
   <string name="show_ssn_summary">Arată o notificare pentru diversele evenimente ale rețelei, legat de manipularea apelului</string>
   <string name="incall_echo_cancellation">Reducerea zgomotului în apel</string>
   <string name="enable_aec_label">Anulare ecou</string>
   <string name="enable_aec_summary">Reduce zgomotul ambiental pentru interlocutor în timpul apelurilor vocale</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Lista apelanților blocați</string>
   <string name="blacklist_summary_disabled">Dezactivat</string>
   <string name="blacklist_summary">Nu veți primi apeluri sau mesaje de la numere de telefon pe lista apelanților blocați</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indicator așteptare mesaj</string>
   <string name="mwi_notification_summary">Arată mesajul indicator de așteptare pentru notificări de poștă vocală</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Numărul meu de telefon</string>
   <string name="phone_number_summary">Setați nr de telefon pentru acest dispozitiv</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Redirecționarea necondiționată pentru apel este activă</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Redirecționarea condiționată pentru apel este activă</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Apelul efectuat este redirecționat</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Apel în grup închis de utilizatori</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Apelurile efectuate sunt blocate</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Apelurile primite sunt blocate de la distanță</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Suprimarea propriului nr este respinsă de rețea</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Apel redirecționat de la distanță</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Apelul primit este redirecționat</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Apel în multi-grup</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Apel lansat de la distanță</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Apelul a fost redirecționat</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Apelul se conectează printr-un transfer de apel explicit</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Apel conectat printr-un transfer de apel explicit</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Se solicită codul SIM de deblocare rețea\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Solicitare deblocare rețea SIM eșuată.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Rețea SIM deblocată cu succes.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">Toată ziua</string>
   <string name="time_start">De la</string>
   <string name="time_end">Către</string>
@@ -53,16 +76,29 @@
   <string name="time_minute">Minut</string>
   <string name="time_formate_am">AM</string>
   <string name="time_formate_pm">PM</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Mod rețea preferat: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Apelatul a blocat toate apelurile primite.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Apel nerăspuns și redirecționat</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Mod rețea preferat: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Mod rețea preferat: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Mod rețea preferat: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Mod rețea preferat: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Mod rețea preferat: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Mod rețea preferat: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Mod rețea preferat: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Mod rețea preferat: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -104,10 +140,16 @@
   <string name="psw_enter_old">Parola veche</string>
   <string name="psw_enter_new">Parolă nouă</string>
   <string name="cb_psw_dont_match">Parolele nu se potrivesc</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Se exportă contactele în cardul SIM\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Gestionează contactele de pe cartela SIM</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Apelul nu a fost efectuat datorită bateriei descărcate.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Apelul nu a fost efectuat datorită bateriei descărcate a dispozitivului de la distanță.</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Gestionare contacte SIM</string>
   <string name="exportContactScreen">Exportați contactele din telefon în SIM</string>
   <string name="addSimEntries">Adăugare contact în SIM</string>
@@ -133,6 +175,7 @@
   <string name="exportAllcontatsFailed">Nu s-a reușit exportarea tuturor contactelor în SIM</string>
   <string name="exportAllcontatsNoContacts">Fără contacte găsite pentru exportarea în SIM</string>
   <string name="msim_mobile_network_settings_title">Setări rețea mobilă SIM %d</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">schimbă mod rețea</string>
   <string name="perm_change_mobile_network_desc">Permite unei aplicații să modifice modul de rețea actual.</string>
 </resources>

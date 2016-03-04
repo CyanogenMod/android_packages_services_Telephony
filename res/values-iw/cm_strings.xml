@@ -16,36 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">הגדרות תצוגה במהלך שיחה</string>
   <string name="show_ssn_label">התראת אירוע</string>
   <string name="show_ssn_summary">הצג התראה לאירועי רשת שונים הקשורים בטיפול בשיחה</string>
   <string name="incall_echo_cancellation">הפחתת רעש במהלך שיחה</string>
   <string name="enable_aec_label">ביטול הד</string>
   <string name="enable_aec_summary">הפחתת רעשי רקע למשוחחים המרוחקים במהלך שיחות קוליות</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">רשימת המתקשרים החסומים</string>
   <string name="blacklist_summary_disabled">מושבת</string>
   <string name="blacklist_summary">לא יתקבלו שיחות נכנסות או הודעות ממספרי הטלפון הנמצאים ברשימת המתקשרים החסומים</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">מחוון הודעה ממתינה</string>
   <string name="mwi_notification_summary">הצג מחוון עבור הודעה קולית ממתינה</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">מספר הטלפון שלי</string>
   <string name="phone_number_summary">הגדר מספר טלפון למכשיר זה</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">העברת שיחות לא מותנת פעילה</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">העברת שיחות מותנת פעילה</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">שיחה יוצאת מועברת</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">שיחה בקבוצת משתמשים סגורה</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">שיחות יוצאות מבוקרות</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">שיחות נכנסות חסומות בועידה מרוחקת</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">המספר המדוחק נדחה על ידי הרשת</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">שיחה הועברה על ידי צד מרוחק</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">שיחה נכנסת מועברת</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">שיחה משותפת</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">השיחה שוחררה מרחוק</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">השיחה הועברה</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">השיחה מתחברת דרך העברת שיחה מפורשת</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">השיחה מחוברת דרך העברת שיחה מפורשת</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">מבקש פתיחת SIM לרשת\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">הבקשה לפתיחת רשת SIM נכשלה.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">פתיחת SIM לרשת הצליחה.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">כל היום</string>
   <string name="time_start">מאת</string>
   <string name="time_end">אל</string>
@@ -53,17 +76,30 @@
   <string name="time_minute">דקה</string>
   <string name="time_formate_am">AM</string>
   <string name="time_formate_pm">PM</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">מצב רשת מועדף: גלובלי (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">הועידה חסמה קבלת שיחות נכנסות.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">שיחה שהועברה מבלי להיענות</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">מצב רשת מועדף: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">מצב רשת מועדף: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">מצב רשת מועדף: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">מצב רשת מועדף: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">מצב רשת מועדף: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">מצב רשת מועדף: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">מצב רשת מועדפת: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">מצב רשת מועדף: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -111,11 +147,17 @@
   <string name="psw_reenter_new">הכנס שנית את סיסמתך</string>
   <string name="no_call_barring">חסימת שיחות מושבתת</string>
   <string name="cb_psw_dont_match">הסיסמאות אינן תואמות</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN לא עודכן כי המספר ריק או ארוך מ-20 ספרות.</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">מייצא אנשי קשר לכרטיס ה-SIM\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">נהל אנשי קשר של כרטיס ה-SIM</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">השיחה נכשלה עקב סוללה חלשה.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">השיחה נכשלה מכיוון שסוללת המכשיר המרוחק חלשה.</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">נהל אנשי קשר ב-SIM</string>
   <string name="exportContactScreen">יצא אנשי קשר במכשיר ל-SIM</string>
   <string name="addSimEntries">הוסף איש קשר ל-SIM</string>
@@ -141,6 +183,7 @@
   <string name="exportAllcontatsFailed">ייצוא כל אנשי הקשר ל-SIM נכשל</string>
   <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ל-SIM</string>
   <string name="msim_mobile_network_settings_title">הגדרות רשת סלולרית SIM %d</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">שינוי מצב רשת</string>
   <string name="perm_change_mobile_network_desc">מאפשר ליישום לשנות את מצב הרשת הנוכחי.</string>
 </resources>

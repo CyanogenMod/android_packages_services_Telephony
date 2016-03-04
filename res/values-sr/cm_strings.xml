@@ -16,36 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">Поставке екрана при позиву</string>
   <string name="show_ssn_label">Обавештење о догађају</string>
   <string name="show_ssn_summary">Прикажи обавештење за разне мрежне догађаје везане за управљање позивом</string>
   <string name="incall_echo_cancellation">Смањење буке при позиву</string>
   <string name="enable_aec_label">Уклањање еха</string>
   <string name="enable_aec_summary">Смањење амбијенталне буке удаљене забаве током позива</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Листа блокираних саговорника</string>
   <string name="blacklist_summary_disabled">Онемогућено</string>
   <string name="blacklist_summary">Нећеш примити позив или поруку са телефонског броја на листи блокираних саговорника</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Индикатор чекања поруке</string>
   <string name="mwi_notification_summary">Прикажи индикатор чекања говорне поште</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Мој телефонски број</string>
   <string name="phone_number_summary">Подеси телефонски број за овај уређај</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Безусловно прослеђивање позива је активно</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Условно прослеђивање позива је активно</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Одлазни позив је прослеђен</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Позив у затвореној групи корисника</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Одлазни позиви су забрањени</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Долазни позиви су забрањени од удаљене странке</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Сопствени број је сузбијен од мреже</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Позив је прослеђен од удаљене странке</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Долазни позив је прослеђен</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Конференцијски позив</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Позив је пуштен на даљину</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Позив је прослеђен</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Успоствљање позива преко експлицитног трансфера позива</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Веза је успостављена преко експлицитног трансфера позива</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Захтевање откључавања SIM мреже\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Захтев откључавања SIM мреже неуспешан.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Откључавање SIM мреже успешно.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">Цео дан</string>
   <string name="time_start">Од</string>
   <string name="time_end">За</string>
@@ -53,17 +76,30 @@
   <string name="time_minute">Минут</string>
   <string name="time_formate_am">AM</string>
   <string name="time_formate_pm">PM</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Жељени режим мреже: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Странка је забранила све долазне позиве.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Позив неодговорен и прослеђен</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Жељени режим мреже: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Жељени режим мреже: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Жељени режим мреже: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Жељени режим мреже: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Жељени режим мреже: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Жељени режим мреже: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Жељени режим мреже: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Преферирани режим мреже: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Жељени режим мреже: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -111,11 +147,17 @@
   <string name="psw_reenter_new">Поново унеси лозинку</string>
   <string name="no_call_barring">Забрана позива онемогућена</string>
   <string name="cb_psw_dont_match">Лозинке се не подударају</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN није ажуриран јер је број празан или прелази 20 цифара.</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Извоз контаката на SIM картицу\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Управљај контактима са SIM картице</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Позив није успео због слабе батерије.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Позив није успео због слабе батерије удаљеног уређаја.</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Уреди SIM контакте</string>
   <string name="exportContactScreen">Извоз телефонских контаката на SIM</string>
   <string name="addSimEntries">Додај SIM контакт</string>
@@ -141,6 +183,7 @@
   <string name="exportAllcontatsFailed">Није успео извоз свих контаката на SIM</string>
   <string name="exportAllcontatsNoContacts">Није пронађен ниједан контакт за извоз на SIM</string>
   <string name="msim_mobile_network_settings_title">Подешавање SIM %d мобилне мреже</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">промени режим мреже</string>
   <string name="perm_change_mobile_network_desc">Дозвољава апликацији да измени тренутни режим мреже.</string>
 </resources>

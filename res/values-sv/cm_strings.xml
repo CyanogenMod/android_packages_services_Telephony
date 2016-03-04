@@ -16,36 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">Skärminställningar under samtal</string>
   <string name="show_ssn_label">Händelseavisering</string>
   <string name="show_ssn_summary">Visa en avisering för olika nätverkshändelser relaterade till samtalshantering</string>
   <string name="incall_echo_cancellation">Brusreducering vid samtal</string>
   <string name="enable_aec_label">Ekocancellering</string>
   <string name="enable_aec_summary">Reducera omgivningsljud för fjärrparten under röstsamtal</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Lista över blockerade nummer</string>
   <string name="blacklist_summary_disabled">Inaktiverad</string>
   <string name="blacklist_summary">Du kommer inte få inkommande samtal eller meddelanden från telefonnummer som är på listan över blockerade nummer</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator för väntande meddelande</string>
   <string name="mwi_notification_summary">Visa meddelande väntar indikator som telefonsvararavisering</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Mitt telefonnummer</string>
   <string name="phone_number_summary">Ställ in enhetens telefonnummer</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Ovillkorlig vidarekoppling aktiv</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Villkorlig vidarekoppling aktiv</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Utgående samtal vidarebefordras</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Ring i sluten användargrupp</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Utgående samtal hindras</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Inkommande samtal hindras vid fjärrpart</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Undertryckande av eget nummer nekades av nätverket</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Samtal vidarebefordrat av fjärrpart</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Inkommande samtal blir vidarebefordrat</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Flerpartssamtal</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Samtalet släpptes på distans</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Samtalet vidarebefordrades</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Samtal ansluter genom explicit samtalsöverföring</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Samtal anslutet genom explicit samtalsöverföring</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Begär upplåsning av SIM-nätverk\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Begäran att låsa upp SIM-nätverk misslyckades.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Upplåsningen av SIM-nätverket lyckades.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">Hela dagen</string>
   <string name="time_start">Från</string>
   <string name="time_end">Till</string>
@@ -53,17 +76,30 @@
   <string name="time_minute">Minut</string>
   <string name="time_formate_am">AM</string>
   <string name="time_formate_pm">PM</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Föredraget nätverksläge: Globalt (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Parten har spärrat alla inkommande samtal.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Samtalet obesvarat och vidarebefordrat</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Föredraget nätverksläge: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Föredraget nätverksläge: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Föredraget nätverksläge: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Föredraget nätverksläge: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Föredraget nätverksläge: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Föredraget nätverksläge: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Föredraget nätverksläge: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Förvalt nätverk säge: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Föredraget nätverksläge: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -111,11 +147,17 @@
   <string name="psw_reenter_new">Ange ditt lösenord igen</string>
   <string name="no_call_barring">Samtalsspärr avaktiverad</string>
   <string name="cb_psw_dont_match">Lösenorden matchar inte</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN uppdaterades inte eftersom numret är tomt eller överskrider 20 siffror.</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Exporterar kontakter till SIM-kort\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Hantera SIM-kortets kontakter</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Uppringningen misslyckades på grund av låg batterinivå.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Uppringningen misslyckades på grund av låg batterinivå på fjärrenheten.</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Hantera SIM-kontakter</string>
   <string name="exportContactScreen">Exportera telefonkontakter till SIM</string>
   <string name="addSimEntries">Lägg till SIM-kontakt</string>
@@ -141,6 +183,7 @@
   <string name="exportAllcontatsFailed">Misslyckades med att exportera alla kontakter till SIM</string>
   <string name="exportAllcontatsNoContacts">Inga kontakter hittades att exportera till SIM</string>
   <string name="msim_mobile_network_settings_title">SIM-%d mobilnätsinställningar</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">ändra nätverksläge</string>
   <string name="perm_change_mobile_network_desc">Ger en app tillåtelse att ändra nuvarande nätverksläget.</string>
 </resources>

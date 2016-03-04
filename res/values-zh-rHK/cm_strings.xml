@@ -16,33 +16,69 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">事件通知</string>
   <string name="show_ssn_summary">為通話處理相關的各種網絡事件顯示一個通知</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_summary_disabled">已停用</string>
   <string name="blacklist_summary">您將不會收到通話黑名單上電話號碼的來電或短訊</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">訊息等候指示</string>
   <string name="mwi_notification_summary">顯示訊息等待指示語音留言通知</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">我的電話號碼</string>
   <string name="phone_number_summary">為此裝置設定手機號碼</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">開啟無條件地來電轉駁</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">開啟有條件地來電轉駁</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">撥出通話已轉駁</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">致電非公開使用者群組</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">禁止撥出電話</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">來電通話禁止於遠端系統</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">本機號碼被制止拒絕了網絡</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">由遠端系統啟用通話轉駁</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">來電通話已轉駁</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">多方通話</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">通話被對方釋放</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">通話被轉駁</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">致電透過顯式的來電轉接進行連接</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">致電透過顯式的來電轉接進行連接</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">正在請求 SIM 卡網絡解鎖\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM 卡網絡解鎖請求失敗。</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM 卡網絡解鎖成功。</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">對方已禁止所有來電。</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">來電未接聽並已轉駁</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -64,7 +100,13 @@
   <string name="preferred_network_mode_wcdma_only_choice">僅 WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">僅 GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">首選 GSM/WCDMA</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">匯出聯絡人至 SIM 卡\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">管理 SIM 卡聯絡人</string>
   <string name="exportContactScreen">匯出電話聯絡人至 SIM 卡</string>
   <string name="addSimEntries">新增 SIM 卡聯絡人</string>
@@ -89,4 +131,5 @@
   <string name="exportAllcontatsSuccess">成功匯出所有 SIM 卡聯絡人</string>
   <string name="exportAllcontatsFailed">匯出所有 SIM 卡聯絡人失敗</string>
   <string name="exportAllcontatsNoContacts">沒有要匯出至 SIM 卡的聯絡人</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

@@ -31,49 +31,96 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
-  <string name="ims_settings">Параметры IMS</string>
-  <string name="label_nsdp">PIN-код разблокировки частной сети SIM</string>
-  <string name="label_cdp">Корпоративный PIN-код разблокировки SIM</string>
-  <string name="label_spdp">PIN-код разблокировки оператора SIM</string>
-  <string name="label_sdp">PIN-код разблокировки SIM</string>
-  <string name="label_rn1dp">PIN-код разблокировки сети 1 RUIM</string>
-  <string name="label_rn2dp">PIN-код разблокировки сети 2 RUIM</string>
-  <string name="label_rhrpd">PIN-код разблокировки HRPD RUIM</string>
-  <string name="label_rcdp">Корпоративный PIN-код разблокировки RUIM</string>
-  <string name="label_rspdp">PIN-код разблокировки оператора RUIM</string>
-  <string name="label_rdp">PIN-код разблокировки RUIM</string>
+  <!-- IMS settings related strings -->
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="ims_settings">Настройки IMS</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
+  <string name="label_nsdp">PIN-код разблокировки подмножества сети SIM-карты</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
+  <string name="label_cdp">Корпоративный PIN-код разблокировки SIM-карты</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
+  <string name="label_spdp">PIN-код разблокировки оператора SIM-карты</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
+  <string name="label_sdp">PIN-код разблокировки SIM-карты</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="label_rn1dp">PIN-код разблокировки сети 1 RUIM-карты</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="label_rn2dp">PIN-код разблокировки сети 2 RUIM-карты</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="label_rhrpd">PIN-код разблокировки HRPD RUIM-карты</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
+  <string name="label_rcdp">Корпоративный PIN-код разблокировки RUIM-карты</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <string name="label_rspdp">PIN-код разблокировки оператора RUIM-карты</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
+  <string name="label_rdp">PIN-код разблокировки RUIM-карты</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Введите PUK-код</string>
-  <string name="requesting_nw_subset_unlock">Запрос разблокировки частной сети SIM\u2026</string>
-  <string name="requesting_sp_unlock">Запрос разблокировки оператора SIM\u2026</string>
-  <string name="requesting_corporate_unlock">Запрос разблокировки корпоративной SIM\u2026</string>
-  <string name="requesting_sim_unlock">Запрос разблокировки SIM\u2026</string>
-  <string name="requesting_rnw1_unlock">Запрос разблокировки сети 1 RUIM\u2026</string>
-  <string name="requesting_rnw2_unlock">Запрос разблокировки сети 2 RUIM\u2026</string>
-  <string name="requesting_rhrpd_unlock">Запрос разблокировки HRPD RUIM\u2026</string>
-  <string name="requesting_rsp_unlock">Запрос разблокировки оператора RUIM\u2026</string>
-  <string name="requesting_rc_unlock">Запрос разблокировки корпоративной RUIM\u2026</string>
-  <string name="requesting_ruim_unlock">Запрос разблокировки RUIM\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="requesting_nw_subset_unlock">Запрос разблокировки подмножества сети SIM-карты\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="requesting_sp_unlock">Запрос разблокировки оператора SIM-карты\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
+  <string name="requesting_corporate_unlock">Запрос разблокировки корпоративной SIM-карты\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
+  <string name="requesting_sim_unlock">Запрос разблокировки SIM-карты\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="requesting_rnw1_unlock">Запрос разблокировки сети 1 RUIM-карты\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="requesting_rnw2_unlock">Запрос разблокировки сети 2 RUIM-карты\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="requesting_rhrpd_unlock">Запрос разблокировки HRPD RUIM-карты\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="requesting_rsp_unlock">Запрос разблокировки оператора RUIM-карты\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="requesting_rc_unlock">Запрос разблокировки корпоративной RUIM-карты\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="requesting_ruim_unlock">Запрос разблокировки RUIM-карты\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Запрос разблокировки PUK-кодом\u2026</string>
-  <string name="nw_subset_unlock_failed">Не удалось выполнить запрос на разблокировку частной сети SIM.</string>
-  <string name="sp_unlock_failed">Не удалось выполнить запрос на разблокировку оператора SIM.</string>
-  <string name="corporate_unlock_failed">Не удалось выполнить запрос на разблокировку корпоративной SIM.</string>
-  <string name="sim_unlock_failed">Не удалось выполнить запрос на разблокировку SIM.</string>
-  <string name="rnw1_unlock_failed">Не удалось выполнить запрос на разблокировку сети 1 RUIM.</string>
-  <string name="rnw2_unlock_failed">Не удалось выполнить запрос на разблокировку сети 2 RUIM.</string>
-  <string name="rhrpd_unlock_failed">Не удалось выполнить запрос на разблокировку RUIM HRPD.</string>
-  <string name="rsp_unlock_failed">Не удалось выполнить запрос на разблокировку оператора RUIM.</string>
-  <string name="rc_unlock_failed">Не удалось выполнить запрос на разблокировку корпоративной RUIM.</string>
-  <string name="ruim_unlock_failed">Не удалось выполнить запрос на разблокировку RUIM.</string>
-  <string name="puk_unlock_failed">Не удалось произвести разблокировку PUK-кодом.</string>
-  <string name="nw_subset_unlock_success">Частная сеть SIM разблокирована.</string>
-  <string name="sp_unlock_success">Оператор SIM разблокирован.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_failed">Не удалось выполнить запрос на разблокировку подмножества сети SIM-карты.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="sp_unlock_failed">Не удалось выполнить запрос на разблокировку оператора SIM-карты.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="corporate_unlock_failed">Не удалось выполнить запрос на разблокировку корпоративной SIM-карты.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
+  <string name="sim_unlock_failed">Не удалось выполнить запрос на разблокировку SIM-карты.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_failed">Не удалось выполнить запрос на разблокировку сети 1 RUIM-карты.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_failed">Не удалось выполнить запрос на разблокировку сети 2 RUIM-карты.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_failed">Не удалось выполнить запрос на разблокировку HRPD RUIM-карты.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="rsp_unlock_failed">Не удалось выполнить запрос на разблокировку оператора RUIM-карты.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="rc_unlock_failed">Не удалось выполнить запрос на разблокировку корпоративной RUIM-карты.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="ruim_unlock_failed">Не удалось выполнить запрос на разблокировку RUIM-карты.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
+  <string name="puk_unlock_failed">Не удалось выполнить разблокировку PUK-кодом.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_success">Подмножество сети SIM-карты разблокировано.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="sp_unlock_success">Оператор SIM-карты разблокирован.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Корпоративная SIM разблокирована.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM-карта разблокирована.</string>
-  <string name="rnw1_unlock_success">Сеть 1 RUIM разблокирована.</string>
-  <string name="rnw2_unlock_success">Сеть 2 RUIM разблокирована.</string>
-  <string name="rhrpd_unlock_success">RUIM HRPD разблокирована.</string>
-  <string name="rsp_unlock_success">Оператор RUIM разблокирован.</string>
-  <string name="rc_unlock_success">Корпоративная RUIM разблокирована.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_success">Сеть 1 RUIM-карты разблокирована.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_success">Сеть 2 RUIM-карты разблокирована.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_success">HRPD RUIM-карты разблокирована.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="rsp_unlock_success">Оператор RUIM-карты разблокирован.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="rc_unlock_success">Корпоративная RUIM-карта разблокирована.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM-карта разблокирована.</string>
-  <string name="puk_unlock_success">Разблокировка PUK-кодом выполнена.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
+  <string name="puk_unlock_success">Разблокировка PUK-кодом завершена.</string>
+  <!-- Preferred networks -->
 </resources>

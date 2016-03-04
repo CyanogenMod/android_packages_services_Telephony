@@ -16,34 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">Postavke zaslona u pozivu</string>
   <string name="show_ssn_label">Obavijest o događaju</string>
   <string name="show_ssn_summary">Prikaži obavijest za razne mrežne događaje vezane za upravljanje pozivom</string>
   <string name="incall_echo_cancellation">Smanjenje buke u pozivu</string>
   <string name="enable_aec_label">Uklanjanje jeke</string>
   <string name="enable_aec_summary">Smanjenje ambijentne buke udaljene zabave tijekom poziva</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Popis blokiranih pozivatelja</string>
   <string name="blacklist_summary_disabled">Onemogućeno</string>
   <string name="blacklist_summary">Nećete primati dolazne pozive ili poruke od telefonskih brojeva na popisu blokiranih pozivatelja</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator čekanja poruke</string>
   <string name="mwi_notification_summary">Prikaži indikator čekanja govorne pošte</string>
+  <!-- My Phone Number -->
+  <string name="phone_number_label">Moj broj telefona</string>
+  <string name="phone_number_summary">Postavite telefonski broj za ovaj uređaj</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Bezuvjetno prosljeđivanje poziva aktivno</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Uvjetno prosljeđivanje poziva aktivno</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Odlazni poziv prosljeđen</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Poziv u zatvorenoj grupi korisnika</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Odlazni pozivi zabranjeni</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Dolazni pozivi su zabranjeni od udaljene stranke</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Vlastiti broj je suzbijen od mreže</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Poziv je proslijeđen od udaljene stranke</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Dolazni poziv je proslijeđen</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Konferencijski poziv</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Poziv je pušten na daljinu</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Poziv je proslijeđen</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Uspostavljanje poziva preko eksplicitnog transfer poziva</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Uspostavljanje poziva preko eksplicitnog transfer poziva</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Zahtijevanje otključavanja SIM mreže\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Zahtjev otključavanja SIM mreže neuspješan.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Otključavanje SIM mreže uspješno.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">Cijeli dan</string>
   <string name="time_start">Od</string>
   <string name="time_end">Do</string>
@@ -51,16 +76,30 @@
   <string name="time_minute">Minuta</string>
   <string name="time_formate_am">AM</string>
   <string name="time_formate_pm">PM</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Željeni način mreže: Globalni (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
+  <string name="callFailed_incoming_cb_enabled">Stranka je zabranila sve dolazne pozive.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Nazovi neodgovorene i proslijeđene pozive</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Željeni način mreže: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Željeni način mreže: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Željeni način mreže: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Željeni način mreže: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Željeni način mreže: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Željeni način mreže: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Željeni način mreže: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Način mreže: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Željeni način mreže: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -73,7 +112,13 @@
   <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_only_choice">Samo TD-SCDMA</string>
   <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
+  <string name="preferred_network_mode_lte_choice">LTE</string>
+  <string name="preferred_network_mode_global_choice">Globalno</string>
+  <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_evdo_only_choice">Samo EvDo</string>
+  <string name="preferred_network_mode_cdma_wo_evdo_choice">CDMA w/o EvDo</string>
   <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo automatski</string>
   <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA automatski</string>
   <string name="preferred_network_mode_wcdma_only_choice">Samo WCDMA</string>
@@ -102,23 +147,43 @@
   <string name="psw_reenter_new">Ponovno unesite lozinku</string>
   <string name="no_call_barring">Zabrana poziva onemogućena</string>
   <string name="cb_psw_dont_match">Lozinke se ne podudaraju</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN nije ažuriran jer je broj prazan ili prelazi 20 znamenki.</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
+  <string name="exportContacts">Izvoz kontakata na SIM karticu\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
+  <string name="simContacts_title_cm">Upravljanje kontaktima na SIM kartici</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Poziv nije uspio zbog slabe baterije.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Poziv nije uspio zbog slabe baterije udaljenog uređaja.</string>
+  <!-- Sim contacts management -->
+  <string name="contactScreen">Upravljanje SIM kontaktima</string>
+  <string name="exportContactScreen">Izvoz kontakata telefona na SIM</string>
+  <string name="addSimEntries">Dodaj SIM kontakt</string>
   <string name="deleteAllSimEntries">Izbriši sve SIM kontakte</string>
   <string name="deleteSimContacts">Brisanje SIM kontakata\u2026</string>
   <string name="editContact">Uređivanje</string>
   <string name="sendSms">Pošalji SMS</string>
   <string name="delete">Obriši</string>
+  <string name="dial">Biraj</string>
   <string name="enterName">Upišite naziv:</string>
   <string name="enterNumber">Unesite broj telefona:</string>
   <string name="hintName">Naziv</string>
   <string name="hintPhonenumber">Broj telefona</string>
+  <string name="contactAddSuccess">Uspješno dodan kontakt na SIM karticu</string>
+  <string name="contactAddFailed">Nije uspjelo dodavanje kontakta na SIM karticu</string>
+  <string name="contactUpdateSuccess">Uspješno ažuriran kontakt na SIM kartici</string>
+  <string name="contactUpdateFailed">Nije uspjelo ažuriranje kontakta na SIM kartici</string>
   <string name="contactdeleteSuccess">Kontakt sa SIM kartice uspješno izbrisan</string>
   <string name="contactdeleteFailed">Nije uspjelo brisanje kontakta sa SIM kartice</string>
   <string name="allContactdeleteSuccess">Uspješno izbrisani svi kontakti sa SIM kartice</string>
   <string name="allContactdeleteFailed">Nije uspjelo brisanje svih kontakata sa SIM kartice</string>
+  <string name="exportAllcontatsSuccess">Uspješno izvezeni svi kontakti na SIM karticu</string>
+  <string name="exportAllcontatsFailed">Nije uspio izvoz svih kontakata na SIM karticu</string>
+  <string name="exportAllcontatsNoContacts">Nema pronađenih kontakata za izvoz na SIM karticu</string>
   <string name="msim_mobile_network_settings_title">Postavke SIM %d mobilne mreže</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">promijeni način mreže</string>
   <string name="perm_change_mobile_network_desc">Dopušta aplikaciji izmijeniti trenutni način mreže.</string>
 </resources>

@@ -16,42 +16,78 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">घटना अधिसूचना</string>
   <string name="show_ssn_summary">कॉल व्यवस्था से संबंधित विभिन्न नेटवर्क घटना के लिए अधिसूचना दिखाएँ</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">अवरुद्ध किए गए कॉलरों की सूची</string>
   <string name="blacklist_summary_disabled">अक्षम</string>
   <string name="blacklist_summary">आपको अवरुद्ध किए गए कॉलरों की सूची में मौजूद फ़ोन नंबरों से कॉल और संदेश नहीं आया करेंगे</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">संदेश प्रतीक्षा सूचक</string>
   <string name="mwi_notification_summary">संदेश प्रतीक्षा सूचक ध्वनि डाक सूचनाएँ दिखाएँ</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">मेरा फ़ोन नंबर</string>
   <string name="phone_number_summary">इस उपकरण के लिए फ़ोन नंबर सेट करें</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">बिना शर्त कॉल अग्रेषण सक्रिय</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">सशर्त कॉल अग्रेषण सक्रिय</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">जावक कॉल को अग्रेषित किया जाता है</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">बंद उपयोगकर्ता समूह में कॉल करें</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">जावक कॉल को अवरुद्ध किया जाता है</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">आवको कॉलों को दूरस्थ पक्ष के पास अवरुद्ध किया जाता है</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">ख़ुद के नंबर को दबाने की क्रिया नेटवर्क द्वारा अ्वीकृत की गई</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">दूरस्थ पक्ष ने कॉल को अग्रेषित किया</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">आवक कॉल को अग्रेषित किया जाता है</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">बहु-पक्षीय कॉल</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">कॉल को दूरस्थ रूप से मुक्त किया जाता है</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">कॉल को अग्रेषित किया गया</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">कॉल को प्रत्यक्ष कॉल अंतरण के ज़रिए कनेक्ट हो रहा है</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">कॉल को प्रत्यक्ष कॉल अंतरण के ज़रिए कनेक्ट किया गया</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">सिम नेटवर्क अनलॉक का अनुरोध कर रहे हैं\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">सिम नेटवर्क अनलॉक अनुरोध सफल नहीं हुआ।</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">सिम नेटवर्क अनलॉक सफल।</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">पसंदीदा नेटवर्क मोड: वैश्विक (सीडीएमए/ईवीडीओ/एलटीई/जीएसएम/डब्ल्यूसीडीएमए)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">पक्ष ने सभी आवक कॉलों को अवरुद्ध किया है।</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">कॉल अनुत्तरित और अग्रेषित</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/डब्ल्यूसीडीएमए</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/एलटीई</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/जीएसएम</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/जीएसएम/एलटीई</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/जीएसएम/डब्ल्यूसीडीएमए</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/डब्ल्यूसीडीएमए/एलटीई</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/जीएसएम/डब्ल्यूसीडीएमए/एलटीई</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">पसंदीदा नेटवर्क मोड: टीडी-एससीडीएमए/एलटीई/सीडीएमए/ईवीडीओ/जीएसएम/डब्ल्यूसीडीएमए</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">टीडी-एससीडीएमए/जीएसएम/डब्ल्यूसीडीएमए/एलटीई</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">टीडी-एससीडीएम/डब्ल्यूसीडीएमए/एलटीई</string>
@@ -74,8 +110,14 @@
   <string name="preferred_network_mode_wcdma_only_choice">केवल डब्ल्यूसीडीएमए</string>
   <string name="preferred_network_mode_gsm_only_choice">केवल जीएसएम</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">जीएसम/डब्ल्यूसीडीएमए बेहतर रहेगा</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">संपर्कों को सिम कार्ड में निर्यात कर रहे हैं\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">सिम कार्ड संपर्कों को प्रबंधित करें</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">सिम कार्ड संपर्कों को प्रबंधित करें</string>
   <string name="exportContactScreen">फ़ोन संपर्कों को सिम में निर्यात करें</string>
   <string name="addSimEntries">सिम संपर्क जोड़ें</string>
@@ -100,4 +142,5 @@
   <string name="exportAllcontatsSuccess">सभी संपर्कों को सफलतापूर्वक सिम में निर्यात कर दिया</string>
   <string name="exportAllcontatsFailed">सभी संपर्कों को सिम में निर्यात नहीं कर सके</string>
   <string name="exportAllcontatsNoContacts">सिम में निर्यात करने के लिए कोई संपर्क नहीं मिला</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>
