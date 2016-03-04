@@ -31,48 +31,95 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <!-- IMS settings related strings -->
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM alt şəbəkə kilid açma PINi</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIM şirkət kilidi açma PINi</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIM servis təchizatçısı kilidi açma PINi</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM kilidi açma PINi</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">1. RUIM şəbəkəsi kilid açma PINi</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">2. RUIM şəbəkəsi kilid açma PINi</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPD kilidi açma PINi</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIM şirkət kilid açma PINi</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIM servis təchizatçısı kilid açma PINi</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM kilidi açma PINi</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">PUK daxil edin</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">SIM alt şəbəkəsi kilid açma sorğusu göndərilir\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">SIM servis təchizatçısı kilidi açma sorğusu göndərilir\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">SIM şirkət kilidi açma sorğulanır\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">SIM kilid açma sorğusu göndərilir\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">1. RUIM şəbəkəsi kilid açma sorğusu göndərilir\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">2. RUIM şəbəkəsi kilid açma sorğusu göndərilir\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">RUIM HRPD kilid açma sorğusu göndərilir\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">RUIM servis təchizatçısı kilidi açma sorğusu göndərilir\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">RUIM şirkət kilidi açma sorğulanır\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">RUIM kilidi açma sorğulanır\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">PUK kilidi açma sorğulanır\u2026</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIM alt şəbəkəsi kilid açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIM servis təchizatçısı kilidini açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIM şirkət kilidini açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIM kilid açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">1. RUIM şəbəkə kilid açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">2. RUIM şəbəkə kilid açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">RUIM HRPD kilid açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIM servis təchizatçısı kilidini açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIM şirkət kilidini açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIM kilid açma sorğusu uğursuz oldu.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK kilid açma uğursuz oldu.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIM alt şəbəkə kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIM servis təchizatçısı kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">SIM şirkət kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">1. RUIM şəbəkəsi kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">2. RUIM şəbəkəsi kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">RUIM HRPD kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIM servis təchizatçı kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIM şirkət kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM kilidi uğurla açıldı.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK kilidi uğurla açıldı.</string>
+  <!-- Preferred networks -->
 </resources>

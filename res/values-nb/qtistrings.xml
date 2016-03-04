@@ -31,49 +31,96 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <!-- IMS settings related strings -->
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_settings">IMS innstillinger</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM nettverk delsett opplåsnings PIN</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIM corporate opplåsnings PIN</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIM-leverandøren opplåsnings PIN</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM opplåsnings PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIM nettverk 1 opplåsnings PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIM nettverk 2 opplåsnings PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPD opplåsnings PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIM corporate opplåsnings PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIM-leverandør opplåsnings PIN</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM opplåsnings PIN</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Angi PUK-kode</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Ber om SIM nettverk delsett opplåsning\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Ber om SIM service leverandør opplåsning\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Ber om SIM corporate opplåsning\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Ber om SIM opplåsning\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Ber om RUIM nettverk 1 opplåsning\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Ber om RUIM nettverk 2 opplåsning\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Ber om RUIM HRPD opplåsning\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Ber om RUIM service leverandør opplåsning\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Ber om RUIM corporate opplåsning\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Ber om RUIM opplåsning\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Ber om PUK opplåsning\u2026</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIM nettverk delsett opplåsnings forespørsel mislyktes.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIM-leverandørens opplåsnings forespørsel mislyktes.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIM corporate opplåsningsforespørsel mislyktes.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIM opplåsningsforespørselen mislyktes.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">RUIM nettverk 1 opplåsningsforespørsel mislyktes.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">RUIM nettverk 2 opplåsningsforespørsel mislyktes.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">RUIM HRPD opplåsningsforespørsel mislyktes.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIM-leverandør opplåsningsforespørsel mislyktes.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIM corporate opplåsningsforespørsel mislyktes.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIM opplåsningsforespørsel mislyktes.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK opplåsning mislyktes.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIMkort til undernettverk låst opp.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIMkort opplåst.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Simkort arbeid opplåst.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">Sim opplåsning vellykket.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">RUIM nettverk 1 opplåsing vellykket.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">RUIM nettverk 2 opplåsing vellykket.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">RUIM HRPD opplåsing vellykket.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIM-leverandør opplåsing vellykket.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIM corporate opplåst vellykket.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM opplåsning vellykket.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK opplåsning vellykket.</string>
+  <!-- Preferred networks -->
 </resources>

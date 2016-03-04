@@ -16,40 +16,76 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">ھادىسە ئۇقتۇرۇشى</string>
   <string name="show_ssn_summary">چاقىرىشنى بىر تەرەپ قىلىشقا ئائىت ھەر خىل تور ھادىسىلىرى ئۈچۈن ئۇقتۇرۇشتىن بىرنى كۆرسىتىدۇ</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_summary_disabled">چەكلەنگەن</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">ئۇچۇر كۈتۈش كۆرسەتكۈچى</string>
   <string name="mwi_notification_summary">ئۈنخەت ئۇقتۇرۇشىنىڭ ئۇچۇر كۈتۈش كۆرسەتكۈچىنى كۆرسىتىدۇ</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">تېلېفون نومۇرۇم</string>
   <string name="phone_number_summary">بۇ ئۈسكۈنە ئۈچۈن تېلېفون نومۇر تەڭشىكى</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">شەرتسىز ئۇلاپ يەتكۈزۈش ئاكتىپ</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">شەرلىك ئۇلاپ يەتكۈزۈش ئاكتىپ</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">چاقىرغان تېلېفون ئۇلاپ يەتكۈزۈلدى</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">يېپىق گۇرۇپپىدا چاقىر</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">چىققان چاقىرىشلار چەكلەندى</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">چاقىرىلىشنى قارشى تەرەپ چەكلىدى</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">	ئۆز نومۇرىنى چەكلەشنى تور رەت قىلدى</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">چاقىرىشنى قارشى تەرەپ ئۇلاپ يەتكۈزدى</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">چاقىرىلىش ئۇلاپ يەتكۈزۈلدى</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">كۆپ تەرەپ چاقىرىش</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">چاقىرىشنى قارشى تەرەپ قويۇۋەتتى</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">چاقىرىش ئۇلاپ يەتكۈزۈلدى</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">چاقىرىش ئاشكارە چاقىرىشنى ئۇلاپ يەتكۈزۈش ئارقىلىق باغلىنىۋاتىدۇ</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">چاقىرىش ئاشكارە چاقىرىشنى ئۇلاپ يەتكۈزۈش ئارقىلىق باغلاندى</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIM كارتا تورىنىڭ قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM كارتا تورىنىڭ قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM كارتا تورىنىڭ قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">ئالدىن بەلگىلەنگەن تور ھالىتى: دۇنيا (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">قارشى تەرەپ بارلىق چاقىرىلىشلارنى توستى.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">چاقىرىشتا ئىنكاس يوق ھەمدە ئۇلاپ يەتكۈزۈلدى</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">ئالدىن بەلگىلەنگەن تور ھالىتى:TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
@@ -72,8 +108,14 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA لا</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM لا</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">ئالدىن بەلگىلەنگەن GSM/WCDMA</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">ئالاقەداشلارنى SIM كارتىغا چىقىرىۋاتىدۇ\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">SIM كارتىدىكى ئالاقەداشلارنى باشقۇرۇش</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">SIM دىكى ئالاقەداشلارنى باشقۇرۇش</string>
   <string name="exportContactScreen">تېلېفوندىكى ئالاقەداشلارنى SIM غا چىقىرىدۇ</string>
   <string name="addSimEntries">SIM ئالاقەداش قوش</string>
@@ -98,4 +140,5 @@
   <string name="exportAllcontatsSuccess">ھەممە ئالاقەداشنى SIM غا مۇۋەپپەقىيەتلىك چىقاردى</string>
   <string name="exportAllcontatsFailed">ھەممە ئالاقەداشنى SIM غا چىقىرالمىدى</string>
   <string name="exportAllcontatsNoContacts">SIM غا چىقىرىدىغان ئالاقەداشنى تاپالمىدى</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

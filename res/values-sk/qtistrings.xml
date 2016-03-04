@@ -31,48 +31,95 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <!-- IMS settings related strings -->
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">PIN na odomknutie podsiete SIM</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">PIN na odomknutie korporátnej SIM</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">PIN na odomknutie SIM poskytovateľa služieb</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">PIN na odomknutie SIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">PIN na odomknutie RUIM siete 1</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">PIN na odomknutie RUIM siete 2</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">PIN na odomknutie RUIM HRPD</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">PIN na odomknutie korporátnej RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">PIN na odomknutie poskytovateľa služieb RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">PIN na odomknutie RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Zadajte kód PUK</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Požiadavka na odomknutie podsiete SIM\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Požiadavka na odomknutie SIM poskytovateľa služieb\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Požiadavka na odomknutie korporátnej SIM\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Požiadavka na odomknutie SIM\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Požiadavka na odomknutie RUIM siete 1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Požiadavka na odomknutie RUIM siete 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Požiadavka na odomknutie RUIM HRPD\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Požiadavka na odomknutie RUIM poskytovateľa služieb\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Požiadavka na odomknutie korporátnej RIUM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Požiadavka na odomknutie RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Požiadavka odomknutia PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Požiadavka na odomknutie podsiete SIM bola neúspešná.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Požiadavka na odomknutie SIM poskytovateľa služieb bola neúspešná.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Požiadavka na odomknutie korporátnej SIM bola neúspešná.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Požiadavka na odomknutie SIM bola neúspešná.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Požiadavka na odomknutie RUIM siete 1 bola neúspešná.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Požiadavka na odomknutie RUIM siete 2 bola neúspešná.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Požiadavka na odomknutie RUIM HRPD bola neúspešná.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Požiadavka na odomknutie RUIM poskytovateľa služieb bola neúspešná.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Požiadavka na odomknutie korporátnej RUIM bola neúspešná.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Požiadavka na odomknutie RUIM bola neúspešná.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Požiadavka na odomknutie PUK bola neúspešná.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Odomknutie podsiete SIM bolo úspešné.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Odomknutie SIM poskytovateľa služieb bolo úspešné.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Odomknutie korporátnej SIM bolo úspešné.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">Odomknutie SIM bolo úspešné.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Odomknutie RUIM siete 1 bolo úspešné.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Odomknutie RUIM siete 2 bolo úspešné.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Odomknutie RUIM HRPD bolo úspešné.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Odomknutie RUIM poskytovateľa služieb bolo úspešné.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Odomknutie korporátnej RUIM bolo úspešné.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Odomknutie RUIM bolo úspešné.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Odomknutie PUK bolo úspešné.</string>
+  <!-- Preferred networks -->
 </resources>

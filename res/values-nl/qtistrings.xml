@@ -31,49 +31,96 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <!-- IMS settings related strings -->
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_settings">IMS-instellingen</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">Netwerksubset SIM-ontgrendelings-PIN</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">Zakelijke SIM-ontgrendelings-PIN</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">Netwerkaanbieder SIM-ontgrendelings-PIN</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM-ontgrendelings-PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">Netwerk1 RUIM-ontgrendelings-PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">Netwerk2 RUIM-ontgrendelings-PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">HRPD RUIM-ontgrendelings-PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">Zakelijke RUIM-ontgrendelings-PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">Netwerkaanbieder RUIM-ontgrendelings-PIN</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM-ontgrendelings-PIN</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Pukcode invoeren</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Verzoek om ontgrendelen netwerksubset-SIM\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Verzoek om ontgrendelen netwerkaanbieder-SIM\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Verzoek om ontgrendelen zakelijke SIM\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Verzoek om ontgrendelen SIM\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Verzoek om ontgrendelen netwerk1-RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Verzoek om ontgrendelen netwerk2-RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Verzoek om ontgrendelen HRPD-RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Verzoek om ontgrendelen netwerkaanbieder-RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Verzoek om ontgrendelen zakelijke RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Verzoek om ontgrendelen RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Verzoek om ontgrendelen PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Verzoek voor ontgrendelen netwerksubset-SIM mislukt.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Verzoek voor ontgrendelen netwerkaanbieder-SIM mislukt.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Verzoek voor ontgrendelen zakelijke SIM mislukt.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Verzoek voor ontgrendelen SIM mislukt.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Verzoek voor ontgrendelen netwerk1-RUIM mislukt.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Verzoek voor ontgrendelen netwerk2-RUIM mislukt.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Verzoek voor ontgrendelen HRPD-RUIM mislukt.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Verzoek voor ontgrendelen netwerkaanbieder-RUIM mislukt.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Verzoek voor ontgrendelen zakelijke RUIM mislukt.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Verzoek voor ontgrendelen RUIM mislukt.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Verzoek voor ontgrendelen PUK mislukt.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Netwerksubset-SIM ontgrendeld.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Netwerkaanbieder-SIM ontgrendeld.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Zakelijke SIM ontgrendeld.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM ontgrendeld.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Netwerk1-RUIM ontgrendeld.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Netwerk2-RUIM ontgrendeld.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">HRPD-RUIM ontgrendeld.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Netwerkaanbieder-RUIM ontgrendeld.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Zakelijke RUIM ontgrendeld.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM ontgrendeld.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK ontgrendeld.</string>
+  <!-- Preferred networks -->
 </resources>

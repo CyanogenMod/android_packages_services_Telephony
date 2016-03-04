@@ -16,42 +16,78 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">ಘಟನೆ ಅಧಿಸೂಚನೆ</string>
   <string name="show_ssn_summary">ಕರೆ ನಿರ್ವಹಣೆಗೆ ಸಂಬಂಧಿಸಿದ ವಿವಿಧ ನೆಟ್‍ವರ್ಕ್ ಘಟನೆಗಳ ಅಧಿಸೂಚನೆಯನ್ನು ಪ್ರದರ್ಶಿಸು</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಮಾಡುವರ ಪಟ್ಟಿ</string>
   <string name="blacklist_summary_disabled">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
   <string name="blacklist_summary">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಮಾಡುವರ ಪಟ್ಟಿಯಲ್ಲಿರುವ ದೂರವಾಣಿ ಸಂಖ್ಯೆಗಳಿಂದ ಒಳಬರುವ ಕರೆಗಳನ್ನು ಮತ್ತು ಸಂದೇಶಗಳನ್ನು ನೀವು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">ಸಂದೇಶ ನಿರೀಕ್ಷೆ ಸೂಚಕ</string>
   <string name="mwi_notification_summary">ಸಂದೇಶ ನಿರೀಕ್ಷೆ ಸೂಚಕ ಧ್ವನಿಮೇಲ್ ಅಧಿಸೂಚನೆಯನ್ನು ಪ್ರದರ್ಶಿಸು</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">ನನ್ನ ದೂರವಾಣಿ ಸಂಖ್ಯೆ</string>
   <string name="phone_number_summary">ಈ ಸಾಧನಕ್ಕಾಗಿ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ಹೊಂದಿಸಿ</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">ಷರತ್ತುಮುಕ್ತವಾದ ಕರೆ ಫಾರ್ವರ್ಡ್ ಮಾಡುವಿಕೆ ಸಕ್ರಿಯ</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">ಷರತ್ತುಬದ್ಧ ಕರೆ ಫಾರ್ವರ್ಡ್ ಮಾಡುವಿಕೆ ಸಕ್ರಿಯ</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">ಹೊರಹೋಗುವ ಕರೆಯನ್ನು ಫಾರ್ವರ್ಡ್ ಮಾಡಲಾಗುತ್ತದೆ</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">ಕರೆಯು ಮುಚ್ಚಿದ ಬಳಕೆದಾರ ಗುಂಪಿನಲ್ಲಿದೆ</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">ಹೊರಹೋಗುವ ಕರೆಗಳನ್ನು ನಿಷೇಧಿಸಲಾಗಿದೆ</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">ಒಳಬರುವ ಕರೆಗಳನ್ನು ರಿಮೋಟ್ ಪಕ್ಷದವರು ನಿಷೇಧಿಸಿದ್ದಾರೆ</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">ಸ್ವಂತ ಸಂಖ್ಯೆ ನಿಗ್ರಹಣವನ್ನು ನೆಟ್‍ವರ್ಕ್ ನಿರಾಕರಿಸಿದೆ</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">ರಿಮೋಟ್ ಪಕ್ಷದವರು ಕರೆ ಫಾರ್ವಡ್ ಮಾಡಿದ್ದಾರೆ</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">ಒಳಬರುವ ಕರೆಯನ್ನು ಫಾರ್ವರ್ಡ್ ಮಾಡಲಾಗಿದೆ</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">ಬಹು-ಪಕ್ಷೀಯ ಕರೆ</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">ಕರೆಯನ್ನು ದೂರದಿಂದ ಬಿಡುಗಡೆ ಮಾಡಲಾಗಿದೆ</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">ಕರೆ ಫಾರ್ವರ್ಡ್ ಮಾಡಲಾಗಿದೆ</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">ಪ್ರತ್ಯಕ್ಷ ಕರೆ ವರ್ಗಾವಣೆಯ ಮೂಲಕ ಕರೆಯನ್ನು ಸಂಪರ್ಕ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">ಪ್ರತ್ಯಕ್ಷ ಕರೆ ವರ್ಗಾವಣೆಯ ಮೂಲಕ ಕರೆಯನ್ನು ಸಂಪರ್ಕ ಮಾಡಲಾಗಿದೆ</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಅನ್‍ಲಾಕ್ ಕೋರಿಕೆ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: ಜಾಗತಿಕ (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">ಪಕ್ಷವು ಎಲ್ಲಾ ಒಳಬರುವ ಕರೆಗಳನ್ನು ನಿಷೇಧಿಸಿದ್ದಾರೆ.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">ಕರೆ ಉತ್ತರಿಸಲಿಲ್ಲ ಮತ್ತು ಫಾರ್ವರ್ಡ್ ಮಾಡಲಾಗಿದೆ</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
@@ -74,8 +110,14 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA ಮಾತ್ರ</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM ಮಾತ್ರ</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ಆದ್ಯತೆಯ</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್ ಕಾರ್ಡ್‍ಗೆ ರಫ್ತು ಮಾಡುತ್ತಿದೆ\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">ಸಿಮ್ ಕಾರ್ಡ್ ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">ಸಿಮ್ ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
   <string name="exportContactScreen">ಫೋನ್ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ರಫ್ತು ಮಾಡಿ</string>
   <string name="addSimEntries">ಸಿಮ್ ಸಂಪರ್ಕವನ್ನು ಸೇರಿಸಿ</string>
@@ -100,4 +142,5 @@
   <string name="exportAllcontatsSuccess">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ಯಶಸ್ವಿಯಾಗಿ ರಫ್ತುಮಾಡಿದೆ</string>
   <string name="exportAllcontatsFailed">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ರಫ್ತುಮಾಡಲು ವಿಫಲವಾಗಿದೆ</string>
   <string name="exportAllcontatsNoContacts">ಸಿಮ್‍ಗೆ ರಫ್ತು ಮಾಡಲು ಯಾವುದೇ ಸಂಪರ್ಕಗಳು ಪತ್ತೆಯಾಗಲಿಲ್ಲ</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

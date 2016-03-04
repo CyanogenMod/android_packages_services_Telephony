@@ -16,42 +16,78 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">Sündmuse teavitus</string>
   <string name="show_ssn_summary">Kuva teavitus erinevate võrgu sündmuste puhul seotud kõne haldamisega</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Blokeeritud helistajate nimekiri</string>
   <string name="blacklist_summary_disabled">Keelatud</string>
   <string name="blacklist_summary">Te ei saa sissetulevaid kõnesid ega sõnumeid numbritelt, mis on blokeeritud helistajate nimekirjas</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Sõnumi ootamise indikaator</string>
   <string name="mwi_notification_summary">Näita \'sõnum ootel\' tulukest kõneposti teate korral</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Minu telefoninumber</string>
   <string name="phone_number_summary">Sea telefoni number sellele seadmele</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Tingimusteta kõnesuunamine aktiivne</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Tingimustega kõnesuunamine aktiivne</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Väljaminev kõne on suunatud</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Kõne piiratud kasutajagrupis</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Väljuvad kõned on piiratud</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Sissetulevad kõned on piiratud teise poole poolt</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Oma numbri peitmine lükatud tagasi võrgu poolt</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Kõne suunatud teise poole poolt</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Sissetulev kõne on suunatud</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Mitme osalejaga kõne</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Kõne vabastatud eemalt</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Kõne oli suunatud</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Kõne ühendatakse müravaba ülekande abil</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Kõne on ühendatud müravaba ülekande abil</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Taotlen SIMi võrgu avamist\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM võrgu avamise taotlus ebaõnnestus.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM võrgu avamise taotlus ebaõnnestus.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Eelistatud võrgurežiim: Globaalne (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Osapool on keelanud kõik sisenevad kõned.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Kõne vastamata ja edasi suunatud</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Eelistatud võrgurežiim: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Eelistatud võrgurežiim: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Eelistatud võrgurežiim: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Eelistatud võrgurežiim: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Eelistatud võrgurežiim: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Eelistatud võrgurežiim: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Eelistatud võrgurežiim: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Eelistatud võrgu režiim: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
@@ -74,8 +110,14 @@
   <string name="preferred_network_mode_wcdma_only_choice">Ainult WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Ainult GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Eelistatult GSM/WCDMA</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Ekspordin kontaktid SIM kaardile\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Halda SIM kaardi kontakte</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">Halda kontakte SIM kaardil</string>
   <string name="exportContactScreen">Ekspordi telefoni kontaktid SIMile</string>
   <string name="addSimEntries">Lisa SIM kontakt</string>
@@ -100,4 +142,5 @@
   <string name="exportAllcontatsSuccess">Kõik kontaktid said edukalt eksporditud SIMile</string>
   <string name="exportAllcontatsFailed">Ei suutnud kõiki kontakte eksportida SIMile</string>
   <string name="exportAllcontatsNoContacts">Ei leitud ühtegi kontakti, mida eksportida SIMile</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

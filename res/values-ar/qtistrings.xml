@@ -31,19 +31,66 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <!-- IMS settings related strings -->
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
+  <!-- Status message displayed on PUK Depersonalization panel -->
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">طلب إلغاء قفل RUIM من موفر الخدمة غير ناجح.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">طلب إلغاء قفل RUIM الشركات غير ناجح.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">طلب إلغاء قفل RUIM غير ناجح.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">طلب إلغاء قفل  PUK غير ناجح.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">نجح إلغاء قفل شبكة SIM الفرعية.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">نجح إلغاء قفل SIM من موفر الخدمة.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">نجح إلغاء قفل SIM من الشركات.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">نجح إلغاء قفل SIM.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">نجح إلغاء قفل شبكة RIUM 1.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">نجح إلغاء قفل شبكة RUIM 2.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">نجح إلغاء قفل شبكة RUIM HRPD.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">نجح إلغاء قفل شبكة RUIM من موفر الخدمة.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">نجح إلغاء قفل شبكة RUIM الشركات.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">نجح إلغاء قفل شبكة RUIM.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">نجح إلغاء قفل شبكة PUK.</string>
+  <!-- Preferred networks -->
 </resources>

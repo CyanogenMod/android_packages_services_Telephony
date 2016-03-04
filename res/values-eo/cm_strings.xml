@@ -16,42 +16,78 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">Atentigo pri evento</string>
   <string name="show_ssn_summary">Montri atentigon por diversaj retaj eventoj ritale al mastrumado de alvokoj</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Listo de blokitaj alvokantoj</string>
   <string name="blacklist_summary_disabled">Malŝaltita</string>
   <string name="blacklist_summary">Vi ricevos neniun alvokon nek mesaĝon el telefonnumeroj en la listo de blokitaj alvokantoj</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikilo de atendanta mesaĝo</string>
   <string name="mwi_notification_summary">Montri indikilon de voĉaj mesaĝoj</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Mia telefonnumero</string>
   <string name="phone_number_summary">Agordi la telefonnumeron por tiu aparato</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Senkondiĉa plusendado de alvokoj ŝaltita</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Kondiĉa plusendado de alvokoj ŝaltita</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Eliranta alvoko estas plusendita</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Alvoko en fermita grupo</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Elirantaj alvokoj estas blokitaj</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Alvenanta alvoko estas malpermesita de la fora uzanto</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Propra forigo de via numero estas malakceptita de la reto</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Alvoko plusendita de la fora uzanto</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Eniranta alvoko estas plusendita</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Kunsida alvoko</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Alvoko fore lanĉita</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Alvoko estas plusendita</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Konekta alvoko tra eksplicita alvoka transigilo</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Konektita alvoko tra eksplicita alvoka transigilo</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Peto por malŝlosi retan SIM\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Fiaskis malŝlosi retan SIM.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Peto por malŝlosi retan SIM sukcesis.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Plej ŝatata reta reĝimo: ĝenerala (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">La grupo malpermesis ĉiujn enirantajn alvokojn.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Senresponda kaj plusendita alvoko</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Plej ŝatata reta reĝimo: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Plej ŝatata reta reĝimo: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Plej ŝatata reta reĝimo: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Plej ŝatata reta reĝimo: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Plej ŝatata reta reĝimo: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Plej ŝatata reta reĝimo: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Plej ŝatata reta reĝimo: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Plej ŝatata reta reĝimo: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
@@ -74,8 +110,14 @@
   <string name="preferred_network_mode_wcdma_only_choice">nur WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">nur GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA plej ŝatata</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Eksporti kontaktulojn al SIM-karto\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Mastrumi kontaktulojn en SIM-karto</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">Mastrumi SIM kontaktulojn</string>
   <string name="exportContactScreen">Eksporti telefonkontaktulojn al SIM</string>
   <string name="addSimEntries">Aldoni SIM kontaktulon</string>
@@ -100,4 +142,5 @@
   <string name="exportAllcontatsSuccess">Eksporto de ĉiuj kontaktuloj el SIM sukcesis</string>
   <string name="exportAllcontatsFailed">Eksporto de ĉiuj kontaktuloj el SIM fiaskis</string>
   <string name="exportAllcontatsNoContacts">Neniu kontakto troveblas por eksporti al SIM</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

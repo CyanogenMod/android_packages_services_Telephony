@@ -16,36 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">In-oproep skerm instellings</string>
   <string name="show_ssn_label">Kennisgewings</string>
   <string name="show_ssn_summary">Wys \'n kennisgewing vir verskeie netwerk gebeure wat verband hou met die hantering van telefoon oproepe</string>
   <string name="incall_echo_cancellation">In-oproep geraas vermindering</string>
   <string name="enable_aec_label">Eggo kansellasie</string>
   <string name="enable_aec_summary">Verminder die omgewings lawaai vir die afgeleë party tydens stem oproepe</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Lys geblokkeerde oproepers</string>
   <string name="blacklist_summary_disabled">Deaktiveer</string>
   <string name="blacklist_summary">Jy sal nie inkomende oproepe of boodskappe van persone ontvang op die lys van geblokkeerde oproepe</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Boodskap wag aanwyser</string>
   <string name="mwi_notification_summary">Wys boodskap wag aanwyser vir stempos boodskappe</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">My telefoonnommer</string>
   <string name="phone_number_summary">Stel die telefoonnommer vir hierdie toestel</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Onvoorwaardelike oproep aanstuuring aktief</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Voorwaardelike oproep aanstuuring aktief</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Uitgaande oproep word aangestuur</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Oproep in geslote gebruikersgroep</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Uitgaande oproepe verbied</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Inkomende oproepe word verbied deur 3rde party</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Eie nommer onderdrukking deur netwerk verwerp</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Oproep aangestuur deur 3rde party</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Inkomende oproep word aangestuur</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Veelparty-oproep</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Oproep vrygestel deur 3rde party</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Oproep was aangestuur</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Oproep verbind deur eksplisiete oproep oordrag</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Oproep verbind deur middel van eksplisiete oproep oordrag</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Versoek SIM netwerk ontsluiting\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM netwerk ontsluiting versoek was onsuksesvol.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM netwerk ontsluiting was onsuksesvol.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">Heeldag</string>
   <string name="time_start">Van</string>
   <string name="time_end">Aan</string>
@@ -53,17 +76,30 @@
   <string name="time_minute">Minuut</string>
   <string name="time_formate_am">VM</string>
   <string name="time_formate_pm">NM</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Voorkeur-modus: Globaal (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Party het alle inkomende oproepe verbied.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Oproep was onbeantwoord en aangestuur</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Voorkeur-modus: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Voorkeur-modus: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Voorkeur-modus: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Voorkeur-modus: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Voorkeur-modus: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Voorkeur-modus: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Voorkeur-modus: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Verkose netwerk modus: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Voorkeur-modus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -111,11 +147,17 @@
   <string name="psw_reenter_new">Tik jou wagwoord weer in</string>
   <string name="no_call_barring">Oproep blokkeerder gedeaktiveer</string>
   <string name="cb_psw_dont_match">Wagwoorde stem nie ooreen nie</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN is nie opgedateer, want die nommer is leeg of meer as 20 syfers.</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Uitvoer kontakte na SIM-kaart\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Bestuur SIM kaart kontakte</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Oproep het misluk omdat battery pap is.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Oproep het misluk omdat ander toestel se battery pap is.</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Bestuur SIM kontakte</string>
   <string name="exportContactScreen">Uitvoer selfoon kontakte na SIM</string>
   <string name="addSimEntries">Voeg SIM Kontak by</string>
@@ -141,6 +183,7 @@
   <string name="exportAllcontatsFailed">Het misluk om al die kontakte uit te voer na SIM</string>
   <string name="exportAllcontatsNoContacts">Geen kontakte gevind om uit te voer na SIM</string>
   <string name="msim_mobile_network_settings_title">SIM %d Selnetwerkinstellings</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">verander netwerk modus</string>
   <string name="perm_change_mobile_network_desc">Laat \'n toep toe om die huidige netwerk modus te verander.</string>
 </resources>

@@ -16,42 +16,78 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">Thông báo sự kiện</string>
   <string name="show_ssn_summary">Hiện thông báo cho các sự kiện mạng khác nhau liên quan đến xử lí cuộc gọi</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Danh sách chặn người gọi</string>
   <string name="blacklist_summary_disabled">Đã tắt</string>
   <string name="blacklist_summary">Bạn sẽ không nhận được cuộc gọi đến hoặc tin nhắn từ các số điện thoại trên danh sách chặn người gọi</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Chỉ báo có tin nhắn đang chờ</string>
   <string name="mwi_notification_summary">Hiện chỉ báo có tin nhắn đang chờ dành cho thông báo thư thoại</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Số điện thoại của tôi</string>
   <string name="phone_number_summary">Thiết lập số điện thoại cho thiết bị này</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Cho phép chuyển hướng cuộc gọi không điều kiện</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Cho phép chuyển hướng cuộc gọi có điều kiện</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Cuộc gọi đi đã được chuyển hướng</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Gọi trong nhóm người dùng kín</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Cuộc gọi đi bị chặn</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Cuộc gọi đến bị chặn ở bên ở xa</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Mạng đã từ chối che dấu số của chính mình</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Cuộc gọi được bên ở xa chuyển hướng</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Cuộc gọi đến đã được chuyển hướng</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Cuộc gọi có nhiều bên</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Cuộc gọi được ngắt từ xa</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Cuộc gọi đã được chuyển hướng</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Kết nối cuộc gọi thông qua tính năng chuyển cuộc gọi rõ ràng</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Cuộc gọi được kết nối thông qua tính năng chuyển cuộc gọi rõ ràng</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Yêu cầu mở khóa mạng SIM\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Yêu cầu mở khóa mạng SIM không thành công.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Mở khóa mạng SIM thành công.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Chế độ mạng ưu tiên: Toàn cầu (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Phía bên kia đã chặn tất cả cuộc gọi đến.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Cuộc gọi không được trả lời và chuyển hướng</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Chế độ mạng ưu tiên: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Chế độ mạng ưu tiên: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Chế độ mạng ưu tiên: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Chế độ mạng ưu tiên: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Chế độ mạng ưu tiên: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Chế độ mạng ưu tiên: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Chế độ mạng ưu tiên: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Chế độ mạng ưu tiên: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
@@ -74,8 +110,14 @@
   <string name="preferred_network_mode_wcdma_only_choice">Chỉ WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Chỉ GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ưu tiên</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Xuất danh bạ sang thẻ SIM\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Quản lý danh bạ trên thẻ SIM</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">Quản lý danh bạ trên SIM</string>
   <string name="exportContactScreen">Xuất danh bạ điện thoại sang SIM</string>
   <string name="addSimEntries">Thêm số liên lạc trên SIM</string>
@@ -100,4 +142,5 @@
   <string name="exportAllcontatsSuccess">Đã xuất tất cả các số liên lạc sang SIM thành công</string>
   <string name="exportAllcontatsFailed">Không thể xuất tất cả các số liên lạc sang SIM</string>
   <string name="exportAllcontatsNoContacts">Không tìm thấy số liên lạc nào để xuất sang SIM</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>

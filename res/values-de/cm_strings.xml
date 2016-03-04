@@ -16,36 +16,59 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="incall_screen_settings">Anrufbildschirm-Einstellungen</string>
   <string name="show_ssn_label">Ereignisbenachrichtigung</string>
   <string name="show_ssn_summary">Benachrichtigungen für verschiedene Anrufereignisse anzeigen</string>
   <string name="incall_echo_cancellation">Rauschunterdrückung während des Anrufs</string>
   <string name="enable_aec_label">Echounterdrückung</string>
   <string name="enable_aec_summary">Umgebungsgeräusche bei Anrufen für den Gesprächspartner reduzieren</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Anrufer-Sperrliste</string>
   <string name="blacklist_summary_disabled">Deaktiviert</string>
   <string name="blacklist_summary">Sie werden keine Anrufe oder Nachrichten von Nummern aus der Sperrliste empfangen.</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator für wartende Nachricht anzeigen</string>
   <string name="mwi_notification_summary">Einen Indikator für wartende Anrufbenachrichtigungen anzeigen</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Meine Rufnummer</string>
   <string name="phone_number_summary">Rufnummer für dieses Gerät setzen</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Dauerhafte Anrufweiterleitung ist aktiviert</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Bedingte Anrufweiterleitung ist aktiviert</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Ausgehender Anruf wird weitergeleitet</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Anruf in geschlossener Benutzergruppe</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Ausgehende Anrufe sind gesperrt</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Eingehende Anrufe sind bei der Gegenseite gesperrt</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Unterdrückung der eigenen Rufnummer vom Netzwerk abgewiesen</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Anruf wird von der Gegenseite weitergeleitet</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Eingehender Anruf wird weitergeleitet</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Telefonkonferenz</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Gehaltener Anruf wurde beendet</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Anruf wurde weitergeleitet</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Anruf wird in Vermittlungsstelle verbunden.</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Anruf wurde in Vermittlungsstelle verbunden.</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Entsperren des SIM-Netzwerkes wird angefordert\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Entsperren des SIM-Netzwerkes nicht erfolgreich.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM-Netzwerk erfolgreich entsperrt.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
   <string name="all_day">Ganztägig</string>
   <string name="time_start">Von</string>
   <string name="time_end">Bis</string>
@@ -53,17 +76,30 @@
   <string name="time_minute">Minute</string>
   <string name="time_formate_am">Vormittag</string>
   <string name="time_formate_pm">Nachmittag</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Bevorzugter Netzwerkmodus: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Die Gegenseite blockiert alle eingehenden Anrufe.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Anruf unbeantwortet und weitergeleitet</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Bevorzugter Netzwerkmodus: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Bevorzugter Netzwerkmodus: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Bevorzugter Netzwerkmodus: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Bevorzugter Netzwerkmodus: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Bevorzugter Netzwerkmodus: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Bevorzugter Netzwerkmodus: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Bevorzugter Netzwerkmodus: TD-SDCMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Bevorzugter Netzwerk-Modus: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Bevorzugter Netzwerkmodus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
@@ -111,11 +147,17 @@
   <string name="psw_reenter_new">Geben Sie Ihr Passwort erneut ein.</string>
   <string name="no_call_barring">Anrufsperre deaktiviert</string>
   <string name="cb_psw_dont_match">Passwörter stimmen nicht überein</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">Rufnummernbeschränkung wurde nicht aktualisiert, da die Nummer entweder leer ist oder 20 Ziffern überschreitet.</string>
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Kontakte werden auf die SIM-Karte exportiert\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Kontakte auf SIM-Karte verwalten</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Anruf wegen geringem Akkustand fehlgeschlagen.</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Anruf wegen geringem Akkustand des Gesprächspartners fehlgeschlagen.</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">SIM-Kontakte verwalten</string>
   <string name="exportContactScreen">Telefonkontake auf SIM-Karte exportieren</string>
   <string name="addSimEntries">SIM-Kontakt hinzufügen</string>
@@ -141,6 +183,7 @@
   <string name="exportAllcontatsFailed">Der Export aller Kontakte auf die SIM-Karte ist fehlgeschlagen.</string>
   <string name="exportAllcontatsNoContacts">Keine Kontakte für SIM-Export gefunden</string>
   <string name="msim_mobile_network_settings_title">Mobilfunknetz-Einstellungen für SIM %d</string>
+  <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">Netzwerkmodus ändern</string>
   <string name="perm_change_mobile_network_desc">Ermöglicht der App, den aktuellen Netzwerkmodus zu ändern.</string>
 </resources>

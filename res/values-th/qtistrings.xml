@@ -31,49 +31,96 @@
   -->
 <!-- The xml contains Qti specific resource strings neede for any value added features. -->
 <resources>
+  <!-- IMS settings related strings -->
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_settings">การตั้งค่า IMS</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">PIN ปลดล็อกซิมการ์ดเครือข่ายย่อย</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">PIN ปลดล็อคซิมของบริษัท</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">รหัสปลดล็อคผู้ให้บริการซิม</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">PIN ปลดล็อคซิม</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">PIN ปลดล็อค RUIM เครือข่าย 1</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">PIN ปลดล็อค RUIM เครือข่าย 2</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">PIN ปลดล็อค RUIM HRPD</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">PIN ปลดล็อค RUIM ของบริษัท</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">รหัสปลดล็อคผู้ให้บริการ RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">PIN ปลดล็อค RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">ใส่ PUK</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">กำลังขอปลดล็อคย่อยเครือข่ายซิม\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">กำลังขอปลดล็อคผู้ให้บริการซิม\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">กำลังขอปลดล็อดซิมการ์ดบริษัท\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">กำลังขอปลดล็อดซิมการ์ด\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">กำลังขอปลดล็อด RUIM เครือข่าย1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">กำลังขอปลดล็อค RUIM เครือข่าย 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">กำลังขอปลดล็อค RUIM HRPD\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">กำลังขอปลดล็อคผู้ให้บริการ RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">กำลังขอปลดล็อคบริษัทสำหรับ RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">กำลังขอปลดล็อค RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">กำลังขอปลดล็อค PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">ขอปลดล็อคย่อยเครือข่ายซิมไม่สำเร็จ</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">ปลดล็อคผู้ให้บริการซิมไม่สำเร็จ</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">ปลดล็อคซิมบริษัทไม่สำเร็จ</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">ปลดล็อคซิมไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">ปลดล็อค RUIM เครือข่าย 1 ไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">ปลดล็อค RUIM เครือข่าย 2 ไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">ปลดล็อค RUIM HRPD ไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">ปลดล็อค RUIM ของผู้ให้บริการไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">ปลดล็อค RUIM ของบริษัทไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">ปลดล็อค RUIM ไม่สำเร็จ</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">ปลดล็อค PUK ไม่สำเร็จ</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">ปลดล็อคซิมเครือข่ายย่อยสำเร็จ</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">ปลดล็อคผู้ให้บริการซิมสำเร็จ</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">ปลดล็อคซิมบริษัทสำเร็จ</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">ปลดล็อคซิมสำเร็จ</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">ปลดล็อค RUIM เครือข่าย 1 สำเร็จ</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">ปลดล็อค RUIM เครือข่าย 2 สำเร็จ</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">ปลดล็อค RUIM HRPD สำเร็จ</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">ปลดล็อค RUIM ผู้ให้บริการสำเร็จ</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">ปลดล็อค RUIM ของบริษัทสำเร็จ</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">ปลดล็อค RUIM สำเร็จ</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">ปลดล็อค PUK ไม่สำเร็จ</string>
+  <!-- Preferred networks -->
 </resources>

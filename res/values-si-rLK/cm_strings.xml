@@ -16,39 +16,81 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Advanced Settings -->
   <string name="show_ssn_label">සිදුවීම් දැනුම්දීම</string>
   <string name="show_ssn_summary">ඇමතුම් හැසිරවීමට අදාළ නොයෙක් ජාලමය සිදුවීම සඳහා දැනුම්දීමක් පෙන්වන්න</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_summary_disabled">අබලයි</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">පණිවිඩ පොරොත්තුවේ දර්ශකය</string>
   <string name="mwi_notification_summary">පණිවිඩ පොරොත්තු දර්ශකයේ, හඬ තැපෑලේ දැනුම්දීම් පෙන්වන්න</string>
+  <!-- My Phone Number -->
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">කොන්දේසි විරහිතව ඇමතුම් ඉදිරියට යැවීම සක්‍රීයයි</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">කොන්දේසිමය ඇමතුම් යොමු කිරීම සක්‍රීයයි</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">ලබාගන්නා ඇමතුම ඉදිරියට යැවුනි</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">සංවෘත පරිශීලක සමූහය තුල ඇමතුම</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">ලබාගන්නා ඇමතුම් වළක්වා ඇත</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">දුරස්ථ පාර්ශ්වයේදී පැමිණෙන ඇමතුම් වළක්වා ඇත</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">තම අංකය කපා හැරීම ජාලය විසින් ප්‍රතික්ෂේප කර ඇත</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">දුරස්ථ පාර්ශ්වයක් මගින් ඇමතුම ඉදිරියට යැවුනි</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">පැමිණෙන ඇමතුම ඉදිරියට යැවුනි</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">බහු-පාර්ශවීය ඇමතුම</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">ඇමතුම දූරස්ථව මුදාහැරුනි</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">ඇමතුම ඉදිරියට යැවුනි</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">ඇමතුම නිශ්චිත ඇමතුම් පැවරීම අතරින් සම්බන්ධ වෙමින්</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">ඇමතුම නිශ්චිත ඇමතුම් පැවරීම අතරින් සම්බන්ධ විය</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">සිම් ජාලය අගුළු ඇරීම අයදුම් කරමින්\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">සිම් ජාලය අගුළු ඇරීමේ අයදුම අසාර්ථකයි.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">සිම් ජාලය අගුළු ඇරීම සාර්ථකයි.</string>
+  <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">වඩා කැමති ජාල ප්‍රකාරය: ගෝලීය (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">සම්බන්ධතා සිම් කාඩ්පතට නිර්යාත කරමින්\u2026</string>
+  <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">සිම්පත් සම්බන්ධතා කළමනාකරණය</string>
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- In-call screen: call failure message displayed in errror dialog -->
+  <!-- Sim contacts management -->
   <string name="contactScreen">සිම් සම්බන්ධතා කළමනාකරණය</string>
   <string name="exportContactScreen">දුරකථන සම්බන්ධතා සිම් පතට නිර්යාත කරන්න</string>
   <string name="addSimEntries">සිම් සම්බන්ධතාවක් එකතු කරන්න</string>
@@ -73,4 +115,5 @@
   <string name="exportAllcontatsSuccess">සියලු සම්බන්ධතා සාර්ථක ලෙස සිම් පතට නිර්යාත විය</string>
   <string name="exportAllcontatsFailed">සියලු සම්බන්ධතා සිම් පතට නිර්යාත කිරීමට අසමත්විය</string>
   <string name="exportAllcontatsNoContacts">සිම් පතට නිර්යාත කිරීමට කිසිඳු සම්බන්ධතාවක් සොයාගත නොහැක</string>
+  <!-- Permission to modify network mode via intent -->
 </resources>
