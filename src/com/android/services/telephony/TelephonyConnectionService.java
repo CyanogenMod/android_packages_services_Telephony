@@ -609,7 +609,11 @@ public class TelephonyConnectionService extends ConnectionService {
             } catch (NullPointerException ex) {
                 Log.e(this, ex, "Exception : " + ex);
             }
-            return PhoneFactory.getPhone(phoneId);
+            // check if ExtTelephony service instance exists, otherwise fallthrough and
+            // retrieve Phone instance based on account subId
+            if(mExtTelephony != null) {
+                return PhoneFactory.getPhone(phoneId);
+            }
         }
 
         int subId = PhoneUtils.getSubIdForPhoneAccountHandle(accountHandle);
