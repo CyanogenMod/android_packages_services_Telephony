@@ -68,8 +68,6 @@ import android.widget.TabHost.TabContentFactory;
 import android.widget.TabHost.TabSpec;
 import android.widget.TabHost;
 
-import cyanogenmod.providers.CMSettings;
-
 /**
  * "Mobile network settings" screen.  This preference screen lets you
  * enable/disable mobile data, and control data roaming and other
@@ -876,8 +874,8 @@ public class MobileNetworkSettings extends PreferenceActivity
             root.removePreference(mButtonEnabledNetworks);
         }
 
-        boolean COLPEnabled = CMSettings.System.getInt(getContentResolver(),
-                    CMSettings.System.CONNECTED_LINE_IDENTIFICATION, 1) != 0;
+        boolean COLPEnabled = Settings.Global.getInt(getContentResolver(),
+                    Settings.Global.CONNECTED_LINE_IDENTIFICATION, 1) != 0;
         mButtonCOLP.setChecked(COLPEnabled);
     }
 
@@ -1028,8 +1026,8 @@ public class MobileNetworkSettings extends PreferenceActivity
             }
             return true;
         } else if (preference == mButtonCOLP) {
-            CMSettings.System.putInt(getContentResolver(),
-                    CMSettings.System.CONNECTED_LINE_IDENTIFICATION,
+            Settings.Global.putInt(getContentResolver(),
+                    Settings.Global.CONNECTED_LINE_IDENTIFICATION,
                     mButtonCOLP.isChecked() ? 0 : 1);
         }
 
