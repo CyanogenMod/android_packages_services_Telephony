@@ -18,6 +18,7 @@ package com.android.services.telephony;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -163,8 +164,11 @@ final class TelecomAccountRegistry {
             // By default all SIM phone accounts can place emergency calls.
             int capabilities = PhoneAccount.CAPABILITY_SIM_SUBSCRIPTION |
                     PhoneAccount.CAPABILITY_CALL_PROVIDER |
-                    PhoneAccount.CAPABILITY_PLACE_EMERGENCY_CALLS |
                     PhoneAccount.CAPABILITY_MULTI_USER;
+
+            if (mContext.getResources().getBoolean(R.bool.config_pstnCanPlaceEmergencyCalls)) {
+                capabilities |= PhoneAccount.CAPABILITY_PLACE_EMERGENCY_CALLS;
+            }
 
             mIsVideoCapable = mPhone.isVideoEnabled();
             if (mIsVideoCapable) {
@@ -175,6 +179,11 @@ final class TelecomAccountRegistry {
                 capabilities |= PhoneAccount.CAPABILITY_CALL_SUBJECT;
             }
             mIsMergeCallSupported = isCarrierMergeCallSupported();
+
+            if (isEmergency && mContext.getResources().getBoolean(
+                    R.bool.config_emergency_account_emergency_calls_only)) {
+                capabilities |= PhoneAccount.CAPABILITY_EMERGENCY_CALLS_ONLY;
+            }
 
             if (icon == null) {
                 // TODO: Switch to using Icon.createWithResource() once that supports tinting.
@@ -207,6 +216,7 @@ final class TelecomAccountRegistry {
 
             // Register with Telecom and put into the account entry.
             mTelecomManager.registerPhoneAccount(account);
+
             return account;
         }
 
@@ -422,8 +432,14 @@ final class TelecomAccountRegistry {
     private void cleanupPhoneAccounts() {
         ComponentName telephonyComponentName =
                 new ComponentName(mContext, TelephonyConnectionService.class);
-        List<PhoneAccountHandle> accountHandles =
-                mTelecomManager.getCallCapablePhoneAccounts(true /* includeDisabled */);
+        // This config indicates whether the emergency account was flagged as emergency calls only
+        // in which case we need to consider all phone accounts, not just the call capable ones.
+        final boolean emergencyCallsOnlyEmergencyAccount = mContext.getResources().getBoolean(
+                R.bool.config_emergency_account_emergency_calls_only);
+        List<PhoneAccountHandle> accountHandles = emergencyCallsOnlyEmergencyAccount
+                ? mTelecomManager.getAllPhoneAccountHandles()
+                : mTelecomManager.getCallCapablePhoneAccounts(true /* includeDisabled */);
+
         for (PhoneAccountHandle handle : accountHandles) {
             if (telephonyComponentName.equals(handle.getComponentName()) &&
                     !hasAccountEntryForPhoneAccount(handle)) {
@@ -439,51 +455,56 @@ final class TelecomAccountRegistry {
         Phone[] phones = PhoneFactory.getPhones();
         Log.d(this, "Found %d phones.  Attempting to register.", phones.length);
 
-        // states we are interested in from what
-        // IExtTelephony.getCurrentUiccCardProvisioningStatus()can return
-        final int PROVISIONED = 1;
-        final int INVALID_STATE = -1;
+        final boolean phoneAccountsEnabled = mContext.getResources().getBoolean(
+                R.bool.config_pstn_phone_accounts_enabled);
 
-        IExtTelephony mExtTelephony =
-            IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
+        if (phoneAccountsEnabled) {
+            // states we are interested in from what
+            // IExtTelephony.getCurrentUiccCardProvisioningStatus()can return
+            final int PROVISIONED = 1;
+            final int INVALID_STATE = -1;
 
-        for (Phone phone : phones) {
-            int provisionStatus = PROVISIONED;
-            int subscriptionId = phone.getSubId();
+            IExtTelephony mExtTelephony =
+                IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
 
-            if (mTelephonyManager.getPhoneCount() > 1) {
-                SubscriptionInfo record =
-                        mSubscriptionManager.getActiveSubscriptionInfo(subscriptionId);
+            for (Phone phone : phones) {
+                int provisionStatus = PROVISIONED;
+                int subscriptionId = phone.getSubId();
 
-                if (record == null) {
-                    Log.d(this, "Record not created for dummy subscription id %d", subscriptionId);
-                    continue;
+                if (mTelephonyManager.getPhoneCount() > 1) {
+                    SubscriptionInfo record =
+                            mSubscriptionManager.getActiveSubscriptionInfo(subscriptionId);
+
+                    if (record == null) {
+                        Log.d(this, "Record not created for dummy subscription id %d", subscriptionId);
+                        continue;
+                    }
+
+                    int slotId = record.getSimSlotIndex();
+
+                    try {
+                        //get current provision state of the SIM.
+                        provisionStatus =
+                                mExtTelephony.getCurrentUiccCardProvisioningStatus(slotId);
+                    } catch (RemoteException ex) {
+                        provisionStatus = INVALID_STATE;
+                        Log.w(this, "Failed to get status for, slotId: "+ slotId +" Exception: " + ex);
+                    } catch (NullPointerException ex) {
+                        provisionStatus = INVALID_STATE;
+                        Log.w(this, "Failed to get status for, slotId: "+ slotId +" Exception: " + ex);
+                    }
+
+                    if (provisionStatus == INVALID_STATE) {
+                        provisionStatus = PROVISIONED;
+                    }
+
+                    Log.d(this, "Phone with subscription id: " + subscriptionId +
+                                    " slotId: " + slotId + " provisionStatus: " + provisionStatus);
                 }
 
-                int slotId = record.getSimSlotIndex();
-
-                try {
-                    //get current provision state of the SIM.
-                    provisionStatus =
-                            mExtTelephony.getCurrentUiccCardProvisioningStatus(slotId);
-                } catch (RemoteException ex) {
-                    provisionStatus = INVALID_STATE;
-                    Log.w(this, "Failed to get status for, slotId: "+ slotId +" Exception: " + ex);
-                } catch (NullPointerException ex) {
-                    provisionStatus = INVALID_STATE;
-                    Log.w(this, "Failed to get status for, slotId: "+ slotId +" Exception: " + ex);
+                if ((subscriptionId >= 0) && (provisionStatus == PROVISIONED)){
+                    mAccounts.add(new AccountEntry(phone, false /* emergency */, false /* isDummy */));
                 }
-
-                if (provisionStatus == INVALID_STATE) {
-                    provisionStatus = PROVISIONED;
-                }
-
-                Log.d(this, "Phone with subscription id: " + subscriptionId +
-                                " slotId: " + slotId + " provisionStatus: " + provisionStatus);
-            }
-
-            if ((subscriptionId >= 0) && (provisionStatus == PROVISIONED)){
-                mAccounts.add(new AccountEntry(phone, false /* emergency */, false /* isDummy */));
             }
         }
 

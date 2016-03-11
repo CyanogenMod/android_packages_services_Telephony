@@ -160,6 +160,11 @@
     <!-- Class name for the default main Dialer activity [DO NOT TRANSLATE] -->
     <string name="dialer_default_class" translatable="false">com.android.dialer.DialtactsActivity</string>
 
+    <!-- Package name for the network operator settings [DO NOT TRANSLATE] -->
+    <string name="network_operator_settings_package" translatable="false">com.android.phone</string>
+    <!-- Class name for the network operator settings activity [DO NOT TRANSLATE] -->
+    <string name="network_operator_settings_class" translatable="false">com.android.phone.NetworkSetting</string>
+
     <!-- CDMA activation goes through HFA -->
     <!-- DEPRECATED: Use CarrierConfigManager#KEY_USE_HFA_FOR_PROVISIONING_BOOL -->
     <bool name="config_use_hfa_for_provisioning">false</bool>
@@ -216,4 +221,26 @@
          HAL. Size of this array must be exactly 2. -->
     <string-array name="incall_echo_cancellation_values">
     </string-array>
+
+    <!-- Flag indicating if SIM state should be checked before making an outgoing call. -->
+    <bool name="config_checkSimStateBeforeOutgoingCall">false</bool>
+    <!-- Package name for the SIM unlock dialog.[DO NOT TRANSLATE] -->
+    <string name="config_simUnlockUiPackage" translatable="false">@null</string>
+    <!-- Class name for the SIM unlock dialog.[DO NOT TRANSLATE] -->
+    <string name="config_simUnlockUiClass" translatable="false">@null</string>
+
+    <!-- Flag indicating whether to allow visual voicemail if available on the device.[DO NOT TRANSLATE] -->
+    <bool name="allow_visual_voicemail">true</bool>
+
+    <!-- Component for custom voicemail notification handling. [DO NOT TRANSLATE] -->
+    <string name="config_customVoicemailComponent">@null</string>
+
+    <!-- Flag indicating whether to allow pstn phone accounts [DO NOT TRANSLATE] -->
+    <bool name="config_pstn_phone_accounts_enabled">true</bool>
+
+    <!-- Flag indicating whether the the emergency phone account should be emergency calls only -->
+    <bool name="config_emergency_account_emergency_calls_only">false</bool>
+
+    <!-- Whether the emergency only account can make emergency calls -->
+    <bool name="config_pstnCanPlaceEmergencyCalls">true</bool>
 </resources>
