@@ -37,6 +37,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import cyanogenmod.app.CMTelephonyManager;
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.IccCard;
@@ -634,8 +635,9 @@ public class TelephonyConnectionService extends ConnectionService {
 
     private Phone getPhoneForAccount(PhoneAccountHandle accountHandle, boolean isEmergency) {
         if (isEmergency) {
+            final String extphone = CMTelephonyManager.getExtService(null);
             IExtTelephony mExtTelephony =
-                    IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
+                    IExtTelephony.Stub.asInterface(ServiceManager.getService(extphone));
             int phoneId = 0; // default phoneId
             try {
                 phoneId = mExtTelephony.getPhoneIdForECall();

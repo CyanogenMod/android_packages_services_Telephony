@@ -41,6 +41,7 @@ import android.telephony.SubscriptionManager.OnSubscriptionsChangedListener;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import cyanogenmod.app.CMTelephonyManager;
 import com.android.internal.telephony.IExtTelephony;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
@@ -464,9 +465,9 @@ final class TelecomAccountRegistry {
             final int PROVISIONED = 1;
             final int INVALID_STATE = -1;
 
+            final String extphone = CMTelephonyManager.getExtService(null);
             IExtTelephony mExtTelephony =
-                IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
-
+                IExtTelephony.Stub.asInterface(ServiceManager.getService(extphone));
             for (Phone phone : phones) {
                 int provisionStatus = PROVISIONED;
                 int subscriptionId = phone.getSubId();
@@ -492,10 +493,6 @@ final class TelecomAccountRegistry {
                     } catch (NullPointerException ex) {
                         provisionStatus = INVALID_STATE;
                         Log.w(this, "Failed to get status for, slotId: "+ slotId +" Exception: " + ex);
-                    }
-
-                    if (provisionStatus == INVALID_STATE) {
-                        provisionStatus = PROVISIONED;
                     }
 
                     Log.d(this, "Phone with subscription id: " + subscriptionId +
