@@ -645,7 +645,7 @@ public class TelephonyConnectionService extends ConnectionService {
             } catch (NullPointerException ex) {
                 Log.e(this, ex, "Exception : " + ex);
             }
-            return PhoneFactory.getPhone(phoneId);
+            return PhoneFactory.getDefaultPhone();
         }
 
         int subId = PhoneUtils.getSubIdForPhoneAccountHandle(accountHandle);
