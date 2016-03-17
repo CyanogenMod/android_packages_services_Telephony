@@ -186,4 +186,7 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">zmiana trybu połączenia sieciowego</string>
   <string name="perm_change_mobile_network_desc">Umożliwia aplikacji zmianę trybu połączenia sieciowego.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_summary">Wyłącz tę opcję, jeżeli numery odbiorców nie wyświetlają się w historii połączeń</string>
+  <!-- Network mode picker dialog title -->
 </resources>

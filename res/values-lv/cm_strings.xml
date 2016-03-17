@@ -114,4 +114,6 @@
   <string name="exportAllcontatsFailed">Neizdevās eksportēt visus kontaktus uz SIM</string>
   <string name="exportAllcontatsNoContacts">Nav atrasti uz SIM eksportējami kontakti</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

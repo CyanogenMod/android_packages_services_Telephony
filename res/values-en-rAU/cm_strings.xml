@@ -141,4 +141,6 @@
   <string name="exportAllcontatsFailed">Failed to export all contacts to SIM</string>
   <string name="exportAllcontatsNoContacts">No contacts found to export to SIM</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

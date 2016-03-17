@@ -185,4 +185,6 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">ネットワークモードの変更</string>
   <string name="perm_change_mobile_network_desc">現在のネットワークモードを変更することをアプリに許可します。</string>
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>
