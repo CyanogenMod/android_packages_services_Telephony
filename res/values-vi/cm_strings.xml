@@ -17,8 +17,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">Cài đặt màn hình trong cuộc gọi</string>
   <string name="show_ssn_label">Thông báo sự kiện</string>
   <string name="show_ssn_summary">Hiện thông báo cho các sự kiện mạng khác nhau liên quan đến xử lí cuộc gọi</string>
+  <string name="incall_echo_cancellation">Giảm tiếng ồn trong cuộc gọi</string>
+  <string name="enable_aec_label">Hủy âm vang</string>
+  <string name="enable_aec_summary">Giảm tiếng ồn xung quanh đối với bên từ xa trong lúc gọi thoại</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">Danh sách chặn người gọi</string>
   <string name="blacklist_summary_disabled">Đã tắt</string>
@@ -65,6 +69,13 @@
   <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Mở khóa mạng SIM thành công.</string>
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <string name="all_day">Tất cả các ngày</string>
+  <string name="time_start">Từ</string>
+  <string name="time_end">Tới</string>
+  <string name="time_hour">Giờ</string>
+  <string name="time_minute">Phút</string>
+  <string name="time_formate_am">SA</string>
+  <string name="time_formate_pm">CH</string>
   <!-- Mobile network settings, preferred network modes -->
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Chế độ mạng ưu tiên: Toàn cầu (CDMA/EvDo/LTE/GSM/WCDMA)</string>
@@ -87,8 +98,11 @@
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Chế độ mạng ưu tiên: TD-SCDMA/GSM/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Chế độ mạng ưu tiên: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Chế độ mạng ưu tiên: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -110,13 +124,39 @@
   <string name="preferred_network_mode_wcdma_only_choice">Chỉ WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Chỉ GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ưu tiên</string>
+  <string name="call_barring">Chặn cuộc gọi</string>
+  <string name="call_barring_outgoing">Chặn cuộc gọi đi</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Tắt</item>
+    <item>Cuộc gọi chuyển vùng quốc tế</item>
+    <item>Cuộc gọi quốc tế</item>
+    <item>Cuộc gọi đi</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Tắt</item>
+    <item>Chuyển vùng</item>
+    <item>Tất cả</item>
+  </string-array>
+  <string name="call_barring_incoming">Chặn cuộc gọi đến</string>
+  <string name="input_password">Nhập mật khẩu của bạn</string>
+  <string name="invalidPsw">Nhập một mật khẩu hợp lệ (4-8 chữ số)</string>
+  <string name="labelCbCancelAll">Vô hiệu hóa chặn cuộc gọi</string>
+  <string name="labelCbChangePassword">Đổi mật khẩu</string>
+  <string name="psw_enter_old">Mật khẩu cũ</string>
+  <string name="psw_enter_new">Mật khẩu mới</string>
+  <string name="psw_reenter_new">Nhập lại mật khẩu của bạn</string>
+  <string name="no_call_barring">Vô hiệu hóa chặn cuộc gọi</string>
+  <string name="cb_psw_dont_match">Mật khẩu không khớp</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">FDN không được cập nhật vì số rỗng hoặc vượt quá 20 chữ số.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Xuất danh bạ sang thẻ SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Quản lý danh bạ trên thẻ SIM</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_local_low_battery">Không thể gọi vì pin yếu.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">Không thể gọi vì pin thiết bị từ xa yếu.</string>
   <!-- Sim contacts management -->
   <string name="contactScreen">Quản lý danh bạ trên SIM</string>
   <string name="exportContactScreen">Xuất danh bạ điện thoại sang SIM</string>
@@ -142,5 +182,12 @@
   <string name="exportAllcontatsSuccess">Đã xuất tất cả các số liên lạc sang SIM thành công</string>
   <string name="exportAllcontatsFailed">Không thể xuất tất cả các số liên lạc sang SIM</string>
   <string name="exportAllcontatsNoContacts">Không tìm thấy số liên lạc nào để xuất sang SIM</string>
+  <string name="msim_mobile_network_settings_title">Cài đặt mạng di động %d của SIM</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">thay đổi chế độ mạng</string>
+  <string name="perm_change_mobile_network_desc">Cho phép ứng dụng thay đổi chế độ mạng hiện hành.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Xác định đường dây đã kết nối</string>
+  <string name="connected_line_identification_summary">Vô hiệu hóa tùy chọn này nếu số lượng người nhận không hiển thị trong lịch sử cuộc gọi</string>
+  <!-- Network mode picker dialog title -->
 </resources>

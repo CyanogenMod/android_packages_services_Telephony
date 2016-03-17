@@ -141,4 +141,6 @@
   <string name="exportAllcontatsFailed">نه‌توانرا په‌یوه‌ندییه‌کان بنێدرێن بۆ سیم</string>
   <string name="exportAllcontatsNoContacts">هیچ په‌یوه‌ندییه‌ک نه‌دۆزرایه‌وه‌ بۆ زیادکردن بۆ سیمکارد</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

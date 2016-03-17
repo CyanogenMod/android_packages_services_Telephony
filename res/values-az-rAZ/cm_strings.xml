@@ -143,4 +143,6 @@
   <string name="exportAllcontatsFailed">Bütün şəxslər SIM\'ə köçürülmədi</string>
   <string name="exportAllcontatsNoContacts">SIM\'ə köçürüləcək şəxs yoxdur</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

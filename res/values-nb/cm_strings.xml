@@ -175,4 +175,6 @@
   <string name="exportAllcontatsFailed">Klarte ikke å eksportere alle kontakter til SIMkort</string>
   <string name="exportAllcontatsNoContacts">Ingen kontakter funnet for eksportering</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

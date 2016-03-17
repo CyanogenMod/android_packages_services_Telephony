@@ -24,7 +24,7 @@
   <string name="enable_aec_label">ביטול הד</string>
   <string name="enable_aec_summary">הפחתת רעשי רקע למשוחחים המרוחקים במהלך שיחות קוליות</string>
   <!-- Blacklist preferences -->
-  <string name="blacklist_title">רשימת המתקשרים החסומים</string>
+  <string name="blacklist_title">רשימת מתקשרים חסומים</string>
   <string name="blacklist_summary_disabled">מושבת</string>
   <string name="blacklist_summary">לא יתקבלו שיחות נכנסות או הודעות ממספרי הטלפון הנמצאים ברשימת המתקשרים החסומים</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
@@ -35,15 +35,15 @@
   <string name="phone_number_summary">הגדר מספר טלפון למכשיר זה</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
-  <string name="call_notif_unconditionalCF">העברת שיחות לא מותנת פעילה</string>
+  <string name="call_notif_unconditionalCF">העברת שיחות לא מותנית פעילה</string>
   <!-- Toast text for Conditional Call Forwarding enabled  -->
-  <string name="call_notif_conditionalCF">העברת שיחות מותנת פעילה</string>
+  <string name="call_notif_conditionalCF">העברת שיחות מותנית פעילה</string>
   <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">שיחה יוצאת מועברת</string>
   <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">שיחה בקבוצת משתמשים סגורה</string>
   <!-- In-call screen: status label when MO calls are barred -->
-  <string name="call_notif_outgoing_barred">שיחות יוצאות מבוקרות</string>
+  <string name="call_notif_outgoing_barred">שיחות יוצאות חסומות</string>
   <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">שיחות נכנסות חסומות בועידה מרוחקת</string>
   <!-- Toast text for MO calls when CLIR Suppression is rejected -->
@@ -61,7 +61,7 @@
   <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">השיחה מתחברת דרך העברת שיחה מפורשת</string>
   <!-- Toast text for incoming call connected through ECT -->
-  <string name="call_notif_callconnectedect">השיחה מחוברת דרך העברת שיחה מפורשת</string>
+  <string name="call_notif_callconnectedect">השיחה חוברה דרך העברת שיחה מפורשת</string>
   <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">מבקש פתיחת SIM לרשת\u2026</string>
   <!-- Error message displayed on SIM Network Depersonalization panel -->
@@ -159,7 +159,7 @@
   <string name="incall_error_low_battery">השיחה נכשלה מכיוון שסוללת המכשיר המרוחק חלשה.</string>
   <!-- Sim contacts management -->
   <string name="contactScreen">נהל אנשי קשר ב-SIM</string>
-  <string name="exportContactScreen">יצא אנשי קשר במכשיר ל-SIM</string>
+  <string name="exportContactScreen">ייצא אנשי קשר בטלפון ל-SIM</string>
   <string name="addSimEntries">הוסף איש קשר ל-SIM</string>
   <string name="deleteAllSimEntries">מחק את כל אנשי הקשר ב-SIM</string>
   <string name="deleteSimContacts">מוחק אנשי קשר מה-SIM\u2026</string>
@@ -171,7 +171,7 @@
   <string name="enterNumber">הזן מספר טלפון:</string>
   <string name="hintName">שם</string>
   <string name="hintPhonenumber">מספר טלפון</string>
-  <string name="contactAddSuccess">איש הקשר הוסף בהצלחה ל-SIM</string>
+  <string name="contactAddSuccess">איש הקשר נוסף בהצלחה ל-SIM</string>
   <string name="contactAddFailed">נכשלה הוספת איש קשר ל-SIM</string>
   <string name="contactUpdateSuccess">איש הקשר עודכן בהצלחה ב-SIM</string>
   <string name="contactUpdateFailed">נכשל עדכון איש הקשר ב-SIM</string>
@@ -180,10 +180,13 @@
   <string name="allContactdeleteSuccess">כל אנשי הקשר מה-SIM נמחקו בהצלחה</string>
   <string name="allContactdeleteFailed">מחיקת כל אנשי הקשר מה-SIM נכשלה</string>
   <string name="exportAllcontatsSuccess">כל אנשי הקשר יוצאו בהצלחה ל-SIM</string>
-  <string name="exportAllcontatsFailed">ייצוא כל אנשי הקשר ל-SIM נכשל</string>
-  <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ל-SIM</string>
+  <string name="exportAllcontatsFailed">יצוא כל אנשי הקשר ל-SIM נכשל</string>
+  <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ל- SIM</string>
   <string name="msim_mobile_network_settings_title">הגדרות רשת סלולרית SIM %d</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">שינוי מצב רשת</string>
   <string name="perm_change_mobile_network_desc">מאפשר ליישום לשנות את מצב הרשת הנוכחי.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_summary">בטל אפשרות זו אם מספרי הנמענים לא מופיעים בהיסטוריית השיחות</string>
+  <!-- Network mode picker dialog title -->
 </resources>

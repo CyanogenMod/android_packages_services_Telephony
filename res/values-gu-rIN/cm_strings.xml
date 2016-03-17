@@ -17,46 +17,177 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">ઇન-કૉલ સ્ક્રીન સેટિંગ્સ</string>
+  <string name="show_ssn_label">ઇવેન્ટ સૂચના</string>
+  <string name="show_ssn_summary">કૉલ હાથ ધરવા સંબંધિત વિવિધ નેટવર્ક ઇવેન્ટ્સ માટે સૂચના દર્શાવો</string>
+  <string name="incall_echo_cancellation">કૉલમાં અવાજ ઘટાડો</string>
+  <string name="enable_aec_label">ઇકો કેન્સલેશન</string>
+  <string name="enable_aec_summary">વોઇસ કોલ દરમિયાન દૂરસ્થ પક્ષ માટે આજુબાજુના અવાજ ઘટાડવો</string>
   <!-- Blacklist preferences -->
+  <string name="blacklist_title">બ્લોક કરેલ કૉલર સૂચી</string>
+  <string name="blacklist_summary_disabled">અક્ષમ</string>
+  <string name="blacklist_summary">તમારી બ્લૉક કરેલ કૉલર સૂચી પર રહેલ ફોન નંબરો પરથી ઇનકમિંગ કૉલ્સ અથવા સંદેશા તમે મેળવશો નહીં</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
+  <string name="mwi_notification_title">સંદેશ પ્રતિક્ષા સૂચક</string>
+  <string name="mwi_notification_summary">સંદેશ પ્રતિક્ષા સૂચક વૉઇસમેઇલ સૂચનાઓ દર્શાવો</string>
   <!-- My Phone Number -->
+  <string name="phone_number_label">મારો ફોન નંબર</string>
+  <string name="phone_number_summary">આ ડિવાઇસ માટે ફોન નંબર સેટ કરો</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
+  <string name="call_notif_unconditionalCF">બિનશરતી કૉલ ફોરવર્ડિંગ સક્રિય</string>
   <!-- Toast text for Conditional Call Forwarding enabled  -->
+  <string name="call_notif_conditionalCF">શરતી કૉલ ફોરવર્ડિંગ સક્રિય</string>
   <!-- Toast text for a forwarded MO call  -->
+  <string name="call_notif_MOcall_forwarding">આઉટગોઇંગ કૉલ ફોરવર્ડ કરવામાં આવ્યો</string>
   <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
+  <string name="call_notif_cugcall">સંવૃત ઉપયોગકર્તા જૂથમાં કૉલ કરો</string>
   <!-- In-call screen: status label when MO calls are barred -->
+  <string name="call_notif_outgoing_barred">આઉટગોઇંગ કૉલ્સ પ્રતિબંધિત કરાયા</string>
   <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
+  <string name="call_notif_incoming_barred">રિમોટ પાર્ટી પર ઇનકમિંગ કૉલ્સ પ્રતિબંધિત કરાયા</string>
   <!-- Toast text for MO calls when CLIR Suppression is rejected -->
+  <string name="call_notif_clir_suppression_rejected">પોતાના નંબરનું દમન નેટવર્ક દ્વારા નામંજૂર</string>
   <!-- In-call screen: status label when MO call gets deflected to another party -->
+  <string name="call_notif_call_deflected">રિમોટ પાર્ટી દ્વારા કૉલ ફોરવર્ડ થયો</string>
   <!-- Toast text for incoming call being forwarded to other remote party  -->
+  <string name="call_notif_MTcall_forwarding">ઇનકમિંગ કૉલ ફોરવર્ડ કરવામાં આવ્યો</string>
   <!-- Toast text for incoming call which is part of MultiParty Call -->
+  <string name="call_notif_multipartycall">બહુવિધ પાર્ટી કૉલ</string>
   <!-- Toast text for incoming call which is answered,put on hold & then released -->
+  <string name="call_notif_callonhold_released">કૉલની સાદ્રશ્ય વિમુક્તિ</string>
   <!-- Toast text for incoming call forward check received -->
+  <string name="call_notif_forwardcheckreceived">કૉલ ફોરવર્ડ થયો હતો</string>
   <!-- Toast text for incoming call connecting through ECT -->
+  <string name="call_notif_callconnectingect">સ્પષ્ટ કૉલ ટ્રાન્સફર મારફત કૉલ જોડાઇ રહ્યો છે</string>
   <!-- Toast text for incoming call connected through ECT -->
+  <string name="call_notif_callconnectedect">સ્પષ્ટ કૉલ ટ્રાન્સફર મારફત કૉલ જોડાઇ રહ્યો છે</string>
   <!-- Status message displayed on SIM Network Depersonalization panel -->
+  <string name="requesting_unlock_cm">SIM નેટવર્ક અનલૉક માટે વિનંતી કરીએ છીએ\u2026</string>
   <!-- Error message displayed on SIM Network Depersonalization panel -->
+  <string name="unlock_failed_cm">SIM નેટવર્ક અનલૉક વિનંતી અસફળ.</string>
   <!-- Success message displayed on SIM Network Depersonalization panel -->
+  <string name="unlock_success_cm">SIM નેટવર્ક અનલૉક સફળ.</string>
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <string name="all_day">તમામ દિવસ</string>
+  <string name="time_start">માંથી</string>
+  <string name="time_end">પ્રતિ</string>
+  <string name="time_hour">કલાક</string>
+  <string name="time_minute">મિનિટ</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <!-- Mobile network settings, preferred network modes -->
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_global_summary_cm">પસંદગીનો નેટવર્ક મોડ: ગ્લોબલ (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
+  <string name="callFailed_incoming_cb_enabled">પાર્ટીએ તમામ ઇનકમિંગ કૉલ પ્રતિબંધિત રાખ્યા છે.</string>
   <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
+  <string name="callUnanswered_forwarded">કૉલને જવાબ નહીં મળ્યો અને ફોરવર્ડ થયો</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">પસંદગીનો નેટવર્ક મોડ: TD-SCDMA/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_lte_summary">પસંદગીનો નેટવર્ક મોડ: TD-SCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_summary">પસંદગીનો નેટવર્ક મોડ: TD-SCDMA/GSM</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">પસંદગીનો નેટવર્ક મોડ: TD-SCDMA/GSM/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">પસંદગીનો નેટવર્ક મોડ: TD-SCDMA/GSM/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">પસંદગીનો નેટવર્ક મોડ: TD-SCDMA/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">પસંદગીનો નેટવર્ક મોડ: TD-SCDMA/GSM/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">પસંદગીનો નેટવર્ક મોડ: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">પસંદગીનો નેટવર્ક મોડ: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_only_choice">ફક્ત TD-SCDMA</string>
+  <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
+  <string name="preferred_network_mode_lte_choice">LTE</string>
+  <string name="preferred_network_mode_global_choice">વૈશ્વિક</string>
+  <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_evdo_only_choice">માત્ર EvDo</string>
+  <string name="preferred_network_mode_cdma_wo_evdo_choice">CDMA w/o EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo સ્વયં</string>
+  <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA સ્વયં</string>
+  <string name="preferred_network_mode_wcdma_only_choice">માત્ર WCDMA</string>
+  <string name="preferred_network_mode_gsm_only_choice">માત્ર GSM</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA પસંદગી</string>
+  <string name="call_barring">કૉલ અવરોધન</string>
+  <string name="call_barring_outgoing">આઉટગોઇંગ કૉલ પ્રતિબંધિત</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>બંધ</item>
+    <item>આંતરરાષ્ટ્રીય રોમિંગ કૉલ્સ</item>
+    <item>આંતરરાષ્ટ્રીય કૉલ્સ</item>
+    <item>આઉટગોઇંગ કૉલ્સ</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>બંધ</item>
+    <item>રોમિંગ</item>
+    <item>તમામ</item>
+  </string-array>
+  <string name="call_barring_incoming">ઇનકમિંગ કૉલ પ્રતિબંધિત</string>
+  <string name="input_password">તમારો પાસવર્ડ દાખલ કરો</string>
+  <string name="invalidPsw">માન્ય પાસવર્ડ દાખલ કરો (4-8 આંકડા)</string>
+  <string name="labelCbCancelAll">કૉલ પ્રતિબંધ અક્ષમ કરો</string>
+  <string name="labelCbChangePassword">પાસવર્ડ બદલો</string>
+  <string name="psw_enter_old">જૂનો પાસવર્ડ</string>
+  <string name="psw_enter_new">નવો પાસવર્ડ</string>
+  <string name="psw_reenter_new">તમારો પાસવર્ડ ફરી દાખલ કરો</string>
+  <string name="no_call_barring">કૉલ પ્રતિબંધ અક્ષમ કર્યુ</string>
+  <string name="cb_psw_dont_match">પાસવર્ડ સુસંગત નથી</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">FDN અપડેટ કરવામાં આવ્યું નહીં કારણ કે નંબર ખાલી છે અથવા 20 આંકડા કરતા વધી જાય છે.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
+  <string name="exportContacts">SIM કાર્ડ\u2026 પર સંપર્કો નિકાસ થઈ રહ્યા છે</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
+  <string name="simContacts_title_cm">SIM કાર્ડ સંપર્કોનું વ્ય‌વસ્થાપન કરો</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_local_low_battery">ઉતરેલ બેટરીને કારણે કૉલ નિષ્ફળ.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">રિમોટ ડિવાઇસની ઉતરેલ બેટરીને કારણે કૉલ નિષ્ફળ.</string>
   <!-- Sim contacts management -->
+  <string name="contactScreen">SIM સંપર્કોનું વ્ય‌વસ્થાપન કરો</string>
+  <string name="exportContactScreen">ફોન સંપર્કો SIM પર નિકાસ કરો</string>
+  <string name="addSimEntries">SIM સંપર્ક ઍડ કરો</string>
+  <string name="deleteAllSimEntries">તમામ SIM સંપર્કો રદ કરો</string>
+  <string name="deleteSimContacts">SIM સંપર્કો\u2026 ભૂંસાઇ રહ્યા છે</string>
+  <string name="editContact">સંપાદિત કરો</string>
+  <string name="sendSms">SMS મોકલો</string>
+  <string name="delete">હટાવો</string>
+  <string name="dial">ડાયલ</string>
+  <string name="enterName">નામ દાખલ કરો:</string>
+  <string name="enterNumber">ફોન નંબર દાખલ કરો:</string>
+  <string name="hintName">નામ</string>
+  <string name="hintPhonenumber">ફોન નંબર</string>
+  <string name="contactAddSuccess">SIM પર સફળતાપૂર્વક સંપર્ક ઉમેરાયો</string>
+  <string name="contactAddFailed">SIM પર સંપર્ક ઉમેરવામાં નિષ્ફળતા</string>
+  <string name="contactUpdateSuccess">SIM પર સફળતાપૂર્વક સંપર્ક અપડેટ થયો</string>
+  <string name="contactUpdateFailed">SIM પર સંપર્ક અપડેટ કરવામાં નિષ્ફળતા</string>
+  <string name="contactdeleteSuccess">SIM પરથી સફળતાપૂર્વક સંપર્ક ભૂંસાયા</string>
+  <string name="contactdeleteFailed">SIM પરથી સંપર્ક રદ કરવામાં નિષ્ફળતા</string>
+  <string name="allContactdeleteSuccess">SIM પરથી સફળતાપૂર્વક તમામ સંપર્કો ભૂંસાયા</string>
+  <string name="allContactdeleteFailed">SIM પરથી તમામ સંપર્કો રદ કરવામાં નિષ્ફળતા</string>
+  <string name="exportAllcontatsSuccess">SIM પરથી સફળતાપૂર્વક તમામ સંપર્કો નિકાસ કર્યા</string>
+  <string name="exportAllcontatsFailed">SIM પરથી તમામ સંપર્કો નિકાસ કરવામાં નિષ્ફળતા</string>
+  <string name="exportAllcontatsNoContacts">SIM પર નિકાસ કરવા માટે કોઇ સંપર્કો મળ્યાં નહીં</string>
+  <string name="msim_mobile_network_settings_title">SIM %d મોબાઇલ નેટવર્ક સેટિંગ્સ</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">નેટવર્ક મોડ પરિવર્તન કરો</string>
+  <string name="perm_change_mobile_network_desc">વર્તમાન નેટવર્ક સ્થિતિ સુધારવા માટે એપ્લિકેશન ને પરવાનગી આપો.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">કનેક્ટેડ લાઇનની ઓળખ</string>
+  <string name="connected_line_identification_summary">આ વિકલ્પ નિષ્ક્રિય કરો જો પ્રાપ્તિકર્તાઓ ના નંબરો કૉલ ઇતિહાસમા બતાવવામાં ના આવે</string>
+  <!-- Network mode picker dialog title -->
 </resources>

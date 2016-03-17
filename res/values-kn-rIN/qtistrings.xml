@@ -33,6 +33,7 @@
 <resources>
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="ims_settings">ಐಎಮ್ಎಸ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಉಪವಿಭಾಗ ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->

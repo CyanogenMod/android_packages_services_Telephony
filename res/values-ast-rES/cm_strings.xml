@@ -140,4 +140,6 @@
   <string name="exportAllcontatsFailed">Fallu al esportar tolos contautos de la tarxeta SIM</string>
   <string name="exportAllcontatsNoContacts">Nun s\'atoparon contautos qu\'esportar a la tarxeta SIM</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

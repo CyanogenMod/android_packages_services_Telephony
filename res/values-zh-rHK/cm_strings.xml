@@ -132,4 +132,6 @@
   <string name="exportAllcontatsFailed">匯出所有 SIM 卡聯絡人失敗</string>
   <string name="exportAllcontatsNoContacts">沒有要匯出至 SIM 卡的聯絡人</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

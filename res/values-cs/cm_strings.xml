@@ -186,4 +186,8 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">změnit režim sítě</string>
   <string name="perm_change_mobile_network_desc">Umožňuje změnit stávající režim sítě.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Identifikace linky</string>
+  <string name="connected_line_identification_summary">Zakažte tuto funkci pokud se nezobrazují telefonní čísla volaných či volajících v historii volání</string>
+  <!-- Network mode picker dialog title -->
 </resources>

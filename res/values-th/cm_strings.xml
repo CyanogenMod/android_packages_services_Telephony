@@ -20,6 +20,9 @@
   <string name="incall_screen_settings">การตั้งค่าหน้าจอระหว่างการโทร</string>
   <string name="show_ssn_label">การแจ้งเตือนกิจกรรม</string>
   <string name="show_ssn_summary">แสดงการแจ้งเตือนสำหรับกิจกรรมเครือข่ายต่าง ๆ ที่เกี่ยวข้องกับการจัดการโทรเรียก</string>
+  <string name="incall_echo_cancellation">ลดเสียงรบกวนในสาย</string>
+  <string name="enable_aec_label">กำจัดเสียงก้อง</string>
+  <string name="enable_aec_summary">ลดเสียงรบกวนรอบข้างของปลายสายเมื่อสนทนาด้วยเสียง</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">รายชื่อผู้ที่ถูกบล็อค</string>
   <string name="blacklist_summary_disabled">ปิดใช้งานแล้ว</string>
@@ -179,5 +182,10 @@
   <string name="exportAllcontatsSuccess">ส่งออกผู้ติดต่อทั้งหมดไปยังซิมเรียบร้อยแล้ว</string>
   <string name="exportAllcontatsFailed">การส่งออกรายชื่อติดต่อทั้งหมดไปยังซิมล้มเหลว</string>
   <string name="exportAllcontatsNoContacts">ไม่พบรายชื่อติดต่อที่จะส่งออกไปยังซิม</string>
+  <string name="msim_mobile_network_settings_title">การตั้งค่าเครือข่ายโทรศัพท์ของซิม %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">เปลี่ยนรูปแบบครือข่าย</string>
+  <string name="perm_change_mobile_network_desc">อนุญาตให้แอปแก้ไขรูปแบบเครือข่ายปัจจุบัน</string>
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

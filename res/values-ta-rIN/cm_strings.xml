@@ -17,46 +17,175 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">இன்-கால் திரை அமைப்புகள்</string>
+  <string name="show_ssn_label">நிகழ்வு அறிவுறுத்தல்</string>
+  <string name="show_ssn_summary">அழைப்பு கையாள்தல் தொடர்பான பல்வேறு பிணைய நிகழ்வுகளுக்கான அறிவுறுத்தல்களைக் கான்பி</string>
+  <string name="incall_echo_cancellation">In-call இரைச்சல் குறைப்பு</string>
+  <string name="enable_aec_label">எதிரொலி நீக்கம்</string>
+  <string name="enable_aec_summary">தொலைநிலை கட்சியின் குரல் அழைப்புகளின் போது சூழ்ந்துள்ள இரைச்சலை குறைக்கவும்</string>
   <!-- Blacklist preferences -->
+  <string name="blacklist_title">தடைசெய்யப்பட்ட அழைப்பாளர் பட்டியல்</string>
+  <string name="blacklist_summary_disabled">முடக்கப்பட்டது</string>
+  <string name="blacklist_summary">தடைசெய்யப்பட்ட அழைப்பாளர் பட்டியலில் இருந்து நீங்கள் அழைப்புகள் அல்லது மெசேஜ்களை பெற மாட்டீர்கள்</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
+  <string name="mwi_notification_title">செய்தி காத்திருப்பு குறிப்பான்</string>
+  <string name="mwi_notification_summary">செய்தி காத்திருப்பு குறிப்பான் குரலஞ்சல் அறிவிப்புகளைக் காண்பி</string>
   <!-- My Phone Number -->
+  <string name="phone_number_label">எனது மொபைல் எண்</string>
+  <string name="phone_number_summary">இந்த சாதனத்திற்கான தொலைப்பேசி எண்னை அமை</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
+  <string name="call_notif_unconditionalCF">நிபந்தனையற்ற அழைப்பு திருப்பம் செயல்பாட்டிலுள்ளது</string>
   <!-- Toast text for Conditional Call Forwarding enabled  -->
+  <string name="call_notif_conditionalCF">நிபநந்தனையுள்ள அழைப்பு திருப்பம் செயல்பாட்டிலுள்ளது</string>
   <!-- Toast text for a forwarded MO call  -->
+  <string name="call_notif_MOcall_forwarding">வெளிசெல்லல் அழைப்பு முன்னனுப்பப்பட்டது</string>
   <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
+  <string name="call_notif_cugcall">மூடிய பயனர் குழுவில் உள்ள அழைப்பு</string>
   <!-- In-call screen: status label when MO calls are barred -->
+  <string name="call_notif_outgoing_barred">வெளிசெல்லல் அழைப்புகள் தடைசெய்யப்பட்டன</string>
   <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
+  <string name="call_notif_incoming_barred">உள்வரும் அழைப்புகள் தொலைநிலை பார்ட்டியில் தடைசெய்யப்பட்டன</string>
   <!-- Toast text for MO calls when CLIR Suppression is rejected -->
+  <string name="call_notif_clir_suppression_rejected">சொந்த எண் ஒடுக்குதல் பிணையத்தினால் புறக்கணிக்கப்பட்டது</string>
   <!-- In-call screen: status label when MO call gets deflected to another party -->
+  <string name="call_notif_call_deflected">தொலைநிலை பார்ட்டியினால் அழைப்பு முன்னனுப்பப்பட்டது</string>
   <!-- Toast text for incoming call being forwarded to other remote party  -->
+  <string name="call_notif_MTcall_forwarding">உள்வரும் அழைப்பு முன்னனுப்பப்பட்டது</string>
   <!-- Toast text for incoming call which is part of MultiParty Call -->
+  <string name="call_notif_multipartycall">பல-பார்ட்டி அழைப்பு</string>
   <!-- Toast text for incoming call which is answered,put on hold & then released -->
+  <string name="call_notif_callonhold_released">அழைப்பு தொலைநிலையாக விடுவிக்கப்பட்டது</string>
   <!-- Toast text for incoming call forward check received -->
+  <string name="call_notif_forwardcheckreceived">அழைப்பு முன்னனுப்பப்பட்டது</string>
   <!-- Toast text for incoming call connecting through ECT -->
+  <string name="call_notif_callconnectingect">வெளிப்படையான அழைப்பு இடமாற்றத்தின் மூலம் அழைப்பு இணைக்கப்படுகிறது</string>
   <!-- Toast text for incoming call connected through ECT -->
+  <string name="call_notif_callconnectedect">வெளிப்படையான அழைப்பு இடமாற்றத்தின் மூலம் அழைப்பு இணைக்கப்பட்டது</string>
   <!-- Status message displayed on SIM Network Depersonalization panel -->
+  <string name="requesting_unlock_cm">SIM பிணைய பூட்டுநீக்கம் கோரப்படுகிறது\u2026</string>
   <!-- Error message displayed on SIM Network Depersonalization panel -->
+  <string name="unlock_failed_cm">SIM பிணைய பூட்டுநீக்கம் வெற்றியடையவில்லை.</string>
   <!-- Success message displayed on SIM Network Depersonalization panel -->
+  <string name="unlock_success_cm">SIM பிணைய பூட்டுநீக்கம் வெற்றியடைந்தது.</string>
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <string name="all_day">நாள் முழுவதும்</string>
+  <string name="time_start">அனுப்புநர்</string>
+  <string name="time_end">பெறுநர்</string>
+  <string name="time_hour">மணி</string>
+  <string name="time_minute">நிமிடம்</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <!-- Mobile network settings, preferred network modes -->
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_global_summary_cm">விருப்பமான பிணைய பயன்முறை: உலகளாவிய(CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
+  <string name="callFailed_incoming_cb_enabled">அனைத்து உள்வரும் அழைப்புகளையும் பார்ட்டி தடைசெய்துள்ளது</string>
   <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
+  <string name="callUnanswered_forwarded">அழைப்பு பதிலளிகப்படவில்லை மற்றும் முன்னனுப்பப்பட்டது</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">விருப்பமான பிணைய பயன்முறை: TD-SCDMA/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_lte_summary">விருப்பமான பிணைய பயன்முறை: TD-SCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_summary">விருப்பமான பிணைய பயன்முறை: TD-SCDMA/GSM</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">விருப்பமான பிணைய பயன்முறை: TD-SCDMA/GSM/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">விருப்பமான பிணைய பயன்முறை: TD-SCDMA/GSM/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">விருப்பமான பிணைய பயன்முறை: TD-SCDMA/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">விருப்பமான பிணைய பயன்முறை: TD-SCDMA/GSM/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">விருப்பமான பிணைய பயன்முறை: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">விருப்பமான பிணைய பயன்முறை: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_only_choice">TD-SCDMA only</string>
+  <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
+  <string name="preferred_network_mode_lte_choice">LTE</string>
+  <string name="preferred_network_mode_global_choice">உலகளவு</string>
+  <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_evdo_only_choice">EvDo only</string>
+  <string name="preferred_network_mode_cdma_wo_evdo_choice">CDMA w/o EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo தானியக்கம்</string>
+  <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA தானியக்கம்</string>
+  <string name="preferred_network_mode_wcdma_only_choice">WCDMA மட்டுமே</string>
+  <string name="preferred_network_mode_gsm_only_choice">GSM மட்டுமே</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA விரும்பப்பட்டது</string>
+  <string name="call_barring">அழைப்புத் தவிர்ப்பு</string>
+  <string name="call_barring_outgoing">வெளிசெல்லல் அழைப்பு தடைசெய்தல்</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>முடக்கத்தில்</item>
+    <item>சர்வதேச ரோமிங் அழைப்புகள்</item>
+    <item>சர்வதேச அழைப்புகள்</item>
+    <item>வெளிசெல்லல் அழைப்புகள்</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>முடக்கத்தில்</item>
+    <item>ரோமிங்</item>
+    <item>எல்லாம்</item>
+  </string-array>
+  <string name="call_barring_incoming">உள்வரும் அழைப்பு தடைசெய்தல்</string>
+  <string name="input_password">உங்கள் கடவுச்சொல்லை உள்ளிடவும்</string>
+  <string name="invalidPsw">ஒரு செல்லுபடியாகும் கடவுச்சொல்லை உள்ளிடவும்(4-8 இலக்கங்கள்)</string>
+  <string name="labelCbCancelAll">அழைப்பு தடுத்தலை முடக்குக</string>
+  <string name="labelCbChangePassword">கடவுச்சொல்லை மாற்று</string>
+  <string name="psw_enter_old">பழைய கடவுச்சொல்</string>
+  <string name="psw_enter_new">புதிய கடவுச்சொல்</string>
+  <string name="psw_reenter_new">உங்கள் கடவுச்சொல்லை மறு உள்ளீடுசெய்க.</string>
+  <string name="no_call_barring">அழைப்பு தடைசெய்தல் முடக்கப்பட்டது</string>
+  <string name="cb_psw_dont_match">கடவுச்சொற்கள் பொருந்தவில்லை</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">FDN புதுப்பிக்கப்படவில்லை ஏனென்றால் எண் வெறுமையாக அல்லது 20 இலக்கங்களுக்கு மேல் உள்ளது.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
+  <string name="exportContacts">SIM கார்டுக்கு தொடர்புகளை ஏற்றுமதிசெய்\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
+  <string name="simContacts_title_cm">SIM கார்டு இணைப்புகளை நிர்வகி</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_local_low_battery">குறைந்த மின்கலம் காரணமாக அழைப்பு தோல்வியுற்றது.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">தொலைநிலை சாதன குறைந்த மின்கலன் காரணமாக அழைப்பு தோல்வியுற்றது</string>
   <!-- Sim contacts management -->
+  <string name="contactScreen">SIM தொடர்புகளை நிர்வகி</string>
+  <string name="exportContactScreen">தொலைப்பேசி தொடர்புகளை SIMக்கு ஏற்றுமதிசெய்க</string>
+  <string name="addSimEntries">SIM தொடர்பை சேர்</string>
+  <string name="deleteAllSimEntries">அனைத்து SIM தொடர்புகளையும் நீக்குக</string>
+  <string name="deleteSimContacts">SIM தொடர்புகள் நீக்கப்படுகின்றன\u2026</string>
+  <string name="editContact">திருத்து</string>
+  <string name="sendSms">SMS அனுப்பு</string>
+  <string name="delete">நீக்கு</string>
+  <string name="dial">டயல் செய்</string>
+  <string name="enterName">பெயரை உள்ளிடுக:</string>
+  <string name="enterNumber">தொலைப்பேசி எண்னை உள்ளிடுக:</string>
+  <string name="hintName">பெயர்</string>
+  <string name="hintPhonenumber">ஃபோன் எண்</string>
+  <string name="contactAddSuccess">வெற்றிரமாக தொடர்பை SIM உடன் சேர்த்தாயிற்று</string>
+  <string name="contactAddFailed">தொடர்பை SIM உடன் சேர்த்தல் தோல்வியுற்றது</string>
+  <string name="contactUpdateSuccess">வெற்றிகரமாக SIMஇல் தொடர்பு புதுப்பிக்கப்பட்டது</string>
+  <string name="contactUpdateFailed">SIM உடன் தொடர்பு புதுப்பித்தல் தோல்வியுற்றது</string>
+  <string name="contactdeleteSuccess">SIMஇல் இருந்து தொடர்பு வெற்றிகரமாக நீக்கப்பட்டது</string>
+  <string name="contactdeleteFailed">SIMஇல் இருந்து தொடர்பு நீக்கப்படுதல் தோல்வியுற்றது</string>
+  <string name="allContactdeleteSuccess">வெற்றிகரமாக அனைத்து தொடர்புகளும் SIMஇல் இருந்து நீக்கப்பட்டன</string>
+  <string name="allContactdeleteFailed">அனைத்து தொடர்புகளும் SIMஇல் இருந்து நீக்கப்படுதல் தோல்வியுற்றது</string>
+  <string name="exportAllcontatsSuccess">வெற்றிகரமாக அனைத்து தொடர்புகளும் SIMக்கு ஏற்றுமதிசெய்யப்பட்டன</string>
+  <string name="exportAllcontatsFailed">அனைத்து தொடர்புகளும் SIMக்கு ஏற்றுமதி செய்யப்படுதல் தோல்வியுற்றது</string>
+  <string name="exportAllcontatsNoContacts">SIMக்கு ஏற்றுமதிசெய்ய தொடர்புகள் எதுவும் இல்லை</string>
+  <string name="msim_mobile_network_settings_title">SIM %d மொபைல் பிணைய அமைப்புகள்</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">நெட்வொர்க் பயன்முறையை மாற்றவும்</string>
+  <string name="perm_change_mobile_network_desc">தற்போதைய நெட்வொர்க் பயன்முறையை மாற்ற, இந்த பயன்பாட்டை அனுமதிக்கிறது.</string>
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

@@ -186,4 +186,8 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">alterar o modo de rede</string>
   <string name="perm_change_mobile_network_desc">Permite que um app modifique o modo de rede atual.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Identificação da linha conectada</string>
+  <string name="connected_line_identification_summary">Desabilite esta opção se os números dos destinatários não aparecerem no histórico de chamadas</string>
+  <!-- Network mode picker dialog title -->
 </resources>

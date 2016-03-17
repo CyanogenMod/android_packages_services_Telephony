@@ -17,6 +17,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">Ajustes de llamada en pantalla</string>
+  <string name="incall_echo_cancellation">Reducción de ruido en llamada</string>
+  <string name="enable_aec_label">Cancelación de eco</string>
+  <string name="enable_aec_summary">Reducir el ruido ambiental para el usuario remoto durante llamadas de voz</string>
   <!-- Blacklist preferences -->
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <!-- My Phone Number -->
@@ -39,6 +43,13 @@
   <!-- Error message displayed on SIM Network Depersonalization panel -->
   <!-- Success message displayed on SIM Network Depersonalization panel -->
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <string name="all_day">Todo el día</string>
+  <string name="time_start">De</string>
+  <string name="time_end">Para</string>
+  <string name="time_hour">Hora</string>
+  <string name="time_minute">Minuto</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <!-- Mobile network settings, preferred network modes -->
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
@@ -51,12 +62,48 @@
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Modo preferido de red: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="call_barring">Restricción de llamadas</string>
+  <string name="call_barring_outgoing">Restricción de llamadas salientes</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Desactivado</item>
+    <item>Llamadas internacionales con roaming</item>
+    <item>Llamadas internacionales</item>
+    <item>Llamadas salientes</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Desactivada</item>
+    <item>Roaming</item>
+    <item>Todo</item>
+  </string-array>
+  <string name="call_barring_incoming">Restricción de llamadas entrantes</string>
+  <string name="input_password">Introduce tu contraseña</string>
+  <string name="invalidPsw">Introduce una contraseña válida (4-8 dígitos)</string>
+  <string name="labelCbCancelAll">Desactivar bloqueo de llamadas</string>
+  <string name="labelCbChangePassword">Cambiar contraseña</string>
+  <string name="psw_enter_old">Contraseña anterior</string>
+  <string name="psw_enter_new">Nueva contraseña</string>
+  <string name="psw_reenter_new">Vuelve a introducir tu contraseña</string>
+  <string name="no_call_barring">Bloqueo de llamadas desactivado</string>
+  <string name="cb_psw_dont_match">Las contraseñas no coinciden</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">FDN no fue actualizado porque el número está vacío o supera los 20 dígitos.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_local_low_battery">Error de llamada debido a la batería baja.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">Error de llamada debido a la batería baja del dispositivo remoto.</string>
   <!-- Sim contacts management -->
+  <string name="msim_mobile_network_settings_title">Ajustes de la red celular de la SIM %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">cambiar modo de red</string>
+  <string name="perm_change_mobile_network_desc">Permite que una aplicación modifique el modo actual de la red.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Identificación de línea conectada</string>
+  <string name="connected_line_identification_summary">Desactiva esta opción si los números de los destinatarios no se muestran en el historial de llamadas</string>
+  <!-- Network mode picker dialog title -->
 </resources>

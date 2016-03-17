@@ -17,8 +17,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">ಇನ್‌-ಕಾಲ್‌ ಪರದೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
   <string name="show_ssn_label">ಘಟನೆ ಅಧಿಸೂಚನೆ</string>
   <string name="show_ssn_summary">ಕರೆ ನಿರ್ವಹಣೆಗೆ ಸಂಬಂಧಿಸಿದ ವಿವಿಧ ನೆಟ್‍ವರ್ಕ್ ಘಟನೆಗಳ ಅಧಿಸೂಚನೆಯನ್ನು ಪ್ರದರ್ಶಿಸು</string>
+  <string name="incall_echo_cancellation">ಇಂ ಕಾಲ್ ಶಬ್ದ ಕಡಿಮೆಗೊಳಿಸುವುದು</string>
+  <string name="enable_aec_label">ಎಕೋ ರದ್ದತಿಯು</string>
+  <string name="enable_aec_summary">ಧ್ವನಿ ಕರೆಗಳ ಸಮಯದಲ್ಲಿ ರಿಮೋಟ್ ವ್ಯಕ್ತಿಗೆ ಆವರಿಸಿದ ಶಬ್ದವನ್ನು ಕಡಿಮೆ ಮಾಡಿ</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಮಾಡುವರ ಪಟ್ಟಿ</string>
   <string name="blacklist_summary_disabled">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
@@ -65,6 +69,13 @@
   <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <string name="all_day">ದಿನ ಪೂರ್ತಿ</string>
+  <string name="time_start">ಇವರಿಂದ</string>
+  <string name="time_end">ಇವರಿಗೆ</string>
+  <string name="time_hour">ಗಂಟೆ</string>
+  <string name="time_minute">ನಿಮಿಷ</string>
+  <string name="time_formate_am">ಬೆಳಗ್ಗೆ</string>
+  <string name="time_formate_pm">ಸಂಜೆ</string>
   <!-- Mobile network settings, preferred network modes -->
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: ಜಾಗತಿಕ (CDMA/EvDo/LTE/GSM/WCDMA)</string>
@@ -87,8 +98,11 @@
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/GSM/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">ಆದ್ಯತೆಯ ನೆಟ್ ವರ್ಕ್ ಮೋಡ್ TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -110,13 +124,39 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA ಮಾತ್ರ</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM ಮಾತ್ರ</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ಆದ್ಯತೆಯ</string>
+  <string name="call_barring">ಕರೆ ಬಾರಿಂಗ್</string>
+  <string name="call_barring_outgoing">ಹೊರಹೋಗುವ ಕರೆ ನಿರ್ಬಂಧ</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>ಆಫ್ ಆಗಿದೆ</item>
+    <item>ಅಂತಾರಾಷ್ಟ್ರೀಯ ರೋಮಿಂಗ್ ಕರೆಗಳು</item>
+    <item>ಅಂತಾರಾಷ್ಟ್ರೀಯ ಕರೆಗಳು</item>
+    <item>ಹೊರಹೋಗುವ ಕರೆಗಳು</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>ಆಫ್ ಆಗಿದೆ</item>
+    <item>ರೋಮಿಂಗ್</item>
+    <item>ಎಲ್ಲಾ</item>
+  </string-array>
+  <string name="call_barring_incoming">ಒಳಬರುವ ಕರೆ ನಿರ್ಬಂಧ</string>
+  <string name="input_password">ನಿಮ್ಮ ಪಾಸ್ ವರ್ಡ್ ಬರೆಯಿರಿ</string>
+  <string name="invalidPsw">ಮಾನ್ಯ ಪಾಸ್ ವರ್ಡ್ ಬರೆಯಿರಿ (4-8 ಅಂಕಿಗಳಿರಬೇಕು)</string>
+  <string name="labelCbCancelAll">ಕರೆ ನಿರ್ಬಂಧವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
+  <string name="labelCbChangePassword">ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಿ</string>
+  <string name="psw_enter_old">ಹಳೆ ಪಾಸ್ ವರ್ಡ್</string>
+  <string name="psw_enter_new">ಹೊಸ ಪಾಸ್ ವರ್ಡ್</string>
+  <string name="psw_reenter_new">ನಿಮ್ಮ ಪಾಸ್ ವರ್ಡ್ ಅನ್ನು ಮರುನಮೂದಿಸಿ</string>
+  <string name="no_call_barring">ಕರೆ ನಿರ್ಬಂಧವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
+  <string name="cb_psw_dont_match">ಪಾಸ್ ವರ್ಡ್ ಗಳು ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಿಲ್ಲ</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">FDN ಅಪ್‌ಡೇಟ್‌ ಆಗಿಲ್ಲ, ಯಾಕೆಂದರೆ ನಂಬರ್ ಖಾಲಿ ಇದೆ ಅಥವಾ 20 ಅಂಕಿಗಳ ಮಿತಿ ಮೀರಿದೆ.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್ ಕಾರ್ಡ್‍ಗೆ ರಫ್ತು ಮಾಡುತ್ತಿದೆ\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">ಸಿಮ್ ಕಾರ್ಡ್ ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_local_low_battery">ಬ್ಯಾಟರಿ ಕಡಿಮೆ ಇರುವುದರಿಂದ ಕರೆ ವಿಫಲವಾಗಿದೆ.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">ರಿಮೊಟ್‌ ಸಾಧನ ಬ್ಯಾಟರಿ ಕಡಿಮೆ ಇರುವುದರಿಂದ ಕರೆ ವಿಫಲವಾಗಿದೆ.</string>
   <!-- Sim contacts management -->
   <string name="contactScreen">ಸಿಮ್ ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
   <string name="exportContactScreen">ಫೋನ್ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ರಫ್ತು ಮಾಡಿ</string>
@@ -142,5 +182,10 @@
   <string name="exportAllcontatsSuccess">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ಯಶಸ್ವಿಯಾಗಿ ರಫ್ತುಮಾಡಿದೆ</string>
   <string name="exportAllcontatsFailed">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ರಫ್ತುಮಾಡಲು ವಿಫಲವಾಗಿದೆ</string>
   <string name="exportAllcontatsNoContacts">ಸಿಮ್‍ಗೆ ರಫ್ತು ಮಾಡಲು ಯಾವುದೇ ಸಂಪರ್ಕಗಳು ಪತ್ತೆಯಾಗಲಿಲ್ಲ</string>
+  <string name="msim_mobile_network_settings_title">SIM %d ಮೊಬೈಲ್ ನೆಟ್ ವರ್ಕ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್ ಬದಲಿಸಿ</string>
+  <string name="perm_change_mobile_network_desc">ಪ್ರಸ್ತುತ ನೆಟ್ವರ್ಕ್ ಮೋಡ್ ಮಾರ್ಪಡಿಸಲು ಅಪ್ಲಿಕೇಶನ್ಗೆ ಅನುಮತಿಸುತ್ತದೆ.</string>
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

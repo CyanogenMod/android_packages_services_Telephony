@@ -143,4 +143,6 @@
   <string name="exportAllcontatsFailed">Export vun alle Kontakter op d\'SIM feelgeschloen</string>
   <string name="exportAllcontatsNoContacts">Keng Kontakter fonnt fir op d\'SIM z\'exportéieren</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

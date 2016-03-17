@@ -184,4 +184,6 @@
   <string name="exportAllcontatsNoContacts">SIM에 내보낼 연락처가 없습니다</string>
   <string name="msim_mobile_network_settings_title">SIM %d 셀룰러 네트워크 설정</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>
