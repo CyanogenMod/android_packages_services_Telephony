@@ -186,4 +186,8 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">αλλαγή τύπου δικτύου</string>
   <string name="perm_change_mobile_network_desc">Επιτρέπει σε μια εφαρμογή να τροποποιήσει τον τρέχων τύπο δικτύου.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Αναγνώριση συνδεδεμένης γραμμής</string>
+  <string name="connected_line_identification_summary">Απενεργοποιήσετε αυτήν την επιλογή εάν οι αριθμοί των παραληπτών δεν εμφανίζονται στο ιστορικό κλήσεων</string>
+  <!-- Network mode picker dialog title -->
 </resources>

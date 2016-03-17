@@ -180,4 +180,6 @@
   <string name="exportAllcontatsFailed">Не атрымалася экспартаваць кантакты на SIM</string>
   <string name="exportAllcontatsNoContacts">Не знойдзены кантакты для экспарту на SIM</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

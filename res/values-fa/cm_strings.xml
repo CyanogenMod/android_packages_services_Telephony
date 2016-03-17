@@ -143,4 +143,6 @@
   <string name="exportAllcontatsFailed">برون‌ریزی تمام مخاطبین به سیمکارت ناموفق بود</string>
   <string name="exportAllcontatsNoContacts">هیچ مخاطبی برای برون‌ریزی به سیمکارت پیدا نشد</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

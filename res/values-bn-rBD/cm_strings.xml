@@ -64,4 +64,6 @@
   <!-- In-call screen: call failure message displayed in errror dialog -->
   <!-- Sim contacts management -->
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

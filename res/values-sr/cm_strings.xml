@@ -186,4 +186,6 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">промени режим мреже</string>
   <string name="perm_change_mobile_network_desc">Дозвољава апликацији да измени тренутни режим мреже.</string>
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

@@ -55,7 +55,7 @@
   <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Dei anitza</string>
   <!-- Toast text for incoming call which is answered,put on hold & then released -->
-  <string name="call_notif_callonhold_released">Berreskuraturiko deia</string>
+  <string name="call_notif_callonhold_released">Deia bestaldetik eten da</string>
   <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Deia bidali da</string>
   <!-- Toast text for incoming call connecting through ECT -->
@@ -186,4 +186,8 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">sare modua aldatu</string>
   <string name="perm_change_mobile_network_desc">Uneko sare modua aldatzea ahalbidetzen dio aplikazioari.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Konektatutako linearen identifikazioa</string>
+  <string name="connected_line_identification_summary">Desgaitu aukera hau jasotzaileen zenbakiak deien historian agertzen ez badira</string>
+  <!-- Network mode picker dialog title -->
 </resources>

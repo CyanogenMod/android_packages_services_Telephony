@@ -34,48 +34,80 @@
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
+  <string name="label_nsdp">SIM network subset unlock PIN</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="label_rn1dp">RUIM network 1 unlock PIN</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="label_rn2dp">RUIM network 2 unlock PIN</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="label_rhrpd">RUIM HRPD unlock PIN</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
+  <string name="label_rcdp">RUIM corporate unlock PIN</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <string name="label_rspdp">RUIM service provider unlock PIN</string>
   <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <!-- Label text for PUK entry widget on Depersonalization panel -->
+  <string name="label_puk">PUK കോഡ് നൽകുക</string>
   <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="requesting_rnw1_unlock">Requesting RUIM network 1 unlock\u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="requesting_rnw2_unlock">Requesting RUIM network 2 unlock\u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="requesting_rhrpd_unlock">Requesting RUIM HRPD unlock\u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <!-- Status message displayed on PUK Depersonalization panel -->
+  <string name="requesting_puk_unlock">Requesting PUK unlock\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_failed">SIM network subset unlock request unsuccessful.</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="corporate_unlock_failed">SIM corporate unlock request unsuccessful.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
+  <string name="sim_unlock_failed">SIM unlock request unsuccessful.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_failed">RUIM network 1 unlock request unsuccessful.</string>
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_failed">RUIM network 2 unlock request unsuccessful.</string>
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_failed">RUIM HRPD unlock request unsuccessful.</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="rsp_unlock_failed">RUIM service provider unlock request unsuccessful.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="rc_unlock_failed">RUIM corporate unlock request unsuccessful.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="ruim_unlock_failed">RUIM unlock request unsuccessful.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
+  <string name="puk_unlock_failed">PUK അൺലോക്ക് വിജയിച്ചില്ല.</string>
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_success">SIM network subset unlock successful.</string>
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="sp_unlock_success">SIM service provider unlock successful.</string>
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
+  <string name="corporate_unlock_success">SIM corporate unlock successful.</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
+  <string name="sim_unlock_success">സിം വിജയകരമായ അൺലോക്ക് ചെയ്തു.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_success">RUIM network 1 unlock successful.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_success">RUIM network 2 unlock successful.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_success">RUIM HRPD unlock successful.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="rsp_unlock_success">RUIM service provider unlock successful.</string>
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="rc_unlock_success">RUIM corporate unlock successful.</string>
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="ruim_unlock_success">RUIM unlock successful.</string>
   <!-- Success message displayed on PUK Depersonalization panel -->
+  <string name="puk_unlock_success">PUK വിജയകരമായ അൺലോക്ക് ചെയ്തു.</string>
   <!-- Preferred networks -->
 </resources>

@@ -33,49 +33,94 @@
 <resources>
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="ims_settings">IMS ସେଟିଙ୍ଗ</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
+  <string name="label_nsdp">SIM ନେଟ୍‍ୱାର୍କ ସବ୍‍ସେଟ୍‍ ଅନ୍‍ଲକ୍‍ PIN</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
+  <string name="label_cdp">SIM କର୍ପୋରେଟ୍‍ ଅ‍ନ୍ଲକ୍‍ PIN</string>
   <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
+  <string name="label_spdp">SIM ସେବା ପ୍ରଦାମକାରୀ ଅନ୍‍ଲକ୍‍ PIN</string>
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
+  <string name="label_sdp">SIM ଅ‍ନ୍ଲକ୍‍ PIN</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="label_rn1dp">RUIM ନେଟ୍‍ୱାର୍କ 1 ଅନ୍‍ଲକ୍‍ PIN</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="label_rn2dp">RUIM ନେଟ୍‍ୱାର୍କ 2 ଅନ୍‍ଲକ୍‍ PIN</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="label_rhrpd">RUIM HRPD ଅନ୍‍ଲକ୍‍ PIN</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
+  <string name="label_rcdp">RUIM କର୍ପୋରେଟ୍‍ ଅ‍ନ୍ଲକ୍‍ PIN</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <string name="label_rspdp">RUIM ସେବା ପ୍ରଦାମକାରୀ ଅନ୍‍ଲକ୍‍ PIN</string>
   <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
+  <string name="label_rdp">RUIM ଅ‍ନ୍ଲକ୍‍ PIN</string>
   <!-- Label text for PUK entry widget on Depersonalization panel -->
+  <string name="label_puk">PUK ପ୍ରବେଶ କରନ୍ତୁ</string>
   <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="requesting_nw_subset_unlock">SIM ନେଟ୍‍ୱାର୍କ୍‍ ସବ୍‍ସେଟ୍‍ ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="requesting_sp_unlock">SIM ସେବା ପ୍ରଦାନକାରୀ‍ ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on SIM Corporate Depersonalization panel -->
+  <string name="requesting_corporate_unlock">SIM କର୍ପୋରେଟ୍‍‍ ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
+  <string name="requesting_sim_unlock">SIM ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="requesting_rnw1_unlock">RUIM ନେଟ୍‍ୱାର୍କ୍‍ 1 ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="requesting_rnw2_unlock">RUIM ନେଟ୍‍ୱାର୍କ୍‍ 2 ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="requesting_rhrpd_unlock">RUIM HRPD ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="requesting_rsp_unlock">RUIM ସେବା ପ୍ରଦାନକାରୀ‍ ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="requesting_rc_unlock">RUIM କର୍ପୋରେଟ୍‍‍ ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="requesting_ruim_unlock">RUIM ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Status message displayed on PUK Depersonalization panel -->
+  <string name="requesting_puk_unlock">PUK ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ କରାଯାଉଛି\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_failed">SIM ନେଟ୍‍ୱାର୍କ୍‍ ସବ୍‍ସେଟ୍‍ ଅନ୍‍ଲକ୍‍ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="sp_unlock_failed">SIM ସେବା ପ୍ରଦାନକାରୀ‍ ଅନ୍‍ଲକ୍‍ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="corporate_unlock_failed">SIM କର୍ପୋରେଟ୍‍ ଅନ୍‍ଲକ୍‍ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
+  <string name="sim_unlock_failed">SIM ଅନ୍‍ଲକ୍‍ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_failed">RUIM ନେଟ୍‍ୱାର୍କ୍‍ 1 ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_failed">RUIM ନେଟ୍‍ୱାର୍କ୍‍ 2 ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_failed">RUIM HRPD ଅନ୍‍ଲକ୍‍ ପାଇଁ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="rsp_unlock_failed">RUIM ସେବା ପ୍ରଦାନକାରୀ‍ ଅନ୍‍ଲକ୍‍ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="rc_unlock_failed">RUIM କର୍ପୋରେଟ୍‍ ଅନ୍‍ଲକ୍‍ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="ruim_unlock_failed">RUIM ଅନ୍‍ଲକ୍‍ ଅନୁରୋଧ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
+  <string name="puk_unlock_failed">PUK ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇନାହିଁ।</string>
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_success">SIM ନେଟ୍‍ୱାର୍କ୍‍ ସବ୍‍ସେଟ୍‍ ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="sp_unlock_success">SIM ସେବା ପ୍ରଦାନକାରୀ‍‍ ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
+  <string name="corporate_unlock_success">SIM କର୍ପୋରେଟ୍‍ ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
+  <string name="sim_unlock_success">SIM ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_success">RUIM ନେଟ୍‍ୱାର୍କ୍‍ 1 ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_success">RUIM ନେଟ୍‍ୱାର୍କ୍‍ 2 ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_success">RUIM HRPD ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="rsp_unlock_success">RUIM ସେବା ପ୍ରଦାନକାରୀ‍‍ ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="rc_unlock_success">RUIM କର୍ପୋରେଟ୍‍ ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="ruim_unlock_success">RUIM ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Success message displayed on PUK Depersonalization panel -->
+  <string name="puk_unlock_success">PUK ଅନ୍‍ଲକ୍‍ ସଫଳ ହୋଇଛି।</string>
   <!-- Preferred networks -->
 </resources>

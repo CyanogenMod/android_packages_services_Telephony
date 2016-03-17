@@ -162,4 +162,6 @@
   <string name="exportAllcontatsNoContacts">Non se atopou ningún contacto na SIM para exportar</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">cambiar modo da rede</string>
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

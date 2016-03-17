@@ -33,49 +33,94 @@
 <resources>
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="ims_settings">IMS அமைப்பு</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
+  <string name="label_nsdp">SIM பிணைய துணைதொகுப்பு பூட்டுநீக்க PIN</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
+  <string name="label_cdp">SIM கார்ப்பரேட் பூட்டுநீக்க PIN</string>
   <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
+  <string name="label_spdp">SIM சேவை வழங்குநர் பூட்டுநீக்க PIN</string>
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
+  <string name="label_sdp">SIM பூட்டுநீக்க PIN</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="label_rn1dp">RUIM பிணையம் 1 பூட்டுநீக்க PIN</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="label_rn2dp">RUIM பிணையம் 2 பூட்டுநீக்க PIN</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="label_rhrpd">RUIM HRPD பூட்டுநீக்க PIN</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
+  <string name="label_rcdp">RUIM கார்ப்பரேட் பூட்டுநீக்க PIN</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <string name="label_rspdp">RUIM சேவை வழங்குநர் பூட்டுநீக்க PIN</string>
   <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
+  <string name="label_rdp">RUIM பூட்டுநீக்க PIN</string>
   <!-- Label text for PUK entry widget on Depersonalization panel -->
+  <string name="label_puk">PUK உள்ளிடவும்</string>
   <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="requesting_nw_subset_unlock">SIM பிணைய துணைதொகுப்பு பூட்டுநீக்கம்\u2026</string>
   <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="requesting_sp_unlock">SIM சேவை வழங்குநர் பூட்டுநீக்கம் கோருகிறது\u2026</string>
   <!-- Status message displayed on SIM Corporate Depersonalization panel -->
+  <string name="requesting_corporate_unlock">SIM கார்ப்பரேட் பூட்டுநீக்கம் கோருகிறது\u2026</string>
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
+  <string name="requesting_sim_unlock">SIM பூட்டுநீக்கம் கோருகிறது\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="requesting_rnw1_unlock">RUIM பிணையம் 1 பூட்டுநீக்கம் கோருகிறது\u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="requesting_rnw2_unlock">RUIM பிணையம் 2 பூட்டுநீக்கம் கோருகிறது\u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="requesting_rhrpd_unlock">RUIM HRPD பூட்டுநீக்கம் கோருகிறது \u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="requesting_rsp_unlock">RUIM சேவை வழங்குநர் பூட்டுநீக்கம் கோருகிறது\u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="requesting_rc_unlock">RUIM கார்ப்பரேட் பூட்டுநீக்கம்\u2026</string>
   <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="requesting_ruim_unlock">RUIM பூட்டுநீக்கம் கோருகிறது\u2026</string>
   <!-- Status message displayed on PUK Depersonalization panel -->
+  <string name="requesting_puk_unlock">PUK பூட்டுநீக்கம் கோருகிறது\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_failed">SIM பிணைய துணைதொகுப்பு பூட்டுநீக்கம் வெற்றியடையவில்லை</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="sp_unlock_failed">SIM சேவை வழங்குநர் பூட்டுநீக்கம் வெற்றியடையவில்லை.</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="corporate_unlock_failed">SIM  கார்ப்பரேட் பூட்டுநீக்க கோரிக்கை வெற்றியடையவில்லை.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
+  <string name="sim_unlock_failed">SIM பூட்டுநீக்க கோரிக்கை வெற்றியடையவில்லை.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_failed">RUIM நெட்வொர்க் 1 பூட்டுநீக்கம் வெற்றியடையவில்லை.</string>
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_failed">RUIM நெட்வொர்க் 2 பூட்டுநீக்கம் வெற்றியடையவில்லை.</string>
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_failed">RUIM HRPD பூட்டுநீக்கம் வெற்றியடையவில்லை.</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="rsp_unlock_failed">RUIM சேவை வழங்குநர் பூட்டுநீக்க கோரிக்கை வெற்றியடையவில்லை.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="rc_unlock_failed">RUIM கார்ப்பரேட் பூட்டுநீக்க கோரிக்கை வெற்றியடையவில்லை</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="ruim_unlock_failed">RUIM பூட்டுநீக்கம் வெற்றியடையவில்லை.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
+  <string name="puk_unlock_failed">PUK பூட்டுநீக்கம் வெற்றியடையவில்லை.</string>
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_success">SIM பிணைய துணைதொகுப்பு பூட்டுநீக்கம் வெற்றி.</string>
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="sp_unlock_success">SIM சேவை வழங்குநர் பூட்டுநீக்கம் வெற்றி.</string>
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
+  <string name="corporate_unlock_success">SIM கார்ப்பரேட் பூட்டுநீக்கம் வெற்றி.</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
+  <string name="sim_unlock_success">SIM பூட்டுநீக்கம் வெற்றியடைந்தது.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_success">RUIM நெட்வொர்க் 1 பூட்டுநீக்கம் வெற்றியடைந்தது.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_success">RUIM நெட்வொர்க் 2 பூட்டுநீக்கம் வெற்றியடைந்தது.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_success">RUIM HRPD பூட்டுநீக்கம் வெற்றியடைந்தது.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="rsp_unlock_success">RUIM சேவை வழங்குநர் பூட்டுநீக்கம் வெற்றி.</string>
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="rc_unlock_success">RUIM கார்ப்பரேட் பூட்டுநீக்கம் வெற்றி.</string>
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="ruim_unlock_success">RUIM பூட்டுநீக்கம் வெற்றியடைந்தது.</string>
   <!-- Success message displayed on PUK Depersonalization panel -->
+  <string name="puk_unlock_success">PUK பூட்டுநீக்கம் வெற்றியடைந்தது.</string>
   <!-- Preferred networks -->
 </resources>

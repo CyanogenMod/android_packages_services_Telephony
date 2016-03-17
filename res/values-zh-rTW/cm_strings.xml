@@ -166,4 +166,6 @@
   <string name="exportAllcontatsFailed">無法匯出所有聯絡人到 SIM 卡</string>
   <string name="exportAllcontatsNoContacts">未找到要匯出到 SIM 卡的聯絡人</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

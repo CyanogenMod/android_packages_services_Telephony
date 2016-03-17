@@ -143,4 +143,6 @@
   <string name="exportAllcontatsFailed">Ei suutnud kõiki kontakte eksportida SIMile</string>
   <string name="exportAllcontatsNoContacts">Ei leitud ühtegi kontakti, mida eksportida SIMile</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

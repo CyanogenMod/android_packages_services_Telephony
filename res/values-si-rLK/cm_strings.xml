@@ -116,4 +116,6 @@
   <string name="exportAllcontatsFailed">සියලු සම්බන්ධතා සිම් පතට නිර්යාත කිරීමට අසමත්විය</string>
   <string name="exportAllcontatsNoContacts">සිම් පතට නිර්යාත කිරීමට කිසිඳු සම්බන්ධතාවක් සොයාගත නොහැක</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

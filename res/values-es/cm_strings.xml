@@ -20,6 +20,9 @@
   <string name="incall_screen_settings">Ajustes de llamada en pantalla</string>
   <string name="show_ssn_label">Notificación de eventos</string>
   <string name="show_ssn_summary">Mostrar una notificación para eventos de red relacionados con la gestión de llamadas</string>
+  <string name="incall_echo_cancellation">Reducción de ruido en llamada</string>
+  <string name="enable_aec_label">Cancelación de eco</string>
+  <string name="enable_aec_summary">Reducir el ruido ambiental para el usuario remoto durante llamadas de voz</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">Lista de contactos bloqueados</string>
   <string name="blacklist_summary_disabled">Deshabilitada</string>
@@ -179,5 +182,12 @@
   <string name="exportAllcontatsSuccess">Todos los contactos han sido exportados a la tarjeta SIM</string>
   <string name="exportAllcontatsFailed">Error al exportar todos los contactos a la tarjeta SIM</string>
   <string name="exportAllcontatsNoContacts">No hay contactos que exportar a la tarjeta SIM</string>
+  <string name="msim_mobile_network_settings_title">Ajustes de la red celular de la SIM %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">cambiar modo de red</string>
+  <string name="perm_change_mobile_network_desc">Permite que una aplicación modifique el modo actual de la red.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Identificación de la línea conectada</string>
+  <string name="connected_line_identification_summary">Desactivar esta opción si los números de los destinatarios no se muestran en el historial de llamadas</string>
+  <!-- Network mode picker dialog title -->
 </resources>

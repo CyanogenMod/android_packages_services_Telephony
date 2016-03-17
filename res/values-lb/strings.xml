@@ -250,7 +250,9 @@
   <!-- Button label used to dismiss the "Call settings error" dialog -->
   <string name="close_dialog">OK</string>
   <!-- Button label used in several settings-related dialogs -->
+  <string name="enable">Uschalten</string>
   <!-- Button label used in several settings-related dialogs -->
+  <string name="disable">Ausschalten</string>
   <!-- Button label which indicates the user wants to update a stored
          phone number; used in several settings-related dialogs -->
   <string name="change_num">Aktualiséieren</string>
