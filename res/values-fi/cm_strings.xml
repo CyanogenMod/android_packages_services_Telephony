@@ -186,4 +186,8 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">muuta verkkotilaa</string>
   <string name="perm_change_mobile_network_desc">Antaa sovelluksen muuttaa nykyistä verkkotilaa.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Yhdistetty tilaajan tunnistus</string>
+  <string name="connected_line_identification_summary">Poista tämä asetus käytöstä, jos vastaanottajien numerot eivät näy puheluhistoriassa</string>
+  <!-- Network mode picker dialog title -->
 </resources>

@@ -123,10 +123,11 @@
   <string name="preferred_network_mode_wcdma_only_choice">doar WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">doar GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferat</string>
+  <string name="call_barring">Restricționare</string>
   <string name="call_barring_outgoing">Restricționare inițiere apel</string>
   <string-array name="call_barring_outgoing_display_values">
-    <item>Off</item>
-    <item>International roaming calls</item>
+    <item>Oprit</item>
+    <item>Apeluri internaționale în roaming</item>
     <item>Apeluri internaționale</item>
     <item>Apeluri efectuate</item>
   </string-array>
@@ -135,10 +136,13 @@
     <item>Roaming</item>
     <item>Toate</item>
   </string-array>
+  <string name="call_barring_incoming">Restricționare primire apel</string>
   <string name="input_password">Introduceți parola</string>
   <string name="invalidPsw">Introduceți o parolă validă (4-8 cifre)</string>
+  <string name="labelCbCancelAll">Dezactivează restricționarea de apel</string>
   <string name="psw_enter_old">Parola veche</string>
   <string name="psw_enter_new">Parolă nouă</string>
+  <string name="no_call_barring">Restricționarea de apel dezactivată</string>
   <string name="cb_psw_dont_match">Parolele nu se potrivesc</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
@@ -178,4 +182,6 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">schimbă mod rețea</string>
   <string name="perm_change_mobile_network_desc">Permite unei aplicații să modifice modul de rețea actual.</string>
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

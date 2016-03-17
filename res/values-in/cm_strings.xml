@@ -143,4 +143,6 @@
   <string name="exportAllcontatsFailed">Semua kontak gagal diekspor ke SIM</string>
   <string name="exportAllcontatsNoContacts">Tidak ada kontak yang ditemukan untuk diekspor ke SIM</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

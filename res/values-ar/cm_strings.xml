@@ -143,4 +143,6 @@
   <string name="exportAllcontatsFailed">فشل تصدير كافة جهات الاتصال إلى بطاقة SIM</string>
   <string name="exportAllcontatsNoContacts">عدم العثور على جهات اتصال للتصدير إلى بطاقة SIM</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

@@ -19,7 +19,7 @@
   <!-- Advanced Settings -->
   <string name="incall_screen_settings">Настройки на дисплея при провеждане на разговор</string>
   <string name="show_ssn_label">Известие за събитие</string>
-  <string name="show_ssn_summary">Показване на известие за различни мрежови събития, свързани с управлението на разговорите</string>
+  <string name="show_ssn_summary">Покажи известие за различни мрежови събития, свързани с управлението на разговорите</string>
   <string name="incall_echo_cancellation">Намаляване на шума по време на разговор</string>
   <string name="enable_aec_label">Премахване на ехото</string>
   <string name="enable_aec_summary">Редуциране на околния шум за отсрещния абонат по време на разговор</string>
@@ -186,4 +186,8 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">Промяна на мрежовия режим</string>
   <string name="perm_change_mobile_network_desc">Разрешава на приложението да променя текущия режим на мрежата.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Идентификация на свързаната линия</string>
+  <string name="connected_line_identification_summary">Деактивирате тази опция, ако номерата на получателите не се показват в историята на повикванията</string>
+  <!-- Network mode picker dialog title -->
 </resources>

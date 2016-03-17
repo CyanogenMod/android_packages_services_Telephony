@@ -143,4 +143,6 @@
   <string name="exportAllcontatsFailed">सभी संपर्कों को सिम में निर्यात नहीं कर सके</string>
   <string name="exportAllcontatsNoContacts">सिम में निर्यात करने के लिए कोई संपर्क नहीं मिला</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

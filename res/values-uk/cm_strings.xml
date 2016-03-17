@@ -186,4 +186,6 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">змінити налаштування мережі</string>
   <string name="perm_change_mobile_network_desc">Дозволяє програмі змінити поточні налаштування мережі.</string>
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

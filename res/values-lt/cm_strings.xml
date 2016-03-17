@@ -143,4 +143,6 @@
   <string name="exportAllcontatsFailed">Nepavyko eksportuoti visų kontaktų į SIM</string>
   <string name="exportAllcontatsNoContacts">Kontaktų nerasta eksportuoti į SIM</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

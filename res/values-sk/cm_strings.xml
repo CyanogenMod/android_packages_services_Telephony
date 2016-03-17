@@ -143,4 +143,6 @@
   <string name="exportAllcontatsFailed">Nepodarilo sa exportovať všetky kontakty na kartu SIM</string>
   <string name="exportAllcontatsNoContacts">Nenašli sa žiadne kontakty pre export na kartu SIM</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

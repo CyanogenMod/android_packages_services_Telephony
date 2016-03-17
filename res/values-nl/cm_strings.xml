@@ -186,4 +186,7 @@
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">netwerkmodus wijzigen</string>
   <string name="perm_change_mobile_network_desc">Hiermee kan de app de huidige netwerkmodus wijzigen.</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Verbindingsidentificatie</string>
+  <!-- Network mode picker dialog title -->
 </resources>

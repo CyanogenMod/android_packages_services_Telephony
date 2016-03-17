@@ -180,4 +180,6 @@
   <string name="exportAllcontatsFailed">Tüm kişiler SIM\'e aktarılamadı</string>
   <string name="exportAllcontatsNoContacts">SIM\'e aktarılacak kişi bulunamadı</string>
   <!-- Permission to modify network mode via intent -->
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>

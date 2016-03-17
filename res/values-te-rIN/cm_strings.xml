@@ -17,46 +17,175 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">In-call తెర సెట్టింగ్‌లు</string>
+  <string name="show_ssn_label">ఈవెంట్ నోటిఫికేషన్</string>
+  <string name="show_ssn_summary">కాల్ నిర్వహణకు సంబధించిన వివిధ ఈవెంట్లను గూర్చి నోటిఫికేషనులను చూపుము</string>
+  <string name="incall_echo_cancellation">In-call శబ్ద తగ్గింపు</string>
+  <string name="enable_aec_label">ప్రతిధ్వని రద్దు</string>
+  <string name="enable_aec_summary">వాయిస్ కాల్స్ సమయంలో రిమోట్ పార్టీ పరిసర శబ్దం తగ్గించటానికి</string>
   <!-- Blacklist preferences -->
+  <string name="blacklist_title">నిరోధించబడిన కాలర్ జాబితా</string>
+  <string name="blacklist_summary_disabled">నిలిపివేయబడింది</string>
+  <string name="blacklist_summary">నిరోధించబడిన కాలర్ జాబితాలో ఉన్న ఫోన్ నంబర్ల నుండి మీరు ఇన్‌కమింగ్ కాల్స్ లేదా సందేశాలను అందుకోరు</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
+  <string name="mwi_notification_title">సందేశ ఇండికేటర్</string>
+  <string name="mwi_notification_summary">సందేశ ఇండికేటర్ వాయిస్ మెయిల్ నోటిఫికేషన్లను చూపుము</string>
   <!-- My Phone Number -->
+  <string name="phone_number_label">నా ఫోన్ నంబర్</string>
+  <string name="phone_number_summary">ఈ పరికరానికి ఫోన్ నంబరును సెట్ చేయుము</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
+  <string name="call_notif_unconditionalCF">షరతులు లేని కాల్ ఫార్వార్డింగ్ క్రియాశీలంకగా ఉంది</string>
   <!-- Toast text for Conditional Call Forwarding enabled  -->
+  <string name="call_notif_conditionalCF">షరతులతో కూడిన కాల్ ఫార్వార్డింగ్ క్రియాశీలంకగా ఉంది</string>
   <!-- Toast text for a forwarded MO call  -->
+  <string name="call_notif_MOcall_forwarding">అవుట్ గోయింగ్ కాల్ ఫార్వర్డ్ చేయబడింది</string>
   <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
+  <string name="call_notif_cugcall">మూసివేయబడిన వినియోగదారు సమూహంలో కాల్</string>
   <!-- In-call screen: status label when MO calls are barred -->
+  <string name="call_notif_outgoing_barred">అవుట్ గోయింగ్ కాల్స్ నిషేధింపబడినాయి</string>
   <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
+  <string name="call_notif_incoming_barred">సుదూర పార్టీ వద్ద ఇన్కమింగ్ కాల్స్ నిషేధింపబడ్డాయి</string>
   <!-- Toast text for MO calls when CLIR Suppression is rejected -->
+  <string name="call_notif_clir_suppression_rejected">నెట్వర్కుచే స్వంత నంబర్ అణిచివేత తిరస్కరించబడింది</string>
   <!-- In-call screen: status label when MO call gets deflected to another party -->
+  <string name="call_notif_call_deflected">సుదూర పార్టీచే ఇన్కమింగ్ కాల్ ఫార్వర్డ్ చేయబడింది</string>
   <!-- Toast text for incoming call being forwarded to other remote party  -->
+  <string name="call_notif_MTcall_forwarding">ఇన్కమింగ్ కాల్ ఫార్వర్డ్ చేయబడింది</string>
   <!-- Toast text for incoming call which is part of MultiParty Call -->
+  <string name="call_notif_multipartycall">బహుళ పార్టీ కాల్</string>
   <!-- Toast text for incoming call which is answered,put on hold & then released -->
+  <string name="call_notif_callonhold_released">సుదూరంగా కాల్ విడుదల చేయబడింది</string>
   <!-- Toast text for incoming call forward check received -->
+  <string name="call_notif_forwardcheckreceived">కాల్ ఫార్వర్డ్ చేయబడింది</string>
   <!-- Toast text for incoming call connecting through ECT -->
+  <string name="call_notif_callconnectingect">స్పష్టమైన కాల్ బదిలీ ద్వారా కాల్ అనుసంధానించబడుతుంది</string>
   <!-- Toast text for incoming call connected through ECT -->
+  <string name="call_notif_callconnectedect">స్పష్టమైన కాల్ బదిలీ ద్వారా కాల్ అనుసంధానించబడింది</string>
   <!-- Status message displayed on SIM Network Depersonalization panel -->
+  <string name="requesting_unlock_cm">SIM నెట్వర్క్ అన్లాక్ కొరకు అభ్యర్థించబడుతోంది\u2026</string>
   <!-- Error message displayed on SIM Network Depersonalization panel -->
+  <string name="unlock_failed_cm">SIM నెట్వర్క్ అన్లాక్ అభ్యర్థన విఫలమయింది.</string>
   <!-- Success message displayed on SIM Network Depersonalization panel -->
+  <string name="unlock_success_cm">SIM నెట్వర్క్ అన్లాక్ విజయవంతమయ్యింది.</string>
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <string name="all_day">రోజంతా</string>
+  <string name="time_start">దీని నుండి</string>
+  <string name="time_end">వీరికి</string>
+  <string name="time_hour">గంట</string>
+  <string name="time_minute">నిమిషం</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <!-- Mobile network settings, preferred network modes -->
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_global_summary_cm">కావలసిన నెట్వర్క్ మోడ్: విశ్వ (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
+  <string name="callFailed_incoming_cb_enabled">పార్టీ అన్ని ఇన్‌కమింగ్ కాల్స్ ను నిరోధించారు.</string>
   <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
+  <string name="callUnanswered_forwarded">కాల్‌ కు సమాధానం లేదు మరియు ఫార్వర్డ్ చేయబడింది</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">కావలసిన నెట్వర్క్ మోడ్: TD-SCDMA/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_lte_summary">కావలసిన నెట్వర్క్ మోడ్: TD-SCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_summary">కావలసిన నెట్వర్క్ మోడ్: TD-SCDMA/GSM</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">కావలసిన నెట్వర్క్ మోడ్: TD-SCDMA/GSM/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">కావలసిన నెట్వర్క్ మోడ్: TD-SCDMA/GSM/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">కావలసిన నెట్వర్క్ మోడ్: TD-SCDMA/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">కావలసిన నెట్వర్క్ మోడ్: TD-SCDMA/GSM/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">కావలసిన నెట్వర్క్ మోడ్: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">కావలసిన నెట్వర్క్ మోడ్: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_choice">TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_only_choice">TD-SCDMA only</string>
+  <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
+  <string name="preferred_network_mode_lte_choice">LTE</string>
+  <string name="preferred_network_mode_global_choice">విశ్వ</string>
+  <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_evdo_only_choice">EvDo మాత్రమే</string>
+  <string name="preferred_network_mode_cdma_wo_evdo_choice">CDMA w/o EvDo</string>
+  <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo ఆటో</string>
+  <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA ఆటో</string>
+  <string name="preferred_network_mode_wcdma_only_choice">WCDMA మాత్రమే</string>
+  <string name="preferred_network_mode_gsm_only_choice">GSM మాత్రమే</string>
+  <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMAకు కావలసిన</string>
+  <string name="call_barring">కాల్ బేరింగ్</string>
+  <string name="call_barring_outgoing">అవుట్ గోయింగ్ కాల్స్ నిరోధం</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>ఆఫ్‌లో ఉంది</item>
+    <item>అంతర్జాతీయ రోమింగ్ కాల్స్</item>
+    <item>అంతర్జాతీయ కాల్స్</item>
+    <item>అవుట్ గోయింగ్ కాల్స్</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>ఆఫ్‌లో ఉంది</item>
+    <item>రోమింగ్‌లో ఉంది</item>
+    <item>అన్నీ</item>
+  </string-array>
+  <string name="call_barring_incoming">ఇన్కమింగ్ కాల్ నిరోధం</string>
+  <string name="input_password">మీ పాస్వర్డును ఎంటర్ చేయుము</string>
+  <string name="invalidPsw">చెల్లుబాటు అయ్యే పాస్వర్డును ఎంటర్ చేయుము (4-8 సంఖ్యలు)</string>
+  <string name="labelCbCancelAll">కాల్ నిరోధాన్ని నిలిపివేయుము</string>
+  <string name="labelCbChangePassword">పాస్‌వర్డ్‌ని మార్చండి</string>
+  <string name="psw_enter_old">పాత పాస్వర్డ్</string>
+  <string name="psw_enter_new">క్రొత్త పాస్వర్డ్</string>
+  <string name="psw_reenter_new">పాస్వర్డును మరలా ఎంటర్ చేయుము</string>
+  <string name="no_call_barring">కాల్ నిరోధం నిలిపివేయబడింది</string>
+  <string name="cb_psw_dont_match">పాస్వర్డులు సరిపోలలేదు</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">నంబరు ఖాళీగా ఉండడం వలన లేదా 20 అంకెలు దాటడం వలన FDN నవీకరణ కాలేదు.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
+  <string name="exportContacts">పరిచయాలు SIM కార్డుకు ఎగుమతి చేయబడుతున్నాయి\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
+  <string name="simContacts_title_cm">SIM కార్డ్ పరిచయాలను నిర్వహించుము</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_local_low_battery">తక్కువ బ్యాటరీ వలన కాల్ విఫలమైంది.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">రిమోట్ పరికరం తక్కువ బ్యాటరీ వలన కాల్ విఫలమైంది.</string>
   <!-- Sim contacts management -->
+  <string name="contactScreen">SIM పరిచయాలను నిర్వహించుము</string>
+  <string name="exportContactScreen">ఫోనులోని పరిచయాలను SIMకు ఎగుమతి చేయుము</string>
+  <string name="addSimEntries">SIM పరిచయాన్ని జోడించుము</string>
+  <string name="deleteAllSimEntries">అన్ని SIM పరిచయాలను తొలిగించుము</string>
+  <string name="deleteSimContacts">SIM పరిచయాలు తొలిగించబడుతున్నాయి\u2026</string>
+  <string name="editContact">సవరించు</string>
+  <string name="sendSms">SMS పంపుము</string>
+  <string name="delete">తొలగించు</string>
+  <string name="dial">డయల్</string>
+  <string name="enterName">పేరు ఎంటర్ చేయుము:</string>
+  <string name="enterNumber">ఫోన్ నంబర్ ఎంటర్ చేయుము:</string>
+  <string name="hintName">పేరు</string>
+  <string name="hintPhonenumber">ఫోన్ నంబర్</string>
+  <string name="contactAddSuccess">పరిచయం విజయవంతంగా SIMకు జోడించబడింది</string>
+  <string name="contactAddFailed">పరిచయాన్ని SIMకు జోడించడం విఫలమయింది</string>
+  <string name="contactUpdateSuccess">SIMలోని పరిచయం విజయవంతంగా నవీకరించబడింది</string>
+  <string name="contactUpdateFailed">SIMలో పరిచయాన్ని నవీకరించడం విఫలమయింది</string>
+  <string name="contactdeleteSuccess">SIM ఉంది పరిచయం విజయవంతంగా తొలిగించబడింది</string>
+  <string name="contactdeleteFailed">SIM నుండి పరిచయాన్ని తొలిగించడం విఫలమయింది</string>
+  <string name="allContactdeleteSuccess">SIM నుండి మొత్తం పరిచయాలు విజయవంతంగా తొలిగించబడ్డాయి</string>
+  <string name="allContactdeleteFailed">SIM నుండి మొత్తం పరిచయాలను తొలిగించడం విఫలమయింది</string>
+  <string name="exportAllcontatsSuccess">మొత్తం పరిచయాలు విజయవంతంగా SIMకు ఎగుమతి చేయబడ్డాయి</string>
+  <string name="exportAllcontatsFailed">మొత్తం పరిచయాలను SIMకు ఎగుమతి చేయడం విఫలమయింది</string>
+  <string name="exportAllcontatsNoContacts">SIMను ఎగుమతి చేసేందుకు పరిచయాలు కనుగొనబడలేదు</string>
+  <string name="msim_mobile_network_settings_title">SIM %d మొబైల్ నెట్వర్క్ సెట్టింగులు</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">నెట్వర్క్ మోడ్‌ను మార్చండి</string>
+  <string name="perm_change_mobile_network_desc">ప్రస్తుత నెట్వర్క్ మోడ్‌ను సవరించడానికి అనువర్తనాన్ని అనుమతిస్తుంది.</string>
+  <!-- Mobile network settings, COLP -->
+  <!-- Network mode picker dialog title -->
 </resources>
