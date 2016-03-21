@@ -70,6 +70,49 @@
         android:summary="@string/sum_cdma_call_settings"
         android:persistent="false" />
 
+    <ListPreference
+        android:key="flip_action"
+        android:title="@string/flip_action_title"
+        android:dialogTitle="@string/flip_action_dialog_title"
+        android:entries="@array/flip_action_setting_entries"
+        android:entryValues="@array/flip_action_setting_values"
+        android:persistent="false" />
+
+    <SwitchPreference
+        android:key="use_intrusive_call"
+        android:title="@string/use_intrusive_call_title"
+        android:summary="@string/use_intrusive_call_summary"
+        android:persistent="false" />
+
+    <PreferenceCategory
+            android:key="category_prox_auto_speaker"
+            android:title="@string/display_category_prox_auto_speaker_title" >
+
+        <SwitchPreference
+            android:key="prox_auto_speaker"
+            android:title="@string/prox_auto_speaker_title"
+            android:summary="@string/prox_auto_speaker_summary"
+            android:persistent="false"
+            android:defaultValue="false" />
+
+        <SlimSeekBarPreference
+            android:key="prox_auto_speaker_delay"
+            android:title="@string/prox_auto_speaker_delay_title"
+            android:summary="@string/prox_auto_speaker_delay_summary"
+            android:persistent="false"
+            android:dependency="prox_auto_speaker" />
+
+        <SwitchPreference
+            android:key="prox_auto_speaker_incall_only"
+            android:title="@string/prox_auto_speaker_incall_only_title"
+            android:summaryOff="@string/prox_auto_speaker_incall_only_summary_off"
+            android:summaryOn="@string/prox_auto_speaker_incall_only_summary_on"
+            android:persistent="false"
+            android:defaultValue="false"
+            android:dependency="prox_auto_speaker" />
+
+    </PreferenceCategory>
+
     <PreferenceScreen
         android:key="ims_settings_key"
         android:title="@string/ims_settings"
@@ -80,12 +123,18 @@
             android:targetClass="com.qualcomm.qti.ims.ImsSettings"/>
     </PreferenceScreen>
 
-     <PreferenceScreen
-         android:key="button_blacklist"
-         android:title="@string/blacklist_title"
-         android:persistent="false">
-         <intent android:action="android.intent.action.MAIN"
-             android:targetPackage="com.android.settings"
-             android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
-     </PreferenceScreen>
+    <PreferenceScreen
+        android:key="button_blacklist"
+        android:title="@string/blacklist_title"
+        android:persistent="false">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$BlacklistSettingsActivity" />
+    </PreferenceScreen>
+
+    <SwitchPreference
+        android:key="button_proximity_key"
+        android:title="@string/proximity_mode_title"
+        android:persistent="false"
+        android:summary="@string/proximity_on_summary" />
 </PreferenceScreen>
