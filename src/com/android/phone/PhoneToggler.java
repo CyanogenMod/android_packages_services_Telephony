@@ -52,7 +52,7 @@ public class PhoneToggler extends BroadcastReceiver {
 
                 int networkMode = intent.getExtras().getInt(EXTRA_NETWORK_MODE, -1);
                 int subId = intent.getExtras().getInt(EXTRA_SUB_ID,
-                        SubscriptionManager.getDefaultDataSubId());
+                        SubscriptionManager.DEFAULT_SUBSCRIPTION_ID);
 
                 // since the caller must be a system app, it's assumed that they have already
                 // chosen a valid network mode for this subId, so only basic validation is done
@@ -60,8 +60,15 @@ public class PhoneToggler extends BroadcastReceiver {
                     if (DBG) Log.d(LOG_TAG, "Changing network mode to " + networkMode);
                     subCtrl.setUserNwMode(subId, networkMode);
                     try {
-                        PhoneFactory.getPhone(SubscriptionManager.getPhoneId(subId))
-                                .setPreferredNetworkType(networkMode, null);
+                        Phone phone = PhoneFactory.getPhone(SubscriptionManager.getPhoneId(subId));
+                        if (phone == null) {
+                            phone = PhoneFactory.getDefaultPhone();
+                        }
+                        if (phone != null) {
+                            phone.setPreferredNetworkType(networkMode, null);
+                        } else {
+                            Log.e(LOG_TAG, "cannot get access to Phone");
+                        }
                     } catch (Throwable t) {
                         Log.d(LOG_TAG, "error setting preferred network", t);
                     }
