@@ -174,7 +174,9 @@
   <string name="exportAllcontatsSuccess">Vellykket eksportering av alle kontakter til SIMkort</string>
   <string name="exportAllcontatsFailed">Klarte ikke å eksportere alle kontakter til SIMkort</string>
   <string name="exportAllcontatsNoContacts">Ingen kontakter funnet for eksportering</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobilnettverk innstillinger</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">endre nettverksmodus</string>
   <!-- Mobile network settings, COLP -->
   <!-- Network mode picker dialog title -->
 </resources>

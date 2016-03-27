@@ -24,9 +24,9 @@
   <string name="enable_aec_label">Cancellazione eco</string>
   <string name="enable_aec_summary">Riduzione rumore ambientale del chiamante durante le chiamate</string>
   <!-- Blacklist preferences -->
-  <string name="blacklist_title">Elenco chiamanti bloccati</string>
+  <string name="blacklist_title">Contatti bloccati</string>
   <string name="blacklist_summary_disabled">Disattivata</string>
-  <string name="blacklist_summary">Non riceverai nessuna chiamata o messaggio da numeri nella lista dei chiamanti bloccati</string>
+  <string name="blacklist_summary">Non riceverai nessuna chiamata o messaggio da numeri nella lista bloccati</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indicatore di messaggio in attesa</string>
   <string name="mwi_notification_summary">Mostra le notifiche per i messaggi in attesa in segreteria</string>

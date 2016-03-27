@@ -83,7 +83,7 @@
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">בקשת פתיחת ספק שירות ה-SIM נכשלה.</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
-  <string name="corporate_unlock_failed">בקשת פתיחת SIM תאגידי לא עברה בהצלחה.</string>
+  <string name="corporate_unlock_failed">בקשת פתיחת SIM תאגידי נכשלה.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">בקשת פתיחת SIM נכשלה.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
@@ -95,7 +95,7 @@
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">בקשת פתיחת ספק שירות ה-RUIM נכשלה.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="rc_unlock_failed">בקשת פתיחת RUIM תאגידי לא עברה בהצלחה.</string>
+  <string name="rc_unlock_failed">בקשת פתיחת RUIM תאגידי נכשלה.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">בקשת פתיחת RUIM נכשלה.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -105,7 +105,7 @@
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">ספק שירות ה-SIM נפתח בהצלחה.</string>
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
-  <string name="corporate_unlock_success">פתיחת SIM תאגידי עברה בהצלחה.</string>
+  <string name="corporate_unlock_success">פתיחת SIM תאגידי הצליחה.</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">פתיחת SIM הצליחה.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->

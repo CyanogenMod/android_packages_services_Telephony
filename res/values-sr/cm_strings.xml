@@ -187,5 +187,7 @@
   <string name="perm_change_mobile_network">промени режим мреже</string>
   <string name="perm_change_mobile_network_desc">Дозвољава апликацији да измени тренутни режим мреже.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Идентификација конектоване линије</string>
+  <string name="connected_line_identification_summary">Онемогући ову опцију ако је се број прималаца не приказује у историји позива</string>
   <!-- Network mode picker dialog title -->
 </resources>

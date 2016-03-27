@@ -20,6 +20,9 @@
   <string name="incall_screen_settings">Налады экрана выкліку</string>
   <string name="show_ssn_label">Паведамленні пра падзеі</string>
   <string name="show_ssn_summary">Паказваць апавяшчэнні пра розныя падзеі сеткі, злучаных з выклікам</string>
+  <string name="incall_echo_cancellation">Шумапрыглушэнне</string>
+  <string name="enable_aec_label">Прыглушэнне рэха</string>
+  <string name="enable_aec_summary">Змяншаць шум наваколля для абанента падчас галасавога выкліка</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">Чорны спіс</string>
   <string name="blacklist_summary_disabled">Выключана</string>
@@ -179,7 +182,12 @@
   <string name="exportAllcontatsSuccess">Усе кантакты паспяхова экспартаваны на SIM</string>
   <string name="exportAllcontatsFailed">Не атрымалася экспартаваць кантакты на SIM</string>
   <string name="exportAllcontatsNoContacts">Не знойдзены кантакты для экспарту на SIM</string>
+  <string name="msim_mobile_network_settings_title">Налады мабільнай сеткі SIM %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">змяніць рэжым сеткі</string>
+  <string name="perm_change_mobile_network_desc">Дазволіць дадатку змяняць бягучы рэжым сеткі.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Ідэнтыфікацыя абанента</string>
+  <string name="connected_line_identification_summary">Адключыце гэты параметр, калі ў гісторыі выклікаў не адлюстроўваюцца нумары абанентаў</string>
   <!-- Network mode picker dialog title -->
 </resources>
