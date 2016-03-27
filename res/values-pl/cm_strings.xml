@@ -189,4 +189,6 @@
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_summary">Wyłącz tę opcję, jeżeli numery odbiorców nie wyświetlają się w historii połączeń</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Wybierz tryb sieci</string>
+  <string name="choose_network_mode_system_default">Domyślny systemu</string>
 </resources>

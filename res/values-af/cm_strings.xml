@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">Gekonnekteerde lyn identifikasie</string>
   <string name="connected_line_identification_summary">Deaktiveer hierdie opsie indien die nommer van die ontvangers nie vertoon word in die oproep geskiedenis nie</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Kies netwerk modus</string>
+  <string name="choose_network_mode_system_default">Stelsel standaard</string>
 </resources>

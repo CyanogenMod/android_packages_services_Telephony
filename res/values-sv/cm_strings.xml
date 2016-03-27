@@ -187,5 +187,9 @@
   <string name="perm_change_mobile_network">ändra nätverksläge</string>
   <string name="perm_change_mobile_network_desc">Ger en app tillåtelse att ändra nuvarande nätverksläget.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Uppkopplingsidentifikation</string>
+  <string name="connected_line_identification_summary">Inaktivera det här alternativet om mottagarnas nummer inte dyker upp i samtalshistoriken</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Välj nätläge</string>
+  <string name="choose_network_mode_system_default">Systemstandard</string>
 </resources>

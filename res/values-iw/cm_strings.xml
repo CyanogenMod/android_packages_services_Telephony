@@ -22,7 +22,7 @@
   <string name="show_ssn_summary">הצג התראה לאירועי רשת שונים הקשורים בטיפול בשיחה</string>
   <string name="incall_echo_cancellation">הפחתת רעש במהלך שיחה</string>
   <string name="enable_aec_label">ביטול הד</string>
-  <string name="enable_aec_summary">הפחתת רעשי רקע למשוחחים המרוחקים במהלך שיחות קוליות</string>
+  <string name="enable_aec_summary">הפחתת רעשי רקע למשוחחים מרוחקים במהלך שיחות קוליות</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">רשימת מתקשרים חסומים</string>
   <string name="blacklist_summary_disabled">מושבת</string>
@@ -135,16 +135,16 @@
   <string-array name="call_barring_incoming_display_values">
     <item>כבוי</item>
     <item>נדידה</item>
-    <item>הכל</item>
+    <item>הכול</item>
   </string-array>
   <string name="call_barring_incoming">חסימת שיחות נכנסות</string>
-  <string name="input_password">הכנס את הסיסמה שלך</string>
-  <string name="invalidPsw">הזן סיסמה תקנית (4-8 ספרות)</string>
-  <string name="labelCbCancelAll">ביטול חסימת שיחות</string>
+  <string name="input_password">הזן את ססמתך</string>
+  <string name="invalidPsw">הזן סיסמה חוקית (4-8 ספרות)</string>
+  <string name="labelCbCancelAll">בטל חסימת שיחות</string>
   <string name="labelCbChangePassword">שנה סיסמה</string>
   <string name="psw_enter_old">סיסמה ישנה</string>
   <string name="psw_enter_new">סיסמה חדשה</string>
-  <string name="psw_reenter_new">הכנס שנית את סיסמתך</string>
+  <string name="psw_reenter_new">הזן את ססמתך שנית</string>
   <string name="no_call_barring">חסימת שיחות מושבתת</string>
   <string name="cb_psw_dont_match">הסיסמאות אינן תואמות</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
@@ -156,7 +156,7 @@
   <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">השיחה נכשלה עקב סוללה חלשה.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
-  <string name="incall_error_low_battery">השיחה נכשלה מכיוון שסוללת המכשיר המרוחק חלשה.</string>
+  <string name="incall_error_low_battery">השיחה נכשלה כיוון שסוללת המכשיר המרוחק חלשה.</string>
   <!-- Sim contacts management -->
   <string name="contactScreen">נהל אנשי קשר ב-SIM</string>
   <string name="exportContactScreen">ייצא אנשי קשר בטלפון ל-SIM</string>
@@ -184,9 +184,12 @@
   <string name="exportAllcontatsNoContacts">לא נמצאו אנשי קשר לייצוא ל- SIM</string>
   <string name="msim_mobile_network_settings_title">הגדרות רשת סלולרית SIM %d</string>
   <!-- Permission to modify network mode via intent -->
-  <string name="perm_change_mobile_network">שינוי מצב רשת</string>
+  <string name="perm_change_mobile_network">שנה מצב רשת</string>
   <string name="perm_change_mobile_network_desc">מאפשר ליישום לשנות את מצב הרשת הנוכחי.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">זיהוי קו מחובר</string>
   <string name="connected_line_identification_summary">בטל אפשרות זו אם מספרי הנמענים לא מופיעים בהיסטוריית השיחות</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">בחר מצב רשת</string>
+  <string name="choose_network_mode_system_default">ברירת המחדל של המערכת</string>
 </resources>

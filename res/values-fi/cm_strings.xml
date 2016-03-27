@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">Yhdistetty tilaajan tunnistus</string>
   <string name="connected_line_identification_summary">Poista tämä asetus käytöstä, jos vastaanottajien numerot eivät näy puheluhistoriassa</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Valitse verkkotila</string>
+  <string name="choose_network_mode_system_default">Järjestelmän oletus</string>
 </resources>

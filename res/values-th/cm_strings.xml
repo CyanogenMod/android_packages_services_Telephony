@@ -133,7 +133,7 @@
     <item>โทรออก</item>
   </string-array>
   <string-array name="call_barring_incoming_display_values">
-    <item>Off</item>
+    <item>ปิด</item>
     <item>โรมมิ่ง</item>
     <item>ทั้งหมด</item>
   </string-array>
@@ -187,5 +187,9 @@
   <string name="perm_change_mobile_network">เปลี่ยนรูปแบบครือข่าย</string>
   <string name="perm_change_mobile_network_desc">อนุญาตให้แอปแก้ไขรูปแบบเครือข่ายปัจจุบัน</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">การระบุตัวตนสายที่เชื่อมต่อ</string>
+  <string name="connected_line_identification_summary">ปิดใช้งานตัวเลือกนี้หากหมายเลขของผู้รับไม่แสดงในประวัติการโทร</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">เลือกรูปแบบเครือข่าย</string>
+  <string name="choose_network_mode_system_default">ค่าเริ่มต้นระบบ</string>
 </resources>

@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">Prepoznavanje povezanega voda</string>
   <string name="connected_line_identification_summary">Onemogočite to možnost, če se številke prejemnikov ne prikažejo v zgodovini klicev</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Izberite način omrežja</string>
+  <string name="choose_network_mode_system_default">Sistemski privzeti</string>
 </resources>

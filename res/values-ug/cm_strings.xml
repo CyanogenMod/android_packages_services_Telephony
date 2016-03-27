@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">سىم ئۇلاپ تونۇتۇش</string>
   <string name="connected_line_identification_summary">ئەگەر كەلگەن تېلېفون نومۇرى سۆزلىشىش خاتىرىسىدە كۆرۈنمىسە، بۇ تاللانمىنى تاقىۋېتىڭ</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">تور ھالىتىنى تاللاش</string>
+  <string name="choose_network_mode_system_default">سىستېما كۆڭۈلدىكى</string>
 </resources>

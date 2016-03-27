@@ -33,35 +33,65 @@
 <resources>
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="ims_settings">إعدادات IMS</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
+  <string name="label_nsdp">رقم PIN لإلغاء تأمين المجموعة الفرعية لشبكة SIM</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
+  <string name="label_cdp">رقم PIN لإلغاء تأمين شركة SIM</string>
   <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
+  <string name="label_spdp">رقم PIN لإلغاء تأمين موفر خدمة SIM</string>
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
+  <string name="label_sdp">رقم PIN لإلغاء تأمين SIM</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="label_rn1dp">رقم PIN لإلغاء تأمين 1 شبكة RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="label_rn2dp">رقم PIN لإلغاء تأمين شبكة 2 RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="label_rhrpd">رقم PIN لإلغاء تأمين RUIM HRPD</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
+  <string name="label_rcdp">رقم PIN لإلغاء تأمين شركة RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <string name="label_rspdp">رقم PIN لإلغاء تأمين موفر خدمة RUIM</string>
   <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
+  <string name="label_rdp">رقم PIN لإلغاء تأمين RUIM</string>
   <!-- Label text for PUK entry widget on Depersonalization panel -->
+  <string name="label_puk">أدخل PUK</string>
   <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="requesting_nw_subset_unlock">طلب إلغاء تأمين المجموعة الفرعية لشبكة SIM/u2026</string>
   <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="requesting_sp_unlock">طلب إلغاء تأمين موفر خدمة SIM/u2026</string>
   <!-- Status message displayed on SIM Corporate Depersonalization panel -->
+  <string name="requesting_corporate_unlock">طلب إلغاء تأمين شركة SIM/u2026</string>
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
+  <string name="requesting_sim_unlock">طلب إلغاء تأمين SIM\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="requesting_rnw1_unlock">جاري طلب إلغاء تأمين شبكة 1 RUIM/u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="requesting_rnw2_unlock">طلب إلغاء تأمين شبكة RUIM 2\u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="requesting_rhrpd_unlock">طلب إلغاء تأمين RUIM HRPD\u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="requesting_rsp_unlock">طلب إلغاء تأمين موفر خدمة RUIM\u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="requesting_rc_unlock">طلب إلغاء تأمين شركة RUIM/u2026</string>
   <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="requesting_ruim_unlock">طلب إلغاء تأمين RUIM/u2026</string>
   <!-- Status message displayed on PUK Depersonalization panel -->
+  <string name="requesting_puk_unlock">طلب إلغاء تأمين PUK\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_failed">فشل طلب إلغاء تأمين المجموعة الفرعية لشبكة SIM.</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="sp_unlock_failed">فشل طلب إلغاء تأمين موفر خدمة SIM.</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="corporate_unlock_failed">فشل طلب إلغاء تأمين شركة SIM.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
+  <string name="sim_unlock_failed">فشل طلب إلغاء تأمين SIM.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_failed">فشل طلب إلغاء تأمين الشبكة 1 RUIM.</string>
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_failed">فشل طلب إلغاء تأمين الشبكة 2 RUIM.</string>
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_failed">فشل طلب إلغاء تأمين RUIM HRPD.</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">طلب إلغاء قفل RUIM من موفر الخدمة غير ناجح.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->

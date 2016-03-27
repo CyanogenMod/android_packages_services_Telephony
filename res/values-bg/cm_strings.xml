@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">Идентификация на свързаната линия</string>
   <string name="connected_line_identification_summary">Деактивирате тази опция, ако номерата на получателите не се показват в историята на повикванията</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Изберете мрежови режим</string>
+  <string name="choose_network_mode_system_default">Система по подразбиране</string>
 </resources>

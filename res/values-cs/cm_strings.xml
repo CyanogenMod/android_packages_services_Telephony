@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">Identifikace linky</string>
   <string name="connected_line_identification_summary">Zakažte tuto funkci pokud se nezobrazují telefonní čísla volaných či volajících v historii volání</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Vybrat režim sítě</string>
+  <string name="choose_network_mode_system_default">Výchozí systémové</string>
 </resources>

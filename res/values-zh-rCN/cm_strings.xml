@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">连线识别</string>
   <string name="connected_line_identification_summary">如果被叫方号码不在通话记录中显示，禁用此选项</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">选择网络模式</string>
+  <string name="choose_network_mode_system_default">系统默认</string>
 </resources>

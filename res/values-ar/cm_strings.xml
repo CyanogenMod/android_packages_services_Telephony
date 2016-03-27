@@ -17,8 +17,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">إعدادات الشاشة عند المكالمة</string>
   <string name="show_ssn_label">إشعار الحدث</string>
   <string name="show_ssn_summary">إظهار إشعار لمختلف أحداث الشبكة المتصلة بالتعامل مع المكالمات</string>
+  <string name="incall_echo_cancellation">تقليل الضوضاء في المكالمة</string>
+  <string name="enable_aec_label">إلغاء الصدى</string>
+  <string name="enable_aec_summary">تقليل الضوضاء المحيطة للطرف البعيد أثناء المكالمات الصوتية</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">حظر قائمة المتصل</string>
   <string name="blacklist_summary_disabled">معطل</string>
@@ -65,6 +69,13 @@
   <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">نجح إلغاء قفل شبكة SIM.</string>
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <string name="all_day">طوال اليوم</string>
+  <string name="time_start">من</string>
+  <string name="time_end">إلى</string>
+  <string name="time_hour">ساعة</string>
+  <string name="time_minute">دقيقة</string>
+  <string name="time_formate_am">ص</string>
+  <string name="time_formate_pm">م</string>
   <!-- Mobile network settings, preferred network modes -->
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">وضع الشبكة المفضل: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
@@ -87,8 +98,11 @@
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">وضع الشبكة المفضل:TD-SCDMA/TD-SCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">وضع الشبكة المفضل: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">وضع الشبكة المفضل: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -110,13 +124,39 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA فقط</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM فقط</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA المفضل</string>
+  <string name="call_barring">حظر المكالمات</string>
+  <string name="call_barring_outgoing">حظر المكالمات الصادرة</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>إيقاف تشغيل</item>
+    <item>مكالمات التجوال الدولي</item>
+    <item>المكالمات الدولية</item>
+    <item>المكالمات الصادرة</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>إيقاف تشغيل</item>
+    <item>تجوال</item>
+    <item>الكل</item>
+  </string-array>
+  <string name="call_barring_incoming">حظر المكالمات الواردة</string>
+  <string name="input_password">أدخل كلمة مرورك</string>
+  <string name="invalidPsw">أدخل كلمة مرور صالحة (4-8 أرقام)</string>
+  <string name="labelCbCancelAll">تعطيل حظر المكالمات</string>
+  <string name="labelCbChangePassword">تغيير كلمة المرور</string>
+  <string name="psw_enter_old">كلمة المرور القديمة</string>
+  <string name="psw_enter_new">كلمة المرور الجديدة</string>
+  <string name="psw_reenter_new">أعد إدخال كلمة مرورك</string>
+  <string name="no_call_barring">حظر المكالمات معطل</string>
+  <string name="cb_psw_dont_match">كلمتا المرور لا تتطابقان</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">لم يتم تحديث FDN لأن حقل العدد فارغ أو يتجاوز 20 رقماً.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">تصدير جهات الاتصال إلى بطاقة SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">إدارة جهات اتصال بطاقة SIM</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_local_low_battery">فشلت المكالمة بسبب ضعف البطارية.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">فشلت المكالمة بسبب ضعف البطارية للجهاز البعيد.</string>
   <!-- Sim contacts management -->
   <string name="contactScreen">إدارة جهات ااتصال SIM</string>
   <string name="exportContactScreen">تصدير جهات اتصال الهاتف إلى SIM</string>
@@ -142,7 +182,14 @@
   <string name="exportAllcontatsSuccess">تصدير كافة جهات الاتصال إلى بطاقة SIM بنجاح</string>
   <string name="exportAllcontatsFailed">فشل تصدير كافة جهات الاتصال إلى بطاقة SIM</string>
   <string name="exportAllcontatsNoContacts">عدم العثور على جهات اتصال للتصدير إلى بطاقة SIM</string>
+  <string name="msim_mobile_network_settings_title">إعدادات شبكة الهاتف الخلوي SIM %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">تغيير وضع الشبكة</string>
+  <string name="perm_change_mobile_network_desc">يسمح للتطبيق بتعديل وضع الشبكة الحالي.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">تعريف الخط المتصل</string>
+  <string name="connected_line_identification_summary">تعطيل هذا الخيار إذا لم يظهر أعداد المستلمين في سجل المكالمات</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">اختيار وضع الشبكة</string>
+  <string name="choose_network_mode_system_default">الإعداد الافتراضي للنظام</string>
 </resources>

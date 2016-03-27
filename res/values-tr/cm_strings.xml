@@ -20,6 +20,9 @@
   <string name="incall_screen_settings">Arama-içi ekran ayarları</string>
   <string name="show_ssn_label">Olay bildirimi</string>
   <string name="show_ssn_summary">Arama yönetimiyle ilgili şebeke olayları için bildirim göster</string>
+  <string name="incall_echo_cancellation">Aramada gürültü azaltma</string>
+  <string name="enable_aec_label">Yankı iptali</string>
+  <string name="enable_aec_summary">Sesli aramalar sırasında uzakta bulunan taraf için çevredeki gürültüyü azaltın</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">Engellenen arayan listesi</string>
   <string name="blacklist_summary_disabled">Devre dışı</string>
@@ -179,7 +182,14 @@
   <string name="exportAllcontatsSuccess">Tüm kişiler SIM\'e başarıyla aktarıldı</string>
   <string name="exportAllcontatsFailed">Tüm kişiler SIM\'e aktarılamadı</string>
   <string name="exportAllcontatsNoContacts">SIM\'e aktarılacak kişi bulunamadı</string>
+  <string name="msim_mobile_network_settings_title">SIM %d hücresel ağ ayarları</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">şebeke modunu değiştir</string>
+  <string name="perm_change_mobile_network_desc">Bir uygulamanın geçerli şebeke modunu değiştirmesine izin verir.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Bağlantılı hat tanımlama</string>
+  <string name="connected_line_identification_summary">Arama geçmişinde alıcı sayısı gösterilmiyorsa bu seçeneği devre dışı bırak</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Şebeke modunu seç</string>
+  <string name="choose_network_mode_system_default">Sistem varsayılanı</string>
 </resources>

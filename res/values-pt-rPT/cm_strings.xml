@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">Identificação da linha conectada</string>
   <string name="connected_line_identification_summary">Desative esta opção se os números dos destinatários não aparecerem no histórico de chamadas</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Escolher o modo de rede</string>
+  <string name="choose_network_mode_system_default">Padrão do sistema</string>
 </resources>

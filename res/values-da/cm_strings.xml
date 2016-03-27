@@ -187,5 +187,9 @@
   <string name="perm_change_mobile_network">ændre netværkstilstand</string>
   <string name="perm_change_mobile_network_desc">Tillader en app at ændre den nuværende netværkstilstand.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Tilslutningsidentifikation</string>
+  <string name="connected_line_identification_summary">Deaktivér denne indstilling, hvis antallet af modtagerne ikke vises i opkaldshistorikken</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Vælg netværkstilstand</string>
+  <string name="choose_network_mode_system_default">Systemstandard</string>
 </resources>

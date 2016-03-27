@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">Konektatutako linearen identifikazioa</string>
   <string name="connected_line_identification_summary">Desgaitu aukera hau jasotzaileen zenbakiak deien historian agertzen ez badira</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Hautatu sare modua</string>
+  <string name="choose_network_mode_system_default">Sistemaren lehenetsia</string>
 </resources>
