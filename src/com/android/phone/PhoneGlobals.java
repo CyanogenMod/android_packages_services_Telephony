@@ -245,7 +245,7 @@ public class PhoneGlobals extends ContextWrapper {
                         // they enter a valid SIM network PIN.
                         Log.i(LOG_TAG, "show sim depersonal panel");
                         int subtype = (Integer)((AsyncResult)msg.obj).result;
-                        IccNetworkDepersonalizationPanel.showDialog();
+                        IccNetworkDepersonalizationPanel.showDialog(subtype);
                     }
                     break;
 

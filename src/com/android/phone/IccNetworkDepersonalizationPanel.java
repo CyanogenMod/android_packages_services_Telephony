@@ -184,7 +184,7 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
     /**
      * Shows the network depersonalization dialog, but only if it is not already visible.
      */
-    public static void showDialog() {
+    public static void showDialog(int subtype) {
         if (sShowingDialog) {
             Log.i(TAG, "[IccNetworkDepersonalizationPanel] - showDialog; skipped already shown.");
             return;
@@ -192,7 +192,7 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
         Log.i(TAG, "[IccNetworkDepersonalizationPanel] - showDialog; showing dialog.");
         sShowingDialog = true;
         IccNetworkDepersonalizationPanel ndpPanel =
-                new IccNetworkDepersonalizationPanel(PhoneGlobals.getInstance());
+                new IccNetworkDepersonalizationPanel(PhoneGlobals.getInstance(), subtype);
         ndpPanel.show();
     }
 
