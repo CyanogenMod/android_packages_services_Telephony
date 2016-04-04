@@ -780,16 +780,6 @@ public class MobileNetworkSettings extends PreferenceActivity
             ps.setEnabled(hasActiveSubscriptions);
         }
 
-        boolean isDsds = TelephonyManager.getDefault().getMultiSimConfiguration()
-                == TelephonyManager.MultiSimVariants.DSDS;
-        boolean isMultiRat = SystemProperties.getBoolean("ro.ril.multi_rat_capable", true);
-        if (isDsds && !isMultiRat && (mPhone.getSubId()
-                != mSubscriptionManager.getDefaultDataSubId())) {
-            root.removePreference(mButtonPreferredNetworkMode);
-            root.removePreference(mLteDataServicePref);
-            root.removePreference(mButtonEnabledNetworks);
-        }
-
         boolean COLPEnabled = Settings.Global.getInt(getContentResolver(),
                     Settings.Global.CONNECTED_LINE_IDENTIFICATION, 1) != 0;
         mButtonCOLP.setChecked(COLPEnabled);
