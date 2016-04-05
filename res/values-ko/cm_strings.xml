@@ -29,7 +29,6 @@
   <string name="blacklist_summary">차단된 발신자 목록에 있는 전화번호의 통화나 메세지를 받지 않습니다</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">메시지 대기 표시</string>
-  <string name="mwi_notification_summary">음성메일 알림에 대한 메시지 대기 표시 보이기</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">내 전화번호</string>
   <string name="phone_number_summary">이 장치의 전화번호 설정</string>

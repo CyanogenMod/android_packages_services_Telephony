@@ -29,7 +29,6 @@
   <string name="blacklist_summary">আপুনি কলাৰ সূচীত থকা ফোন নম্বৰৰ পৰা ইনকামিং কল বা বাৰ্তা প্ৰাপ্ত নকৰিব</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">বাৰ্তা অপেক্ষা সূচক</string>
-  <string name="mwi_notification_summary">বাৰ্তা অপেক্ষা সূচক ভইচ মেইল প্ৰদৰ্শন কৰক</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">মোৰ ফোন নম্বৰ</string>
   <string name="phone_number_summary">এই ডিভাইচৰ বাবে ফোন নম্বৰ ছেট কৰক</string>

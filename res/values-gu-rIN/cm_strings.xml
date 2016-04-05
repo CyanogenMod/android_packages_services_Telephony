@@ -29,7 +29,6 @@
   <string name="blacklist_summary">તમારી બ્લૉક કરેલ કૉલર સૂચી પર રહેલ ફોન નંબરો પરથી ઇનકમિંગ કૉલ્સ અથવા સંદેશા તમે મેળવશો નહીં</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">સંદેશ પ્રતિક્ષા સૂચક</string>
-  <string name="mwi_notification_summary">સંદેશ પ્રતિક્ષા સૂચક વૉઇસમેઇલ સૂચનાઓ દર્શાવો</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">મારો ફોન નંબર</string>
   <string name="phone_number_summary">આ ડિવાઇસ માટે ફોન નંબર સેટ કરો</string>
@@ -190,4 +189,5 @@
   <string name="connected_line_identification_title">કનેક્ટેડ લાઇનની ઓળખ</string>
   <string name="connected_line_identification_summary">આ વિકલ્પ નિષ્ક્રિય કરો જો પ્રાપ્તિકર્તાઓ ના નંબરો કૉલ ઇતિહાસમા બતાવવામાં ના આવે</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_system_default">તંત્ર મૂળભુત</string>
 </resources>

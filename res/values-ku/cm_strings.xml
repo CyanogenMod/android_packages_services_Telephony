@@ -23,7 +23,6 @@
   <string name="blacklist_summary_disabled">ناچالاکە</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">نامه‌ چاوه‌ڕێی نیشانده‌ر</string>
-  <string name="mwi_notification_summary">نیشاندانی نامه‌ چاوه‌ڕێکه‌ری نیشانده‌ر له‌ ئاگادری ده‌نگه‌ نامه‌کان</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">ژمارەی تەلەفۆنەکەم</string>
   <string name="phone_number_summary">دیاریکردنی ژماره‌ی ته‌له‌فۆن بۆ ئامێر</string>

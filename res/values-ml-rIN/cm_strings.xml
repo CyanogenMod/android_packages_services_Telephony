@@ -29,7 +29,6 @@
   <string name="blacklist_summary">തടഞ്ഞ കോളർ ലിസ്റ്റിലെ ഫോൺ നമ്പറുകളില്‍ നിന്ന് ഇൻകമിംഗ് കോളുകൾ അല്ലെങ്കിൽ സന്ദേശങ്ങൾ നിങ്ങള്‍ക്ക് ലഭിക്കില്ല</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">സന്ദേശ കാത്തിരിക്കുന്നു സൂചകം</string>
-  <string name="mwi_notification_summary">സന്ദേശ കാത്തിരിക്കുന്നു സൂചക വോയ്സ്മെയിൽ അറിയിപ്പുകൾ കാണിക്കുക</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">എന്റെ ഫോൺ നമ്പർ</string>
   <string name="phone_number_summary">ഈ ഉപകരണത്തിന് വേണ്ടി ഫോൺ നമ്പർ സജ്ജമാക്കുക</string>

@@ -25,7 +25,6 @@
   <string name="blacklist_summary">Jūs negausite įeinančių skambučių ar pranešimų iš telefonų numerių kurie yra užblokuotų skambintojų sąraše</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Pranešimų laukimo rodiklis</string>
-  <string name="mwi_notification_summary">Rodyti pranešimų laukimo rodiklį gaunamiems balso pašto pranešimams</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mano telefono numeris</string>
   <string name="phone_number_summary">Nustatyti telefono numerį šiam įrenginiui</string>
