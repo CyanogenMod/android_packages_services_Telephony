@@ -29,7 +29,6 @@
   <string name="blacklist_summary">U ontvangt geen inkomende oproepen of berichten van telefoonnummers op de zwarte lijst</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Voicemailmeldingen</string>
-  <string name="mwi_notification_summary">Meldingen weergeven voor nieuwe voicemailberichten</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mijn telefoonnummer</string>
   <string name="phone_number_summary">Telefoonnummer instellen voor deze telefoon</string>

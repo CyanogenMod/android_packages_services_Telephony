@@ -29,7 +29,6 @@
   <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようになります</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">メッセージ待機インジケータ</string>
-  <string name="mwi_notification_summary">ボイスメール通知のメッセージ待機インジケータを表示する</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>

@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Няма да получавате входящи повиквания или съобщения от телефонните номера в списъка</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Индикатор за чакащо известие</string>
-  <string name="mwi_notification_summary">Показвай известия за чакащи съобщения в гласовата поща</string>
+  <string name="mwi_notification_summary">Показвай известия за чакащи съобщения в гласовата поща (необходим е рестарт)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Моят телефонен номер</string>
   <string name="phone_number_summary">Задайте телефонен номер за това устройство</string>

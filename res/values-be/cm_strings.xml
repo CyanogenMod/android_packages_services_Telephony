@@ -29,7 +29,6 @@
   <string name="blacklist_summary">Вы не будзеце атрымваць уваходныя выклікі ці паведамленні ад тэлефонных нумароў з чорнага спіса</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Індыкатар чакання паведамленняў</string>
-  <string name="mwi_notification_summary">Паказваць індыкатар чакання паведамленняў апавяшчэнняў галасавой пошты</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Мой нумар тэлефона</string>
   <string name="phone_number_summary">Задаць тэлефонны нумар для гэтай прылады</string>

@@ -25,7 +25,6 @@
   <string name="blacklist_summary">Nebudete prijímať prichádzajúce hovory alebo správy od telefónnych čísel v zozname zablokovaných volajúcich</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikátor čakajúcej správy</string>
-  <string name="mwi_notification_summary">Zobraziť indikátor čakajúcej správy pre hlasové správy</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Moje telefónne číslo</string>
   <string name="phone_number_summary">Nastaviť telefónne číslo pre toto zariadenie</string>

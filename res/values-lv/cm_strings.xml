@@ -23,7 +23,6 @@
   <string name="blacklist_summary_disabled">Izslēgts</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Gaidošas ziņas indikators</string>
-  <string name="mwi_notification_summary">Rādīt gaidošo ziņu indikatoru balss pasta ziņām</string>
   <!-- My Phone Number -->
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->

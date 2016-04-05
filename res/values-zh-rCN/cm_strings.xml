@@ -29,7 +29,7 @@
   <string name="blacklist_summary">您将不会收到来自呼叫黑名单列表中的来电或短信</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">信息等待指示器</string>
-  <string name="mwi_notification_summary">显示信息等待指示器语音信箱提醒</string>
+  <string name="mwi_notification_summary">显示信息等待指示器语音信箱提醒（需要重启）</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">我的电话号码</string>
   <string name="phone_number_summary">设定此设备的电话号码</string>

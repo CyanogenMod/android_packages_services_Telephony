@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Нећеш примити позив или поруку са телефонског броја на листи блокираних саговорника</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Индикатор чекања поруке</string>
-  <string name="mwi_notification_summary">Прикажи индикатор чекања говорне поште</string>
+  <string name="mwi_notification_summary">Прикажи индикатор чекања говорне поште (потребан рестарт)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Мој телефонски број</string>
   <string name="phone_number_summary">Подеси телефонски број за овај уређај</string>

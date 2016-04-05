@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Nebudou se přijímat příchozí hovory nebo zprávy od telefonní čísla na seznamu blokovaných čísel</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Upozornění na hlasovou zprávu</string>
-  <string name="mwi_notification_summary">Zobrazit upozornění na čekající hlasovou zprávu</string>
+  <string name="mwi_notification_summary">Zobrazit upozornění na čekající hlasovou zprávu (vyžaduje restart)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Moje telefonní číslo</string>
   <string name="phone_number_summary">Nastavení telefonního čísla pro toto zařízení</string>

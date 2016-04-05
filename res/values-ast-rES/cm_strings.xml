@@ -23,7 +23,6 @@
   <string name="blacklist_summary_disabled">Desactivada</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indicador de mensaxes n\'espera</string>
-  <string name="mwi_notification_summary">Amosar una notificación pa los mensaxes n\'espera del buzón de voz</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">El mio númberu de teléfonu</string>
   <!-- Toasts for various transient network events -->
