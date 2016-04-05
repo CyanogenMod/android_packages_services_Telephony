@@ -29,7 +29,6 @@
   <string name="blacklist_summary">Bạn sẽ không nhận được cuộc gọi đến hoặc tin nhắn từ các số điện thoại trên danh sách chặn người gọi</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Chỉ báo có tin nhắn đang chờ</string>
-  <string name="mwi_notification_summary">Hiện chỉ báo có tin nhắn đang chờ dành cho thông báo thư thoại</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Số điện thoại của tôi</string>
   <string name="phone_number_summary">Thiết lập số điện thoại cho thiết bị này</string>

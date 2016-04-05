@@ -29,7 +29,6 @@
   <string name="blacklist_summary">Nie otrzymasz żadnych połączeń przychodzących ani wiadomości od numerów znajdujących się na liście zablokowanych rozmówców</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Wskaźnik oczekiwania wiadomości</string>
-  <string name="mwi_notification_summary">Pokaż powiadomienie oczekiwania na pocztę głosową</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mój numer telefonu</string>
   <string name="phone_number_summary">Ustaw numer telefonu dla tego urządzenia</string>

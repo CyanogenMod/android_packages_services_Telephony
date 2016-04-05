@@ -29,7 +29,6 @@
   <string name="blacklist_summary">నిరోధించబడిన కాలర్ జాబితాలో ఉన్న ఫోన్ నంబర్ల నుండి మీరు ఇన్‌కమింగ్ కాల్స్ లేదా సందేశాలను అందుకోరు</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">సందేశ ఇండికేటర్</string>
-  <string name="mwi_notification_summary">సందేశ ఇండికేటర్ వాయిస్ మెయిల్ నోటిఫికేషన్లను చూపుము</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">నా ఫోన్ నంబర్</string>
   <string name="phone_number_summary">ఈ పరికరానికి ఫోన్ నంబరును సెట్ చేయుము</string>

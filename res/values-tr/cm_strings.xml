@@ -29,7 +29,6 @@
   <string name="blacklist_summary">Engellenen arayan listesindeki numaralardan gelen çağrıları ya da mesajları almayacaksınız</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Mesaj bekleme göstergesi</string>
-  <string name="mwi_notification_summary">Mesaj bekleme göstergesinde sesli mesaj bildirimlerini göster</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Telefon numaram</string>
   <string name="phone_number_summary">Bu cihaz için telefon numarasını ayarla</string>

@@ -25,7 +25,6 @@
   <string name="blacklist_summary">شما تماس یا پیامی از شماره تلفن‌های لیست تماس‌گیرنده مسدود شده دریافت نخواهید کرد</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">نشانگر انتظار پیام</string>
-  <string name="mwi_notification_summary">نمایش پیام شاخص انتظار برای اعلانات پست صوتی</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">شماره تلفن من</string>
   <string name="phone_number_summary">تنظیم شماره تلفن این دستگاه</string>

@@ -23,7 +23,6 @@
   <string name="blacklist_summary_disabled">අබලයි</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">පණිවිඩ පොරොත්තුවේ දර්ශකය</string>
-  <string name="mwi_notification_summary">පණිවිඩ පොරොත්තු දර්ශකයේ, හඬ තැපෑලේ දැනුම්දීම් පෙන්වන්න</string>
   <!-- My Phone Number -->
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->

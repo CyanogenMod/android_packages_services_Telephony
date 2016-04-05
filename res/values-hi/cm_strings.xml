@@ -25,7 +25,6 @@
   <string name="blacklist_summary">आपको अवरुद्ध किए गए कॉलरों की सूची में मौजूद फ़ोन नंबरों से कॉल और संदेश नहीं आया करेंगे</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">संदेश प्रतीक्षा सूचक</string>
-  <string name="mwi_notification_summary">संदेश प्रतीक्षा सूचक ध्वनि डाक सूचनाएँ दिखाएँ</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">मेरा फ़ोन नंबर</string>
   <string name="phone_number_summary">इस उपकरण के लिए फ़ोन नंबर सेट करें</string>

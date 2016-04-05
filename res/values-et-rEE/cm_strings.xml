@@ -25,7 +25,6 @@
   <string name="blacklist_summary">Te ei saa sissetulevaid kõnesid ega sõnumeid numbritelt, mis on blokeeritud helistajate nimekirjas</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Sõnumi ootamise indikaator</string>
-  <string name="mwi_notification_summary">Näita \'sõnum ootel\' tulukest kõneposti teate korral</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Minu telefoninumber</string>
   <string name="phone_number_summary">Sea telefoni number sellele seadmele</string>

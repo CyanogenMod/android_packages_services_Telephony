@@ -29,7 +29,6 @@
   <string name="blacklist_summary">ଆପଣ ଅବରୁ‍ଦ୍ଧ ହୋଇଥିବା କଲର୍‍ ତାଲିକାରେ ଥିବା ଫୋନ୍‍ ନମ୍ବରରୁ ଆସୁଥିବା କଲ୍‍ ବା ସଂଦେଶ ପ୍ରାପ୍ତ କରିବେ ନାହିଁ</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">ସନ୍ଦେଶ ପ୍ରତୀଷା ସୂଚକ</string>
-  <string name="mwi_notification_summary">ସନ୍ଦେଶ ପ୍ରତୀଷା ସୂଚକ ଭଏସ୍‍ମେଲ୍‍ ନିର୍ଦ୍ଦେଶାବଳି ଦେଖାନ୍ତୁ</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">ମୋ ଫୋନ୍ ନମ୍ଵର୍</string>
   <string name="phone_number_summary">ଏହି ଡିଭାଇସ୍‍ ପାଇଁ ଫୋନ୍‍ ନମ୍ବ୍ର ସେଟ୍‍ କରନ୍ତୁ</string>
