@@ -29,7 +29,6 @@
   <string name="blacklist_summary">Nem fog bejövő hívásokat és üzeneteket kapni a blokkolt hívó listán szereplő telefonszámokról</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Várakozó üzenet</string>
-  <string name="mwi_notification_summary">Várakozó hangposta üzenet megjelenítése</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Saját telefonszám</string>
   <string name="phone_number_summary">Telefonszám beállítása az eszközhöz</string>
@@ -190,4 +189,6 @@
   <string name="connected_line_identification_title">Csatlakozott vonal azonosítása</string>
   <string name="connected_line_identification_summary">Tiltsa le ezt az opciót, ha a címzettek száma nem jelenik meg a hiváslistában</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Válasszon hálózati módot</string>
+  <string name="choose_network_mode_system_default">Rendszer alapértelmezett</string>
 </resources>

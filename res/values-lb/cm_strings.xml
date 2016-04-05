@@ -25,7 +25,6 @@
   <string name="blacklist_summary">Du wäerts keng Uriff oder Messagë vun den Telefonsnummeren op dëser Lëscht empfänken</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator uweisen</string>
-  <string name="mwi_notification_summary">En Indikator uweise wa Mailbox-Messagen drop waarden ofgeruff ze ginn</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Meng Telefonsnummer</string>
   <string name="phone_number_summary">Telefonsnummer fir dësen Apparat definéieren</string>

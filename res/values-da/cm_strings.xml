@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Du vil ikke modtage indgående opkald eller beskeder fra telefonnumre på den blokeret opkaldsliste</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator for ventende besked</string>
-  <string name="mwi_notification_summary">Vis notifikationer for indikator for ventende beskeder på voicemail</string>
+  <string name="mwi_notification_summary">Vis besked indikator for afventende voicemail-notifikationer (genstart påkrævet)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mit telefonnummer</string>
   <string name="phone_number_summary">Angiv telefonnummeret for denne enhed</string>

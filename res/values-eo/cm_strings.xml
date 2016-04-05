@@ -25,7 +25,6 @@
   <string name="blacklist_summary">Vi ricevos neniun alvokon nek mesaĝon el telefonnumeroj en la listo de blokitaj alvokantoj</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikilo de atendanta mesaĝo</string>
-  <string name="mwi_notification_summary">Montri indikilon de voĉaj mesaĝoj</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mia telefonnumero</string>
   <string name="phone_number_summary">Agordi la telefonnumeron por tiu aparato</string>

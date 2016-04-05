@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Não receberá chamadas ou mensagens de números de telefone na lista de números bloqueados</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indicador de mensagem em espera</string>
-  <string name="mwi_notification_summary">Mostrar indicador de mensagem em espera para notificações do correio de voz</string>
+  <string name="mwi_notification_summary">Mostrar indicador de mensagem em espera para notificações do correio de voz (reinicialização necessária)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">O meu número de telefone</string>
   <string name="phone_number_summary">Definir o número de telefone para este dispositivo</string>

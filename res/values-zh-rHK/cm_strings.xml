@@ -24,7 +24,6 @@
   <string name="blacklist_summary">您將不會收到通話黑名單上電話號碼的來電或短訊</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">訊息等候指示</string>
-  <string name="mwi_notification_summary">顯示訊息等待指示語音留言通知</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">我的電話號碼</string>
   <string name="phone_number_summary">為此裝置設定手機號碼</string>

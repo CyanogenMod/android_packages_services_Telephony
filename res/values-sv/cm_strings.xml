@@ -29,7 +29,6 @@
   <string name="blacklist_summary">Du kommer inte få inkommande samtal eller meddelanden från telefonnummer som är på listan över blockerade nummer</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator för väntande meddelande</string>
-  <string name="mwi_notification_summary">Visa meddelande väntar indikator som telefonsvararavisering</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mitt telefonnummer</string>
   <string name="phone_number_summary">Ställ in enhetens telefonnummer</string>
