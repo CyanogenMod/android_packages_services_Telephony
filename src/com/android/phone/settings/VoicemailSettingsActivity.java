@@ -281,13 +281,16 @@ public class VoicemailSettingsActivity extends PreferenceActivity
 
         mVoicemailVisualVoicemail = (SwitchPreference) findPreference(
                 getResources().getString(R.string.voicemail_visual_voicemail_key));
-        if (TelephonyManager.VVM_TYPE_OMTP.equals(mOmtpVvmCarrierConfigHelper.getVvmType()) ||
-                TelephonyManager.VVM_TYPE_CVVM.equals(mOmtpVvmCarrierConfigHelper.getVvmType())) {
-            mVoicemailVisualVoicemail.setOnPreferenceChangeListener(this);
-            mVoicemailVisualVoicemail.setChecked(
-                    VisualVoicemailSettingsUtil.isVisualVoicemailEnabled(mPhone));
+        if (mVoicemailVisualVoicemail != null &&
+                (TelephonyManager.VVM_TYPE_OMTP.equals(mOmtpVvmCarrierConfigHelper.getVvmType()) ||
+                TelephonyManager.VVM_TYPE_CVVM.equals(mOmtpVvmCarrierConfigHelper.getVvmType()))) {
+                mVoicemailVisualVoicemail.setOnPreferenceChangeListener(this);
+                mVoicemailVisualVoicemail.setChecked(
+                        VisualVoicemailSettingsUtil.isVisualVoicemailEnabled(mPhone));
         } else {
-            prefSet.removePreference(mVoicemailVisualVoicemail);
+            if (prefSet != null && mVoicemailVisualVoicemail != null) {
+                prefSet.removePreference(mVoicemailVisualVoicemail);
+            }
         }
 
         updateVMPreferenceWidgets(mVoicemailProviders.getValue());
