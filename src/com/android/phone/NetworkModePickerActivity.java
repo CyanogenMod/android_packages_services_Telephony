@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -103,8 +104,11 @@ public final class NetworkModePickerActivity extends AlertActivity implements
                 mHasNoneItem ? -1 : getCurrentNetworkMode(mSubId));
 
         Log.d(TAG, "mHasNoneItem: " + mHasNoneItem + ", mInitialMode: " + mInitialMode);
-
-        int[] ev = MobileNetworkSettings.getDeviceNetworkEntriesAndValues(this, mSubId,
+        Phone phone = PhoneFactory.getPhone(SubscriptionManager.getPhoneId(mSubId));
+        if (phone == null) {
+            phone = PhoneFactory.getDefaultPhone();
+        }
+        int[] ev = MobileNetworkSettings.getDeviceNetworkEntriesAndValues(this, phone,
                 mInitialMode);
 
         mNetworkChoices = getResources().getStringArray(ev[0]);
