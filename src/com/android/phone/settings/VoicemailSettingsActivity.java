@@ -252,15 +252,17 @@ public class VoicemailSettingsActivity extends PreferenceActivity
         if (mMwiNotification != null) {
             if (getResources().getBoolean(R.bool.sprint_mwi_quirk)) {
                 mMwiNotification.setOnPreferenceChangeListener(this);
+                int mwiNotificationEnabled = CMSettings.System.getInt(getContentResolver(),
+                        CMSettings.System.ENABLE_MWI_NOTIFICATION, 0);
+                mMwiNotification.setChecked(mwiNotificationEnabled != 0);
             } else {
                 PreferenceScreen voicemailCategory =
                         (PreferenceScreen) findPreference(BUTTON_VOICEMAIL_CATEGORY_KEY);
-                voicemailCategory.removePreference(mMwiNotification);
+                if (voicemailCategory != null) {
+                    voicemailCategory.removePreference(mMwiNotification);
+                }
                 mMwiNotification = null;
             }
-            int mwiNotification = CMSettings.System.getInt(getContentResolver(),
-                    CMSettings.System.ENABLE_MWI_NOTIFICATION, 0);
-            mMwiNotification.setChecked(mwiNotification != 0);
         }
 
         mVoicemailProviders = (VoicemailProviderListPreference) findPreference(
