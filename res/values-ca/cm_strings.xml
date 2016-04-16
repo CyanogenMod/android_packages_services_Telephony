@@ -190,4 +190,6 @@
   <string name="connected_line_identification_title">Identificació de línia connectada</string>
   <string name="connected_line_identification_summary">Deshabilita aquesta opció si els números dels destinataris no apareixen al registre de trucades</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Tria un mode de xarxa</string>
+  <string name="choose_network_mode_system_default">Per defecte del sistema</string>
 </resources>
