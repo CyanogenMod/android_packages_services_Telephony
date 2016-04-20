@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Upozornění na událost</string>
   <string name="show_ssn_summary">Zobrazit upozornění na různé události sítě, které souvisejí s hovory</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Seznam blokovaných čísel</string>
   <string name="blacklist_summary_disabled">Vypnuta</string>
   <string name="blacklist_summary">Nebudou se přijímat příchozí hovory nebo zprávy od telefonní čísla na seznamu blokovaných čísel</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Upozornění na hlasovou zprávu</string>
   <string name="mwi_notification_summary">Zobrazit upozornění na čekající hlasovou zprávu</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Nepodmíněné přesměrování hovorů aktivní</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Podmíněné přesměrování hovorů aktivní</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Odchozí hovor byl přesměrován</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Hovor v uzavřené skupině</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Odchozí hovory blokovány</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Příchozí hovory blokovány</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Skrytí telefonního čísla odmítnuto sítí</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Hovor přesměrován</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Příchozí hovor přesměrován</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Skupinový hovor</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Hovor ukončen druhou stranou</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Hovor byl přesměrován</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Hovor bude spojen na přímo (ECT)</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Hovor je spojen na přímo (ECT)</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">PIN pro odemknutí podsítě SIM</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">PIN pro odemknutí korporátní SIM</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">PIN pro odemknutí SIM poskytovatele služeb</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">PIN pro odemknutí SIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">PIN pro odemknutí RUIM sítě 1</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">PIN pro odemknutí RUIM sítě 2</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">PIN pro odemknutí RUIM HRPD</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">PIN pro odemknutí korporátní RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">PIN pro odemknutí RUIM poskytovatele služeb</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">PIN pro odemknutí RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Zadat PUK</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Požadavek SIM na odemknutí sítě\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Požadavek odemknutí podsítě SIM\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Požadavek odemknutí SIM poskytovatele služeb\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Požadavek odemknutí korporátní SIM\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Požadavek odemknutí SIM\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Požadavek odemknutí RUIM sítě 1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Požadavek odemknutí RUIM sítě 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Požadavek odemknutí RUIM HRPD\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Požadavek odemknutí RUIM poskytovatele služeb\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Požadavek odemknutí korporátní RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Požadavek odemknutí RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Požadavek odemknutí PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Požadavek odemknutí SIM sítě neúspěšný.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Požadavek odemknutí podsítě SIM neúspěšný.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Požadavek odemknutí SIM poskytovatele služeb neúspěšný.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Požadavek odemknutí korporátní SIM neúspěšný.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Požadavek odemknutí SIM neúspěšný.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Požadavek odemknutí RUIM sítě 1 neúspěšný.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Požadavek odemknutí RUIM sítě 2 neúspěšný.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Požadavek odemknutí RUIM HRPD neúspěšný.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Požadavek odemknutí RUIM poskytovatele služeb neúspěšný.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Požadavek odemknutí korporátní RUIM neúspěšný.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Požadavek odemknutí RUIM neúspěšný.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Požadavek odemknutí PUK neúspěšný.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Odemknutí sítě SIM provedeno.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Odemknutí podsítě SIM provedeno.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Odemknutí SIM poskytovatele služeb provedeno.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Odemknutí korporátní SIM provedeno.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">Odemknutí SIM provedeno.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Odemknutí RUIM sítě 1 provedeno.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Odemknutí RUIM sítě 2 provedeno.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Odemknutí RUIM HRPD provedeno.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Odemknutí RUIM poskytovatele služeb provedeno.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Odemknutí korporátní RUIM provedeno.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Odemknutí RUIM provedeno.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Odemknutí PUK provedeno.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">Požadavek SS změněn na požadavek DIAL.</string>
   <string name="stk_cc_ss_to_ussd_error">Požadavek SS změněn na požadavek USSD.</string>
   <string name="stk_cc_ss_to_ss_error">Požadavek SS změněn na nový požadavek SS.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Nastavení videohovorů</string>
   <string name="vt_fallback_setting">Vytočit znovu pomocí hlasového volání</string>
   <string name="vt_forward_setting">Přesměrování video hovorů</string>
   <string name="vt_imagereplace_setting">Alternativní obrázek</string>
   <string name="vt_imagereplace_setting_sum">Obrázek se zobrazí když je čelní fotoaparát je zakázán</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Roaming režim</string>
   <string name="roaming_mode_summary">Mezinárodní roaming režim</string>
   <string name="roaming_gsm">GSM roaming</string>
   <string name="roaming_cdma">CDMA roaming</string>
   <string name="roaming_disabled">Vypnuto</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Upřednostňovaný režim sítě: globální (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Upřednostňovaný režim sítě: pouze TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Upřednostňovaný režim sítě: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Upřednostňovaný režim sítě: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Upřednostňovaný režim sítě: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Upřednostňovaný režim sítě: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Upřednostňovaný režim sítě: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Upřednostňovaný režim sítě: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Volaná skupina odmítá všechny příchozí hovory.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Zavolat (nepřijaté a přesměrované)</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">Pouze GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferované WCDMA/GSM</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (aktuálně: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">Nastavení karty SIM</string>
   <string name="sim_card_title">SIM karta %d</string>
   <string name="sim_card_summary_empty">Slot pro SIM kartu je prázdný</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">Při video-hovoru není možná změna režimu TTY</string>
   <string name="ipcall_sub_title">Nastavení IP volání</string>
   <string name="ipcall_sub_summery">Změnit prefix pro volání pomocí služby IP</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">Prefix pro IP volání</string>
   <string name="fdn_service_unavailable">Služba FDN není dostupná.</string>
   <string name="exportContacts">Export kontaktů na kartu SIM\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Spravovat kontakty na SIM kartě</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Spravovat kontakty SIM</string>
   <string name="exportContactScreen">Exportovat telefonní kontakty na kartu SIM</string>
   <string name="addSimEntries">Přidat kontakt SIM</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">Úspěšně exportovány všechny kontakty na SIM kartu</string>
   <string name="exportAllcontatsFailed">Export všech kontaktů na SIM kartu selhal</string>
   <string name="exportAllcontatsNoContacts">Nenalezen žádný kontakt pro export na SIM kartu</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Upřednostňované sítě</string>
   <string name="network_id">Identifikace sítě</string>
   <string name="dialog_network_priority_title">Priorita</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Je potřeba dočasně odpojit datové služby. Chcete pokračovat?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">Detaily účtu IMS</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS účty</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Kvalita video hovoru</string>
   <string name="ims_vt_call_quality_low">Nízká</string>
   <string name="ims_vt_call_quality_high">Vysoká</string>
   <string name="ims_vt_call_quality_unknown">Neznámé</string>
   <string name="ims_vt_call_quality_set_failed">Selhalo nastavení kvality videa</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">změnit režim sítě (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Umožňuje kdykoliv změnit typ datového připojení mezi 2G a 3G. Režim 3G je rychlejší, ale je náročnější na baterii a může být dražší.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Moje telefonní číslo</string>
   <string name="phone_number_summary">Nastavení telefonního čísla pro toto zařízení</string>
   <string name="msim_mobile_network_settings_title">Nastavení mobilní sítě SIM %d</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Formát záznamu hovoru</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">Nepodařilo se zjistit počet paketů</string>
   <string name="ims_get_packet_error_count_failed">Nepodařilo se zjistit počet chybných paketů</string>
   <string name="ims_get_packet_count_label">Dotkykem zde zjistíte počet paketů</string>
   <string name="ims_get_packet_error_count_label">Dotykem zde zjistíte počet chybných paketů</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">Nastavení Wi\u2011Fi volání</string>
   <string name="wifi_calling_title">Wi\u2011Fi volání</string>
   <string name="wifi_calling_preference_title">Předvolby Wi\u2011Fi volání</string>

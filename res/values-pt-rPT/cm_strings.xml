@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Notificação de evento</string>
   <string name="show_ssn_summary">Mostrar uma notificação para vários eventos de rede relacionados com o tratamento de chamadas</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Lista de números bloqueados</string>
   <string name="blacklist_summary_disabled">Desativado</string>
   <string name="blacklist_summary">Não receberá chamadas ou mensagens de números de telefone na lista de números bloqueados</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indicador de mensagem em espera</string>
   <string name="mwi_notification_summary">Mostrar indicador de mensagem em espera para notificações do correio de voz</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Reencaminhamento incondicional de chamada ativo</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Reencaminhamento condicional de chamada ativo</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">A chamada efetuada foi reencaminhada</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Chamada num grupo fechado de utilizadores</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Chamadas efetuadas barradas</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Chamadas recebidas barradas na origem</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Eliminação do próprio número foi rejeitada pela rede</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Chamada encaminhada pelo destinatário</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Chamada recebida encaminhada</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Chamada em grupo</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Chamada desligada remotamente</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">A chamada foi encaminhada</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">A realizar chamada através da transferência explícita de chamadas</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Chamada realizada através da transferência explícita de chamadas</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">PIN para desbloquear subconjunto de rede SIM</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">PIN para desbloquear o SIM corporativo</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">PIN para desbloquear fornecedor de serviço SIM</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">PIN para desbloquear SIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">PIN para desbloquear rede RUIM 1</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">PIN para desbloquear rede RUIM 2</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">PIN para desbloquear RUIM HRPD</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">PIN para desbloquear o RUIM corporativo</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">PIN para desbloquear fornecedor de serviço RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">PIN para desbloquear RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Introduzir PUK</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">A solicitar o desbloqueio da rede SIM\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">A solicitar o desbolqueio de subconjunto de rede SIM\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">A solicitar o desbloqueio do fornecedor de serviço SIM\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">A solicitar o desbloqueio do SIM corporativo\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">A solicitar o desbloqueio do SIM\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">A solicitar o desbloqueio de rede RUIM 1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">A solicitar o desbloqueio de rede RUIM 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">A solicitar o desbloqueio RUIM HRPD\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">A solicitar o desbloqueio do fornecedor de serviço RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">A solicitar o desbloqueio do RUIM corporativo\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">A solicitar o desbloqueio RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">A solicitar o desbloqueio PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Pedido de desbloqueio da rede SIM sem sucesso.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Pedido de desbloqueio de subconjunto de rede SIM sem sucesso.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Pedido de desbloqueio do fornecedor de serviço SIM sem sucesso.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Pedido de desbloqueio do SIM corporativo sem sucesso.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Pedido de desbloqueio do SIM sem sucesso.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Pedido de desbloqueio da rede RUIM 1 sem sucesso.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Pedido de desbloqueio da rede RUIM 2 sem sucesso.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Pedido de desbloqueio de RUIM HRPD sem sucesso.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Pedido de desbloqueio do fornecedor de serviço RUIM sem sucesso.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Pedido de desbloqueio do RUIM corporativo sem sucesso.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Pedido de desbloqueio do RUIM sem sucesso.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Desbloqueio do PUK sem sucesso.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Rede SIM desbloqueada com sucesso.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Desbloqueio do subconjunto de rede SIM com sucesso.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Desbloqueio do fornecedor de serviço SIM com sucesso.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Desbloqueio do SIM corporativo com sucesso.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">Desbloqueio do SIM com sucesso.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Desbloqueio de rede RUIM 1 com sucesso.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Desbloqueio de rede RUIM 2 com sucesso.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Desbloqueio de RUIM HRPD com sucesso.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Desbloqueio do fornecedor de serviço RUIM com sucesso.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Desbloqueio do RUIM corporativo com sucesso.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Desbloqueio do RUIM com sucesso.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Desbloqueio do PUK com sucesso.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">Pedido SS modificado para pedido DIAL.</string>
   <string name="stk_cc_ss_to_ussd_error">Pedido SS modificado para pedido USSD.</string>
   <string name="stk_cc_ss_to_ss_error">Pedido SS modificado em novo pedido SS.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Definições de chamada de vídeo</string>
   <string name="vt_fallback_setting">Voltar a ligar através de chamada de vídeo</string>
   <string name="vt_forward_setting">Encaminhamento de chamada de vídeo</string>
   <string name="vt_imagereplace_setting">Imagens alternativas</string>
   <string name="vt_imagereplace_setting_sum">Imagem a ser exibida quando a câmara frontal é desativada</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Modo de roaming</string>
   <string name="roaming_mode_summary">Modo de roaming internacional</string>
   <string name="roaming_gsm">Roaming GSM</string>
   <string name="roaming_cdma">Roaming CDMA</string>
   <string name="roaming_disabled">Desativado</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Modo de rede preferida: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Modo de rede preferida: Só TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Modo de rede preferida: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Modo de rede preferida: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Modo de rede preferida: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Modo de rede preferida: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Modo de rede preferida: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Modo de rede preferida: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Modo de rede preferida: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Modo de rede preferida: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Modo de rede preferida: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">O grupo barrou todas as chamadas recebidas.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Chamada não respondida e reencaminhada</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">Só GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferida</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (atual: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">Definições de cartão SIM</string>
   <string name="sim_card_title">Cartão SIM %d</string>
   <string name="sim_card_summary_empty">A ranhura do cartão SIM está vazia</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">A alteração do modo TTY não é permitida durante uma chamada VT</string>
   <string name="ipcall_sub_title">Definições de chamada por IP</string>
   <string name="ipcall_sub_summery">Editar o prefixo para chamadas através de serviço IP</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">Prefixo de marcação de chamada IP</string>
   <string name="fdn_service_unavailable">O serviço FDN não está disponível.</string>
   <string name="exportContacts">A exportar contactos para o cartão SIM\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Gerir os contactos do cartão SIM</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Gerir contactos do cartão SIM</string>
   <string name="exportContactScreen">Exportar contactos do telefone para o SIM</string>
   <string name="addSimEntries">Adicionar contacto ao SIM</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">Exportou com sucesso todos os contactos para o cartão SIM</string>
   <string name="exportAllcontatsFailed">Falha ao exportar todos os contactos para o cartão SIM</string>
   <string name="exportAllcontatsNoContacts">Não foram encontrados contactos para exportar para o cartão SIM</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Redes preferidas</string>
   <string name="network_id">ID de rede</string>
   <string name="dialog_network_priority_title">Prioridade</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">O serviço de dados tem de ser desligado temporariamente. Tem a certeza que deseja continuar?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">Detalhes da conta IMS</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">Conta IMS</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Qualidade da chamada de vídeo</string>
   <string name="ims_vt_call_quality_low">Baixa</string>
   <string name="ims_vt_call_quality_high">Alta</string>
   <string name="ims_vt_call_quality_unknown">Desconhecida</string>
   <string name="ims_vt_call_quality_set_failed">Falha ao definir a qualidade de vídeo</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">Alterar o modo de rede (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Permite a uma aplicação alterar entre 2G e 3G a qualquer momento. 3G é mais rápido, mas consome mais bateria e pode originar custos adicionais.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">O meu número de telefone</string>
   <string name="phone_number_summary">Definir o número de telefone para este dispositivo</string>
   <string name="msim_mobile_network_settings_title">Definições de rede móvel do SIM %d</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Formato de gravação de chamada</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">Falha ao obter a contagem de pacotes</string>
   <string name="ims_get_packet_error_count_failed">Falha ao obter a contagem dos pacotes de erros</string>
   <string name="ims_get_packet_count_label">Toque aqui para obter a contagem de pacotes</string>
   <string name="ims_get_packet_error_count_label">Toque aqui para obter a contagem dos pacotes de erros</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">Definições de chamadas Wi-Fi</string>
   <string name="wifi_calling_title">Chamadas Wi-Fi</string>
   <string name="wifi_calling_preference_title">Preferência de chamadas Wi-Fi</string>

@@ -15,163 +15,340 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Official label of the phone app, as seen in "Manage Applications"
+         and other settings UIs.  This is the version of the label for
+         tablet devices, where the phone app handles mobile data but not
+         actual phone calls. -->
   <string name="phoneAppLabel" product="tablet">داتای مۆبایل</string>
+  <!-- Official label of the phone app, as seen in "Manage Applications"
+         and other settings UIs. -->
   <string name="phoneAppLabel" product="default">تەلەفۆن</string>
+  <!-- Screen title for Emergency Dialer UI -->
   <string name="emergencyDialerIconLabel">تەلەفۆنی خێرا</string>
+  <!-- Activity label for the in-call UI -->
   <string name="phoneIconLabel">تەلەفۆن</string>
+  <!-- Title of FDN list screen -->
   <string name="fdnListLabel">لیستی FDN</string>
+  <!-- Call status -->
+  <!-- Incoming call screen, name of "unknown" caller -->
   <string name="unknown">نەناسراو</string>
+  <!-- Incoming call screen, string when number hidden -->
   <string name="private_num">ژمارەی تایبەت</string>
+  <!-- Incoming call screen, string when called from a pay phone -->
   <string name="payphone">کڕینی مۆبایل</string>
+  <!-- In-call screen: status label for a call that's on hold -->
   <string name="onHold">له‌سه‌ر خه‌ت به‌</string>
+  <!-- Possible error messages with outgoing calls -->
   <string name="mmiStarted">کۆدی MMI دەست پێکراوە</string>
+  <!-- Dialog label when a USSD code starts running -->
   <string name="ussdRunning">کۆدی USSD لە کارادایە\u2026</string>
+  <!-- Dialog label when an MMI code is canceled -->
   <string name="mmiCancelled">کۆدی MMI هەڵوەشێندرایەوە</string>
+  <!-- Label for "cancel" button on the MMI dialog -->
   <string name="cancel">لابردن</string>
+  <!-- Toast string displayed to user if the input in MMI dialog is < 1 or > 160 -->
   <string name="enter_input">نامەی USSD دەبێ نێوان <xliff:g id="min_len">%d</xliff:g> بۆ <xliff:g id="max_len">%d</xliff:g> هێما بێت. تکایە دووبارە هەوڵ بدەوە.</string>
+  <!-- Label for "Manage conference call" panel [CHAR LIMIT=40] -->
   <string name="manageConferenceLabel">به‌ڕێوه‌بردنی په‌یوه‌ندییه‌ کۆنگره‌ییه‌کان</string>
+  <!-- Positive button label ("OK") used in several dialogs in the phone UI [CHAR LIMIT=10] -->
   <string name="ok">باشه‌</string>
+  <!-- "Audio mode" popup menu: Item label to select the speakerphone [CHAR LIMIT=25] -->
   <string name="audio_mode_speaker">بڵندگۆ</string>
+  <!-- "Audio mode" popup menu: Item label to select the handset earpiece [CHAR LIMIT=25] -->
   <string name="audio_mode_earpiece">ده‌سکی په‌یوه‌ندی گوێ</string>
+  <!-- "Audio mode" popup menu: Item label to select the wired headset [CHAR LIMIT=25] -->
   <string name="audio_mode_wired_headset">بیستۆکی وایەردار</string>
+  <!-- "Audio mode" popup menu: Item label to select the bluetooth headset [CHAR LIMIT=25] -->
   <string name="audio_mode_bluetooth">بلوتوس</string>
+  <!-- post dial -->
+  <!-- In-call screen: body text of the dialog that appears when we encounter
+         the "wait" character in a phone number to be dialed; this dialog asks the
+         user if it's OK to send the numbers following the "wait". -->
   <string name="wait_prompt_str">ئه‌م ئاوازانه‌ ده‌نێریت؟\n</string>
+  <!-- In-call screen: body text of the dialog that appears when we encounter
+         the "PAUSE" character in a phone number to be dialed; this dialog gives
+         informative message to the user to show the sending numbers following the "Pause". -->
   <string name="pause_prompt_str">ناردنی ئاوازه‌کانی\n</string>
+  <!-- In-call screen: button label on the "wait" prompt dialog -->
   <string name="send_button">ناردن</string>
+  <!-- In-call screen: button label on the "wait" prompt dialog in CDMA Mode-->
   <string name="pause_prompt_yes">بەڵێ</string>
+  <!-- In-call screen: button label on the "wait" prompt dialog in CDMA Mode-->
   <string name="pause_prompt_no">نەخێر</string>
+  <!-- In-call screen: on the "wild" character dialog, this is the label
+         for a text widget that lets the user enter the digits that should
+         replace the "wild" character. -->
   <string name="wild_prompt_str">جێگرتنه‌وه‌ی کاره‌کته‌ری ده‌ری وه‌ک</string>
+  <!-- missing voicemail number -->
+  <!-- Title of the "Missing voicemail number" dialog -->
   <string name="no_vm_number">لەدەستدانی ژمارەی دەنگەنامە</string>
+  <!-- Body text of the "Missing voicemail number" dialog -->
   <string name="no_vm_number_msg">هیچ ژمارەیەکی دەنگەنامە  هەڵنەگیراوە لەسەر سیمکارد.</string>
+  <!-- Button label on the "Missing voicemail number" dialog -->
   <string name="add_vm_number_str">زیادکردنئ ژمارە</string>
+  <!-- Status message displayed on SIM PIN unlock panel -->
   <string name="puk_unlocked">سیمکارتەکەت کەوتەوە سەر کار. مۆبایلەیەت دەکرێتەوە\u2026</string>
+  <!-- network depersonalization -->
+  <!-- Label text for PIN entry widget on SIM Network Depersonalization panel -->
   <string name="label_ndp">PINی کردنەوەی تۆڕی سیمکارت</string>
+  <!-- Button label on SIM Network Depersonalization panel -->
   <string name="sim_ndp_unlock_text">کردنەوە</string>
+  <!-- Button label on SIM Network Depersonalization panel -->
   <string name="sim_ndp_dismiss_text">لابردن</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock">داوا بۆ کردنەوەی تۆڕ\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed">داواکردن بۆ کردنەوەی تۆڕ سەرکەوتوو نەبوو.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success">کردنەوەی تۆڕ سەرکەوتوو بوو.</string>
+  <!-- settings strings -->
+  <!-- Error message for users that aren't allowed to modify Mobile Network settings [CHAR LIMIT=none] -->
   <string name="mobile_network_settings_not_available">ڕێکخستنەکانی تۆڕی مۆبایل بۆ ئەم بەکارهێنەرە بەردەست نییە</string>
+  <!-- GSM Call settings screen, setting option name -->
   <string name="labelGSMMore">ڕێکخستنەکانی پەیوەندی GSM</string>
+  <!-- CDM Call settings screen, setting option name -->
   <string name="labelCDMAMore">ڕێکخستنەکانی پەیوەندی CDMA</string>
+  <!-- Mobile network settings screen, setting option name -->
   <string name="apn_settings">ناوی خاڵەکانی دەستپێگەیشتن</string>
+  <!-- Label for the "Network settings" screen in the Settings UI -->
   <string name="settings_label">ڕێکخستنەکانی تۆڕ</string>
+  <!-- Label for settings screen for phone accounts. -->
+  <!-- Label for list item which opens a dialog to select the default outgoing account -->
   <string name="phone_accounts_make_calls_with">گرتنی پەیوەندییەکان لەڕێگەی</string>
+  <!-- Label for list item which opens a dialog to select the default outgoing account for SIP calls. -->
   <string name="phone_accounts_make_sip_calls_with">گرتنی پەیوەندییە ئینتەرنێتییەکان لەڕێگەی</string>
+  <!-- Entry in dialog to "ask first" for accounts when making a call -->
   <string name="phone_accounts_ask_every_time">لەپێشدا بپرسە</string>
+  <!-- Label for heading of the accounts section in the phone accounts settings screen. -->
   <string name="phone_accounts_accounts_header">هه‌ژماره‌کان</string>
+  <!-- Label for invoking phone account selection screen -->
   <string name="phone_accounts_choose_accounts">هەژمارەکان هەڵبژێرە</string>
+  <!-- Label for heading in the phone account selection screen -->
   <string name="phone_accounts_selection_header">هەژمارەکانی مۆبایل</string>
+  <!-- Title for the button to add a new sip account. [CHAR LIMIT=NONE] -->
   <string name="phone_accounts_add_sip_account">زیاکردنی هەژماری SIP</string>
+  <!-- Description label for icon to configure a phone account's settings. -->
   <string name="phone_accounts_configure_account_settings">ڕێکخستنەکانی هەژمار شێوە پێبە</string>
+  <!-- Title for setting to select Wi-Fi call manager account -->
   <string name="phone_account_wifi_calling">پەیوەندیگرتنی Wi-Fi</string>
+  <!-- Indication for option to not use a Wi-Fi call manager -->
   <string name="wifi_calling_do_not_use">پەیوەندیگرتنی Wi-Fi بەکار مەهێنە</string>
+  <!-- Indication for option to not use a call assistant. -->
   <string name="wifi_calling_do_not_use_call_assistant">یارمەتیدەری پەیوەندی بەکار مەهێنە</string>
+  <!-- Indication for option to not use a call assistant. -->
   <string name="wifi_calling_call_assistant_none">هیچیان</string>
+  <!-- Label for selected Wi-Fi call manager -->
   <string name="wifi_calling_call_assistant">هاریکاری پەیوەندی</string>
+  <!-- Label for switch setting to enable/disable the use of SIM call managers. -->
   <string name="wifi_calling_use_call_assistant">بەکارهێنانی هاریکاری پەیوەندی</string>
+  <!-- Label for selectecting a Wi-Fi call manager -->
   <string name="wifi_calling_select_call_assistant">هاریکاری پەیوەندی هەڵبژێرە</string>
+  <!-- Summary for the label of a setting to select the SIM call managers to use.-->
+  <!-- Summary for the label of a switch setting to enable/disable the use of SIM call managers. -->
   <string name="wifi_calling_use_call_assistant_summary">ڕێگە بە بەرنامەکان و ڕاژەکان بدە بۆ بەڕێوەبردنی تۆڕەکان کە بۆ پەیوەندییەکان بەکار هاتوون</string>
+  <!-- Label for setting to configure the selected call assistant. -->
   <string name="wifi_calling_call_assistant_configure">شێوەپێدان</string>
+  <!-- Label for setting to configure the selected call assistant when no call assistant is chosen. -->
   <string name="wifi_calling_call_assistant_configure_no_selection">هاریکاری پەیوەندی کوژاوەیە</string>
+  <!-- Built-in label for the default connection service setting. -->
   <string name="connection_service_default_label">ڕاژەی گرێدانی تووکار</string>
+  <!-- Call settings screen, setting option name -->
   <string name="voicemail">دەنگەپۆست</string>
+  <!-- Call forwarding dialog box, voicemail number prefix -->
   <string name="voicemail_abbreviated">دەنگەنامە:</string>
+  <!-- Mobile network settings screen, setting option name -->
   <string name="networks">به‌کارگێڕی سیمه‌که‌ت</string>
+  <!-- Cell Broadcast settings title.  [CHAR LIMIT=50] -->
   <string name="cell_broadcast_settings">بڵاوکردنەوەکانی فریاگوزاری</string>
+  <!-- Call settings screen title -->
   <string name="call_settings">ڕێکخستنەکانی پەیوەندی</string>
+  <!-- GSM Call settings screen, setting option name -->
   <string name="additional_gsm_call_settings">ڕێکخستنەکانی زیادە</string>
+  <!-- GSM-only Call settings screen, setting option name-->
   <string name="sum_gsm_call_settings">ڕێکخستنەکانی زیادەی پەیوەندی GSM</string>
+  <!-- CDMA Call settings screen, setting option name -->
   <string name="additional_cdma_call_settings">طێکخسنتەکانی زیادەی پەیوەندی CDMA</string>
+  <!-- CDMA-only Call settings screen, setting option name-->
   <string name="sum_cdma_call_settings">ڕێکخستنەکانی زیادەی تەنها پەیوەندی CDMA</string>
+  <!-- Call setting screen, nework service setting name -->
   <string name="labelNwService">رێکخستنەکانی خزمەتگوزاری تۆڕ</string>
+  <!-- Call settings screen, setting option name -->
   <string name="labelCallerId">پێناسەی تەلەفۆنکەر</string>
+  <!-- Additional call settings screen, setting summary text when the setting is being loaded [CHAR LIMIT=40] -->
   <string name="sum_loading_settings">ئامادەکردنی رێکخستنەکان\u2026</string>
+  <!-- Additional call settings screen, setting summary text when Caller ID is hidden -->
   <string name="sum_hide_caller_id">ژمارە شاردراوەیە لە ناو پەیوەندییە ڕۆیشتووەکان</string>
+  <!-- Additional call settings screen, setting summary text when Caller ID is shown -->
   <string name="sum_show_caller_id">ژمارە پیشاندرا لە ناو پەیوەندییە ڕۆیشتووەکان</string>
+  <!-- Additional call settings screen, setting summary text for default Caller ID value -->
   <string name="sum_default_caller_id">ڕێکخستنەکانی بنەڕەتی کۆمپانیایی سیمکارت بەکار بهێنە بۆ پیشاندانی ژمارەکەم لە ناو پەیوەندییە ڕۆیشتووەکان</string>
+  <!-- Additional call settings screen, setting check box name -->
   <string name="labelCW">چاوەڕوانیی پەیوەندی</string>
+  <!-- Additional call settings screen, setting summary text when call waiting check box is selected -->
   <string name="sum_cw_enabled">لە کاتی پەیوەندی، لە پەیوەندییە هاتووەکان ئاگادارم بکەوە</string>
+  <!-- Additional call settings screen, setting summary text when call waiting check box is clear -->
   <string name="sum_cw_disabled">لە کاتی پەیوەندی، لە پەیوەندییە هاتووەکان ئاگادارم بکەوە</string>
+  <!-- Call forwarding settings screen, section heading -->
   <string name="call_forwarding_settings">ڕێکخستنەکانی ئاراستەکردنی پەیوەندی</string>
+  <!-- Call settings screen, setting option name -->
   <string name="labelCF">ئاراستەکردنی پەیوەندی</string>
+  <!-- Call forwarding settings screen, setting option name -->
   <string name="labelCFU">هەردەم ئاراستەی بکە</string>
+  <!-- Call forwarding dialog box, text field label -->
   <string name="messageCFU">هەردەم ئەم ژمارەیە بە کار بهێنە</string>
+  <!-- Call forwarding settings screen, setting summary text when forwarding all calls -->
   <string name="sum_cfu_enabled_indicator">هەموو پەیوەندییەکان ئاراستە بکە</string>
+  <!-- Call forwarding settings screen, setting summary text the Always forward is set -->
   <string name="sum_cfu_enabled">هەموو پەیوەندییەکان ئاراستە بکە بۆ <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
+  <!-- Call forwarding settings screen, Always forward is enabled but the number is unavailable -->
   <string name="sum_cfu_enabled_no_number">تۆڕ بەر دەست نییە</string>
+  <!-- Call forwarding settings screen, setting summary text when Always forward is disabled -->
   <string name="sum_cfu_disabled">کوژانه‌وه‌</string>
+  <!-- Call forwarding settings screen, setting option name -->
   <string name="labelCFB">کاتێک سەرقاڵ بێت</string>
+  <!-- Call forwarding dialog box, text field label -->
   <string name="messageCFB">ژمارەی(ئاراستەکردن) کاتی سەرقاڵی</string>
+  <!-- Call forwarding settings screen, setting summary text when forwarding to specific number when busy -->
   <string name="sum_cfb_enabled">ئاراستەکردن بۆ <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
+  <!-- Call forwarding settings screen, setting summary text when forwarding when busy is disabled -->
   <string name="sum_cfb_disabled">کوژانه‌وه‌</string>
+  <!-- Error message displayed after failing to disable forwarding calls when the phone is busy -->
   <string name="disable_cfb_forbidden">ئۆپەراتۆری سیمکارتەکەت پشتگیری ئاراستەکردنی پەیوەندی لا کاتی سەرقاڵیدا ناکات.</string>
+  <!-- Call forwarding settings screen, setting option name -->
   <string name="labelCFNRy">کاتێک وەڵامنەدراوە بێت</string>
+  <!-- Call forwarding dialog box, text field label -->
   <string name="messageCFNRy">ژمارەی(ئاراستەکردن) کاتێک وەڵام نەدرایەوە</string>
+  <!-- Call forwarding settings screen, setting summary text when forwarding to a specific number when unanswered -->
   <string name="sum_cfnry_enabled">ئاراستەکردن بۆ <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
+  <!-- Call forwarding settings screen, setting summary text when Forward when unanswered is disabled -->
   <string name="sum_cfnry_disabled">کوژانه‌وه‌</string>
+  <!-- Error message displayed after failing to disable forwarding calls when the phone does not answer -->
   <string name="disable_cfnry_forbidden">ئۆپەراتۆری سیمکارتەکەت پشتگیری ناچالاککردنی ئاراستەکردنی پەیوەندییەکانت ناکات کاتێک مۆبایلەکەت وەڵام نادرێتەوە.</string>
+  <!-- Call forwarding settings screen, setting option name -->
   <string name="labelCFNRc">کاتێک دەستنەکەوتنی بێت</string>
+  <!-- Call forwarding dialog box, text field label -->
   <string name="messageCFNRc">ژمارەی(ئاراستەکردن) لە کاتی بەر دەست نەبوون</string>
+  <!-- Call forwarding settings screen, setting summary text when forwarding to a specific number when unreachable-->
   <string name="sum_cfnrc_enabled">ئاراستەکردن بۆ <xliff:g id="phonenumber" example="555-1212">{0}</xliff:g></string>
+  <!-- Call forwarding settings screen, setting summary text when Forward when unreachable is disabled -->
   <string name="sum_cfnrc_disabled">ناچالاککرا</string>
+  <!-- Error message displayed after failing to disable forwarding calls when the phone is unreachable -->
   <string name="disable_cfnrc_forbidden">ئۆپەراتۆری سیمکارتەکەت ناچالاککردنی ئاراستەکردنی پەیوەندییەکانت پشتگیری ناکات مۆبایلەکەت لە دەرەوەی بازنەدایە.</string>
+  <!-- Title of the progress dialog displayed while updating Call settings -->
   <string name="updating_title">ڕێکخستنی تەلەفۆنکردنن</string>
+  <!-- Toast in Call settings when asked to launch settings for a secondary user -->
+  <!-- Title of the "Call settings" settings screen, with a text label identifying which SIM the settings are for. -->
+  <!-- Title of the alert dialog displayed if an error occurs while updating Call settings -->
   <string name="error_updating_title">هەڵەی ڕێکخستنەکانی پەیوەندی کردن</string>
+  <!-- Toast in Call settings dialog while settings are being read -->
   <string name="reading_settings">ئامادەکردنی رێکخستنەکان\u2026</string>
+  <!-- Toast in Call settings dialog while settings are being saved -->
   <string name="updating_settings">نوێکردنەوەی ڕێکخستنەکان\u2026</string>
+  <!-- Toast in Call settings dialog while settings are being reverted -->
   <string name="reverting_settings">گەڕاندنەوەی ڕێکخستنەکان\u2026</string>
+  <!-- Status message displayed in the "Call settings error" dialog -->
   <string name="response_error">وەڵامێکی چاوەڕوان نەکراو لە لایەن تۆڕ.</string>
+  <!-- Status message displayed in the "Call settings error" dialog -->
   <string name="exception_error">هەڵەی تۆڕ یان سیمکارت.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when operation fails due to FDN
+         [CHAR LIMIT=NONE] -->
   <string name="fdn_check_failure">ڕێکخستنەکانی ژمارەکانی جێگیر کراوی پەیوەندی ناو نەرمەواڵای مۆبایلەکەت کراوەیە. کەواتە، چەند تایبەتمەندییەکی بەستراو بە پەیوەندی کار ناکەن.</string>
+  <!-- Status message displayed in the "Call settings error" dialog -->
   <string name="radio_off_error">رادیۆکەت بکەرەوە پێش بینینی ئەم ڕێکخستنانە.</string>
+  <!-- Button label used to dismiss the "Call settings error" dialog -->
   <string name="close_dialog">باشه‌</string>
+  <!-- Button label used in several settings-related dialogs -->
   <string name="enable">تواناپێدان</string>
+  <!-- Button label used in several settings-related dialogs -->
   <string name="disable">نەتواناکردن</string>
+  <!-- Button label which indicates the user wants to update a stored
+         phone number; used in several settings-related dialogs -->
   <string name="change_num">بەڕۆژکردن</string>
+  <!-- Phone settings: Caller ID preference values -->
   <string-array name="clir_display_values">
+    <!-- Phone settings "Caller ID" preference option: use the default value -->
     <item>تۆڕی بنەڕەت</item>
+    <!-- Phone settings "Caller ID" preference option: hide outgoing Caller ID info -->
     <item>شاردنەوەی ژمارە</item>
+    <!-- Phone settings "Caller ID" preference option: show outgoing Caller ID info -->
     <item>پیشاندانی ژمارە</item>
   </string-array>
+  <!-- Phone settings: Internal keys used for Caller ID preference values.  DO NOT TRANSLATE. -->
+  <!-- voicemail setting strings -->
+  <!-- Call settings screen, Set voicemail number dialog text -->
   <string name="vm_changed">ژمارەی دەنگنامە گۆڕدرا.</string>
+  <!-- Call settings screen, Set voicemail number dialog text -->
   <string name="vm_change_failed">نەتواندرا ژمارەی دەنگنامە بگۆڕدرێ.\nپەیوەندی بە ئۆپەراتۆری سیمکارتەوە بکە لە کاتی بەردەوامبوونی ئەم کێشەیە.</string>
+  <!-- Call settings screen, displayed when vm provider supplied forwarding number change fails-->
   <string name="fw_change_failed">نەتواندرا ژمارەی ئاراستەکردن بگۆڕدرێ.\nپەیوەندی بە ئۆپەراتۆری سیمکارتەوە بکە لە کاتی بەردەوامبوونی ئەم کێشەیە.</string>
+  <!-- Call settings screen, displayed when forwarding number read fails-->
   <string name="fw_get_in_vm_failed">نەتواندرا ڕێکخستنەکانی ئاراستەکردنی ژمارە بگەڕێنێتەوە و پاشەکەوەت بکات.\nهەر جۆرێک بێ بیگۆڕە بۆ دابینکەرێکی نوێ؟</string>
+  <!-- Call settings screen, Set voicemail number dialog text -->
   <string name="no_change">هیچ گۆڕانکارییەک پاشەکەوت نەکرا.</string>
+  <!-- Call settings screen, "Voicemail" provider setting summary text when no provider is selected -->
   <string name="sum_voicemail_choose_provider">خزمەتگوزاری دەنگەنامە هەڵبژێرە</string>
+  <!-- Call settings screen, "Voicemail" screen, default option - Your Carrier -->
   <string name="voicemail_default">هاوبەشگەی سیمکارتەکەت</string>
+  <!-- networks setting strings -->
+  <!-- Mobile network settings screen title -->
   <string name="mobile_networks">ڕێکخستنەکانی تۆڕی مۆبایل</string>
+  <!-- Available networks screen title/heading -->
   <string name="label_available">تۆڕەکانی بەر دەست</string>
+  <!-- Mobile network settings screen, toast when searching for available networks -->
   <string name="load_networks_progress">گەڕان\u2026</string>
+  <!-- Available networks screen, text when no networks are found -->
   <string name="empty_networks_list">هیچ تۆڕیک نەدۆزرایەوە.</string>
+  <!-- Available networks screen, setting option name -->
   <string name="search_networks">گەڕان بۆ تۆڕەکان</string>
+  <!-- Available networks screen, toast when an error is encountered when searching for networks -->
   <string name="network_query_error">هەڵەیەک هەیە کاتی گەڕان بۆ تۆڕەکان.</string>
+  <!-- Available networks screen, toast when registering on a specific network -->
   <string name="register_on_network">تۆمارکران لە <xliff:g id="network">%s</xliff:g>\u2026</string>
+  <!-- Available networks screen, toast when SIM card isn't allowed on a network -->
   <string name="not_allowed">سیمکارتەکەت ڕێگە بە گرێدان بۆ ئەو تۆڕە نادات.</string>
+  <!-- Available networks screen, toast when unable to connect to a network temporarily -->
   <string name="connect_later">ئێستا ناتوانێت ببەسترێتەوە بە ئەو تۆڕە. دوایی هەوڵ بدەوە.</string>
+  <!-- Available networks screen, toast when registered on a specific network -->
   <string name="registration_done">لە سەر تۆڕ تۆمارکرا.</string>
+  <!-- Mobile network settings screen setting option summary text -->
   <string name="sum_carrier_select">بەکارگێڕێکی تۆڕ هەڵبژێرە</string>
+  <!-- Available networks screen, setting summary text -->
   <string name="sum_search_networks">گەڕان بۆ هەموو تۆڕەکانی بەردەست</string>
+  <!-- Available networks screen, setting option name -->
   <string name="select_automatically">هەڵبژاردنی خۆکارانە</string>
+  <!-- Available networks screen, setting summary text -->
   <string name="sum_select_automatically">خۆکارانە تۆڕی پەسەندکراو هەڵبژێرە</string>
   <string name="register_automatically">تۆمارکردنی خۆکار\u2026</string>
   <string name="preferred_network_mode_title">جۆری تۆڕی پەسەندکراو</string>
   <string name="preferred_network_mode_summary">شێوازی بەکارگێڕی تۆڕەکە هەڵبژێرە</string>
   <string name="preferred_network_mode_dialogtitle">جۆری تۆڕی پەسەندکراو</string>
+  <!-- Mobile network settings, summary for preferred network mode WCDMA preferred[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_wcdma_perf_summary">جۆری تۆڕی پەسەندکراو: WCDMA پەسەندکرا</string>
+  <!-- Mobile network settings, summary for preferred network mode GSM [CHAR LIMIT=100] -->
   <string name="preferred_network_mode_gsm_only_summary">جۆری تۆڕی پەسەندکراو: تەنها GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode WCDMA only [CHAR LIMIT=100] -->
   <string name="preferred_network_mode_wcdma_only_summary">جۆری تۆڕی پەسەندکراو: تەنها WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode GSM / UMTS [CHAR LIMIT=100] -->
   <string name="preferred_network_mode_gsm_wcdma_summary">جۆری تۆڕی پەسەندکراو: GSM / WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode CDMA [CHAR LIMIT=100] -->
   <string name="preferred_network_mode_cdma_summary">جۆری تۆڕی پەسەندکراو: CDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode CDMA / EvDo [CHAR LIMIT=100] -->
   <string name="preferred_network_mode_cdma_evdo_summary">جۆری تۆڕی پەسەندکراو: CDMA / EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode CDMA only [CHAR LIMIT=100] -->
   <string name="preferred_network_mode_cdma_only_summary">جۆری تۆڕی پەسەندکراو: تەنها CDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode EvDo only [CHAR LIMIT=100] -->
   <string name="preferred_network_mode_evdo_only_summary">جۆری تۆڕی پەسەندکراو: تەنها EvDo</string>
+  <!-- Mobile network settings, summary for preferred network mode CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_summary">جۆری تۆڕی پەسەندکراو: CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode LTE [CHAR LIMIT=100] -->
   <string name="preferred_network_mode_lte_summary">جۆری تۆڕی پەسەندکراو: LTE </string>
+  <!-- Mobile network settings, summary for preferred network mode GSM/WCDMA/LTE [CHAR LIMIT=100] -->
   <string name="preferred_network_mode_lte_gsm_wcdma_summary">جۆری تۆڕی پەسەندکراو: GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode CDMA+LTE/EVDO[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_lte_cdma_evdo_summary">جۆری تۆڕی پەسەندکراو: CDMA+LTE/EVDO</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary">شێوازی تۆڕی بەباشزانراو: جیهانی</string>
+  <!-- Mobile network settings, summary for preferred network mode LTE / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_lte_wcdma_summary">جۆری تۆڕی پەسەندکراو: LTE / WCDMA</string>
   <string-array name="preferred_network_mode_choices">
     <item>LTE / WCDMA</item>
@@ -188,21 +365,38 @@
     <item>ته‌نیا GSM</item>
     <item>GSM/WCDMA بە باش زانراوە</item>
   </string-array>
+  <!-- Cellular network 4G title [CHAR LIMIT=30] -->
   <string name="enhanced_4g_lte_mode_title">شێوازی نوێکراوەی 4G LTE</string>
+  <!-- Cellular network 4G summary [CHAR LIMIT=80] -->
   <string name="enhanced_4g_lte_mode_summary">بەکارهێنانی ڕاژەکانی LTE بۆ باشترکردنی دەنگ و دیکەی ڕاگەیاندنەکان (پێشنیارکراوە)</string>
+  <!-- Mobile network settings screen, data enabling checkbox name -->
   <string name="data_enabled">چالاککردنی ئینته‌رنێتی مۆبایل</string>
+  <!-- Mobile network settings screen, setting summary text when check box is not selected (explains what selecting it would do) [CHAR LIMITS=40] -->
   <string name="data_enable_summary">ڕێگەدان بۆ بەکارهێنانی دراوە</string>
+  <!-- Mobile network settings screen, setting check box name -->
   <string name="roaming">رۆمینگی دراوە</string>
+  <!-- Mobile network settings screen, setting summary text when check box is selected -->
   <string name="roaming_enable">بەستنەوە بۆ ڕاژەکانی دراوە لە کاتی ڕۆمینگدا</string>
+  <!-- Mobile network settings screen, setting summary text when check box is clear -->
   <string name="roaming_disable">بەستنەوە بۆ ڕاژەکانی دراوە لە کاتی ڕۆمینگدا</string>
+  <!-- Mobile network settings UI: notification message shown when you
+         lose data connectivity because you're roaming and you have the
+         "data roaming" feature turned off. -->
   <string name="roaming_reenable_message">تۆ په‌یوه‌ندی داتات له‌ده‌ستدا به‌هۆی ئه‌وه‌ی ماڵه‌وه‌ت به‌جێهێشتبوو به‌بێ خولانه‌وه‌ی داتا.</string>
+  <!-- Mobile network settings screen, dialog message when user selects the Data roaming check box -->
   <string name="roaming_warning">ڕێگە بە خولانەوەی دراوە ئەدەیت؟ لەوانەیە باڵانسێکی ڕومینگی بەرچاوت لێبڕوات!</string>
+  <!-- USSD aggregation dialog box: separator strings between messages (new-lines will be added before and after) -->
   <string name="gsm_umts_options">بژاردەکانی GSM/UMTS</string>
   <string name="cdma_options">بژاردەکانی CDMA</string>
+  <!-- Screen option on the mobile network settings to go into data usage settings -->
   <string name="throttle_data_usage">بەکارهێنانی دراوە</string>
+  <!-- Data usage settings screen option for checking the current usage -->
   <string name="throttle_current_usage">لە ماوەی ئێستادا دراوە بەکارهێندرا</string>
+  <!-- Data usage settings screen option for time frame-->
   <string name="throttle_time_frame">ماوەی بەکارهێنانی دراوە</string>
+  <!-- Data usage settings screen option for throttling rate-->
   <string name="throttle_rate">ڕامیاری ڕێژەی دراوە</string>
+  <!-- Data usage settings screen option for accessing the carrier website-->
   <string name="throttle_help">زیاتر بزانە</string>
   <string name="throttle_status_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) لە <xliff:g id="used">%3$s</xliff:g> درێژترین ماوە\nماوەی داواتر دەست پێ ئەکات لە  <xliff:g id="used">%4$d</xliff:g> ڕۆژدا (<xliff:g id="used">%5$s</xliff:g>)</string>
   <string name="throttle_data_usage_subtext"><xliff:g id="used">%1$s</xliff:g> (<xliff:g id="used">%2$d</xliff:g>\u066A) لە <xliff:g id="used">%3$s</xliff:g> زۆرترین ماوە</string>
@@ -300,11 +494,19 @@
   <string name="network_lte">LTE (بە باش زانراو)</string>
   <string name="network_4G">4G (بە باش زانراو)</string>
   <string name="network_global">جیهانی</string>
+  <!-- CDMA System select strings -->
+  <!-- Mobile network settings screen, setting option name -->
   <string name="cdma_system_select_title">دەست نیشانکردنی سیستەم</string>
+  <!-- Mobile network settings screen, setting summary text -->
   <string name="cdma_system_select_summary">گۆڕینی شێوازی ڕومینگی CDMA</string>
+  <!-- System select settings screen title -->
   <string name="cdma_system_select_dialogtitle">دیاریکردنی سیستەم</string>
   <string-array name="cdma_system_select_choices">
+    <!-- System select dialog screen, setting option name -->
     <item>تەنیا ماڵەوە</item>
+    <!-- Remove the following option "Affiliated Networks" from the option list -->
+    <!-- <item>Affiliated Networks</item> -->
+    <!-- System select dialog screen, setting option name -->
     <item>خۆکارانه‌</item>
   </string-array>
   <string name="cdma_subscription_title">بەشداریکردن لە CDMA</string>
@@ -318,228 +520,495 @@
     <item>"0"</item>
     <item>"1"</item>
   </string-array>
+  <!-- Preference title with which users can activate CDMA network [CHAR LIMIT=30] -->
   <string name="cdma_activate_device">چالاکسازی ئامێر</string>
+  <!-- Preference title for launching an account manager page for prepaid LTE [CHAR LIMIT=30] -->
   <string name="cdma_lte_data_service">دامەزراندنی خزمەتگوزاری دراوە</string>
+  <!-- A menu item in "Mobile network settings" that allows the user to update the phone
+         with mobile operator specific settings. [CHAR LIMIT=25] -->
   <string name="carrier_settings_title">ڕێکخستنەکانی بەکارگێڕی سیمکارت</string>
+  <!-- FDN settings strings -->
+  <!-- Call settings screen, setting option name -->
   <string name="fdn">ژمارەکانی جێگیرکراوی پەیوەندی</string>
+  <!-- Call settings screen, button label that takes you to
+         the Fixed Dialing Number management screen -->
   <string name="manage_fdn_list">لیستی FDN</string>
+  <!-- Call settings screen, preference item label -->
   <string name="fdn_activation">چالاککردنی ژمارەی جێگیرکراوی پەیوەندی</string>
+  <!-- Call settings setting option name when FDN is enabled -->
   <string name="fdn_enabled">ژمارەی جێگیرکراوی پەیوەندی چالاککرا</string>
+  <!-- Call settings setting option name  when FDN is disabled-->
   <string name="fdn_disabled">ژمارەی جێگیرکراوی پەیوەندی ناچالاککرا</string>
+  <!-- Call settings screen, setting option name -->
   <string name="enable_fdn">چالاککردنی ژمارەی جێگیرکراوی پەیوەندیکردن</string>
+  <!-- Call settings screen, setting option name -->
   <string name="disable_fdn">ناچالاککردنی ژمارەی جێگیرکراوی پەیوەندیکردن</string>
+  <!-- Call settings screen, setting option name -->
   <string name="change_pin2">گۆڕینی PIN2</string>
+  <!-- Call settings screen, setting option name when FDN is enabled -->
   <string name="enable_fdn_ok">ناچالاککردنی ژمارەی جێگیرکراوی پەیوەندیکردن</string>
+  <!-- Call settings screen, setting option name when FDN is disabled -->
   <string name="disable_fdn_ok">چالاککردنی ژمارەی جێگیرکراوی پەیوەندیکردن</string>
+  <!-- Call settings screen, setting summary text -->
   <string name="sum_fdn">بەڕێوەبردنی ژمارەکانی جێگیرکراوی پەیوەندیکردن</string>
+  <!-- Call settings, FDN screen, setting option name -->
   <string name="sum_fdn_change_pin">گۆڕیی PIN بۆ دەستپێگەیشتنی ژمارەی جێگیرکراوی پەیوەندیکردن</string>
+  <!-- Call settings, FDN screen, setting option name -->
   <string name="sum_fdn_manage_list">بەڕێوەبردنی لیستەی ژمارە تەلەفۆنەکان</string>
+  <!-- Voice privacy on CDMA is an added layer of voice encryption. Theoretically, it would be harder to break in to a phone call with this feature enabled. -->
   <string name="voice_privacy">نهێنیکردنی دەنگ</string>
   <string name="voice_privacy_summary">چالاککردنی شێوازی نهێنی کردن</string>
   <string name="tty_mode_option_title">شێوازی TTY</string>
   <string name="tty_mode_option_summary">شێوازی TTY دابنێ</string>
   <string name="auto_retry_mode_title">خۆکارانە هەوڵدانەوە</string>
   <string name="auto_retry_mode_summary">چالاککردنی شێوازی خۆکارانە هەوڵدانەوە</string>
+  <!-- FDN list screen: menu item label -->
   <string name="menu_add">زیاکردنی ناو</string>
+  <!-- FDN list screen: menu item label -->
   <string name="menu_edit">دەستکاریکردنی ناو</string>
+  <!-- FDN list screen: menu item label -->
   <string name="menu_delete">سڕینەوەی پەیوەندی</string>
+  <!-- FDN related strings -->
+  <!-- Label for PIN2 entry screen -->
   <string name="get_pin2">PIN2 بنووسە</string>
+  <!-- "Edit FDN Contact" screen: Label for the "name" text field -->
   <string name="name">ناو</string>
+  <!-- "Edit FDN Contact" screen: Label for the "number" text field -->
   <string name="number">ژمارە</string>
+  <!-- "Edit FDN Contact" screen: Button label for "save" action -->
   <string name="save">پاشەکەوتکردن</string>
+  <!-- Title of "Edit FDN Contact" screen for a new contact -->
   <string name="add_fdn_contact">زێدەکردنی ژمارەی جێگیرکراوی پەیوەندی کردن</string>
+  <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
   <string name="adding_fdn_contact">زێدەکردنی ژمارەی جێگیرکراوی پەیوەندی کردن\u2026</string>
+  <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
   <string name="fdn_contact_added">ژمارەی جێگیرکراوی پەیوەندی کردن زێدەکرا.</string>
+  <!-- Title of "Edit FDN Contact" screen when editing an already-existing contact -->
   <string name="edit_fdn_contact">دەستکاری کردنی ژمارەی جێگیرکراوی پەیوەندی کردن</string>
+  <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
   <string name="updating_fdn_contact">نوێکردنەوەی ژمارەی جێگیرکراوی پەیوەندیکردن\u2026</string>
+  <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
   <string name="fdn_contact_updated">ژمارەی جێگیرکراوی پەیوەندیکردن نوێکرایەوە.</string>
+  <!-- Title of "Delete FDN Contact" screen -->
   <string name="delete_fdn_contact">سڕینه‌وه‌ی ژماره‌ لێدانه‌ چاره‌سه‌رکراوه‌کان</string>
+  <!-- "Delete FDN Contact" screen: status message displayed in a popup (toast) -->
   <string name="deleting_fdn_contact">سڕینەوەی ژمارەی جێگیرکراوی پەیوەندیکردن\u2026</string>
+  <!-- "Delete FDN Contact" screen: status message displayed in a popup (toast) -->
   <string name="fdn_contact_deleted">ژمارەی جێگیرکراوی پەیوەندیکردن سڕدرایەوە.</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="pin2_invalid">ژمارەی جێگیرکراوی پەیوەندیکردن نوێ نەکرایەوە بە هۆی نووسینی PINی هەڵە.</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number">ژمارەی جێگیرکراوی پەیوەندیکردن نوێ نەکرایەوە چونکە ژمارەکە لە 20 ژمارە تێپەڕنابێت.</string>
+  <!-- FDN settings: error message displayed in a popup (toast), when the entered
+         FDN number was inappropriate, OR, PIN2 the user entered was incorrect.
+         Because of API restriction, there's no way to determine which is the exact
+         cause of the failure.
+         [CHAR LIMIT=NONE] -->
   <string name="pin2_or_fdn_invalid">ژمارەی جێگیرکراوی پەیوەندیکردن نوێ نەکرایەوە. PIN2 هەڵەیە، یان ژمارە تەلەفۆنەکەت داخراوە.</string>
+  <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_failed">خستنەگڕی ژمارەی جێگیرکراوی پەیوەندیکردن سەرکەوتوو نەبوو.</string>
+  <!-- ADN related strings -->
+  <!-- Placeholder text displayed while loading the list of SIM contacts -->
   <string name="simContacts_emptyLoading">خوێندنەوە لە سیمکارتەوە\u2026</string>
+  <!-- Call settings, string that appears on FDN contact list when there are no contacts on the SIM. -->
   <string name="simContacts_empty">هێچ ناوێک لە ناو سیمکارتەکەتدا نییە.</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title">ناوەکان بۆ هاوردن دیاری بکە</string>
+  <!-- Appears when user tries to import contacts in SIM during Airplane mode
+      [CHAR LIMIT=NONE] -->
   <string name="simContacts_airplaneMode">بۆ تێکردنی ناوەکان لە سیمکارتەوە، یەکەم شت دۆخی فڕین بکووژێنەوە.</string>
+  <!-- SIM PIN strings -->
+  <!-- Title of "Enable/disable SIM PIN" screen -->
   <string name="enable_pin">چالاککردنی/ناچالاککردنی PINی سیمکارت</string>
+  <!-- Title of "Change SIM PIN" screen -->
   <string name="change_pin">گۆڕینی PINی سیمکارت</string>
+  <!-- SIM PIN screen: label for PIN entry widget -->
   <string name="enter_pin_text">PINی سیمکارت:</string>
+  <!-- SIM PIN screen: label for PIN entry widget -->
   <string name="oldPinLabel">PINی کۆن</string>
+  <!-- SIM PIN screen: label for PIN entry widget -->
   <string name="newPinLabel">PINی نوێ</string>
+  <!-- SIM PIN screen: label for PIN entry widget -->
   <string name="confirmPinLabel">پشتڕاستکردنەوەی PINی نوێ</string>
+  <!-- SIM PIN screen: error message -->
   <string name="badPin">PINە کۆنەکەی کە تۆ نووسیوتە هەڵەیە. دووبارە هەوڵ بدەوە.</string>
+  <!-- SIM PIN screen: error message -->
   <string name="mismatchPin">ئەو PINانەی کە تۆ نووسیوتن لە یەک ناچن. دووبارە هەوڵ بدەوە.</string>
+  <!-- SIM PIN screen: error message when PIN is too short or too long -->
   <string name="invalidPin">PINێک بنووسە کە 4 بۆ 8 ژمارە بێت.</string>
+  <!-- Title of "Disable SIM PIN" screen -->
   <string name="disable_sim_pin">ناچالاککردنی PINی سیمکارت</string>
+  <!-- Title of "Enable SIM PIN" screen -->
   <string name="enable_sim_pin">چالاککردنی PINی سیمکارت</string>
+  <!-- SIM PIN screen: progress message displayed while enabling -->
   <string name="enable_in_progress">تکایە چاوەڕێبکە\u2026</string>
+  <!-- SIM PIN screen: status message displayed in a popup (toast) -->
   <string name="enable_pin_ok">PINی سیمکارت چالاککرا.</string>
+  <!-- SIM PIN screen: status message displayed in a popup (toast) -->
   <string name="disable_pin_ok">PINی سیمکارت ناچالاککرا.</string>
+  <!-- SIM PIN screen: error message displayed in a popup (toast) -->
   <string name="pin_failed">ئەو PINەی کە نووسیت هەڵە بوو.</string>
+  <!-- SIM PIN screen: status message displayed in a popup (toast) -->
   <string name="pin_changed">PINی سیمکارت سەرکەوتووانە گۆڕدرا.</string>
+  <!-- SIM PIN screen: error message displayed in a dialog -->
   <string name="puk_requested">نهێنووشە هەڵەیە، PIN داخرا! PUK داواکرا.</string>
+  <!-- SIM PIN2 strings -->
+  <!-- SIM PIN2 screen: label for PIN entry widget -->
   <string name="enter_pin2_text">PIN2</string>
+  <!-- SIM PIN2 screen: label for PIN entry widget -->
   <string name="oldPin2Label">PIN2ی کۆنە</string>
+  <!-- SIM PIN2 screen: label for PIN entry widget -->
   <string name="newPin2Label">PIN2ی نوێ</string>
+  <!-- SIM PIN2 screen: label for PIN entry widget -->
   <string name="confirmPin2Label">PIN2ی نوێ دووپاتکەرەوە</string>
+  <!-- SIM PIN2 screen: error message -->
   <string name="badPuk2">PUK2 کە تۆ نووسیت دروست نییە. دووبارە هەوڵ بدەوە. </string>
+  <!-- SIM PIN2 screen: error message -->
   <string name="badPin2">PIN2ی کۆن کە نووسیوتە ڕاست نییە. دووبارە هەوڵ بدەوە.</string>
+  <!-- SIM PIN2 screen: error message -->
   <string name="mismatchPin2">ئەو PIN2وانەی کە تۆ نووسیوتن لە یەک ناچن. دووبارە هەوڵ بدەوە.</string>
+  <!-- SIM PIN2 screen: error message -->
   <string name="invalidPin2">PIN2 کە 4 بۆ 8 ژمارەیە بنووسە.</string>
+  <!-- SIM PIN2 screen: error message -->
   <string name="invalidPuk2">PUK2 بنووسە کە 8 ژمارەیە.</string>
+  <!-- SIM PIN2 screen: status message displayed in a popup (toast) -->
   <string name="pin2_changed">PIN2 سەرکەوتووانە گۆڕدرا.</string>
+  <!-- SIM PIN2 screen: label for PUK2 entry widget -->
   <string name="label_puk2_code">کۆدی PUK2 بنووسە</string>
+  <!-- SIM PIN2 screen: error message displayed in a dialog -->
   <string name="fdn_enable_puk2_requested">نهێنووشە هەڵەیە، PIN2 داخرا. تکایە PIN2 بگۆڕە و هەوڵ بدەوە!</string>
+  <!-- SIM PIN2 screen: error message displayed in a dialog -->
   <string name="puk2_requested">نهێنووشە هەڵەیە، سیمکارت داخرا. PUK2 داواکرا.</string>
+  <!-- SIM PIN2 screen: error message -->
   <string name="puk2_blocked">PUK2 بەیەکجاری داخرا.</string>
+  <!-- SIM PIN2 screen: error message -->
   <string name="pin2_attempts">\nبڕی <xliff:g id="number">%d</xliff:g> هەوڵدانت ماوە.</string>
+  <!-- SIM PIN screen: status message displayed in a popup (toast) -->
   <string name="pin2_unblocked">PIN2 کرایەوە!</string>
+  <!-- SIM PIN screen: button label -->
   <string name="doneButton">کراو</string>
+  <!-- In-call screen: status label for a conference call -->
   <string name="caller_manage_header">په‌یوه‌ندیی کۆنگره‌یی <xliff:g id="conf_call_time">%s</xliff:g></string>
+  <!-- Used in FakePhoneActivity test code.  DO NOT TRANSLATE. -->
+  <!-- Used in FakePhoneActivity test code.  DO NOT TRANSLATE. -->
+  <!-- Used in FakePhoneActivity test code.  DO NOT TRANSLATE. -->
+  <!-- Call settings screen, Set voicemail dialog title -->
   <string name="voicemail_settings_number_label">ژماره‌ی ده‌نگه‌پۆست</string>
+  <!-- Card titles -->
+  <!-- In-call screen: status label for a call in the "dialing" state -->
   <string name="card_title_dialing">ژماره‌گرتن</string>
+  <!-- In-call screen: status label for a re-dialing call -->
   <string name="card_title_redialing">هه‌وڵدانه‌وه‌</string>
+  <!-- In-call screen: status label for a conference call -->
   <string name="card_title_conf_call">په‌یوه‌ندیی کۆنگره‌یی</string>
+  <!-- In-call screen: status label for an incoming call -->
   <string name="card_title_incoming_call">په‌یوه‌ندیی داهاتوو</string>
+  <!-- In-call screen: status label displayed briefly after a call ends -->
   <string name="card_title_call_ended">په‌یوه‌ندی کۆتایی هات</string>
+  <!-- In-call screen: status label for call that's on hold -->
   <string name="card_title_on_hold">ڕاگیراوە</string>
+  <!-- In-call screen: status label for a call that's in the process of hanging up -->
   <string name="card_title_hanging_up">لە داخستندایە</string>
+  <!-- In-call screen: status label for a call that's in CDMA flash mode -->
   <string name="card_title_in_call">له‌ په‌یوه‌ندیدایە</string>
+  <!-- In-call screen: special status label that shows your own phone
+         number during emergency callback mode (ECM) [CHAR LIMIT=30] -->
   <string name="card_title_my_phone_number">ژماره‌که‌م بریتییه‌ له‌ <xliff:g id="my_phone_number">%s</xliff:g></string>
+  <!-- Notification strings -->
+  <!-- The "label" of the in-call Notification for a dialing call, used
+         as the format string for a Chronometer widget. [CHAR LIMIT=60] -->
   <string name="notification_dialing">ژماره‌گرتن</string>
+  <!-- Missed call notification label, used when there's exactly one missed call -->
   <string name="notification_missedCallTitle">په‌یوه‌ندیی لەدەستچوو</string>
+  <!-- Missed call notification label, used when there are two or more missed calls -->
   <string name="notification_missedCallsTitle">پەیوەندییە لەدەستچووەکان</string>
+  <!-- Missed call notification message used when there are multiple missed calls -->
   <string name="notification_missedCallsMsg"><xliff:g id="num_missed_calls">%s</xliff:g> پەیوەندییە لەدەستچووەکان</string>
+  <!-- Missed call notification message used for a single missed call, including
+         the caller-id info from the missed call -->
   <string name="notification_missedCallTicker">پەیوەندیی لەدەستچوو لەلایەن <xliff:g id="missed_call_from">%s</xliff:g></string>
+  <!-- The "label" of the in-call Notification for an ongoing call, used
+         as the format string for a Chronometer widget. [CHAR LIMIT=60] -->
   <string name="notification_ongoing_call">په‌یوه‌ندیی ڕۆیشتوو</string>
+  <!-- The "label" of the in-call Notification for a call that's on hold -->
   <string name="notification_on_hold">ڕاگیراوە</string>
+  <!-- The "label" of the in-call Notification for an incoming ringing call -->
   <string name="notification_incoming_call">په‌یوه‌ندیی هاتوو</string>
+  <!-- Label for the "Voicemail" notification item, when expanded. -->
   <string name="notification_voicemail_title">دەنگەپۆستی نوێ</string>
+  <!-- Label for the expanded "Voicemail" notification item,
+         including a count of messages. -->
   <string name="notification_voicemail_title_count">دەنگەپۆستی نوێ (<xliff:g id="count">%d</xliff:g>)</string>
+  <!-- Message displayed in the "Voicemail" notification item, allowing the user
+         to dial the indicated number. -->
   <string name="notification_voicemail_text_format"><xliff:g id="voicemail_number">%s</xliff:g> بگرە</string>
+  <!-- Message displayed in the "Voicemail" notification item,
+         indicating that there's no voicemail number available -->
   <string name="notification_voicemail_no_vm_number">ژماره‌ی ده‌نگه‌پۆست نه‌زانراوه‌</string>
+  <!-- Label for the "No service" notification item, when expanded. -->
   <string name="notification_network_selection_title">ڕاژە نییە</string>
+  <!-- Label for the expanded "No service" notification item, including the
+         operator name set by user -->
   <string name="notification_network_selection_text">تۆڕی دیاریکراو (<xliff:g id="operator_name">%s</xliff:g>) ئاماده‌نییه‌</string>
+  <!-- Message for "end call" Action.
+         It is displayed in the "Ongoing call" notification, which is shown
+         when the user is outside the in-call screen while the phone call is still
+         active. [CHAR LIMIT=40] -->
   <string name="notification_action_end_call">داخستن</string>
+  <!-- Message for "call back" Action, which is displayed in the missed call notificaiton.
+         The user will be able to call back to the person or the phone number.
+         [CHAR LIMIT=60] -->
   <string name="notification_missedCall_call_back">پەیوەندیکردنەوە</string>
+  <!-- Message for "reply via sms" action, which is displayed in the missed call notification.
+         The user will be able to send text messages using the phone number.
+         [CHAR LIMIT=60] -->
   <string name="notification_missedCall_message">نامه‌</string>
+  <!-- In-call screen: call failure message displayed in an error dialog -->
   <string name="incall_error_power_off">بۆ سازدانی پەیوەندی، یەکەم شێوازی فڕۆکە بکوژێنەوە.</string>
+  <!-- In-call screen: call failure message displayed in an error dialog.
+         This string is currently unused (see comments in InCallScreen.java.) -->
   <string name="incall_error_emergency_only">تۆمارنه‌کراوە له‌سه‌ر تۆڕ.</string>
+  <!-- In-call screen: call failure message displayed in an error dialog -->
   <string name="incall_error_out_of_service">تۆڕی مۆبایل بەردەست نییە.</string>
+  <!-- In-call screen: call failure message displayed in an error dialog -->
   <string name="incall_error_no_phone_number_supplied">په‌یوه‌ندی نه‌نێردرا.ژماره‌یەکی ڕاست تێ نەکراوە.</string>
+  <!-- In-call screen: call failure message displayed in an error dialog -->
   <string name="incall_error_call_failed">په‌یوه‌ندی نه‌نێردرا.</string>
+  <!-- In-call screen: status message displayed in a dialog when starting an MMI -->
   <string name="incall_status_dialed_mmi">دەستپێکردنی زنجیرەی MMI\u2026</string>
+  <!-- In-call screen: message displayed in an error dialog -->
   <string name="incall_error_supp_service_unknown">ڕاژە پشتگیرینەکراوە.</string>
+  <!-- In-call screen: message displayed in an error dialog -->
   <string name="incall_error_supp_service_switch">ناتوانێت پەیوەندییەکان ئاڵوگۆڕ بکات.</string>
+  <!-- In-call screen: message displayed in an error dialog -->
   <string name="incall_error_supp_service_separate">ناتوانێت پەیوەندی جیا بکاتەوە.</string>
+  <!-- In-call screen: message displayed in an error dialog -->
   <string name="incall_error_supp_service_transfer">ناتوانێت پەیوەندی بگوازێتەوە.</string>
+  <!-- In-call screen: message displayed in an error dialog -->
   <string name="incall_error_supp_service_conference">ناتوانێت پەیوەندی کۆنگرەیی بگرێت.</string>
+  <!-- In-call screen: message displayed in an error dialog -->
   <string name="incall_error_supp_service_reject">ناتوانێت پەیوەندی بەرپەرچ بداتەوە.</string>
+  <!-- In-call screen: message displayed in an error dialog -->
   <string name="incall_error_supp_service_hangup">ناتوانێت پەیوەندی(یەکان) بەرپەرچ بداتەوە.</string>
+  <!-- Dialog title for the "radio enable" UI for emergency calls -->
   <string name="emergency_enable_radio_dialog_title">پەیوەندیی فریاگوزاری</string>
+  <!-- Status message for the "radio enable" UI for emergency calls -->
   <string name="emergency_enable_radio_dialog_message">هەڵکردنی ڕادیۆ\u2026</string>
+  <!-- Status message for the "radio enable" UI for emergency calls -->
   <string name="emergency_enable_radio_dialog_retry">لەدەر بازنەی ڕاژەدا, هەوڵدانەوە\u2026</string>
+  <!-- Dialer text on Emergency Dialer -->
+  <!-- Emergency dialer: message displayed in an error dialog -->
   <string name="dial_emergency_error">پەیوەندی نەنێردرا. <xliff:g id="non_emergency_number">%s</xliff:g> ژمارەیەکی فریاگوزاری نییە!</string>
+  <!-- Emergency dialer: message displayed in an error dialog -->
   <string name="dial_emergency_empty_error">پەیوەندی نەنێردرا، ژمارەیەکی فریاگوزاری بگرە!</string>
+  <!-- Displayed in the text entry box in the dialer when in landscape mode to guide the user
+         to dial using the physical keyboard -->
   <string name="dialerKeyboardHintText">بۆ لێدانی ژمارە تەختەکلیل بەکار بهێنە</string>
+  <!-- Text for the onscreen "Hold" button -->
   <string name="onscreenHoldText">ڕاگرتن</string>
+  <!-- Text for the onscreen "End call" button -->
   <string name="onscreenEndCallText">کۆتایی پێ هێنان</string>
+  <!-- Text for the onscreen "Show Dialpad" button -->
   <string name="onscreenShowDialpadText">ژمارەگر</string>
+  <!-- Text for the onscreen "Mute" button -->
   <string name="onscreenMuteText">کپکردن</string>
+  <!-- Text for the onscreen "Add call" button -->
   <string name="onscreenAddCallText">زیاکردنی په‌یوه‌ندی</string>
+  <!-- Text for the onscreen "Merge calls" button -->
   <string name="onscreenMergeCallsText">تێکه‌ڵکردنی په‌یوه‌ندییەکان</string>
+  <!-- Text for the onscreen "Swap calls" button -->
   <string name="onscreenSwapCallsText">ئاڵوگۆڕکردن</string>
+  <!-- Text for the onscreen "Manage calls" button -->
   <string name="onscreenManageCallsText">به‌ڕێوه‌بردنی په‌یوه‌ندییه‌کان</string>
+  <!-- Text for the onscreen "Manage conference" button [CHAR LIMIT=20] -->
   <string name="onscreenManageConferenceText">به‌ڕێوه‌بردنی کۆنگره‌</string>
+  <!-- Text for the onscreen "Audio" button that lets you switch
+         between speaker / bluetooth / earpiece [CHAR LIMIT=10] -->
   <string name="onscreenAudioText">دەنگ</string>
+  <!-- Text for the onscreen "Video call" button used to change a voice call
+         to a video call. [CHAR LIMIT=10] -->
   <string name="onscreenVideoCallText">په‌یوه‌ندیی ڤیدیۆیی</string>
+  <!-- Menu item label in SIM Contacts: Import a single contact entry from the SIM card -->
   <string name="importSimEntry">هاوردن</string>
+  <!-- Menu item label in SIM Contacts: Import all contact entries from the SIM card -->
   <string name="importAllSimEntries">هێنانی هەمووی</string>
+  <!-- SIM Contacts: status message displayed while importing card -->
   <string name="importingSimContacts">تێخستنی ناوەکانی سیمکارت</string>
+  <!-- Import a single contact entry from contacts to the SIM card -->
   <string name="importToFDNfromContacts">تێکردن لە ناوەکانەوە</string>
+  <!-- Hearing aid settings -->
   <string name="hac_mode_title">یارمەتیدەری بیستن</string>
   <string name="hac_mode_summary">هەڵکردنی گونجانی یارمەتیدەرەکانی بیستن</string>
+  <!-- Service option entries.  -->
   <string-array name="tty_mode_entries">
     <item>TTY کوژاوەیە</item>
     <item>TTY پڕە</item>
     <item>TTY HCO</item>
     <item>TTY VCO</item>
   </string-array>
+  <!-- Do not translate. -->
+  <!-- Dtmf tones settings -->
+  <!-- Title for the DTMF Tones options displayed in Call Settings -->
   <string name="dtmf_tones_title">زەنگەکانی DTMF</string>
+  <!-- Summary for the DTMF Tones options displayed in Call Settings -->
   <string name="dtmf_tones_summary">ماوەی زەنگەکانی DTMF دیاری بکە</string>
+  <!-- Options displayed as part of DTMF Tones in Call Settings -->
   <string-array name="dtmf_tone_entries">
     <item>ئاسایی</item>
     <item>درێژ</item>
   </string-array>
+  <!-- Do not translate. -->
+  <!-- Title for the dialog used to display CDMA DisplayInfo -->
+  <!-- Title for the dialog used to display a network error message to the user -->
+  <!-- OTA-specific strings -->
+  <!-- Title shown on OTA screen -->
   <string name="ota_title_activate">مۆبایلەکەت چالاک بکە</string>
+  <!-- Message displayed on the OTA activation screen. -->
   <string name="ota_touch_activate">پەیوەندییەکی تایبەت پێویستە بۆ چالاککردنی خزمەتگوزاری تەلەفۆن.
     \n\nدوای لێدانی \u201Cچالاکسازی\u201D, ئەو فێرکارییانە کە بۆ چالاککردنی تەلەفۆنەکەت نووسراون ڕەچاو بکە.</string>
+  <!-- Title shown during Hands Free Activation -->
   <string name="ota_hfa_activation_title">چالاکسازی...</string>
+  <!-- Message shown during the hands free activation screen of the setup wizard. -->
   <string name="ota_hfa_activation_dialog_message">تەلەفۆنەکەت خزمەتگوزاری دراوەی مۆبایل چالاک ئەکات.\n\nئەتوانێت 5 خۆلەک بخایەنێت.</string>
+  <!-- Title of skip activation dialog -->
   <string name="ota_skip_activation_dialog_title">لابردنی چالاکسازی\؟</string>
+  <!-- Message displayed in skip activation dialog  -->
   <string name="ota_skip_activation_dialog_message">ئەگەر گوێ بە چالاکسازی نەدەیت، ناتوانی پەیوەندی بکەیت و خۆت ببەستیتەوە بە تۆڕەکانی دراوەی مۆبایل (هەرچەندە کە ئەتوانیت خۆت ببەستیتەوە بە تۆڕەکانی Wi-Fi). تاکو ئەو کات کە تەلەفۆنەکەت چالاک ئەکەی، هەر جارێک کە تەلەفۆنەکەت هەڵ ئەکەیت پرسیاری چالاککردنت لێ ئەکرێ.</string>
+  <!-- Label shown on dialog button that allows the user to skip activation -->
   <string name="ota_skip_activation_dialog_skip_label">چاوپۆشی</string>
+  <!-- Button label within the OTA activation screen -->
   <string name="ota_activate">چالاککردن</string>
+  <!-- Title text shown when phone activation is successful -->
   <string name="ota_title_activate_success">تەلەفۆن چالاککراوە.</string>
+  <!-- Title text shown on screen where activation fails -->
   <string name="ota_title_problem_with_activation">لە چالاکسازیدا هەڵەیەک هەیە</string>
+  <!-- Message displayed on the OTA "listening" screen. This message
+         needs to be kept at 2 lines or less to be sure that there's
+         enough room for the dialpad. [CHAR LIMIT=80] -->
   <string name="ota_listen">فێرکارییە دەنگەکان ڕەچاو بکە تاکو ئەو کات کە گوێبیستی سەرکەوتووبوونی چالاکسازی ئەبیت.</string>
+  <!-- Button label within the OTA listen screen -->
   <string name="ota_speaker">بەرزەبێژ</string>
+  <!-- String to be displayed on OTA listen screen once user has selected the
+         correct option to begin provisioning -->
   <string name="ota_progress">چاوەڕوان بە تا کاتێک تەلەفۆنەکەت بەرنامەداڕێژ ئەکرێت.</string>
+  <!-- String to display within the OTA Fail Notice dialog -->
   <string name="ota_failure">بەرنامەسازی سەرکەوتوو نەبوو</string>
+  <!-- String to be displayed on the OTA Fail/Success screen upon successful provisioning -->
   <string name="ota_successful">تئێستا تەلەفۆنەکەت چالاکە. لەوانەیە 15 خۆلەک بخایەنێت بۆ دەسپێکردنی خزمەتگوزاری.</string>
+  <!-- String to be displayed on the OTA Fail/Success screen upon unsuccessful provisioning -->
   <string name="ota_unsuccessful">تەلەفۆنەکەت چالاک نەکرا.
     \nلەوانەیە پێویستت بە دۆزینەوەی شوێنێک بە هێمای باشتر ببێت (لە تەنیشت پەنجەرەیەک، یان دەرەوە).
     \n\nدووبارە هەوڵ بدەوە یان پەیوەندی بە خزمەتگوزاری کڕیارەکانەوە بکە بۆ بەربژاردەی زیاتر.</string>
+  <!-- String to display within the OTA SPC Fail Notice dialog -->
   <string name="ota_spc_failure">تایبەتمەندی زیادە سەری نەگرت</string>
+  <!-- Button label in OTA listen screen that cancels activation and goes to the previous screen -->
   <string name="ota_call_end">گەڕانەوە</string>
+  <!-- Button label shown on OTA error screen to allow the user to try again -->
   <string name="ota_try_again">هەوڵبدەوە</string>
+  <!-- Button label shown on OTA screens that have a next screen -->
   <string name="ota_next">دواتر</string>
+  <!-- Emergency Callback Mode (ECM) -->
   <string name="ecm_exit_dialog">EcmExitDialog</string>
+  <!-- ECM: Status bar notification message -->
   <string name="phone_entered_ecm_text">چووەناوەوە بۆ دۆخی پەیوەندی چالاککردنی فریاکەوتن</string>
+  <!-- ECM: Notification title -->
   <string name="phone_in_ecm_notification_title">دۆخی پەیوەندی چالاککردنی فریاکەوتن</string>
+  <!-- ECM: Notification body -->
   <string name="phone_in_ecm_call_notification_text">بەستنەوەی دراوە ناچالاککرا</string>
   <plurals name="phone_in_ecm_notification_time">
+    <!-- number of minutes is one -->
     <item quantity="one">هیچ گرێدانێکی دراوە نییە بۆ <xliff:g id="count">%s</xliff:g> خولەک</item>
+    <!-- number of minutes is not equal to one -->
     <item quantity="other">هیچ گرێدانێکی دراوە نییە بۆ <xliff:g id="count">%s</xliff:g> خولەک</item>
   </plurals>
+  <!-- ECM: Dialog box message for exiting from the notifications screen -->
   <plurals name="alert_dialog_exit_ecm">
+    <!-- number of minutes is one -->
     <item quantity="one">تەلەفۆنەکە لە دۆخی پەیوەندی کردنەوەی فریاکەوتن ئەبێت بۆ ماوەی <xliff:g id="count">%s</xliff:g> خۆلەک. لەم دۆخەدا هیچ نەرمەواڵایەک ناتوانێت بەستنەوەکانی دراوە بەکار بهێنێت. دەتەوێ ئێستا دەربچی؟</item>
+    <!-- number of minutes is not equal to one -->
     <item quantity="other">تەلەفۆنەکە لە دۆخی پەیوەندی کردنەوەی فریاکەوتن ئەبێت بۆ ماوەی <xliff:g id="count">%s</xliff:g> خۆلەک. لەم دۆخەدا هیچ نەرمەواڵایەک ناتوانێت بەستنەوەکانی دراوە بەکار بهێنێت. دەتەوێ ئێستا دەربچی؟</item>
   </plurals>
+  <!-- ECM: Dialog box message for exiting from any other app -->
   <plurals name="alert_dialog_not_avaialble_in_ecm">
+    <!-- number of minutes is one -->
     <item quantity="one">ئەم فرمانە هەڵبژێردراوە بەر دەست نییە لە کاتی بوون لە دۆخی پەیوەندی کردنەوەی فریاکەوتن. تەلەفۆن لەم دۆخەدا ئەبێت بۆ ماوەی <xliff:g id="count">%s</xliff:g> خولەک. دەتەوێ ئێستا دەربچی؟</item>
+    <!-- number of minutes is not equal to one -->
     <item quantity="other">ئەم فرمانە هەڵبژێردراوە بەر دەست نییە لە کاتی بوون لە دۆخی پەیوەندی کردنەوەی فریاکەوتن. تەلەفۆن لەم دۆخەدا ئەبێت بۆ ماوەی <xliff:g id="count">%s</xliff:g> خولەک. دەتەوێ ئێستا دەربچی؟</item>
   </plurals>
+  <!-- ECM: Dialog box message while in emergency call -->
   <string name="alert_dialog_in_ecm_call">ئەم فرمانە هەڵبژێردراوە بەر دەست نییە لا کاتی پەیوەندی فریاکەوتن.</string>
+  <!-- ECM: Progress text -->
   <string name="progress_dialog_exiting_ecm">دەرچوون لە دۆخی پەیوەندی کردنەوەی فریاکەوتن</string>
+  <!-- ECM: ECM exit dialog choice -->
   <string name="alert_dialog_yes">بەڵێ</string>
+  <!-- ECM: ECM exit dialog choice -->
   <string name="alert_dialog_no">نا</string>
+  <!-- ECM: ECM exit dialog choice -->
   <string name="alert_dialog_dismiss">گوێ نەدان</string>
+  <!-- For incoming calls, this is a string we can get from a CDMA network instead of
+         the actual phone number, to indicate there's no number present.  DO NOT TRANSLATE. -->
+  <!-- Preference for Voicemail service provider under "Voicemail" settings.
+         [CHAR LIMIT=40] -->
   <string name="voicemail_provider">ڕاژە</string>
+  <!-- Preference for Voicemail setting of each provider.
+         [CHAR LIMIT=40] -->
   <string name="voicemail_settings">جێگیرکردن</string>
+  <!-- String to display in voicemail number summary when no voicemail num is set -->
   <string name="voicemail_number_not_set">&lt;دانه‌نراوه‌&gt;</string>
+  <!-- Title displayed above settings coming after voicemail in the call features screen -->
   <string name="other_settings">ڕێکخستنەکانی دیکەی پەیوەندیکردن</string>
+  <!-- Title displayed in the overlay when a call is placed using a 3rd party provider.
+         [CHAR LIMIT=40] -->
   <string name="calling_via_template">په‌یوه‌ندیکردن له‌ ڕێگه‌ی <xliff:g id="provider_name">%s</xliff:g></string>
+  <!-- Use this as a default to describe the contact photo; currently for screen readers through accessibility. -->
   <string name="contactPhoto">وێنەی ناوەکە</string>
+  <!-- Use this to describe the separate conference call button; currently for screen readers through accessibility. -->
   <string name="goPrivate">بۆ تاکەکەسی</string>
+  <!--  Use this to describe the select contact button in EditPhoneNumberPreference; currently for screen readers through accessibility. -->
   <string name="selectContact">ناوەکە دیاری بکە</string>
+  <!-- Dialog title to notify user that Voice calling is not supported
+         on this device. [CHAR LIMIT=40] -->
   <string name="not_voice_capable">پەیوەندی دەنگی پشتگیری ناکرێت</string>
+  <!-- String describing the Dial ImageButton
+
+         Used by AccessibilityService to announce the purpose of the button.
+         [CHAR LIMIT=NONE]
+    -->
   <string name="description_dial_button">لێدان</string>
+  <!-- Dialog title for the vibration settings for voicemail notifications [CHAR LIMIT=40] -->
   <string name="voicemail_notification_vibrate_when_title" msgid="8731372580674292759">له‌رینه‌وه‌</string>
+  <!-- Dialog title for the vibration settings for voice mail notifications [CHAR LIMIT=40]-->
   <string name="voicemail_notification_vibarte_when_dialog_title" msgid="8995274609647451109">له‌رینه‌وه‌</string>
+  <!-- Voicemail ringtone title. The user clicks on this preference to select
+         which sound to play when a voicemail notification is received.
+         [CHAR LIMIT=30] -->
   <string name="voicemail_notification_ringtone_title">ئاواز</string>
+  <!-- The default value value for voicemail notification. -->
+  <!-- Actual values used in our code for voicemail notifications. DO NOT TRANSLATE -->
+  <!--  Setting option name to enable or disable dialpad autocomplete functionality
+         [CHAR LIMIT=30] -->
   <string name="dial_pad_autocomplete">تەواوکردنی خۆکارانەی ژمارەگر</string>
+  <!-- Title for the category "ringtone", which is shown above ringtone and vibration
+         related settings.
+         [CHAR LIMIT=30] -->
   <string name="preference_category_ringtone">لەرینەوەی &amp; زەنگ</string>
+  <!-- String resource for the font-family to use for the call setting activity's title
+         Do not translate. -->
+  <!-- Label for PSTN connection service. -->
   <string name="pstn_connection_service_label">سیمکارتە تووکارەکان</string>
+  <!-- Label for enabling video calling. -->
   <string name="enable_video_calling_title">هەڵکردنی پەیوەندیی ڤیدیۆیی</string>
+  <!-- Message for dialog shown when the user tries to turn on video calling but enhanced 4G LTE
+         is disabled. -->
   <string name="enable_video_calling_dialog_msg">
         بۆ هەڵکردنی پەیوەندیی ڤیدیۆیی, تۆ پێویستە شێوازی نوێکراوەی 4G LTE لە ناو ڕێکخستنەکانی سیستەم بەتوانا بکەیت.
     </string>
+  <!-- Label for action button in dialog which opens mobile network settings, for video calling
+         setting. -->
   <string name="enable_video_calling_dialog_settings">ڕێکخستنەکانی تۆڕ</string>
+  <!-- Label for close button in dialog, for video calling setting. -->
   <string name="enable_video_calling_dialog_close">داخستن</string>
+  <!-- Strings used in Settings->Sim cards for each installed Sim. -->
   <string name="sim_label_emergency_calls">پەیوەندیی فریاگوزاری</string>
   <string name="sim_description_emergency_calls">تەنیا پەیوەندییەکانی فریاگوزاری</string>
   <string name="sim_description_default">سیمکارت, قڵیش: <xliff:g id="slot_id">%s</xliff:g></string>

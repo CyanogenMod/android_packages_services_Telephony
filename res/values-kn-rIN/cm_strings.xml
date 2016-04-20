@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">ಘಟನೆ ಅಧಿಸೂಚನೆ</string>
   <string name="show_ssn_summary">ಕರೆ ನಿರ್ವಹಣೆಗೆ ಸಂಬಂಧಿಸಿದ ವಿವಿಧ ನೆಟ್‍ವರ್ಕ್ ಘಟನೆಗಳ ಅಧಿಸೂಚನೆಯನ್ನು ಪ್ರದರ್ಶಿಸು</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಮಾಡುವರ ಪಟ್ಟಿ</string>
   <string name="blacklist_summary_disabled">ನಿಷ್ಕ್ರಿಯಗೊಂಡಿದೆ</string>
   <string name="blacklist_summary">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಮಾಡುವರ ಪಟ್ಟಿಯಲ್ಲಿರುವ ದೂರವಾಣಿ ಸಂಖ್ಯೆಗಳಿಂದ ಒಳಬರುವ ಕರೆಗಳನ್ನು ಮತ್ತು ಸಂದೇಶಗಳನ್ನು ನೀವು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">ಸಂದೇಶ ನಿರೀಕ್ಷೆ ಸೂಚಕ</string>
   <string name="mwi_notification_summary">ಸಂದೇಶ ನಿರೀಕ್ಷೆ ಸೂಚಕ ಧ್ವನಿಮೇಲ್ ಅಧಿಸೂಚನೆಯನ್ನು ಪ್ರದರ್ಶಿಸು</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">ಷರತ್ತುಮುಕ್ತವಾದ ಕರೆ ಫಾರ್ವರ್ಡ್ ಮಾಡುವಿಕೆ ಸಕ್ರಿಯ</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">ಷರತ್ತುಬದ್ಧ ಕರೆ ಫಾರ್ವರ್ಡ್ ಮಾಡುವಿಕೆ ಸಕ್ರಿಯ</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">ಹೊರಹೋಗುವ ಕರೆಯನ್ನು ಫಾರ್ವರ್ಡ್ ಮಾಡಲಾಗುತ್ತದೆ</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">ಕರೆಯು ಮುಚ್ಚಿದ ಬಳಕೆದಾರ ಗುಂಪಿನಲ್ಲಿದೆ</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">ಹೊರಹೋಗುವ ಕರೆಗಳನ್ನು ನಿಷೇಧಿಸಲಾಗಿದೆ</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">ಒಳಬರುವ ಕರೆಗಳನ್ನು ರಿಮೋಟ್ ಪಕ್ಷದವರು ನಿಷೇಧಿಸಿದ್ದಾರೆ</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">ಸ್ವಂತ ಸಂಖ್ಯೆ ನಿಗ್ರಹಣವನ್ನು ನೆಟ್‍ವರ್ಕ್ ನಿರಾಕರಿಸಿದೆ</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">ರಿಮೋಟ್ ಪಕ್ಷದವರು ಕರೆ ಫಾರ್ವಡ್ ಮಾಡಿದ್ದಾರೆ</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">ಒಳಬರುವ ಕರೆಯನ್ನು ಫಾರ್ವರ್ಡ್ ಮಾಡಲಾಗಿದೆ</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">ಬಹು-ಪಕ್ಷೀಯ ಕರೆ</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">ಕರೆಯನ್ನು ದೂರದಿಂದ ಬಿಡುಗಡೆ ಮಾಡಲಾಗಿದೆ</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">ಕರೆ ಫಾರ್ವರ್ಡ್ ಮಾಡಲಾಗಿದೆ</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">ಪ್ರತ್ಯಕ್ಷ ಕರೆ ವರ್ಗಾವಣೆಯ ಮೂಲಕ ಕರೆಯನ್ನು ಸಂಪರ್ಕ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">ಪ್ರತ್ಯಕ್ಷ ಕರೆ ವರ್ಗಾವಣೆಯ ಮೂಲಕ ಕರೆಯನ್ನು ಸಂಪರ್ಕ ಮಾಡಲಾಗಿದೆ</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಉಪವಿಭಾಗ ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">ಸಿಮ್ ಸಾಂಸ್ಥಿಕ ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">ಸಿಮ್ ಸೇವಾ ಪೂರೈಕೆದಾರ ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">ಸಿಮ್ ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">ಆರ್‍ಯುಐಎಂ ನೆಟ್‍ವರ್ಕ್ 1 ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">ಆರ್‍ಯುಐಎಂ ನೆಟ್‍ವರ್ಕ್ 2 ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">ಆರ್‍ಯುಐಎಂ HRPD ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">HRPD ಸಾಂಸ್ಥಿಕ ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">ಆರ್‍ಯುಐಎಂ ಸೇವಾ ಪೂರೈಕೆದಾರ ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">ಆರ್‍ಯುಐಎಂ ಅನ್‍ಲಾಕ್ ಪಿನ್</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">ಪಿಯುಕೆ ಹಾಕಿ</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಉಪವರ್ಗ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">ಸಿಮ್ ಸೇವಾ ಪೂರೈಕೆದಾರ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">ಸಿಮ್ ಸಾಂಸ್ಥಿಕ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">ಸಿಮ್ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">ಆರ್‍ಯುಐಎಂ ನೆಟ್‍ವರ್ಕ್ 1 ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">ಆರ್‍ಯುಐಎಂ ನೆಟ್‍ವರ್ಕ್ 2 ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">ಆರ್‍ಯುಐಎಂ HRPD ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">ಆರ್‍ಯುಐಎಂ ಸೇವಾ ಪೂರೈಕೆದಾರ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">ಆರ್‍ಯುಐಎಂ ಸಾಂಸ್ಥಿಕ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">ಆರ್‍ಯುಐಎಂ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">ಪಿಯುಕೆ ಅನ್‍ಲಾಕ್ ವಿನಂತಿಸುತ್ತಿದೆ\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಅನ್‍ಲಾಕ್ ಕೋರಿಕೆ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಉಪವಿಭಾಗ ಅನ್‍ಲಾಕ್ ಕೋರಿಕೆ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">ಸಿಮ್ ಸೇವಾ ಪೂರೈಕೆದಾರ ಅನ್‍ಲಾಕ್ ಕೋರಿಕೆ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">ಸಿಮ್ ಸಾಂಸ್ಥಿಕ ಅನ್‍ಲಾಕ್ ಕೋರಿಕೆ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">ಸಿಮ್ ಅನ್‍ಲಾಕ್ ಕೋರಿಕೆ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">ಆರ್‍ಯುಐಎಂ ನೆಟ್‍ವರ್ಕ್ 1 ಅನ್‍ಲಾಕ್ ಕೋರಿಕೆ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">ಆರ್‍ಯುಐಎಂ ನೆಟ್‍ವರ್ಕ್ 2 ಅನ್‍ಲಾಕ್ ವಿನಂತಿ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">ಆರ್‍ಯುಐಎಂ HRPD ಅನ್‍ಲಾಕ್ ವಿನಂತಿ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">ಆರ್‍ಯುಐಎಂ ಸೇವಾ ಪೂರೈಕೆದಾರ ಅನ್‍ಲಾಕ್ ವಿನಂತಿ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">ಆರ್‍ಯುಐಎಂ ಸಾಂಸ್ಥಿಕ ಅನ್‍ಲಾಕ್ ವಿನಂತಿ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">ಆರ್‍ಯುಐಎಂ ಅನ್‍ಲಾಕ್ ವಿನಂತಿ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">ಪಿಯುಕೆ ಅನ್‍ಲಾಕ್ ವಿಫಲವಾಗಿದೆ.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">ಸಿಮ್ ನೆಟ್‍ವರ್ಕ್ ಉಪವಿಭಾಗ ವಿನಂತಿ ಸಫಲ.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">ಸಿಮ್ ಸೇವಾ ಪೂರೈಕೆದಾರ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">ಸಿಮ್ ಸಾಂಸ್ಥಿಕ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">ಸಿಮ್ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">ಆರ್‍ಯುಐಎಂ ನೆಟ್‍ವರ್ಕ್ 1 ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">ಆರ್‍ಯುಐಏಂ ನೆಟ್‍ವರ್ಕ್ 2 ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">ಆರ್‍ಯುಐಎಂ HRPD ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">ಆರ್‍ಯುಐಎಂ ಸೇವಾ ಪೂರೈಕೆದಾರ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">ಆರ್‍ಯುಐಎಂ ಸಾಂಸ್ಥಿಕ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">ಆರ್‍ಯುಐಎಂ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">ಪಿಯುಕೆ ಅನ್‍ಲಾಕ್ ಸಫಲ.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS ಕೋರಿಕೆಯನ್ನು ಡಯಲ್ ಕೋರಿಕೆಗೆ ಮಾರ್ಪಡಿಸಲಾಗಿದೆ.</string>
   <string name="stk_cc_ss_to_ussd_error">SS ವಿನಂತಿಯನ್ನು USSD ವಿನಂತಿಗೆ ಮಾರ್ಪಡಿಸಲಾಗಿದೆ.</string>
   <string name="stk_cc_ss_to_ss_error">SS ವಿನಂತಿಯನ್ನು ಹೊಸ SS ವಿನಂತಿಗೆ ಮಾರ್ಪಡಿಸಲಾಗಿದೆ.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">ವೀಡಿಯೋ ಕರೆ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <string name="vt_fallback_setting">ಧ್ವನಿ ಕರೆಯ ಮೂಲಕ ರೀಡಯಲ್ ಮಾಡು</string>
   <string name="vt_forward_setting">ವೀಡಿಯೋ ಕರೆ ಫಾರ್ವರ್ಡಿಂಗ್</string>
   <string name="vt_imagereplace_setting">ಪರ್ಯಾಯ ಚಿತ್ರ</string>
   <string name="vt_imagereplace_setting_sum">ಮುಂಭಾಗದ ಕ್ಯಾಮೆರಾ ನಿಷ್ಕ್ರಿಯಗೊಂಡಾಗ ಪ್ರದರ್ಶಿತವಾಗುವ ಚಿತ್ರ</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">ರೋಮಿಂಗ್ ಮೋಡ್</string>
   <string name="roaming_mode_summary">ಅಂತರಾಷ್ಟ್ರೀಯ ರೋಮಿಂಗ್ ಮೋಡ್</string>
   <string name="roaming_gsm">GSM ರೋಮಿಂಗ್</string>
   <string name="roaming_cdma">CDMA ರೋಮಿಂಗ್</string>
   <string name="roaming_disabled">ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿದೆ</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: ಜಾಗತಿಕ (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA ಮಾತ್ರ</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">ಪಕ್ಷವು ಎಲ್ಲಾ ಒಳಬರುವ ಕರೆಗಳನ್ನು ನಿಷೇಧಿಸಿದ್ದಾರೆ.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">ಕರೆ ಉತ್ತರಿಸಲಿಲ್ಲ ಮತ್ತು ಫಾರ್ವರ್ಡ್ ಮಾಡಲಾಗಿದೆ</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM ಮಾತ್ರ</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ಆದ್ಯತೆಯ</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (current: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">ಸಿಮ್ ಕಾರ್ಡ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <string name="sim_card_title">ಸಿಮ್ ಕಾರ್ಡ್ %d</string>
   <string name="sim_card_summary_empty">ಸಿಮ್ ಸ್ಲಾಟ್ ಖಾಲಿಯಾಗಿದೆ</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">ವೀಡಿಯೋ ಕರೆಮಾಡುವಾಗ TTY ಮೋಡ್ ಬದಲಾವಣೆಯನ್ನು ಅನುಮತಿಸುವುದಿಲ್ಲ</string>
   <string name="ipcall_sub_title">IP ಕರೆ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <string name="ipcall_sub_summery">IP ಸೇವೆಯ ಮೂಲಕ ಕರೆಮಾಡಲು ಪೂರ್ವಪ್ರತ್ಯಯವನ್ನು ಸಂಪಾದಿಸಿ</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">IP ಕರೆ ಡಯಲ್ ಪೂರ್ವಪ್ರತ್ಯಯ</string>
   <string name="fdn_service_unavailable">ಸ್ಥಿರ ಡಯಲಿಂಗ್ ಸೇವೆಯು ಲಭ್ಯವಿಲ್ಲ.</string>
   <string name="exportContacts">ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್ ಕಾರ್ಡ್‍ಗೆ ರಫ್ತು ಮಾಡುತ್ತಿದೆ\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">ಸಿಮ್ ಕಾರ್ಡ್ ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">ಸಿಮ್ ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
   <string name="exportContactScreen">ಫೋನ್ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ರಫ್ತು ಮಾಡಿ</string>
   <string name="addSimEntries">ಸಿಮ್ ಸಂಪರ್ಕವನ್ನು ಸೇರಿಸಿ</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ಯಶಸ್ವಿಯಾಗಿ ರಫ್ತುಮಾಡಿದೆ</string>
   <string name="exportAllcontatsFailed">ಎಲ್ಲಾ ಸಂಪರ್ಕಗಳನ್ನು ಸಿಮ್‍ಗೆ ರಫ್ತುಮಾಡಲು ವಿಫಲವಾಗಿದೆ</string>
   <string name="exportAllcontatsNoContacts">ಸಿಮ್‍ಗೆ ರಫ್ತು ಮಾಡಲು ಯಾವುದೇ ಸಂಪರ್ಕಗಳು ಪತ್ತೆಯಾಗಲಿಲ್ಲ</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">ಆದ್ಯತೆಯ ನೆಟ್‍ವರ್ಕ್‍ಗಳು</string>
   <string name="network_id">ನೆಟ್‍ವರ್ಕ್ ಐಡಿ</string>
   <string name="dialog_network_priority_title">ಆದ್ಯತೆ</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">ಚೀನಾ ಮೊಬೈಲ್</string>
   <string name="china_unicom">ಚೀನಾ ಯುನಿಕಾಂ</string>
   <string name="china_telecom">ಚೀನಾ ಟೆಲಿಕಾಂ</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">ಡೇಟಾ ಸೇವೆಯ ಸಂಪರ್ಕವನ್ನು ತಾತ್ಕಾಲಿಕವಾಗಿ ಕಡಿತಗೊಳಿಸಬೇಕಾಗುತ್ತದೆ. ನೀವು ಖಚಿತವಾಗಿ ಮುಂದುವರಿಯಲು ಬಯಸುತ್ತೀರಾ?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS ಖಾತೆ ವಿವರಗಳು</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS ಖಾತೆಗಳು</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">ವೀಡಿಯೋ ಕರೆ ಗುಣಮಟ್ಟ</string>
   <string name="ims_vt_call_quality_low">ಕಡಿಮೆ</string>
   <string name="ims_vt_call_quality_high">ಅಧಿಕ</string>
   <string name="ims_vt_call_quality_unknown">ಅಜ್ಞಾತ</string>
   <string name="ims_vt_call_quality_set_failed">ವೀಡಿಯೋ ಗುಣಮಟ್ಟ ಹೊಂದಿಸಲು ವಿಫಲವಾಗಿದೆ</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">ನೆಟ್‍ವರ್ಕ್ ಮೋಡ್ ಬದಲಿಸು (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">ಆಪ್‍ಗೆ ಯಾವ ಸಮಯದಲ್ಲಾದರೂ 2G ಡೇಟಾ ಮತ್ತು 3G ಡೇಟಾಗಳ ನಡುವೆ ಬದಲಾಯಿಸಲು ಅನುಮತಿಸುತ್ತದೆ. 3Gಯು ವೇಗವಾದದ್ದು, ಆದರೆ ಹೆಚ್ಚು ಬ್ಯಾಟರಿಯನ್ನು ಉಪಯೋಗಿಸುತ್ತದೆ ಮತ್ತು ಹೆಚ್ಚುವರಿ ಶುಲ್ಕಗಳನ್ನು ವಿಧಿಸಬಹುದು.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">ನನ್ನ ದೂರವಾಣಿ ಸಂಖ್ಯೆ</string>
   <string name="phone_number_summary">ಈ ಸಾಧನಕ್ಕಾಗಿ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ಹೊಂದಿಸಿ</string>
   <string name="msim_mobile_network_settings_title">ಸಿಮ್ %d ಮೊಬೈಲ್ ನೆಟ್‍ವರ್ಕ್ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">ಕರೆ ರಿಕಾರ್ಡಿಂಗ್ ಸ್ವರೂಪ</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">ಪ್ಯಾಕೆಟ್ ಎಣಿಕೆ ತೆಗೆದುಕೊಳ್ಳಲು ವಿಫಲವಾಗಿದೆ</string>
   <string name="ims_get_packet_error_count_failed">ಪ್ಯಾಕೆಟ್ ದೋಷ ಎಣಿಕೆ ತೆಗೆದುಕೊಳ್ಳಲು ವಿಫಲವಾಗಿದೆ</string>
   <string name="ims_get_packet_count_label">ಪ್ಯಾಕೆಟ್ ಎಣಿಕೆ ತೆಗೆದುಕೊಳ್ಳಲು ಇಲ್ಲಿ ಒತ್ತಿ</string>
   <string name="ims_get_packet_error_count_label">ಪ್ಯಾಕೆಟ್ ದೋಷ ಎಣಿಕೆ ತೆಗೆದುಕೊಳ್ಳಲು ಇಲ್ಲಿ ಒತ್ತಿ</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">ವೈ-ಫೈ ಕರೆ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <string name="wifi_calling_title">ವೈ-ಫೈ ಕರೆ</string>
   <string name="wifi_calling_preference_title">ವೈ-ಫೈ ಕರೆ ಆದ್ಯತೆಗಳು</string>
@@ -227,4 +325,27 @@
   <string name="wifi_only">ವೈ-ಫೈ ಮಾತ್ರ</string>
   <string name="cellular_preferred">ಸೆಲ್ಯುಲರ್ ಆದ್ಯತೆ</string>
   <string name="cellular_only">ಸೆಲ್ಯುಲರ್ ಮಾತ್ರ</string>
+  <string name="call_barring">ಕರೆ ಬಾರಿಂಗ್</string>
+  <string name="call_barring_outgoing">ಹೊರಹೋಗುವ ಕರೆ ನಿರ್ಬಂಧ</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>ಆಫ್ ಆಗಿದೆ</item>
+    <item>ಅಂತಾರಾಷ್ಟ್ರೀಯ ರೋಮಿಂಗ್ ಕರೆಗಳು</item>
+    <item>ಅಂತಾರಾಷ್ಟ್ರೀಯ ಕರೆಗಳು</item>
+    <item>ಹೊರಹೋಗುವ ಕರೆಗಳು</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>ಆಫ್ ಆಗಿದೆ</item>
+    <item>ರೋಮಿಂಗ್</item>
+    <item>ಎಲ್ಲಾ</item>
+  </string-array>
+  <string name="call_barring_incoming">ಒಳಬರುವ ಕರೆ ನಿರ್ಬಂಧ</string>
+  <string name="input_password">ನಿಮ್ಮ ಪಾಸ್ ವರ್ಡ್ ಬರೆಯಿರಿ</string>
+  <string name="invalidPsw">ಮಾನ್ಯ ಪಾಸ್ ವರ್ಡ್ ಬರೆಯಿರಿ (4-8 ಅಂಕಿಗಳಿರಬೇಕು)</string>
+  <string name="labelCbCancelAll">ಕರೆ ನಿರ್ಬಂಧವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
+  <string name="labelCbChangePassword">ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಿ</string>
+  <string name="psw_enter_old">ಹಳೆ ಪಾಸ್ ವರ್ಡ್</string>
+  <string name="psw_enter_new">ಹೊಸ ಪಾಸ್ ವರ್ಡ್</string>
+  <string name="psw_reenter_new">ನಿಮ್ಮ ಪಾಸ್ ವರ್ಡ್ ಅನ್ನು ಮರುನಮೂದಿಸಿ</string>
+  <string name="no_call_barring">ಕರೆ ನಿರ್ಬಂಧವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
+  <string name="cb_psw_dont_match">ಪಾಸ್ ವರ್ಡ್ ಗಳು ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಿಲ್ಲ</string>
 </resources>

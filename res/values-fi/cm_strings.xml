@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Tapahtumailmoitus</string>
   <string name="show_ssn_summary">Näytä eri verkkotapahtumien ilmoitus liittyen puheluiden käsittelyyn</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Estettyjen soittajien lista</string>
   <string name="blacklist_summary_disabled">Pois käytöstä</string>
   <string name="blacklist_summary">Tulevat puhelut ja viestit estettyjen soittajien listalla olevista puhelinnumeroista estetään</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Viesti odottaa-merkki</string>
   <string name="mwi_notification_summary">Näytä merkki viestin odottaessa vastaajassa</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Ehdoton soitonsiirto aktiivinen</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Ehdollinen soitonsiirto aktiivinen</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Lähtevä puhelu siirrettiin</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Puhelu suljetussa käyttäjäryhmässä</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Lähtevät puhelut kielletty</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Saapuvat puhelut kielletty etäryhmässä</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Verkko hylkäsi oman numeron estämisen</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Etäryhmä siirsi puhelun</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Saapuva puhelu on siirretty</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Usean osallistujan puhelu</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Puhelu katkaistu etänä</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Puhelu oli siirretty</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Puhelu yhdistyy soitonsiirron kautta</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Puhelu yhdistetty soitonsiirron kautta</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM network subset lukituksen PIN</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIM corporate lukituksen PIN</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIM palveluntarjoajan lukituksen PIN</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM-lukituksen PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIM verkon 1 lukituksen PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIM verkon 2 lukituksen PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPD lukituksen PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIM corporate lukituksen PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIM palveluntarjoajan lukituksen PIN</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM lukituksen PIN</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Anna PUK</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Pyydetään SIM verkon avausta\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Pyydetään SIM network subsetin avausta\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Pyydetään SIM palveluntarjoajan avausta\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Pyydetään SIM corporaten avausta\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Pyydetään SIM-lukituksen avausta\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Pyydetään RUIM verkon 1 avausta\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Pyydetään RUIM verkon 2 avausta\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Pyydetään RUIM HRPD avausta\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Pyydetään RUIM palveluntarjoajan avausta\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Pyydetään RUIM corporaten avausta\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Pyydetään RUIM avausta\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Pyydetään PUK avausta\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM verkon avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIM network subsetin avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIM palveluntarjoajan avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIM corporaten avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIM avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">RUIM verkon 1 avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">RUIM verkon 2 avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">RUIM HRPD avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIM palveluntarjoajan avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIM corporaten avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIM avauspyyntö epäonnistui.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK-lukituksen avaus epäonnistui.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM verkon avaus onnistui.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIM network subsetin avaus onnistui.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIM palveluntarjoajan avaus onnistui.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">SIM corporaten avaus onnistui.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM-lukituksen avaus onnistui.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">RUIM verkon 1 lukituksen avaus onnistui.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">RUIM verkon 2 lukituksen avaus onnistui.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">RUIM HRPD lukituksen avaus onnistui.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIM palveluntarjoajan avaus onnistui.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIM corporaten avaus onnistui.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM-lukituksen avaus onnistui.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK-lukituksen avaus onnistui.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS-pyyntö muutettiin DIAL-pyynnöksi.</string>
   <string name="stk_cc_ss_to_ussd_error">SS-pyyntö muutettiin USSD-pyynnöksi.</string>
   <string name="stk_cc_ss_to_ss_error">SS-pyyntö muutettiin uudeksi SS-pyynnöksi.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Videopuhelun asetukset</string>
   <string name="vt_fallback_setting">Soita uudelleen äänipuheluna</string>
   <string name="vt_forward_setting">Videopuhelun siirto</string>
   <string name="vt_imagereplace_setting">Vaihtoehtoinen kuva</string>
   <string name="vt_imagereplace_setting_sum">Näytettävä kuva, kun etukamera on poistettu käytöstä</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Roaming-tila</string>
   <string name="roaming_mode_summary">Kansainvälinen roaming-tila</string>
   <string name="roaming_gsm">GSM-roaming</string>
   <string name="roaming_cdma">CDMA-roaming</string>
   <string name="roaming_disabled">Pois käytöstä</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Ensisijainen verkkotila: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Ensisijainen verkkotila: Vain TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Ensisijainen verkkotila: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Ensisijainen verkkotila: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Ensisijainen verkkotila: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Ensisijainen verkkotila: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Ensisijainen verkkotila: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Ensisijainen verkkotila: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Ryhmä on estänyt kaikki tulevat puhelut.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Puheluun ei vastattu ja se siirrettiin</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">Vain GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Ensisij. GSM/WCDMA</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (nykyinen: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">SIM-kortin asetukset</string>
   <string name="sim_card_title">SIM-kortti %d</string>
   <string name="sim_card_summary_empty">SIM-korttipaikka on tyhjä</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">TTY-tilamuutos ei ole sallittu videopuhelun aikana</string>
   <string name="ipcall_sub_title">IP-puhelun asetukset</string>
   <string name="ipcall_sub_summery">Muokkaa IP-palvelun kautta soitettujen puheluiden etuliitettä</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">IP-puhelun numeron etuliite</string>
   <string name="fdn_service_unavailable">FDN palvelu ei ole käytettävissä.</string>
   <string name="exportContacts">Viedään yhteystiedot SIM-kortille\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Hallitse SIM-kortin yhteystietoja</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Hallitse SIM-kortin yhteystietoja</string>
   <string name="exportContactScreen">Vie puhelimen yhteystiedot SIM-kortille</string>
   <string name="addSimEntries">Lisää SIM-yhteystieto</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">Kaikki yhteystiedot vietiin SIM-kortille onnistuneesti</string>
   <string name="exportAllcontatsFailed">Kaikkien yhteystietojen vieminen SIM-kortille epäonnistui</string>
   <string name="exportAllcontatsNoContacts">SIM-kortille vietäviä yhteystietoja ei löydy</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Ensisijaiset verkot</string>
   <string name="network_id">Verkkotunnus</string>
   <string name="dialog_network_priority_title">Prioriteetti</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Yhteys datapalveluun pitää katkaista hetkeksi. Haluatko varmasti jatkaa?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS-tilin tiedot</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS-tilit</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Videopuhelun laatu</string>
   <string name="ims_vt_call_quality_low">Matala</string>
   <string name="ims_vt_call_quality_high">Korkea</string>
   <string name="ims_vt_call_quality_unknown">Tuntematon</string>
   <string name="ims_vt_call_quality_set_failed">Videon laadun asettaminen epäonnistui</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">vaihtaa verkkotilaa (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Sallii sovelluksen vaihtaa 2G ja 3G verkon välillä milloin tahansa. 3G on nopeampi, mutta kuluttaa enemmän akkua ja voi aiheuttaa lisäkustannuksia.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Oma puhelinnumero</string>
   <string name="phone_number_summary">Aseta tämän laitteen puhelinnumero</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiiliverkon asetukset</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Soiton tallennuksen muoto</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">Ei saatu pakettien määrää</string>
   <string name="ims_get_packet_error_count_failed">Ei saatu pakettien virheiden määrää</string>
   <string name="ims_get_packet_count_label">Napauta saadaksesi pakettien määrän</string>
   <string name="ims_get_packet_error_count_label">Napauta saadaksesi pakettien virheiden määrän</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">Wi-Fi-puheluiden asetukset</string>
   <string name="wifi_calling_title">Wi-Fi-puhelut</string>
   <string name="wifi_calling_preference_title">Wi-Fi-puheluasetus</string>

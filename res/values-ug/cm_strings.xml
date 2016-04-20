@@ -18,90 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">ھادىسە ئۇقتۇرۇشى</string>
   <string name="show_ssn_summary">چاقىرىشنى بىر تەرەپ قىلىشقا ئائىت ھەر خىل تور ھادىسىلىرى ئۈچۈن ئۇقتۇرۇشتىن بىرنى كۆرسىتىدۇ</string>
+  <!-- Blacklist preferences -->
+  <string name="blacklist_title">چاقىرىش قارا تىزىملىكى</string>
   <string name="blacklist_summary_disabled">چەكلەنگەن</string>
+  <string name="blacklist_summary">سىز قارا تىزىملىكتىكى نومۇردىن تېلېفون ياكى ئۇچۇر قۇبۇل قىلالمايسىز</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">ئۇچۇر كۈتۈش كۆرسەتكۈچى</string>
   <string name="mwi_notification_summary">ئۈنخەت ئۇقتۇرۇشىنىڭ ئۇچۇر كۈتۈش كۆرسەتكۈچىنى كۆرسىتىدۇ</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">شەرتسىز ئۇلاپ يەتكۈزۈش ئاكتىپ</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">شەرلىك ئۇلاپ يەتكۈزۈش ئاكتىپ</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">چاقىرغان تېلېفون ئۇلاپ يەتكۈزۈلدى</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">يېپىق گۇرۇپپىدا چاقىر</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">چىققان چاقىرىشلار چەكلەندى</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">چاقىرىلىشنى قارشى تەرەپ چەكلىدى</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">	ئۆز نومۇرىنى چەكلەشنى تور رەت قىلدى</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">چاقىرىشنى قارشى تەرەپ ئۇلاپ يەتكۈزدى</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">چاقىرىلىش ئۇلاپ يەتكۈزۈلدى</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">كۆپ تەرەپ چاقىرىش</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">چاقىرىشنى قارشى تەرەپ قويۇۋەتتى</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">چاقىرىش ئۇلاپ يەتكۈزۈلدى</string>
-  <string name="call_notif_callconnectingect">چاقىرىش ئاشكارە چاقىرىشنى ئۇلاپ يەتكۈزۈش ئارقىلىق باغلىنىۋاتىدۇ</string>
-  <string name="call_notif_callconnectedect">چاقىرىش ئاشكارە چاقىرىشنى ئۇلاپ يەتكۈزۈش ئارقىلىق باغلاندى</string>
+  <!-- Toast text for incoming call connecting through ECT -->
+  <string name="call_notif_callconnectingect">چاقىرىش ئاشكارە چاقىرىشنى ئۇلاپ يەتكۈزۈش ئارقىلىق ئۇلىنىۋاتىدۇ</string>
+  <!-- Toast text for incoming call connected through ECT -->
+  <string name="call_notif_callconnectedect">چاقىرىش ئاشكارە چاقىرىشنى ئۇلاپ يەتكۈزۈش ئارقىلىق ئۇلاندى</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM كارتا تورىنىڭ تارماق توپلىمى قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIM كارتا كارخانا قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIM كارتا مۇلازىمەت تەمىنلەش سودىگىرىنىڭ قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM كارتا قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIM تور 1 نىڭ قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIM تور 2 نىڭ قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPD قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIM كارخانا قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIM مۇلازىمەت تەمىنلەش سودىگىرىنىڭ قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM قۇلۇپ ئېچىش PIN ى</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">PUK كىرگۈزۈڭ</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIM كارتا تورىنىڭ قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">SIM كارتا تورى تارماق توپلىمىنىڭ قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">SIM كارتا مۇلازىمىتى تەمىنلىگۈچى سودىگەرنىڭ قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">SIM كارتا كارخانا قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">SIM كارتا قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">RUIM تورى 1 نىڭ قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">RUIM تورى 2 نىڭ قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">RUIM HRPD نىڭ قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">RUIM مۇلازىمىتى تەمىنلىگۈچى سودىگەرنىڭ قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">RUIM كارخانا قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">RUIM قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">PUK قۇلۇپىنى ئېچىشنى ئىلتىماس قىلىۋاتىدۇ\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM كارتا تورىنىڭ قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIM كارتا تورى تارماق توپلىمىنىڭ قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIM كارتا مۇلازىمىتى تەمىنلىگۈچى سودىگەرنىڭ قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIM كارتا كارخانا قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIM كارتا قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">RUIM تورى 1 نىڭ قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">RUIM تورى 2 نىڭ قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">RUIM HRPD قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIM مۇلازىمىتى تەمىنلىگۈچى سودىگەرنىڭ قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIM كارخانا قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIM قۇلۇپىنى ئېچىش ئىلتىماسى مەغلۇپ بولدى.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK قۇلۇپىنى ئېچىش مەغلۇپ بولدى.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM كارتا تورىنىڭ قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIM كارتا تورى تارماق توپلىمىنىڭ قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIM كارتا مۇلازىمىتىنى تەمىنلىگۈچى سودىگەرنىڭ قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">SIM كارتا كارخانا قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM كارتا قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">RUIM تورى 1 نىڭ قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">RUIM تورى 2 نىڭ قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">RUIM HRPD قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIM مۇلازىمىتىنى تەمىنلىگۈچى سودىگەرنىڭ قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIM كارخانا قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK قۇلۇپى مۇۋەپپەقىيەتلىك ئېچىلدى.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">USSD ئىلتىماسى DIAL ئىلتىماسىغا ئۆزگەرتىلدى.</string>
   <string name="stk_cc_ss_to_ussd_error">SS ئىلتىماسى USSD ئىلتىماسىغا ئۆزگەرتىلدى.</string>
   <string name="stk_cc_ss_to_ss_error">SS ئىلتىماسى يېڭى SS ئىلتىماسىغا ئۆزگەرتىلدى.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">سىنلىق چاقىرىش تەڭشەكلەر</string>
   <string name="vt_fallback_setting">ئاۋاز ئارقىلىق قايتا چاقىر</string>
   <string name="vt_forward_setting">سىنلىق چاقىرىشنى ئۇلاپ يەتكۈزۈش</string>
   <string name="vt_imagereplace_setting">ئالماشتۇرىدىغان رەسىم</string>
   <string name="vt_imagereplace_setting_sum">ئالدى كامېرا چەكلەنگەندە كۆرسىتىدىغان سۈرەت</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
+  <string name="roaming_mode_title">سەييارە ھالەت</string>
+  <string name="roaming_mode_summary">خەلقارالىق سەييارە ھالەت</string>
+  <string name="roaming_gsm">GSM سەييارە</string>
+  <string name="roaming_cdma">CDMA سەييارە</string>
+  <string name="roaming_disabled">چەكلەنگەن</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">ئالدىن بەلگىلەنگەن تور ھالىتى: دۇنيا (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA لا</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">ئالدىن بەلگىلەنگەن تور ھالىتى:TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">ئالدىن بەلگىلەنگەن تور ھالىتى: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">قارشى تەرەپ بارلىق چاقىرىلىشلارنى توستى.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">چاقىرىشتا ئىنكاس يوق ھەمدە ئۇلاپ يەتكۈزۈلدى</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -126,7 +216,12 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA لا</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM لا</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">ئالدىن بەلگىلەنگەن GSM/WCDMA</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g>(نۆۋەتتە: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">SIM كارتا تەڭشەكلەر</string>
+  <string name="sim_card_title">SIM كارتا %d</string>
+  <string name="sim_card_summary_empty">SIM كارتا يوق</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">سىنلىق سۆزلىشىۋاتقاندا TTY ھالىتىنى ئۆزگەرتىشكە يول قويمايدۇ</string>
   <string name="ipcall_sub_title">IP چاقىرىش تەڭشەكلىرى</string>
   <string name="ipcall_sub_summery">IP مۇلازىمىتى ئارقىلىق چاقىرغاندىكى ئالدى قوشۇلغۇچىنى تەھرىرلەش</string>
@@ -134,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">IP چاقىرىش نومۇر بۇراش ئالدى قوشۇلغۇچى</string>
   <string name="fdn_service_unavailable">FDN مۇلازىمىتىنى ئىشلەتكىلى بولمايدۇ.</string>
   <string name="exportContacts">ئالاقەداشلارنى SIM كارتىغا چىقىرىۋاتىدۇ\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">SIM كارتىدىكى ئالاقەداشلارنى باشقۇرۇش</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">SIM دىكى ئالاقەداشلارنى باشقۇرۇش</string>
   <string name="exportContactScreen">تېلېفوندىكى ئالاقەداشلارنى SIM غا چىقىرىدۇ</string>
   <string name="addSimEntries">SIM ئالاقەداش قوش</string>
@@ -159,6 +256,7 @@
   <string name="exportAllcontatsSuccess">ھەممە ئالاقەداشنى SIM غا مۇۋەپپەقىيەتلىك چىقاردى</string>
   <string name="exportAllcontatsFailed">ھەممە ئالاقەداشنى SIM غا چىقىرالمىدى</string>
   <string name="exportAllcontatsNoContacts">SIM غا چىقىرىدىغان ئالاقەداشنى تاپالمىدى</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">ئالدىن بەلگىلەنگەن تورلار</string>
   <string name="network_id">تور كىملىك</string>
   <string name="dialog_network_priority_title">ئالدىنلىق</string>
@@ -181,7 +279,7 @@
   <string name="lte_recognize_summary">ئىككى 3G/LTE SIM كارتا بايقالدى، كۆڭۈلدىكى 3G/LTE SIM كارتىدىن بىرنى تەڭشەڭ:</string>
   <string name="lte_select_title">كۆڭۈلدىكى 3G/LTE SIM كارتا</string>
   <string name="lte_select_summary">تاللانغان مۇشتەرىنى 3G/LTE SIM كارتا، باشقىلىرىنى 2G SIM  كارتا دەپ تونۇيدۇ.</string>
-  <string name="lte_checkbox_text">كۆڭۈلدىكى 3G/LTE SIM كارتا ئۆزگەرسىلا، سانلىق مەلۇمات باغلىنىشى تاللانغان SIM كارتىغا تەڭشىلىدۇ</string>
+  <string name="lte_checkbox_text">كۆڭۈلدىكى 3G/LTE SIM كارتا ئۆزگەرسىلا، سانلىق مەلۇمات ئۇلىنىشى تاللانغان SIM كارتىغا تەڭشىلىدۇ</string>
   <string name="reg_failed">خەتلىتەلمىدى</string>
   <string name="reg_suc">مۇۋەپپەقىيەتلىك خەتلەتتى</string>
   <string name="reg_failed_msg">كۆڭۈلدىكى 3G/LTE SIM كارتىنى خەتلىتەلمىدى، %1$s نى 2G SIM كارتا دەپ تونۇيدۇ.</string>
@@ -190,16 +288,64 @@
   <string name="china_mobile">جۇڭگو كۆچمە خەۋەرلىشىش</string>
   <string name="china_unicom">جۇڭگو بىرلەشمە خەۋەرلىشىش</string>
   <string name="china_telecom">جۇڭگو تېلېگرافى</string>
-  <string name="disconnect_data_confirm">سانلىق مەلۇمات مۇلازىمىتىنىڭ باغلىنىشىنى ۋاقىتلىق ئۈزىدۇ. راستلا داۋاملاشتۇرامسىز؟</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
+  <string name="disconnect_data_confirm">سانلىق مەلۇمات مۇلازىمىتىنىڭ ئۇلىنىشىنى ۋاقىتلىق ئۈزىدۇ. راستلا داۋاملاشتۇرامسىز؟</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS ھېسابات تەپسىلاتى</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS ھېساباتلار</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">سىنلىق چاقىرىش سۈپىتى</string>
   <string name="ims_vt_call_quality_low">تۆۋەن</string>
   <string name="ims_vt_call_quality_high">يۇقىرى</string>
   <string name="ims_vt_call_quality_unknown">يوچۇن</string>
   <string name="ims_vt_call_quality_set_failed">سىن سۈپىتىنى تەڭشىيەلمىدى</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">تور ھالىتىنى ئالماشتۇر (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">بۇ ھوقۇققا ئېرىشكەن ئەپ خالىغان ۋاقىتتا 2G/3G تور ئارىسىدا ئالماشتۇرالايدۇ. 3G تورىنىڭ سۈرئىتى تېز، توك سەرپىياتى نىسبەتەن كۆپ ھەمدە تېخىمۇ كۆپ پۇل سەرپ قىلىدۇ.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">تېلېفون نومۇرۇم</string>
   <string name="phone_number_summary">بۇ ئۈسكۈنە ئۈچۈن تېلېفون نومۇر تەڭشىكى</string>
+  <string name="msim_mobile_network_settings_title">SIM %d تور ئېقىم تەڭشىكى</string>
+  <!-- Call recording format -->
+  <string name="call_recording_format">سۆزلىشىشنى ئاۋازغا ئېلىش فورماتى</string>
+  <!-- Packet Count and Packet Error Count settings -->
+  <string name="ims_get_packet_count_failed">سانلىق مەلۇمات ئورامى سانىغا ئىرىشىش مەغلۇب بولدى</string>
+  <string name="ims_get_packet_error_count_failed">سانلىق مەلۇمات ئورامى خاتالىق سانىغا ئىرىشىش مەغلۇب بولدى</string>
+  <string name="ims_get_packet_count_label">بۇ يەرنى بېسىپ سانلىق مەلۇمات ئورامى سانىغا ئىرىشىڭ</string>
+  <string name="ims_get_packet_error_count_label">بۇ يەرنى بېسىپ سانلىق مەلۇمات ئورامى خاتالىق سانىغا ئىرىشىڭ</string>
+  <!-- Wi-Fi calling settings -->
+  <string name="wifi_call_setting">Wi-Fi تېلېفون تەڭشىكى</string>
+  <string name="wifi_calling_title">Wi-Fi تېلېفونى</string>
+  <string name="wifi_calling_preference_title">Wi-Fi تېلېفون ئەلالىق تەڭشىكى</string>
+  <string name="ims_set_wifi_calling_preference_failed">Wi-Fi تېلېفونىنى تەڭشەش مەغلۇب بولدى</string>
+  <string name="wifi_pref_none">ئەلالىقى يوق</string>
+  <string name="wifi_preferred">ئالدى بىلەن Wi-Fi نى ئىشلىتىڭ</string>
+  <string name="wifi_only">Wi-Fi نىلا ئىشلىتىش</string>
+  <string name="cellular_preferred">ئالدى بىلەن تور ئېقىمىنى ئىشلىتىش</string>
+  <string name="cellular_only">تور ئېقىمىنىلا ئىشلىتىش</string>
+  <string name="call_barring">چاقىرىشنى چەكلەش</string>
+  <string name="call_barring_outgoing">تېلېفون ئۇرۇشنى چەكلەش</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>تاقاش</item>
+    <item>خەلقارالىق سەييارە چاقىرىش</item>
+    <item>خەلقارالىق ئۇزۇن يوللۇق</item>
+    <item>ئۇرغان تېلېفون</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>تاقاش</item>
+    <item>سەييارە</item>
+    <item>ھەممە</item>
+  </string-array>
+  <string name="call_barring_incoming">تېلېفون كېلىشنى چەكلەش</string>
+  <string name="input_password">پارولىڭىزنى كىرگۈزۈڭ</string>
+  <string name="invalidPsw">بىر ئىناۋەتلىك پارول كىرگۈزۈڭ(4-8 خانىلىك)</string>
+  <string name="labelCbCancelAll">چاقىرىشنى چەكلەشنى تاقاش</string>
+  <string name="labelCbChangePassword">پارول ئۆزگەرتىڭ</string>
+  <string name="psw_enter_old">كونا پارول</string>
+  <string name="psw_enter_new">يېڭى پارول</string>
+  <string name="psw_reenter_new">يېڭى پارولنى قايتا كىرگۈزۈڭ</string>
+  <string name="no_call_barring">چاقىرىشنى چەكلەش تاقالدى</string>
+  <string name="cb_psw_dont_match">پارول ئۇدۇللاشمىدى</string>
 </resources>

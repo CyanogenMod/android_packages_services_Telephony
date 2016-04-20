@@ -16,99 +16,182 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="show_ssn_label">Notifikasi acara</string>
+  <string name="show_ssn_label">Pemberitahuan acara</string>
   <string name="show_ssn_summary">Tampilkan notifikasi untuk berbagai acara jaringan yang terkait penangangan panggilan</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Daftar penelepon yang diblokir</string>
   <string name="blacklist_summary_disabled">Dinonaktifkan</string>
   <string name="blacklist_summary">Anda tidak akan menerima panggilan atau pesan dari nomor telepon yang ada di daftar penelepon yang diblokir</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator pesan menunggu</string>
-  <string name="mwi_notification_summary">Tampilkan notifikasi indikator pesan tunggu untuk pesan suara</string>
+  <string name="mwi_notification_summary">Tampilkan pemberitahuan indikator pesan tunggu untuk pesan suara</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Penerusan panggilan tanpa syarat aktif</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Penerusan panggilan bersyarat aktif</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Panggilan keluar diteruskan</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Panggilan grup pengguna tertutup</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Panggilan keluar dicegah</string>
-  <string name="call_notif_incoming_barred">Panggilan masuk yang dilarang di remote party</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
+  <string name="call_notif_incoming_barred">Panggilan masuk yang dicegah oleh lawan bicara</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Penyembunyian nomor sendiri ditolak oleh jaringan</string>
-  <string name="call_notif_call_deflected">Panggilan diteruskan oleh remote party</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
+  <string name="call_notif_call_deflected">Panggilan diteruskan oleh lawan bicara</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Panggilan masuk diteruskan</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Panggilan multi-pihak</string>
-  <string name="call_notif_callonhold_released">Panggilan yang dirilis dari jarak jauh</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
+  <string name="call_notif_callonhold_released">Panggilan dilepas dari jarak jauh</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Panggilan diteruskan</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Sambungan panggilan melalui transfer panggilan eksplisit</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Panggilan tersambung melalui transfer panggilan eksplisit</string>
-  <string name="label_nsdp">Jaringan SIM membuka bagian PIN</string>
-  <string name="label_cdp">PIN buka kunci korporat SIM</string>
-  <string name="label_spdp">PIN pembuka penyedia layanan SIM</string>
-  <string name="label_sdp">PIN pembuka SIM</string>
-  <string name="label_rn1dp">Jaringan RUIM 1 membuka PIN</string>
-  <string name="label_rn2dp">Jaringan RUIM 2 membuka PIN</string>
-  <string name="label_rhrpd">RUIM HRPD membuka PIN</string>
-  <string name="label_rcdp">RUIM korporat membuka PIN</string>
-  <string name="label_rspdp">Penyedia layanan RUIM membuka PIN</string>
-  <string name="label_rdp">RUIM membuka PIN</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
+  <string name="label_nsdp">PIN buka kunci bagian jaringan SIM</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
+  <string name="label_cdp">PIN buka kunci SIM korporat</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
+  <string name="label_spdp">PIN buka kunci penyedia layanan SIM</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
+  <string name="label_sdp">PIN buka kunci SIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="label_rn1dp">PIN buka kunci jaringan RUIM 1</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="label_rn2dp">PIN buka kunci Jaringan RUIM 2</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="label_rhrpd">PIN buka kunci RUIM HRPD</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
+  <string name="label_rcdp">PIN buka kunci RUIM korporat</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <string name="label_rspdp">PIN buka kunci penyedia layanan RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
+  <string name="label_rdp">PIN buka kunci RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Masukkan PUK</string>
-  <string name="requesting_unlock_cm">Meminta jaringan SIM untuk membuka\u2026</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
+  <string name="requesting_unlock_cm">Meminta buka kunci jaringan SIM\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Meminta buka kunci sub jaringan SIM\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Meminta buka kunci penyedia layanan SIM\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Meminta buka kunci korporat SIM\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Meminta buka kunci SIM\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Meminta buka kunci jaringan 1 RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Meminta buka kunci jaringan 2 RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Meminta buka kunci HRPD RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Meminta buka kunci penyedia layanan RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Meminta buka kunci korporat RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Meminta buka kunci RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Meminta buka kunci PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Permintaan buka kunci jaringan SIM tidak berhasil.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Permintaan buka kunci sub jaringan SIM tidak berhasil.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Permintaan buka kunci layanan penyedia SIM tidak berhasil.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Permintaan buka kunci korporat SIM tidak berhasil.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Permintaan buka kunci SIM tidak berhasil.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Permintaan buka kunci jaringan RUIM 1 tidak berhasil.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Permintaan buka kunci jaringan RUIM 2 tidak berhasil.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Permintaan buka kunci HRPD RUIM tidak berhasil.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Permintaan buka kunci layanan penyedia RUIM tidak berhasil.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Permintaan buka kunci korporat RUIM tidak berhasil.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Permintaan buka kunci RUIM tidak berhasil.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Buka kunci PUK tidak berhasil.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Buka kunci jaringan SIM tidak berhasil.</string>
-  <string name="nw_subset_unlock_success">Buka kunci sub jaringan SIM berhasil.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_success">Buka kunci bagian jaringan SIM berhasil.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Buka kunci penyedia layanan SIM berhasil.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Buka kunci korporat SIM berhasil.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">Buka kunci SIM berhasil.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Buka kunci jaringan 1 RUIM berhasil.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Buka kunci jaringan RUIM 2 berhasil.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Buka kunci RUIM HRPD berhasil.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Buka kunci penyedia layanan RUIM berhasil.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Buka kunci korporat RUIM berhasil.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Buka kunci RUIM berhasil.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Buka kunci PUK berhasil.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">Permintaan SS dimodifikasi ke permintaan DIAL.</string>
   <string name="stk_cc_ss_to_ussd_error">Permintaan SS dimodifikasi ke permintaan USSD.</string>
-  <string name="stk_cc_ss_to_ss_error">Permintaan SS dimodifikasi ke permintaan SS yang baru.</string>
+  <string name="stk_cc_ss_to_ss_error">Permintaan SS diubah ke permintaan SS yang baru.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Pengaturan panggilan video</string>
   <string name="vt_fallback_setting">Memanggil ulang melalui panggilan suara</string>
   <string name="vt_forward_setting">Penerusan panggilan video</string>
   <string name="vt_imagereplace_setting">Gambar alternatif</string>
   <string name="vt_imagereplace_setting_sum">Gambar yang ditampilkan ketika kamera depan dinonaktifkan</string>
-  <string name="roaming_mode_title">Modus Roaming</string>
-  <string name="roaming_mode_summary">Modus Roaming Internasional</string>
-  <string name="roaming_gsm">Roaming GSM</string>
-  <string name="roaming_cdma">Roaming CDMA</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
+  <string name="roaming_mode_title">Modus layanan jelajah (roaming)</string>
+  <string name="roaming_mode_summary">Modus jelajah (roaming) internasional</string>
+  <string name="roaming_gsm">Layanan jelajah (roaming) GSM</string>
+  <string name="roaming_cdma">Layanan jelajah (roaming) CDMA</string>
   <string name="roaming_disabled">Dinonaktifkan</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Modus jaringan pilihan: Global (CDMA/EvDo/LTE/GSM/WCDMA)</string>
-  <string name="preferred_network_mode_td_scdma_only_summary">Modus jaringan pilihan: TD-SCDMA saja</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_only_summary">Modus jaringan pilihan: hanya TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Modus jaringan pilihan: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Modus jaringan pilihan: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Modus jaringan pilihan: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Modus jaringan pilihan: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Modus jaringan pilihan: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Modus jaringan pilihan: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Modus jaringan pilihan: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Modus jaringan pilihan: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Modus jaringan pilihan: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
-  <string name="callFailed_incoming_cb_enabled">Party telah melarang semua panggilan masuk.</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
+  <string name="callFailed_incoming_cb_enabled">Pihak lain telah mencegah semua panggilan masuk.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Panggilan tidak terjawab dan diteruskan</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -133,23 +216,28 @@
   <string name="preferred_network_mode_wcdma_only_choice">Hanya WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Hanya GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA diutamakan</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (saat ini: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">Pengaturan kartu SIM</string>
   <string name="sim_card_title">Kartu SIM %d</string>
   <string name="sim_card_summary_empty">Slot kartu SIM kosong</string>
-  <string name="tty_mode_not_allowed_vt_call">Perubahan mode TTY tidak diperbolehkan selama panggilan VT</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
+  <string name="tty_mode_not_allowed_vt_call">Perubahan modus TTY tidak diperbolehkan selama panggilan VT</string>
   <string name="ipcall_sub_title">Pengaturan panggilan IP</string>
   <string name="ipcall_sub_summery">Edit awalan untuk panggilan melalui Layanan IP</string>
   <string name="ipcall_dialog_title">Awalan IP</string>
   <string name="ipcall_dialog_edit_hint">Panggilan IP awalan dial</string>
   <string name="fdn_service_unavailable">Layanan FDN ini tidak tersedia.</string>
   <string name="exportContacts">Mengekspor kontak ke kartu SIM\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Kelola kontak kartu SIM</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Kelola kontak SIM</string>
   <string name="exportContactScreen">Ekspor kontak telepon ke SIM</string>
   <string name="addSimEntries">Tambahkan kontak SIM</string>
   <string name="deleteAllSimEntries">Hapus semua kontak SIM</string>
   <string name="deleteSimContacts">Menghapus kontak SIM\u2026</string>
-  <string name="editContact">Ubah</string>
+  <string name="editContact">Edit</string>
   <string name="sendSms">Kirim SMS</string>
   <string name="delete">Hapus</string>
   <string name="dial">Panggil</string>
@@ -158,59 +246,106 @@
   <string name="hintName">Nama</string>
   <string name="hintPhonenumber">Nomer telepon</string>
   <string name="contactAddSuccess">Berhasil menambahkan kontak ke SIM</string>
-  <string name="contactAddFailed">Gagal untuk menambahkan kontak ke SIM</string>
+  <string name="contactAddFailed">Gagal menambahkan kontak ke SIM</string>
   <string name="contactUpdateSuccess">Kontak di SIM berhasil diperbarui</string>
   <string name="contactUpdateFailed">Kontak di SIM gagal untuk diperbarui</string>
   <string name="contactdeleteSuccess">Berhasil menghapus kontak dari SIM</string>
-  <string name="contactdeleteFailed">Gagal untuk menghapus kontak dari SIM</string>
+  <string name="contactdeleteFailed">Gagal menghapus kontak dari SIM</string>
   <string name="allContactdeleteSuccess">Berhasil menghapus semua kontak dari SIM</string>
-  <string name="allContactdeleteFailed">Gagal untuk menghapus semua kontak dari SIM</string>
+  <string name="allContactdeleteFailed">Gagal menghapus semua kontak dari SIM</string>
   <string name="exportAllcontatsSuccess">Semua kontak berhasil diekspor ke SIM</string>
   <string name="exportAllcontatsFailed">Semua kontak gagal diekspor ke SIM</string>
   <string name="exportAllcontatsNoContacts">Tidak ada kontak yang ditemukan untuk diekspor ke SIM</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Pilihan jaringan</string>
   <string name="network_id">ID jaringan</string>
   <string name="dialog_network_priority_title">Prioritas</string>
   <string name="uplmn_list_setting_add_plmn">PLMN Baru</string>
-  <string name="gsm_umts_network_preferences_title">Mode jaringan</string>
-  <string name="gsm_umts_network_preferences_dialogtitle">Mode jaringan</string>
+  <string name="gsm_umts_network_preferences_title">Modus jaringan</string>
+  <string name="gsm_umts_network_preferences_dialogtitle">Modus jaringan</string>
   <string name="sim_info">Info kartu SIM</string>
   <string name="close">Tutup</string>
   <string name="change">Atur</string>
   <string name="new_sim_detected">Kartu SIM baru terdeteksi:</string>
-  <string name="default_sim_setting">Pengaturan default:</string>
-  <string name="mobile_data">Sambungan data: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
+  <string name="default_sim_setting">Pengaturan baku:</string>
+  <string name="mobile_data">Koneksi data: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
   <string name="mobile_data_on">diaktifkan</string>
   <string name="mobile_data_off">dinonaktifkan</string>
-  <string name="sim_unknown">Tidak dikenal</string>
+  <string name="sim_unknown">Tidak diketahui</string>
   <string name="sim_absent">Absen</string>
   <string name="multi_sim_settings_title">Pengaturan Dual SIM</string>
   <string name="lte_switch_unavailable">Pemindah kartu SIM 3G/LTE tidak tersedia</string>
   <string name="lte_recognition_title">Pengenalan kartu SIM</string>
-  <string name="lte_recognize_summary">Dua kartu SIM 3G/LTE terdeteksi, Anda perlu mengatur kartu SIM 3G/LTE default:</string>
-  <string name="lte_select_title">Kartu SIM 3G/LTE default</string>
+  <string name="lte_recognize_summary">Dua kartu SIM 3G/LTE terdeteksi, Anda perlu mengatur kartu SIM 3G/LTE baku:</string>
+  <string name="lte_select_title">Kartu SIM 3G/LTE baku</string>
   <string name="lte_select_summary">Langganan yang dipilih akan diakui sebagai kartu SIM 3G/LTE dan yang lain sebagai kartu SIM 2G.</string>
-  <string name="lte_checkbox_text">Atur koneksi data ke kartu SIM yang dipilih sekali mengubah kartu SIM 3G/LTE default</string>
+  <string name="lte_checkbox_text">Atur koneksi data ke kartu SIM yang dipilih sekali mengubah kartu SIM 3G/LTE baku</string>
   <string name="reg_failed">Registrasi gagal</string>
   <string name="reg_suc">Registrasi berhasil</string>
-  <string name="reg_failed_msg">Registrasi kartu SIM 3G/LTE default gagal, %1$s akan diakui sebagai kartu SIM 2G.</string>
+  <string name="reg_failed_msg">Registrasi kartu SIM 3G/LTE baku gagal, %1$s akan diakui sebagai kartu SIM 2G.</string>
   <string name="lte_set">Atur</string>
-  <string name="lte_setting">Kartu SIM 3G/LTE default sedang diatur</string>
+  <string name="lte_setting">Kartu SIM 3G/LTE baku sedang diatur</string>
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Layanan data perlu diputus sementara. Anda yakin ingin melanjutkan?</string>
-  <string name="ims_edit_title">Rincian akun IMS</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
+  <string name="ims_edit_title">Detail akun IMS</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">Akun IMS</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Kualitas panggilan video</string>
   <string name="ims_vt_call_quality_low">Rendah</string>
   <string name="ims_vt_call_quality_high">Tinggi</string>
   <string name="ims_vt_call_quality_unknown">Tidak diketahui</string>
-  <string name="ims_vt_call_quality_set_failed">Gagal untuk mengatur kualitas video</string>
-  <string name="perm_change_mobile_network">mengubah modus jaringan (2G / 3G)</string>
+  <string name="ims_vt_call_quality_set_failed">Gagal mengatur kualitas video</string>
+  <!-- Permission for notification-bar network toggle -->
+  <string name="perm_change_mobile_network">ubah modus jaringan (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Izinkan aplikasi untuk mengubah antara data 2G dan data 3G setiap saat. 3G lebih cepat, tapi mengkonsumsi baterai lebih banyak dan dapat menyebabkan biaya tambahan.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Nomor telepon saya</string>
   <string name="phone_number_summary">Tetapkan nomor telepon untuk perangkat ini</string>
-  <string name="msim_mobile_network_settings_title">Pengaturan jaringan mobile SIM %d</string>
+  <string name="msim_mobile_network_settings_title">Pengaturan jaringan seluler SIM %d</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Format perekaman telepon</string>
+  <!-- Packet Count and Packet Error Count settings -->
+  <string name="ims_get_packet_count_failed">Gagal mendapatkan jumlah paket</string>
+  <string name="ims_get_packet_error_count_failed">Tidak berhasil mendapatkan cacahan galat paket</string>
+  <string name="ims_get_packet_count_label">Tekan di sini untuk mendapatkan jumlah paket</string>
+  <string name="ims_get_packet_error_count_label">Ketuk di sini untuk mendapatkan cacahan galat paket</string>
+  <!-- Wi-Fi calling settings -->
+  <string name="wifi_call_setting">Pengaturan panggilan Wi-Fi</string>
+  <string name="wifi_calling_title">Panggilan Wi-Fi</string>
+  <string name="wifi_calling_preference_title">Preferensi panggilan Wi-Fi</string>
+  <string name="ims_set_wifi_calling_preference_failed">Gagal untuk mengatur preferensi panggilan Wi-Fi</string>
+  <string name="wifi_pref_none">Tidak ada preferensi</string>
+  <string name="wifi_preferred">Wi-Fi diutamakan</string>
+  <string name="wifi_only">Hanya Wi-Fi</string>
+  <string name="cellular_preferred">Seluler diutamakan</string>
+  <string name="cellular_only">Hanya seluler</string>
+  <string name="call_barring">Pencegahan panggilan</string>
+  <string name="call_barring_outgoing">Pencegahan panggilan keluar</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Tidak hidup</item>
+    <item>Jelajah pangilan internasional</item>
+    <item>Panggilan antar bangsa</item>
+    <item>Panggilan keluar</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Tidak hidup</item>
+    <item>Menjelajah</item>
+    <item>Seluruh</item>
+  </string-array>
+  <string name="call_barring_incoming">Pencegahan panggilan masuk</string>
+  <string name="input_password">Masukan kata sandi Anda</string>
+  <string name="invalidPsw">Masukan kata sandi yang benar (4-8 digit)</string>
+  <string name="labelCbCancelAll">Menonaktifkan pembatasan pada panggilan</string>
+  <string name="labelCbChangePassword">Ganti kata sandi</string>
+  <string name="psw_enter_old">Kata Sandi lama</string>
+  <string name="psw_enter_new">Kata Sandi yang baru</string>
+  <string name="psw_reenter_new">Masukan kembali kata sandi Anda</string>
+  <string name="no_call_barring">Pencegahan panggilan dinonaktifkan</string>
+  <string name="cb_psw_dont_match">Kata sandi tidak sesuai</string>
 </resources>
