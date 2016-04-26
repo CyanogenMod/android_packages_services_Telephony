@@ -212,6 +212,58 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
         }
     };
 
+/**
+    # HOW TO ANALYSIS THE RESPONSE
+    
+    The response contains a AsyncResult obj, The AsyncResult obj contains 
+    a byte array result.
+    
+    The byte array result should be analysed to int array, that means
+    we should compress each 4 bytes into 1 int. Like 
+      int int0 = ((byte0 & 0xff) << 24) | ((byte1 & 0xff) << 16) | ((byte2 & 0xff) << 8) | (byte3 & 0xff); 
+    
+    The expected byte array length is 4*4=16, it should be compressed into 4 ints.
+    Each int means:
+      * int 0 : the simlock remain retries.
+      * int 1 : the simlock type, which to specifies different customers.
+      * int 2 : the simlock status.
+      * int 3 : reversed, not used.
+    
+    Each bit in the simlock status (int 0) indicates one simlock perso type when bit on:
+      * bit0 : SIM1 PERSOSUBSTATE_SIM_NETWORK
+      * bit1 : SIM1 PERSOSUBSTATE_SIM_NETWORK_SUBSET
+      * bit2 : SIM1 PERSOSUBSTATE_SIM_SERVICE_PROVIDER
+      * bit3 : SIM1 PERSOSUBSTATE_SIM_CORPORATE
+      * bit4 : SIM1 PERSOSUBSTATE_SIM_SIM
+      * bit5 : SIM1 PERSOSUBSTATE_RUIM_NETWORK1
+      * bit6 : SIM1 PERSOSUBSTATE_RUIM_NETWORK2
+      * bit7 : SIM1 PERSOSUBSTATE_RUIM_HRPD
+      * bit8 : SIM1 PERSOSUBSTATE_RUIM_SERVICE_PROVIDER
+      * bit9 : SIM1 PERSOSUBSTATE_RUIM_CORPORATE
+      * bit10 : SIM1 PERSOSUBSTATE_RUIM_RUIM
+      * bit11 : not used
+      * bit12 : not used
+      * bit13 : not used
+      * bit14 : not used
+      * bit15 : not used
+    
+      * bit16 : SIM2 PERSOSUBSTATE_SIM_NETWORK
+      * bit17 : SIM2 PERSOSUBSTATE_SIM_NETWORK_SUBSET
+      * bit18 : SIM2 PERSOSUBSTATE_SIM_SERVICE_PROVIDER
+      * bit19 : SIM2 PERSOSUBSTATE_SIM_CORPORATE
+      * bit20 : SIM2 PERSOSUBSTATE_SIM_SIM
+      * bit21 : SIM2 PERSOSUBSTATE_RUIM_NETWORK1
+      * bit22 : SIM2 PERSOSUBSTATE_RUIM_NETWORK2
+      * bit23 : SIM2 PERSOSUBSTATE_RUIM_HRPD
+      * bit24 : SIM2 PERSOSUBSTATE_RUIM_SERVICE_PROVIDER
+      * bit25 : SIM2 PERSOSUBSTATE_RUIM_CORPORATE
+      * bit26 : SIM2 PERSOSUBSTATE_RUIM_RUIM
+      * bit27 : not used
+      * bit28 : not used
+      * bit29 : not used
+      * bit30 : not used
+      * bit31 : not used
+**/
     //handler for unlock function results
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
