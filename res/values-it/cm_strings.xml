@@ -127,7 +127,7 @@
   <string name="call_barring">Blocco chiamate</string>
   <string name="call_barring_outgoing">Blocco chiamate in uscita</string>
   <string-array name="call_barring_outgoing_display_values">
-    <item>Spento</item>
+    <item>Disattivato</item>
     <item>Chiamate roaming internazionale</item>
     <item>Chiamate internazionali</item>
     <item>Chiamate in uscita</item>
