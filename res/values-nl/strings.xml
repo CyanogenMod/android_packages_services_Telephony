@@ -208,7 +208,7 @@
     <string name="roaming_alert_title" msgid="3654815360303826008">"Gegevensroaming toestaan?"</string>
     <string name="gsm_umts_options" msgid="6538311689850981686">"GSM-/UMTS-opties"</string>
     <string name="cdma_options" msgid="4016822858172249884">"CDMA-opties"</string>
-    <string name="throttle_data_usage" msgid="3715677828160555808">"Datagebruik"</string>
+    <string name="throttle_data_usage" msgid="3715677828160555808">"Gegevensgebruik"</string>
     <string name="throttle_current_usage" msgid="8762280193043815361">"Gegevensgebruik in huidige periode"</string>
     <string name="throttle_time_frame" msgid="1915198770363734685">"Periode voor gegevensgebruik"</string>
     <string name="throttle_rate" msgid="4710388992676803508">"Beleid voor gegevenssnelheid"</string>
@@ -309,6 +309,7 @@
     <string name="network_lte" msgid="7702681952521375754">"LTE (aanbevolen)"</string>
     <string name="network_4G" msgid="2723512640529983138">"4G (aanbevolen)"</string>
     <string name="network_global" msgid="1323190488685355309">"Algemeen"</string>
+    <string name="network_tdscdma" msgid="4713495909689860245">"Alleen TDSCDMA"</string>
     <string name="cdma_system_select_title" msgid="5757657769327732833">"Systeem selecteren"</string>
     <string name="cdma_system_select_summary" msgid="60460043745797517">"De CDMA-roamingmodus wijzigen"</string>
     <string name="cdma_system_select_dialogtitle" msgid="6083355415165359075">"Systeem selecteren"</string>
