@@ -111,6 +111,8 @@
     <string name="unlock_failed">Network unlock request unsuccessful.</string>
     <!-- Success message displayed on SIM Network Depersonalization panel -->
     <string name="unlock_success">Network unlock successful.</string>
+    <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+    <string name="unlock_failed_remaining_retries">Unlock request unsuccessful, %1$d retries remaining.</string>
 
     <!-- settings strings -->
 
