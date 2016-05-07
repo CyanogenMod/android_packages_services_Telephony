@@ -311,8 +311,20 @@
   <!-- Call recording format -->
   <string name="call_recording_format">Format ved samtaleopptak</string>
   <!-- Packet Count and Packet Error Count settings -->
+  <string name="ims_get_packet_count_failed">Kunne ikke hente antallet av pakker</string>
+  <string name="ims_get_packet_error_count_failed">Kunne ikke hente antallet av pakkefeil</string>
+  <string name="ims_get_packet_count_label">Trykk her for å hente antall av pakker</string>
+  <string name="ims_get_packet_error_count_label">Trykk her for å hente pakkefeil</string>
   <!-- Wi-Fi calling settings -->
+  <string name="wifi_call_setting">Wi-Fi ringe innstillinger</string>
+  <string name="wifi_calling_title">Wi-Fi ringing</string>
+  <string name="wifi_calling_preference_title">Wi-Fi ringing preferanser</string>
+  <string name="ims_set_wifi_calling_preference_failed">Kunne ikke sette Wi-Fi ringing preferanser</string>
+  <string name="wifi_pref_none">Ingen preferanse</string>
+  <string name="wifi_preferred">Wi-Fi foretrukket</string>
   <string name="wifi_only">Kun Wi-Fi</string>
+  <string name="cellular_preferred">Mobil foretrekkes</string>
+  <string name="cellular_only">Mobil bare</string>
   <string name="call_barring_outgoing">Utgående samtaleblokkering</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>Av</item>
