@@ -43,6 +43,7 @@ import com.android.internal.telephony.uicc.IccCardApplicationStatus.PersoSubStat
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Vector;
 
 /**
  * "SIM network unlock" PIN entry screen.
@@ -220,6 +221,8 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
                 if (res.exception != null) {
                     if (DBG) log("network depersonalization request failure.");
                     displayStatus(ERROR);
+                    int retries = parseResult(msg);
+                    if( retries >= 0) { displayRetryStatus(retries); }
                     postDelayed(new Runnable() {
                                     public void run() {
                                         hideAlert();
@@ -364,5 +367,38 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
 
     private void log(String msg) {
         Log.d(TAG, "[IccNetworkDepersonalizationPanel] " + msg);
+    }
+
+    private int parseResult(Message msg) {
+        AsyncResult res = (AsyncResult) msg.obj;
+        if (res.result == null) { return -1; }
+
+        byte [] resp = {0,0,0};
+        resp = (byte [])res.result;
+        if (resp.length <= 0) { return -1; }
+
+        Vector<Integer> intV = new Vector<Integer>();
+        intV.clear();
+        int vectorSize = resp.length / 4; //uint32
+        if (DBG) log("number of elements in resp is " + vectorSize);
+
+        for (int i=0; i<vectorSize; i++) {
+            int parsedInt = 0;
+            for (int j=0; j<4; j++) {
+                parsedInt += (resp[i*4+j] & 0xFF) << (8*j);
+            }
+            intV.add(Integer.valueOf(parsedInt));
+            if (DBG) log("intV["+i+"]:" + intV.get(i));
+        }
+
+        return intV.get(0);
+    }
+
+    private void displayRetryStatus(int retries) {
+        String msg = getContext().getString(
+                     R.string.unlock_failed_remaining_retries, retries);
+        mStatusText.setText(msg);
+        mEntryPanel.setVisibility(View.GONE);
+        mStatusPanel.setVisibility(View.VISIBLE);
     }
 }
