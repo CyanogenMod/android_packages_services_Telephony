@@ -237,4 +237,7 @@
     <!-- Network mode picker dialog title -->
     <string name="choose_network_mode_title">Choose network mode</string>
     <string name="choose_network_mode_system_default">System default</string>
+
+    <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+    <string name="unlock_failed_remaining_retries">Unlock request unsuccessful, %1$d retries remaining.</string>
 </resources>
