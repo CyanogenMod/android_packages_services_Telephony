@@ -192,4 +192,5 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">เลือกรูปแบบเครือข่าย</string>
   <string name="choose_network_mode_system_default">ค่าเริ่มต้นระบบ</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

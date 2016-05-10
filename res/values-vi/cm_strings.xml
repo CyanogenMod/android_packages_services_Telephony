@@ -29,6 +29,7 @@
   <string name="blacklist_summary">Bạn sẽ không nhận được cuộc gọi đến hoặc tin nhắn từ các số điện thoại trên danh sách chặn người gọi</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Chỉ báo có tin nhắn đang chờ</string>
+  <string name="mwi_notification_summary">Hiển thị thông báo thư thoại chỉ báo chờ tin nhắn (bắt buộc phải khởi động lại)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Số điện thoại của tôi</string>
   <string name="phone_number_summary">Thiết lập số điện thoại cho thiết bị này</string>
@@ -189,4 +190,7 @@
   <string name="connected_line_identification_title">Xác định đường dây đã kết nối</string>
   <string name="connected_line_identification_summary">Vô hiệu hóa tùy chọn này nếu số lượng người nhận không hiển thị trong lịch sử cuộc gọi</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Chọn chế độ mạng</string>
+  <string name="choose_network_mode_system_default">Mặc định hệ thống</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

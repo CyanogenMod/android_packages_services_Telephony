@@ -29,7 +29,7 @@
   <string name="blacklist_summary">לא יתקבלו שיחות נכנסות או הודעות ממספרי הטלפון הנמצאים ברשימת המתקשרים החסומים</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">מחוון הודעה ממתינה</string>
-  <string name="mwi_notification_summary">הצג חיווי עבור הודעה קולית ממתינה (אתחול נדרש)</string>
+  <string name="mwi_notification_summary">הצג מחוון עבור הודעה קולית ממתינה (אתחול נדרש)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">מספר הטלפון שלי</string>
   <string name="phone_number_summary">הגדר מספר טלפון למכשיר זה</string>
@@ -188,8 +188,9 @@
   <string name="perm_change_mobile_network_desc">מאפשר ליישום לשנות את מצב הרשת הנוכחי.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">זיהוי קו מחובר</string>
-  <string name="connected_line_identification_summary">השבתת אפשרות זו אם מספרי הנמענים לא מופיעים בהיסטוריית השיחות</string>
+  <string name="connected_line_identification_summary">השבת אפשרות זו אם מספרי הנמענים לא מופיעים בהיסטוריית השיחות</string>
   <!-- Network mode picker dialog title -->
-  <string name="choose_network_mode_title">בחר מצב רשת</string>
+  <string name="choose_network_mode_title">בחר במצב רשת</string>
   <string name="choose_network_mode_system_default">ברירת המחדל של המערכת</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

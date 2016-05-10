@@ -187,4 +187,5 @@
   <string name="perm_change_mobile_network_desc">ప్రస్తుత నెట్వర్క్ మోడ్‌ను సవరించడానికి అనువర్తనాన్ని అనుమతిస్తుంది.</string>
   <!-- Mobile network settings, COLP -->
   <!-- Network mode picker dialog title -->
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

@@ -61,4 +61,5 @@
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
   <!-- Network mode picker dialog title -->
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

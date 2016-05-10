@@ -192,4 +192,5 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Odaberite način rada mreže</string>
   <string name="choose_network_mode_system_default">Zadana postavka sustava</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

@@ -29,6 +29,7 @@
   <string name="blacklist_summary">No recibirás llamadas ni mensajes de los números incluidos en la lista de números bloqueados</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indicador de mensaje en espera</string>
+  <string name="mwi_notification_summary">Mostrar indicador de espera para las notificaciones del buzón de voz (requiere reinicio)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mi número de teléfono</string>
   <string name="phone_number_summary">Establecer el número asociado a este dispositivo</string>
@@ -189,4 +190,7 @@
   <string name="connected_line_identification_title">Identificación de la línea conectada</string>
   <string name="connected_line_identification_summary">Desactivar esta opción si los números de los destinatarios no se muestran en el historial de llamadas</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Elige el modo de red</string>
+  <string name="choose_network_mode_system_default">Utilizar valores predeterminados</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

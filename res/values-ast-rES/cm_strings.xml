@@ -25,6 +25,7 @@
   <string name="mwi_notification_title">Indicador de mensaxes n\'espera</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">El mio númberu de teléfonu</string>
+  <string name="phone_number_summary">Afita\'l númberu teléfonu pa esti preséu</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Esvíu incondicional de llamada activu</string>
@@ -61,6 +62,13 @@
   <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">El desbloquéu de tarxeta SIM féxose correcho.</string>
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <string name="all_day">Tol día</string>
+  <string name="time_start">De</string>
+  <string name="time_end">Pa</string>
+  <string name="time_hour">Hora</string>
+  <string name="time_minute">Minutu</string>
+  <string name="time_formate_am">AM</string>
+  <string name="time_formate_pm">PM</string>
   <!-- Mobile network settings, preferred network modes -->
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Mou de rede preferíu: Global(CDMA/EVDO/LTE/GSM/WCDMA)</string>
@@ -83,8 +91,11 @@
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Mou de rede preferíu: TD-SCDMA/GSM/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Mou de rede preferíu: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Mou de rede preferíu: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -106,13 +117,34 @@
   <string name="preferred_network_mode_wcdma_only_choice">Namái WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Namái GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferencia de GSM/WCDMA</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Off</item>
+    <item>International roaming calls</item>
+    <item>Llamaes internacionales</item>
+    <item>Llamaes salientes</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Off</item>
+    <item>Roaming</item>
+    <item>Too</item>
+  </string-array>
+  <string name="input_password">Introduz la to contraseña</string>
+  <string name="invalidPsw">Introduz una contraseña válida (4-8 díxitos)</string>
+  <string name="labelCbChangePassword">Camudar contraseña</string>
+  <string name="psw_enter_old">Contraseña vieya</string>
+  <string name="psw_enter_new">Contraseña nueva</string>
+  <string name="psw_reenter_new">Reintroduz la to contraseña</string>
+  <string name="cb_psw_dont_match">Les contraseñes nun concasen</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">FDN nun s\'anovó porque\'l númberu ta baleru o perpasa los 20 díxitos.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Esportando contautos a la tarxeta SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Xestionar contautos de tarxeta SIM</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_local_low_battery">Falló la llamada pola mor de batería baxa.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">Falló la llamada pola mor de batería baxa del preséu remotu.</string>
   <!-- Sim contacts management -->
   <string name="contactScreen">Xestionar los contautos de la SIM</string>
   <string name="exportContactScreen">Esportar contautos del teléfonu a la SIM</string>
@@ -141,4 +173,5 @@
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
   <!-- Network mode picker dialog title -->
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

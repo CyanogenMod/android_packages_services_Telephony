@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Anda tidak akan menerima panggilan atau pesan dari nomor telepon yang ada di daftar penelepon yang diblokir</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator pesan menunggu</string>
-  <string name="mwi_notification_summary">Tampilkan pemberitahuan indikator pesan tunggu untuk pesan suara</string>
+  <string name="mwi_notification_summary">Tampilkan pemberitahuan indikator pesan tunggu untuk pesan suara (diperlukan mulai ulang)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Nomor telepon saya</string>
   <string name="phone_number_summary">Tetapkan nomor telepon untuk perangkat ini</string>
@@ -188,8 +188,9 @@
   <string name="perm_change_mobile_network_desc">Memperbolehkan aplikasi untuk mengubah modus jariangan saat ini</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Identifikasi jaringan yang terhubung</string>
-  <string name="connected_line_identification_summary">Menonaktifkan pilihan ini apabila nomor penerima tidak muncul dalam riwayat panggilan</string>
+  <string name="connected_line_identification_summary">Nonaktifkan pilihan ini apabila nomor penerima tidak muncul dalam riwayat panggilan</string>
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Pilih modus jaringan</string>
   <string name="choose_network_mode_system_default">Aturan standar sistem</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

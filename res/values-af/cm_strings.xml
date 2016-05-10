@@ -29,6 +29,7 @@
   <string name="blacklist_summary">Jy sal nie inkomende oproepe of boodskappe van persone ontvang op die lys van geblokkeerde oproepe</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Boodskap wag aanwyser</string>
+  <string name="mwi_notification_summary">Wys boodskap wag aanwyser vir stempos boodskappe (herbegin benodig)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">My telefoonnommer</string>
   <string name="phone_number_summary">Stel die telefoonnommer vir hierdie toestel</string>
@@ -191,4 +192,5 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Kies netwerk modus</string>
   <string name="choose_network_mode_system_default">Stelsel standaard</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

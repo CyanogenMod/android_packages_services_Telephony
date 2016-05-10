@@ -58,7 +58,9 @@
   <!-- In-call screen: call failure message displayed in errror dialog -->
   <!-- In-call screen: call failure message displayed in errror dialog -->
   <!-- Sim contacts management -->
+  <string name="msim_mobile_network_settings_title">SIM %d mobile network settings</string>
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
   <!-- Network mode picker dialog title -->
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

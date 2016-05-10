@@ -188,4 +188,5 @@
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Verbindingsidentificatie</string>
   <!-- Network mode picker dialog title -->
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>
