@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">Netzwerkmodus auswählen</string>
   <string name="choose_network_mode_system_default">Systemstandard</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Die Anforderung zum Entsperren war nicht erfolgreich. Es verbleiben %1$d Versuche.</string>
 </resources>

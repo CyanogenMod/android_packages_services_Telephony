@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">Tria un mode de xarxa</string>
   <string name="choose_network_mode_system_default">Per defecte del sistema</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Petició de desbloqueig infructuosa, queden %1$d intents.</string>
 </resources>
