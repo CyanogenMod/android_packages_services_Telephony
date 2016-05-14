@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">Odaberite način rada mreže</string>
   <string name="choose_network_mode_system_default">Zadana postavka sustava</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Zahtjev za otključavanje neuspješan, preostalo %1$d pokušaja.</string>
 </resources>

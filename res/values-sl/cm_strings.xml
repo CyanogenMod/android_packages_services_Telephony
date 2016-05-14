@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">Izberite način omrežja</string>
   <string name="choose_network_mode_system_default">Sistemski privzeti</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Zahteva za odklep neuspešna, %1$d preostalih poskusov.</string>
 </resources>
