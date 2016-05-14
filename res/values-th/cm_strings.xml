@@ -29,6 +29,7 @@
   <string name="blacklist_summary">คุณจะไม่ได้รับสายการโทรเข้าหรือข้อความจากหมายเลขที่อยู่ในรายชื่อผู้โทรที่ถูกบล็อค</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">ตัวบ่งชี้ที่รอข้อความ</string>
+  <string name="mwi_notification_summary">แสดงการแจ้งเตือนตัวบ่งขี้ข้อความที่รออยู่ของระบบฝากข้อความ (ต้องเริ่มใหม่)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">หมายเลขโทรศัพท์ของฉัน</string>
   <string name="phone_number_summary">ตั้งค่าหมายเลขโทรศัพท์สำหรับอุปกรณ์นี้</string>
@@ -191,4 +192,6 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">เลือกรูปแบบเครือข่าย</string>
   <string name="choose_network_mode_system_default">ค่าเริ่มต้นระบบ</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">คำขอปลดล็อคไม่ประสบความสำเร็จ สามารถดำเนินการซ้ำได้อีก %1$d ครั้ง</string>
 </resources>

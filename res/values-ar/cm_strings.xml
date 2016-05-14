@@ -29,6 +29,7 @@
   <string name="blacklist_summary">لن تتلقى المكالمات أو الرسائل الواردة من أرقام الهاتف في قائمة المتصلين المحظورين</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">مؤشر انتظار رسالة</string>
+  <string name="mwi_notification_summary">يظهر تبليغات البريد الصوتي لمؤشر انتظار الرسالة (مطلوب إعادة التشغيل)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">رقم هاتفي</string>
   <string name="phone_number_summary">تعيين رقم الهاتف لهذا الجهاز</string>
@@ -191,4 +192,5 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">اختيار وضع الشبكة</string>
   <string name="choose_network_mode_system_default">الإعداد الافتراضي للنظام</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

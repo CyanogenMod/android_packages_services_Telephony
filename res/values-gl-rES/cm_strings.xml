@@ -163,4 +163,5 @@
   <string name="perm_change_mobile_network">cambiar modo da rede</string>
   <!-- Mobile network settings, COLP -->
   <!-- Network mode picker dialog title -->
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

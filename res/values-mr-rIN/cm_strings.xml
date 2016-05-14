@@ -189,4 +189,5 @@
   <string name="connected_line_identification_title">कनेक्ट लाइन ओळख</string>
   <string name="connected_line_identification_summary">प्राप्तकर्ता संख्या कॉल इतिहास मध्ये दर्शविले नाही तर हा पर्याय अक्षम करा</string>
   <!-- Network mode picker dialog title -->
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

@@ -59,9 +59,9 @@
   <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Deia bidali da</string>
   <!-- Toast text for incoming call connecting through ECT -->
-  <string name="call_notif_callconnectingect">Deia zentralita bidez konektatzen</string>
+  <string name="call_notif_callconnectingect">Deia konektatzen dei-transferentzia esplizituaren bidez</string>
   <!-- Toast text for incoming call connected through ECT -->
-  <string name="call_notif_callconnectedect">Deia zentralita bidez konektatu da</string>
+  <string name="call_notif_callconnectedect">Deia konektatu da dei-transferentzia esplizituaren bidez</string>
   <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIM sareko desblokeoa eskatzen\u2026</string>
   <!-- Error message displayed on SIM Network Depersonalization panel -->
@@ -192,4 +192,6 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Hautatu sare modua</string>
   <string name="choose_network_mode_system_default">Sistemaren lehenetsia</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Desblokeatze eskaerak huts egin du, %1$d saiakera geratzen dira.</string>
 </resources>

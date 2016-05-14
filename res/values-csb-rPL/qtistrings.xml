@@ -33,94 +33,49 @@
 <resources>
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
-  <string name="ims_settings">Pengaturan IMS</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
-  <string name="label_nsdp">Jaringan SIM membuka himpunan bagian PIN</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
-  <string name="label_cdp">Korporat SIM membuka PIN</string>
   <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
-  <string name="label_spdp">Penyedia layanan SIM membuka PIN</string>
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
-  <string name="label_sdp">SIM membuka PIN</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
-  <string name="label_rn1dp">Jaringan 1 RUIM membuka PIN</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
-  <string name="label_rn2dp">Jaringan 2 RUIM membuka PIN</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
-  <string name="label_rhrpd">RUIM HRPD membuka PIN</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
-  <string name="label_rcdp">RUIM korporat membuka PIN</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
-  <string name="label_rspdp">Penyedia layanan RUIM membuka PIN</string>
   <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
-  <string name="label_rdp">RUIM membuka PIN</string>
   <!-- Label text for PUK entry widget on Depersonalization panel -->
-  <string name="label_puk">Memasukkan PUK</string>
   <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
-  <string name="requesting_nw_subset_unlock">Meminta buka kunci himpunan bagian jaringan SIM\u2026</string>
   <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
-  <string name="requesting_sp_unlock">Meminta penyedia layanan SIM membuka\u2026</string>
   <!-- Status message displayed on SIM Corporate Depersonalization panel -->
-  <string name="requesting_corporate_unlock">Meminta SIM korporat membuka\u2026</string>
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
-  <string name="requesting_sim_unlock">Meminta SIM membuka\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
-  <string name="requesting_rnw1_unlock">Meminta jaringan 1 RUIM membuka\u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="requesting_rnw2_unlock">Meminta jaringan 2 RUIM membuka \u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
-  <string name="requesting_rhrpd_unlock">Meminta RUIM HRPD membuka\u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
-  <string name="requesting_rsp_unlock">Meminta penyedia layanan RUIM membuka\u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="requesting_rc_unlock">Meminta korporat RUIM membuka\u2026</string>
   <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
-  <string name="requesting_ruim_unlock">Meminta RUIM membuka\u2026</string>
   <!-- Status message displayed on PUK Depersonalization panel -->
-  <string name="requesting_puk_unlock">Meminta PUK membuka\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
-  <string name="nw_subset_unlock_failed">Permintaan buka kunci himpunan bagian jaringan SIM tidak berhasil.</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
-  <string name="sp_unlock_failed">Permintaan membuka kunci layanan penyedia SIM tidak berhasil.</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
-  <string name="corporate_unlock_failed">Permintaan membuka kunci korporat SIM tidak berhasil.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
-  <string name="sim_unlock_failed">Permintaan membuka kunci SIM tidak berhasil.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
-  <string name="rnw1_unlock_failed">Permintaan buka kunci jaringan 1 RUIM tidak berhasil.</string>
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="rnw2_unlock_failed">Permintaan buka kunci jaringan 2 RUIM tidak berhasil.</string>
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
-  <string name="rhrpd_unlock_failed">Permintaan membuka kunci HRPD RUIM tidak berhasil.</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
-  <string name="rsp_unlock_failed">Permintaan membuka kunci layanan penyedia RUIM tidak berhasil.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="rc_unlock_failed">Permintaan membuka kunci korporat RUIM tidak berhasil.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
-  <string name="ruim_unlock_failed">Permintaan membuka kunci RUIM tidak berhasil.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
-  <string name="puk_unlock_failed">Tidak dapat membuka kunci PUK.</string>
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
-  <string name="nw_subset_unlock_success">Tidak berhasil membuka kunci himpunan bagian jaringan SIM.</string>
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
-  <string name="sp_unlock_success">Berhasil membuka kunci penyedia layanan SIM.</string>
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
-  <string name="corporate_unlock_success">Berhasil membuka kunci korporat SIM.</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
-  <string name="sim_unlock_success">Berhasil membuka kunci SIM.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
-  <string name="rnw1_unlock_success">Berhasil membuka kunci jaringan 1 RUIM.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="rnw2_unlock_success">Berhasil membuka kunci jaringan 2 RUIM.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
-  <string name="rhrpd_unlock_success">Berhasil membuka kunci RUIM HRPD.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
-  <string name="rsp_unlock_success">Berhasil membuka kunci layanan penyedia RUIM.</string>
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="rc_unlock_success">Berhasil membuka kunci korporat RUIM.</string>
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
-  <string name="ruim_unlock_success">Berhasil membuka kunci RUIM.</string>
   <!-- Success message displayed on PUK Depersonalization panel -->
-  <string name="puk_unlock_success">Berhasil membuka kunci PUK.</string>
   <!-- Preferred networks -->
 </resources>

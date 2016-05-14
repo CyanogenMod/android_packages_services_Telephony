@@ -187,4 +187,5 @@
   <string name="perm_change_mobile_network_desc">தற்போதைய நெட்வொர்க் பயன்முறையை மாற்ற, இந்த பயன்பாட்டை அனுமதிக்கிறது.</string>
   <!-- Mobile network settings, COLP -->
   <!-- Network mode picker dialog title -->
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

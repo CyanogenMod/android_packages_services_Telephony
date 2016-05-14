@@ -192,4 +192,5 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Vælg netværkstilstand</string>
   <string name="choose_network_mode_system_default">Systemstandard</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

@@ -192,4 +192,6 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">选择网络模式</string>
   <string name="choose_network_mode_system_default">系统默认</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">解锁请求不成功，剩余 %1$d 次重试。</string>
 </resources>

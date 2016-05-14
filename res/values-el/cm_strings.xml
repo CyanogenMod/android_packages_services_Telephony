@@ -192,4 +192,6 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Επιλέξτε λειτουργία δικτύου</string>
   <string name="choose_network_mode_system_default">Προεπιλογή συστήματος</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Ανεπιτυχές αίτημα ξεκλειδώματος δικτύου, απομένουν %1$d προσπάθειες.</string>
 </resources>

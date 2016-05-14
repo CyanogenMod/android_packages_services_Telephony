@@ -150,7 +150,7 @@
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN не беше актуализирана, защото номерът е празен или превишава 20 цифри.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
-  <string name="exportContacts">Експортиране на контакти в СИМ карта\u2026</string>
+  <string name="exportContacts">Експортиране на контакти в СИМ картата\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Управление на контактите в СИМ картата</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
@@ -160,7 +160,7 @@
   <!-- Sim contacts management -->
   <string name="contactScreen">Управление на СИМ контактите</string>
   <string name="exportContactScreen">Експортиране на телефонни контакти в СИМ картата</string>
-  <string name="addSimEntries">Добави СИМ контакт</string>
+  <string name="addSimEntries">Добави контакт в СИМ картата</string>
   <string name="deleteAllSimEntries">Изтриване на всички контакти от СИМ картата</string>
   <string name="deleteSimContacts">Изтриване на контакти от СИМ карта\u2026</string>
   <string name="editContact">Редактиране</string>
@@ -192,4 +192,6 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Изберете мрежови режим</string>
   <string name="choose_network_mode_system_default">Система по подразбиране</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Неуспешно отключване, отават Ви %1$d опита.</string>
 </resources>

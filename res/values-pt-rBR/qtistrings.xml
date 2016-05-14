@@ -103,21 +103,21 @@
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Sucesso na solicitação de desbloqueio do subconjunto de rede SIM.</string>
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
-  <string name="sp_unlock_success">Sucesso no desbloqueio do provedor de serviço SIM.</string>
+  <string name="sp_unlock_success">Desbloqueio do provedor de serviço SIM efetuado.</string>
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
-  <string name="corporate_unlock_success">Sucesso no desbloqueio do SIM corporativo.</string>
+  <string name="corporate_unlock_success">Desbloqueio do SIM corporativo efetuado.</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
-  <string name="sim_unlock_success">Sucesso no desbloqueio do SIM.</string>
+  <string name="sim_unlock_success">Desbloqueio do SIM efetuado.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
-  <string name="rnw1_unlock_success">Sucesso no desbloqueio da rede RUIM 1.</string>
+  <string name="rnw1_unlock_success">Rede RUIM 1 desbloqueada.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="rnw2_unlock_success">Sucesso no desbloqueio da rede RUIM 2.</string>
+  <string name="rnw2_unlock_success">Rede RUIM 2 desbloqueada.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
-  <string name="rhrpd_unlock_success">Sucesso no desbloqueio do RUIM HRPD.</string>
+  <string name="rhrpd_unlock_success">RUIM HRPD desbloqueado.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Sucesso no desbloqueio do provedor de serviço RUIM.</string>
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="rc_unlock_success">Sucesso no desbloqueio do RUIM corporativo.</string>
+  <string name="rc_unlock_success">RUIM corporativo desbloqueado.</string>
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Sucesso no desbloqueio do RUIM.</string>
   <!-- Success message displayed on PUK Depersonalization panel -->

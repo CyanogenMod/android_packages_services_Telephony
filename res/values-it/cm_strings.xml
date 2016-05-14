@@ -127,7 +127,7 @@
   <string name="call_barring">Blocco chiamate</string>
   <string name="call_barring_outgoing">Blocco chiamate in uscita</string>
   <string-array name="call_barring_outgoing_display_values">
-    <item>Spento</item>
+    <item>Disattivato</item>
     <item>Chiamate roaming internazionale</item>
     <item>Chiamate internazionali</item>
     <item>Chiamate in uscita</item>
@@ -192,4 +192,5 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Scegli la modalità di rete</string>
   <string name="choose_network_mode_system_default">Predefinito di sistema</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
 </resources>

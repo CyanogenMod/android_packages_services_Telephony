@@ -130,7 +130,7 @@
     <item>Desativado</item>
     <item>Chamadas de roaming internacional</item>
     <item>Chamadas internacionais</item>
-    <item>Chamadas de saída</item>
+    <item>Chamadas efetuadas</item>
   </string-array>
   <string-array name="call_barring_incoming_display_values">
     <item>Desativado</item>
@@ -185,11 +185,13 @@
   <string name="msim_mobile_network_settings_title">Configurações de rede móvel do SIM %d</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">alterar o modo de rede</string>
-  <string name="perm_change_mobile_network_desc">Permite que um app modifique o modo de rede atual.</string>
+  <string name="perm_change_mobile_network_desc">Permite que um aplicativo modifique o modo de rede atual.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Identificação da linha conectada</string>
-  <string name="connected_line_identification_summary">Desabilite esta opção se os números dos destinatários não aparecerem no histórico de chamadas</string>
+  <string name="connected_line_identification_summary">Desative esta opção se os números dos destinatários não aparecerem no histórico de chamadas</string>
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Escolha o modo de rede</string>
   <string name="choose_network_mode_system_default">Padrão do sistema</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Pedido de desbloqueio malsucedido, %1$d tentativas restantes.</string>
 </resources>
