@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Няма да получавате входящи повиквания или съобщения от телефонните номера в списъка</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Индикатор за чакащо известие</string>
-  <string name="mwi_notification_summary">Показвай известия за чакащи съобщения в гласовата поща (необходим е рестарт)</string>
+  <string name="mwi_notification_summary">Показвай известия за чакащи съобщения в гласовата поща</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Моят телефонен номер</string>
   <string name="phone_number_summary">Задайте телефонен номер за това устройство</string>
@@ -150,7 +150,7 @@
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN не беше актуализирана, защото номерът е празен или превишава 20 цифри.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
-  <string name="exportContacts">Експортиране на контакти в СИМ карта\u2026</string>
+  <string name="exportContacts">Експортиране на контакти в СИМ картата\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Управление на контактите в СИМ картата</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
@@ -160,7 +160,7 @@
   <!-- Sim contacts management -->
   <string name="contactScreen">Управление на СИМ контактите</string>
   <string name="exportContactScreen">Експортиране на телефонни контакти в СИМ картата</string>
-  <string name="addSimEntries">Добави СИМ контакт</string>
+  <string name="addSimEntries">Добави контакт в СИМ картата</string>
   <string name="deleteAllSimEntries">Изтриване на всички контакти от СИМ картата</string>
   <string name="deleteSimContacts">Изтриване на контакти от СИМ карта\u2026</string>
   <string name="editContact">Редактиране</string>
@@ -182,12 +182,11 @@
   <string name="exportAllcontatsSuccess">Успешно са експортирани всички контакти в СИМ картата</string>
   <string name="exportAllcontatsFailed">Неуспешно експортиране на всички контакти в СИМ картата</string>
   <string name="exportAllcontatsNoContacts">Не са открити контакти за експортиране в СИМ картата</string>
-  <string name="msim_mobile_network_settings_title">Настройки на мобилна мрежа СИМ карта %d</string>
+  <string name="msim_mobile_network_settings_title">Мрежови настройки СИМ карта %d</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">Промяна на мрежовия режим</string>
   <string name="perm_change_mobile_network_desc">Разрешава на приложението да променя текущия режим на мрежата.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Идентификация на свързаната линия</string>
   <string name="connected_line_identification_summary">Деактивирате тази опция, ако номерата на получателите не се показват в историята на повикванията</string>
-  <!-- Network mode picker dialog title -->
 </resources>

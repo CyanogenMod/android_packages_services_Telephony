@@ -29,6 +29,7 @@
   <string name="blacklist_summary">Nu veți primi apeluri sau mesaje de la numere de telefon pe lista apelanților blocați</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indicator așteptare mesaj</string>
+  <string name="mwi_notification_summary">Arată mesajul indicator de așteptare pentru notificări de poștă vocală</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Numărul meu de telefon</string>
   <string name="phone_number_summary">Setați nr de telefon pentru acest dispozitiv</string>
@@ -182,6 +183,4 @@
   <string name="perm_change_mobile_network">schimbă mod rețea</string>
   <string name="perm_change_mobile_network_desc">Permite unei aplicații să modifice modul de rețea actual.</string>
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
-  <string name="choose_network_mode_system_default">Implicit sistem</string>
 </resources>

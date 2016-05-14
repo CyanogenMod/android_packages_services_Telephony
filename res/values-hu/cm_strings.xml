@@ -29,6 +29,7 @@
   <string name="blacklist_summary">Nem fog bejövő hívásokat és üzeneteket kapni a blokkolt hívó listán szereplő telefonszámokról</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Várakozó üzenet</string>
+  <string name="mwi_notification_summary">Várakozó hangposta üzenet megjelenítése</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Saját telefonszám</string>
   <string name="phone_number_summary">Telefonszám beállítása az eszközhöz</string>
@@ -181,14 +182,11 @@
   <string name="exportAllcontatsSuccess">Az összes névjegy sikeresen exportálva a SIM-re</string>
   <string name="exportAllcontatsFailed">Nem sikerült exportálni az összes névjegyet a SIM-re</string>
   <string name="exportAllcontatsNoContacts">Nem található SIM-re exportálandó névjegy</string>
-  <string name="msim_mobile_network_settings_title">SIM %d mobilhálózat beállításai</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobilhálózati beállítások</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">hálózati mód módosítása</string>
   <string name="perm_change_mobile_network_desc">Lehetővé teszi az alkalmazás számára, hogy módosítsa az aktuális hálózati módot.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Csatlakozott vonal azonosítása</string>
   <string name="connected_line_identification_summary">Tiltsa le ezt az opciót, ha a címzettek száma nem jelenik meg a hiváslistában</string>
-  <!-- Network mode picker dialog title -->
-  <string name="choose_network_mode_title">Válasszon hálózati módot</string>
-  <string name="choose_network_mode_system_default">Rendszer alapértelmezett</string>
 </resources>

@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Ne boste več prejemali dohodnih klicev in sporočil iz telefonskih številk, ki so na seznamu blokiranih klicateljev</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Kazalnik čakanja sporočila</string>
-  <string name="mwi_notification_summary">Prikaži obvestila glasovne pošte kazalnika čakanja sporočil (potreben je ponovni zagon)</string>
+  <string name="mwi_notification_summary">Prikaži obvestila glasovne pošte kazalnika čakanja sporočil</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Moja telefonska številka</string>
   <string name="phone_number_summary">Nastavite telefonsko številko za to napravo</string>
@@ -189,5 +189,4 @@
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Prepoznavanje povezanega voda</string>
   <string name="connected_line_identification_summary">Onemogočite to možnost, če se številke prejemnikov ne prikažejo v zgodovini klicev</string>
-  <!-- Network mode picker dialog title -->
 </resources>

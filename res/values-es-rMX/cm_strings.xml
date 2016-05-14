@@ -98,12 +98,10 @@
   <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_low_battery">Error de llamada debido a la batería baja del dispositivo remoto.</string>
   <!-- Sim contacts management -->
-  <string name="msim_mobile_network_settings_title">Ajustes de la red celular de la SIM %d</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">cambiar modo de red</string>
   <string name="perm_change_mobile_network_desc">Permite que una aplicación modifique el modo actual de la red.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Identificación de línea conectada</string>
   <string name="connected_line_identification_summary">Desactiva esta opción si los números de los destinatarios no se muestran en el historial de llamadas</string>
-  <!-- Network mode picker dialog title -->
 </resources>

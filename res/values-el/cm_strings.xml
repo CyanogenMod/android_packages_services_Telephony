@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Δε θα λαμβάνετε εισερχόμενες κλήσεις ή μηνύματα από τηλεφωνικούς αριθμούς στη λίστα αποκλεισμένων καλούντων</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Ένδειξη αναμονής μηνύματος</string>
-  <string name="mwi_notification_summary">Εμφάνιση ειδοποίησης μηνύματος τηλεφωνητή (απαιτείται επανεκκίνηση)</string>
+  <string name="mwi_notification_summary">Εμφάνιση ειδοποίησης μηνύματος τηλεφωνητή</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Ο αριθμός μου</string>
   <string name="phone_number_summary">Ορίστε τον αριθμό τηλεφώνου για αυτή τη συσκευή</string>
@@ -189,5 +189,4 @@
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Αναγνώριση συνδεδεμένης γραμμής</string>
   <string name="connected_line_identification_summary">Απενεργοποιήσετε αυτήν την επιλογή εάν οι αριθμοί των παραληπτών δεν εμφανίζονται στο ιστορικό κλήσεων</string>
-  <!-- Network mode picker dialog title -->
 </resources>

@@ -29,6 +29,7 @@
   <string name="blacklist_summary">Engellenen arayan listesindeki numaralardan gelen çağrıları ya da mesajları almayacaksınız</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Mesaj bekleme göstergesi</string>
+  <string name="mwi_notification_summary">Mesaj bekleme göstergesinde sesli mesaj bildirimlerini göster</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Telefon numaram</string>
   <string name="phone_number_summary">Bu cihaz için telefon numarasını ayarla</string>
@@ -181,12 +182,11 @@
   <string name="exportAllcontatsSuccess">Tüm kişiler SIM\'e başarıyla aktarıldı</string>
   <string name="exportAllcontatsFailed">Tüm kişiler SIM\'e aktarılamadı</string>
   <string name="exportAllcontatsNoContacts">SIM\'e aktarılacak kişi bulunamadı</string>
-  <string name="msim_mobile_network_settings_title">SIM %d hücresel ağ ayarları</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobil şebeke ayarları</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">şebeke modunu değiştir</string>
   <string name="perm_change_mobile_network_desc">Bir uygulamanın geçerli şebeke modunu değiştirmesine izin verir.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Bağlantılı hat tanımlama</string>
   <string name="connected_line_identification_summary">Arama geçmişinde alıcı sayısı gösterilmiyorsa bu seçeneği devre dışı bırak</string>
-  <!-- Network mode picker dialog title -->
 </resources>

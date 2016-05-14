@@ -19,6 +19,7 @@
          and other settings UIs.  This is the version of the label for
          tablet devices, where the phone app handles mobile data but not
          actual phone calls. -->
+  <string name="phoneAppLabel" product="tablet">داتای مۆبایل</string>
   <!-- Official label of the phone app, as seen in "Manage Applications"
          and other settings UIs. -->
   <!-- Screen title for Emergency Dialer UI -->
@@ -100,6 +101,7 @@
   <string name="unlock_success">کردنەوەی تۆڕ سەرکەوتوو بوو.</string>
   <!-- settings strings -->
   <!-- Error message for users that aren't allowed to modify Mobile Network settings [CHAR LIMIT=none] -->
+  <string name="mobile_network_settings_not_available">ڕێکخستنەکانی تۆڕی مۆبایل بۆ ئەم بەکارهێنەرە بەردەست نییە</string>
   <!-- GSM Call settings screen, setting option name. [CHAR LIMIT=40] -->
   <string name="labelGSMMore">ڕێکخستنەکانی پەیوەندی GSM</string>
   <!-- GSM Call settings screen, setting option name with label indicating the SIM the settings
@@ -279,6 +281,7 @@
   <string name="voicemail_default">هاوبەشگەی سیمکارتەکەت</string>
   <!-- networks setting strings -->
   <!-- Mobile network settings screen title -->
+  <string name="mobile_networks">ڕێکخستنەکانی تۆڕی مۆبایل</string>
   <!-- Available networks screen title/heading -->
   <string name="label_available">تۆڕەکانی بەر دەست</string>
   <!-- Mobile network settings screen, toast when searching for available networks -->
@@ -692,7 +695,6 @@
          This string is currently unused (see comments in InCallScreen.java.) -->
   <string name="incall_error_emergency_only">تۆمارنه‌کراوە له‌سه‌ر تۆڕ.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
-  <string name="incall_error_out_of_service">تۆڕی مۆبایل بەردەست نییە.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog -->

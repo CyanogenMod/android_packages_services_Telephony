@@ -25,6 +25,7 @@
   <string name="blacklist_summary">Nebudete prijímať prichádzajúce hovory alebo správy od telefónnych čísel v zozname zablokovaných volajúcich</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikátor čakajúcej správy</string>
+  <string name="mwi_notification_summary">Zobraziť indikátor čakajúcej správy pre hlasové správy</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Moje telefónne číslo</string>
   <string name="phone_number_summary">Nastaviť telefónne číslo pre toto zariadenie</string>
@@ -141,7 +142,7 @@
   <string name="exportAllcontatsSuccess">Všetky kontakty boli úspešne exportované na kartu SIM</string>
   <string name="exportAllcontatsFailed">Nepodarilo sa exportovať všetky kontakty na kartu SIM</string>
   <string name="exportAllcontatsNoContacts">Nenašli sa žiadne kontakty pre export na kartu SIM</string>
+  <string name="msim_mobile_network_settings_title">Nastavenia mobilnej siete SIM %d</string>
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>

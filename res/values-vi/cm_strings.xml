@@ -29,6 +29,7 @@
   <string name="blacklist_summary">Bạn sẽ không nhận được cuộc gọi đến hoặc tin nhắn từ các số điện thoại trên danh sách chặn người gọi</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Chỉ báo có tin nhắn đang chờ</string>
+  <string name="mwi_notification_summary">Hiện chỉ báo có tin nhắn đang chờ dành cho thông báo thư thoại</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Số điện thoại của tôi</string>
   <string name="phone_number_summary">Thiết lập số điện thoại cho thiết bị này</string>
@@ -188,5 +189,4 @@
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Xác định đường dây đã kết nối</string>
   <string name="connected_line_identification_summary">Vô hiệu hóa tùy chọn này nếu số lượng người nhận không hiển thị trong lịch sử cuộc gọi</string>
-  <!-- Network mode picker dialog title -->
 </resources>

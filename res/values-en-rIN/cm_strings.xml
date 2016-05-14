@@ -26,6 +26,7 @@
   <string name="blacklist_summary">You will not receive incoming calls or messages from phone numbers on the blocked caller list</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Message wait indicator</string>
+  <string name="mwi_notification_summary">Show message wait indicator voicemail notifications</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">My phone number</string>
   <string name="phone_number_summary">Set the phone number for this device</string>
@@ -178,7 +179,7 @@
   <string name="exportAllcontatsSuccess">Succesfully exported all contacts to SIM</string>
   <string name="exportAllcontatsFailed">Failed to export all contacts to SIM</string>
   <string name="exportAllcontatsNoContacts">No contacts found to export to SIM</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobile network settings</string>
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>

@@ -23,6 +23,7 @@
   <string name="blacklist_summary_disabled">Disabled</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Message wait indicator</string>
+  <string name="mwi_notification_summary">Show message wait indicator voicemail notifications</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">My phone number</string>
   <string name="phone_number_summary">Set the phone number for this device</string>
@@ -141,5 +142,4 @@
   <string name="exportAllcontatsNoContacts">No contacts found to export to SIM</string>
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>

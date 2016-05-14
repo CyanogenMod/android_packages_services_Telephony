@@ -188,8 +188,5 @@
   <string name="perm_change_mobile_network_desc">Memperbolehkan aplikasi untuk mengubah modus jariangan saat ini</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Identifikasi jaringan yang terhubung</string>
-  <string name="connected_line_identification_summary">Menonaktifkan pilihan ini apabila nomor penerima tidak muncul dalam riwayat panggilan</string>
-  <!-- Network mode picker dialog title -->
-  <string name="choose_network_mode_title">Pilih modus jaringan</string>
-  <string name="choose_network_mode_system_default">Aturan standar sistem</string>
+  <string name="connected_line_identification_summary">Nonaktifkan pilihan ini apabila nomor penerima tidak muncul dalam riwayat panggilan</string>
 </resources>

@@ -25,6 +25,7 @@
   <string name="blacklist_summary">Te ei saa sissetulevaid kõnesid ega sõnumeid numbritelt, mis on blokeeritud helistajate nimekirjas</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Sõnumi ootamise indikaator</string>
+  <string name="mwi_notification_summary">Näita \'sõnum ootel\' tulukest kõneposti teate korral</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Minu telefoninumber</string>
   <string name="phone_number_summary">Sea telefoni number sellele seadmele</string>
@@ -141,7 +142,7 @@
   <string name="exportAllcontatsSuccess">Kõik kontaktid said edukalt eksporditud SIMile</string>
   <string name="exportAllcontatsFailed">Ei suutnud kõiki kontakte eksportida SIMile</string>
   <string name="exportAllcontatsNoContacts">Ei leitud ühtegi kontakti, mida eksportida SIMile</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiilse võrgu seaded</string>
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>

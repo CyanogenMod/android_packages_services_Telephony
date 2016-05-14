@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Нећеш примити позив или поруку са телефонског броја на листи блокираних саговорника</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Индикатор чекања поруке</string>
-  <string name="mwi_notification_summary">Прикажи индикатор чекања говорне поште (потребан рестарт)</string>
+  <string name="mwi_notification_summary">Прикажи индикатор чекања говорне поште</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Мој телефонски број</string>
   <string name="phone_number_summary">Подеси телефонски број за овај уређај</string>
@@ -182,12 +182,11 @@
   <string name="exportAllcontatsSuccess">Успешно извежени сви контакти на SIM</string>
   <string name="exportAllcontatsFailed">Није успео извоз свих контаката на SIM</string>
   <string name="exportAllcontatsNoContacts">Није пронађен ниједан контакт за извоз на SIM</string>
-  <string name="msim_mobile_network_settings_title">Подешавање SIM %d мобилне мреже</string>
+  <string name="msim_mobile_network_settings_title">SIM %d подешавање мобилне мреже</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">промени режим мреже</string>
   <string name="perm_change_mobile_network_desc">Дозвољава апликацији да измени тренутни режим мреже.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Идентификација конектоване линије</string>
   <string name="connected_line_identification_summary">Онемогући ову опцију ако је се број прималаца не приказује у историји позива</string>
-  <!-- Network mode picker dialog title -->
 </resources>

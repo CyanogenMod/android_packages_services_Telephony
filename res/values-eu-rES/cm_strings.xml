@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Ez duzu dei edo mezurik jasoko blokeatutako deitzaileen zerrendan dauden telefono zenbakietatik</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Ahots postontziaren adierazlea</string>
-  <string name="mwi_notification_summary">Bistaratu mezua zain dagoela ahots posta jakinarazpenetan (berrabiaraztea beharrezkoa da)</string>
+  <string name="mwi_notification_summary">Erakutsi mezua zain jakinarazpena ahots postontziko mezuentzako</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Nire telefono zenbakia</string>
   <string name="phone_number_summary">Gailu honetara loturiko zenbakia ezarri</string>
@@ -182,12 +182,11 @@
   <string name="exportAllcontatsSuccess">Kontaktu guztiak ondo esportatu dira SIM txartelera</string>
   <string name="exportAllcontatsFailed">Huts egin du kontaktu guztiak SIM txartelera esportatzean</string>
   <string name="exportAllcontatsNoContacts">Ez da kontakturik aurkitu SIM txartelera esportatzeko</string>
-  <string name="msim_mobile_network_settings_title">%d. SIM txartelaren sare mugikorraren ezarpenak</string>
+  <string name="msim_mobile_network_settings_title">%d. SIM txartelaren sare mugikor ezarpenak</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">sare modua aldatu</string>
   <string name="perm_change_mobile_network_desc">Uneko sare modua aldatzea ahalbidetzen dio aplikazioari.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Konektatutako linearen identifikazioa</string>
   <string name="connected_line_identification_summary">Desgaitu aukera hau jasotzaileen zenbakiak deien historian agertzen ez badira</string>
-  <!-- Network mode picker dialog title -->
 </resources>

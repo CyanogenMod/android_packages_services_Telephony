@@ -29,6 +29,7 @@
   <string name="blacklist_summary">No recibirás llamadas ni mensajes de los números incluidos en la lista de contactos bloqueados</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Notificación de buzón de voz</string>
+  <string name="mwi_notification_summary">Mostrar una notificación para los mensajes en espera del buzón de voz</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mi número de teléfono</string>
   <string name="phone_number_summary">Establecer el número asociado a este dispositivo</string>
@@ -181,12 +182,11 @@
   <string name="exportAllcontatsSuccess">Todos los contactos han sido exportados a la tarjeta SIM</string>
   <string name="exportAllcontatsFailed">Error al exportar todos los contactos a la tarjeta SIM</string>
   <string name="exportAllcontatsNoContacts">No hay contactos que exportar a la tarjeta SIM</string>
-  <string name="msim_mobile_network_settings_title">Ajustes de la red celular de la SIM %d</string>
+  <string name="msim_mobile_network_settings_title">Ajustes de red móvil de la SIM %d</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">cambiar modo de red</string>
   <string name="perm_change_mobile_network_desc">Permite que una aplicación modifique el modo actual de la red.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Identificación de la línea conectada</string>
   <string name="connected_line_identification_summary">Desactivar esta opción si los números de los destinatarios no se muestran en el historial de llamadas</string>
-  <!-- Network mode picker dialog title -->
 </resources>

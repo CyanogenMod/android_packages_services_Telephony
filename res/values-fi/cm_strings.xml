@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Tulevat puhelut ja viestit estettyjen soittajien listalla olevista puhelinnumeroista estetään</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Viesti odottaa-merkki</string>
-  <string name="mwi_notification_summary">Näytä merkki viestin odottaessa vastaajassa (uudelleenkäynnistys vaaditaan)</string>
+  <string name="mwi_notification_summary">Näytä merkki viestin odottaessa vastaajassa</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Oma puhelinnumero</string>
   <string name="phone_number_summary">Aseta tämän laitteen puhelinnumero</string>
@@ -182,12 +182,11 @@
   <string name="exportAllcontatsSuccess">Kaikki yhteystiedot vietiin SIM-kortille onnistuneesti</string>
   <string name="exportAllcontatsFailed">Kaikkien yhteystietojen vieminen SIM-kortille epäonnistui</string>
   <string name="exportAllcontatsNoContacts">SIM-kortille vietäviä yhteystietoja ei löydy</string>
-  <string name="msim_mobile_network_settings_title">SIM %d matkapuhelinverkon asetukset</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiiliverkon asetukset</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">muuta verkkotilaa</string>
   <string name="perm_change_mobile_network_desc">Antaa sovelluksen muuttaa nykyistä verkkotilaa.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Yhdistetty tilaajan tunnistus</string>
   <string name="connected_line_identification_summary">Poista tämä asetus käytöstä, jos vastaanottajien numerot eivät näy puheluhistoriassa</string>
-  <!-- Network mode picker dialog title -->
 </resources>

@@ -29,7 +29,7 @@
   <string name="blacklist_summary">Sie werden keine Anrufe oder Nachrichten von Nummern aus der Sperrliste empfangen.</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator für wartende Nachricht anzeigen</string>
-  <string name="mwi_notification_summary">Einen Indikator für wartende Anrufbenachrichtigungen anzeigen (Neustart erforderlich)</string>
+  <string name="mwi_notification_summary">Einen Indikator für wartende Anrufbenachrichtigungen anzeigen</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Meine Rufnummer</string>
   <string name="phone_number_summary">Rufnummer für dieses Gerät setzen</string>
@@ -182,12 +182,11 @@
   <string name="exportAllcontatsSuccess">Alle Kontakte erfolgreich auf SIM-Karte exportiert</string>
   <string name="exportAllcontatsFailed">Der Export aller Kontakte auf die SIM-Karte ist fehlgeschlagen.</string>
   <string name="exportAllcontatsNoContacts">Keine Kontakte für SIM-Export gefunden</string>
-  <string name="msim_mobile_network_settings_title">Mobilfunknetz-Einstellungen für SIM %d</string>
+  <string name="msim_mobile_network_settings_title">SIM %d-Mobilnetzeinstellungen</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">Netzwerkmodus ändern</string>
   <string name="perm_change_mobile_network_desc">Ermöglicht der App, den aktuellen Netzwerkmodus zu ändern.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Verbindungsidentifikation</string>
   <string name="connected_line_identification_summary">Deaktivieren Sie diese Option, falls Empfängernummern nicht im Anrufverlauf angezeigt werden.</string>
-  <!-- Network mode picker dialog title -->
 </resources>

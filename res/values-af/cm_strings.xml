@@ -29,6 +29,7 @@
   <string name="blacklist_summary">Jy sal nie inkomende oproepe of boodskappe van persone ontvang op die lys van geblokkeerde oproepe</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Boodskap wag aanwyser</string>
+  <string name="mwi_notification_summary">Wys boodskap wag aanwyser vir stempos boodskappe</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">My telefoonnommer</string>
   <string name="phone_number_summary">Stel die telefoonnommer vir hierdie toestel</string>
@@ -181,12 +182,11 @@
   <string name="exportAllcontatsSuccess">Suksesvol kontakte na SIM uitgevoer</string>
   <string name="exportAllcontatsFailed">Het misluk om al die kontakte uit te voer na SIM</string>
   <string name="exportAllcontatsNoContacts">Geen kontakte gevind om uit te voer na SIM</string>
-  <string name="msim_mobile_network_settings_title">SIM %d Selnetwerkinstellings</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiele netwerk instellings</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">verander netwerk modus</string>
   <string name="perm_change_mobile_network_desc">Laat \'n toep toe om die huidige netwerk modus te verander.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Gekonnekteerde lyn identifikasie</string>
   <string name="connected_line_identification_summary">Deaktiveer hierdie opsie indien die nommer van die ontvangers nie vertoon word in die oproep geskiedenis nie</string>
-  <!-- Network mode picker dialog title -->
 </resources>

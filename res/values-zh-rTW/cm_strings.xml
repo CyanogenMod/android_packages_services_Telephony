@@ -165,7 +165,7 @@
   <string name="exportAllcontatsSuccess">所有聯絡人已從 SIM 卡成功地匯出</string>
   <string name="exportAllcontatsFailed">無法匯出所有聯絡人到 SIM 卡</string>
   <string name="exportAllcontatsNoContacts">未找到要匯出到 SIM 卡的聯絡人</string>
+  <string name="msim_mobile_network_settings_title">Sim 卡 %d 移動網路設置</string>
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>

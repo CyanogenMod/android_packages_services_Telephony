@@ -29,6 +29,7 @@
   <string name="blacklist_summary">ଆପଣ ଅବରୁ‍ଦ୍ଧ ହୋଇଥିବା କଲର୍‍ ତାଲିକାରେ ଥିବା ଫୋନ୍‍ ନମ୍ବରରୁ ଆସୁଥିବା କଲ୍‍ ବା ସଂଦେଶ ପ୍ରାପ୍ତ କରିବେ ନାହିଁ</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">ସନ୍ଦେଶ ପ୍ରତୀଷା ସୂଚକ</string>
+  <string name="mwi_notification_summary">ସନ୍ଦେଶ ପ୍ରତୀଷା ସୂଚକ ଭଏସ୍‍ମେଲ୍‍ ନିର୍ଦ୍ଦେଶାବଳି ଦେଖାନ୍ତୁ</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">ମୋ ଫୋନ୍ ନମ୍ଵର୍</string>
   <string name="phone_number_summary">ଏହି ଡିଭାଇସ୍‍ ପାଇଁ ଫୋନ୍‍ ନମ୍ବ୍ର ସେଟ୍‍ କରନ୍ତୁ</string>
@@ -181,10 +182,9 @@
   <string name="exportAllcontatsSuccess">SIMରୁ ସମସ୍ତ ସମ୍ପର୍କ ସଫଳତାର ସହିତ ରପ୍ତାନୀ କରାଯାଇଛି</string>
   <string name="exportAllcontatsFailed">SIMରୁ ସମସ୍ତ ସମ୍ପର୍କ ରପ୍ତାନୀ କରିବାରେ ବିଫଳ ହୋଇଛି</string>
   <string name="exportAllcontatsNoContacts">SIMକୁ ରପ୍ତାନୀ କରିବା ପାଇଁ କୌଣସି ସମ୍ପର୍କ ପ୍ରାପ୍ତ ହେଲା ନାହିଁ</string>
-  <string name="msim_mobile_network_settings_title">SIM %d ମୋବାଇଲ୍‍ ନେଟ୍‍ୱାର୍କ ସେଟିଂସ୍‍</string>
+  <string name="msim_mobile_network_settings_title">SIM %d ମୋବାଇଲ୍‍ ନେଟ୍‍ୱାର୍କ ସେଟିଙ୍ଗ୍ସ‍</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">ନେଟ୍‍ୱାର୍କ୍‍ ମୋଡ୍‍ ପରିବର୍ତ୍ତନ କରନ୍ତୁ</string>
   <string name="perm_change_mobile_network_desc">ବର୍ତ୍ତମାନର ନେଟୱାର୍କ ମୋଡ଼କୁ ପରିବର୍ତ୍ତନ ପାଇଁ ଆପ୍ଲିକେସନ୍‍କୁ ଅନୁମତି ଦିଏ।.</string>
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>

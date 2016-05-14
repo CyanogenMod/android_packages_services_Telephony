@@ -19,16 +19,20 @@
          and other settings UIs.  This is the version of the label for
          tablet devices, where the phone app handles mobile data but not
          actual phone calls. -->
+  <string name="phoneAppLabel" product="tablet">كۆچمە سانلىق مەلۇمات</string>
   <!-- Official label of the phone app, as seen in "Manage Applications"
          and other settings UIs. -->
   <!-- Screen title for Emergency Dialer UI -->
   <string name="emergencyDialerIconLabel">جىددىي نومۇر بۇرىغۇچ</string>
   <!-- Activity label for the in-call UI -->
+  <string name="phoneIconLabel">تېلېفون</string>
   <!-- Title of FDN list screen -->
   <string name="fdnListLabel">مۇقىم نومۇر بۇراش تىزىملىكى</string>
   <!-- Call status -->
   <!-- Incoming call screen, name of "unknown" caller -->
+  <string name="unknown">يوچۇن</string>
   <!-- Incoming call screen, string when number hidden -->
+  <string name="private_num">شەخسىي نومۇر</string>
   <!-- Incoming call screen, string when called from a pay phone -->
   <!-- In-call screen: status label for a call that's on hold -->
   <!-- Possible error messages with outgoing calls -->
@@ -38,13 +42,19 @@
   <!-- Dialog label when an MMI code is canceled -->
   <string name="mmiCancelled">MMI كودى بىكار قىلىندى</string>
   <!-- Label for "cancel" button on the MMI dialog -->
+  <string name="cancel">بىكار قىلىش</string>
   <!-- Toast string displayed to user if the input in MMI dialog is < 1 or > 160 -->
   <string name="enter_input">USSD ئۇچۇرى <xliff:g id="min_len">%d</xliff:g> - <xliff:g id="max_len">%d</xliff:g> ھەرپ ئارىسىدا بولىدۇ. قايتا سىناڭ.</string>
   <!-- Label for "Manage conference call" panel [CHAR LIMIT=40] -->
+  <string name="manageConferenceLabel">تېلېفون يىغىنى باشقۇرۇش</string>
   <!-- Positive button label ("OK") used in several dialogs in the phone UI [CHAR LIMIT=10] -->
+  <string name="ok">جەزىملەش</string>
   <!-- "Audio mode" popup menu: Item label to select the speakerphone [CHAR LIMIT=25] -->
+  <string name="audio_mode_speaker">ياڭراتقۇ</string>
   <!-- "Audio mode" popup menu: Item label to select the handset earpiece [CHAR LIMIT=25] -->
+  <string name="audio_mode_earpiece">تېلېفون تىڭشىغۇچ</string>
   <!-- "Audio mode" popup menu: Item label to select the wired headset [CHAR LIMIT=25] -->
+  <string name="audio_mode_wired_headset">سىملىق تىڭشىغۇچ</string>
   <!-- "Audio mode" popup menu: Item label to select the bluetooth headset [CHAR LIMIT=25] -->
   <!-- post dial -->
   <!-- In-call screen: body text of the dialog that appears when we encounter
@@ -232,6 +242,7 @@
   <!-- Call settings screen, "Voicemail" screen, default option - Your Carrier -->
   <!-- networks setting strings -->
   <!-- Mobile network settings screen title -->
+  <string name="mobile_networks">كۆچمە تور تەڭشىكى</string>
   <!-- Available networks screen title/heading -->
   <string name="label_available">ئىشلىتىلىشچان تورلار</string>
   <!-- Mobile network settings screen, toast when searching for available networks -->
@@ -407,6 +418,7 @@
   <string name="network_lte">LTE (تەۋسىيە)</string>
   <string name="network_4G">4G (تەۋسىيە)</string>
   <string name="network_global">ئومۇمىيەت</string>
+  <string name="network_tdscdma">TD-SCDMA لا</string>
   <!-- CDMA System select strings -->
   <!-- Mobile network settings screen, setting option name -->
   <string name="cdma_system_select_title">سىستېما تاللاش</string>
@@ -602,7 +614,9 @@
   <!-- In-call screen: call failure message displayed in an error dialog.
          This string is currently unused (see comments in InCallScreen.java.) -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
+  <string name="incall_error_out_of_service">كۆچمە تورنى ئىشلەتكىلى بولمايدۇ.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
+  <string name="incall_error_out_of_service_wfc">تېلېفون كۆچمە تورىنى ئىشلەتكىلى بولمايدۇ. سىمسىز تورغا ئۇلاپ چاقىرىشنى داۋاملاشتۇرۇڭ.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: status message displayed in a dialog when starting an MMI -->

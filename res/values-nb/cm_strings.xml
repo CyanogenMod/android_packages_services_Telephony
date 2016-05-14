@@ -25,6 +25,7 @@
   <string name="blacklist_summary">Du vil ikke motta innkommende samtaler eller meldinger fra telefonnumre på listen over blokkerte telefonnummer</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Melding venter indikator</string>
+  <string name="mwi_notification_summary">Vis melding venter indikator som voicemail varsler</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Telefonnummeret mitt</string>
   <string name="phone_number_summary">Angi telefonnummeret for denne enheten</string>
@@ -173,9 +174,8 @@
   <string name="exportAllcontatsSuccess">Vellykket eksportering av alle kontakter til SIMkort</string>
   <string name="exportAllcontatsFailed">Klarte ikke å eksportere alle kontakter til SIMkort</string>
   <string name="exportAllcontatsNoContacts">Ingen kontakter funnet for eksportering</string>
-  <string name="msim_mobile_network_settings_title">SIM %d mobilnettverk innstillinger</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobile nettverksinnstillinger</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">endre nettverksmodus</string>
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>

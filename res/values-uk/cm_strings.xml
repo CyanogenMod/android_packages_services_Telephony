@@ -29,6 +29,7 @@
   <string name="blacklist_summary">Ви не будете отримувати вхідні дзвінки чи повідомлення від абонентів, які знаходяться у списку заблокованих</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Індикатор очікування повідомлення</string>
+  <string name="mwi_notification_summary">Показувати індикатор очікування повідомлення сповіщень голосової пошти</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Мій номер телефону</string>
   <string name="phone_number_summary">Встановити телефонний номер для цього пристрою</string>
@@ -186,5 +187,4 @@
   <string name="perm_change_mobile_network">змінити налаштування мережі</string>
   <string name="perm_change_mobile_network_desc">Дозволяє програмі змінити поточні налаштування мережі.</string>
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>

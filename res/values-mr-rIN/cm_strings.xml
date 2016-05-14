@@ -29,6 +29,7 @@
   <string name="blacklist_summary">अवरोधित कॉलर यादीवरील फोन नंबर्सकडून तुम्हाला इनकमिंग कॉल्स किंवा संदेश प्राप्त होणार नाहीत</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">संदेश प्रतीक्षा निदर्शक</string>
+  <string name="mwi_notification_summary">संदेश प्रतीक्षा निदर्शक व्हॉइसमेल सूचना दर्शवा</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">माझा फोन नंबर</string>
   <string name="phone_number_summary">ह्या डिव्हाइससाठी फोन नंबर सेट करा</string>
@@ -188,5 +189,4 @@
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">कनेक्ट लाइन ओळख</string>
   <string name="connected_line_identification_summary">प्राप्तकर्ता संख्या कॉल इतिहास मध्ये दर्शविले नाही तर हा पर्याय अक्षम करा</string>
-  <!-- Network mode picker dialog title -->
 </resources>

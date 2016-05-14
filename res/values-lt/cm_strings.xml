@@ -25,6 +25,7 @@
   <string name="blacklist_summary">Jūs negausite įeinančių skambučių ar pranešimų iš telefonų numerių kurie yra užblokuotų skambintojų sąraše</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Pranešimų laukimo rodiklis</string>
+  <string name="mwi_notification_summary">Rodyti pranešimų laukimo rodiklį gaunamiems balso pašto pranešimams</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mano telefono numeris</string>
   <string name="phone_number_summary">Nustatyti telefono numerį šiam įrenginiui</string>
@@ -141,7 +142,7 @@
   <string name="exportAllcontatsSuccess">Sėkmingai eksportuoti visi kontaktai į SIM</string>
   <string name="exportAllcontatsFailed">Nepavyko eksportuoti visų kontaktų į SIM</string>
   <string name="exportAllcontatsNoContacts">Kontaktų nerasta eksportuoti į SIM</string>
+  <string name="msim_mobile_network_settings_title">SIM %d mobiliojo tinklo nustatymai</string>
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>

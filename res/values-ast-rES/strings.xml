@@ -19,6 +19,7 @@
          and other settings UIs.  This is the version of the label for
          tablet devices, where the phone app handles mobile data but not
          actual phone calls. -->
+  <string name="phoneAppLabel" product="tablet">Datos móviles</string>
   <!-- Official label of the phone app, as seen in "Manage Applications"
          and other settings UIs. -->
   <!-- Screen title for Emergency Dialer UI -->
@@ -100,6 +101,7 @@
   <string name="unlock_success">El desbloquéu de rede féxose correcho.</string>
   <!-- settings strings -->
   <!-- Error message for users that aren't allowed to modify Mobile Network settings [CHAR LIMIT=none] -->
+  <string name="mobile_network_settings_not_available">Los axustes de rede móvil nun tán disponibles pa esti usuariu</string>
   <!-- GSM Call settings screen, setting option name. [CHAR LIMIT=40] -->
   <string name="labelGSMMore">Axustes de llamaes GSM</string>
   <!-- GSM Call settings screen, setting option name with label indicating the SIM the settings
@@ -279,6 +281,7 @@
   <string name="voicemail_default">La to operadora</string>
   <!-- networks setting strings -->
   <!-- Mobile network settings screen title -->
+  <string name="mobile_networks">Configuración de rede móvil</string>
   <!-- Available networks screen title/heading -->
   <string name="label_available">Redes disponibles</string>
   <!-- Mobile network settings screen, toast when searching for available networks -->
@@ -469,6 +472,7 @@
   <string name="network_lte">LTE (recomendáu)</string>
   <string name="network_4G">4G (recomendáu)</string>
   <string name="network_global">Global</string>
+  <string name="network_tdscdma">Namái TDSCDMA</string>
   <!-- CDMA System select strings -->
   <!-- Mobile network settings screen, setting option name -->
   <string name="cdma_system_select_title">Esbilla de sistema</string>
@@ -692,8 +696,9 @@
          This string is currently unused (see comments in InCallScreen.java.) -->
   <string name="incall_error_emergency_only">Non rexistráu na rede.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
-  <string name="incall_error_out_of_service">Rede móvil non disponible.</string>
+  <string name="incall_error_out_of_service">La rede móvil nun ta disponible.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
+  <string name="incall_error_out_of_service_wfc">La rede móvil nun ta disponible. Coneutar a rede wifi pa facer una llamada.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: status message displayed in a dialog when starting an MMI -->

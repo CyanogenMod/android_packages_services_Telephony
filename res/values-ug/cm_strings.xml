@@ -29,7 +29,7 @@
   <string name="blacklist_summary">سىز قارا تىزىملىكتىكى نومۇردىن تېلېفون ياكى ئۇچۇر قۇبۇل قىلالمايسىز</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">ئۇچۇر كۈتۈش كۆرسەتكۈچى</string>
-  <string name="mwi_notification_summary">ئۈنخەت ئۇقتۇرۇشىنىڭ ئۇچۇر كۈتۈش كۆرسەتكۈچىنى كۆرسىتىدۇ(قايتا قوزغىتىش تەلەپ قىلىنىدۇ)</string>
+  <string name="mwi_notification_summary">ئۈنخەت ئۇقتۇرۇشىنىڭ ئۇچۇر كۈتۈش كۆرسەتكۈچىنى كۆرسىتىدۇ</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">تېلېفون نومۇرۇم</string>
   <string name="phone_number_summary">بۇ ئۈسكۈنە ئۈچۈن تېلېفون نومۇر تەڭشىكى</string>
@@ -182,12 +182,11 @@
   <string name="exportAllcontatsSuccess">ھەممە ئالاقەداشنى SIM غا مۇۋەپپەقىيەتلىك چىقاردى</string>
   <string name="exportAllcontatsFailed">ھەممە ئالاقەداشنى SIM غا چىقىرالمىدى</string>
   <string name="exportAllcontatsNoContacts">SIM غا چىقىرىدىغان ئالاقەداشنى تاپالمىدى</string>
-  <string name="msim_mobile_network_settings_title">كارتا %d نىڭ كۆچمە تور تەڭشىكى</string>
+  <string name="msim_mobile_network_settings_title">SIM %d تور ئېقىم تەڭشىكى</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">تور ھالىتىنى ئۆزگەرتىش</string>
   <string name="perm_change_mobile_network_desc">ئەپنىڭ نۆۋەتتىكى كۆچمە تور ھالىتىنى ئۆزگەرتىشكە يول قويۇش.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">سىم ئۇلاپ تونۇتۇش</string>
   <string name="connected_line_identification_summary">ئەگەر كەلگەن تېلېفون نومۇرى سۆزلىشىش خاتىرىسىدە كۆرۈنمىسە، بۇ تاللانمىنى تاقىۋېتىڭ</string>
-  <!-- Network mode picker dialog title -->
 </resources>

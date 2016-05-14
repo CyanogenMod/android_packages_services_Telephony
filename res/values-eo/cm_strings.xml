@@ -25,6 +25,7 @@
   <string name="blacklist_summary">Vi ricevos neniun alvokon nek mesaĝon el telefonnumeroj en la listo de blokitaj alvokantoj</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikilo de atendanta mesaĝo</string>
+  <string name="mwi_notification_summary">Montri indikilon de voĉaj mesaĝoj</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mia telefonnumero</string>
   <string name="phone_number_summary">Agordi la telefonnumeron por tiu aparato</string>
@@ -141,7 +142,7 @@
   <string name="exportAllcontatsSuccess">Eksporto de ĉiuj kontaktuloj el SIM sukcesis</string>
   <string name="exportAllcontatsFailed">Eksporto de ĉiuj kontaktuloj el SIM fiaskis</string>
   <string name="exportAllcontatsNoContacts">Neniu kontakto troveblas por eksporti al SIM</string>
+  <string name="msim_mobile_network_settings_title">Agordoj de reto por SIM %d</string>
   <!-- Permission to modify network mode via intent -->
   <!-- Mobile network settings, COLP -->
-  <!-- Network mode picker dialog title -->
 </resources>
