@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">Scegli la modalità di rete</string>
   <string name="choose_network_mode_system_default">Predefinito di sistema</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Richiesta di sblocco fallita, %1$d tentativi rimasti.</string>
 </resources>
