@@ -95,6 +95,7 @@
   <!-- Title of the "Voicemail" settings screen, with a text label identifying which SIM the settings are for. -->
   <!-- Call forwarding dialog box, voicemail number prefix -->
   <!-- Mobile network settings screen, setting option name -->
+  <string name="networks">Аператары сувязі</string>
   <!-- Cell Broadcast settings title.  [CHAR LIMIT=50] -->
   <!-- Call settings screen title -->
   <!-- GSM Call settings screen, setting option name -->
@@ -178,7 +179,11 @@
   <!-- Mobile network settings screen setting option summary text -->
   <!-- Available networks screen, setting summary text -->
   <!-- Available networks screen, setting option name -->
+  <string name="select_automatically">Аўтаматычны пошук</string>
   <!-- Available networks screen, setting summary text -->
+  <string name="sum_select_automatically">Аўтаматычны пошук сотавай сеткі</string>
+  <string name="preferred_network_mode_title">Тып сеткі</string>
+  <string name="preferred_network_mode_dialogtitle">Тып сеткі</string>
   <!-- Mobile network settings, summary for preferred network mode WCDMA preferred[CHAR LIMIT=100] -->
   <!-- Mobile network settings, summary for preferred network mode GSM [CHAR LIMIT=100] -->
   <!-- Mobile network settings, summary for preferred network mode WCDMA only [CHAR LIMIT=100] -->
@@ -214,6 +219,7 @@
   <!-- Data usage settings screen option for time frame-->
   <!-- Data usage settings screen option for throttling rate-->
   <!-- Data usage settings screen option for accessing the carrier website-->
+  <string name="network_tdscdma">Толькі TDSCDMA</string>
   <!-- CDMA System select strings -->
   <!-- Mobile network settings screen, setting option name -->
   <!-- Mobile network settings screen, setting summary text -->
@@ -320,8 +326,10 @@
   <!-- In-call screen: status label for a conference call -->
   <!-- In-call screen: status label for an incoming call -->
   <!-- In-call screen: status label displayed briefly after a call ends -->
+  <string name="card_title_call_ended">Размова скончана</string>
   <!-- In-call screen: status label for call that's on hold -->
   <!-- In-call screen: status label for a call that's in the process of hanging up -->
+  <string name="card_title_hanging_up">Сканчэньне размовы</string>
   <!-- In-call screen: status label for a call that's in CDMA flash mode -->
   <!-- Notification strings -->
   <!-- Label for the "Voicemail" notification item, when expanded. -->
@@ -340,7 +348,9 @@
   <!-- In-call screen: call failure message displayed in an error dialog.
          This string is currently unused (see comments in InCallScreen.java.) -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
+  <string name="incall_error_out_of_service">Мабільная сетка не даступна.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
+  <string name="incall_error_out_of_service_wfc">Мабільная сетка адсутнічае. Злучыся па бяздротавай сувязі каб зрабіць выклік.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: status message displayed in a dialog when starting an MMI -->
