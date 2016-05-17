@@ -19,6 +19,7 @@
          and other settings UIs.  This is the version of the label for
          tablet devices, where the phone app handles mobile data but not
          actual phone calls. -->
+  <string name="phoneAppLabel" product="tablet">Сеціва</string>
   <!-- Official label of the phone app, as seen in "Manage Applications"
          and other settings UIs. -->
   <!-- Screen title for Emergency Dialer UI -->
@@ -95,6 +96,7 @@
   <!-- Title of the "Voicemail" settings screen, with a text label identifying which SIM the settings are for. -->
   <!-- Call forwarding dialog box, voicemail number prefix -->
   <!-- Mobile network settings screen, setting option name -->
+  <string name="networks">Аператары сувязі</string>
   <!-- Cell Broadcast settings title.  [CHAR LIMIT=50] -->
   <!-- Call settings screen title -->
   <!-- GSM Call settings screen, setting option name -->
@@ -166,6 +168,7 @@
   <!-- Call settings screen, "Voicemail" screen, default option - Your Carrier -->
   <!-- networks setting strings -->
   <!-- Mobile network settings screen title -->
+  <string name="mobile_networks">Налады сотавай сеткі</string>
   <!-- Available networks screen title/heading -->
   <!-- Mobile network settings screen, toast when searching for available networks -->
   <!-- Available networks screen, text when no networks are found -->
@@ -178,7 +181,11 @@
   <!-- Mobile network settings screen setting option summary text -->
   <!-- Available networks screen, setting summary text -->
   <!-- Available networks screen, setting option name -->
+  <string name="select_automatically">Аўтаматычны пошук</string>
   <!-- Available networks screen, setting summary text -->
+  <string name="sum_select_automatically">Аўтаматычны пошук сотавай сеткі</string>
+  <string name="preferred_network_mode_title">Тып сеткі</string>
+  <string name="preferred_network_mode_dialogtitle">Тып сеткі</string>
   <!-- Mobile network settings, summary for preferred network mode WCDMA preferred[CHAR LIMIT=100] -->
   <!-- Mobile network settings, summary for preferred network mode GSM [CHAR LIMIT=100] -->
   <!-- Mobile network settings, summary for preferred network mode WCDMA only [CHAR LIMIT=100] -->
@@ -320,8 +327,10 @@
   <!-- In-call screen: status label for a conference call -->
   <!-- In-call screen: status label for an incoming call -->
   <!-- In-call screen: status label displayed briefly after a call ends -->
+  <string name="card_title_call_ended">Размова скончана</string>
   <!-- In-call screen: status label for call that's on hold -->
   <!-- In-call screen: status label for a call that's in the process of hanging up -->
+  <string name="card_title_hanging_up">Сканчэньне размовы</string>
   <!-- In-call screen: status label for a call that's in CDMA flash mode -->
   <!-- Notification strings -->
   <!-- Label for the "Voicemail" notification item, when expanded. -->
