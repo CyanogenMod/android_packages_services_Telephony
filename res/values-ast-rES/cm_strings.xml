@@ -213,8 +213,10 @@
   <string name="preferred_network_mode_wcdma_only_choice">Namái WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Namái GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferencia de GSM/WCDMA</string>
+  <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (actual: <xliff:g id="current">%2$s</xliff:g>)</string>
   <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">Axustes de tarxeta SIM</string>
+  <string name="sim_card_title">Tarxeta SIM %d</string>
   <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">Nun se permite\'l cambéu de modalidá TTY mentanto una videollamada</string>
   <string name="ipcall_sub_title">Axustes de llamada IP</string>
@@ -300,11 +302,33 @@
   <string name="perm_change_mobile_network_desc">Permite a les app, camudar en cualquier momentu ente datos 2G y 3G. L\'usu de 3G ye más rápidu, pero consume más batería y pue costar más dineru.</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">El mio númberu de teléfonu</string>
+  <string name="phone_number_summary">Afita\'l númberu teléfonu pa esti preséu</string>
   <string name="msim_mobile_network_settings_title">Axustes de rede de SIM %d</string>
   <!-- Call recording format -->
   <string name="call_recording_format">Formatu de grabación de llamaes</string>
   <!-- Packet Count and Packet Error Count settings -->
   <!-- Wi-Fi calling settings -->
+  <string name="wifi_calling_title">Llamaes Wifi</string>
+  <string name="wifi_calling_preference_title">Preferencia de llamaes Wi-Fi</string>
+  <string name="wifi_pref_none">Ensin preferencies</string>
   <string name="wifi_only">Namái Wi-Fi</string>
   <string name="cellular_only">Namái rede móvil</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Off</item>
+    <item>International roaming calls</item>
+    <item>Llamaes internacionales</item>
+    <item>Llamaes salientes</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Off</item>
+    <item>Roaming</item>
+    <item>Too</item>
+  </string-array>
+  <string name="input_password">Introduz la to contraseña</string>
+  <string name="invalidPsw">Introduz una contraseña válida (4-8 díxitos)</string>
+  <string name="labelCbChangePassword">Camudar contraseña</string>
+  <string name="psw_enter_old">Contraseña vieya</string>
+  <string name="psw_enter_new">Contraseña nueva</string>
+  <string name="psw_reenter_new">Reintroduz la to contraseña</string>
+  <string name="cb_psw_dont_match">Les contraseñes nun concasen</string>
 </resources>
