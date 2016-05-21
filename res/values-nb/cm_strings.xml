@@ -17,14 +17,19 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">Skjerm instillinger under samtaler</string>
   <string name="show_ssn_label">Hendelsesvarsling</string>
   <string name="show_ssn_summary">Vis en melding for ulike nettverkshendelser relatert til anrop</string>
+  <string name="incall_echo_cancellation">Samtale støyreduksjon</string>
+  <string name="enable_aec_label">Ekkoreduksjon</string>
+  <string name="enable_aec_summary">Reduser bakgrunnsstøy for den eksterne parten under stemmesamtaler</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">Blokkert anropsliste</string>
   <string name="blacklist_summary_disabled">Deaktivert</string>
   <string name="blacklist_summary">Du vil ikke motta innkommende samtaler eller meldinger fra telefonnumre på listen over blokkerte telefonnummer</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Melding venter indikator</string>
+  <string name="mwi_notification_summary">Vis melding på vente-indikator hvis noen voicemail varsler (omstart kreves)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Telefonnummeret mitt</string>
   <string name="phone_number_summary">Angi telefonnummeret for denne enheten</string>
@@ -119,6 +124,7 @@
   <string name="preferred_network_mode_wcdma_only_choice">kun WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">kun GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA foretrukket</string>
+  <string name="call_barring">Ringesperring</string>
   <string name="call_barring_outgoing">Utgående samtaleblokkering</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>Av</item>
@@ -134,6 +140,7 @@
   <string name="call_barring_incoming">Innkommende samtaleblokkering</string>
   <string name="input_password">Angi passordet</string>
   <string name="invalidPsw">Angi et gyldig passord (4-8 sifre)</string>
+  <string name="labelCbCancelAll">Deaktiver ringesperring</string>
   <string name="labelCbChangePassword">Endre passord</string>
   <string name="psw_enter_old">Gammelt passord</string>
   <string name="psw_enter_new">Nytt passord</string>
@@ -141,6 +148,7 @@
   <string name="no_call_barring">Nummersperring deaktivert</string>
   <string name="cb_psw_dont_match">Passordene samsvarer ikke</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">FDN ble ikke oppdatert fordi nummeret er tomt eller har fler enn 20 siffer.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Eksporterer kontakter til SIMkort\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
@@ -148,6 +156,7 @@
   <!-- In-call screen: call failure message displayed in errror dialog -->
   <string name="incall_error_local_low_battery">Oppringingen mislyktes på grunn av lavt batterinivå.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">Anrop feilet fordi ekstern enhet har lavt batteri.</string>
   <!-- Sim contacts management -->
   <string name="contactScreen">Administrere SIM-kontakter</string>
   <string name="exportContactScreen">Eksportere telefonkontakter til SIM</string>
@@ -176,9 +185,13 @@
   <string name="msim_mobile_network_settings_title">SIM %d mobilnettverk innstillinger</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">endre nettverksmodus</string>
+  <string name="perm_change_mobile_network_desc">Gir en app tilgang til å endre gjeldende nettverksmodus.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Tilkoblet linje identifikasjon</string>
+  <string name="connected_line_identification_summary">Deaktiver dette alternativet hvis mottakernes nummere ikke vises i anropsloggen</string>
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Velg nettverksmodus</string>
   <string name="choose_network_mode_system_default">Systemstandard</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Opplåsingsforespørsel mislykket, %1$d forsøk igjen.</string>
 </resources>
