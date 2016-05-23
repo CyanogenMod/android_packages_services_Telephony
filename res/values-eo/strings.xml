@@ -15,27 +15,483 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Official label of the phone app, as seen in "Manage Applications"
+         and other settings UIs.  This is the version of the label for
+         tablet devices, where the phone app handles mobile data but not
+         actual phone calls. -->
+  <!-- Official label of the phone app, as seen in "Manage Applications"
+         and other settings UIs. -->
   <string name="phoneAppLabel" product="default">Telefono</string>
+  <!-- Screen title for Emergency Dialer UI -->
   <string name="emergencyDialerIconLabel">Urĝa ciferilo</string>
+  <!-- Activity label for the in-call UI -->
   <string name="phoneIconLabel">Telefono</string>
+  <!-- Title of FDN list screen -->
+  <!-- Call status -->
+  <!-- Incoming call screen, name of "unknown" caller -->
   <string name="unknown">Nekonate</string>
+  <!-- Incoming call screen, string when number hidden -->
+  <!-- Incoming call screen, string when called from a pay phone -->
+  <!-- In-call screen: status label for a call that's on hold -->
   <string name="onHold">Atendanta</string>
+  <!-- Possible error messages with outgoing calls -->
+  <!-- Dialog label when a USSD code starts running -->
+  <!-- Dialog label when an MMI code is canceled -->
+  <!-- Label for "cancel" button on the MMI dialog -->
   <string name="cancel">Nuligi</string>
+  <!-- Toast string displayed to user if the input in MMI dialog is < 1 or > 160 -->
+  <!-- Label for "Manage conference call" panel [CHAR LIMIT=40] -->
+  <!-- Positive button label ("OK") used in several dialogs in the phone UI [CHAR LIMIT=10] -->
+  <!-- "Audio mode" popup menu: Item label to select the speakerphone [CHAR LIMIT=25] -->
   <string name="audio_mode_speaker">Parolilo</string>
+  <!-- "Audio mode" popup menu: Item label to select the handset earpiece [CHAR LIMIT=25] -->
+  <!-- "Audio mode" popup menu: Item label to select the wired headset [CHAR LIMIT=25] -->
+  <!-- "Audio mode" popup menu: Item label to select the bluetooth headset [CHAR LIMIT=25] -->
   <string name="audio_mode_bluetooth">Bludento</string>
+  <!-- post dial -->
+  <!-- In-call screen: body text of the dialog that appears when we encounter
+         the "wait" character in a phone number to be dialed; this dialog asks the
+         user if it's OK to send the numbers following the "wait". -->
+  <!-- In-call screen: body text of the dialog that appears when we encounter
+         the "PAUSE" character in a phone number to be dialed; this dialog gives
+         informative message to the user to show the sending numbers following the "Pause". -->
+  <!-- In-call screen: button label on the "wait" prompt dialog -->
   <string name="send_button">Sendi</string>
+  <!-- In-call screen: button label on the "wait" prompt dialog in CDMA Mode-->
   <string name="pause_prompt_yes">Jes</string>
+  <!-- In-call screen: button label on the "wait" prompt dialog in CDMA Mode-->
   <string name="pause_prompt_no">Ne</string>
+  <!-- In-call screen: on the "wild" character dialog, this is the label
+         for a text widget that lets the user enter the digits that should
+         replace the "wild" character. -->
+  <!-- missing voicemail number -->
+  <!-- Title of the "Missing voicemail number" dialog -->
+  <!-- Body text of the "Missing voicemail number" dialog -->
+  <!-- Button label on the "Missing voicemail number" dialog -->
   <string name="add_vm_number_str">Aldoni numeron</string>
+  <!-- Status message displayed on SIM PIN unlock panel -->
+  <!-- network depersonalization -->
+  <!-- Label text for PIN entry widget on SIM Network Depersonalization panel -->
+  <!-- Button label on SIM Network Depersonalization panel -->
   <string name="sim_ndp_unlock_text">Malŝlosi</string>
+  <!-- Button label on SIM Network Depersonalization panel -->
   <string name="sim_ndp_dismiss_text">Malakcepti</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
+  <!-- settings strings -->
+  <!-- Error message for users that aren't allowed to modify Mobile Network settings [CHAR LIMIT=none] -->
+  <!-- GSM Call settings screen, setting option name -->
+  <!-- CDM Call settings screen, setting option name -->
+  <!-- Mobile network settings screen, setting option name -->
+  <!-- Label for the "Network settings" screen in the Settings UI -->
+  <!-- Label for settings screen for phone accounts. -->
+  <!-- Label for list item which opens a dialog to select the default outgoing account -->
+  <!-- Label for list item which opens a dialog to select the default outgoing account for SIP calls. -->
+  <!-- Entry in dialog to "ask first" for accounts when making a call -->
+  <!-- Label for heading of the accounts section in the phone accounts settings screen. -->
+  <!-- Label for invoking phone account selection screen -->
+  <!-- Label for heading in the phone account selection screen -->
+  <!-- Title for the button to add a new sip account. [CHAR LIMIT=NONE] -->
+  <!-- Description label for icon to configure a phone account's settings. -->
+  <!-- Title for setting to select Wi-Fi call manager account -->
+  <!-- Indication for option to not use a Wi-Fi call manager -->
+  <!-- Indication for option to not use a call assistant. -->
+  <!-- Indication for option to not use a call assistant. -->
   <string name="wifi_calling_call_assistant_none">Neniu</string>
+  <!-- Label for selected Wi-Fi call manager -->
+  <!-- Label for switch setting to enable/disable the use of SIM call managers. -->
+  <!-- Label for selectecting a Wi-Fi call manager -->
+  <!-- Summary for the label of a setting to select the SIM call managers to use.-->
+  <!-- Summary for the label of a switch setting to enable/disable the use of SIM call managers. -->
+  <!-- Label for setting to configure the selected call assistant. -->
+  <!-- Label for setting to configure the selected call assistant when no call assistant is chosen. -->
+  <!-- Built-in label for the default connection service setting. -->
+  <!-- Call settings screen, setting option name -->
   <string name="voicemail">Voĉa mesaĝo</string>
+  <!-- Call forwarding dialog box, voicemail number prefix -->
+  <!-- Mobile network settings screen, setting option name -->
+  <!-- Cell Broadcast settings title.  [CHAR LIMIT=50] -->
+  <!-- Call settings screen title -->
+  <!-- GSM Call settings screen, setting option name -->
+  <!-- GSM-only Call settings screen, setting option name-->
+  <!-- CDMA Call settings screen, setting option name -->
+  <!-- CDMA-only Call settings screen, setting option name-->
+  <!-- Call setting screen, nework service setting name -->
+  <!-- Call settings screen, setting option name -->
+  <!-- Additional call settings screen, setting summary text when the setting is being loaded [CHAR LIMIT=40] -->
+  <!-- Additional call settings screen, setting summary text when Caller ID is hidden -->
+  <!-- Additional call settings screen, setting summary text when Caller ID is shown -->
+  <!-- Additional call settings screen, setting summary text for default Caller ID value -->
+  <!-- Additional call settings screen, setting check box name -->
+  <!-- Additional call settings screen, setting summary text when call waiting check box is selected -->
+  <!-- Additional call settings screen, setting summary text when call waiting check box is clear -->
+  <!-- Call forwarding settings screen, section heading -->
+  <!-- Call settings screen, setting option name -->
+  <!-- Call forwarding settings screen, setting option name -->
+  <!-- Call forwarding dialog box, text field label -->
+  <!-- Call forwarding settings screen, setting summary text when forwarding all calls -->
+  <!-- Call forwarding settings screen, setting summary text the Always forward is set -->
+  <!-- Call forwarding settings screen, Always forward is enabled but the number is unavailable -->
+  <!-- Call forwarding settings screen, setting summary text when Always forward is disabled -->
   <string name="sum_cfu_disabled">Malaktive</string>
+  <!-- Call forwarding settings screen, setting option name -->
+  <!-- Call forwarding dialog box, text field label -->
+  <!-- Call forwarding settings screen, setting summary text when forwarding to specific number when busy -->
+  <!-- Call forwarding settings screen, setting summary text when forwarding when busy is disabled -->
+  <!-- Error message displayed after failing to disable forwarding calls when the phone is busy -->
+  <!-- Call forwarding settings screen, setting option name -->
+  <!-- Call forwarding dialog box, text field label -->
+  <!-- Call forwarding settings screen, setting summary text when forwarding to a specific number when unanswered -->
+  <!-- Call forwarding settings screen, setting summary text when Forward when unanswered is disabled -->
+  <!-- Error message displayed after failing to disable forwarding calls when the phone does not answer -->
+  <!-- Call forwarding settings screen, setting option name -->
+  <!-- Call forwarding dialog box, text field label -->
+  <!-- Call forwarding settings screen, setting summary text when forwarding to a specific number when unreachable-->
+  <!-- Call forwarding settings screen, setting summary text when Forward when unreachable is disabled -->
+  <!-- Error message displayed after failing to disable forwarding calls when the phone is unreachable -->
+  <!-- Title of the progress dialog displayed while updating Call settings -->
+  <!-- Toast in Call settings when asked to launch settings for a secondary user -->
+  <!-- Title of the "Call settings" settings screen, with a text label identifying which SIM the settings are for. -->
+  <!-- Title of the alert dialog displayed if an error occurs while updating Call settings -->
+  <!-- Toast in Call settings dialog while settings are being read -->
+  <!-- Toast in Call settings dialog while settings are being saved -->
+  <!-- Toast in Call settings dialog while settings are being reverted -->
+  <!-- Status message displayed in the "Call settings error" dialog -->
+  <!-- Status message displayed in the "Call settings error" dialog -->
+  <!-- Status message displayed in the "Call settings error" dialog when operation fails due to FDN
+         [CHAR LIMIT=NONE] -->
+  <!-- Status message displayed in the "Call settings error" dialog -->
+  <!-- Button label used to dismiss the "Call settings error" dialog -->
+  <!-- Button label used in several settings-related dialogs -->
   <string name="enable">Ŝalti</string>
+  <!-- Button label used in several settings-related dialogs -->
   <string name="disable">Malŝalti</string>
+  <!-- Button label which indicates the user wants to update a stored
+         phone number; used in several settings-related dialogs -->
+  <!-- Phone settings: Caller ID preference values -->
+  <!-- Phone settings: Internal keys used for Caller ID preference values.  DO NOT TRANSLATE. -->
+  <!-- voicemail setting strings -->
+  <!-- Call settings screen, Set voicemail number dialog text -->
+  <!-- Call settings screen, Set voicemail number dialog text -->
+  <!-- Call settings screen, displayed when vm provider supplied forwarding number change fails-->
+  <!-- Call settings screen, displayed when forwarding number read fails-->
+  <!-- Call settings screen, Set voicemail number dialog text -->
+  <!-- Call settings screen, "Voicemail" provider setting summary text when no provider is selected -->
+  <!-- Call settings screen, "Voicemail" screen, default option - Your Carrier -->
+  <!-- networks setting strings -->
+  <!-- Mobile network settings screen title -->
+  <!-- Available networks screen title/heading -->
+  <!-- Mobile network settings screen, toast when searching for available networks -->
   <string name="load_networks_progress">Ŝerĉado\u2026</string>
+  <!-- Available networks screen, text when no networks are found -->
+  <!-- Available networks screen, setting option name -->
+  <!-- Available networks screen, toast when an error is encountered when searching for networks -->
+  <!-- Available networks screen, toast when registering on a specific network -->
+  <!-- Available networks screen, toast when SIM card isn't allowed on a network -->
+  <!-- Available networks screen, toast when unable to connect to a network temporarily -->
+  <!-- Available networks screen, toast when registered on a specific network -->
+  <!-- Mobile network settings screen setting option summary text -->
+  <!-- Available networks screen, setting summary text -->
+  <!-- Available networks screen, setting option name -->
+  <!-- Available networks screen, setting summary text -->
   <string name="preferred_network_mode_dialogtitle">Plej ŝatata reta tipo</string>
+  <!-- Mobile network settings, summary for preferred network mode WCDMA preferred[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode GSM [CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode WCDMA only [CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode GSM / UMTS [CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode CDMA [CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode CDMA / EvDo [CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode CDMA only [CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode EvDo only [CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode LTE [CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode GSM/WCDMA/LTE [CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode CDMA+LTE/EVDO[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
+  <!-- Mobile network settings, summary for preferred network mode LTE / WCDMA[CHAR LIMIT=100] -->
+  <!-- Cellular network 4G title [CHAR LIMIT=30] -->
+  <!-- Cellular network 4G summary [CHAR LIMIT=80] -->
+  <!-- Mobile network settings screen, data enabling checkbox name -->
+  <!-- Mobile network settings screen, setting summary text when check box is not selected (explains what selecting it would do) [CHAR LIMITS=40] -->
+  <!-- Mobile network settings screen, setting check box name -->
+  <!-- Mobile network settings screen, setting summary text when check box is selected -->
+  <!-- Mobile network settings screen, setting summary text when check box is clear -->
+  <!-- Mobile network settings UI: notification message shown when you
+         lose data connectivity because you're roaming and you have the
+         "data roaming" feature turned off. -->
+  <!-- Mobile network settings screen, dialog message when user selects the Data roaming check box -->
+  <!-- USSD aggregation dialog box: separator strings between messages (new-lines will be added before and after) -->
+  <!-- Screen option on the mobile network settings to go into data usage settings -->
+  <!-- Data usage settings screen option for checking the current usage -->
+  <!-- Data usage settings screen option for time frame-->
+  <!-- Data usage settings screen option for throttling rate-->
+  <!-- Data usage settings screen option for accessing the carrier website-->
   <string name="list_language_title">Lingvo</string>
   <string name="list_language_dtitle">Lingvoj</string>
+  <!-- CDMA System select strings -->
+  <!-- Mobile network settings screen, setting option name -->
+  <!-- Mobile network settings screen, setting summary text -->
+  <!-- System select settings screen title -->
+  <!-- Preference title with which users can activate CDMA network [CHAR LIMIT=30] -->
+  <!-- Preference title for launching an account manager page for prepaid LTE [CHAR LIMIT=30] -->
+  <!-- A menu item in "Mobile network settings" that allows the user to update the phone
+         with mobile operator specific settings. [CHAR LIMIT=25] -->
+  <!-- FDN settings strings -->
+  <!-- Call settings screen, setting option name -->
+  <!-- Call settings screen, button label that takes you to
+         the Fixed Dialing Number management screen -->
+  <!-- Call settings screen, preference item label -->
+  <!-- Call settings setting option name when FDN is enabled -->
+  <!-- Call settings setting option name  when FDN is disabled-->
+  <!-- Call settings screen, setting option name -->
+  <!-- Call settings screen, setting option name -->
+  <!-- Call settings screen, setting option name -->
+  <!-- Call settings screen, setting option name when FDN is enabled -->
+  <!-- Call settings screen, setting option name when FDN is disabled -->
+  <!-- Call settings screen, setting summary text -->
+  <!-- Call settings, FDN screen, setting option name -->
+  <!-- Call settings, FDN screen, setting option name -->
+  <!-- Voice privacy on CDMA is an added layer of voice encryption. Theoretically, it would be harder to break in to a phone call with this feature enabled. -->
+  <!-- FDN list screen: menu item label -->
+  <!-- FDN list screen: menu item label -->
+  <!-- FDN list screen: menu item label -->
+  <!-- FDN related strings -->
+  <!-- Label for PIN2 entry screen -->
+  <!-- "Edit FDN Contact" screen: Label for the "name" text field -->
+  <!-- "Edit FDN Contact" screen: Label for the "number" text field -->
+  <!-- "Edit FDN Contact" screen: Button label for "save" action -->
+  <!-- Title of "Edit FDN Contact" screen for a new contact -->
+  <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
+  <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
+  <!-- Title of "Edit FDN Contact" screen when editing an already-existing contact -->
+  <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
+  <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
+  <!-- Title of "Delete FDN Contact" screen -->
+  <!-- "Delete FDN Contact" screen: status message displayed in a popup (toast) -->
+  <!-- "Delete FDN Contact" screen: status message displayed in a popup (toast) -->
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- FDN settings: error message displayed in a popup (toast), when the entered
+         FDN number was inappropriate, OR, PIN2 the user entered was incorrect.
+         Because of API restriction, there's no way to determine which is the exact
+         cause of the failure.
+         [CHAR LIMIT=NONE] -->
+  <!-- FDN settings: error message displayed in a popup (toast) -->
+  <!-- ADN related strings -->
+  <!-- Placeholder text displayed while loading the list of SIM contacts -->
+  <!-- Call settings, string that appears on FDN contact list when there are no contacts on the SIM. -->
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
+  <!-- Appears when user tries to import contacts in SIM during Airplane mode
+      [CHAR LIMIT=NONE] -->
+  <!-- SIM PIN strings -->
+  <!-- Title of "Enable/disable SIM PIN" screen -->
+  <!-- Title of "Change SIM PIN" screen -->
+  <!-- SIM PIN screen: label for PIN entry widget -->
+  <!-- SIM PIN screen: label for PIN entry widget -->
+  <!-- SIM PIN screen: label for PIN entry widget -->
+  <!-- SIM PIN screen: label for PIN entry widget -->
+  <!-- SIM PIN screen: error message -->
+  <!-- SIM PIN screen: error message -->
+  <!-- SIM PIN screen: error message when PIN is too short or too long -->
+  <!-- Title of "Disable SIM PIN" screen -->
+  <!-- Title of "Enable SIM PIN" screen -->
+  <!-- SIM PIN screen: progress message displayed while enabling -->
+  <!-- SIM PIN screen: status message displayed in a popup (toast) -->
+  <!-- SIM PIN screen: status message displayed in a popup (toast) -->
+  <!-- SIM PIN screen: error message displayed in a popup (toast) -->
+  <!-- SIM PIN screen: status message displayed in a popup (toast) -->
+  <!-- SIM PIN screen: error message displayed in a dialog -->
+  <!-- SIM PIN2 strings -->
+  <!-- SIM PIN2 screen: label for PIN entry widget -->
+  <!-- SIM PIN2 screen: label for PIN entry widget -->
+  <!-- SIM PIN2 screen: label for PIN entry widget -->
+  <!-- SIM PIN2 screen: label for PIN entry widget -->
+  <!-- SIM PIN2 screen: error message -->
+  <!-- SIM PIN2 screen: error message -->
+  <!-- SIM PIN2 screen: error message -->
+  <!-- SIM PIN2 screen: error message -->
+  <!-- SIM PIN2 screen: error message -->
+  <!-- SIM PIN2 screen: status message displayed in a popup (toast) -->
+  <!-- SIM PIN2 screen: label for PUK2 entry widget -->
+  <!-- SIM PIN2 screen: error message displayed in a dialog -->
+  <!-- SIM PIN2 screen: error message displayed in a dialog -->
+  <!-- SIM PIN2 screen: error message -->
+  <!-- SIM PIN2 screen: error message -->
+  <!-- SIM PIN screen: status message displayed in a popup (toast) -->
+  <!-- SIM PIN screen: button label -->
+  <!-- In-call screen: status label for a conference call -->
+  <!-- Used in FakePhoneActivity test code.  DO NOT TRANSLATE. -->
+  <!-- Used in FakePhoneActivity test code.  DO NOT TRANSLATE. -->
+  <!-- Used in FakePhoneActivity test code.  DO NOT TRANSLATE. -->
+  <!-- Call settings screen, Set voicemail dialog title -->
+  <!-- Card titles -->
+  <!-- In-call screen: status label for a call in the "dialing" state -->
+  <!-- In-call screen: status label for a re-dialing call -->
+  <!-- In-call screen: status label for a conference call -->
+  <!-- In-call screen: status label for an incoming call -->
+  <!-- In-call screen: status label displayed briefly after a call ends -->
+  <!-- In-call screen: status label for call that's on hold -->
+  <!-- In-call screen: status label for a call that's in the process of hanging up -->
+  <!-- In-call screen: status label for a call that's in CDMA flash mode -->
+  <!-- In-call screen: special status label that shows your own phone
+         number during emergency callback mode (ECM) [CHAR LIMIT=30] -->
+  <!-- Notification strings -->
+  <!-- The "label" of the in-call Notification for a dialing call, used
+         as the format string for a Chronometer widget. [CHAR LIMIT=60] -->
+  <!-- Missed call notification label, used when there's exactly one missed call -->
+  <!-- Missed call notification label, used when there are two or more missed calls -->
+  <!-- Missed call notification message used when there are multiple missed calls -->
+  <!-- Missed call notification message used for a single missed call, including
+         the caller-id info from the missed call -->
+  <!-- The "label" of the in-call Notification for an ongoing call, used
+         as the format string for a Chronometer widget. [CHAR LIMIT=60] -->
+  <!-- The "label" of the in-call Notification for a call that's on hold -->
+  <!-- The "label" of the in-call Notification for an incoming ringing call -->
+  <!-- Label for the "Voicemail" notification item, when expanded. -->
+  <!-- Label for the expanded "Voicemail" notification item,
+         including a count of messages. -->
+  <!-- Message displayed in the "Voicemail" notification item, allowing the user
+         to dial the indicated number. -->
+  <!-- Message displayed in the "Voicemail" notification item,
+         indicating that there's no voicemail number available -->
+  <!-- Label for the "No service" notification item, when expanded. -->
+  <!-- Label for the expanded "No service" notification item, including the
+         operator name set by user -->
+  <!-- Message for "end call" Action.
+         It is displayed in the "Ongoing call" notification, which is shown
+         when the user is outside the in-call screen while the phone call is still
+         active. [CHAR LIMIT=40] -->
+  <!-- Message for "call back" Action, which is displayed in the missed call notificaiton.
+         The user will be able to call back to the person or the phone number.
+         [CHAR LIMIT=60] -->
+  <!-- Message for "reply via sms" action, which is displayed in the missed call notification.
+         The user will be able to send text messages using the phone number.
+         [CHAR LIMIT=60] -->
+  <!-- In-call screen: call failure message displayed in an error dialog -->
+  <!-- In-call screen: call failure message displayed in an error dialog.
+         This string is currently unused (see comments in InCallScreen.java.) -->
+  <!-- In-call screen: call failure message displayed in an error dialog -->
+  <!-- In-call screen: call failure message displayed in an error dialog -->
+  <!-- In-call screen: call failure message displayed in an error dialog -->
+  <!-- In-call screen: status message displayed in a dialog when starting an MMI -->
+  <!-- In-call screen: message displayed in an error dialog -->
+  <!-- In-call screen: message displayed in an error dialog -->
+  <!-- In-call screen: message displayed in an error dialog -->
+  <!-- In-call screen: message displayed in an error dialog -->
+  <!-- In-call screen: message displayed in an error dialog -->
+  <!-- In-call screen: message displayed in an error dialog -->
+  <!-- In-call screen: message displayed in an error dialog -->
+  <!-- Dialog title for the "radio enable" UI for emergency calls -->
+  <!-- Status message for the "radio enable" UI for emergency calls -->
+  <!-- Status message for the "radio enable" UI for emergency calls -->
+  <!-- Dialer text on Emergency Dialer -->
+  <!-- Emergency dialer: message displayed in an error dialog -->
+  <!-- Emergency dialer: message displayed in an error dialog -->
+  <!-- Displayed in the text entry box in the dialer when in landscape mode to guide the user
+         to dial using the physical keyboard -->
+  <!-- Text for the onscreen "Hold" button -->
+  <!-- Text for the onscreen "End call" button -->
+  <!-- Text for the onscreen "Show Dialpad" button -->
+  <!-- Text for the onscreen "Mute" button -->
+  <!-- Text for the onscreen "Add call" button -->
+  <!-- Text for the onscreen "Merge calls" button -->
+  <!-- Text for the onscreen "Swap calls" button -->
+  <!-- Text for the onscreen "Manage calls" button -->
+  <!-- Text for the onscreen "Manage conference" button [CHAR LIMIT=20] -->
+  <!-- Text for the onscreen "Audio" button that lets you switch
+         between speaker / bluetooth / earpiece [CHAR LIMIT=10] -->
+  <!-- Text for the onscreen "Video call" button used to change a voice call
+         to a video call. [CHAR LIMIT=10] -->
+  <!-- Menu item label in SIM Contacts: Import a single contact entry from the SIM card -->
+  <!-- Menu item label in SIM Contacts: Import all contact entries from the SIM card -->
+  <!-- SIM Contacts: status message displayed while importing card -->
+  <!-- Import a single contact entry from contacts to the SIM card -->
+  <!-- Hearing aid settings -->
+  <!-- Service option entries.  -->
+  <!-- Do not translate. -->
+  <!-- Dtmf tones settings -->
+  <!-- Title for the DTMF Tones options displayed in Call Settings -->
+  <!-- Summary for the DTMF Tones options displayed in Call Settings -->
+  <!-- Options displayed as part of DTMF Tones in Call Settings -->
+  <!-- Do not translate. -->
+  <!-- Title for the dialog used to display CDMA DisplayInfo -->
+  <!-- Title for the dialog used to display a network error message to the user -->
+  <!-- OTA-specific strings -->
+  <!-- Title shown on OTA screen -->
+  <!-- Message displayed on the OTA activation screen. -->
+  <!-- Title shown during Hands Free Activation -->
+  <!-- Message shown during the hands free activation screen of the setup wizard. -->
+  <!-- Title of skip activation dialog -->
+  <!-- Message displayed in skip activation dialog  -->
+  <!-- Label shown on dialog button that allows the user to skip activation -->
+  <!-- Button label within the OTA activation screen -->
+  <!-- Title text shown when phone activation is successful -->
+  <!-- Title text shown on screen where activation fails -->
+  <!-- Message displayed on the OTA "listening" screen. This message
+         needs to be kept at 2 lines or less to be sure that there's
+         enough room for the dialpad. [CHAR LIMIT=80] -->
+  <!-- Button label within the OTA listen screen -->
+  <!-- String to be displayed on OTA listen screen once user has selected the
+         correct option to begin provisioning -->
+  <!-- String to display within the OTA Fail Notice dialog -->
+  <!-- String to be displayed on the OTA Fail/Success screen upon successful provisioning -->
+  <!-- String to be displayed on the OTA Fail/Success screen upon unsuccessful provisioning -->
+  <!-- String to display within the OTA SPC Fail Notice dialog -->
+  <!-- Button label in OTA listen screen that cancels activation and goes to the previous screen -->
+  <!-- Button label shown on OTA error screen to allow the user to try again -->
+  <!-- Button label shown on OTA screens that have a next screen -->
+  <!-- Emergency Callback Mode (ECM) -->
+  <!-- ECM: Status bar notification message -->
+  <!-- ECM: Notification title -->
+  <!-- ECM: Notification body -->
+  <!-- ECM: Dialog box message for exiting from the notifications screen -->
+  <!-- ECM: Dialog box message for exiting from any other app -->
+  <!-- ECM: Dialog box message while in emergency call -->
+  <!-- ECM: Progress text -->
+  <!-- ECM: ECM exit dialog choice -->
+  <!-- ECM: ECM exit dialog choice -->
+  <!-- ECM: ECM exit dialog choice -->
+  <!-- For incoming calls, this is a string we can get from a CDMA network instead of
+         the actual phone number, to indicate there's no number present.  DO NOT TRANSLATE. -->
+  <!-- Preference for Voicemail service provider under "Voicemail" settings.
+         [CHAR LIMIT=40] -->
+  <!-- Preference for Voicemail setting of each provider.
+         [CHAR LIMIT=40] -->
+  <!-- String to display in voicemail number summary when no voicemail num is set -->
+  <!-- Title displayed above settings coming after voicemail in the call features screen -->
+  <!-- Title displayed in the overlay when a call is placed using a 3rd party provider.
+         [CHAR LIMIT=40] -->
+  <!-- Use this as a default to describe the contact photo; currently for screen readers through accessibility. -->
+  <!-- Use this to describe the separate conference call button; currently for screen readers through accessibility. -->
+  <!--  Use this to describe the select contact button in EditPhoneNumberPreference; currently for screen readers through accessibility. -->
+  <!-- Dialog title to notify user that Voice calling is not supported
+         on this device. [CHAR LIMIT=40] -->
+  <!-- String describing the Dial ImageButton
+
+         Used by AccessibilityService to announce the purpose of the button.
+         [CHAR LIMIT=NONE]
+    -->
+  <!-- Dialog title for the vibration settings for voicemail notifications [CHAR LIMIT=40] -->
+  <!-- Dialog title for the vibration settings for voice mail notifications [CHAR LIMIT=40]-->
+  <!-- Voicemail ringtone title. The user clicks on this preference to select
+         which sound to play when a voicemail notification is received.
+         [CHAR LIMIT=30] -->
+  <!-- The default value value for voicemail notification. -->
+  <!-- Actual values used in our code for voicemail notifications. DO NOT TRANSLATE -->
+  <!--  Setting option name to enable or disable dialpad autocomplete functionality
+         [CHAR LIMIT=30] -->
+  <!-- Title for the category "ringtone", which is shown above ringtone and vibration
+         related settings.
+         [CHAR LIMIT=30] -->
+  <!-- String resource for the font-family to use for the call setting activity's title
+         Do not translate. -->
+  <!-- Label for PSTN connection service. -->
+  <!-- Label for enabling video calling. -->
+  <!-- Message for dialog shown when the user tries to turn on video calling but enhanced 4G LTE
+         is disabled. -->
+  <!-- Label for action button in dialog which opens mobile network settings, for video calling
+         setting. -->
+  <!-- Label for close button in dialog, for video calling setting. -->
+  <!-- Strings used in Settings->Sim cards for each installed Sim. -->
 </resources>

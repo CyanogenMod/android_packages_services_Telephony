@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">事件提醒</string>
   <string name="show_ssn_summary">为通话处理相关的各种网络事件显示一个通知</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">呼叫黑名单列表</string>
   <string name="blacklist_summary_disabled">禁用</string>
   <string name="blacklist_summary">您将不会收到来自呼叫黑名单列表中的来电或短信</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">信息等待指示器</string>
   <string name="mwi_notification_summary">显示信息等待指示器语音信箱提醒</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">启用无条件的来电转接</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">启用有条件的来电转接</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">呼出电话已被转接</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">在封闭用户组内通话</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">呼出电话被禁止</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">来电被对方禁止</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">自我号码抑制被网络拒绝</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">呼叫被对方转接</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">来电是被转接的</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">多方电话</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">呼叫被对方释放</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">呼叫被转接</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">呼叫正在通过显式呼叫转移进行连接</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">呼叫已通过显式呼叫转移连接</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM 卡网络子集解锁 PIN</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIM 企业解锁 PIN</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIM 卡服务提供商解锁 PIN</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM 卡的解锁 PIN 码</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIM 网络 1 解锁 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIM 网络 2 解锁 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPD 解锁 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIM 企业解锁 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIM 服务提供商解锁 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM 解锁 PIN 码</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">输入 PUK 码</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">正在请求 SIM 卡网络解锁\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">正在请求 SIM 卡网络子集解锁\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">正在请求 SIM 卡服务提供商解锁\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">正在请求 SIM 卡企业解锁\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">正在请求 SIM 解锁\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">正在请求 RUIM 网络 1 解锁\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">正在请求 RUIM 网络 2 解锁\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">正在请求 RUIM HRPD 解锁\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">正在请求 RUIM 服务提供商解锁\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">正在请求 RUIM 企业解锁\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">正在请求 RUIM 解锁\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">正在请求 PUK 解锁\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM 卡网络解锁请求不成功。</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIM 卡网络子集解锁请求不成功。</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIM 卡服务提供商解锁请求不成功。</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIM 卡企业解锁请求不成功。</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIM 卡解锁请求不成功。</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">RUIM 网络 1 解锁请求不成功。</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">RUIM 网络 2 解锁请求不成功。</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">RUIM HRPD 解锁请求不成功。</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIM 服务提供商解锁请求不成功。</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIM 企业解锁请求不成功。</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIM 解锁请求不成功。</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK 码解锁不成功。</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM 卡网络解锁成功。</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIM 卡网络子集解锁成功。</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIM 卡服务提供商解锁成功。</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">SIM 卡企业解锁成功。</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM 卡解锁成功。</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">RUIM 网络 1 解锁成功。</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">RUIM 网络 2 解锁成功。</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">RUIM HRPD 解锁成功。</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIM 服务提供商解锁成功。</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIM 企业解锁成功。</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM 解锁成功。</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK 码解锁成功。</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS 请求已修改为 DIAL 请求。</string>
   <string name="stk_cc_ss_to_ussd_error">SS 请求已修改为 USSD 请求。</string>
   <string name="stk_cc_ss_to_ss_error">SS 请求已修改为新的 SS 请求。</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">视频呼叫设置</string>
   <string name="vt_fallback_setting">通过语音呼叫重拨</string>
   <string name="vt_forward_setting">视频呼叫转移</string>
   <string name="vt_imagereplace_setting">替代图片</string>
   <string name="vt_imagereplace_setting_sum">前置摄像头被禁用时将显示的图片</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">漫游模式</string>
   <string name="roaming_mode_summary">国际漫游模式</string>
   <string name="roaming_gsm">GSM 漫游</string>
   <string name="roaming_cdma">CDMA 漫游</string>
   <string name="roaming_disabled">已禁用</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">首选网络模式：全球 (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">首选网络模式：仅 TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">首选网络模式：TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">首选网络模式：TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">首选网络模式：TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">首选网络模式：TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">首选网络模式：TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">首选网络模式：TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">首选网络模式：TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">首选网络模式：TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">首选网络模式：TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">对方已阻止所有来电。</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">呼叫未应答并已被转移</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">仅 GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">首选 GSM/WCDMA</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (当前：<xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">SIM 卡设置</string>
   <string name="sim_card_title">SIM 卡 %d</string>
   <string name="sim_card_summary_empty">SIM 卡槽是空的</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">视频通话期间不允许更改 TTY 模式</string>
   <string name="ipcall_sub_title">IP 呼叫设置</string>
   <string name="ipcall_sub_summery">编辑通过 IP 服务呼叫的前缀</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">IP 呼叫拨号前缀</string>
   <string name="fdn_service_unavailable">FDN 服务不可用。</string>
   <string name="exportContacts">正在将联系人导出至 SIM 卡\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">管理 SIM 卡联系人</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">管理 SIM 卡联系人</string>
   <string name="exportContactScreen">将联系人导出至 SIM 卡</string>
   <string name="addSimEntries">添加 SIM 卡联系人</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">已成功导出所有联系人到 SIM 卡</string>
   <string name="exportAllcontatsFailed">导出所有联系人到 SIM 卡失败</string>
   <string name="exportAllcontatsNoContacts">未找到要导出到 SIM 卡的联系人</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">首选网络</string>
   <string name="network_id">网络 ID</string>
   <string name="dialog_network_priority_title">优先级</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">中国移动</string>
   <string name="china_unicom">中国联通</string>
   <string name="china_telecom">中国电信</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">需要暂时断开数据服务连接。您确定要继续吗？</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS 帐户详细信息</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS 账户</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">视频通话质量</string>
   <string name="ims_vt_call_quality_low">低</string>
   <string name="ims_vt_call_quality_high">高</string>
   <string name="ims_vt_call_quality_unknown">未知</string>
   <string name="ims_vt_call_quality_set_failed">设置视频质量失败</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">改变网络制式（2G/3G）</string>
   <string name="perm_change_mobile_network_desc">任何时候都允许应用在 2G 和 3G 数据之间切换。3G 更快，但消耗更多电量以及可能引起额外的花费。</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">我的电话号码</string>
   <string name="phone_number_summary">设定此设备的电话号码</string>
   <string name="msim_mobile_network_settings_title">SIM 卡 %d 移动网络设置</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">通话录音格式</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">数据包计数获取失败</string>
   <string name="ims_get_packet_error_count_failed">数据包错误计数获取失败</string>
   <string name="ims_get_packet_count_label">点击此处以获得数据包计数</string>
   <string name="ims_get_packet_error_count_label">点击此处以获取数据包错误计数</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">Wi-Fi 通话设置</string>
   <string name="wifi_calling_title">Wi-Fi 通话</string>
   <string name="wifi_calling_preference_title">Wi-Fi 通话优先设置</string>
@@ -227,27 +325,4 @@
   <string name="wifi_only">仅使用 Wi-Fi</string>
   <string name="cellular_preferred">蜂窝网络优先</string>
   <string name="cellular_only">仅使用蜂窝网络</string>
-  <string name="call_barring">呼叫限制</string>
-  <string name="call_barring_outgoing">限制呼出</string>
-  <string-array name="call_barring_outgoing_display_values">
-    <item>关闭</item>
-    <item>国际漫游呼叫</item>
-    <item>国际长途</item>
-    <item>去电</item>
-  </string-array>
-  <string-array name="call_barring_incoming_display_values">
-    <item>关闭</item>
-    <item>漫游</item>
-    <item>全部</item>
-  </string-array>
-  <string name="call_barring_incoming">限制呼入</string>
-  <string name="input_password">输入您的密码</string>
-  <string name="invalidPsw">输入一个有效的密码（4-8 位）</string>
-  <string name="labelCbCancelAll">禁用呼叫限制</string>
-  <string name="labelCbChangePassword">修改密码</string>
-  <string name="psw_enter_old">旧密码</string>
-  <string name="psw_enter_new">新密码</string>
-  <string name="psw_reenter_new">重新输入您的密码</string>
-  <string name="no_call_barring">已禁用呼叫限制</string>
-  <string name="cb_psw_dont_match">密码不匹配</string>
 </resources>

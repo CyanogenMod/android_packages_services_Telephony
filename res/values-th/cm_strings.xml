@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">การแจ้งเตือนกิจกรรม</string>
   <string name="show_ssn_summary">แสดงการแจ้งเตือนสำหรับกิจกรรมเครือข่ายต่าง ๆ ที่เกี่ยวข้องกับการจัดการโทรเรียก</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">รายชื่อผู้ที่ถูกบล็อค</string>
   <string name="blacklist_summary_disabled">ปิดใช้งานแล้ว</string>
   <string name="blacklist_summary">คุณจะไม่ได้รับสายการโทรเข้าหรือข้อความจากหมายเลขที่อยู่ในรายชื่อผู้โทรที่ถูกบล็อค</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">ตัวบ่งชี้ที่รอข้อความ</string>
   <string name="mwi_notification_summary">แสดงการแจ้งเตือนตัวบ่งขี้ข้อความที่รออยู่ของระบบฝากข้อความ</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">ส่งต่อสายแบบไม่มีเงื่อนไขเปิดใช้งานอยู่</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">การส่งต่อสายเรียกเข้าแบบมีเงื่อนไขเปิดใช้งานอยู่</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">สายโทรออกถูกส่งต่อ</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">การโทรในกลุ่มผู้ใช้แบบปิด</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">สายโทรออกถูกขัดขวาง</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">สายเรียกเข้าถูกขัดขวางจากระยะไกล</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">การระงับหมายเลขเจ้าของถูกปฏิเสธโดยเครือข่าย</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">สายถูกส่งต่อจากระยะไกล</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">สายเข้าถูกส่งต่อ</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">การโทรร่วมแบบหลายสาย</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">สายถูกตัดจากระยะไกล</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">สายถูกส่งต่อ</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">สายการโทรเชื่อมต่อผ่านเทคนิคการโอนสายแบบแม่นยำ</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">สายถูกเชื่อมต่อผ่านเทคนิคการโอนสายแบบแม่นยำ</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">PIN ปลดล็อกซิมการ์ดเครือข่ายย่อย</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">PIN ปลดล็อคซิมของบริษัท</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">PIN ปลดล็อคผู้ให้บริการซิม</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">PIN ปลดล็อคซิม</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">PIN ปลดล็อค RUIM เครือข่าย 1</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">PIN ปลดล็อค RUIM เครือข่าย 2</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">PIN ปลดล็อค RUIM HRPD</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">PIN ปลดล็อค RUIM ของบริษัท</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">PIN ปลดล็อคผู้ให้บริการ RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">PIN ปลดล็อค RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">ใส่ PUK</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">กำลังขอปลดล็อคเครือข่ายซิม\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">กำลังขอปลดล็อคซิมเครือข่ายย่อย\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">กำลังขอปลดล็อคผู้ให้บริการซิม\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">กำลังขอปลดล็อคซิมการ์ดบริษัท\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">กำลังขอปลดล็อคซิมการ์ด\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">กำลังขอปลดล็อด RUIM เครือข่าย 1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">กำลังขอปลดล็อค RUIM เครือข่าย 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">กำลังขอปลดล็อค RUIM HRPD\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">กำลังขอปลดล็อคผู้ให้บริการ RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">กำลังขอปลดล็อคบริษัท RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">กำลังขอปลดล็อค RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">กำลังขอปลดล็อค PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">ขอปลดล็อคเครือข่าย SIM ไม่สำเร็จ</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">การขอปลดล็อคเครือข่ายย่อยซิมไม่สำเร็จ</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">การขอปลดล็อคผู้ให้บริการซิมไม่สำเร็จ</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">ขอปลดล็อคซิมบริษัทไม่สำเร็จ</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">ขอปลดล็อคซิมไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">ขอปลดล็อค RUIM เครือข่าย 1 ไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">ปลดล็อค RUIM เครือข่าย 2 ไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">ปลดล็อค RUIM HRPD ไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">ขอปลดล็อค RUIM ของผู้ให้บริการไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">ปลดล็อค RUIM ของบริษัทไม่สำเร็จ</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">ขอปลดล็อค RUIM ไม่สำเร็จ</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">ปลดล็อค PUK ไม่สำเร็จ</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">ปลดล็อคเครือข่ายซิมเรียบร้อยแล้ว</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">ปลดล็อคซิมเครือข่ายย่อยเรียบร้อยแล้ว</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">ปลดล็อคผู้ให้บริการซิมเรียบร้อยแล้ว</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">ปลดล็อคซิมบริษัทเรียบร้อยแล้ว</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">ปลดล็อคซิมเรียบร้อยแล้ว</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">ปลดล็อค RUIM เครือข่าย 1 เรียบร้อยแล้ว</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">ปลดล็อค RUIM เครือข่าย 2 เรียบร้อยแล้ว</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">ปลดล็อค RUIM HRPD เรียบร้อยแล้ว</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">ปลดล็อคผู้ให้บริการ RUIM เรียบร้อยแล้ว</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">ปลดล็อค RUIM ของบริษัทเรียบร้อยแล้ว</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">ปลดล็อค RUIM เรียบร้อยแล้ว</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">ปลดล็อค PUK สำเร็จ</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">คำขอ SS ถูกแก้ไขเป็นคำขอ DIAL</string>
   <string name="stk_cc_ss_to_ussd_error">คำขอ SS ถูกแก้ไขเป็นคำขอ USSD</string>
   <string name="stk_cc_ss_to_ss_error">คำขอ SS ถูกแก้ไขเป็นคำขอ SS ใหม่</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">การตั้งค่าการโทรวีดีโอ</string>
   <string name="vt_fallback_setting">โทรหาอีกครั้งด้วยเสียง</string>
   <string name="vt_forward_setting">การส่งต่อสายวิดีโอ</string>
   <string name="vt_imagereplace_setting">รูปภาพแสดงแทน</string>
   <string name="vt_imagereplace_setting_sum">จะแสดงภาพอื่นแทน เมื่อปิดการใช้งานกล้องหน้า</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">รูปแบบโรมมิ่ง</string>
   <string name="roaming_mode_summary">รูปแบบโรมมิ่งระหว่างประเทศ</string>
   <string name="roaming_gsm">โรมมิ่ง GSM</string>
   <string name="roaming_cdma">โรมมิ่ง CDMA</string>
   <string name="roaming_disabled">ปิดการใช้งาน</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">รูปแบบเครือข่ายที่ต้องการ : ทั่วไป (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA เท่านั้น</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA / WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA / LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA / GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">รูปแบบเครือข่ายที่ต้องการ: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">บุคคลได้กีดกันสายเข้าทั้งหมด</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">ไม่รับสายและส่งต่อ</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM เท่านั้น</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">กำหนดใช้ GSM/WCDMA</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (ปัจจุบัน: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">ตั้งค่าซิมการ์ด</string>
   <string name="sim_card_title">ซิมการ์ด %d</string>
   <string name="sim_card_summary_empty">ช่องใส่ซิมว่างเปล่า</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">ไม่อนุญาตการเปลี่ยนรูปแบบ TTY ระหว่างใช้สายวิดีโอ</string>
   <string name="ipcall_sub_title">ตั้งค่าการโทรผ่าน IP</string>
   <string name="ipcall_sub_summery">แก้ไขเลขนำหน้าสำหรับการโทรผ่านบริการ IP</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">เลขนำหน้าการโทรผ่าน IP</string>
   <string name="fdn_service_unavailable">ไม่มีบริการ FDN</string>
   <string name="exportContacts">กำลังส่งออกรายชื่อติดต่อไปที่ซิม\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">จัดการรายชื่อติดต่อในซิมการ์ด</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">จัดการรายชื่อติดต่อในซิม</string>
   <string name="exportContactScreen">ส่งออกรายชื่อติดต่อไปที่ซิม</string>
   <string name="addSimEntries">เพิ่มรายชื่อติดต่อในซิม</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">ส่งออกผู้ติดต่อทั้งหมดไปยังซิมเรียบร้อยแล้ว</string>
   <string name="exportAllcontatsFailed">การส่งออกรายชื่อติดต่อทั้งหมดไปยังซิมล้มเหลว</string>
   <string name="exportAllcontatsNoContacts">ไม่พบรายชื่อติดต่อที่จะส่งออกไปยังซิม</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">เครือข่ายที่ต้องการ</string>
   <string name="network_id">รหัสเครือข่าย</string>
   <string name="dialog_network_priority_title">ระดับความสำคัญ</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">จำเป็นต้องตัดการเชื่อมต่อเครือข่ายชั่วคราว แน่ใจหรือไม่ว่าต้องการดำเนินการต่อ</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">รายละเอียดบัญชี IMS</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">บัญชี IMS</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">คุณภาพสายวิดีโอ</string>
   <string name="ims_vt_call_quality_low">ต่ำ</string>
   <string name="ims_vt_call_quality_high">สูง</string>
   <string name="ims_vt_call_quality_unknown">ไม่รู้จัก</string>
   <string name="ims_vt_call_quality_set_failed">ตั้งคุณภาพวิดีโอล้มเหลว</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">เปลี่ยนรูปแบบเครือข่าย (2G / 3G)</string>
   <string name="perm_change_mobile_network_desc">อนุญาตให้แอปเปลี่ยนระหว่างข้อมูลของ 2G และ 3G ได้ทุกเมื่อ 3G เร็วกว่า แต่ใช้แบตเตอรีเปลืองมากกว่าและอาจมีค่าใช้จ่ายเพิ่มเติม</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">หมายเลขโทรศัพท์ของฉัน</string>
   <string name="phone_number_summary">ตั้งค่าหมายเลขโทรศัพท์สำหรับอุปกรณ์นี้</string>
   <string name="msim_mobile_network_settings_title">การตั้งค่าเครือข่ายโทรศัพท์มือถือซิม %d</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">นามสกุลไฟล์บันทึกการโทร</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">ล้มเหลวในการรับจำนวนแพคเก็ต</string>
   <string name="ims_get_packet_error_count_failed">ล้มเหลวในการรับจำนวนข้อผิดพลาดของแพคเก็ต</string>
   <string name="ims_get_packet_count_label">แตะที่นี่เพื่อรับจำนวนแพคเก็ต</string>
   <string name="ims_get_packet_error_count_label">แตะที่นี่เพื่อรับจำนวนข้อผิดพลาดแพคเก็ต</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">การตั้งค่าการโทรผ่าน Wi-Fi</string>
   <string name="wifi_calling_title">การโทรผ่าน Wi-Fi</string>
   <string name="wifi_calling_preference_title">กำหนดค่าการโทรผ่าน Wi-Fi</string>
@@ -227,27 +325,4 @@
   <string name="wifi_only">Wi-Fi เท่านั้น</string>
   <string name="cellular_preferred">เครื่อข่ายเมื่อใช้ได้</string>
   <string name="cellular_only">เครื่อข่ายเท่านั้น</string>
-  <string name="call_barring">จำกัดการโทร</string>
-  <string name="call_barring_outgoing">จำกัดการโทรออก</string>
-  <string-array name="call_barring_outgoing_display_values">
-    <item>ปิด</item>
-    <item>โทรโรมมิ่งระหว่างประเทศ</item>
-    <item>โทรระหว่างประเทศ</item>
-    <item>โทรออก</item>
-  </string-array>
-  <string-array name="call_barring_incoming_display_values">
-    <item>Off</item>
-    <item>โรมมิ่ง</item>
-    <item>ทั้งหมด</item>
-  </string-array>
-  <string name="call_barring_incoming">จำกัดการโทรเข้า</string>
-  <string name="input_password">ป้อนรหัสผ่านของคุณ</string>
-  <string name="invalidPsw">ป้อนรหัสผ่านที่ถูกต้อง (4-8 หลัก)</string>
-  <string name="labelCbCancelAll">ปิดใช้งานการจำกัดการโทร</string>
-  <string name="labelCbChangePassword">เปลี่ยนรหัสผ่าน</string>
-  <string name="psw_enter_old">รหัสผ่านเดิม</string>
-  <string name="psw_enter_new">รหัสผ่านใหม่</string>
-  <string name="psw_reenter_new">ป้อนรหัสผ่านของคุณอีกครั้ง</string>
-  <string name="no_call_barring">จำกัดการโทรถูกปิดใช้งาน</string>
-  <string name="cb_psw_dont_match">รหัสผ่านไม่ตรงกัน</string>
 </resources>

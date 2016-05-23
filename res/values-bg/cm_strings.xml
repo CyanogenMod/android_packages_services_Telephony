@@ -17,98 +17,181 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Известие за събитие</string>
-  <string name="show_ssn_summary">Показване на известие за различни мрежови събития, свързани с управлението на разговорите</string>
+  <string name="show_ssn_summary">Покажи известие за различни мрежови събития, свързани с управлението на разговорите</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Списък на блокираните контакти</string>
   <string name="blacklist_summary_disabled">Изключено</string>
   <string name="blacklist_summary">Няма да получавате входящи повиквания или съобщения от телефонните номера в списъка</string>
-  <string name="mwi_notification_title">Индикатор за чакащо уведомление</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
+  <string name="mwi_notification_title">Индикатор за чакащо известие</string>
   <string name="mwi_notification_summary">Показвай известия за чакащи съобщения в гласовата поща</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Безусловно пренасочване активирано</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Условно пренасочване активирано</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Изходящите повиквания се препращат</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Обадете се в затворена група</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Изходящите повиквания са забранени</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Входящите повиквания са дистанционно забранени</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Скриването на номера отхвърлено от мрежата</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Дистанционно препращане на повиквания</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Входящо повикване е препратено</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Конферентно повикване</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Дистанционно отхвърлено повикване</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Повикването е препратено</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Свързване на повикване през телефонната централа</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Свързвано повикване през телефонната централа</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">Код за достъп до настройките на СИМ картата за допълнителни мрежи</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">Код за достъп до настройките на корпоративна СИМ картата</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">Код за достъп до настройките на СИМ картата за мрежови оператори</string>
-  <string name="label_sdp">ПИН-код за отключване на СИМ картата</string>
-  <string name="label_rn1dp">PIN код за разблокиране на 1 RUIM мрежа</string>
-  <string name="label_rn2dp">PIN код за разблокиране на 2 RUIM мрежа</string>
-  <string name="label_rhrpd">PIN код за разблокиране HRPD RUIM</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
+  <string name="label_sdp">ПИН код за отключване на СИМ картата</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="label_rn1dp">ПИН код за разблокиране на RUIM мрежа 1</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="label_rn2dp">ПИН код за разблокиране на RUIM мрежа 2</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="label_rhrpd">ПИН код за разблокиране HRPD RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">Корпоративен PIN код за разблокиране на RUIM</string>
-  <string name="label_rspdp">PIN код за разблокиране на RUIM оператора</string>
-  <string name="label_rdp">PIN код за разблокиране на RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <string name="label_rspdp">ПИН код за разблокиране на RUIM оператора</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
+  <string name="label_rdp">ПИН код за разблокиране на RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Въведете PUK кода</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Искане за разблокиране на SIM мрежата\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Искане за разблокиране на частна SIM мрежа\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Искане за разблокиране на СИМ услугите\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Искане за разблокиране на корпоративна СИМ карта\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Искане за разблокиране на СИМ карта\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Заявка за разблокиране на RUIM мрежа 1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Заявка за разблокиране на RUIM мрежа 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Искане за разблокиране на RUIM HRPD\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Искане за разблокиране на RUIM услугите\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Искане за разблокиране на корпоративна RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Искане за разблокиране на RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Искане за разблокиране на PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Неуспешно искане за разблокиране на SIM мрежата.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Неуспешно искане за разблокиране на частна SIM мрежа.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Неуспешно искане за разблокиране на SIM оператора.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Неуспешно искане за разблокиране на корпоративна СИМ карта.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Неуспешно искане за разблокиране на СИМ карта.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Заявката за разблокиране на RUIM мрежа 1 e отхвърлена.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Заявката за разблокиране на RUIM мрежа 2 e отхвърлена.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Заявката за разблокиране на RUIM HRPD e отхвърлена.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Заявката за разблокиране на RUIM оператора e отхвърлена.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Заявката за разблокиране на корпоративна RUIM e отхвърлена.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Заявката за разблокиране на RUIM e отхвърлена.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Неуспешно PUK отключване.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Неуспешно разблокиране на SIM мрежата.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Подмрежата на СИМ картата е отключена успешно.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Успешно отключване на SIM оператор.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Корпоративната СИМ карта е отключена успешно.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">СИМ картата е отключена успешно.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Успешно разблокирана RUIM 1 мрежа.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Успешно разблокирана RUIM 2 мрежа.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Успешно разблокиран RUIM HRPD.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Успешно разблокиране на RUIM оператора.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Успешно разблокиране на корпоративна RUIM.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Успешно разблокирана RUIM.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Успешно PUK отключване.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS заявката е преобразувана в DIAL заявка.</string>
   <string name="stk_cc_ss_to_ussd_error">SS заявката е преобразувана в USSD заявка.</string>
   <string name="stk_cc_ss_to_ss_error">SS заявката е преобразувана в нова SS заявка.</string>
-  <string name="videocall_settings">Настройките за видео повикване</string>
+  <!-- Add VideoCall Setttings -->
+  <string name="videocall_settings">Настройки за видео повикване</string>
   <string name="vt_fallback_setting">Повторно набиране чрез гласово повикване</string>
   <string name="vt_forward_setting">Препращане на видео повикване</string>
   <string name="vt_imagereplace_setting">Алтернативно изображение</string>
   <string name="vt_imagereplace_setting_sum">Изображението се показва, когато предната камера е изключена</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Роуминг режим</string>
   <string name="roaming_mode_summary">Международен роуминг режим</string>
   <string name="roaming_gsm">GSM роуминг</string>
   <string name="roaming_cdma">CDMA роуминг</string>
   <string name="roaming_disabled">Изключено</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Режим на предпочитана мрежа: глобален (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Режим на предпочитана мрежа: Само TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Участник забрани всички входящи повиквания.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Повикване без отговор и препратено</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">Само GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA предпочитан</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (текущи: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">Настройки на СИМ карта</string>
   <string name="sim_card_title">СИМ карта %d</string>
   <string name="sim_card_summary_empty">Слота на СИМ картата е празен</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">Промяна на TTY режим не е позволена по време на видео повикване</string>
   <string name="ipcall_sub_title">Настройки за IP обаждания</string>
   <string name="ipcall_sub_summery">Редактиране на префикса за разговори през IP обслужване</string>
@@ -144,10 +229,12 @@
   <string name="ipcall_dialog_edit_hint">Префикс за набиране на IP повиквания</string>
   <string name="fdn_service_unavailable">FDN услугата не е налична.</string>
   <string name="exportContacts">Експортиране на контакти в СИМ картата\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Управление на контактите в СИМ картата</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Управление на СИМ контактите</string>
-  <string name="exportContactScreen">Експортиране телефонни контакти в СИМ картата</string>
-  <string name="addSimEntries">Добави контакт СИМ картата</string>
+  <string name="exportContactScreen">Експортиране на телефонни контакти в СИМ картата</string>
+  <string name="addSimEntries">Добави контакт в СИМ картата</string>
   <string name="deleteAllSimEntries">Изтриване на всички контакти от СИМ картата</string>
   <string name="deleteSimContacts">Изтриване на контакти от СИМ карта\u2026</string>
   <string name="editContact">Редактиране</string>
@@ -164,11 +251,12 @@
   <string name="contactUpdateFailed">Неуспешно актуализиране на контакт в СИМ картата</string>
   <string name="contactdeleteSuccess">Успешно е изтрит контакт от СИМ картата</string>
   <string name="contactdeleteFailed">Неуспешно изтриване на контакти от СИМ картата</string>
-  <string name="allContactdeleteSuccess">Успешно са изтрити всички контакти от SIM</string>
+  <string name="allContactdeleteSuccess">Успешно са изтрити всички контакти от СИМ картата</string>
   <string name="allContactdeleteFailed">Неуспешно изтриване на всички контакти от СИМ картата</string>
   <string name="exportAllcontatsSuccess">Успешно са експортирани всички контакти в СИМ картата</string>
   <string name="exportAllcontatsFailed">Неуспешно експортиране на всички контакти в СИМ картата</string>
   <string name="exportAllcontatsNoContacts">Не са открити контакти за експортиране в СИМ картата</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Предпочитани мрежи</string>
   <string name="network_id">Мрежов ID</string>
   <string name="dialog_network_priority_title">Приоритет</string>
@@ -190,7 +278,7 @@
   <string name="lte_recognition_title">Разпознаване на СИМ карта</string>
   <string name="lte_recognize_summary">Открити са две 3G/LTE СИМ карти, трябва да зададете по подразбиране 3G/LTE СИМ за картата:</string>
   <string name="lte_select_title">3G/LTE СИМ карта по подразбиране</string>
-  <string name="lte_select_summary">Избраната карта ще бъде призната като 3G/LTE СИМ карта, а другата като 2G СИМ карта.</string>
+  <string name="lte_select_summary">Избраната СИМ карта ще работи в режим 3G/LTE, а другата в режим 2G.</string>
   <string name="lte_checkbox_text">Задаване на връзка за данни в избраната СИМ картата след променя на картата 3G/LTE СИМ по подразбиране</string>
   <string name="reg_failed">Регистрацията е неуспешна</string>
   <string name="reg_suc">Регистрацията е успешна</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Услугата за мобилен интернет трябва да се прекъсне временно. Наистина ли искате да продължите?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">Подробни данни за акаунта на IMS</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS акаунт</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Качество на видео разговор</string>
   <string name="ims_vt_call_quality_low">Ниско</string>
   <string name="ims_vt_call_quality_high">Високо</string>
   <string name="ims_vt_call_quality_unknown">Неизвестно</string>
   <string name="ims_vt_call_quality_set_failed">Неуспешно задаване на видео качество</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">промяна на режима на мрежата (2G / 3G)</string>
   <string name="perm_change_mobile_network_desc">Позволява на приложенията да превключват между 2G и 3G данни по всяко време. 3G е по-бързо, но консумира повече батерия и може да доведе до допълнителни разходи.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Моят телефонен номер</string>
   <string name="phone_number_summary">Задайте телефонен номер за това устройство</string>
-  <string name="msim_mobile_network_settings_title">СИМ карта %d мрежови настройки</string>
+  <string name="msim_mobile_network_settings_title">Мрежови настройки СИМ карта %d</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Формат за запис на повикването</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">Неуспешно извличане на общ брой пакети</string>
   <string name="ims_get_packet_error_count_failed">Неуспешно получаване на пакети грешка в броя</string>
   <string name="ims_get_packet_count_label">Натиснете тук, за да получите общ брой пакети</string>
   <string name="ims_get_packet_error_count_label">Натиснете тук, за да получите броя грешни пакети</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">Wi-Fi обаждания настройки</string>
   <string name="wifi_calling_title">Wi-Fi обаждания</string>
   <string name="wifi_calling_preference_title">Wi-Fi обаждания предпочитания</string>
@@ -227,27 +325,4 @@
   <string name="wifi_only">Само Wi-Fi</string>
   <string name="cellular_preferred">Предпочитани мобилни данни</string>
   <string name="cellular_only">Само мобилни данни</string>
-  <string name="call_barring">Ограничаване на повикванията</string>
-  <string name="call_barring_outgoing">Ограничаване на изходящи повиквания</string>
-  <string-array name="call_barring_outgoing_display_values">
-    <item>Изключен</item>
-    <item>Международни повиквания в роуминг</item>
-    <item>Международни обаждания</item>
-    <item>Изходящи повиквания</item>
-  </string-array>
-  <string-array name="call_barring_incoming_display_values">
-    <item>Изключен</item>
-    <item>Роуминг</item>
-    <item>Всички</item>
-  </string-array>
-  <string name="call_barring_incoming">Забранени входящи разговори</string>
-  <string name="input_password">Въведете паролата си</string>
-  <string name="invalidPsw">Въведете валидна парола (4-8 цифри)</string>
-  <string name="labelCbCancelAll">Забраняване на повиквания</string>
-  <string name="labelCbChangePassword">Смяна на паролата</string>
-  <string name="psw_enter_old">Стара парола</string>
-  <string name="psw_enter_new">Нова парола</string>
-  <string name="psw_reenter_new">Въведете отново паролата си</string>
-  <string name="no_call_barring">Спиране на забраната за обаждания</string>
-  <string name="cb_psw_dont_match">Паролите не съвпадат</string>
 </resources>

@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Ειδοποιήσεις συμβάντων</string>
   <string name="show_ssn_summary">Εμφάνιση ειδοποίησης για διάφορα συμβάντα του δικτύου που σχετίζονται με το χειρισμό των κλήσεων</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Λίστα αποκλεισμένων καλούντων</string>
   <string name="blacklist_summary_disabled">Απενεργοποιημένη</string>
   <string name="blacklist_summary">Δε θα λαμβάνετε εισερχόμενες κλήσεις ή μηνύματα από τηλεφωνικούς αριθμούς στη λίστα αποκλεισμένων καλούντων</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Ένδειξη αναμονής μηνύματος</string>
   <string name="mwi_notification_summary">Εμφάνιση ειδοποίησης μηνύματος τηλεφωνητή</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Προώθηση κλήσεων άνευ όρων ενεργή</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Προώθηση κλήσεων υπό όρους ενεργή</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Η εξερχόμενη κλήση προωθείται</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Κλήση σε κλειστή ομάδα χρηστών</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Φραγή εξερχόμενων κλήσεων</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Φραγή εισερχόμενων κλήσεων από τον απομακρυσμένο χρήστη</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Η απόκρυψη αριθμού απορρίφθηκε από το δίκτυο</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Η κλήση προωθήθηκε από τον απομακρυσμένο χρήστη</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Η εισερχόμενη κλήση προωθείται</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Συνδιάλεξη πολλαπλών χρηστών</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Η κλήση απελευθερώθηκε απομακρυσμένα</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Η κλήση προωθήθηκε</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Η κλήση συνδέεται με μεταφορά κλήσης</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Η κλήση συνδέθηκε με μεταφορά κλήσης</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">PIN ξεκλειδώματος υποσυνόλου δικτύου SIM</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">PIN ξεκλειδώματος εταιρικής SIM</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">PIN ξεκλειδώματος παρόχου SIM</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">PIN ξεκλειδώματος SIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">PIN ξεκλειδώματος RUIM δικτύου 1</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">PIN ξεκλειδώματος RUIM δικτύου 2</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">PIN ξεκλειδώματος HRPD RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">PIN ξεκλειδώματος εταιρικής RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">PIN ξεκλειδώματος παρόχου RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">PIN ξεκλειδώματος RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Εισάγετε PUK</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Αίτηση ξεκλειδώματος δικτύου SIM\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Αίτηση ξεκλειδώματος υποσυνόλου δικτύου SIM\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Αίτηση ξεκλειδώματος παρόχου SIM\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Αίτηση ξεκλειδώματος εταιρικής SIM\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Αίτηση ξεκλειδώματος SIM\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Αίτηση ξεκλειδώματος RUIM δικτύου 1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Αίτηση ξεκλειδώματος RUIM δικτύου 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Αίτηση ξεκλειδώματος HRPD RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Αίτηση ξεκλειδώματος παρόχου RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Αίτηση ξεκλειδώματος εταιρικής RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Αίτηση ξεκλειδώματος RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Αίτηση ξεκλειδώματος PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Αποτυχία ξεκλειδώματος δικτύου SIM.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Αποτυχία ξεκλειδώματος υποσυνόλου δικτύου SIM.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Αποτυχία ξεκλειδώματος παρόχου SIM.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Αποτυχία ξεκλειδώματος εταιρικής SIM.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Αποτυχία ξεκλειδώματος SIM.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Αποτυχία ξεκλειδώματος RUIM δικτύου 1.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Αποτυχία ξεκλειδώματος RUIM δικτύου 2.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Αποτυχία ξεκλειδώματος HRPD RUIM.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Αποτυχία ξεκλειδώματος παρόχου RUIM.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Αποτυχία ξεκλειδώματος εταιρικής RUIM.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Αποτυχία ξεκλειδώματος RUIM.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Αποτυχία ξεκλειδώματος PUK.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Το ξεκλείδωμα του δικτύου SIM ήταν επιτυχές.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Το ξεκλείδωμα του υποσυνόλου δικτύου SIM ήταν επιτυχές.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Το ξεκλείδωμα του παρόχου SIM ήταν επιτυχές.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Το ξεκλείδωμα της εταιρικής SIM ήταν επιτυχές.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">Το ξεκλείδωμα της SIM ήταν επιτυχές.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Το ξεκλείδωμα του RUIM δικτύου 1 ήταν επιτυχές.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Το ξεκλείδωμα του RUIM δικτύου 2 ήταν επιτυχές.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Το ξεκλείδωμα HRPD RUIM ήταν επιτυχές.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Το ξεκλείδωμα του παρόχου RUIM ήταν επιτυχές.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Το ξεκλείδωμα της εταιρικής RUIM ήταν επιτυχές.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Το ξεκλείδωμα της RUIM ήταν επιτυχές.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Το ξεκλείδωμα του PUK ήταν επιτυχές.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">Αίτημα SS τροποποιήθηκε σε αίτημα ΚΛΗΣΗΣ.</string>
   <string name="stk_cc_ss_to_ussd_error">Αίτημα SS τροποποιήθηκε σε αίτημα USSD.</string>
   <string name="stk_cc_ss_to_ss_error">Αίτημα SS τροποποιήθηκε σε νέο αίτημα SS.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Ρυθμίσεις κλήσεων βίντεο</string>
   <string name="vt_fallback_setting">Επανάκληση μέσω φωνητικής κλήσης</string>
   <string name="vt_forward_setting">Προώθηση κλήσεων βίντεο</string>
   <string name="vt_imagereplace_setting">Εναλλακτική εικόνα</string>
   <string name="vt_imagereplace_setting_sum">Εικόνα που θα εμφανίζεται όταν ο η μπροστινή φωτογραφική μηχανή είναι απενεργοποιημένη</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Λειτουργία περιαγωγής</string>
   <string name="roaming_mode_summary">Λειτουργία διεθνούς περιαγωγής</string>
   <string name="roaming_gsm">Περιαγωγή GSM</string>
   <string name="roaming_cdma">Περιαγωγή CDMA</string>
   <string name="roaming_disabled">Ανενεργή</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Προτιμώμενη λειτουργία δικτύου: Παγκόσμια (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Προτιμώμενη λειτουργία δικτύου: Μόνο TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Προτιμώμενη λειτουργία δικτύου: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Ο συνομιλητής έχει μπλοκάρει όλες τις εισερχόμενες κλήσεις.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Η κλήση δεν απαντήθηκε και προωθήθηκε</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">Μόνο GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/Προτιμώμενο WCDMA</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (τρέχον <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">Ρυθμίσεις καρτών SIM</string>
   <string name="sim_card_title">Κάρτα SIM %d</string>
   <string name="sim_card_summary_empty">Η υποδοχή SIM είναι άδεια</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">Δεν επιτρέπεται η αλλαγή της λειτουργίας TTY κατά τη διάρκεια μιας βίντεο κλήσης</string>
   <string name="ipcall_sub_title">Ρυθμίσεις κλήσεων IP</string>
   <string name="ipcall_sub_summery">Επεξεργασία προθέματος για κλήσεις μέσω της υπηρεσίας IP</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">Πρόθεμα κλήσης IP</string>
   <string name="fdn_service_unavailable">Η υπηρεσία FDN δεν είναι διαθέσιμη.</string>
   <string name="exportContacts">Εξαγωγή επαφών στην κάρτα SIM\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Διαχείριση επαφών κάρτας SIM</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Διαχείριση επαφών SIM</string>
   <string name="exportContactScreen">Εξαγωγή επαφών τηλεφώνου στη SIM</string>
   <string name="addSimEntries">Προσθήκη επαφής SIM</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">Επιτυχής εξαγωγή όλων των επαφών στη SIM</string>
   <string name="exportAllcontatsFailed">Αποτυχία εξαγωγής όλων των επαφών στη SIM</string>
   <string name="exportAllcontatsNoContacts">Δεν βρέθηκαν επαφές για εξαγωγή στη SIM</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Προτιμώμενα δίκτυα</string>
   <string name="network_id">Αναγνωριστικό δικτύου</string>
   <string name="dialog_network_priority_title">Προτεραιότητα</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Η υπηρεσία δεδομένων πρέπει να διακοπεί προσωρινά. Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">Λεπτομέρειες λογαριασμού IMS</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">Λογαριασμοί IMS</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Ποιότητα βίντεο κλήσης</string>
   <string name="ims_vt_call_quality_low">Χαμηλή</string>
   <string name="ims_vt_call_quality_high">Υψηλή</string>
   <string name="ims_vt_call_quality_unknown">Άγνωστη</string>
   <string name="ims_vt_call_quality_set_failed">Αποτυχία ρύθμισης ποιότητας βίντεο</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">αλλαγή κατάστασης δικτύου (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Επιτρέπει στην εφαρμογή να κάνει εναλλαγή μεταξύ 2G και 3G δεδομένων. Το 3G είναι γρηγορότερο, καταναλώνει περισσότερο μπαταρία και μπορεί επίσης να σας κοστίσει περισσότερα χρήματα.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Ο αριθμός μου</string>
   <string name="phone_number_summary">Ορίστε τον αριθμό τηλεφώνου για αυτή τη συσκευή</string>
   <string name="msim_mobile_network_settings_title">Ρυθμίσεις δικτύων κινητής τηλεφωνίας SIM %d</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Μορφή ηχογράφησης κλήσεων</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">Αποτυχία λήψης αριθμού πακέτων</string>
   <string name="ims_get_packet_error_count_failed">Αποτυχία λήψης αριθμού σφαλμάτων πακέτων</string>
   <string name="ims_get_packet_count_label">Πιέστε εδώ για λήψη αριθμού πακέτων</string>
   <string name="ims_get_packet_error_count_label">Πιέστε εδώ για λήψη αριθμού σφαλμάτων πακέτων</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">Ρυθμίσεις κλήσεων Wi-Fi</string>
   <string name="wifi_calling_title">Κλήσεις Wi-Fi</string>
   <string name="wifi_calling_preference_title">Προτίμηση κλήσεων Wi-Fi</string>
@@ -227,27 +325,4 @@
   <string name="wifi_only">Μόνο Wi-Fi</string>
   <string name="cellular_preferred">Προτίμηση δικτύου τηλεφωνίας</string>
   <string name="cellular_only">Μόνο δίκτυο τηλεφωνίας</string>
-  <string name="call_barring">Φραγή κλήσεων</string>
-  <string name="call_barring_outgoing">Φραγή εξερχόμενων κλήσεων</string>
-  <string-array name="call_barring_outgoing_display_values">
-    <item>Ανενεργή</item>
-    <item>Διεθνείς κλήσεις περιαγωγής</item>
-    <item>Διεθνείς κλήσεις</item>
-    <item>Εξερχόμενες κλήσεις</item>
-  </string-array>
-  <string-array name="call_barring_incoming_display_values">
-    <item>Ανενεργή</item>
-    <item>Περιαγωγή</item>
-    <item>Όλες</item>
-  </string-array>
-  <string name="call_barring_incoming">Φραγή εισερχόμενων κλήσεων</string>
-  <string name="input_password">Εισάγετε τον κωδικό πρόσβασής σας</string>
-  <string name="invalidPsw">Εισαγάγετε έναν έγκυρο κωδικό πρόσβασης (4-8 ψηφία)</string>
-  <string name="labelCbCancelAll">Απενεργοποίηση φραγής κλήσεων</string>
-  <string name="labelCbChangePassword">Αλλαγή κωδικού πρόσβασης</string>
-  <string name="psw_enter_old">Παλιός κωδικός πρόσβασης</string>
-  <string name="psw_enter_new">Νέος κωδικός πρόσβασης</string>
-  <string name="psw_reenter_new">πληκτρολογήστε ξανά τον κωδικό πρόσβασης</string>
-  <string name="no_call_barring">Η φραγή κλήσεων απενεργοποιήθηκε</string>
-  <string name="cb_psw_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
 </resources>

@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">اعلان رویداد</string>
   <string name="show_ssn_summary">نمایش اعلان برای رویدادهای مختلف شبکه که با تماس ارتباط دارند</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">لیست تماس‌گیرنده مسدود شده</string>
   <string name="blacklist_summary_disabled">غیرفعال</string>
   <string name="blacklist_summary">شما تماس یا پیامی از شماره تلفن‌های لیست تماس‌گیرنده مسدود شده دریافت نخواهید کرد</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">نشانگر انتظار پیام</string>
   <string name="mwi_notification_summary">نمایش پیام شاخص انتظار برای اعلانات پست صوتی</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">انتقال نامحدود تماس فعال است</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">انتقال محدود تماس فعال است</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">تماس خروجی انتقال می‌یابد</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">تماس با گروه بسته</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">تماس‌های خروجی مسدود است</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">تماس‌های ورودی در طرف دیگر مسدود است</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">توقف شماره خود توسط شبکه رد شد</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">تماس توسط طرف دیگر انتقال یافت</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">تماس ورودی انتقال داده شده است</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">تماس چند کاربری</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">تماس از راه دور منتشر شد</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">تماس انتقال یافت</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">تماس از طریق انتقال صریح تماس متصل می‌شود</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">تماس از طریق انتقال صریح تماس متصل شد</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">پین بازگشایی زیرمجموعه شبکه سیم کارت</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">پین بازگشایی شرکت سیم کارت</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">پین بازگشایی قفل ارائه‌دهنده خدمات سیمکارت</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">پین بازگشایی قفل سیمکارت</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">پین بازگشایی قفل شبکه 1 RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">پین بازگشایی قفل شبکه 2 RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">پین بازگشایی قفل RUIM HRPD</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">پین بازگشایی قفل شرکت RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">پین بازگشایی قفل ارائه‌دهنده خدمات RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">پین بازگشایی قفل RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">PUK را وارد کنید</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">درخواست بازگشایی قفل شبکه سیمکارت\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">درخواست بازگشایی قفل زیرمجموعه شبکه سیمکارت\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">درخواست بازگشایی قفل ارائه‌دهنده سرویس سیمکارت\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">درخواست بازگشایی قفل شرکت سیمکارت\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">درخواست بازگشایی قفل سیمکارت\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">درخواست بازگشایی قفل شبکه RUIM 1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">درخواست بازگشایی قفل شبکه RUIM 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">درخواست بازگشایی قفل RUIM HRPD\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">درخواست بازگشایی قفل ارائه‌دهنده سرویس RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">درخواست بازگشایی قفل شرکت RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">درخواست بازگشایی قفل RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">درخواست بازگشایی قفل PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">درخواست بازگشایی قفل سیمکارت ناموفق بود.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">درخواست بازگشایی قفل زیرمجموعه شبکه سیمکارت ناموفق بود.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">درخواست بازگشایی قفل ارائه‌دهنده سرویس سیمکارت ناموفق بود.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">درخواست بازگشایی قفل شرکت سیمکارت ناموفق بود.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">درخواست بازگشایی قفل سیمکارت ناموفق بود.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">درخواست بازگشایی قفل شبکه RUIM 1 ناموفق بود.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">درخواست بازگشایی قفل شبکه RUIM 2  ناموفق بود.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">درخواست بازگشایی قفل شبکه RUIM HRPD ناموفق بود.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">درخواست بازگشایی قفل ارائه‌دهنده سرویس RUIM ناموفق بود.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">درخواست بازگشایی قفل شرکت RUIM ناموفق بود.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">درخواست بازگشایی قفل RUIM ناموفق بود.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">بازگشایی قفل PUK ناموفق بود.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">بازگشایی قفل شبکه سیمکارت موفق بود.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">بازگشایی قفل زیرمجموعه شبکه سیمکارت موفق بود.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">بازگشایی قفل ارائه‌دهنده سرویس سیمکارت موفق بود.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">بازگشایی قفل شرکت سیمکارت موفق بود.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">بازگشایی قفل سیمکارت ناموفق بود.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">بازگشایی قفل شبکه RUIM 1 موفق بود.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">بازگشایی قفل شبکه RUIM 2 موفق بود.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">بازگشایی قفل RUIM HRPD موفق بود.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">بازگشایی قفل ارائه‌دهنده سرویس RUIM موفق بود.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">بازگشایی قفل شرکت RUIM موفق بود.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">بازگشایی قفل RUIM موفق بود.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">بازگشایی قفل PUK موفق بود.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">درخواست SS به درخواست DIAL تغییر یافت.</string>
   <string name="stk_cc_ss_to_ussd_error">درخواست SS به درخواست USSD تغییر یافت.</string>
   <string name="stk_cc_ss_to_ss_error">درخواست SS به درخواست SS جدید تغییر یافت.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">تنظیمات تماس ویدیویی</string>
   <string name="vt_fallback_setting">شماره‌گیری مجدد از طریق تماس صوتی</string>
   <string name="vt_forward_setting">انتقال تماس تصویری</string>
   <string name="vt_imagereplace_setting">تصویر جایگزین</string>
   <string name="vt_imagereplace_setting_sum">تصویری که زمان غیرفعال‌بودن دوربین جلو نمایش داده می‌شود</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">حالت رومینگ</string>
   <string name="roaming_mode_summary">حالت رومینگ بین‌المللی</string>
   <string name="roaming_gsm">رومینگ GSM</string>
   <string name="roaming_cdma">رومینگ CDMA</string>
   <string name="roaming_disabled">غیرفعال</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">حالت شبکه برگزیده: جهانی (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">حالت شبکه برگزیده: تنها TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">حالت شبکه برگزیده: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">حالت شبکه برگزیده: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">حالت شبکه برگزیده: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">حالت شبکه برگزیده: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">حالت شبکه برگزیده: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">حالت شبکه برگزیده: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">حالت شبکه برگزیده: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">حالت شبکه برگزیده: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">حالت شبکه برگزیده: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">شخص تمام تماس‌های ورودی را مسدود کرده است.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">تماس بدون پاسخ و انتقال داده شده</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">تنها GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ترجیح داده شده</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g>(فعلی: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">تنظیمات سیم کارت</string>
   <string name="sim_card_title">سیم کارت %d</string>
   <string name="sim_card_summary_empty">شکاف سیمکارت خالی است</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">تغییر حالت TTY در طول تماس‌های تصویری مجاز نیست</string>
   <string name="ipcall_sub_title">تنظیمات IP تماس</string>
   <string name="ipcall_sub_summery">ویرایش پیشوند برای تماس از طریق سرویس IP</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">پیشوند IP شماره‌گیری تماس</string>
   <string name="fdn_service_unavailable">سرویس FDN در دسترس نمی‌باشد.</string>
   <string name="exportContacts">در حال برون‌ریزی مخاطبین به سیم کارت\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">مدیریت مخاطبین سیم کارت</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">مدیریت مخاطبین سیمکارت</string>
   <string name="exportContactScreen">برون‌ریزی مخاطبین تلفن همراه به سیمکارت</string>
   <string name="addSimEntries">افزودن مخاطب به سیمکارت</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">تمام مخاطبین با موفقیت به سیمکارت برون‌ریزی شدند</string>
   <string name="exportAllcontatsFailed">برون‌ریزی تمام مخاطبین به سیمکارت ناموفق بود</string>
   <string name="exportAllcontatsNoContacts">هیچ مخاطبی برای برون‌ریزی به سیمکارت پیدا نشد</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">شبکه‌های برگزیده</string>
   <string name="network_id">شناسه شبکه</string>
   <string name="dialog_network_priority_title">اولویت</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">چاینا موبایل</string>
   <string name="china_unicom">چاینا یونیکام</string>
   <string name="china_telecom">چاینا تلکام</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">لازم است سرویس داده به طور موقت قطع شود. آیا ادامه می‌دهید؟</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">جزئیات حساب کاربری IMS</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">حساب‌های کاربری IMS</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">کیفیت تماس تصویری</string>
   <string name="ims_vt_call_quality_low">کم</string>
   <string name="ims_vt_call_quality_high">زیاد</string>
   <string name="ims_vt_call_quality_unknown">ناشناخته</string>
   <string name="ims_vt_call_quality_set_failed">تنظیم کیفیت ویدئو ناموفق بود</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">تغییر حالت شبکه (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">به برنامه اجازه می‌دهد در هر زمان از داده 2G یا 3G استفاده کند. 3G سریع‌تر است، اما دارای مصرف بیشتر باتری است و ممکن است هزینه اضافی به همراه داشته باشد.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">شماره تلفن من</string>
   <string name="phone_number_summary">تنظیم شماره تلفن این دستگاه</string>
   <string name="msim_mobile_network_settings_title">تنظیمات شبکه تلفن همراه سیمکارت %d</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">فرمت ضبط تماس</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">خطا در دریافت تعداد بسته</string>
   <string name="ims_get_packet_error_count_failed">خطای دریافت شمارش خطای بسته</string>
   <string name="ims_get_packet_count_label">اینجا را جهت دریافت تعداد بسته لمس کنید</string>
   <string name="ims_get_packet_error_count_label">اینجا را جهت دریافت تعداد خطای بسته لمس نمایید</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">تنظیمات تماس وای‌فای</string>
   <string name="wifi_calling_title">تماس وای‌فای</string>
   <string name="wifi_calling_preference_title">اولویت‌های تماس وای‌فای</string>

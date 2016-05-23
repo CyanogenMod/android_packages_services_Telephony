@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Händelseavisering</string>
   <string name="show_ssn_summary">Visa en avisering för olika nätverkshändelser relaterade till samtalshantering</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Lista över blockerade nummer</string>
   <string name="blacklist_summary_disabled">Inaktiverad</string>
   <string name="blacklist_summary">Du kommer inte få inkommande samtal eller meddelanden från telefonnummer som är på listan över blockerade nummer</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikator för väntande meddelande</string>
   <string name="mwi_notification_summary">Visa meddelande väntar indikator som telefonsvararavisering</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Ovillkorlig vidarekoppling aktiv</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Villkorlig vidarekoppling aktiv</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Utgående samtal vidarebefordras</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Ring i sluten användargrupp</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Utgående samtal hindras</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Inkommande samtal hindras vid fjärrpart</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Undertryckande av eget nummer nekades av nätverket</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Samtal vidarebefordrat av fjärrpart</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Inkommande samtal blir vidarebefordrat</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Flerpartssamtal</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Samtalet släpptes på distans</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Samtalet vidarebefordrades</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Samtal ansluter genom explicit samtalsöverföring</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Samtal anslutet genom explicit samtalsöverföring</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">PIN-kod till upplåsning av SIM-kort på undernätverk</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">PIN för upplåsning av arbets-SIM</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">PIN för upplåsning av SIM-tjänsteleverantör</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">PIN för SIM-upplåsning</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">PIN för upplåsning av RUIM-nätverk 1</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">PIN för upplåsning av RUIM-nätverk 2</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">PIN för upplåsning av RUIM HRPD</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">PIN för upplåsning av arbets-RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">PIN för upplåsning av RUIM-tjänsteleverantör</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">PIN för RUIM-upplåsning</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Ange PUK</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Begär upplåsning av SIM-nätverk\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Begär upplåsning av SIM-kort på undernätverk\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Begär upplåsning av SIM-tjänsteleverantör\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Begär upplåsning av arbets-SIM-kort\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Begär SIM-upplåsning\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Begär upplåsning av RUIM-nätverk 1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Begär upplåsning av RUIM-nätverk 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Begär RUIM HRPD-upplåsning\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Begär upplåsning av RUIM-tjänsteleverantör\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Begär upplåsning av arbets-RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Begär RUIM-upplåsning\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Begär PUK-upplåsning\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Begäran att låsa upp SIM-nätverk misslyckades.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Begäran att låsa upp SIM-kort på undernätverk misslyckades.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Begäran om upplåsning av SIM-tjänsteleverantör misslyckades.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Begäran att låsa upp arbets-SIM misslyckades.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Begäran om SIM-upplåsning misslyckades.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Begäran att låsa upp RUIM-nätverk 1 misslyckades.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Begäran att låsa upp RUIM-nätverk 2 misslyckades.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Begäran att låsa upp RUIM HRPD misslyckades.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Begäran om upplåsning av RUIM-tjänsteleverantör misslyckades.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Begäran att låsa upp arbets-RUIM misslyckades.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Begäran om RUIM-upplåsning misslyckades.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK-upplåsning misslyckades.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Upplåsningen av SIM-nätverket lyckades.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Låste upp SIM-kort på undernätverk.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Upplåsningen av SIM-tjänsteleverantören lyckades.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Upplåsning av arbets-SIM lyckades.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM-upplåsning lyckades.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Upplåsning av RUIM-nätverk 1 lyckades.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Upplåsning av RUIM-nätverk 2 lyckades.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Upplåsning av RUIM HRPD lyckades.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Upplåsning av RUIM-tjänsteleverantören lyckades.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Upplåsning av arbets-RIUM lyckades.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM-upplåsning lyckades.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK-upplåsning lyckades.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS-begäran ändrades till DIAL-begäran.</string>
   <string name="stk_cc_ss_to_ussd_error">SS-begäran ändrades till USSD-begäran.</string>
   <string name="stk_cc_ss_to_ss_error">SS-begäran ändrades till ny SS-begäran.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Videosamtalsinställningar</string>
   <string name="vt_fallback_setting">Ring upp igen via röstsamtal</string>
   <string name="vt_forward_setting">Vidarebefordran av videosamtal</string>
   <string name="vt_imagereplace_setting">Alternativ bild</string>
   <string name="vt_imagereplace_setting_sum">Bild att visa när framsideskameran är inaktiverad</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Roaming-läge</string>
   <string name="roaming_mode_summary">Internationellt roaming-läge</string>
   <string name="roaming_gsm">GSM-roaming</string>
   <string name="roaming_cdma">CDMA-roaming</string>
   <string name="roaming_disabled">Inaktiverat</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Föredraget nätverksläge: Globalt (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Föredraget nätverksläge: Endast TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Föredraget nätverksläge: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Föredraget nätverksläge: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Föredraget nätverksläge: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Föredraget nätverksläge: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Föredraget nätverksläge: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Föredraget nätverksläge: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Föredraget nätverksläge: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Föredraget nätverksläge: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Föredraget nätverksläge: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Parten har spärrat alla inkommande samtal.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Samtalet obesvarat och vidarebefordrat</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">Endast GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA föredragen</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (nuvarande: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">Inställningar för SIM-kort</string>
   <string name="sim_card_title">SIM-kort %d</string>
   <string name="sim_card_summary_empty">SIM-kortfacket är tomt</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">Ändring av TTY-läge är inte tillåtet under ett videosamtal</string>
   <string name="ipcall_sub_title">IP-samtalsinställningar</string>
   <string name="ipcall_sub_summery">Ändra prefix för att ringa med IP-tjänst</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">IP-samtalsuppringningsprefix</string>
   <string name="fdn_service_unavailable">FDN-tjänst är ej tillgänglig.</string>
   <string name="exportContacts">Exporterar kontakter till SIM-kort\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Hantera SIM-kortets kontakter</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Hantera SIM-kontakter</string>
   <string name="exportContactScreen">Exportera telefonkontakter till SIM</string>
   <string name="addSimEntries">Lägg till SIM-kontakt</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">Exporterade alla kontakter till SIM</string>
   <string name="exportAllcontatsFailed">Misslyckades med att exportera alla kontakter till SIM</string>
   <string name="exportAllcontatsNoContacts">Inga kontakter hittades att exportera till SIM</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Förvalda nätverk</string>
   <string name="network_id">Nätverks-ID</string>
   <string name="dialog_network_priority_title">Prioritet</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Datatjänsten måste frånkopplas temporärt. Är du säker på att du vill fortsätta?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS-kontodetaljer</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS-konton</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Videosamtalskvalitet</string>
   <string name="ims_vt_call_quality_low">Låg</string>
   <string name="ims_vt_call_quality_high">Hög</string>
   <string name="ims_vt_call_quality_unknown">Okänd</string>
   <string name="ims_vt_call_quality_set_failed">Kunde inte ställa in videokvalitet</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">ändra nätverksläge (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Tillåter att appen ändrar mellan 2G och 3G data när som helst. 3G är snabbare, men förbrukar mer batteri och kan orsaka extra kostnad.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Mitt telefonnummer</string>
   <string name="phone_number_summary">Ställ in enhetens telefonnummer</string>
   <string name="msim_mobile_network_settings_title">SIM-%d mobila nätverksinställningar</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Inspelningsformat för samtal</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">Det gick inte att få räknaren för paket</string>
   <string name="ims_get_packet_error_count_failed">Det gick inte att få felräknaren för paket</string>
   <string name="ims_get_packet_count_label">Tryck här för att få räknaren för paket</string>
   <string name="ims_get_packet_error_count_label">Tryck här för att få felräknaren för paket</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">Wi\u2011Fi samtalsinställningar</string>
   <string name="wifi_calling_title">Wi\u2011Fi ringer</string>
   <string name="wifi_calling_preference_title">Wi\u2011Fi samtalspreferens</string>
@@ -227,27 +325,4 @@
   <string name="wifi_only">Wi\u2011Fi enbart</string>
   <string name="cellular_preferred">Mobil föredras</string>
   <string name="cellular_only">Mobil enbart</string>
-  <string name="call_barring">Samtalsspärrar</string>
-  <string name="call_barring_outgoing">Utgående samtalsspärr</string>
-  <string-array name="call_barring_outgoing_display_values">
-    <item>Av</item>
-    <item>Internationella roamingsamtal</item>
-    <item>Internationella samtal</item>
-    <item>Utgående samtal</item>
-  </string-array>
-  <string-array name="call_barring_incoming_display_values">
-    <item>Av</item>
-    <item>Roaming</item>
-    <item>Alla</item>
-  </string-array>
-  <string name="call_barring_incoming">Inkommande samtalsspärr</string>
-  <string name="input_password">Ange ditt lösenord</string>
-  <string name="invalidPsw">Ange ett giltigt lösenord (4-8 siffror)</string>
-  <string name="labelCbCancelAll">Inaktivera samtalsspärr</string>
-  <string name="labelCbChangePassword">Byt lösenord</string>
-  <string name="psw_enter_old">Tidigare lösenord</string>
-  <string name="psw_enter_new">Nytt lösenord</string>
-  <string name="psw_reenter_new">Ange ditt lösenord igen</string>
-  <string name="no_call_barring">Samtalsspärr avaktiverad</string>
-  <string name="cb_psw_dont_match">Lösenorden matchar inte</string>
 </resources>

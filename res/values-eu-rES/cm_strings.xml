@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Gertaeraren jakinarazpena</string>
   <string name="show_ssn_summary">Erakutsi dei kudeaketarekin lotutako sare gertaeren jakinarazpenak</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Blokeatutako deitzaileen zerrenda</string>
   <string name="blacklist_summary_disabled">Ezgaituta</string>
   <string name="blacklist_summary">Ez duzu dei edo mezurik jasoko blokeatutako deitzaileen zerrendan dauden telefono zenbakietatik</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Ahots postontziaren adierazlea</string>
   <string name="mwi_notification_summary">Erakutsi mezua zain jakinarazpena ahots postontziko mezuentzako</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Baldintzarik gabeko dei desbideraketa gaituta</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Baldintzapeko dei desbideratzea gaituta</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Egindako deia desbideratu da</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Talde itxiako deia</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Deiak egitea trabatuta</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Hartzaileak deiak jasotzea trabatu du</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Sareak norberaren zenbakia ezkutatzea ukatzen du</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Dei desbideratua</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Sartzen diren deiak desbideratuta daude</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Dei anitza</string>
-  <string name="call_notif_callonhold_released">Berreskuraturiko deia</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
+  <string name="call_notif_callonhold_released">Deia bestaldetik eten da</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Deia bidali da</string>
-  <string name="call_notif_callconnectingect">Deia zentralita bidez konektatzen</string>
-  <string name="call_notif_callconnectedect">Deia zentralita bidez konektatu da</string>
+  <!-- Toast text for incoming call connecting through ECT -->
+  <string name="call_notif_callconnectingect">Deia konektatzen dei-transferentzia esplizituaren bidez</string>
+  <!-- Toast text for incoming call connected through ECT -->
+  <string name="call_notif_callconnectedect">Deia konektatu da dei-transferentzia esplizituaren bidez</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM txartelaren azpisarea desblokeatzeko PINa</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIM korporatiboa desblokeatzeko PINa</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIM txartelaren zerbitzu hornitzailea desblokeatzeko PINa</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIMa desblokeatzeko PINa</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIMaren 1. sarea desblokeatzeko PINa</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIMaren 2. sarea desblokeatzeko PINa</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIMaren HRPDa desblokeatzeko PINa</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIM korporatiboa desblokeatzeko PINa</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIM txartelaren zerbitzu hornitzailea desblokeatzeko PINa</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIMa desblokeatzeko PINa</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Sartu PUK kodea</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIM sareko desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">SIM txartelaren azpisarearen desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">SIM txartelaren zerbitzu hornitzailearen desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">SIM txartela korporatiboaren desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">SIMaren desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">RUIMaren 1. sarearen desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">RUIMaren 2. sarearen desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">RUIMaren HRPDaren desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">RUIM txartelaren zerbitzu hornitzailearen desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">RUIM korporatiboaren desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">RUIMaren desblokeoa eskatzen\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">PUKaren bidezko desblokeoa eskatzen</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIMaren sarearen desblokeoak huts egin du.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIMaren azpisarearen desblokeo eskaerak huts egin du.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIMaren zerbitzu hornitzailearen desblokeo eskariak huts egin du.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIM korporatiboaren desblokeo eskaerak huts egin du.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIMaren desblokeo eskaerak huts egin du.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">RUIMaren 1.sarearen desblokeo eskaerak huts egin du.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">RUIMaren 2. sarearen desblokeo eskaerak huts egin du.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">RUIMaren HRPDaren desblokeoak huts egin du.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIMaren zerbitzu hornitzailearen desblokeo eskaerak huts egin du.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIM korporatiboaren desblokeo eskaerak huts egin du.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIMaren desblokeo eskaerak huts egin du.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK bidezko desblokeoak huts egin du.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM sarea ondo desblokeatu da.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIMaren azpisarearen desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIMaren zerbitzu hornitzailearen desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">SIM korporatiboaren desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIMaren desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">RUIMaren 1. sarearen desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">RUIMaren 2. sarearen desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">RUIMaren HRPDaren desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIM zerbitzu hornitzailearen desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIM korporatiboaren desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIMaren desblokeoa ondo burutu da.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK bidezko desblokeoa ondo burutu da.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS eskaera DIAL eskaerara eraldatu da.</string>
   <string name="stk_cc_ss_to_ussd_error">SS eskaera USSD eskaerara eraldatu da.</string>
   <string name="stk_cc_ss_to_ss_error">SS eskaera SS eskaera berri batera eraldatu da.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Bideo-dei ezarpenak</string>
   <string name="vt_fallback_setting">Berriz deitu ahots deia erabilita</string>
   <string name="vt_forward_setting">Bideo-deia birbidaltzea</string>
   <string name="vt_imagereplace_setting">Ordezko irudia</string>
   <string name="vt_imagereplace_setting_sum">Bistaratuko den irudia aurreko kamera itzalita dagoenean</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Ibiltaritza modua</string>
   <string name="roaming_mode_summary">Nazioarteko ibiltaritza modua</string>
   <string name="roaming_gsm">GDM ibiltaritza</string>
   <string name="roaming_cdma">CDMA ibiltaritza</string>
   <string name="roaming_disabled">Ezgaituta</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Sare modu hobetsia: Globala (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Sare modu hobetsia: TD-SCDMA besterik ez</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Sare modu hobetsia: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Sare modu hobetsia: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Sare modu hobetsia: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Sare modu hobetsia: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Sare modu hobetsia: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Sare modu hobetsia: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Sare modu hobetsia: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Sare modu hobetsia: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Sare modu hobetsia: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Hartzaileak deiak jasotzea trabatu du.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Erantzunik gabeko eta birbidalitako deia</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM besterik ez</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA hobetsia</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g> (oraingoa: <xliff:g id="current">%2$s</xliff:g>)</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">SIM txartelaren ezarpenak</string>
   <string name="sim_card_title">%d. SIM txartela</string>
   <string name="sim_card_summary_empty">SIM erretena hutsik dago</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">TTY modurako aldaketa ez dago bideo-dei batean zehar eskuragarri</string>
   <string name="ipcall_sub_title">IP deien hobespenak</string>
   <string name="ipcall_sub_summery">Editatu IP dei zerbitzuaren aurrezenbakia</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">IP deien aurrezenbakia</string>
   <string name="fdn_service_unavailable">FDN zerbitzua ez dago eskuragarri.</string>
   <string name="exportContacts">Kontaktuak SIMera esportatzen\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Kudeatu SIM txarteleko kontaktuak</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Kudeatu SIM kontaktuak</string>
   <string name="exportContactScreen">Esportatu telefonoko kontaktuak SIM txartelera</string>
   <string name="addSimEntries">Kontaktua SIMera gehitu</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">Kontaktu guztiak ondo esportatu dira SIM txartelera</string>
   <string name="exportAllcontatsFailed">Huts egin du kontaktu guztiak SIM txartelera esportatzean</string>
   <string name="exportAllcontatsNoContacts">Ez da kontakturik aurkitu SIM txartelera esportatzeko</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Sare hobetsiak</string>
   <string name="network_id">Sare IDa</string>
   <string name="dialog_network_priority_title">Lehentasuna</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Datu zerbitzua denbora batez deskonektatuko da. Jarraitu?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS kontuaren xehetasunak</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS kontuak</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Bideo-deiaren kalitatea</string>
   <string name="ims_vt_call_quality_low">Baxua</string>
   <string name="ims_vt_call_quality_high">Altua</string>
   <string name="ims_vt_call_quality_unknown">Ezezaguna</string>
   <string name="ims_vt_call_quality_set_failed">Bideo kalitatea ezartzeak huts egin du</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">aldatu sare modua (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Edozein unetan sarea 2G eta 3G artean aldatzea ahalbidetzen dio aplikazioari. 3G azkarragoa da, baina bateria gehiago kontsumitzen du eta gastu handiagoak ekar ditzake.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Nire telefono zenbakia</string>
   <string name="phone_number_summary">Gailu honetara loturiko zenbakia ezarri</string>
   <string name="msim_mobile_network_settings_title">%d. SIM txartelaren sare mugikor ezarpenak</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Dei grabaketaren formatua</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">Huts egin du pakete kontaketa jasotzea</string>
   <string name="ims_get_packet_error_count_failed">Huts egin du pakete erroreen kontaketa jasotzea</string>
   <string name="ims_get_packet_count_label">Ukitu hemen pakete kontaketa jasotzeko</string>
   <string name="ims_get_packet_error_count_label">Ukitu hemen pakete erroreen kontaketa jasotzeko</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">Wi-Fi deien ezarpenak</string>
   <string name="wifi_calling_title">Wi-Fi deiak</string>
   <string name="wifi_calling_preference_title">Wi-Fi deien hobespena</string>
@@ -227,27 +325,4 @@
   <string name="wifi_only">Wi-Fi soilik</string>
   <string name="cellular_preferred">Zelularra nahiago</string>
   <string name="cellular_only">Zelularra soilik</string>
-  <string name="call_barring">Deien traba</string>
-  <string name="call_barring_outgoing">Deiak egitea trabatu</string>
-  <string-array name="call_barring_outgoing_display_values">
-    <item>Ez</item>
-    <item>Nazioarteko deiak ibiltaritzan</item>
-    <item>Nazioarteko deiak</item>
-    <item>Egindako deiak</item>
-  </string-array>
-  <string-array name="call_barring_incoming_display_values">
-    <item>Ez</item>
-    <item>Ibiltaritza</item>
-    <item>Guztiak</item>
-  </string-array>
-  <string name="call_barring_incoming">Deiak jasotzea trabatu</string>
-  <string name="input_password">Sartu zure pasahitza</string>
-  <string name="invalidPsw">Sartu pasahitz zuzena (4-8 digitu)</string>
-  <string name="labelCbCancelAll">Desgaitu deien traba</string>
-  <string name="labelCbChangePassword">Aldatu pasahitza</string>
-  <string name="psw_enter_old">Pasahitz zaharra</string>
-  <string name="psw_enter_new">Pasahitz berria</string>
-  <string name="psw_reenter_new">Sartu zure pasahitza berriro</string>
-  <string name="no_call_barring">Deien traba desgaituta</string>
-  <string name="cb_psw_dont_match">Pasahitzak ez datoz bat</string>
 </resources>

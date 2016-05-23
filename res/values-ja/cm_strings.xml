@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">イベントの通知</string>
   <string name="show_ssn_summary">通話の処理に関連するさまざまなネットワークイベントの通知を表示する</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">着信拒否リスト</string>
   <string name="blacklist_summary_disabled">無効</string>
   <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようになります</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">メッセージ待機インジケータ</string>
   <string name="mwi_notification_summary">ボイスメール通知のメッセージ待機インジケータを表示する</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">無条件の着信転送が有効です</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">条件付きの着信転送が有効です</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">発信は転送されます</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">クローズドユーザーグループでの通話</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">発信が阻止されました</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">リモートパーティで着信が阻止されました</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">発信者番号通知制限がネットワークによって拒否されました</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">通話はリモートパーティによって転送されました</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">着信は転送されます</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">マルチパーティ通話</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">リモートで通話が終了されました</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">着信は転送されました</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">特定呼転送経由で呼接続中</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">特定呼転送経由で呼接続されました</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIMネットワークサブセットロック解除PIN</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIMコーポレートロック解除PIN</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIMサービスプロバイダロック解除PIN</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIMロック解除PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIMネットワーク1ロック解除PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIMネットワーク2ロック解除PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPDロック解除PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIMコーポレートロック解除PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIMサービスプロバイダロック解除PIN</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIMロック解除PIN</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">PUKを入力</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIMネットワークロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">SIMネットワークサブセットロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">SIMサービスプロバイダロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">SIMコーポレートロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">SIMロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">RUIMネットワーク1ロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">RUIMネットワーク2ロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">RUIM HRPDロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">RUIMサービスプロバイダロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">RUIMコーポレートロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">RUIMロック解除をリクエスト中\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">PUKロック解除をリクエスト中\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIMネットワークロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIMネットワークサブセットロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIMサービスプロバイダロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIMコーポレートロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIMロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">RUIMネットワーク1ロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">RUIMネットワーク2ロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">RUIM HRPDロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIMサービスプロバイダロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIMコーポレートロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIMロック解除のリクエストを完了できませんでした。</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUKロック解除を完了できませんでした。</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIMネットワークロック解除が完了しました。</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIMネットワークサブセットロック解除が完了しました。</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIMサービスプロバイダロック解除が完了しました。</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">SIMコーポレートロック解除が完了しました。</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIMロック解除が完了しました。</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">RUIMネットワーク1ロック解除が完了しました。</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">RUIMネットワーク2ロック解除が完了しました。</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">RUIM HRPDロック解除が完了しました。</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIMサービスプロバイダロック解除が完了しました。</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIMコーポレートロック解除が完了しました。</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIMロック解除が完了しました。</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUKロック解除が完了しました。</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SSリクエストはDIALリクエストに変更されました。</string>
   <string name="stk_cc_ss_to_ussd_error">SSリクエストはUSSDリクエストに変更されました。</string>
   <string name="stk_cc_ss_to_ss_error">SSリクエストは新しいSSリクエストに変更されました。</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">ビデオ通話の設定</string>
   <string name="vt_fallback_setting">音声通話でリダイヤル</string>
   <string name="vt_forward_setting">ビデオ通話の転送</string>
   <string name="vt_imagereplace_setting">代替画像</string>
   <string name="vt_imagereplace_setting_sum">フロントカメラが無効になっているときに表示する画像</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">ローミングモード</string>
   <string name="roaming_mode_summary">国際ローミングモード</string>
   <string name="roaming_gsm">GSMローミング</string>
   <string name="roaming_cdma">CDMAローミング</string>
   <string name="roaming_disabled">無効</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">優先ネットワークモード: グローバル（CDMA/EvDo/LTE/GSM/WCDMA）</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">優先ネットワークモード: TD-SCDMAのみ</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">優先ネットワークモード: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">優先ネットワークモード: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">優先ネットワークモード: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">優先ネットワークモード: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">優先ネットワークモード: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">優先ネットワークモード: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">優先ネットワークモード: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">優先ネットワークモード: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">優先ネットワークモード: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">パーティがすべての着信を禁止しています。</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">通話は応答されずに転送されました</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -134,9 +217,11 @@
   <string name="preferred_network_mode_gsm_only_choice">GSMのみ</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA優先</string>
   <string name="preferred_network_mode_summary_mismatch"><xliff:g id="configured">%1$s</xliff:g>（現在: <xliff:g id="current">%2$s</xliff:g>）</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">SIMカードの設定</string>
   <string name="sim_card_title">SIMカード%d</string>
   <string name="sim_card_summary_empty">SIMスロットは空です</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">ビデオ通話中のTTYモードの変更は許可されていません</string>
   <string name="ipcall_sub_title">IP電話の設定</string>
   <string name="ipcall_sub_summery">IPサービス経由で発信するためのプレフィックスを編集する</string>
@@ -144,7 +229,9 @@
   <string name="ipcall_dialog_edit_hint">IP電話ダイヤルプレフィックス</string>
   <string name="fdn_service_unavailable">FDNサービスは利用できません。</string>
   <string name="exportContacts">SIMカードに連絡先をエクスポート中\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">SIMカードの連絡先を管理</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">SIMの連絡先を管理</string>
   <string name="exportContactScreen">SIMに携帯電話の連絡先をエクスポート</string>
   <string name="addSimEntries">SIMの連絡先を追加</string>
@@ -169,6 +256,7 @@
   <string name="exportAllcontatsSuccess">SIMにすべての連絡先をエクスポートしました</string>
   <string name="exportAllcontatsFailed">SIMにすべての連絡先をエクスポートできませんでした</string>
   <string name="exportAllcontatsNoContacts">SIMにエクスポートする連絡先が見つかりませんでした</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">優先ネットワーク</string>
   <string name="network_id">ネットワークID</string>
   <string name="dialog_network_priority_title">優先順位</string>
@@ -180,7 +268,7 @@
   <string name="change">設定</string>
   <string name="new_sim_detected">新しいSIMカードを検出しました:</string>
   <string name="default_sim_setting">デフォルトの設定:</string>
-  <string name="mobile_data">データ通信: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
+  <string name="mobile_data">データ接続: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
   <string name="mobile_data_on">有効</string>
   <string name="mobile_data_off">無効</string>
   <string name="sim_unknown">不明</string>
@@ -191,7 +279,7 @@
   <string name="lte_recognize_summary">2枚の3G/LTE SIMカードが検出されました、デフォルトの3G/LTE SIMカードを設定する必要があります:</string>
   <string name="lte_select_title">デフォルトの3G/LTE SIMカード</string>
   <string name="lte_select_summary">選択したサブスクリプションは3G/LTE SIMカードとして、他のカードは2G SIMカードとして認識されます。</string>
-  <string name="lte_checkbox_text">デフォルトの3G/LTE SIMカードが変更されたときにデータ通信を選択したSIMカードに設定する</string>
+  <string name="lte_checkbox_text">デフォルトの3G/LTE SIMカードが変更されたときにデータ接続を選択したSIMカードに設定する</string>
   <string name="reg_failed">登録できませんでした</string>
   <string name="reg_suc">登録が完了しました</string>
   <string name="reg_failed_msg">デフォルトの3G/LTE SIMカードを登録できませんでした、%1$sは2G SIMカードとして認識されます。</string>
@@ -200,24 +288,34 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">データサービスを一時的に切断する必要があります。続けてもよろしいですか？</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMSアカウントの詳細</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMSアカウント</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">ビデオ通話の画質</string>
   <string name="ims_vt_call_quality_low">低画質</string>
   <string name="ims_vt_call_quality_high">高画質</string>
   <string name="ims_vt_call_quality_unknown">不明</string>
   <string name="ims_vt_call_quality_set_failed">画質を設定できませんでした</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">ネットワークモード（2G/3G）の変更</string>
   <string name="perm_change_mobile_network_desc">いつでも2Gデータと3Gデータ間を変更することをアプリに許可します。3Gは高速ですが、電池の消費が増えたり、追加の料金が発生する恐れがあります。</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
   <string name="msim_mobile_network_settings_title">SIM %dのモバイルネットワーク設定</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">通話録音のファイル形式</string>
+  <!-- Packet Count and Packet Error Count settings -->
   <string name="ims_get_packet_count_failed">パケット数を取得できませんでした</string>
   <string name="ims_get_packet_error_count_failed">パケットエラー数を取得できませんでした</string>
   <string name="ims_get_packet_count_label">ここをタップしてパケット数を取得</string>
   <string name="ims_get_packet_error_count_label">ここをタップしてパケットエラー数を取得</string>
+  <!-- Wi-Fi calling settings -->
   <string name="wifi_call_setting">Wi-Fi通話の設定</string>
   <string name="wifi_calling_title">Wi-Fi通話</string>
   <string name="wifi_calling_preference_title">Wi-Fi通話の設定</string>
@@ -227,27 +325,4 @@
   <string name="wifi_only">Wi-Fiのみ</string>
   <string name="cellular_preferred">セルラー優先</string>
   <string name="cellular_only">セルラーのみ</string>
-  <string name="call_barring">通話制限</string>
-  <string name="call_barring_outgoing">発信制限</string>
-  <string-array name="call_barring_outgoing_display_values">
-    <item>OFF</item>
-    <item>国際ローミング通話</item>
-    <item>国際通話</item>
-    <item>発信</item>
-  </string-array>
-  <string-array name="call_barring_incoming_display_values">
-    <item>OFF</item>
-    <item>ローミング</item>
-    <item>すべて</item>
-  </string-array>
-  <string name="call_barring_incoming">着信制限</string>
-  <string name="input_password">パスワードを入力してください</string>
-  <string name="invalidPsw">有効なパスワードを入力してください（4～8桁）</string>
-  <string name="labelCbCancelAll">通話制限を無効化</string>
-  <string name="labelCbChangePassword">パスワードを変更</string>
-  <string name="psw_enter_old">現在のパスワード</string>
-  <string name="psw_enter_new">新しいパスワード</string>
-  <string name="psw_reenter_new">パスワードを再入力してください</string>
-  <string name="no_call_barring">着信拒否は無効になっています</string>
-  <string name="cb_psw_dont_match">パスワードが一致しません</string>
 </resources>
