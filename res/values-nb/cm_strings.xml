@@ -325,6 +325,7 @@
   <string name="wifi_only">Kun Wi-Fi</string>
   <string name="cellular_preferred">Mobil foretrekkes</string>
   <string name="cellular_only">Mobil bare</string>
+  <string name="call_barring">Ringesperring</string>
   <string name="call_barring_outgoing">Utgående samtaleblokkering</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>Av</item>
@@ -340,6 +341,7 @@
   <string name="call_barring_incoming">Innkommende samtaleblokkering</string>
   <string name="input_password">Angi passordet</string>
   <string name="invalidPsw">Angi et gyldig passord (4-8 sifre)</string>
+  <string name="labelCbCancelAll">Deaktiver ringesperring</string>
   <string name="labelCbChangePassword">Endre passord</string>
   <string name="psw_enter_old">Gammelt passord</string>
   <string name="psw_enter_new">Nytt passord</string>

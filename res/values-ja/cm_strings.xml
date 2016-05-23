@@ -268,7 +268,7 @@
   <string name="change">設定</string>
   <string name="new_sim_detected">新しいSIMカードを検出しました:</string>
   <string name="default_sim_setting">デフォルトの設定:</string>
-  <string name="mobile_data">データ通信: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
+  <string name="mobile_data">データ接続: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
   <string name="mobile_data_on">有効</string>
   <string name="mobile_data_off">無効</string>
   <string name="sim_unknown">不明</string>
@@ -279,7 +279,7 @@
   <string name="lte_recognize_summary">2枚の3G/LTE SIMカードが検出されました、デフォルトの3G/LTE SIMカードを設定する必要があります:</string>
   <string name="lte_select_title">デフォルトの3G/LTE SIMカード</string>
   <string name="lte_select_summary">選択したサブスクリプションは3G/LTE SIMカードとして、他のカードは2G SIMカードとして認識されます。</string>
-  <string name="lte_checkbox_text">デフォルトの3G/LTE SIMカードが変更されたときにデータ通信を選択したSIMカードに設定する</string>
+  <string name="lte_checkbox_text">デフォルトの3G/LTE SIMカードが変更されたときにデータ接続を選択したSIMカードに設定する</string>
   <string name="reg_failed">登録できませんでした</string>
   <string name="reg_suc">登録が完了しました</string>
   <string name="reg_failed_msg">デフォルトの3G/LTE SIMカードを登録できませんでした、%1$sは2G SIMカードとして認識されます。</string>
