@@ -240,4 +240,10 @@
 
     <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
     <string name="unlock_failed_remaining_retries">Unlock request unsuccessful, %1$d retries remaining.</string>
+
+    <!-- Call forward: IMS: Media tag support -->
+    <string name="labelCFType">Call Forward Setting</string>
+    <string name="labelCFVoice">Voice</string>
+    <string name="labelCFVideo">Video</string>
+    <string name="call_forward_option">Call Forward Options</string>
 </resources>
