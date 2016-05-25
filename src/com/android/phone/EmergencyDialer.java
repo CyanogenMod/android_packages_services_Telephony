@@ -521,7 +521,9 @@ public class EmergencyDialer extends Activity implements View.OnClickListener,
             intent.setData(Uri.fromParts(PhoneAccount.SCHEME_TEL, mLastNumber, null));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-            finish();
+            //Finishing the activity reveals the lockscreen for a split second
+            //giving a flickering experience. Removing finish() as per 13.0
+            //finish();
         } else {
             if (DBG) Log.d(LOG_TAG, "rejecting bad requested number " + mLastNumber);
 
