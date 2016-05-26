@@ -117,8 +117,9 @@ public class NetworkSetting extends PreferenceActivity
 
                     ar = (AsyncResult) msg.obj;
                     if (ar.exception != null) {
-                        if (DBG) log("manual network selection: failed!");
+                        if (DBG) log("manual network selection: failed! switch back to auto select ");
                         displayNetworkSelectionFailed(ar.exception);
+                        selectNetworkAutomatic();
                     } else {
                         if (DBG) log("manual network selection: succeeded!");
                         displayNetworkSelectionSucceeded();
