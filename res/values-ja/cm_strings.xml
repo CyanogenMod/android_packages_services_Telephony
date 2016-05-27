@@ -181,7 +181,7 @@
   <string name="exportAllcontatsSuccess">SIMにすべての連絡先をエクスポートしました</string>
   <string name="exportAllcontatsFailed">SIMにすべての連絡先をエクスポートできませんでした</string>
   <string name="exportAllcontatsNoContacts">SIMにエクスポートする連絡先が見つかりませんでした</string>
-  <string name="msim_mobile_network_settings_title">SIM %dのデータ通信の設定</string>
+  <string name="msim_mobile_network_settings_title">SIM %dのモバイルネットワークの設定</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">ネットワークモードの変更</string>
   <string name="perm_change_mobile_network_desc">現在のネットワークモードを変更することをアプリに許可します。</string>

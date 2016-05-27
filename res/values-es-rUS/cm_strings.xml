@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">Elige el modo de red</string>
   <string name="choose_network_mode_system_default">Utilizar valores predeterminados</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Petición de desbloqueo incorrecta, quedan %1$d intentos.</string>
 </resources>
