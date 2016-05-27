@@ -195,4 +195,8 @@
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Petició de desbloqueig infructuosa, queden %1$d intents.</string>
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFType">Configuració de redirecció de trucades</string>
+  <string name="labelCFVoice">Veu</string>
+  <string name="labelCFVideo">Vídeo</string>
+  <string name="call_forward_option">Opcions de redirecció de trucades</string>
 </resources>

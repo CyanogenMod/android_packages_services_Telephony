@@ -195,4 +195,8 @@
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Неуспешно отключване, отават Ви %1$d опита.</string>
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFType">Настройки за препращане на повикване</string>
+  <string name="labelCFVoice">Глас</string>
+  <string name="labelCFVideo">Видео</string>
+  <string name="call_forward_option">Опции за препращане на повикване</string>
 </resources>

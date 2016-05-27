@@ -195,4 +195,8 @@
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Zahteva za odklep neuspešna, %1$d preostalih poskusov.</string>
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFType">Nastavitve za posredovanje klicev</string>
+  <string name="labelCFVoice">Glas</string>
+  <string name="labelCFVideo">Slika</string>
+  <string name="call_forward_option">Možnosti za posredovanje klicev</string>
 </resources>
