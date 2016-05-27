@@ -191,4 +191,5 @@
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_system_default">તંત્ર મૂળભુત</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

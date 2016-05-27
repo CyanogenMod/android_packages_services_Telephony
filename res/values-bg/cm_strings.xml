@@ -194,4 +194,5 @@
   <string name="choose_network_mode_system_default">Система по подразбиране</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Неуспешно отключване, отават Ви %1$d опита.</string>
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

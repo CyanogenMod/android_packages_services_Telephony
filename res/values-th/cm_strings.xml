@@ -194,4 +194,5 @@
   <string name="choose_network_mode_system_default">ค่าเริ่มต้นระบบ</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">คำขอปลดล็อคไม่ประสบความสำเร็จ สามารถดำเนินการซ้ำได้อีก %1$d ครั้ง</string>
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

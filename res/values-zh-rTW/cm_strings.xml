@@ -169,4 +169,5 @@
   <!-- Mobile network settings, COLP -->
   <!-- Network mode picker dialog title -->
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

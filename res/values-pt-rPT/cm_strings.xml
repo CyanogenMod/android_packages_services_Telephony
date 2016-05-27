@@ -194,4 +194,5 @@
   <string name="choose_network_mode_system_default">Padrão do sistema</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Pedido de desbloqueio sem sucesso. %1$d tentativas restantes.</string>
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

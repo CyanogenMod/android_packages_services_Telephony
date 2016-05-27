@@ -194,4 +194,5 @@
   <string name="choose_network_mode_system_default">Sistemaren lehenetsia</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Desblokeatze eskaerak huts egin du, %1$d saiakera geratzen dira.</string>
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

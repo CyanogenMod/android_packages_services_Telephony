@@ -194,4 +194,5 @@
   <string name="choose_network_mode_system_default">Järjestelmän oletus</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Avausyritys epäonnistui, %1$d yritystä jäljellä.</string>
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

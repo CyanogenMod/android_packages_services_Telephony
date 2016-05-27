@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">اختيار وضع الشبكة</string>
   <string name="choose_network_mode_system_default">الإعداد الافتراضي للنظام</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">네트워크 모드 선택</string>
   <string name="choose_network_mode_system_default">시스템 기본 설정</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

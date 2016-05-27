@@ -192,4 +192,5 @@
   <string name="choose_network_mode_title">Выбар рэжыму сеткі</string>
   <string name="choose_network_mode_system_default">Па змаўчанні</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

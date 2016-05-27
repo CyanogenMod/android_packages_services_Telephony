@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">בחר במצב רשת</string>
   <string name="choose_network_mode_system_default">ברירת המחדל של המערכת</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <!-- Call forward: IMS: Media tag support -->
 </resources>

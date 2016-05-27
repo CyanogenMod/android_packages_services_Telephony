@@ -107,4 +107,5 @@
   <string name="connected_line_identification_summary">Desactiva esta opción si los números de los destinatarios no se muestran en el historial de llamadas</string>
   <!-- Network mode picker dialog title -->
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <!-- Call forward: IMS: Media tag support -->
 </resources>
