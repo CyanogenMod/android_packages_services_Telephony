@@ -51,6 +51,7 @@ public class GsmUmtsOptions {
     private static final String BUTTON_OPERATOR_SELECTION_EXPAND_KEY = "button_carrier_sel_key";
     private static final String BUTTON_CARRIER_SETTINGS_KEY = "carrier_settings_key";
     public static final String EXTRA_SUB_ID = "sub_id";
+    public static final String EXTRA_IMSI = "imsi";
     private PreferenceActivity mPrefActivity;
     private PreferenceScreen mPrefScreen;
     private int mSubId;
@@ -151,6 +152,7 @@ public class GsmUmtsOptions {
                             // This will setup the Home and Search affordance
                             intent.putExtra(":settings:show_fragment_as_subsetting", true);
                             intent.putExtra(EXTRA_SUB_ID, mSubId);
+                            intent.putExtra(EXTRA_IMSI, mPhone.getSubscriberId());
                             mPrefActivity.startActivity(intent);
                             return true;
                         }
