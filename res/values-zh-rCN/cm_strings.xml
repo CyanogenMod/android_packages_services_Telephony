@@ -195,4 +195,8 @@
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">解锁请求不成功，剩余 %1$d 次重试。</string>
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFType">呼叫转移设置</string>
+  <string name="labelCFVoice">语音</string>
+  <string name="labelCFVideo">影像</string>
+  <string name="call_forward_option">呼叫转移选项</string>
 </resources>

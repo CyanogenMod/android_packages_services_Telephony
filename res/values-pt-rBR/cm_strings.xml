@@ -195,4 +195,8 @@
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Pedido de desbloqueio malsucedido, %1$d tentativas restantes.</string>
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFType">Configurações de encaminhamento de chamada</string>
+  <string name="labelCFVoice">Voz</string>
+  <string name="labelCFVideo">Vídeo</string>
+  <string name="call_forward_option">Opções de encaminhamento de chamadas</string>
 </resources>
