@@ -25,8 +25,10 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.telephony.CarrierConfigManager;
+import android.telephony.SubscriptionManager;
 import android.content.ComponentName;
 
+import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 
@@ -43,16 +45,28 @@ public class GsmUmtsOptions {
     private static final String BUTTON_OPERATOR_SELECTION_EXPAND_KEY = "button_carrier_sel_key";
     private static final String BUTTON_CARRIER_SETTINGS_KEY = "carrier_settings_key";
     public static final String EXTRA_SUB_ID = "sub_id";
+    public static final String EXTRA_IMSI = "imsi";
     private PreferenceActivity mPrefActivity;
     private PreferenceScreen mPrefScreen;
     private int mSubId;
+    private Phone mPhone = null;
 
     public GsmUmtsOptions(PreferenceActivity prefActivity, PreferenceScreen prefScreen,
             final int subId) {
         mPrefActivity = prefActivity;
         mPrefScreen = prefScreen;
         mSubId = subId;
+        mPhone = getPhone(subId);
         create();
+    }
+
+    private Phone getPhone(int subId) {
+        int phoneId = SubscriptionManager.getPhoneId(subId);
+        log("getPhone: subId = " + subId + " phoneid = " + phoneId);
+        if (!SubscriptionManager.isValidPhoneId(phoneId)) {
+            phoneId = 0;
+        }
+        return PhoneFactory.getPhone(phoneId);
     }
 
     protected void create() {
@@ -120,6 +134,7 @@ public class GsmUmtsOptions {
                             // This will setup the Home and Search affordance
                             intent.putExtra(":settings:show_fragment_as_subsetting", true);
                             intent.putExtra(EXTRA_SUB_ID, mSubId);
+                            intent.putExtra(EXTRA_IMSI, mPhone.getSubscriberId());
                             mPrefActivity.startActivity(intent);
                             return true;
                         }
