@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">Vælg netværkstilstand</string>
   <string name="choose_network_mode_system_default">Systemstandard</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Anmodning om at låse op mislykkedes, %1$d forsøg tilbage.</string>
 </resources>

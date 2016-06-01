@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">Válasszon hálózati módot</string>
   <string name="choose_network_mode_system_default">Rendszer alapértelmezett</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Feloldási kérelem sikertelen, %1$d próbálkozás maradt.</string>
 </resources>
