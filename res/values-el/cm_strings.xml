@@ -195,4 +195,8 @@
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Ανεπιτυχές αίτημα ξεκλειδώματος δικτύου, απομένουν %1$d προσπάθειες.</string>
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFType">Ρυθμίσεις προώθησης κλήσεων</string>
+  <string name="labelCFVoice">Φωνή</string>
+  <string name="labelCFVideo">Βίντεο</string>
+  <string name="call_forward_option">Επιλογές προώθησης κλήσεων</string>
 </resources>

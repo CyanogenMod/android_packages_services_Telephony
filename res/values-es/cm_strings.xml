@@ -193,5 +193,10 @@
   <string name="choose_network_mode_title">Elegir el modo de red</string>
   <string name="choose_network_mode_system_default">Por defecto del sistema</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Petición de desbloqueo incorrecta, quedan %1$d intentos.</string>
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFType">Configuración del desvío de llamadas</string>
+  <string name="labelCFVoice">Voz</string>
+  <string name="labelCFVideo">Vídeo</string>
+  <string name="call_forward_option">Opciones del desvío de llamadas</string>
 </resources>
