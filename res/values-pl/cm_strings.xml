@@ -193,4 +193,5 @@
   <string name="choose_network_mode_title">Wybierz tryb sieci</string>
   <string name="choose_network_mode_system_default">Domyślny systemu</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Żądanie odblokowania nie powiodło, pozostałych prób %1$d.</string>
 </resources>

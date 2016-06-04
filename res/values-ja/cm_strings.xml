@@ -186,6 +186,9 @@
   <string name="perm_change_mobile_network">ネットワークモードの変更</string>
   <string name="perm_change_mobile_network_desc">現在のネットワークモードを変更することをアプリに許可します。</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">接続回線識別</string>
+  <string name="connected_line_identification_summary">着信者の番号が通話履歴に表示されない場合は、このオプションを無効にしてください</string>
   <!-- Network mode picker dialog title -->
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">ロック解除リクエストが完了できませんでした、残り%1$d回再試行することができます。</string>
 </resources>
