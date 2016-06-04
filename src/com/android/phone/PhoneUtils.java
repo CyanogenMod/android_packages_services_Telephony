@@ -49,10 +49,12 @@ import android.telephony.PhoneNumberUtils;
 import android.telephony.ServiceState;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.inputmethod.EditorInfo;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -1428,22 +1430,19 @@ public class PhoneUtils {
 
                 // attach the key listener to the dialog's input field and make
                 // sure focus is set.
-                final View.OnKeyListener mUSSDDialogInputListener =
-                    new View.OnKeyListener() {
-                        public boolean onKey(View v, int keyCode, KeyEvent event) {
-                            switch (keyCode) {
-                                case KeyEvent.KEYCODE_CALL:
-                                case KeyEvent.KEYCODE_ENTER:
-                                    if(event.getAction() == KeyEvent.ACTION_DOWN) {
-                                        phone.sendUssdResponse(inputText.getText().toString());
-                                        newDialog.dismiss();
-                                    }
-                                    return true;
+                final EditText.OnEditorActionListener mUSSDDialogInputListener =
+                    new EditText.OnEditorActionListener() {
+                        @Override
+                        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                                phone.sendUssdResponse(inputText.getText().toString());
+                                newDialog.dismiss();
+                                return true;
                             }
                             return false;
                         }
                     };
-                inputText.setOnKeyListener(mUSSDDialogInputListener);
+                inputText.setOnEditorActionListener(mUSSDDialogInputListener);
                 inputText.requestFocus();
 
                 // set the window properties of the dialog
