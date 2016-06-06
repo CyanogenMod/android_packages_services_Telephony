@@ -187,4 +187,6 @@
   <string name="perm_change_mobile_network">ネットワークモードの変更</string>
   <string name="perm_change_mobile_network_desc">現在のネットワークモードを変更することをアプリに許可します。</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">接続回線識別</string>
+  <string name="connected_line_identification_summary">着信者の番号が通話履歴に表示されない場合は、このオプションを無効にしてください</string>
 </resources>
