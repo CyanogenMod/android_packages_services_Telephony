@@ -193,5 +193,10 @@
   <string name="choose_network_mode_title">בחר במצב רשת</string>
   <string name="choose_network_mode_system_default">ברירת המחדל של המערכת</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">בקשת השחרור לא הצליחה, נותרו %1$d ניסיונות חוזרים.</string>
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFType">הגדרות העברת שיחות</string>
+  <string name="labelCFVoice">קול</string>
+  <string name="labelCFVideo">וידאו</string>
+  <string name="call_forward_option">אפשרויות העברת שיחות</string>
 </resources>
