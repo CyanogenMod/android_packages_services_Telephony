@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Esemény értesítés</string>
   <string name="show_ssn_summary">Híváskezelési értesítés megjelenítése különböző hálózati események kapcsán</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Blokkolt hívók listája</string>
   <string name="blacklist_summary_disabled">Letiltva</string>
   <string name="blacklist_summary">Nem fog bejövő hívásokat és üzeneteket kapni a blokkolt hívó listán szereplő telefonszámokról</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Várakozó üzenet</string>
   <string name="mwi_notification_summary">Várakozó hangposta üzenet megjelenítése</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Feltétel nélküli hívásátirányítás aktív</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Feltételes hívásátirányítás aktív</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Kimenő hívás átirányítva</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Zárt felhasználói csoporton belüli hívás</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Kimenő hívások letiltva</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Bejövő hívások letiltva a távoli fél által</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Saját szám elrejtését a hálózat elutasította</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Hívás átirányítva a távoli fél által</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Bejövő hívás átirányítva</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Konferencia hívás</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Hívást a távoli fél megszakította</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Hívás átirányítva</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Közvetlen hívásátirányítással kapcsolódás</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Hívás létrejött közvetlen hívásátirányítással</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM hálózati subset feloldó PIN</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">Vállalati SIM feloldó PIN</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">Szolgáltatói SIM feloldó PIN</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM feloldó PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIM hálózat1 feloldó PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIM hálózat2 feloldó PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPD feloldó PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">Vállalati RUIM feloldó PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">Szolgáltatói RUIM feloldó PIN</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM feloldó PIN</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Írja be a PUK-ot</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIM hálózati feloldás kérése\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">SIM hálózati subset feloldás kérése\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Szolgáltatói SIM feloldás kérése\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Vállalati SIM feloldás kérése\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">SIM feloldás kérése\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">RUIM network1 feloldás kérése\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">RUIM network2 feloldás kérése\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">RUIM HRPD feloldás kérése\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Szolgáltatói RUIM feloldás kérése\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Vállalati RUIM feloldás kérése\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">RUIM feloldás kérése\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">PUK feloldás kérése\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Sikertelen SIM hálózati feloldási kérelem.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Sikertelen SIM hálózati Subset feloldási kérelem.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Sikertelen szolgáltatói SIM feloldási kérelem.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Sikertelen vállalati SIM feloldási kérelem.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Sikertelen SIM feloldási kérelem.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Sikertelen RUIM hálózat1 feloldási kérelem.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Sikertelen RUIM hálózat2 feloldási kérelem.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Sikertelen RUIM HRPD feloldási kérelem.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Sikertelen szolgáltatói RUIM feloldási kérelem.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Sikertelen vállalati RUIM feloldási kérelem.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Sikertelen RUIM feloldási kérelem.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Sikertelen PUK feloldás.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Sikertelen SIM hálózati feloldás.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Sikertelen SIM hálózati Subset feloldás.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Sikeres hálózati SIM feloldás.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Sikeres vállalati SIM feloldás.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">Sikeres SIM feloldás.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Sikeres RUIM hálózat1 feloldás.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Sikeres RUIM hálózat2 feloldás.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Sikeres RUIM HRPD feloldás.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Sikeres szolgáltatói RUIM feloldás.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Sikeres vállalati RUIM feloldás.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Sikeres RUIM feloldás.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Sikeres PUK feloldás.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS kérés módosítva DIAL kérésre.</string>
   <string name="stk_cc_ss_to_ussd_error">SS kérés módosítva USSD kérésre.</string>
   <string name="stk_cc_ss_to_ss_error">SS kérés módosítva új SS kérésre.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Videóhívás beállítások</string>
   <string name="vt_fallback_setting">Újratárcsázás hanghívással</string>
   <string name="vt_forward_setting">Videóhívás átirányítása</string>
   <string name="vt_imagereplace_setting">Alternatív kép</string>
   <string name="vt_imagereplace_setting_sum">Megjelenítendő kép, amikor az előlapi kamera le van tiltva</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Barangoló mód</string>
   <string name="roaming_mode_summary">Nemzetközi barangoló mód</string>
   <string name="roaming_gsm">GSM barangolás</string>
   <string name="roaming_cdma">CDMA barangolás</string>
   <string name="roaming_disabled">Letiltva</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Preferált hálózati mód: Globális (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Preferált hálózati mód: Csak TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Preferált hálózati mód: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Preferált hálózati mód: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Preferált hálózati mód: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Preferált hálózati mód: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Preferált hálózati mód: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Preferált hálózati mód: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Preferált hálózati mód: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Preferált hálózati mód: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Preferált hálózati mód: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">A fél elutasított minden bejövő hívást.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Hívás megválaszolatlan és továbbított</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -133,9 +216,11 @@
   <string name="preferred_network_mode_wcdma_only_choice">Csak WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Csak GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferált</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">SIM-kártya beállítások</string>
   <string name="sim_card_title">SIM-kártya %d</string>
   <string name="sim_card_summary_empty">SIM foglalat üres</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">TTY mód változtatása nem lehetséges VT hívás közben</string>
   <string name="ipcall_sub_title">IP hívás beállításai</string>
   <string name="ipcall_sub_summery">IP szolgáltatáson keresztüli híváshoz szerkessze az előtagot</string>
@@ -143,7 +228,9 @@
   <string name="ipcall_dialog_edit_hint">IP hívás tárcsázási előtag</string>
   <string name="fdn_service_unavailable">FDN szolgáltatás nem elérhető.</string>
   <string name="exportContacts">Névjegyek exportálása a SIM kártyára\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">SIM névjegyek kezelése</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">SIM névjegyek kezelése</string>
   <string name="exportContactScreen">Névjegyek exportálása a SIM kártyára</string>
   <string name="addSimEntries">SIM névjegy hozzáadása</string>
@@ -168,6 +255,7 @@
   <string name="exportAllcontatsSuccess">Az összes névjegy sikeresen exportálva a SIM-re</string>
   <string name="exportAllcontatsFailed">Nem sikerült exportálni az összes névjegyet a SIM-re</string>
   <string name="exportAllcontatsNoContacts">Nem található SIM-re exportálandó névjegy</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Előnyben részesített hálózatok</string>
   <string name="network_id">Hálózati azonosító</string>
   <string name="dialog_network_priority_title">Prioritás</string>
@@ -199,18 +287,26 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Adatszolgáltatást ideiglenesen le kell kapcsolni. Biztosan folytatni kívánja?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS fiók adatai</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS fiók</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Videohívás minősége</string>
   <string name="ims_vt_call_quality_low">Alacsony</string>
   <string name="ims_vt_call_quality_high">Magas</string>
   <string name="ims_vt_call_quality_unknown">ismeretlen</string>
   <string name="ims_vt_call_quality_set_failed">Nem sikerült beállítani a videó minőségét</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">Hálózat módosítása (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Az ilyen engedéllyel rendelkező alkalmazás, bármikor válthat 2G és 3G közt. A 3G gyorsabb, jobban meríti az akkumulátort, és több pénzbe is kerülhet a nagyobb adatforgalom miatt.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Saját telefonszám</string>
   <string name="phone_number_summary">Telefonszám beállítása az eszközhöz</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobilhálózati beállítások</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Hívásfelvétel formátuma</string>
 </resources>

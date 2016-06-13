@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">이벤트 알림</string>
   <string name="show_ssn_summary">통화와 관련된 다양한 네트워크 이벤트에 대한 알림 표시</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">차단된 발신자 목록</string>
   <string name="blacklist_summary_disabled">비활성화 됨</string>
   <string name="blacklist_summary">차단된 발신자 목록에 있는 전화번호의 통화나 메세지를 받지 않습니다</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">메시지 대기 표시</string>
   <string name="mwi_notification_summary">음성메일 알림에 대한 메시지 대기 표시 보이기</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">무조건 착신 전환 활성</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">조건부 착신 전환 활성</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">발신전화 전달</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">배타적 사용자 그룹 내 전화</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">전화 발신이 차단되었습니다</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">원격 그룹에서 오는 전화가 차단되었습니다</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">발신번호 표시 제한이 네트워크에 의해 거부되었습니다</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">원격 그룹에 의해 전화가 전달되었습니다</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">착신전화가 전달되었습니다</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">다자간 통화</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">원격으로 전화 연결이 해제되었습니다</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">착신전환되었습니다</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">명시적 전화 전달 서비스를 통한 전화 연결 중</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">명시적 전화 전달 서비스를 통한 전화 연결됨</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM 네트워크 서브셋 언락 PIN</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIM 코퍼레이트 언락 PIN</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIM 서비스 공급자 언락 PIN</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM 언락 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIM 네트워크 1 언락 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIM 네트워크 2 언락 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPD 언락 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIM 코퍼레이트 언락 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIM 서비스 공급자 언락 PIN</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM 언락 PIN</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">PUK 입력</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">SIM 네트워크 언락 요청 중\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">SIM 네트워크 서브셋 언락 요청 중\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">SIM 서비스 공급자 언락 요청 중\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">SIM 코퍼레이트 언락 요청 중\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">SIM 언락 요청 중\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">RUIM 네트워크 1 언락 요청 중\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">RUIM 네트워크 2 언락 요청 중\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">RUIM HRPD 언락 요청 중\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">RUIM 서비스 공급자 언락 요청 중\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">RUIM 코퍼레이트 언락 요청 중\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">RUIM 언락 요청 중\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">PUK 언락 요청 중\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM 네트워크 언락 요청 실패</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIM 네트워크 서브셋 언락 요청 실패</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIM 서비스 공급자 언락 요청 실패</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIM 코퍼레이트 언락 요청 실패</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIM 언락 요청 실패</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">RUIM 네트워크 1 언락 요청 실패</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">RUIM 네트워크 2 언락 요청 실패</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">RUIM HRPD 언락 요청 실패</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIM 서비스 공급자 언락 요청 실패</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIM 코퍼레이트 언락 요청 실패</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIM 언락 요청 실패</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK 언락 실패</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM 네트워크 언락 성공</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIM 네트워크 서브셋 언락 성공</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIM 서비스 공급자 언락 성공</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">SIM 코퍼레이트 언락 성공</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM 언락 성공</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">RUIM 네트워크 1 언락 성공</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">RUIM 네트워크 2 언락 성공</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">RUIM HRPD 언락 성공</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIM 서비스 공급자 언락 성공</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIM 코퍼레이트 언락 성공</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM 언락 성공</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK 언락 성공</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS 요청이 DIAL 요청으로 변경되었습니다.</string>
   <string name="stk_cc_ss_to_ussd_error">SS 요청이 USSD 요청으로 변경되었습니다.</string>
   <string name="stk_cc_ss_to_ss_error">SS 요청이 새로운 SS 요청으로 변경되었습니다.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">영상통화 설정</string>
   <string name="vt_fallback_setting">음성통화로 다시 걸기</string>
   <string name="vt_forward_setting">영상통화 전달</string>
   <string name="vt_imagereplace_setting">대체 그림</string>
   <string name="vt_imagereplace_setting_sum">전면 카메라를 사용 하지 않을 때 표시할 이미지</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">로밍 모드</string>
   <string name="roaming_mode_summary">국제 로밍 모드</string>
   <string name="roaming_gsm">GSM 로밍</string>
   <string name="roaming_cdma">CDMA 로밍</string>
   <string name="roaming_disabled">비활성화됨</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">선호 네트워크 모드: 글로벌 (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">선호 네트워크 모드: TD-SCDMA 전용</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">선호 네트워크 모드: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">선호 네트워크 모드: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">선호 네트워크 모드: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">선호 네트워크 모드: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">선호 네트워크 모드: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">선호 네트워크 모드: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">선호 네트워크 모드: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">선호 네트워크 모드: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">선호 네트워크 모드: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">참가자가 모든 수신 통화를 차단했습니다.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">응답되지 않고 전환된 통화</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -133,9 +216,11 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA 전용</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM 전용</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA 우선</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">SIM 카드 설정</string>
   <string name="sim_card_title">SIM 카드 %d</string>
   <string name="sim_card_summary_empty">SIM 슬롯이 비었습니다</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">영상통화 중에는 TTY 모드를 변경할 수 없습니다</string>
   <string name="ipcall_sub_title">IP 통화 설정</string>
   <string name="ipcall_sub_summery">IP 통화 서비스로 전화할 때 사용할 접두사 수정</string>
@@ -143,7 +228,9 @@
   <string name="ipcall_dialog_edit_hint">IP 통화 다이얼 접두사</string>
   <string name="fdn_service_unavailable">FDN 서비스를 사용할 수 없습니다.</string>
   <string name="exportContacts">연락처를 SIM 카드로 내보내는 중\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">SIM 카드 연락처 관리</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">SIM 연락처 관리</string>
   <string name="exportContactScreen">휴대전화 연락처를 SIM으로 내보내기</string>
   <string name="addSimEntries">SIM 연락처 추가</string>
@@ -168,6 +255,7 @@
   <string name="exportAllcontatsSuccess">모든 연락처를 SIM으로 내보냈습니다</string>
   <string name="exportAllcontatsFailed">모든 연락처를 SIM으로 내보내지 못했습니다</string>
   <string name="exportAllcontatsNoContacts">SIM에 내보낼 연락처가 없습니다</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">선호 네트워크</string>
   <string name="network_id">네트워크 ID</string>
   <string name="dialog_network_priority_title">우선순위</string>
@@ -199,18 +287,26 @@
   <string name="china_mobile">중국이동통신</string>
   <string name="china_unicom">중국연통</string>
   <string name="china_telecom">중국전신</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">데이터 연결이 일시적으로 중단됩니다. 계속하시겠습니까?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS 계정 정보</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS 계정</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">영상통화 품질</string>
   <string name="ims_vt_call_quality_low">낮게</string>
   <string name="ims_vt_call_quality_high">높게</string>
   <string name="ims_vt_call_quality_unknown">알 수 없음</string>
   <string name="ims_vt_call_quality_set_failed">영상 품질을 설정하지 못했습니다</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">네트워크 모드 변경 (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">앱이 아무 때나 2G와 3G를 전환할 수 있도록 허용합니다. 3G는 더 빠르지만, 배터리를 더 빨리 소모하며 추가 요금이 부과될 수도 있습니다.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">내 전화번호</string>
   <string name="phone_number_summary">이 장치의 전화번호 설정</string>
   <string name="msim_mobile_network_settings_title">SIM %d 모바일 네트워크 설정</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">통화 녹음 형식</string>
 </resources>

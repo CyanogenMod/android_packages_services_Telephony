@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">إشعار الحدث</string>
   <string name="show_ssn_summary">إظهار إشعار لمختلف أحداث الشبكة المتصلة بالتعامل مع المكالمات</string>
-  <string name="blacklist_title">قائمة الرفض</string>
+  <!-- Blacklist preferences -->
+  <string name="blacklist_title">حظر قائمة المتصل</string>
   <string name="blacklist_summary_disabled">معطل</string>
   <string name="blacklist_summary">لن تتلقى المكالمات أو الرسائل الواردة من أرقام الهاتف في قائمة المتصلين المحظورين</string>
-  <string name="mwi_notification_title">مؤشر الانتظار رسالة</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
+  <string name="mwi_notification_title">مؤشر انتظار رسالة</string>
   <string name="mwi_notification_summary">يظهر رسالة البريد الصوتي مؤشر الإشعار</string>
-  <string name="call_notif_unconditionalCF">غير مشروط إعادة توجية الإتصال نشط</string>
-  <string name="call_notif_conditionalCF">مشروط إعادة توجية الإتصال نشط</string>
-  <string name="call_notif_MOcall_forwarding">يتم توجيه المكالمة الصادرة</string>
-  <string name="call_notif_cugcall">الإتصال في مجموعة المستخدمين مغلق</string>
-  <string name="call_notif_outgoing_barred">المكالمات الصادرة منعت</string>
-  <string name="call_notif_incoming_barred">المكالمات الواردة التي منعت في الطرف البعيد</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
+  <string name="call_notif_unconditionalCF">تنشيط إعادة توجيه المكالمة غير المشروطة</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
+  <string name="call_notif_conditionalCF">إعادة توجيه مكالمة مشروطة نشطة</string>
+  <!-- Toast text for a forwarded MO call  -->
+  <string name="call_notif_MOcall_forwarding">إعادة توجيه المكالمة الصادرة</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
+  <string name="call_notif_cugcall">الإتصال في مجموعة مستخدمين مغلقة</string>
+  <!-- In-call screen: status label when MO calls are barred -->
+  <string name="call_notif_outgoing_barred">تم منع المكالمات الصادرة</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
+  <string name="call_notif_incoming_barred">المكالمات الواردة منعت من قبل طرف عن بعد</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">الرقم اللذي تمتلكه رفض من قبل شبكة</string>
-  <string name="call_notif_call_deflected">إتصال يوجهها الطرف البعيد</string>
-  <string name="call_notif_MTcall_forwarding">يتم إعادة توجيه مكالمة واردة</string>
-  <string name="call_notif_multipartycall">المكالمة المتعددة الأطراف</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
+  <string name="call_notif_call_deflected">إعادة توجيه المكالمة بواسطة طرف عن بعد</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
+  <string name="call_notif_MTcall_forwarding">إعادة توجيه المكالمة الواردة</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
+  <string name="call_notif_multipartycall">مكالمة متعددة الأطراف</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">مكالمه صادرة عن بعد</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">تمت إعادة توجيه المكالمة</string>
-  <string name="call_notif_callconnectingect">استدعاء الاتصال عن طريق نقل دعوة صريحة</string>
-  <string name="call_notif_callconnectedect">لايمكن استدعاء الاتصال عن طريق نقل دعوة صريحة</string>
-  <string name="label_nsdp">شبكة الشفره الفرعية فتح قفل PIN</string>
-  <string name="label_cdp">SIM الشركات فتح قفل PIN</string>
-  <string name="label_spdp">SIM مزود الخدمة فتح  PIN</string>
-  <string name="label_sdp">SIM إزالة قفل PIN</string>
-  <string name="label_rn1dp">شبكة RUIM 1 فتح قفل PIN</string>
-  <string name="label_rn2dp">شبكة RUIM 2 فتح قفل PIN</string>
-  <string name="label_rhrpd">RUIM HRPD فتح قفل PIN</string>
-  <string name="label_rcdp">RUIM الشركات  فتح قفل PIN</string>
-  <string name="label_rspdp">RUIM مزود الخدمة فتح  PIN</string>
-  <string name="label_rdp">RUIM فتح قفل PIN</string>
+  <!-- Toast text for incoming call connecting through ECT -->
+  <string name="call_notif_callconnectingect">اتصال المكالمة عبر عملية نقل المكالمات الواضحة</string>
+  <!-- Toast text for incoming call connected through ECT -->
+  <string name="call_notif_callconnectedect">تم اتصال المكالمة عبر عملية نقل المكالمات الصريحة</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
+  <string name="label_nsdp">رقم PIN لإلغاء تأمين المجموعة الفرعية لشبكة SIM</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
+  <string name="label_cdp">رقم PIN لإلغاء تأمين شركة SIM</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
+  <string name="label_spdp">رقم PIN لإلغاء تأمين موفر خدمة SIM</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
+  <string name="label_sdp">رقم PIN لإلغاء تأمين SIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="label_rn1dp">رقم PIN لإلغاء تأمين 1 شبكة RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="label_rn2dp">رقم PIN لإلغاء تأمين شبكة 2 RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="label_rhrpd">رقم PIN لإلغاء تأمين RUIM HRPD</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
+  <string name="label_rcdp">رقم PIN لإلغاء تأمين شركة RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
+  <string name="label_rspdp">رقم PIN لإلغاء تأمين موفر خدمة RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
+  <string name="label_rdp">رقم PIN لإلغاء تأمين RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">أدخل PUK</string>
-  <string name="requesting_unlock_cm">طلب شبكة الشفرة unlock\u2026</string>
-  <string name="requesting_nw_subset_unlock">الطالب فتح قفل شبكة SIM فرعية \u2026</string>
-  <string name="requesting_sp_unlock">طلب فتح قفل SIM \u2026 موفر الخدمة</string>
-  <string name="requesting_corporate_unlock">الطالبة فتح قفل SIM للشركات \u2026</string>
-  <string name="requesting_sim_unlock">طلب فتح قفل SIM\u2026</string>
-  <string name="requesting_rnw1_unlock">طلب فتح قفل شبكة RUIM 1\u2026</string>
-  <string name="requesting_rnw2_unlock">طلب فتح قفل شبكة RUIM 2\u2026</string>
-  <string name="requesting_rhrpd_unlock">طلب فتح قفل RUIM HRPD \u2026</string>
-  <string name="requesting_rsp_unlock">طلب فتح قفل SIM \u2026 موفر الخدمة</string>
-  <string name="requesting_rc_unlock">الطالبة فتح قفل SIM للشركات \u2026</string>
-  <string name="requesting_ruim_unlock">طلب فتح قفل SIM\u2026</string>
-  <string name="requesting_puk_unlock">طلب فتح قفل PUK \u2026</string>
-  <string name="unlock_failed_cm">طلب فتح الشفره غير ناجح</string>
-  <string name="nw_subset_unlock_failed">افتح سيم شبكة فرعية طلب غير ناجحة.</string>
-  <string name="sp_unlock_failed">فتخ قفل موفر خدمة SIM طلب غير ناجحة.</string>
-  <string name="corporate_unlock_failed">فتح قفل SIM الشركات طلب غير ناجحة.</string>
-  <string name="sim_unlock_failed">فتح قفلSIM طلب غير ناجحة.</string>
-  <string name="rnw1_unlock_failed">RUIM network 1 unlock الطلب غير ناجح.</string>
-  <string name="rnw2_unlock_failed">RUIM network 2 unlock الطلب غير ناجح.</string>
-  <string name="rhrpd_unlock_failed">RUIM HRPD unlock الطلب غير ناجح.</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
+  <string name="requesting_unlock_cm">طلب إلغاء تأمين شبكة SIM/u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="requesting_nw_subset_unlock">جاري طلب مجموعة فرعية لشبكة SIM/ u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="requesting_sp_unlock">طلب إلغاء تأمين موفر خدمة SIM/u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
+  <string name="requesting_corporate_unlock">طلب إلغاء قفل شركة SIMS\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
+  <string name="requesting_sim_unlock">طلب إلغاء تأمين SIM\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="requesting_rnw1_unlock">جاري طلب إلغاء تأمين 1 شبكة RUIM/ u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="requesting_rnw2_unlock">طلب إلغاء تأمين شبكة RUIM 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="requesting_rhrpd_unlock">طلب إلغاء تأمين RUIM HRPD \u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="requesting_rsp_unlock">طلب إلغاء تأمين موفر خدمة RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="requesting_rc_unlock">طلب إلغاء تأمين شركة RUIM/u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
+  <string name="requesting_ruim_unlock">جار طلب إلغاء تأمين RUIM/ u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
+  <string name="requesting_puk_unlock">طلب إلغاء تأمين PUK \u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
+  <string name="unlock_failed_cm">فشل طلب إلغاء تأمين شبكة SIM.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="nw_subset_unlock_failed">فشل طلب إلغاء تأمين المجموعة الفرعية لشبكة SIM.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="sp_unlock_failed">فشل طلب إلغاء تأمين موفر خدمة SIM.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="corporate_unlock_failed">فشل طلب إلغاء تأمين شركة SIM.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
+  <string name="sim_unlock_failed">فشل طلب إلغاء تأمين SIM.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="rnw1_unlock_failed">فشل طلب إلغاء تأمين 1 شبكة RUIM.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="rnw2_unlock_failed">فشل طلب إلغاء تأمين 2 شبكة RUIM.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="rhrpd_unlock_failed">فشل طلب إلغاء تأمين RUIM HRPD.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">طلب إلغاء قفل RUIM من موفر الخدمة غير ناجح.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">طلب إلغاء قفل RUIM الشركات غير ناجح.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">طلب إلغاء قفل RUIM غير ناجح.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">طلب إلغاء قفل  PUK غير ناجح.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">نجح إلغاء قفل شبكة SIM.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">نجح إلغاء قفل شبكة SIM الفرعية.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">نجح إلغاء قفل SIM من موفر الخدمة.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">نجح إلغاء قفل SIM من الشركات.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">نجح إلغاء قفل SIM.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">نجح إلغاء قفل شبكة RIUM 1.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">نجح إلغاء قفل شبكة RUIM 2.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">نجح إلغاء قفل شبكة RUIM HRPD.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">نجح إلغاء قفل شبكة RUIM من موفر الخدمة.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">نجح إلغاء قفل شبكة RUIM الشركات.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">نجح إلغاء قفل شبكة RUIM.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">نجح إلغاء قفل شبكة PUK.</string>
-  <string name="stk_cc_ss_to_dial_error">يتم تعديل الطلب USSD لطلب الاتصال الهاتفي.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
+  <string name="stk_cc_ss_to_dial_error">تم تعديل طلب SS للطب الاتصال الهاتفي.</string>
   <string name="stk_cc_ss_to_ussd_error">تم تعديل طلب SS إلى طلب USSD.</string>
   <string name="stk_cc_ss_to_ss_error">تم تعديل طلب SS إلى طلب SS جديد.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">إعدادات مكالمات الفيديو</string>
   <string name="vt_fallback_setting">إعادة الطلب عن طريق مكالمة صوتية</string>
   <string name="vt_forward_setting">إعادة توجيه مكالمة فيديو</string>
   <string name="vt_imagereplace_setting">صورة بديلة</string>
   <string name="vt_imagereplace_setting_sum">صورة تعرض عندما يتم تعطيل الكاميرا الأمامية </string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">وضع التجوال</string>
   <string name="roaming_mode_summary">وضع التجوال الدولي</string>
   <string name="roaming_gsm">GSM عند التجوال</string>
   <string name="roaming_cdma">CDMA عند التجوال</string>
   <string name="roaming_disabled">معطل</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">وضع الشبكة المفضل: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">وضع الشبكة المفضل: TD-SCDMA فقط</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">وضع الشبكة المفضل: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">وضع الشبكة المفضل: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">وضع الشبكة المفضل: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">وضع الشبكة المفضل:TD-SCDMA/TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">وضع الشبكة المفضل: TD-SCDMA/SCDMA/gsm</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">وضع الشبكة المفضل:TD-SCDMA/TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">وضع الشبكة المفضل:TD-SCDMA/TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">وضع الشبكة المفضل: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">وضع الشبكة المفضل: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">حظر الطرف الآخر كافة المكالمات الواردة.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">المكالمة لم يتم الرد عليها وتم إعادة توجيهها</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -126,48 +209,53 @@
   <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
   <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
-  <string name="preferred_network_mode_evdo_only_choice">EvDo only</string>
+  <string name="preferred_network_mode_evdo_only_choice">EvDo فقط</string>
   <string name="preferred_network_mode_cdma_wo_evdo_choice">CDMA w/o EvDo</string>
   <string name="preferred_network_mode_cdma_evdo_auto_choice">CDMA/EvDo تلقائي</string>
   <string name="preferred_network_mode_gsm_wcdma_auto_choice">GSM/WCDMA تلقائي</string>
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA فقط</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM فقط</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA المفضل</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">إعدادات بطاقة SIM</string>
   <string name="sim_card_title">%d بطاقة SIM</string>
-  <string name="sim_card_summary_empty">sim فتحه فارغ</string>
-  <string name="tty_mode_not_allowed_vt_call">غير مسموح بتغيير وضع TTY أثناء مكالمة VT</string>
+  <string name="sim_card_summary_empty">فتحة SIM فارغة</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
+  <string name="tty_mode_not_allowed_vt_call">غير مسموح بتغيير وضع TTY أثناء مكالمة الفيديو</string>
   <string name="ipcall_sub_title">إعدادات مكالمات IP</string>
   <string name="ipcall_sub_summery">عدّل البادئة المستخدم للاتصال عبر خدمة IP</string>
   <string name="ipcall_dialog_title">بادئة IP</string>
   <string name="ipcall_dialog_edit_hint">بادئة طلب مكالمة IP</string>
   <string name="fdn_service_unavailable">لا تتوفر خدمة FDN.</string>
   <string name="exportContacts">تصدير جهات الاتصال إلى بطاقة SIM\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">إدارة جهات اتصال بطاقة SIM</string>
-  <string name="contactScreen">إدارة جهات الاتصال من SIM</string>
-  <string name="exportContactScreen">تصدير جهات الاتصال من الهاتف إلى بطاقة SIM</string>
+  <!-- Sim contacts management -->
+  <string name="contactScreen">إدارة جهات ااتصال SIM</string>
+  <string name="exportContactScreen">تصدير جهات اتصال الهاتف إلى SIM</string>
   <string name="addSimEntries">إضافة جهة اتصال SIM</string>
-  <string name="deleteAllSimEntries">حذف كافة جهات الاتصال من SIM</string>
+  <string name="deleteAllSimEntries">حذف كافة جهات اتصال SIM</string>
   <string name="deleteSimContacts">حذف جهات إتصال SIM\u2026</string>
-  <string name="editContact">تعديل</string>
-  <string name="sendSms">إرسال الرسائل القصيرة</string>
+  <string name="editContact">تحرير</string>
+  <string name="sendSms">إرسال الرسالة النصية القصيرة</string>
   <string name="delete">حذف</string>
-  <string name="dial">اتصال</string>
+  <string name="dial">طلب</string>
   <string name="enterName">أدخل الاسم:</string>
   <string name="enterNumber">أدخل رقم الهاتف:</string>
   <string name="hintName">الاسم</string>
   <string name="hintPhonenumber">رقم الهاتف</string>
-  <string name="contactAddSuccess">تمت اضافة جهة اتصال بنجاح الى بطاقة Sim</string>
-  <string name="contactAddFailed">فشل في إضافة جهة اتصال إلى بطاقة SIM</string>
+  <string name="contactAddSuccess">تمت اضافة جهة اتصال بنجاح الى SIM</string>
+  <string name="contactAddFailed">فشل في إضافة جهة اتصال إلى SIM</string>
   <string name="contactUpdateSuccess">نجاح تحديث جهة الاتصال في SIM</string>
   <string name="contactUpdateFailed">فشل تحديث جهة الاتصال في SIM</string>
-  <string name="contactdeleteSuccess">حذف جهة اتصال من بطاقة SIM بنجاح</string>
-  <string name="contactdeleteFailed">فشل في حذف جهة اتصال من بطاقة SIM</string>
-  <string name="allContactdeleteSuccess">حذف كافة جهات الاتصال من بطاقة SIM بنجاح</string>
+  <string name="contactdeleteSuccess">حذف جهة اتصال من SIM بنجاح</string>
+  <string name="contactdeleteFailed">فشل في حذف جهة اتصال من SIM</string>
+  <string name="allContactdeleteSuccess">حذف كافة جهات الاتصال من SIM بنجاح</string>
   <string name="allContactdeleteFailed">فشل في حذف كافة جهات الاتصال من بطاقة SIM</string>
   <string name="exportAllcontatsSuccess">تصدير كافة جهات الاتصال إلى بطاقة SIM بنجاح</string>
   <string name="exportAllcontatsFailed">فشل تصدير كافة جهات الاتصال إلى بطاقة SIM</string>
-  <string name="exportAllcontatsNoContacts">لا جهات اتصال التي وجدت للتصدير إلى بطاقة SIM</string>
+  <string name="exportAllcontatsNoContacts">عدم العثور على جهات اتصال للتصدير إلى بطاقة SIM</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">الشّبكات المُفضّلة</string>
   <string name="network_id">معّرف شبكة الاتصال</string>
   <string name="dialog_network_priority_title">الأولويّة</string>
@@ -199,18 +287,28 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">خدمة البيانات تحتاج إلى قطع الاتصال مؤقتاً. هل أنت متأكد من أنك تريد الاستمرار؟</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">بيانات حساب IMS</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">حسابات IMS</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">جودة مكالمة الفيديو</string>
   <string name="ims_vt_call_quality_low">منخفضة</string>
   <string name="ims_vt_call_quality_high">عالية</string>
   <string name="ims_vt_call_quality_unknown">غير معروف</string>
   <string name="ims_vt_call_quality_set_failed">فشل تعيين جودة الفيديو</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">تغيير وضع الشبكة (2g/3G)</string>
-  <string name="perm_change_mobile_network_desc">يسمح التطبيق لتغيير بين البيانات 2g والجيل الثالث 3g البيانات في أي وقت. الجيل الثالث 3g هو أسرع، ولكن يستهلك البطارية أكثر وقد يتسبب في تكاليف إضافية.</string>
+  <string name="perm_change_mobile_network_desc">السماح للتطبيق بالانتقال ما بين بيانات 2G (الجيل الثاني) وبيانات 3G (الجيل الثالث) في أي وقت. تعد 3G أكثر سرعة
+ إلا أنها تستهلك مقدار أكبر من قدرة البطارية وقد تتسبب في تكلفة
+ إضافية.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">رقم هاتفي</string>
   <string name="phone_number_summary">تعيين رقم الهاتف لهذا الجهاز</string>
   <string name="msim_mobile_network_settings_title">إعدادات شبكة الهاتف النقال %d شريحة SIM</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">تنسيق تسجيل المكالمات</string>
 </resources>

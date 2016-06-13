@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Kennisgewings</string>
   <string name="show_ssn_summary">Wys \'n kennisgewing vir verskeie netwerk gebeure wat verband hou met die hantering van telefoon oproepe</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Lys geblokkeerde oproepers</string>
   <string name="blacklist_summary_disabled">Deaktiveer</string>
   <string name="blacklist_summary">Jy sal nie inkomende oproepe of boodskappe van persone ontvang op die lys van geblokkeerde oproepe</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Boodskap wag aanwyser</string>
   <string name="mwi_notification_summary">Wys boodskap wag aanwyser vir stempos boodskappe</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Onvoorwaardelike oproep aanstuuring aktief</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Voorwaardelike oproep aanstuuring aktief</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Uitgaande oproep word aangestuur</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Oproep in geslote gebruikersgroep</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Uitgaande oproepe verbied</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Inkomende oproepe word verbied deur 3rde party</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Eie nommer onderdrukking deur netwerk verwerp</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Oproep aangestuur deur 3rde party</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Inkomende oproep word aangestuur</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Veelparty-oproep</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Oproep vrygestel deur 3rde party</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Oproep was aangestuur</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Oproep verbind deur eksplisiete oproep oordrag</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Oproep verbind deur middel van eksplisiete oproep oordrag</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM-netwerk subset ontsluit PIN</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIM korporatiewe ontsluit PIN</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIM diensverskaffer ontsluit PIN</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM ontsluit PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIM netwerk1 ontsluit PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIM netwerk2 ontsluit PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPD ontsluit PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIM korporatiewe ontsluit PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIM diensverskaffer ontsluit PIN</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM ontsluit PIN</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Sleutel PUK in</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Versoek SIM netwerk ontsluiting\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Versoek SIM netwerk subset ontsluiting\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Versoek SIM diensverskaffer ontsluiting\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Versoek korporatiewe SIM ontsluiting\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Versoek SIM ontsluiting\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Versoek RUIM netwerk1 ontsluiting\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Versoek RUIM netwerk2 ontsluiting\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Versoek RUIM HRPD ontsluiting\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Versoek RUIM diensverskaffer ontsluiting\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Versoek RUIM korporatiewe ontsluiting\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Versoek RUIM ontsluiting\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Versoek PUK ontsluiting\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM netwerk ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIM Netwerk substel ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIM Diensverskaffer ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIM Korporatiewe ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIM ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">RUIM Netwerk1 ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">RUIM Netwerk2 ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">RUIM HRPD ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIM diensverskaffer ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIM Korporatiewe ontsluiting was onsuksesvol.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIM ontsluiting versoek was onsuksesvol.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK ontsluiting was onsuksesvol.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM netwerk ontsluiting was onsuksesvol.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIM Netwerk substel ontsluiting versoek was suksesvol.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIM Diensverskaffer ontsluiting versoek was suksesvol.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">SIM Korporatiewe ontsluiting was suksesvol.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM ontsluiting was suksesvol.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">RUIM Netwerk1 ontsluiting versoek was suksesvol.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">RUIM Netwerk2 ontsluiting versoek was suksesvol.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">RUIM HRPD ontsluiting versoek was suksesvol.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIM diensverskaffer ontsluiting versoek was suksesvol.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIM Korporatiewe ontsluiting was suksesvol.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM ontsluiting versoek was suksesvol.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK ontsluiting was suksesvol.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS versoek is verander na SKAKEL versoek.</string>
   <string name="stk_cc_ss_to_ussd_error">SS versoek verander na USSD versoek.</string>
   <string name="stk_cc_ss_to_ss_error">SS versoek verander na nuwe SS versoek.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Video oproep instellings</string>
   <string name="vt_fallback_setting">Herskakel via stem oproep</string>
   <string name="vt_forward_setting">Video-oproep aangestuur</string>
   <string name="vt_imagereplace_setting">Alternatiewe prentjie</string>
   <string name="vt_imagereplace_setting_sum">Foto om te vertoon wanneer voorste kamera gedeaktiveer is</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Swerwing modus</string>
   <string name="roaming_mode_summary">Internasionale swerwing mode</string>
   <string name="roaming_gsm">GSM swerwing</string>
   <string name="roaming_cdma">CDMA swerwing</string>
   <string name="roaming_disabled">Af</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Voorkeur-modus: Globaal (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Voorkeur-modus: TD-SCDMA alleenlik</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Voorkeur-modus: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Voorkeur-modus: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Voorkeur-modus: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Voorkeur-modus: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Voorkeur-modus: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Voorkeur-modus: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Voorkeur-modus: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Voorkeur-modus: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Voorkeur-modus: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Party het alle inkomende oproepe verbied.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Oproep was onbeantwoord en aangestuur</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -133,9 +216,11 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA alleenlik</string>
   <string name="preferred_network_mode_gsm_only_choice">GSM alleenlik</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Verkies GSM/WCDMA</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">SIM-kaart instellings</string>
   <string name="sim_card_title">SIM kaaart %d</string>
   <string name="sim_card_summary_empty">SIM slot is leeg</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">TTY Modus verandering word nie toegelaat tydens \'n VT oproep</string>
   <string name="ipcall_sub_title">IP oproep instellings</string>
   <string name="ipcall_sub_summery">Wysig voorvoegsel om te bel deur IP diens</string>
@@ -143,7 +228,9 @@
   <string name="ipcall_dialog_edit_hint">IP oproep skakelvoorafkode</string>
   <string name="fdn_service_unavailable">FDN diens is nie beskikbaar nie.</string>
   <string name="exportContacts">Uitvoer kontakte na SIM-kaart\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Bestuur SIM kaart kontakte</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Bestuur SIM kontakte</string>
   <string name="exportContactScreen">Uitvoer selfoon kontakte na SIM</string>
   <string name="addSimEntries">Voeg SIM Kontak by</string>
@@ -168,6 +255,7 @@
   <string name="exportAllcontatsSuccess">Suksesvol kontakte na SIM uitgevoer</string>
   <string name="exportAllcontatsFailed">Het misluk om al die kontakte uit te voer na SIM</string>
   <string name="exportAllcontatsNoContacts">Geen kontakte gevind om uit te voer na SIM</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Voorkeur netwerke</string>
   <string name="network_id">Netwerk ID</string>
   <string name="dialog_network_priority_title">Prioriteit</string>
@@ -199,18 +287,26 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Data dienste moet tydelik onderbreek word. Is jy seker jy wil voortgaan?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS rekening besonderhede</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS rekening</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Video oproep gehalte</string>
   <string name="ims_vt_call_quality_low">Laag</string>
   <string name="ims_vt_call_quality_high">Hoog</string>
   <string name="ims_vt_call_quality_unknown">Onbekend</string>
   <string name="ims_vt_call_quality_set_failed">Kon nie video kwaliteit stel nie</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">verander netwerk modus (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Laat die program toe om te verander tussen 2G data en 3G data op enige tyd. 3G is vinniger, maar verbruik meer battery en kan lei tot bykomende koste.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">My telefoonnommer</string>
   <string name="phone_number_summary">Stel die telefoonnommer vir hierdie toestel</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiele netwerk instellings</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Oproep opname formaat</string>
 </resources>

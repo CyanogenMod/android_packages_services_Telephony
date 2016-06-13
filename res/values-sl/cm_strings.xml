@@ -17,98 +17,181 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Obvestilo o dogodku</string>
-  <string name="show_ssn_summary">Prikaži obvestilo za različne omrežne dogodke, ki se nanašajo na obravnavo klicev</string>
+  <string name="show_ssn_summary">Prikaži obvestilo za razne omrežne dogodke, ki se nanašajo na obravnavo klicev</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Seznam blokiranih klicateljev</string>
   <string name="blacklist_summary_disabled">Onemogočeno</string>
   <string name="blacklist_summary">Ne boste več prejemali dohodnih klicev in sporočil iz telefonskih številk, ki so na seznamu blokiranih klicateljev</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Kazalnik čakanja sporočila</string>
   <string name="mwi_notification_summary">Prikaži obvestila glasovne pošte kazalnika čakanja sporočil</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Brezpogojno posredovanje klicev dejavno</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Pogojno posredovanje klicev dejavno</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Odhodni klic je posredovan</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Klic v zaprti uporabniški skupini</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Zapora odhodnih klicev</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Zapora dohodnih klicev s strani oddaljene osebe</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Skrivanje lastne številke je omrežje zavrnilo</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Oddaljena oseba je klic posredovala</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Dohodni klic je posredovan</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Klic za več oseb</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Klic oddaljeno sproščen</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Klic je bil posredovan</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Povezovanje klicev preko izrecnega prenosa klicev</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Povezovanje klicev preko izrecnega prenosa klicev</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">PIN za odklepanje podsklopa omrežja SIM</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">PIN za odklepanje pravne osebe SIM</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">PIN za odklepanje ponudnika storitev SIM</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">PIN za odklepanje kartice SIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">PIN za odklepanje omrežja 1 RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">PIN za odklepanje omrežja 2 RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">PIN za odklepanje HRPD-ja RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">PIN za odklepanje pravne osebe RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">PIN za odklepanje ponudnika storitev RUIM</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">PIN za odklepanje RUIM</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Vnesite PUK</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Zahtevanje odklepanja omrežja SIM \u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Zahtevanje odklepanja podsklopa omrežja SIM \u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Zahtevanje odklepanja ponudnika storitve SIM \u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Zahtevanje odklepanja pravne osebe SIM \u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Zahtevanje odklepanja SIM \u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Zahtevanje odklepanja omrežja 1 RUIM \u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Zahtevanje odklepanja omrežja 2 RUIM \u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Zahtevanje odklepanja HRPD-ja RUIM \u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Zahtevanje odklepanja ponudnika storitev RUIM \u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Zahtevanje odklepanja pravneosebe RUIM \u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Zahtevanje odklepanja RUIM \u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Zahtevanje odklepanja PUK \u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Zahteva odklepanja omrežja SIM neuspešna.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Zahteva odklepanja podsklopa omrežja SIM neuspešna.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Zahteva odklepanja ponudnika storitev SIM neuspešna.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Zahteva odklepanja pravne osebe SIM neuspešna.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Zahteva odklepanja SIM neuspešna.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Zahteva odklepanja omrežja 1 RUIM neuspešna.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Zahteva odklepanja omrežja 2 RUIM neuspešna.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Zahteva odklepanja HRPD-ja RUIM neuspešna.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Zahteva odklepanja ponudnika storitev RUIM neuspešna.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Zahteva odklepanja pravne osebe RUIM neuspešna.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Zahteva odklepanja RUIM neuspešna.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Odklepanje PUK neuspešno.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Odklepanje omrežja SIM uspešno.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Odklepanje podsklopa omrežja SIM uspešno.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Odklepanje ponudnika storitev SIM uspešno.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Odklepanje pravne osebe SIM uspešno.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">Odklepanje SIM uspešno.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Odklepanje omrežja 1 RUIM uspešno.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Odklepanje omrežja 2 RUIM uspešno.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Odklepanje HRPD-ja RUIM uspešno.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Odklepanje ponudnika storitev RUIM uspešno.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Odklepanje pravne osebe RUIM uspešno.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Odklepanje RUIM uspešno.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Odklepanje PUK uspešno.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">Zahteva SS spremenjena v zahtevo DIAL.</string>
   <string name="stk_cc_ss_to_ussd_error">Zahteva SS spremenjena v zahtevo USSD.</string>
   <string name="stk_cc_ss_to_ss_error">Zahteva SS spremenjena v novo zahtevo SS.</string>
-  <string name="videocall_settings">Nastavitve za video klice</string>
+  <!-- Add VideoCall Setttings -->
+  <string name="videocall_settings">Nastavitve za videoklice</string>
   <string name="vt_fallback_setting">Ponovno pokliči preko glasovnega klica</string>
-  <string name="vt_forward_setting">Posredovanje video klicev</string>
+  <string name="vt_forward_setting">Posredovanje videoklicev</string>
   <string name="vt_imagereplace_setting">Nadomestna slika</string>
   <string name="vt_imagereplace_setting_sum">Slika, ki se prikaže v primeru, da je prednja kamera onemogočena</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Način gostovanja</string>
   <string name="roaming_mode_summary">Mednarodni način gostovanja</string>
   <string name="roaming_gsm">Gostovanje GSM</string>
   <string name="roaming_cdma">Gostovanje CDMA</string>
   <string name="roaming_disabled">Onemogočeno</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Način prednostnega omrežja: Globalni (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Način prednostnega omrežja: samo TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Način prednostnega omrežja: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Način prednostnega omrežja: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Način prednostnega omrežja: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Način prednostnega omrežja: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Način prednostnega omrežja: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Način prednostnega omrežja: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Način prednostnega omrežja: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Način prednostnega omrežja: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Način prednostnega omrežja: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Oseba ima zaporo vseh dohodnih klicev.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Klic neodgovorjen in posredovan</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -133,17 +216,21 @@
   <string name="preferred_network_mode_wcdma_only_choice">Samo WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Samo GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Prednostno GSM/WCDMA</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">Nastavitve kartice SIM</string>
   <string name="sim_card_title">Kartica SIM %d</string>
   <string name="sim_card_summary_empty">Reža SIM je prazna</string>
-  <string name="tty_mode_not_allowed_vt_call">Sprememba načina TTY ni dovoljena med video klicem</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
+  <string name="tty_mode_not_allowed_vt_call">Sprememba načina TTY ni dovoljena med videoklicem</string>
   <string name="ipcall_sub_title">Nastavitve klicev IP</string>
   <string name="ipcall_sub_summery">Uredi predpone za klicanje preko storitve IP</string>
   <string name="ipcall_dialog_title">Predpona IP</string>
   <string name="ipcall_dialog_edit_hint">Predpona klica IP</string>
   <string name="fdn_service_unavailable">Storitev FDN ni na voljo.</string>
   <string name="exportContacts">Izvažanje stikov na kartico SIM \u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Upravljaj stike kartice SIM</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Upravljaj stike SIM</string>
   <string name="exportContactScreen">Izvozi stike telefona na SIM</string>
   <string name="addSimEntries">Dodaj stik SIM</string>
@@ -168,6 +255,7 @@
   <string name="exportAllcontatsSuccess">Vsi stiki uspešno izvoženi na SIM</string>
   <string name="exportAllcontatsFailed">Izvoz vseh stikov s kartice SIM spodletel</string>
   <string name="exportAllcontatsNoContacts">Stikov za izvoz na SIM ni bilo mogoče najti</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Prednostna omrežja</string>
   <string name="network_id">ID omrežja</string>
   <string name="dialog_network_priority_title">Prednost</string>
@@ -199,18 +287,26 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Podatkovna storitev se mora začasno prekiniti. Ali res želite nadaljevati?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">Podrobnosti računa IMS</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">Računi IMS</string>
-  <string name="ims_vt_call_quality_title">Kakovost video klica</string>
+  <!-- VT call quality settings. -->
+  <string name="ims_vt_call_quality_title">Kakovost videoklica</string>
   <string name="ims_vt_call_quality_low">Nizka</string>
   <string name="ims_vt_call_quality_high">Visoka</string>
   <string name="ims_vt_call_quality_unknown">Neznana</string>
   <string name="ims_vt_call_quality_set_failed">Nastavitev kakovosti slike je spodletela</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">spremeni način omrežja  (2G/3G)</string>
-  <string name="perm_change_mobile_network_desc">Kadarkoli omogoča programu spreminjanje med podatki za 2G in 3G. 3G je hitrejši, vendar porabi več energije in lahko povzroči dodatne stroške.</string>
+  <string name="perm_change_mobile_network_desc">Kadarkoli dovoli aplikaciji spreminjanje med podatki 2G in 3G. 3G je hitrejši, vendar porabi več energije in lahko povzroči dodatne stroške.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Moja telefonska številka</string>
   <string name="phone_number_summary">Nastavite telefonsko številko za to napravo</string>
   <string name="msim_mobile_network_settings_title">Nastavitve mobilnega omrežja za SIM %d</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Oblika snemanja klicev</string>
 </resources>

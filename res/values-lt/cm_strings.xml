@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Įvykio pranešimas</string>
   <string name="show_ssn_summary">Rodyti pranešimą dėl įvairių tinklo įvykių susijusių su skambučių tvarkymu</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Užblokuotų skambintojų sąrašas</string>
   <string name="blacklist_summary_disabled">Neleidžiamas</string>
   <string name="blacklist_summary">Jūs negausite įeinančių skambučių ar pranešimų iš telefonų numerių kurie yra užblokuotų skambintojų sąraše</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Pranešimų laukimo rodiklis</string>
   <string name="mwi_notification_summary">Rodyti pranešimų laukimo rodiklį gaunamiems balso pašto pranešimams</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Besąlygiškas skambučių peradresavimas aktyvus</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Sąlygiškas skambučių peradresavimas aktyvus</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Išeinantys skambučiai yra peradresuojami</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Skambinti į uždarą vartotojų grupę</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Išeinantys skambučiai draudžiami</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Įeinantys skambučiai uždrausti tolimesnėse šalyse</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Mano numerio slėpimas buvo atmestas tinklo</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Skambutis peradresuojamas nuotolinėje šalyje</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Įeinantis skambutis peradresuojamas</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Konferencinis skambutis</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Skambučio sulaikymas nutrauktas</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Skambutis buvo peradresuotas</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Jungtis prie tiesioginio ryšio</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Prisijungta prie tiesioginio ryšio</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">SIM PIN kodo tinklo atrakinimo pogrupis</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">SIM PIN kodo įmonių atrakinimas</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">SIM PIN kodo paslaugų teikėjų atrakinimas</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">SIM PIN kodo atrakinimas</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">Tinklo 1 RUIM PIN kodo atrakinimas</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">Tinklo 2 RUIM PIN kodo atrakinimas</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">HRPD RUIM PIN kodo atrakinimas</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">RUIM PIN kodo įmonių atrakinimas</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">RUIM PIN kodo paslaugų teikėjų atrakinimas</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM PIN kodo atrakinimas</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Įveskite PUK kodą</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Prašoma SIM tinklo atrakinimo\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Prašoma SIM tinklo pogrupio atrakinimo\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Prašoma SIM paslaugų teikėjų atrakinimo\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Prašoma SIM įmonių atrakinimo\u2026</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Prašoma SIM atrakinimo\u2026</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Prašoma tinklo 1 RUIM atrakinimo\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Prašoma tinklo 2 RUIM atrakinimo\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Prašoma HRPD RUIM atrakinimo\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Prašoma RUIM paslaugų teikėjų atrakinimo\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Prašoma RUIM įmonių atrakinimo\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Prašoma RUIM atrakinimo\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Prašoma PUK atrakinimo\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">SIM tinklo atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">SIM tinklo pogrupio atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">SIM paslaugų teikėjų atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">SIM įmonių atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">SIM atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Tinklo 1 RUIM atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Tinklo 2 RUIM atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">HRPD RUIM atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">RUIM paslaugų teikėjų atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">RUIM įmonių atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">RUIM atrakinimo prašymas nesėkmingas.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">PUK atrakinimas nesėkmingas.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">SIM tinklo atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">SIM tinklo pogrupio atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">SIM paslaugų teikėjų atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">SIM įmonių atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">SIM atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Tinklo 1 RUIM atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Tinklo 2 RUIM atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">HRPD RUIM atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">RUIM paslaugų teikėjų atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">RUIM įmonių atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">RUIM atrakinimas sėkmingas.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">PUK atrakinimas sėkmingas.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS užklausa pakeista į DIAL prašymą.</string>
   <string name="stk_cc_ss_to_ussd_error">SS užklausa pakeista į USSD prašymą.</string>
   <string name="stk_cc_ss_to_ss_error">SS užklausa pakeista į naują SS prašymą.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Vaizdo skambučio nustatymai</string>
   <string name="vt_fallback_setting">Perrinkti naudojant balso skambutį</string>
   <string name="vt_forward_setting">Vaizdo skambučio peradresavimas</string>
   <string name="vt_imagereplace_setting">Alternatyvus vaizdas</string>
   <string name="vt_imagereplace_setting_sum">Rodyti vaizdą, kai priekyje esanti kamera yra neleidžiama</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Tarptinklinio ryšio režimas</string>
   <string name="roaming_mode_summary">Tarptautinio tarptinklinio ryšio režimas</string>
   <string name="roaming_gsm">GSM tarptinklinis ryšys</string>
   <string name="roaming_cdma">CDMA tarptinklinis ryšys</string>
   <string name="roaming_disabled">Neleidžiamas</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Pageidaujami tinklo režimai: pasaulinis (CDMA / EvDo / LTE / GSM / WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Pageidaujami tinklo režimai: tik TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Pageidaujami tinklo režimai: TD-SCDMA / WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Pageidaujami tinklo režimai: TD-SCDMA / LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Pageidaujami tinklo režimai: TD-SCDMA / GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Pageidaujami tinklo režimai: TD-SCDMA / GSM / LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Pageidaujami tinklo režimai: TD-SCDMA / GSM / WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Pageidaujami tinklo režimai: TD-SCDMA / WCDMA / LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Pageidaujami tinklo režimai: TD-SCDMA / GSM / WCDMA / LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Pageidaujami tinklo režimai: TD-SCDMA / LTE / CDMA / EvDo / GSM / WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Pageidaujami tinklo režimai: TD-SCDMA / CDMA / EvDo / GSM / WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Šalis uždraudė visus įeinančius skambučius.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Skambutis neatsakytas ir peradresuotas</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA / LTE / GSM / WCDMA / CDMA / EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA / GSM / WCDMA / CDMA / EVDO</string>
@@ -133,9 +216,11 @@
   <string name="preferred_network_mode_wcdma_only_choice">Tik WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Tik GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Pageidaujama GSM / WCDMA</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">SIM kortelės nustatymai</string>
   <string name="sim_card_title">SIM kortelė %d</string>
   <string name="sim_card_summary_empty">SIM lizdas yra tuščias</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">TTY režimo keitimas neleidžiamas vaizdo skambučio metu</string>
   <string name="ipcall_sub_title">IP skambučio nustatymai</string>
   <string name="ipcall_sub_summery">Redaguoti priešdėlį skambinant prieš IP paslaugą</string>
@@ -143,7 +228,9 @@
   <string name="ipcall_dialog_edit_hint">IP skambučio rinkimo priešdėlis</string>
   <string name="fdn_service_unavailable">Fiksuoto rinkimo paslaugos neteikiamos.</string>
   <string name="exportContacts">Eksportuojami kontaktai į SIM kortelę\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Tvarkyti SIM kortelės kontaktus</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Tvarkyti SIM kontaktus</string>
   <string name="exportContactScreen">Eksportuoti telefono kontaktus į SIM</string>
   <string name="addSimEntries">Pridėti SIM kontaktą</string>
@@ -168,6 +255,7 @@
   <string name="exportAllcontatsSuccess">Sėkmingai eksportuoti visi kontaktai į SIM</string>
   <string name="exportAllcontatsFailed">Nepavyko eksportuoti visų kontaktų į SIM</string>
   <string name="exportAllcontatsNoContacts">Kontaktų nerasta eksportuoti į SIM</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Pageidaujami tinklai</string>
   <string name="network_id">Tinklo ID</string>
   <string name="dialog_network_priority_title">Prioritetas</string>
@@ -199,18 +287,26 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Duomenų paslaugos turi būti laikinai atjungtos. Ar tikrai norite tęsti?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">IMS paskyros duomenys</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS paskyros</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Vaizdo skambučio kokybė</string>
   <string name="ims_vt_call_quality_low">Žema</string>
   <string name="ims_vt_call_quality_high">Aukšta</string>
   <string name="ims_vt_call_quality_unknown">Nežinoma</string>
   <string name="ims_vt_call_quality_set_failed">Nepavyko nustatyti vaizdo kokybės</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">Pakeisti tinklą (2G / 3G)</string>
   <string name="perm_change_mobile_network_desc">Leisti programai keisti tarp 2G ir 3G duomenų bet kuriuo metu. 3G yra greitesnis bet sunaudoja daugiau akumuliatoriaus, taip pat tai jums gali kainuoti daugiau pinigų.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Mano telefono numeris</string>
   <string name="phone_number_summary">Nustatyti telefono numerį šiam įrenginiui</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiliojo tinklo nustatymai</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Skambučio įrašymo formatas</string>
 </resources>

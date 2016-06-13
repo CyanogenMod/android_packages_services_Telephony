@@ -18,97 +18,180 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Atentigo pri evento</string>
   <string name="show_ssn_summary">Montri atentigon por diversaj retaj eventoj ritale al mastrumado de alvokoj</string>
+  <!-- Blacklist preferences -->
   <string name="blacklist_title">Listo de blokitaj alvokantoj</string>
   <string name="blacklist_summary_disabled">Malŝaltita</string>
   <string name="blacklist_summary">Vi ricevos neniun alvokon nek mesaĝon el telefonnumeroj en la listo de blokitaj alvokantoj</string>
+  <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indikilo de atendanta mesaĝo</string>
   <string name="mwi_notification_summary">Montri indikilon de voĉaj mesaĝoj</string>
+  <!-- Toasts for various transient network events -->
+  <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Senkondiĉa plusendado de alvokoj ŝaltita</string>
+  <!-- Toast text for Conditional Call Forwarding enabled  -->
   <string name="call_notif_conditionalCF">Kondiĉa plusendado de alvokoj ŝaltita</string>
+  <!-- Toast text for a forwarded MO call  -->
   <string name="call_notif_MOcall_forwarding">Eliranta alvoko estas plusendita</string>
+  <!-- Toast text for MO call, when the caller & callee both belng to a CUG group -->
   <string name="call_notif_cugcall">Alvoko en fermita grupo</string>
+  <!-- In-call screen: status label when MO calls are barred -->
   <string name="call_notif_outgoing_barred">Elirantaj alvokoj estas blokitaj</string>
+  <!-- Toast text for MO calls, when incoming calls are barred at remote party -->
   <string name="call_notif_incoming_barred">Alvenanta alvoko estas malpermesita de la fora uzanto</string>
+  <!-- Toast text for MO calls when CLIR Suppression is rejected -->
   <string name="call_notif_clir_suppression_rejected">Propra forigo de via numero estas malakceptita de la reto</string>
+  <!-- In-call screen: status label when MO call gets deflected to another party -->
   <string name="call_notif_call_deflected">Alvoko plusendita de la fora uzanto</string>
+  <!-- Toast text for incoming call being forwarded to other remote party  -->
   <string name="call_notif_MTcall_forwarding">Eniranta alvoko estas plusendita</string>
+  <!-- Toast text for incoming call which is part of MultiParty Call -->
   <string name="call_notif_multipartycall">Kunsida alvoko</string>
+  <!-- Toast text for incoming call which is answered,put on hold & then released -->
   <string name="call_notif_callonhold_released">Alvoko fore lanĉita</string>
+  <!-- Toast text for incoming call forward check received -->
   <string name="call_notif_forwardcheckreceived">Alvoko estas plusendita</string>
+  <!-- Toast text for incoming call connecting through ECT -->
   <string name="call_notif_callconnectingect">Konekta alvoko tra eksplicita alvoka transigilo</string>
+  <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Konektita alvoko tra eksplicita alvoka transigilo</string>
+  <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="label_nsdp">Malŝlosi PIN de subreta SIM</string>
+  <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
   <string name="label_cdp">Malŝlosi PIN de firmaa SIM</string>
+  <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
   <string name="label_spdp">Malŝlosi PIN de provizanta SIM</string>
+  <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">Malŝlosi PIN de SIM</string>
+  <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <string name="label_rn1dp">RUIM reto 1 malŝlosas PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="label_rn2dp">RUIM reto 2 malŝlosas PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">RUIM HRPD malŝlosas PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="label_rcdp">Firmaa RUIM malŝlosas PIN</string>
+  <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">Provizanta RUIM malŝlosas PIN</string>
+  <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
   <string name="label_rdp">RUIM malŝlosas PIN</string>
+  <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Eniru PUK</string>
+  <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Peto por malŝlosi retan SIM\u2026</string>
+  <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
   <string name="requesting_nw_subset_unlock">Peto por malŝlosi subretan SIM\u2026</string>
+  <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="requesting_sp_unlock">Peto por malŝlosi servan provizantan SIM\u2026</string>
+  <!-- Status message displayed on SIM Corporate Depersonalization panel -->
   <string name="requesting_corporate_unlock">Peto por malŝlosi firmaan SIM</string>
+  <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Peto por malŝlosi SIM</string>
+  <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <string name="requesting_rnw1_unlock">Peto por malŝlosi retan RUIM 1\u2026</string>
+  <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="requesting_rnw2_unlock">Peto por malŝlosi retan RUIM 2\u2026</string>
+  <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Peto por malŝlosi RUIM HRPD\u2026</string>
+  <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Peto por malŝlosi servan provizantan RUIM\u2026</string>
+  <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
   <string name="requesting_rc_unlock">Peto por malŝlosi firmaan RUIM\u2026</string>
+  <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
   <string name="requesting_ruim_unlock">Peto por malŝlosi RUIM\u2026</string>
+  <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Peto por malŝlosi PUK\u2026</string>
+  <!-- Error message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_failed_cm">Fiaskis malŝlosi retan SIM.</string>
+  <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_failed">Fiaskis malŝlosi subretan SIM.</string>
+  <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_failed">Fiaskis malŝlosi provizantan SIM.</string>
+  <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_failed">Fiaskis malŝlosi firmaan SIM.</string>
+  <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_failed">Fiaskis malŝlosi SIM.</string>
+  <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_failed">Fiaskis malŝlosi retan RUIM 1.</string>
+  <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_failed">Fiaskis malŝlosi retan RUIM 2.</string>
+  <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_failed">Fiaskis malŝlosi RUIM HRPD.</string>
+  <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_failed">Peto por malŝlosi servan provizantan RUIM fiaskis.</string>
+  <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_failed">Peto por malŝlosi firmaan RUIM fiaskis.</string>
+  <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_failed">Peto por malŝlosi RUIM fiaskis.</string>
+  <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Peto por malŝlosi PUK fiaskis.</string>
+  <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Peto por malŝlosi retan SIM sukcesis.</string>
+  <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <string name="nw_subset_unlock_success">Peto por malŝlosi subretan SIM sukcesis.</string>
+  <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <string name="sp_unlock_success">Peto por malŝlosi provizantan SIM sukcesis.</string>
+  <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Peto por malŝlosi firmaan SIM sukcesis.</string>
+  <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="sim_unlock_success">Peto por malŝlosi SIM sukcesis.</string>
+  <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="rnw1_unlock_success">Peto por malŝlosi retan RUIM 1 sukcesis.</string>
+  <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="rnw2_unlock_success">Peto por malŝlosi retan RUIM 2 sukcesis.</string>
+  <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Peto por malŝlosi RUIM HRPD sukcesis.</string>
+  <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="rsp_unlock_success">Peto por malŝlosi provizantan RUIM sukcesis.</string>
+  <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Peto por malŝlosi firmaan RUIM sukcesis.</string>
+  <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="ruim_unlock_success">Peto por malŝlosi RUIM sukcesis.</string>
+  <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Peto por malŝlosi PUK sukcesis.</string>
+  <!-- Status message displayed in the "Call settings error" dialog when
+         current SS request is modified to a different request by STK CC -->
   <string name="stk_cc_ss_to_dial_error">SS peto ŝanĝiĝis al DIAL peto.</string>
   <string name="stk_cc_ss_to_ussd_error">SS peto ŝanĝiĝis al USSD peto.</string>
   <string name="stk_cc_ss_to_ss_error">SS peto ŝanĝiĝis al nova SS peto.</string>
+  <!-- Add VideoCall Setttings -->
   <string name="videocall_settings">Agordoj de vida alvoko</string>
   <string name="vt_fallback_setting">Renumerumi per voĉa alvoko</string>
   <string name="vt_forward_setting">Plusendo de vida alvoko</string>
   <string name="vt_imagereplace_setting">Alternativa bildo</string>
   <string name="vt_imagereplace_setting_sum">Bildo por montri kiam filmilo estas malŝaltita</string>
+  <!-- Mobile network settings, preferred network modes -->
+  <!-- Mobile network settings, roaming modes -->
   <string name="roaming_mode_title">Retmigra reĝimo</string>
   <string name="roaming_mode_summary">Internacia retmigra reĝimo</string>
   <string name="roaming_gsm">GSP retmigro</string>
   <string name="roaming_cdma">CDMA retmigro</string>
   <string name="roaming_disabled">Malŝaltita</string>
+  <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_global_summary_cm">Plej ŝatata reta reĝimo: ĝenerala (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_only_summary">Plej ŝatata reta reĝimo: nur TD-SCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_summary">Plej ŝatata reta reĝimo: TD-SCDMA/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_summary">Plej ŝatata reta reĝimo: TD-SCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_summary">Plej ŝatata reta reĝimo: TD-SCDMA/GSM</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Plej ŝatata reta reĝimo: TD-SCDMA/GSM/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Plej ŝatata reta reĝimo: TD-SCDMA/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Plej ŝatata reta reĝimo: TD-SCDMA/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Plej ŝatata reta reĝimo: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Plej ŝatata reta reĝimo: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Plej ŝatata reta reĝimo: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <!-- In-call screen: call failure reason (call denied because call barring
+            is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">La grupo malpermesis ĉiujn enirantajn alvokojn.</string>
+  <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Senresponda kaj plusendita alvoko</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EVDO</string>
@@ -133,9 +216,11 @@
   <string name="preferred_network_mode_wcdma_only_choice">nur WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">nur GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA plej ŝatata</string>
+  <!-- button name for launching sub1, sub2 screen for Multi Sim Functionality-->
   <string name="callind_multi_sim">Agordoj de SIM-karto</string>
   <string name="sim_card_title">SIM-karto %d</string>
   <string name="sim_card_summary_empty">SIM konektingo estas malplena</string>
+  <!-- TTY Mode change is NOT allowed during a VT call -->
   <string name="tty_mode_not_allowed_vt_call">Ne eblas ŝanĝi TTY reĝimon dum vida alvoko</string>
   <string name="ipcall_sub_title">Agordoj de IP alvoko</string>
   <string name="ipcall_sub_summery">Redakti prefikson por alvoka IP servo</string>
@@ -143,7 +228,9 @@
   <string name="ipcall_dialog_edit_hint">IP alvoka prefikso</string>
   <string name="fdn_service_unavailable">FDN servo ne disponeblas.</string>
   <string name="exportContacts">Eksporti kontaktulojn al SIM-karto\u2026</string>
+  <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title_cm">Mastrumi kontaktulojn en SIM-karto</string>
+  <!-- Sim contacts management -->
   <string name="contactScreen">Mastrumi SIM kontaktulojn</string>
   <string name="exportContactScreen">Eksporti telefonkontaktulojn al SIM</string>
   <string name="addSimEntries">Aldoni SIM kontaktulon</string>
@@ -168,6 +255,7 @@
   <string name="exportAllcontatsSuccess">Eksporto de ĉiuj kontaktuloj el SIM sukcesis</string>
   <string name="exportAllcontatsFailed">Eksporto de ĉiuj kontaktuloj el SIM fiaskis</string>
   <string name="exportAllcontatsNoContacts">Neniu kontakto troveblas por eksporti al SIM</string>
+  <!-- UPLMN Prefer -->
   <string name="uplmn_list_setting_title">Plej ŝatataj retoj</string>
   <string name="network_id">Reta ID</string>
   <string name="dialog_network_priority_title">Prioritato</string>
@@ -199,18 +287,26 @@
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
+  <!-- Manual PLMN scan data disconnect dialog text -->
   <string name="disconnect_data_confirm">Datuma servo bezonas esti portempe malkonektita. Ĉu vi certas ke vi deziras daŭrigi?</string>
+  <!-- IMS settings related strings -->
+  <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <string name="ims_edit_title">Detaloj pri IMS kontoj</string>
+  <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_accounts_title">IMS kontoj</string>
+  <!-- VT call quality settings. -->
   <string name="ims_vt_call_quality_title">Kvalito de vida alvoko</string>
   <string name="ims_vt_call_quality_low">Malalta</string>
   <string name="ims_vt_call_quality_high">Alta</string>
   <string name="ims_vt_call_quality_unknown">Nekonata</string>
   <string name="ims_vt_call_quality_set_failed">Agordo de vidkvalito fiaskis</string>
+  <!-- Permission for notification-bar network toggle -->
   <string name="perm_change_mobile_network">Ŝanĝi la retan reĝimon (2G/3G)</string>
   <string name="perm_change_mobile_network_desc">Ebligi aplikaĵon ŝanĝi inter 2G kaj 3G datumoj iam ajn. 3G estas pli rapida sed pli uzas baterion kaj povas kaŭzi pliajn kostojn.</string>
+  <!-- My Phone Number -->
   <string name="phone_number_label">Mia telefonnumero</string>
   <string name="phone_number_summary">Agordi la telefonnumeron por tiu aparato</string>
   <string name="msim_mobile_network_settings_title">Agordoj de reto por SIM %d</string>
+  <!-- Call recording format -->
   <string name="call_recording_format">Formato de alvoka registrado</string>
 </resources>
