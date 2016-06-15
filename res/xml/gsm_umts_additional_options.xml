@@ -26,6 +26,7 @@
         android:key="button_pn_key"
         android:title="@string/phone_number_label"
         android:summary="@string/phone_number_summary"
+        android:inputType="phone"
         android:dialogTitle="@string/phone_number_label"
         android:dialogMessage="@string/phone_number_summary"
         android:negativeButtonText="@string/cancel"
