@@ -35,6 +35,7 @@
     <!-- My Phone Number -->
     <string name="phone_number_label">My phone number</string>
     <string name="phone_number_summary">Set the phone number for this device</string>
+    <string name="set_my_number_failed">Failed to set phone number</string>
     <string name="msisdn_alpha_tag" translatable="false">Voice Line 1</string>
 
     <!-- Toasts for various transient network events -->
