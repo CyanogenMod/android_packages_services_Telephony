@@ -26,6 +26,7 @@ import android.preference.EditTextPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
@@ -64,8 +65,13 @@ public class MSISDNEditPreference extends EditTextPreference {
                 alphaTag = getContext().getString(R.string.msisdn_alpha_tag);
             }
 
-            mPhone.setLine1Number(alphaTag, getText(),
-                    mHandler.obtainMessage(MyHandler.MESSAGE_SET_MSISDN));
+            if (!mPhone.setLine1Number(alphaTag, getText(),
+                    mHandler.obtainMessage(MyHandler.MESSAGE_SET_MSISDN))) {
+                // error ?!
+                Toast.makeText(getContext(), getContext().getString(R.string.set_my_number_failed),
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
             if (mTcpListener != null) {
                 mTcpListener.onStarted(this, false);
             }
@@ -136,6 +142,8 @@ public class MSISDNEditPreference extends EditTextPreference {
                     Log.d(LOG_TAG, "handleSetMSISDNResponse: ar.exception=" + ar.exception);
                 }
                 // setEnabled(false);
+                Toast.makeText(getContext(), getContext().getString(R.string.set_my_number_failed),
+                        Toast.LENGTH_LONG).show();
             }
             if (DBG) {
                 Log.d(LOG_TAG, "handleSetMSISDNResponse: re get");
