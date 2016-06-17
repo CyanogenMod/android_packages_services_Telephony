@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Ο αριθμός μου</string>
   <string name="phone_number_summary">Ορίστε τον αριθμό τηλεφώνου για αυτή τη συσκευή</string>
+  <string name="set_my_number_failed">Ο ορισμός του τηλεφωνικού αριθμού απέτυχε</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Προώθηση κλήσεων άνευ όρων ενεργή</string>

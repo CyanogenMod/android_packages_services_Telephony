@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Мој телефонски број</string>
   <string name="phone_number_summary">Подеси телефонски број за овај уређај</string>
+  <string name="set_my_number_failed">Неуспешно постављање телефонског броја</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Безусловно прослеђивање позива је активно</string>
@@ -193,5 +194,10 @@
   <string name="choose_network_mode_title">Изабери режим мреже</string>
   <string name="choose_network_mode_system_default">Подразумевано са система</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Захтев за откључавањем неуспешан, преостаје %1$d покушаја.</string>
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFType">Поставке преусмеравања позива</string>
+  <string name="labelCFVoice">Глас</string>
+  <string name="labelCFVideo">Видео</string>
+  <string name="call_forward_option">Опције преусмеравања позива</string>
 </resources>
