@@ -19,8 +19,10 @@
          and other settings UIs.  This is the version of the label for
          tablet devices, where the phone app handles mobile data but not
          actual phone calls. -->
+  <string name="phoneAppLabel" product="tablet">Datos móviles</string>
   <!-- Official label of the phone app, as seen in "Manage Applications"
          and other settings UIs. -->
+  <string name="phoneAppLabel" product="default">Servicios telefónicos</string>
   <!-- Screen title for Emergency Dialer UI -->
   <string name="emergencyDialerIconLabel">Llamada d\'emerxencia</string>
   <!-- Activity label for the in-call UI -->
@@ -33,6 +35,7 @@
   <!-- Incoming call screen, string when number hidden -->
   <string name="private_num">Númberu priváu</string>
   <!-- Incoming call screen, string when called from a pay phone -->
+  <string name="payphone">Teléfonu públicu</string>
   <!-- In-call screen: status label for a call that's on hold -->
   <string name="onHold">N\'espera</string>
   <!-- Possible error messages with outgoing calls -->
@@ -100,14 +103,17 @@
   <string name="unlock_success">El desbloquéu de rede féxose correcho.</string>
   <!-- settings strings -->
   <!-- Error message for users that aren't allowed to modify Mobile Network settings [CHAR LIMIT=none] -->
+  <string name="mobile_network_settings_not_available">Nun tán disponibles los axustes de rede pa esti usuariu</string>
   <!-- GSM Call settings screen, setting option name. [CHAR LIMIT=40] -->
   <string name="labelGSMMore">Axustes de llamaes GSM</string>
   <!-- GSM Call settings screen, setting option name with label indicating the SIM the settings
          are applied to. [CHAR LIMIT=40] -->
+  <string name="labelGsmMore_with_label">Axustes de llamaes GSM (<xliff:g id="subscriptionlabel" example="T-Mobile">%s</xliff:g>)</string>
   <!-- CDMA Call settings screen, setting option name -->
   <string name="labelCDMAMore">Axustes de llamaes CDMA</string>
   <!-- CDMA Call settings screen, setting option name with label indicating the SIM the settings
          are applied to. [CHAR LIMIT=40] -->
+  <string name="labelCdmaMore_with_label">Axustes de llamaes CDMA (<xliff:g id="subscriptionlabel" example="T-Mobile">%s</xliff:g>)</string>
   <!-- Mobile network settings screen, setting option name -->
   <string name="apn_settings">APN</string>
   <!-- Label for the "Network settings" screen in the Settings UI -->
@@ -121,6 +127,7 @@
   <string name="phone_accounts_ask_every_time">Entrugar primero</string>
   <!-- Label for heading of the per-account settings section in the phone accounts settings
          screen. -->
+  <string name="phone_accounts_settings_header">Axustes</string>
   <!-- Label for invoking phone account selection screen -->
   <string name="phone_accounts_choose_accounts">Esbillar cuentes</string>
   <!-- Label for heading in the phone account selection screen -->
@@ -131,8 +138,10 @@
   <string name="phone_accounts_configure_account_settings">Configurar axustes de cuenta</string>
   <!-- Label for heading that takes user to the list of calling accounts where they can enable
          and disable all accounts. -->
+  <string name="phone_accounts_all_calling_accounts">Toles cuentes de llamaes</string>
   <!-- Summary for all-calling-account setting indicating that is where the user goes to enable
          and disable phone accounts. -->
+  <string name="phone_accounts_all_calling_accounts_summary">Esbilla qué cuentes puen facer llamaes</string>
   <!-- Title for setting to select Wi-Fi call manager account -->
   <string name="wifi_calling">Llamaes Wifi</string>
   <!-- Built-in label for the default connection service setting. -->
@@ -140,6 +149,7 @@
   <!-- Call settings screen, setting option name -->
   <string name="voicemail">Buzón de voz</string>
   <!-- Title of the "Voicemail" settings screen, with a text label identifying which SIM the settings are for. -->
+  <string name="voicemail_settings_with_label">Buzón de voz (<xliff:g id="subscriptionlabel" example="Mock Carrier">%s</xliff:g>)</string>
   <!-- Call forwarding dialog box, voicemail number prefix -->
   <string name="voicemail_abbreviated">Buzón de voz:</string>
   <!-- Mobile network settings screen, setting option name -->
@@ -151,6 +161,7 @@
   <!-- GSM Call settings screen, setting option name -->
   <string name="additional_gsm_call_settings">Configuración adicional</string>
   <!-- GSM Call settings screen, setting option name, with label identifying the SIM the settings are for. -->
+  <string name="additional_gsm_call_settings_with_label">Axustes adicionales (<xliff:g id="subscriptionlabel" example="Verizon">%s</xliff:g>)</string>
   <!-- GSM-only Call settings screen, setting option name-->
   <string name="sum_gsm_call_settings">Configuración adicional de llamaes namái GSM</string>
   <!-- CDMA Call settings screen, setting option name -->
@@ -178,6 +189,7 @@
   <!-- Call forwarding settings screen, section heading -->
   <string name="call_forwarding_settings">Axustes d\'esvíu de llamada</string>
   <!-- Call forwarding settings screen, section heading, with a label identifying the SIM the settings are for. -->
+  <string name="call_forwarding_settings_with_label">Axustes d\'esvíu de llamada (<xliff:g id="subscriptionlabel" example="Verizon">%s</xliff:g>)</string>
   <!-- Call settings screen, setting option name -->
   <string name="labelCF">Esvíu de llamada</string>
   <!-- Call forwarding settings screen, setting option name -->
@@ -226,6 +238,7 @@
   <string name="updating_title">Axustes de llamaes</string>
   <!-- Toast in Call settings when asked to launch settings for a secondary user -->
   <!-- Title of the "Call settings" settings screen, with a text label identifying which SIM the settings are for. -->
+  <string name="call_settings_with_label">Axustes (<xliff:g id="subscriptionlabel" example="Mock Carrier">%s</xliff:g>)</string>
   <!-- Title of the alert dialog displayed if an error occurs while updating Call settings -->
   <string name="error_updating_title">Fallu de configuración de llamada</string>
   <!-- Toast in Call settings dialog while settings are being read -->
@@ -240,6 +253,9 @@
   <string name="exception_error">Fallu na tarxeta SIM o na rede.</string>
   <!-- Status message displayed in the "Call settings error" dialog when
          current SS request is modified to a different request by STK CC -->
+  <string name="stk_cc_ss_to_dial_error">La solicitú SS camudó por una solicitú DIAL.</string>
+  <string name="stk_cc_ss_to_ussd_error">Modificóse la solicitú SS a la USSD.</string>
+  <string name="stk_cc_ss_to_ss_error">Modificóse la solicitú SS a la nueva solicitú SS.</string>
   <!-- Status message displayed in the "Call settings error" dialog when operation fails due to FDN
          [CHAR LIMIT=NONE] -->
   <string name="fdn_check_failure">La opción de marcación fixa de l\'aplicación Teléfonu ta activada. Por ello, dalgunes funciones rellacionaes coles llamaes nun funcionen correchamente.</string>
@@ -248,7 +264,9 @@
   <!-- Button label used to dismiss the "Call settings error" dialog -->
   <string name="close_dialog">Aceutar</string>
   <!-- Button label used in several settings-related dialogs -->
+  <string name="enable">Activar</string>
   <!-- Button label used in several settings-related dialogs -->
+  <string name="disable">Desactivar</string>
   <!-- Button label which indicates the user wants to update a stored
          phone number; used in several settings-related dialogs -->
   <string name="change_num">Anovar</string>
@@ -279,6 +297,7 @@
   <string name="voicemail_default">La to operadora</string>
   <!-- networks setting strings -->
   <!-- Mobile network settings screen title -->
+  <string name="mobile_networks">Axustes de rede móvil</string>
   <!-- Available networks screen title/heading -->
   <string name="label_available">Redes disponibles</string>
   <!-- Mobile network settings screen, toast when searching for available networks -->
@@ -338,8 +357,11 @@
   <!-- Mobile network settings, summary for preferred network mode LTE / WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_lte_wcdma_summary">Mou de rede preferíu: LTE/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode LTE / GSM / UMTS [CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_lte_gsm_umts_summary">Mou de rede preferíu: LTE / GSM / UMTS</string>
   <!-- Mobile network settings, summary for preferred network mode LTE / CDMA [CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_lte_cdma_summary">Mou de rede preferíu: LTE/CDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TDSCDMTA [CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_tdscdma_summary">Mou de rede preferíu: TDSCDMA</string>
   <!-- Cellular network 4G title [CHAR LIMIT=30] -->
   <string name="enhanced_4g_lte_mode_title">Mou 4G LTE ameyoráu</string>
   <!-- Cellular network 4G summary [CHAR LIMIT=80] -->
@@ -359,7 +381,9 @@
          "data roaming" feature turned off. -->
   <string name="roaming_reenable_message">Perdióse la coneutividá de datos porque dexesti desactivada la itinerancia de datos de la rede doméstica.</string>
   <!-- Mobile network settings screen, dialog message when user selects the Data roaming check box -->
+  <string name="roaming_warning">Pue resultar en gastos importantes.</string>
   <!-- Mobile network settings screen, dialog message title when user selects the Data roaming check box -->
+  <string name="roaming_alert_title">¿Permitir el roaming de datos?</string>
   <!-- USSD aggregation dialog box: separator strings between messages (new-lines will be added before and after) -->
   <string name="gsm_umts_options">Opciones GSM/UMTS</string>
   <string name="cdma_options">Opciones de CDMA</string>
@@ -507,10 +531,12 @@
   <string name="fdn">Marcación fixa</string>
   <!-- Title for "Fixed Dialing Number" settings, with a label to identify the SIM the settings
         apply to. -->
+  <string name="fdn_with_label">Númberos de marcación fixa (<xliff:g id="subscriptionlabel" example="Verizon">%s</xliff:g>)</string>
   <!-- Call settings screen, button label that takes you to the Fixed Dialing Number management screen -->
   <string name="manage_fdn_list">Llista de FDN</string>
   <!-- Title for settings screen to manage Fixed Dialing Number contacts, with a label to identify
          the SIM the settings apply to. -->
+  <string name="fdn_list_with_label">Llista de FDN (<xliff:g id="subscriptionlabel" example="Verizon">%s</xliff:g>)</string>
   <!-- Call settings screen, preference item label -->
   <string name="fdn_activation">Activación de FDN</string>
   <!-- Call settings setting option name when FDN is enabled -->
@@ -541,6 +567,7 @@
   <string name="auto_retry_mode_title">Reintentu automáticu</string>
   <string name="auto_retry_mode_summary">Habilitar mou de reintentu automáticu</string>
   <!-- TTY Mode change is NOT allowed during a video call -->
+  <string name="tty_mode_not_allowed_video_call">Nun se permite camudar el mou TTY mentanto una videollamada.</string>
   <!-- FDN list screen: menu item label -->
   <string name="menu_add">Amestar contautu</string>
   <!-- FDN list screen: menu item label -->
@@ -594,6 +621,7 @@
   <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <string name="simContacts_title">Seleicionar contautos pa importar</string>
   <!-- Appears when user tries to import contacts in SIM during airplane mode [CHAR LIMIT=NONE] -->
+  <string name="simContacts_airplaneMode">Desactivar el mou d\'avión pa importar contautos de la tarxeta SIM.</string>
   <!-- SIM PIN strings -->
   <!-- Title of "Enable/disable SIM PIN" screen -->
   <string name="enable_pin">Habilitar/inhabilitar PIN de tarxeta SIM</string>
@@ -614,13 +642,21 @@
   <!-- SIM PIN screen: error message when PIN is too short or too long -->
   <string name="invalidPin">Introduz un códigu PIN ente 4 y 8 díxitos.</string>
   <!-- Title of "Disable SIM PIN" screen -->
+  <string name="disable_sim_pin">Llimpiar PIN de SIM</string>
   <!-- Title of "Enable SIM PIN" screen -->
+  <string name="enable_sim_pin">Configurar PIN de SIM</string>
   <!-- SIM PIN screen: progress message displayed while enabling -->
+  <string name="enable_in_progress">Afitando\'l PIN\u2026</string>
   <!-- SIM PIN screen: status message displayed in a popup (toast) -->
+  <string name="enable_pin_ok">PIN configuráu</string>
   <!-- SIM PIN screen: status message displayed in a popup (toast) -->
+  <string name="disable_pin_ok">PIN llimpiáu</string>
   <!-- SIM PIN screen: error message displayed in a popup (toast) -->
+  <string name="pin_failed">PIN incorreutu</string>
   <!-- SIM PIN screen: status message displayed in a popup (toast) -->
+  <string name="pin_changed">PIN anováu</string>
   <!-- SIM PIN screen: error message displayed in a dialog -->
+  <string name="puk_requested">Contraseña incorreuta. PIN bloquiáu. Precísase d\'un PUK.</string>
   <!-- SIM PIN2 strings -->
   <!-- SIM PIN2 screen: label for PIN entry widget -->
   <string name="enter_pin2_text">PIN2</string>
@@ -631,20 +667,32 @@
   <!-- SIM PIN2 screen: label for PIN entry widget -->
   <string name="confirmPin2Label">Confirmar PIN2 nuevu</string>
   <!-- SIM PIN2 screen: error message -->
+  <string name="badPuk2">PUK2 incorreutu. Inténtalo otra vegada.</string>
   <!-- SIM PIN2 screen: error message -->
+  <string name="badPin2">PIN2 vieyu incorreutu. Inténtalo otra vegada.</string>
   <!-- SIM PIN2 screen: error message -->
+  <string name="mismatchPin2">Los PIN2 nun concasen. Inténtalo otra vegada.</string>
   <!-- SIM PIN2 screen: error message -->
+  <string name="invalidPin2">Teclexa un PIN2 que tenga de 4 a 8 númberos.</string>
   <!-- SIM PIN2 screen: error message -->
+  <string name="invalidPuk2">Teclexa un PUK2 que tenga 8 númberos.</string>
   <!-- SIM PIN2 screen: status message displayed in a popup (toast) -->
+  <string name="pin2_changed">PIN2 anováu</string>
   <!-- SIM PIN2 screen: label for PUK2 entry widget -->
+  <string name="label_puk2_code">Teclexa\'l códigu PUK2</string>
   <!-- SIM PIN2 screen: error message displayed in a dialog -->
+  <string name="fdn_enable_puk2_requested">Contraseña incorreuta. PIN2 bloquiáu. Pa intentalo otra vegada, camuda\'l PIN 2.</string>
   <!-- SIM PIN2 screen: error message displayed in a dialog -->
+  <string name="puk2_requested">Contraseña incorreuta. SIM bloquiada. Teclexa\'l PUK2.</string>
   <!-- SIM PIN2 screen: error message -->
   <string name="puk2_blocked">El PUK2 bloquióse dafechu.</string>
   <!-- SIM PIN2 screen: error message -->
+  <string name="pin2_attempts">\nQuédente <xliff:g id="number">%d</xliff:g> intentos.</string>
   <!-- SIM PIN screen: status message displayed in a popup (toast) -->
+  <string name="pin2_unblocked">El PIN2 yá nun ta bloquiáu</string>
   <!-- SIM PIN screen: error message shown in dialog when there is a network or sim error.
          [CHAR LIMIT=NONE] -->
+  <string name="pin2_error_exception">Fallu na rede o na tarxeta SIM</string>
   <!-- SIM PIN screen: button label -->
   <string name="doneButton">Fecho</string>
   <!-- Used in FakePhoneActivity test code.  DO NOT TRANSLATE. -->
@@ -656,6 +704,7 @@
   <!-- In-call screen: status label for a call in the "dialing" state -->
   <string name="card_title_dialing">Llamando</string>
   <!-- In-call screen: status label for a re-dialing call -->
+  <string name="card_title_redialing">Remarcando</string>
   <!-- In-call screen: status label for a conference call -->
   <string name="card_title_conf_call">Conferencia telefónica</string>
   <!-- In-call screen: status label for an incoming call -->
@@ -686,35 +735,51 @@
          operator name set by user -->
   <string name="notification_network_selection_text">La rede esbillada (<xliff:g id="OPERATOR_NAME">%s</xliff:g>) nun ta disponible</string>
   <!-- In-call screen: call failure message displayed in an error dialog. [CHAR_LIMIT=NONE] -->
+  <string name="incall_error_power_off">Apaga\'l mou avión pa facer una llamada.</string>
   <!-- In-call screen: call failure message displayed in an error dialog when in airplane mode, WFC is enabled, not wifi-only, and not connected to wireless networks. [CHAR_LIMIT=NONE] -->
+  <string name="incall_error_power_off_wfc">Apaga\'l mou avión o conéutate a una rede inalámbrica pa facer una llamada.</string>
   <!-- In-call screen: call failure message displayed when the user attempts to make a non-emergency call while the phone is in emergency callback mode. -->
+  <string name="incall_error_ecm_emergency_only">Pa facer una llamada que nun seya d\'emerxencia, sal del mou de devolución de llamada d\'emerxencia.</string>
   <!-- In-call screen: call failure message displayed in an error dialog.
          This string is currently unused (see comments in InCallScreen.java.) -->
   <string name="incall_error_emergency_only">Non rexistráu na rede.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <string name="incall_error_out_of_service">Rede móvil non disponible.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
+  <string name="incall_error_out_of_service_wfc">La rede móvil nun ta disponible. Conéutate a una rede inalámbrica pa facer una llamada.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
+  <string name="incall_error_no_phone_number_supplied">Pa facer una llamada, teclexa un númberu válidu.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
+  <string name="incall_error_call_failed">Nun pue llamase.</string>
   <!-- In-call screen: status message displayed in a dialog when starting an MMI -->
   <string name="incall_status_dialed_mmi">Aniciando secuencia MMI\u2026</string>
   <!-- In-call screen: message displayed in an error dialog -->
+  <string name="incall_error_supp_service_unknown">Serviciu non sofitáu</string>
   <!-- In-call screen: message displayed in an error dialog -->
+  <string name="incall_error_supp_service_switch">Nun puen conmutase llamaes.</string>
   <!-- In-call screen: message displayed in an error dialog -->
+  <string name="incall_error_supp_service_separate">Nun pue esviase la llamada.</string>
   <!-- In-call screen: message displayed in an error dialog -->
+  <string name="incall_error_supp_service_transfer">Nun pue tresferise.</string>
   <!-- In-call screen: message displayed in an error dialog -->
   <string name="incall_error_supp_service_conference">Nun pudo facese la conferencia telefónica.</string>
   <!-- In-call screen: message displayed in an error dialog -->
+  <string name="incall_error_supp_service_reject">Nun pue refugase la llamada.</string>
   <!-- In-call screen: message displayed in an error dialog -->
+  <string name="incall_error_supp_service_hangup">Nun puen lliberase llamaes.</string>
   <!-- In-call screen: call failure message displayed in an error dialog when WFC is enabled, is wifi-only, and not connected to a wireless network. [CHAR_LIMIT=NONE] -->
+  <string name="incall_error_wfc_only_no_wireless_network">Coneutase a una rede inalámbrica pa facer una llamada</string>
   <!-- Dialog title for the "radio enable" UI for emergency calls -->
   <string name="emergency_enable_radio_dialog_title">Llamada d\'emerxencia</string>
   <!-- Status message for the "radio enable" UI for emergency calls -->
   <string name="emergency_enable_radio_dialog_message">Activando señal radio\u2026</string>
   <!-- Status message for the "radio enable" UI for emergency calls -->
+  <string name="emergency_enable_radio_dialog_retry">Nun hai serviciu. Vuelvi intentalo\u2026</string>
   <!-- Dialer text on Emergency Dialer -->
   <!-- Emergency dialer: message displayed in an error dialog -->
+  <string name="dial_emergency_error">Nun pue llamase. <xliff:g id="non_emergency_number">%s</xliff:g> nun ye un númberu d\'emerxencia.</string>
   <!-- Emergency dialer: message displayed in an error dialog -->
+  <string name="dial_emergency_empty_error">Nun pue llamase. Marca un númberu d\'emerxencia.</string>
   <!-- Displayed in the text entry box in the dialer when in landscape mode to guide the user
          to dial using the physical keyboard -->
   <string name="dialerKeyboardHintText">Usar tecláu pa marcar</string>
@@ -803,7 +868,9 @@
   <string name="ota_speaker">Altavoz</string>
   <!-- String to be displayed on OTA listen screen once user has selected the
          correct option to begin provisioning -->
+  <string name="ota_progress">Programando\'l teléfonu\u2026</string>
   <!-- String to display within the OTA Fail Notice dialog -->
+  <string name="ota_failure">Nun pudo programase\'l to teléfonu</string>
   <!-- String to be displayed on the OTA Fail/Success screen upon successful provisioning -->
   <string name="ota_successful">El teléfonu yá ta activáu. El serviciu pue tardar un máximu de 15 minutos n\'aniciase.</string>
   <!-- String to be displayed on the OTA Fail/Success screen upon unsuccessful provisioning -->
@@ -889,6 +956,7 @@
   <!-- Dialog title for the vibration settings for voice mail notifications [CHAR LIMIT=40]-->
   <string name="voicemail_notification_vibarte_when_dialog_title" msgid="8995274609647451109">Vibrar</string>
   <!-- Visual voicemail on/off title [CHAR LIMIT=40] -->
+  <string name="voicemail_visual_voicemail_switch_title">Corréu de voz visual</string>
   <!-- Voicemail ringtone title. The user clicks on this preference to select
          which sound to play when a voicemail notification is received.
          [CHAR LIMIT=30] -->
@@ -907,6 +975,9 @@
   <string name="enable_video_calling_title">Habilitar llamada de videu</string>
   <!-- Message for dialog shown when the user tries to turn on video calling but enhanced 4G LTE
          is disabled. They have to turn on Enhanced 4G LTE capability in network settings first. -->
+  <string name="enable_video_calling_dialog_msg">
+        P\'activar la videollamada, has habilitar el mou4G LTE ameyoráu nos Axustes de rede.
+    </string>
   <!-- Label for action button in dialog which opens mobile network settings, for video calling
          setting. -->
   <string name="enable_video_calling_dialog_settings">Configuración de rede</string>
@@ -918,18 +989,31 @@
   <string name="sim_description_default">Tarxeta SIM, ranura: <xliff:g id="slot_id">%s</xliff:g></string>
   <!-- Title for activity to control accessibility settings such as TTY mode and hearing aid
          compatability. [CHAR LIMIT=40] -->
+  <string name="accessibility_settings_activity_title">Accesibilidá</string>
   <!-- Configuration setting for world mode Format is <true;GID if any to be checked>-->
   <!-- Status hint label for an incoming call over a wifi network which has not been accepted yet.
          [CHAR LIMIT=25] -->
+  <string name="status_hint_label_incoming_wifi_call">Llamada Wi-Fi entrante</string>
   <!-- Status hint label for a call being made over a wifi network. [CHAR LIMIT=25] -->
+  <string name="status_hint_label_wifi_call">Llamada Wi-Fi</string>
   <!-- DO NOT TRANSLATE. Internal key for a voicemail notification preference. -->
+  <string name="voicemail_notification_ringtone_key">voicemail_notification_ringtone_key</string>
   <!-- DO NOT TRANSLATE. Internal key for a voicemail notification preference. -->
+  <string name="voicemail_notification_vibrate_key">voicemail_notification_vibrate_key</string>
   <!-- DO NOT TRANSLATE. Internal key for a visual voicemail preference. -->
+  <string name="voicemail_visual_voicemail_key">voicemail_visual_voicemail_key</string>
   <!-- DO NOT TRANSLATE. Internal key for tty mode preference. -->
+  <string name="tty_mode_key">button_tty_mode_key</string>
   <!-- DO NOT TRANSLATE. Internal key for a voicemail notification preference. -->
+  <string name="wifi_calling_settings_key">button_wifi_calling_settings_key</string>
   <!-- Hint appearing below a selected action on the emergency dialer telling user to tap again to execute the action [CHAR LIMIT=NONE] -->
+  <string name="emergency_action_launch_hint">Toca de nueves p\'abrir</string>
   <!-- Strings for IMAP -->
   <!-- String used in place of a message that could not be properly decoded (e.g. bad base64
        data was received.) [CHAR LIMIT=none] -->
+  <string name="message_decode_error">Hebo un fallu entrín se descodificaba\'l mensaxe.</string>
   <!-- Call failure reason: SIM card and roaming capabilities have already been activated. [CHAR LIMIT=NONE]-->
+  <string name="callFailed_cdma_activation">
+        Una tarxeta SIM activó\'l to serviciu y anovó les capacidaes de roaming del teléfonu.
+    </string>
 </resources>
