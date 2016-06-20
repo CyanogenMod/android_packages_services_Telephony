@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Nire telefono zenbakia</string>
   <string name="phone_number_summary">Gailu honetara loturiko zenbakia ezarri</string>
+  <string name="set_my_number_failed">Huts egin du telefono zenbakia ezartzean</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Baldintzarik gabeko dei desbideraketa gaituta</string>

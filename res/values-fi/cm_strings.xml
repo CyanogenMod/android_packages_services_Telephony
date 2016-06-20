@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Oma puhelinnumero</string>
   <string name="phone_number_summary">Aseta tämän laitteen puhelinnumero</string>
+  <string name="set_my_number_failed">Puhelinnumeron asettaminen epäonnistui</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Ehdoton soitonsiirto aktiivinen</string>

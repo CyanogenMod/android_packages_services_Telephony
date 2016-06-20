@@ -196,5 +196,7 @@
   <string name="unlock_failed_remaining_retries">Żądanie odblokowania nie powiodło, pozostałych prób %1$d.</string>
   <!-- Call forward: IMS: Media tag support -->
   <string name="labelCFType">Ustawienia przekazywania połączeń</string>
+  <string name="labelCFVoice">Głos</string>
+  <string name="labelCFVideo">Wideo</string>
   <string name="call_forward_option">Opcje przekazywania połączeń</string>
 </resources>

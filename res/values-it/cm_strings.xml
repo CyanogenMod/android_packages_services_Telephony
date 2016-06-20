@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Numero di telefono</string>
   <string name="phone_number_summary">Imposta il numero di telefono di questo dispositivo</string>
+  <string name="set_my_number_failed">Impossibile impostare numero di telefono</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Deviazione incondizionata attiva</string>
