@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Telefonnummeret mitt</string>
   <string name="phone_number_summary">Angi telefonnummeret for denne enheten</string>
+  <string name="set_my_number_failed">Kunne ikke angi telefonnummer</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Ubetinget viderekobling aktiv</string>

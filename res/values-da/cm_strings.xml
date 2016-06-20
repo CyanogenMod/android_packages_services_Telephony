@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Mit telefonnummer</string>
   <string name="phone_number_summary">Angiv telefonnummeret for denne enhed</string>
+  <string name="set_my_number_failed">Indstilling af telefonnummer mislykkedes</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Ubetinget opkaldsviderestilling aktiv</string>

@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Moja telefonska številka</string>
   <string name="phone_number_summary">Nastavite telefonsko številko za to napravo</string>
+  <string name="set_my_number_failed">Nastavitev telefonske številke je spodletela</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Brezpogojno posredovanje klicev dejavno</string>

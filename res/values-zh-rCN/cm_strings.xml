@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">我的电话号码</string>
   <string name="phone_number_summary">设定此设备的电话号码</string>
+  <string name="set_my_number_failed">未能设置电话号码</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">启用无条件的来电转接</string>
