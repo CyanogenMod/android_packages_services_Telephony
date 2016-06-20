@@ -17,8 +17,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">Axustes de pantalla na llamada</string>
   <string name="show_ssn_label">Notificación d\'eventos</string>
   <string name="show_ssn_summary">Amosar notificación pa dellos eventos de rede rellacionaos cola xestión de llamaes</string>
+  <string name="incall_echo_cancellation">Reducción de ruiu mentanto la llamada</string>
+  <string name="enable_aec_label">Desaniciu de bauríu</string>
+  <string name="enable_aec_summary">Amenorga\'l bauríu ambiente pa la parte remota nes llamaes de voz</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_summary_disabled">Desactivada</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
@@ -118,23 +122,28 @@
   <string name="preferred_network_mode_wcdma_only_choice">Namái WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Namái GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferencia de GSM/WCDMA</string>
+  <string name="call_barring">Bloquéu de llamaes</string>
+  <string name="call_barring_outgoing">Bloquéu de llamaes salientes</string>
   <string-array name="call_barring_outgoing_display_values">
-    <item>Off</item>
-    <item>International roaming calls</item>
+    <item>Apagar</item>
+    <item>Llamaes internacionales n\'itinerancia</item>
     <item>Llamaes internacionales</item>
     <item>Llamaes salientes</item>
   </string-array>
   <string-array name="call_barring_incoming_display_values">
-    <item>Off</item>
+    <item>Apagar</item>
     <item>Roaming</item>
     <item>Too</item>
   </string-array>
+  <string name="call_barring_incoming">Bloquéu de llamaes entrantes</string>
   <string name="input_password">Introduz la to contraseña</string>
   <string name="invalidPsw">Introduz una contraseña válida (4-8 díxitos)</string>
+  <string name="labelCbCancelAll">Desactivar bloquéu de llamaes</string>
   <string name="labelCbChangePassword">Camudar contraseña</string>
   <string name="psw_enter_old">Contraseña vieya</string>
   <string name="psw_enter_new">Contraseña nueva</string>
   <string name="psw_reenter_new">Reintroduz la to contraseña</string>
+  <string name="no_call_barring">Bloquéu de llamaes desactiváu</string>
   <string name="cb_psw_dont_match">Les contraseñes nun concasen</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN nun s\'anovó porque\'l númberu ta baleru o perpasa los 20 díxitos.</string>
@@ -173,5 +182,9 @@
   <string name="exportAllcontatsNoContacts">Nun s\'atoparon contautos qu\'esportar a la tarxeta SIM</string>
   <string name="msim_mobile_network_settings_title">Axustes de rede de SIM %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">camudar mou de rede</string>
+  <string name="perm_change_mobile_network_desc">Permite qu\'una aplicación modifique\'l mou de rede actual.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Identificación de llina coneutada</string>
+  <string name="connected_line_identification_summary">Deshabilita esta opción si los númberos de los destinatarios nun s\'amuesen nel historial de llamaes</string>
 </resources>
