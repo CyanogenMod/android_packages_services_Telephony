@@ -313,22 +313,27 @@
   <string name="wifi_pref_none">Ensin preferencies</string>
   <string name="wifi_only">Namái Wi-Fi</string>
   <string name="cellular_only">Namái rede móvil</string>
+  <string name="call_barring">Bloquéu de llamaes</string>
+  <string name="call_barring_outgoing">Bloquéu de llamaes salientes</string>
   <string-array name="call_barring_outgoing_display_values">
-    <item>Off</item>
-    <item>International roaming calls</item>
+    <item>Apagar</item>
+    <item>Llamaes internacionales n\'itinerancia</item>
     <item>Llamaes internacionales</item>
     <item>Llamaes salientes</item>
   </string-array>
   <string-array name="call_barring_incoming_display_values">
-    <item>Off</item>
+    <item>Apagar</item>
     <item>Roaming</item>
     <item>Too</item>
   </string-array>
+  <string name="call_barring_incoming">Bloquéu de llamaes entrantes</string>
   <string name="input_password">Introduz la to contraseña</string>
   <string name="invalidPsw">Introduz una contraseña válida (4-8 díxitos)</string>
+  <string name="labelCbCancelAll">Desactivar bloquéu de llamaes</string>
   <string name="labelCbChangePassword">Camudar contraseña</string>
   <string name="psw_enter_old">Contraseña vieya</string>
   <string name="psw_enter_new">Contraseña nueva</string>
   <string name="psw_reenter_new">Reintroduz la to contraseña</string>
+  <string name="no_call_barring">Bloquéu de llamaes desactiváu</string>
   <string name="cb_psw_dont_match">Les contraseñes nun concasen</string>
 </resources>
