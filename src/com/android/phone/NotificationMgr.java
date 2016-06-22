@@ -485,6 +485,10 @@ public class NotificationMgr {
                 builder.setDefaults(Notification.DEFAULT_VIBRATE);
             }
 
+            /* clear the voicemail notification flag based on bool defined */
+            boolean persistVoicemailNotification = res.getBoolean(R.bool.voicemail_notification_persistent);
+            builder.setFlag(Notification.FLAG_NO_CLEAR, persistVoicemailNotification)
+
             final Notification notification = builder.build();
             List<UserInfo> users = mUserManager.getUsers(true);
             for (int i = 0; i < users.size(); i++) {
