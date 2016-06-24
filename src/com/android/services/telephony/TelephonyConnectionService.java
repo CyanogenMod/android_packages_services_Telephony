@@ -520,7 +520,7 @@ public class TelephonyConnectionService extends ConnectionService {
         if (connection1 instanceof TelephonyConnection &&
                 connection2 instanceof TelephonyConnection) {
             ((TelephonyConnection) connection1).performConference(
-                (TelephonyConnection) connection2);
+                    (TelephonyConnection) connection2);
         }
 
     }
@@ -665,7 +665,8 @@ public class TelephonyConnectionService extends ConnectionService {
 
     private Phone getFirstPhoneForEmergencyCall() {
         Phone selectPhone = null;
-        for (int i = 0; i < TelephonyManager.getDefault().getSimCount(); i++) {
+        final TelephonyManager tm = TelephonyManager.getDefault();
+        for (int i = 0; i < tm.getSimCount(); i++) {
             int[] subIds = SubscriptionController.getInstance().getSubIdUsingSlotId(i);
             if (subIds.length == 0)
                 continue;
@@ -675,29 +676,37 @@ public class TelephonyConnectionService extends ConnectionService {
             if (phone == null)
                 continue;
 
-            if (ServiceState.STATE_IN_SERVICE == phone.getServiceState().getState()) {
+            if (ServiceState.STATE_IN_SERVICE == phone.getServiceState().getState()
+                    || phone.getServiceState().isEmergencyOnly()) {
+                System.out.println("TEST  " + selectPhone + " is in service or emergency " + phone.getServiceState().isEmergencyOnly());
                 // the slot is radio on & state is in service
                 Log.d(this, "pickBestPhoneForEmergencyCall, radio on & in service, slotId:" + i);
-                return phone;
+                selectPhone = phone;
+                break;
             } else if (ServiceState.STATE_POWER_OFF != phone.getServiceState().getState()) {
                 // the slot is radio on & with SIM card inserted.
-                if (TelephonyManager.getDefault().hasIccCard(i)) {
+                if (tm.hasIccCard(i)) {
                     Log.d(this, "pickBestPhoneForEmergencyCall," +
                             "radio on and SIM card inserted, slotId:" + i);
                     selectPhone = phone;
+                    break;
                 } else if (selectPhone == null) {
                     Log.d(this, "pickBestPhoneForEmergencyCall, radio on, slotId:" + i);
                     selectPhone = phone;
+                    break;
                 }
             }
         }
 
-        if (selectPhone == null) {
+        if (selectPhone != null &&
+                tm.getSimState(selectPhone.getPhoneId()) == TelephonyManager.SIM_STATE_READY) {
+            System.out.println("TEST trying emergency with " + selectPhone);
+            return selectPhone;
+        } else {
+            System.out.println("TEST trying emergency with phone 0");
             Log.d(this, "pickBestPhoneForEmergencyCall, return phone 0");
-            selectPhone = PhoneFactory.getPhone(0);
+            return PhoneFactory.getPhone(0);
         }
-
-        return selectPhone;
     }
 
     /**
