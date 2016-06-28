@@ -680,21 +680,19 @@ public class TelephonyConnectionService extends ConnectionService {
                 Log.d(this, "pickBestPhoneForEmergencyCall, radio on & in service, slotId:" + i);
                 return phone;
             } else if (ServiceState.STATE_POWER_OFF != phone.getServiceState().getState()) {
-                // the slot is radio on & with SIM card inserted.
-                if (TelephonyManager.getDefault().hasIccCard(i)) {
+                // the slot is radio on & with SIM card inserted without a pin required
+                if (TelephonyManager.getDefault().hasIccCard(i) &&
+                        phone.getIccCard().getState() != IccCardConstants.State.PIN_REQUIRED) {
                     Log.d(this, "pickBestPhoneForEmergencyCall," +
-                            "radio on and SIM card inserted, slotId:" + i);
-                    selectPhone = phone;
-                } else if (selectPhone == null) {
-                    Log.d(this, "pickBestPhoneForEmergencyCall, radio on, slotId:" + i);
+                            "radio on and PIN unlocked SIM card inserted, slotId:" + i);
                     selectPhone = phone;
                 }
             }
         }
 
         if (selectPhone == null) {
-            Log.d(this, "pickBestPhoneForEmergencyCall, return phone 0");
-            selectPhone = PhoneFactory.getPhone(0);
+            Log.d(this, "pickBestPhoneForEmergencyCall, return default phone");
+            selectPhone = PhoneFactory.getDefaultPhone();
         }
 
         return selectPhone;
