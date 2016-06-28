@@ -665,28 +665,31 @@ public class TelephonyConnectionService extends ConnectionService {
 
     private Phone getFirstPhoneForEmergencyCall() {
         Phone selectPhone = null;
-        for (int i = 0; i < TelephonyManager.getDefault().getSimCount(); i++) {
-            int[] subIds = SubscriptionController.getInstance().getSubIdUsingSlotId(i);
+        final TelephonyManager tm = TelephonyManager.getDefault();
+        final SubscriptionController subscriptionController = SubscriptionController.getInstance();
+        for (int i = 0; i < tm.getSimCount(); i++) {
+            int[] subIds = subscriptionController.getSubIdUsingSlotId(i);
             if (subIds.length == 0)
                 continue;
 
-            int phoneId = SubscriptionController.getInstance().getPhoneId(subIds[0]);
+            int phoneId = subscriptionController.getPhoneId(subIds[0]);
             Phone phone = PhoneFactory.getPhone(phoneId);
             if (phone == null)
                 continue;
 
-            if (ServiceState.STATE_IN_SERVICE == phone.getServiceState().getState()) {
+            if (ServiceState.STATE_IN_SERVICE == phone.getServiceState().getState() ||
+                    phone.getServiceState().isEmergencyOnly()) {
                 // the slot is radio on & state is in service
-                Log.d(this, "pickBestPhoneForEmergencyCall, radio on & in service, slotId:" + i);
+                Log.d(this, "pickBestPhoneForEmergencyCall, " +
+                        "radio on & in service or in emergency mode, slotId:" + i);
                 return phone;
             } else if (ServiceState.STATE_POWER_OFF != phone.getServiceState().getState()) {
-                // the slot is radio on & with SIM card inserted.
-                if (TelephonyManager.getDefault().hasIccCard(i)) {
+                // the slot is radio on & with SIM card inserted in a ready state,
+                // with an active sub
+                if (tm.hasIccCard(i) && tm.getSimState(i) == TelephonyManager.SIM_STATE_READY
+                        && subscriptionController.getSubState(subIds[i]) == SubscriptionManager.ACTIVE) {
                     Log.d(this, "pickBestPhoneForEmergencyCall," +
-                            "radio on and SIM card inserted, slotId:" + i);
-                    selectPhone = phone;
-                } else if (selectPhone == null) {
-                    Log.d(this, "pickBestPhoneForEmergencyCall, radio on, slotId:" + i);
+                            "radio on and SIM ready, slotId:" + i);
                     selectPhone = phone;
                 }
             }
