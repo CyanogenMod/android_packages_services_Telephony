@@ -665,36 +665,54 @@ public class TelephonyConnectionService extends ConnectionService {
 
     private Phone getFirstPhoneForEmergencyCall() {
         Phone selectPhone = null;
+        Phone selectSimLockedPhone = null;
+        Log.i(this, "SIM count : " + TelephonyManager.getDefault().getSimCount());
         for (int i = 0; i < TelephonyManager.getDefault().getSimCount(); i++) {
+            Log.i(this, "SubId : " + SubscriptionController.getInstance().getSubIdUsingSlotId(i));
             int[] subIds = SubscriptionController.getInstance().getSubIdUsingSlotId(i);
             if (subIds.length == 0)
                 continue;
 
             int phoneId = SubscriptionController.getInstance().getPhoneId(subIds[0]);
             Phone phone = PhoneFactory.getPhone(phoneId);
+            Log.i(this, "PhoneId : " + SubscriptionController.getInstance().getPhoneId(subIds[0]));
             if (phone == null)
                 continue;
 
+            Log.i(this, "SST : " + phone.getServiceState().getState() + " ICC Present : " + TelephonyManager.getDefault().hasIccCard(i));
             if (ServiceState.STATE_IN_SERVICE == phone.getServiceState().getState()) {
                 // the slot is radio on & state is in service
-                Log.d(this, "pickBestPhoneForEmergencyCall, radio on & in service, slotId:" + i);
+                Log.i(this, "pickBestPhoneForEmergencyCall, radio on & in service, slotId:" + i);
                 return phone;
             } else if (ServiceState.STATE_POWER_OFF != phone.getServiceState().getState()) {
-                // the slot is radio on & with SIM card inserted.
                 if (TelephonyManager.getDefault().hasIccCard(i)) {
-                    Log.d(this, "pickBestPhoneForEmergencyCall," +
-                            "radio on and SIM card inserted, slotId:" + i);
-                    selectPhone = phone;
+                    Log.i(this, "Card ST : " + phone.getIccCard().getState());
+                    if(phone.getIccCard().getState() == IccCardConstants.State.PIN_REQUIRED) {
+                        // if there is no other SIM in the device then we will opt for default
+                        Log.i(this, "pickBestPhoneForEmergencyCall," +
+                            "radio on and PIN locked SIM card inserted, slotId:" + i);
+                        selectSimLockedPhone = phone;
+                    } else {
+                        // the slot is radio on & with SIM card inserted without a pin required
+                        Log.i(this, "pickBestPhoneForEmergencyCall," +
+                            "radio on and PIN unlocked SIM card inserted, slotId:" + i);
+                        selectPhone = phone;
+                    }
                 } else if (selectPhone == null) {
-                    Log.d(this, "pickBestPhoneForEmergencyCall, radio on, slotId:" + i);
+                    Log.i(this, "pickBestPhoneForEmergencyCall, radio on, slotId:" + i);
                     selectPhone = phone;
                 }
             }
         }
 
         if (selectPhone == null) {
-            Log.d(this, "pickBestPhoneForEmergencyCall, return phone 0");
-            selectPhone = PhoneFactory.getPhone(0);
+            if (selectSimLockedPhone != null) {
+                Log.i(this, "pickBestPhoneForEmergencyCall, return default phone");
+                selectPhone = PhoneFactory.getDefaultPhone();
+            } else {
+                Log.i(this, "pickBestPhoneForEmergencyCall, return phone 0");
+                selectPhone = PhoneFactory.getPhone(0);
+            }
         }
 
         return selectPhone;
