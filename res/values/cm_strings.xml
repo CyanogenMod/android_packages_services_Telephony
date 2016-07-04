@@ -188,6 +188,7 @@
 
     <!-- FDN settings: error message displayed in a popup (toast) -->
     <string name="fdn_invalid_number_cm">FDN wasn\'t updated because the number is empty or exceeds 20 digits.</string>
+    <string name="fdn_service_unavailable">FDN service is not available.</string>
 
     <!-- Title of the activity shown for Exporting contacts to SIM.  -->
     <string name="exportContacts">Exporting contacts to SIM card\u2026</string>
