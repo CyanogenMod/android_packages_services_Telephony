@@ -149,6 +149,7 @@
   <string name="cb_psw_dont_match">Mật khẩu không khớp</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN không được cập nhật vì số rỗng hoặc vượt quá 20 chữ số.</string>
+  <string name="fdn_service_unavailable">Dịch vụ FDN không khả dụng.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Xuất danh bạ sang thẻ SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

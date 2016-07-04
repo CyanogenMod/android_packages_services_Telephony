@@ -148,6 +148,7 @@
   <string name="cb_psw_dont_match">পাছৱৰ্ড মিলা নাই</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN উন্নীত কৰা হোৱা নাই কাৰণ সংখ্যা খালি আছে বা 20 টা অতিক্ৰম কৰিছে।</string>
+  <string name="fdn_service_unavailable">FDN সেৱা উপলদ্ধ নহয়।</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">SIM কাৰ্ড\u2026 লৈ যোগাযোগ ৰপ্তানি কৰি আছে</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

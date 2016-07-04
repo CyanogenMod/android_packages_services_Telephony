@@ -149,6 +149,7 @@
   <string name="cb_psw_dont_match">รหัสผ่านไม่ตรงกัน</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN ไม่ถูกเปลี่ยนเนื่องจากหมายเลขว่างเปล่าหรือเกิน 20 ตัว</string>
+  <string name="fdn_service_unavailable">ไม่มีบริการ FDN</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">กำลังส่งออกรายชื่อติดต่อไปที่ซิม\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

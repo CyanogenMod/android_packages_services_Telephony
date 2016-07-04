@@ -148,6 +148,7 @@
   <string name="cb_psw_dont_match">ପାସୱାର୍ଡ୍ ମେଳକ ହେଲା ନାହିଁ</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">ନମ୍ବର ଖାଲି ଥିବାରୁ ବା ଏହା 20ଟି ଅଙ୍କରୁ ଅଧିକ ହୋଇଯାଉଥିବାରୁ FDN ଅଦ୍ୟତନ ହେଲା ନାହିଁ।</string>
+  <string name="fdn_service_unavailable">FDN ସେବା ଉପଲବ୍ଧ ନାହିଁ।</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">SIM କାର୍ଡ୍କୁ ସମ୍ପର୍କଗୁଡିକ ରପ୍ତାନୀ କରାଯାଉଛି\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

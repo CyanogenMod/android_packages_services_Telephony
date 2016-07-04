@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">מספר הטלפון שלי</string>
   <string name="phone_number_summary">הגדר מספר טלפון למכשיר זה</string>
+  <string name="set_my_number_failed">הגדרת מספר הטלפון נכשלה</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">העברת שיחות לא מותנית פעילה</string>
@@ -149,6 +150,7 @@
   <string name="cb_psw_dont_match">הסיסמאות אינן תואמות</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN לא עודכן כי המספר ריק או ארוך מ-20 ספרות.</string>
+  <string name="fdn_service_unavailable">שירות FDN אינו זמין.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">מייצא אנשי קשר לכרטיס ה-SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

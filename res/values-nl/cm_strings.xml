@@ -148,6 +148,7 @@
   <string name="cb_psw_dont_match">Wachtwoorden komen niet overeen</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN niet bijgewerkt omdat het getal leeg is of langer is dan 20 cijfers.</string>
+  <string name="fdn_service_unavailable">FDN-service niet beschikbaar.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Contacten exporteren naar simkaart\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
@@ -188,6 +189,8 @@
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Verbindingsidentificatie</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Netwerkmodus kiezen</string>
+  <string name="choose_network_mode_system_default">Systeemstandaard</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <!-- Call forward: IMS: Media tag support -->
 </resources>

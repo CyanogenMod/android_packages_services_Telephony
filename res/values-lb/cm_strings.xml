@@ -110,6 +110,7 @@
   <string name="preferred_network_mode_gsm_only_choice">Just GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferéiert</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_service_unavailable">FDN-Service net disponibel.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Kontakter ginn op d\'SIM-Kaart exportéiert\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

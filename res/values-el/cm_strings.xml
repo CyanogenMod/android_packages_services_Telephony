@@ -150,6 +150,7 @@
   <string name="cb_psw_dont_match">Οι κωδικοί πρόσβασης δεν ταιριάζουν</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">Το FDN δεν ενημερώθηκε, επειδή ο αριθμός είναι κενός ή υπερβαίνει τα 20 ψηφία.</string>
+  <string name="fdn_service_unavailable">Η υπηρεσία FDN δεν είναι διαθέσιμη.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Εξαγωγή επαφών στην κάρτα SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

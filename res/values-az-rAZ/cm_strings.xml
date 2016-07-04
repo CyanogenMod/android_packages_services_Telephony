@@ -110,6 +110,7 @@
   <string name="preferred_network_mode_gsm_only_choice">Yalnız GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA üstünlük verilən</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_service_unavailable">FDN xidməti mövcud deyil.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Şəxslər SIM karta köçürülür\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

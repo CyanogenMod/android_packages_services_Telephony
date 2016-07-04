@@ -150,6 +150,7 @@
   <string name="cb_psw_dont_match">Le password non coincidono</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN non è stato aggiornato perché il numero è vuoto o supera le 20 cifre.</string>
+  <string name="fdn_service_unavailable">Servizio FDN non disponibile.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Esportazione dei contatti alla SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

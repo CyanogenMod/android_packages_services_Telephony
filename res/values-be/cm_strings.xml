@@ -148,6 +148,7 @@
   <string name="cb_psw_dont_match">Паролі та розныя</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN не абноўлены, бо нумар не набраны ці перавышае 20 лічбаў.</string>
+  <string name="fdn_service_unavailable">Служба FDN недаступная.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Экспарт кантактаў на SIM-карту\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
