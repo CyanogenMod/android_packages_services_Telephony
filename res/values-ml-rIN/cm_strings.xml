@@ -148,6 +148,7 @@
   <string name="cb_psw_dont_match">പാസ്സ്‌വേർഡ്‌ പൊരുത്തപ്പെടുന്നില്ല</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN wasn\'t updated because the number is empty or exceeds 20 digits.</string>
+  <string name="fdn_service_unavailable">FDN സേവനം ലഭ്യമല്ല.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">SIM കാര്‍ഡിലേക്ക് കോണ്‍ടാക്റ്റുകള്‍ എക്സ്പോർട്ട് ചെയ്യുന്നു\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

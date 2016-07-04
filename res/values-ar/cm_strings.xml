@@ -149,6 +149,7 @@
   <string name="cb_psw_dont_match">كلمتا المرور لا تتطابقان</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">لم يتم تحديث FDN لأن حقل العدد فارغ أو يتجاوز 20 رقماً.</string>
+  <string name="fdn_service_unavailable">لا تتوفر خدمة FDN.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">تصدير جهات الاتصال إلى بطاقة SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

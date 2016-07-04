@@ -148,6 +148,7 @@
   <string name="cb_psw_dont_match">पासवर्ड जुळत नाहीत</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN अद्यतन केले गेले नाही कारण नंबर रिक्त आहे किंवा 20 अंकांच्या पुढे जातो.</string>
+  <string name="fdn_service_unavailable">FDN सेवा उपलब्ध नाही.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">सिम कार्डला संपर्क निर्यात करत आहे\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

@@ -150,6 +150,7 @@
   <string name="cb_psw_dont_match">Паролите не съвпадат</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN не беше актуализирана, защото номерът е празен или превишава 20 цифри.</string>
+  <string name="fdn_service_unavailable">FDN услугата не е налична.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Експортиране на контакти в СИМ карта\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

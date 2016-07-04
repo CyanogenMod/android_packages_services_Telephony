@@ -148,6 +148,7 @@
   <string name="cb_psw_dont_match">Lösenorden matchar inte</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN uppdaterades inte eftersom numret är tomt eller överskrider 20 siffror.</string>
+  <string name="fdn_service_unavailable">FDN-tjänst är ej tillgänglig.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Exporterar kontakter till SIM-kort\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

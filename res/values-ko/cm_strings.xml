@@ -149,6 +149,7 @@
   <string name="cb_psw_dont_match">비밀번호가 일치하지 않습니다</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">번호가 비어있거나 20자리를 초과하기 때문에 FDN이 업데이트되지 않았습니다.</string>
+  <string name="fdn_service_unavailable">FDN 서비스를 사용할 수 없습니다.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">연락처를 SIM 카드로 내보내는 중\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

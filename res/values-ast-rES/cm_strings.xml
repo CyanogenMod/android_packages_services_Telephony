@@ -147,6 +147,7 @@
   <string name="cb_psw_dont_match">Les contraseñes nun concasen</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_invalid_number_cm">FDN nun s\'anovó porque\'l númberu ta baleru o perpasa los 20 díxitos.</string>
+  <string name="fdn_service_unavailable">El serviciu FDN nun ta disponible.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Esportando contautos a la tarxeta SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

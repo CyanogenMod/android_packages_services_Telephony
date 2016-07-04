@@ -110,6 +110,7 @@
   <string name="preferred_network_mode_gsm_only_choice">केवल जीएसएम</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">जीएसम/डब्ल्यूसीडीएमए बेहतर रहेगा</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_service_unavailable">एफडीएन सेवा उपलब्ध नहीं है।</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">संपर्कों को सिम कार्ड में निर्यात कर रहे हैं\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

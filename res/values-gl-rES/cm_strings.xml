@@ -128,6 +128,7 @@
   <string name="labelCbChangePassword">Cambiar o contrasinal</string>
   <string name="cb_psw_dont_match">Os contrasinais non coinciden</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_service_unavailable">O servizo de FDN non está dispoñíbel.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Exportando contactos á tarxeta SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->

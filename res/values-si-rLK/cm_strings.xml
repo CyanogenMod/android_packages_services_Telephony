@@ -83,6 +83,7 @@
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">වඩා කැමති ජාල ප්‍රකාරය: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_service_unavailable">FDN සේවාව ලබා ගත නොහැක.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">සම්බන්ධතා සිම් කාඩ්පතට නිර්යාත කරමින්\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
