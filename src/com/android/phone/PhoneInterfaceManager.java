@@ -3029,6 +3029,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                 // Set network selection mode to automatic
                 setNetworkSelectionModeAutomatic(subId);
                 // Set preferred mobile network type to the best available
+                SubscriptionController.getInstance().setUserNwMode(subId, Phone.PREFERRED_NT_MODE);
                 setPreferredNetworkType(subId, Phone.PREFERRED_NT_MODE);
                 // Turn off roaming
                 SubscriptionManager.from(mApp).setDataRoaming(0, subId);
