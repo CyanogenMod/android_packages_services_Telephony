@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
-  <string name="incall_screen_settings">Skjerm instillinger under samtaler</string>
+  <string name="incall_screen_settings">Skjerminnstillinger under samtaler</string>
   <string name="show_ssn_label">Hendelsesvarsling</string>
   <string name="show_ssn_summary">Vis en melding for ulike nettverkshendelser relatert til anrop</string>
   <string name="incall_echo_cancellation">Samtale støyreduksjon</string>
