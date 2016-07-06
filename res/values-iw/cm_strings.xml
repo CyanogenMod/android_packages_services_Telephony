@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">מספר הטלפון שלי</string>
   <string name="phone_number_summary">הגדר מספר טלפון למכשיר זה</string>
+  <string name="set_my_number_failed">הגדרת מספר הטלפון נכשלה</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">העברת שיחות לא מותנית פעילה</string>
