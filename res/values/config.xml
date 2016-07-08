@@ -243,4 +243,7 @@
 
     <!-- Whether the emergency only account can make emergency calls -->
     <bool name="config_pstnCanPlaceEmergencyCalls">true</bool>
+
+    <!-- Whether the voicemail number is editable or not -->
+    <bool name="config_edit_voicemail_number_bool">true</bool>
 </resources>

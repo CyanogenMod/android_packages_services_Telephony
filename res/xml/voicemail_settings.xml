@@ -38,7 +38,6 @@
              1. android:singleLine
              2. android:autoText
              3. android:background -->
-
         <com.android.phone.EditPhoneNumberPreference
             android:key="button_voicemail_key"
             android:title="@string/voicemail_settings_number_label"
@@ -46,6 +45,7 @@
             android:dialogTitle="@string/voicemail"
             phone:confirmMode="confirm"
             android:singleLine="true"
+            android:enabled="@bool/config_edit_voicemail_number_bool"
             android:autoText="false" />
 
     </PreferenceScreen>
