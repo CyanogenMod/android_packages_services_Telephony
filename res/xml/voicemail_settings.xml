@@ -46,6 +46,7 @@
             android:dialogTitle="@string/voicemail"
             phone:confirmMode="confirm"
             android:singleLine="true"
+            android:enabled="@bool/config_edit_voicemail_number_bool"
             android:autoText="false" />
 
     </PreferenceScreen>
