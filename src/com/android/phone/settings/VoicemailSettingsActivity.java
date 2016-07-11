@@ -235,12 +235,20 @@ public class VoicemailSettingsActivity extends PreferenceActivity
         super.onResume();
         mForeground = true;
 
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-        if (preferenceScreen != null) {
-            preferenceScreen.removeAll();
+        /* no need to redo layout */
+        if ((findPreference(BUTTON_VOICEMAIL_KEY) != null) &&
+            (mSubMenuVoicemailSettings != null)) {
+            return;
         }
 
-        addPreferencesFromResource(R.xml.voicemail_settings);
+        /* This happends when orientation change or first created */
+        if (mSubMenuVoicemailSettings == null) {
+            PreferenceScreen preferenceScreen = getPreferenceScreen();
+            if (preferenceScreen != null) {
+                preferenceScreen.removeAll();
+            }
+            addPreferencesFromResource(R.xml.voicemail_settings);
+        }
 
         PreferenceScreen prefSet = getPreferenceScreen();
         mSubMenuVoicemailSettings = (EditPhoneNumberPreference) findPreference(BUTTON_VOICEMAIL_KEY);
@@ -541,7 +549,11 @@ public class VoicemailSettingsActivity extends PreferenceActivity
                     if (DBG) log("onActivityResult: bad contact data, no results found.");
                     return;
                 }
-                mSubMenuVoicemailSettings.onPickActivityResult(cursor.getString(0));
+                EditPhoneNumberPreference voiceSettings = (EditPhoneNumberPreference)
+                    findPreference(BUTTON_VOICEMAIL_KEY);
+                if (voiceSettings != null) {
+                    voiceSettings.onPickActivityResult(cursor.getString(0));
+                }
                 return;
             } finally {
                 if (cursor != null) {
@@ -597,12 +609,10 @@ public class VoicemailSettingsActivity extends PreferenceActivity
             return;
         }
 
-        if (preference == mSubMenuVoicemailSettings) {
-            VoicemailProviderSettings newSettings = new VoicemailProviderSettings(
-                    mSubMenuVoicemailSettings.getPhoneNumber(),
-                    VoicemailProviderSettings.NO_FORWARDING);
-            saveVoiceMailAndForwardingNumber(mVoicemailProviders.getKey(), newSettings);
-        }
+        VoicemailProviderSettings newSettings = new VoicemailProviderSettings(
+                preference.getPhoneNumber(),
+                VoicemailProviderSettings.NO_FORWARDING);
+        saveVoiceMailAndForwardingNumber(mVoicemailProviders.getKey(), newSettings);
     }
 
     /**
