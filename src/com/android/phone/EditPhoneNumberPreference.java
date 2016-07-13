@@ -18,22 +18,27 @@ package com.android.phone;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.telephony.PhoneNumberUtils;
 import android.text.BidiFormatter;
+import android.text.Editable;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.DialerKeyListener;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -259,6 +264,30 @@ public class EditPhoneNumberPreference extends EditTextPreference
             editText.setMovementMethod(ArrowKeyMovementMethod.getInstance());
             editText.setKeyListener(DialerKeyListener.getInstance());
             editText.setOnFocusChangeListener(mDialogFocusChangeListener);
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    // Do nothing
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    // Do nothing
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    boolean hasText = getEditText().getText().length() != 0;
+                    AlertDialog dialog = (AlertDialog)getDialog();
+                    if (dialog != null) {
+                        Button onOff = dialog.getButton(DialogInterface.BUTTON_NEUTRAL);
+                        if (!onOff.getText().equals(mDisableText)) {
+                            dialog.getButton(DialogInterface.BUTTON_NEUTRAL).setEnabled(hasText);
+                        }
+                        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setEnabled(hasText);
+                    }
+                }
+            });
         }
 
         //set contact picker
@@ -367,6 +396,18 @@ public class EditPhoneNumberPreference extends EditTextPreference
         // record the button that was clicked.
         mButtonClicked = which;
         super.onClick(dialog, which);
+    }
+
+    @Override
+    protected void showDialog(Bundle state) {
+        super.showDialog(state);
+
+        Dialog dialog = getDialog();
+        if (dialog != null && dialog instanceof AlertDialog) {
+            if (getEditText() == null || getEditText().getText().length() <= 0) {
+                ((AlertDialog) dialog).getButton(DialogInterface.BUTTON_NEUTRAL).setEnabled(false);
+            }
+        }
     }
 
     @Override
