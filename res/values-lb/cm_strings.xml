@@ -88,6 +88,7 @@
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Preferéierten Netzwierktyp: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -109,6 +110,24 @@
   <string name="preferred_network_mode_wcdma_only_choice">Just WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Just GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferéiert</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Aus</item>
+    <item>International roaming calls</item>
+    <item>International Uriff</item>
+    <item>Erausgoend Uriff</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Aus</item>
+    <item>Roaming</item>
+    <item>All</item>
+  </string-array>
+  <string name="input_password">Gëff däi Passwuert an</string>
+  <string name="invalidPsw">Gëff e gëltegt Passwuert (4-8 Zifferen) an</string>
+  <string name="labelCbChangePassword">Passwuert änneren</string>
+  <string name="psw_enter_old">Aalt Passwuert</string>
+  <string name="psw_enter_new">Neit Passwuert</string>
+  <string name="psw_reenter_new">Passwuert nees aginn</string>
+  <string name="cb_psw_dont_match">D\'Passwierder stëmmen net iwwereneen</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <string name="fdn_service_unavailable">FDN-Service net disponibel.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
