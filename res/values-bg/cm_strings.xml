@@ -138,13 +138,13 @@
     <item>Всички</item>
   </string-array>
   <string name="call_barring_incoming">Забранени входящи разговори</string>
-  <string name="input_password">Въведете паролата си</string>
+  <string name="input_password">Въведете вашата парола</string>
   <string name="invalidPsw">Въведете валидна парола (4-8 цифри)</string>
   <string name="labelCbCancelAll">Забраняване на повиквания</string>
   <string name="labelCbChangePassword">Смяна на паролата</string>
   <string name="psw_enter_old">Стара парола</string>
   <string name="psw_enter_new">Нова парола</string>
-  <string name="psw_reenter_new">Въведете отново паролата си</string>
+  <string name="psw_reenter_new">Въведете отново вашата парола</string>
   <string name="no_call_barring">Спиране на забраната за обаждания</string>
   <string name="cb_psw_dont_match">Паролите не съвпадат</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
