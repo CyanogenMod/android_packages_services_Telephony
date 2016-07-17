@@ -476,6 +476,7 @@
   <string name="network_lte">LTE (recommandéiert)</string>
   <string name="network_4G">4G (recommandéiert)</string>
   <string name="network_global">Global</string>
+  <string name="network_tdscdma">Just TDSCDMA</string>
   <!-- CDMA System select strings -->
   <!-- Mobile network settings screen, setting option name -->
   <string name="cdma_system_select_title">Auswiel duerch de System</string>
@@ -699,6 +700,7 @@
          This string is currently unused (see comments in InCallScreen.java.) -->
   <string name="incall_error_emergency_only">Net am Netzwierk registréiert.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
+  <string name="incall_error_out_of_service">Mobilt Netzwierk net disponibel.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
