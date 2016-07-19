@@ -307,6 +307,9 @@ public class CallForwardEditPreference extends EditPhoneNumberPreference {
 
         public void notifyRefreshViceInfo(QtiViceInfo qtiViceInfo) {
         }
+
+	public void receiveCallTransferResponse(int result) {
+    	}
     };
 
     private void handleGetCFTimerResponse() {
