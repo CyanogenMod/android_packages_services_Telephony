@@ -152,8 +152,6 @@ public class NetworkSetting extends PreferenceActivity
 
                     break;
             }
-
-            return;
         }
     };
 
@@ -246,13 +244,6 @@ public class NetworkSetting extends PreferenceActivity
         }
     }
 
-    public String getNormalizedCarrierName(OperatorInfo ni) {
-        if (ni != null) {
-            return ni.getOperatorAlphaLong() + " (" + ni.getOperatorNumeric() + ")";
-        }
-        return null;
-    }
-
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -301,7 +292,7 @@ public class NetworkSetting extends PreferenceActivity
         }
 
         // Start the Network Query service, and bind it.
-        // The OS knows to start he service only once and keep the instance around (so
+        // The OS knows to start the service only once and keep the instance around (so
         // long as startService is called) until a stopservice request is made.  Since
         // we want this service to just stay in the background until it is killed, we
         // don't bother stopping it from our end.
@@ -334,12 +325,6 @@ public class NetworkSetting extends PreferenceActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void enableSearchButton (boolean enabled) {
-        if (mSearchButton != null) {
-            mSearchButton.setEnabled(enabled);
-        }
     }
 
     @Override
