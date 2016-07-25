@@ -152,8 +152,6 @@ public class NetworkSetting extends PreferenceActivity
 
                     break;
             }
-
-            return;
         }
     };
 
@@ -246,13 +244,6 @@ public class NetworkSetting extends PreferenceActivity
         }
     }
 
-    public String getNormalizedCarrierName(OperatorInfo ni) {
-        if (ni != null) {
-            return ni.getOperatorAlphaLong() + " (" + ni.getOperatorNumeric() + ")";
-        }
-        return null;
-    }
-
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -334,12 +325,6 @@ public class NetworkSetting extends PreferenceActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void enableSearchButton (boolean enabled) {
-        if (mSearchButton != null) {
-            mSearchButton.setEnabled(enabled);
-        }
     }
 
     @Override
