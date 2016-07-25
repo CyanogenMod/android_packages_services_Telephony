@@ -602,8 +602,16 @@ public class NetworkSetting extends PreferenceActivity
             BidiFormatter bidiFormatter = BidiFormatter.getInstance();
             title = bidiFormatter.unicodeWrap(ni.getOperatorNumeric(), TextDirectionHeuristics.LTR);
         }
-        if (!ni.getRadioTech().equals(""))
-            title += " " + mRatMap.get(ni.getRadioTech());
+
+        String radioTech = ni.getRadioTech();
+        if (!radioTech.equals("")) {
+            String radioString = mRatMap.get(radioTech);
+
+            // if the carrier already contains the used technology in it's name, don't add it again
+            if (TextUtils.indexOf(title, radioString) < 0) {
+                title += " " + radioString;
+            }
+        }
 
         return title;
     }
