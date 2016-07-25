@@ -197,8 +197,8 @@
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">Desblokeatze eskaerak huts egin du, %1$d saiakera geratzen dira.</string>
   <!-- Call forward: IMS: Media tag support -->
-  <string name="labelCFType">Dei-berbidaltzearen ezarpenak</string>
+  <string name="labelCFType">Dei-birbidaltze ezarpenak</string>
   <string name="labelCFVoice">Ahotsa</string>
   <string name="labelCFVideo">Bideoa</string>
-  <string name="call_forward_option">Dei-berbideratze aukerak</string>
+  <string name="call_forward_option">Dei-birbideratze aukerak</string>
 </resources>
