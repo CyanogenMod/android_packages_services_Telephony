@@ -273,13 +273,16 @@ public class NetworkSetting extends PreferenceActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        int subId;
+        int subId = SubscriptionManager.INVALID_SUBSCRIPTION_ID;
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
             subId = intent.getExtras().getInt(GsmUmtsOptions.EXTRA_SUB_ID);
-            if (SubscriptionManager.isValidSubscriptionId(subId)) {
-                mPhoneId = SubscriptionManager.getPhoneId(subId);
-            }
+        } else {
+            subId = SubscriptionManager.getDefaultSubId();
+        }
+
+        if (SubscriptionManager.isValidSubscriptionId(subId)) {
+            mPhoneId = SubscriptionManager.getPhoneId(subId);
         }
 
         mNetworkList = (PreferenceGroup) getPreferenceScreen().findPreference(LIST_NETWORKS_KEY);
