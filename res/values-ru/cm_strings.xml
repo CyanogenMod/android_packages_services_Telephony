@@ -33,7 +33,6 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Мой номер телефона</string>
   <string name="phone_number_summary">Задать телефонный номер для этого устройства</string>
-  <string name="set_my_number_failed">Не удалось задать номер телефона</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Включена безусловная переадресация вызова</string>
