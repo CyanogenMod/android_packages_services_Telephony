@@ -1290,7 +1290,10 @@ public class MobileNetworkSettings extends PreferenceActivity
     }
 
     private boolean isWorldMode() {
-        return isWorldMode(this);
+        final PersistableBundle carrierConfig =
+                PhoneGlobals.getInstance().getCarrierConfigForSubId(mPhone.getSubId());
+
+        return isWorldMode(this, carrierConfig);
     }
 
     private void controlGsmOptions(boolean enable) {
@@ -1343,21 +1346,31 @@ public class MobileNetworkSettings extends PreferenceActivity
         return isSupportTdscdma(this, mPhone.getSubId());
     }
 
-    private static boolean isWorldMode(Context context) {
-        boolean worldModeOn = false;
-        final TelephonyManager tm = (TelephonyManager)
-                context.getSystemService(Context.TELEPHONY_SERVICE);
-        final String configString = context.getResources().getString(R.string.config_world_mode);
+    private static boolean isWorldMode(Context context, PersistableBundle carrierConfig) {
+        final boolean carrierConfigWorldPhone = carrierConfig.getBoolean(CarrierConfigManager.KEY_WORLD_PHONE_BOOL);
 
-        if (!TextUtils.isEmpty(configString)) {
-            String[] configArray = configString.split(";");
-            // Check if we have World mode configuration set to True only or config is set to True
-            // and SIM GID value is also set and matches to the current SIM GID.
-            if (configArray != null &&
-                    ((configArray.length == 1 && configArray[0].equalsIgnoreCase("true")) ||
-                            (configArray.length == 2 && !TextUtils.isEmpty(configArray[1]) &&
-                                    tm != null && configArray[1].equalsIgnoreCase(tm.getGroupIdLevel1())))) {
-                worldModeOn = true;
+        boolean worldModeOn = false;
+
+        // Check the new CarrierConfig version of the flag
+        if(carrierConfigWorldPhone){
+            worldModeOn = true;
+        }
+        // If its not set, check the old deprecated way...
+        else {
+            final TelephonyManager tm = (TelephonyManager)
+                    context.getSystemService(Context.TELEPHONY_SERVICE);
+            final String configString = context.getResources().getString(R.string.config_world_mode);
+
+            if (!TextUtils.isEmpty(configString)) {
+                String[] configArray = configString.split(";");
+                // Check if we have World mode configuration set to True only or config is set to True
+                // and SIM GID value is also set and matches to the current SIM GID.
+                if (configArray != null &&
+                        ((configArray.length == 1 && configArray[0].equalsIgnoreCase("true")) ||
+                                (configArray.length == 2 && !TextUtils.isEmpty(configArray[1]) &&
+                                        tm != null && configArray[1].equalsIgnoreCase(tm.getGroupIdLevel1())))) {
+                    worldModeOn = true;
+                }
             }
         }
 
@@ -1488,7 +1501,8 @@ public class MobileNetworkSettings extends PreferenceActivity
         } else {
             throw new IllegalStateException("Unexpected phone type: " + phoneType);
         }
-        if (isWorldMode(context)) {
+
+        if (isWorldMode(context, carrierConfig)) {
             ev[0] = com.android.phone.R.array.preferred_network_mode_choices_world_mode;
             ev[1] = com.android.phone.R.array.preferred_network_mode_values_world_mode;
         }
