@@ -79,29 +79,29 @@
   <string name="time_formate_pm">След обяд</string>
   <!-- Mobile network settings, preferred network modes -->
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_global_summary_cm">Режим на предпочитана мрежа: глобален (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <string name="preferred_network_mode_global_summary_cm">Предпочитан режим на мрежата: Глобален (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <!-- In-call screen: call failure reason (call denied because call barring is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Участник забрани всички входящи повиквания.</string>
   <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
   <string name="callUnanswered_forwarded">Повикване без отговор и препратено</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">Предпочитан режим на мрежата: TD-SCDMA/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_lte_summary">Предпочитан режим на мрежата: TD-SCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_gsm_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_gsm_summary">Предпочитан режим на мрежата: TD-SCDMA/GSM</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/LTE[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Предпочитан режим на мрежата: TD-SCDMA/GSM/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Предпочитан режим на мрежата: TD-SCDMA/GSM/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/WCDMA/LTE[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Предпочитан режим на мрежата: TD-SCDMA/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Предпочитан режим на мрежата: TD-SCDMA/GSM/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Предпочитан тип мрежа: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Предпочитан режим на мрежата: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
@@ -152,7 +152,7 @@
   <string name="fdn_invalid_number_cm">FDN не беше актуализирана, защото номерът е празен или превишава 20 цифри.</string>
   <string name="fdn_service_unavailable">FDN услугата не е налична.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
-  <string name="exportContacts">Експортиране на контакти в СИМ карта\u2026</string>
+  <string name="exportContacts">Експортиране на контакти в СИМ картата\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Управление на контактите в СИМ картата</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
@@ -162,7 +162,7 @@
   <!-- Sim contacts management -->
   <string name="contactScreen">Управление на СИМ контактите</string>
   <string name="exportContactScreen">Експортиране на телефонни контакти в СИМ картата</string>
-  <string name="addSimEntries">Добави СИМ контакт</string>
+  <string name="addSimEntries">Добави контакт в СИМ картата</string>
   <string name="deleteAllSimEntries">Изтриване на всички контакти от СИМ картата</string>
   <string name="deleteSimContacts">Изтриване на контакти от СИМ карта\u2026</string>
   <string name="editContact">Редактиране</string>
