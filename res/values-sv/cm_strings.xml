@@ -194,4 +194,6 @@
   <string name="choose_network_mode_system_default">Systemstandard</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <!-- Call forward: IMS: Media tag support -->
+  <string name="labelCFVoice">Röst</string>
+  <string name="labelCFVideo">Video</string>
 </resources>
