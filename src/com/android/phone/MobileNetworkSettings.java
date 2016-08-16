@@ -659,7 +659,7 @@ public class MobileNetworkSettings extends PreferenceActivity
             // in case it is currently something else. That is possible if user
             // changed the setting while roaming and is now back to home network.
             settingsNetworkMode = preferredNetworkMode;
-        } else if (carrierConfig.getBoolean(CarrierConfigManager.KEY_WORLD_PHONE_BOOL) == true) {
+        } else if (isWorldMode(this, carrierConfig)) {
             prefSet.removePreference(mButtonEnabledNetworks);
             // set the listener for the mButtonPreferredNetworkMode list preference so we can issue
             // change Preferred Network Mode.
