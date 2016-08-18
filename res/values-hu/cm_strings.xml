@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Saját telefonszám</string>
   <string name="phone_number_summary">Telefonszám beállítása az eszközhöz</string>
+  <string name="set_my_number_failed">Telefonszám beállítása sikertelen</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Feltétel nélküli hívásátirányítás aktív</string>
