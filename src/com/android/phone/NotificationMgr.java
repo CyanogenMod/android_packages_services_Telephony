@@ -86,6 +86,7 @@ public class NotificationMgr {
     static final int DATA_DISCONNECTED_ROAMING_NOTIFICATION = 5;
     static final int SELECTED_OPERATOR_FAIL_NOTIFICATION = 6;
 
+    static final String ROAMING_SLOT_ID = "RoamingSlotId";
 
     static final int NOTIFICATION_ID_OFFSET = 50;
 
@@ -653,12 +654,14 @@ public class NotificationMgr {
      * appears when you lose data connectivity because you're roaming and
      * you have the "data roaming" feature turned off.
      */
-    /* package */ void showDataDisconnectedRoaming() {
+    /* package */ void showDataDisconnectedRoaming(int roamingSlotId) {
         if (DBG) log("showDataDisconnectedRoaming()...");
 
         // "Mobile network settings" screen / dialog
         Intent intent = new Intent(mContext, com.android.phone.MobileNetworkSettings.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
+        intent.putExtra(ROAMING_SLOT_ID, roamingSlotId);
+        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
 
         final CharSequence contentText = mContext.getText(R.string.roaming_reenable_message);
 
