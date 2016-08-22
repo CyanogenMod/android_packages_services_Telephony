@@ -114,6 +114,7 @@ public class MobileNetworkSettings extends PreferenceActivity
 
     private SubscriptionManager mSubscriptionManager;
     private String tabDefaultLabel = "SIM slot ";
+    private String ROAMING_SLOT_ID = "RoamingSlotId";
 
     //UI objects
     private ListPreference mButtonPreferredNetworkMode;
@@ -532,6 +533,10 @@ public class MobileNetworkSettings extends PreferenceActivity
         IntentFilter intentFilter = new IntentFilter(
                 TelephonyIntents.ACTION_RADIO_TECHNOLOGY_CHANGED);
         registerReceiver(mPhoneChangeReceiver, intentFilter);
+        int roamingSlotId = getIntent().getIntExtra(ROAMING_SLOT_ID, -1);
+        if (roamingSlotId != -1) {
+            mTabHost.setCurrentTab(roamingSlotId);
+        }
         if (DBG) log("onCreate:-");
     }
 
