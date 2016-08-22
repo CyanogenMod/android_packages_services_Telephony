@@ -532,6 +532,10 @@ public class MobileNetworkSettings extends PreferenceActivity
         IntentFilter intentFilter = new IntentFilter(
                 TelephonyIntents.ACTION_RADIO_TECHNOLOGY_CHANGED);
         registerReceiver(mPhoneChangeReceiver, intentFilter);
+        int roamingSlotId = getIntent().getIntExtra(NotificationMgr.EXTRA_INITIAL_SLOT_TAB, -1);
+        if (roamingSlotId != -1) {
+            mTabHost.setCurrentTab(roamingSlotId);
+        }
         if (DBG) log("onCreate:-");
     }
 
