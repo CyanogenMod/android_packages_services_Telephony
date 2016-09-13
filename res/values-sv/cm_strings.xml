@@ -32,6 +32,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">Mitt telefonnummer</string>
   <string name="phone_number_summary">Ställ in enhetens telefonnummer</string>
+  <string name="set_my_number_failed">Misslyckades med att ställa in telefonnumret</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Ovillkorlig vidarekoppling aktiv</string>
