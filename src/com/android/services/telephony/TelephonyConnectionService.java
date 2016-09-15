@@ -221,7 +221,7 @@ public class TelephonyConnectionService extends ConnectionService {
             }
         }
 
-        boolean isEmergencyNumber = PhoneUtils.isLocalEmergencyNumber(number);
+        boolean isEmergencyNumber = PhoneUtils.isLocalEmergencyNumber(this, number);
 
         // Get the right phone object from the account data passed in.
         final Phone phone = getPhoneForAccount(request.getAccountHandle(), isEmergencyNumber);
@@ -675,7 +675,8 @@ public class TelephonyConnectionService extends ConnectionService {
     private Phone getPhoneForAccount(PhoneAccountHandle accountHandle, boolean isEmergency) {
         Phone chosenPhone = null;
         if (isEmergency) {
-            return PhoneFactory.getPhone(PhoneUtils.getPhoneIdForECall());
+            int phoneId = PhoneUtils.getPhoneIdForECall();
+            if (phoneId == -1) return PhoneFactory.getPhone(phoneId);
         }
 
         int subId = PhoneUtils.getSubIdForPhoneAccountHandle(accountHandle);

@@ -312,7 +312,9 @@ final class CdmaConnection extends TelephonyConnection {
 
     private boolean isEmergency() {
         Phone phone = getPhone();
-        return PhoneUtils.isLocalEmergencyNumber(getAddress().getSchemeSpecificPart());
+        return phone != null &&
+                PhoneNumberUtils.isLocalEmergencyNumber(
+                        phone.getContext(), getAddress().getSchemeSpecificPart());
     }
 
     /**
