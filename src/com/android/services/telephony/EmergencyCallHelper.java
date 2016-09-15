@@ -367,7 +367,8 @@ public class EmergencyCallHelper {
     }
 
     private Phone getPrimaryStackIdPhone() {
-        return PhoneFactory.getPhone(PhoneUtils.getPhoneIdForECall());
+        int phoneId = PhoneUtils.getPhoneIdForECall();
+        return PhoneFactory.getPhone(phoneId == -1 ? 0 : phoneId);
     }
 
     private boolean isEmergencyNumber(Phone phone, String number) {

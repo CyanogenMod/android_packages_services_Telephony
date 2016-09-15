@@ -248,8 +248,12 @@ public class IccNetworkDepersonalizationPanel extends IccPanel {
                         mCallback, mPhone.getPhoneId());
             } catch (RemoteException ex) {
                 log("RemoteException @supplyIccDepersonalization" + ex);
+                mPhone.getIccCard().supplyNetworkDepersonalization(pin,
+                        Message.obtain(mHandler, EVENT_ICC_NTWRK_DEPERSONALIZATION_RESULT));
             } catch (NullPointerException ex) {
                 log("NullPointerException @supplyIccDepersonalization" + ex);
+                mPhone.getIccCard().supplyNetworkDepersonalization(pin,
+                        Message.obtain(mHandler, EVENT_ICC_NTWRK_DEPERSONALIZATION_RESULT));
             }
             displayStatus(statusType.IN_PROGRESS.name());
         }
