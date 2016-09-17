@@ -22,17 +22,15 @@
   <!-- Official label of the phone app, as seen in "Manage Applications"
          and other settings UIs. -->
   <!-- Screen title for Emergency Dialer UI -->
-  <string name="emergencyDialerIconLabel">Urĝa ciferilo</string>
   <!-- Activity label for the in-call UI -->
   <string name="phoneIconLabel">Telefono</string>
   <!-- Title of FDN list screen -->
   <!-- Call status -->
   <!-- Incoming call screen, name of "unknown" caller -->
-  <string name="unknown">Nekonate</string>
+  <string name="unknown">Nekonata</string>
   <!-- Incoming call screen, string when number hidden -->
   <!-- Incoming call screen, string when called from a pay phone -->
   <!-- In-call screen: status label for a call that's on hold -->
-  <string name="onHold">Atendanta</string>
   <!-- Possible error messages with outgoing calls -->
   <!-- Dialog label when a USSD code starts running -->
   <!-- Dialog label when an MMI code is canceled -->
@@ -42,11 +40,9 @@
   <!-- Label for "Manage conference call" panel [CHAR LIMIT=40] -->
   <!-- Positive button label ("OK") used in several dialogs in the phone UI [CHAR LIMIT=10] -->
   <!-- "Audio mode" popup menu: Item label to select the speakerphone [CHAR LIMIT=25] -->
-  <string name="audio_mode_speaker">Parolilo</string>
   <!-- "Audio mode" popup menu: Item label to select the handset earpiece [CHAR LIMIT=25] -->
   <!-- "Audio mode" popup menu: Item label to select the wired headset [CHAR LIMIT=25] -->
   <!-- "Audio mode" popup menu: Item label to select the bluetooth headset [CHAR LIMIT=25] -->
-  <string name="audio_mode_bluetooth">Bludento</string>
   <!-- post dial -->
   <!-- In-call screen: body text of the dialog that appears when we encounter
          the "wait" character in a phone number to be dialed; this dialog asks the
@@ -72,9 +68,7 @@
   <!-- network depersonalization -->
   <!-- Label text for PIN entry widget on SIM Network Depersonalization panel -->
   <!-- Button label on SIM Network Depersonalization panel -->
-  <string name="sim_ndp_unlock_text">Malŝlosi</string>
   <!-- Button label on SIM Network Depersonalization panel -->
-  <string name="sim_ndp_dismiss_text">Malakcepti</string>
   <!-- Status message displayed on SIM Network Depersonalization panel -->
   <!-- Error message displayed on SIM Network Depersonalization panel -->
   <!-- Success message displayed on SIM Network Depersonalization panel -->
@@ -94,6 +88,7 @@
   <!-- Entry in dialog to "ask first" for accounts when making a call -->
   <!-- Label for heading of the per-account settings section in the phone accounts settings
          screen. -->
+  <string name="phone_accounts_settings_header">Agordoj</string>
   <!-- Label for invoking phone account selection screen -->
   <!-- Label for heading in the phone account selection screen -->
   <!-- Title for the button to add a new sip account. [CHAR LIMIT=NONE] -->
@@ -105,7 +100,6 @@
   <!-- Title for setting to select Wi-Fi call manager account -->
   <!-- Built-in label for the default connection service setting. -->
   <!-- Call settings screen, setting option name -->
-  <string name="voicemail">Voĉa mesaĝo</string>
   <!-- Title of the "Voicemail" settings screen, with a text label identifying which SIM the settings are for. -->
   <!-- Call forwarding dialog box, voicemail number prefix -->
   <!-- Mobile network settings screen, setting option name -->
@@ -194,7 +188,6 @@
   <!-- Available networks screen, setting summary text -->
   <!-- Available networks screen, setting option name -->
   <!-- Available networks screen, setting summary text -->
-  <string name="preferred_network_mode_dialogtitle">Plej ŝatata reta tipo</string>
   <!-- Mobile network settings, summary for preferred network mode WCDMA preferred[CHAR LIMIT=100] -->
   <!-- Mobile network settings, summary for preferred network mode GSM [CHAR LIMIT=100] -->
   <!-- Mobile network settings, summary for preferred network mode WCDMA only [CHAR LIMIT=100] -->
@@ -231,6 +224,24 @@
   <!-- Data usage settings screen option for throttling rate-->
   <!-- Data usage settings screen option for accessing the carrier website-->
   <string name="list_language_title">Lingvo</string>
+  <string-array name="list_language_entries">
+    <item>Angla</item>
+    <item>Franca</item>
+    <item>Hispana</item>
+    <item>Japana</item>
+    <item>Korea</item>
+    <item>Ĉina</item>
+    <item>Hebrea</item>
+  </string-array>
+  <string-array name="list_language_values">
+    <item>"1"</item>
+    <item>"2"</item>
+    <item>"3"</item>
+    <item>"4"</item>
+    <item>"5"</item>
+    <item>"6"</item>
+    <item>"7"</item>
+  </string-array>
   <string name="list_language_dtitle">Lingvoj</string>
   <!-- CDMA System select strings -->
   <!-- Mobile network settings screen, setting option name -->
@@ -262,12 +273,15 @@
   <!-- TTY Mode change is NOT allowed during a video call -->
   <!-- FDN list screen: menu item label -->
   <!-- FDN list screen: menu item label -->
+  <string name="menu_edit">Redakti kontakton</string>
   <!-- FDN list screen: menu item label -->
+  <string name="menu_delete">Forigi kontakton</string>
   <!-- FDN related strings -->
   <!-- Label for PIN2 entry screen -->
   <!-- "Edit FDN Contact" screen: Label for the "name" text field -->
   <!-- "Edit FDN Contact" screen: Label for the "number" text field -->
   <!-- "Edit FDN Contact" screen: Button label for "save" action -->
+  <string name="save">Konservi</string>
   <!-- Title of "Edit FDN Contact" screen for a new contact -->
   <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
   <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
@@ -428,6 +442,7 @@
   <!-- String to display within the OTA SPC Fail Notice dialog -->
   <!-- Button label in OTA listen screen that cancels activation and goes to the previous screen -->
   <!-- Button label shown on OTA error screen to allow the user to try again -->
+  <string name="ota_try_again">Reprovi</string>
   <!-- Button label shown on OTA screens that have a next screen -->
   <!-- Emergency Callback Mode (ECM) -->
   <!-- ECM: Status bar notification message -->
@@ -438,6 +453,7 @@
   <!-- ECM: Dialog box message while in emergency call -->
   <!-- ECM: Progress text -->
   <!-- ECM: ECM exit dialog choice -->
+  <string name="alert_dialog_yes">Jes</string>
   <!-- ECM: ECM exit dialog choice -->
   <!-- ECM: ECM exit dialog choice -->
   <!-- For incoming calls, this is a string we can get from a CDMA network instead of
@@ -453,6 +469,7 @@
   <!-- Use this as a default to describe the contact photo; currently for screen readers through accessibility. -->
   <!-- Use this to describe the separate conference call button; currently for screen readers through accessibility. -->
   <!--  Use this to describe the select contact button in EditPhoneNumberPreference; currently for screen readers through accessibility. -->
+  <string name="selectContact">elekti kontakton</string>
   <!-- Dialog title to notify user that Voice calling is not supported
          on this device. [CHAR LIMIT=40] -->
   <!-- String describing the Dial ImageButton
@@ -480,6 +497,7 @@
   <!-- Label for action button in dialog which opens mobile network settings, for video calling
          setting. -->
   <!-- Label for close button in dialog, for video calling setting. -->
+  <string name="enable_video_calling_dialog_close">Fermi</string>
   <!-- Strings used in Settings->Sim cards for each installed Sim. -->
   <!-- Title for activity to control accessibility settings such as TTY mode and hearing aid
          compatability. [CHAR LIMIT=40] -->
@@ -492,6 +510,7 @@
   <!-- DO NOT TRANSLATE. Internal key for a visual voicemail preference. -->
   <!-- DO NOT TRANSLATE. Internal key for tty mode preference. -->
   <!-- DO NOT TRANSLATE. Internal key for a voicemail notification preference. -->
+  <string name="wifi_calling_settings_key">button_wifi_calling_settings_key</string>
   <!-- Hint appearing below a selected action on the emergency dialer telling user to tap again to execute the action [CHAR LIMIT=NONE] -->
   <!-- Strings for IMAP -->
   <!-- String used in place of a message that could not be properly decoded (e.g. bad base64
