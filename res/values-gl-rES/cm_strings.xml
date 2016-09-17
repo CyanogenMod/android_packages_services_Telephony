@@ -17,9 +17,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">Axustes de chamada en pantalla</string>
   <string name="show_ssn_label">Notificación de actividades</string>
   <string name="show_ssn_summary">Amosar unha notificación sobre diversas actividades de rede relacionadas coa xestión das chamadas</string>
   <string name="incall_echo_cancellation">Redución do son durante a chamada</string>
+  <string name="enable_aec_label">Cancelación de eco</string>
   <string name="enable_aec_summary">Reducir o barullo ambiental transmitido durante as chamadas de voz</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">Lista de números bloqueados</string>
@@ -27,9 +29,11 @@
   <string name="blacklist_summary">Non se recibirán chamadas e mensaxes dos números incluídos na lista de números bloqueados</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Indicador de espera dunha mensaxe</string>
+  <string name="mwi_notification_summary">Amosa as notificacións da caixa de voz que informan dunha mensaxe en agarda (require o reinicio)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">O meu número de teléfono</string>
   <string name="phone_number_summary">Estabelecer o número de teléfono deste dispositivo</string>
+  <string name="set_my_number_failed">Non pudose definir o número de teléfono</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Desvío incondicional de chamada activado</string>
@@ -66,6 +70,7 @@
   <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Non se puido desbloquear a rede da SIM.</string>
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
+  <string name="all_day">Todo o día</string>
   <string name="time_start">De</string>
   <string name="time_end">Até</string>
   <string name="time_hour">Hora</string>
@@ -94,6 +99,7 @@
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/GSM/WCDMA/LTE[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Modo de rede preferida: TD-SCDMA/GSM/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_summary">Modo de rede preferido: TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
   <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Modo de rede preferida: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EVDO</string>
@@ -119,21 +125,39 @@
   <string name="preferred_network_mode_wcdma_only_choice">Só WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">Só GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferir GSM/WCDMA</string>
+  <string name="call_barring">Bloqueo das chamadas</string>
+  <string name="call_barring_outgoing">Bloqueo das chamadas salientes</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>Off</item>
     <item>International roaming calls</item>
     <item>Chamadas internacionais</item>
     <item>Chamadas realizadas</item>
   </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Apagar</item>
+    <item>Roaming</item>
+    <item>Todos</item>
+  </string-array>
+  <string name="call_barring_incoming">Bloqueo das chamadas entrantes</string>
+  <string name="input_password">Introduza o seu contrasinal</string>
+  <string name="invalidPsw">Introducir un contrasinal válido (4-8 díxitos)</string>
+  <string name="labelCbCancelAll">Desactivar bloqueo das chamadas</string>
   <string name="labelCbChangePassword">Cambiar o contrasinal</string>
+  <string name="psw_enter_old">Contrasinal anterior</string>
+  <string name="psw_enter_new">Contrasinal novo</string>
+  <string name="psw_reenter_new">Introduza de novo o seu contrasinal</string>
+  <string name="no_call_barring">Bloqueo das chamadas desactivado</string>
   <string name="cb_psw_dont_match">Os contrasinais non coinciden</string>
   <!-- FDN settings: error message displayed in a popup (toast) -->
+  <string name="fdn_invalid_number_cm">FDN non foi actualizado porque o número está baleirou o supera os 20 díxitos.</string>
   <!-- Title of the activity shown for Exporting contacts to SIM.  -->
   <string name="exportContacts">Exportando contactos á tarxeta SIM\u2026</string>
   <!-- Title of the List shown for SIM Contacts Management Activity.  -->
   <string name="simContacts_title_cm">Xestionar os contactos da tarxeta SIM</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_local_low_battery">A chamada fallou debido á pouca batería.</string>
   <!-- In-call screen: call failure message displayed in errror dialog -->
+  <string name="incall_error_low_battery">A chamada faiou debido á baixa batería do dispositivo remoto.</string>
   <!-- Sim contacts management -->
   <string name="contactScreen">Xestionar os contactos da SIM</string>
   <string name="exportContactScreen">Exportar os contactos do teléfono á SIM</string>
@@ -159,9 +183,16 @@
   <string name="exportAllcontatsSuccess">Exportáronse con éxito todos os contactos da SIM</string>
   <string name="exportAllcontatsFailed">Non se puideron exportar todos os contactos da SIM</string>
   <string name="exportAllcontatsNoContacts">Non se atopou ningún contacto na SIM para exportar</string>
+  <string name="msim_mobile_network_settings_title">Axustes da rede móbil SIM %d</string>
   <!-- Permission to modify network mode via intent -->
   <string name="perm_change_mobile_network">cambiar modo da rede</string>
+  <string name="perm_change_mobile_network_desc">Permite que unha aplicación modifique o modo de rede actual.</string>
   <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Identificación da liña conectada</string>
+  <string name="connected_line_identification_summary">Desactivar esta opción se o número de destinatarios non se amosa no historial de chamadas</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Escolle o modo de rede</string>
+  <string name="choose_network_mode_system_default">Predefinida do sistema</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Solicitude de desbloqueo sen éxito, restan %1$d intentos.</string>
 </resources>
