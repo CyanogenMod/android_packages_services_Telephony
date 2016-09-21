@@ -20,6 +20,10 @@
     <string name="show_ssn_label">Event notification</string>
     <string name="show_ssn_summary">Show a notification for various network events related to call handling</string>
 
+    <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
+    <string name="mwi_notification_title">Message wait indicator</string>
+    <string name="mwi_notification_summary">Show message wait indicator voicemail notifications (restart required)</string>
+
     <!-- Toasts for various transient network events -->
     <!-- Toast text for Unconditional Call Forwarding enabled  -->
     <string name="call_notif_unconditionalCF">Unconditional call forwarding active</string>

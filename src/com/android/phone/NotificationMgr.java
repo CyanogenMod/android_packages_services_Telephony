@@ -21,6 +21,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.StatusBarManager;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -58,6 +59,8 @@ import com.android.phone.settings.VoicemailNotificationSettingsUtil;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
+import cyanogenmod.providers.CMSettings;
 
 import org.codeaurora.internal.IExtTelephony;
 
@@ -230,6 +233,17 @@ public class NotificationMgr {
                 Log.v(LOG_TAG, "Notifications channel active for visual voicemail, hiding mwi.");
                 visible = false;
             }
+        }
+
+        boolean notifProp = mApp.getResources().getBoolean(R.bool.sprint_mwi_quirk);
+        boolean notifOption = CMSettings.System.getInt(mApp.getContentResolver(),
+                CMSettings.System.ENABLE_MWI_NOTIFICATION, 0) == 1;
+        if (notifProp && !notifOption) {
+            // sprint_mwi_quirk is true, and ENABLE_MWI_NOTIFICATION is unchecked or unset (false)
+            // hide the mwi, but log if we're debugging.
+            visible = false;
+            if (DBG) log("updateMwi(): mwi_notification is disabled. Ignoring...");
+            return;
         }
 
         Log.i(LOG_TAG, "updateMwi(): subId " + subId + " update to " + visible);
