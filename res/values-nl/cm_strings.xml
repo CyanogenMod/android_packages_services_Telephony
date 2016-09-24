@@ -29,9 +29,11 @@
   <string name="blacklist_summary">U ontvangt geen inkomende oproepen of berichten van telefoonnummers op de zwarte lijst</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Voicemailmeldingen</string>
+  <string name="mwi_notification_summary">Melding weergeven voor nieuwe voicemailberichten (herstarten vereist)</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">Mijn telefoonnummer</string>
   <string name="phone_number_summary">Telefoonnummer instellen voor deze telefoon</string>
+  <string name="set_my_number_failed">Fout bij het instellen van telefoonnummer</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Permanent doorschakelen actief</string>
@@ -187,8 +189,10 @@
   <string name="perm_change_mobile_network_desc">Hiermee kan de app de huidige netwerkmodus wijzigen.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Verbindingsidentificatie</string>
+  <string name="connected_line_identification_summary">Schakel deze optie uit als nummers van ontvangers niet weergegeven worden in de oproepgeschiedenis</string>
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Netwerkmodus kiezen</string>
   <string name="choose_network_mode_system_default">Systeemstandaard</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Verzoek tot ontgrendelen mislukt, %1$d pogingen resterend.</string>
 </resources>
