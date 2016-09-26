@@ -188,4 +188,5 @@
   <string name="perm_change_mobile_network_desc">Hiermee kan de app de huidige netwerkmodus wijzigen.</string>
   <!-- Mobile network settings, COLP -->
   <string name="connected_line_identification_title">Verbindingsidentificatie</string>
+  <string name="connected_line_identification_summary">Schakel deze optie uit als nummers van ontvangers niet weergegeven worden in de oproepgeschiedenis</string>
 </resources>
