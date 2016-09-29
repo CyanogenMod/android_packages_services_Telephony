@@ -28,6 +28,8 @@
 
     <original-package android:name="com.android.phone" />
 
+    <protected-broadcast android:name="android.telecom.action.TTY_PREFERRED_MODE_CHANGED" />
+    <protected-broadcast android:name="android.telecom.action.CURRENT_TTY_MODE_CHANGED" />
     <protected-broadcast android:name="android.intent.action.SERVICE_STATE" />
     <protected-broadcast android:name="android.intent.action.RADIO_TECHNOLOGY" />
     <protected-broadcast android:name="android.intent.action.EMERGENCY_CALLBACK_MODE_CHANGED" />
@@ -426,6 +428,7 @@
         <!-- fdn setting -->
         <activity android:name="com.android.phone.settings.fdn.FdnSetting"
                 android:label="@string/fdn"
+                android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
                 android:theme="@style/DialerSettingsLight">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -627,6 +630,7 @@
         </activity>
 
         <activity android:name="com.android.phone.settings.VoicemailSettingsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/voicemail"
             android:theme="@style/DialerSettingsLight">
             <intent-filter >
