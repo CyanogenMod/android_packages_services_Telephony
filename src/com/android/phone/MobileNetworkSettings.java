@@ -1471,6 +1471,9 @@ public class MobileNetworkSettings extends PreferenceActivity
                             break;
                     }
                 }
+            } else {
+                ev[0] = com.android.phone.R.array.enabled_networks_cdma_choices;
+                ev[1] = com.android.phone.R.array.enabled_networks_cdma_values;
             }
         } else if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
             if (isSupportTdscdma(context, subId)) {
