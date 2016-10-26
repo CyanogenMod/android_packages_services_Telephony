@@ -108,12 +108,22 @@ final class GsmConnection extends TelephonyConnection {
     protected int buildConnectionCapabilities() {
         int capabilities = super.buildConnectionCapabilities();
         capabilities |= CAPABILITY_MUTE;
+        // Overwrites TelephonyConnection.buildConnectionCapabilities() and resets the hold options
+        // because all GSM calls should hold, even if the carrier config option is set to not show
+        // hold for IMS calls.
         if (!shouldTreatAsEmergencyCall()) {
             capabilities |= CAPABILITY_SUPPORT_HOLD;
             if (getState() == STATE_ACTIVE || getState() == STATE_HOLDING) {
                 capabilities |= CAPABILITY_HOLD;
             }
         }
+
+        // For GSM connections, CAPABILITY_CONFERENCE_HAS_NO_CHILDREN should be applied whenever
+        // PROPERTY_IS_DOWNGRADED_CONFERENCE is true.
+        if ((getConnectionProperties() & PROPERTY_IS_DOWNGRADED_CONFERENCE) != 0) {
+            capabilities |= CAPABILITY_CONFERENCE_HAS_NO_CHILDREN;
+        }
+
         return capabilities;
     }
 
