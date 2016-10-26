@@ -472,11 +472,10 @@ public class OutgoingCallBroadcaster extends Activity
         // "invalid" number like "9111234" that isn't technically an
         // emergency number but might still result in an emergency call
         // with some networks.)
-        final boolean isExactEmergencyNumber = (number != null) &&
-                    PhoneUtils.isLocalEmergencyNumber(number);
-        final boolean isPotentialEmergencyNumber = (number != null) &&
-                    PhoneUtils.isPotentialLocalEmergencyNumber(number);
-
+        final boolean isExactEmergencyNumber =
+                (number != null) && PhoneNumberUtils.isLocalEmergencyNumber(this, number);
+        final boolean isPotentialEmergencyNumber =
+                (number != null) && PhoneNumberUtils.isPotentialLocalEmergencyNumber(this, number);
         if (VDBG) {
             Log.v(TAG, " - Checking restrictions for number '" + number + "':");
             Log.v(TAG, "     isExactEmergencyNumber     = " + isExactEmergencyNumber);

@@ -23,7 +23,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telecom.Conference;
-import android.provider.Settings;
 import android.telecom.Connection;
 import android.telecom.ConnectionRequest;
 import android.telecom.ConnectionService;
@@ -56,7 +55,6 @@ import com.android.phone.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.regex.Pattern;
 
 /**
@@ -78,7 +76,6 @@ public class TelephonyConnectionService extends ConnectionService {
     private ComponentName mExpectedComponentName = null;
     private EmergencyCallHelper mEmergencyCallHelper;
     private EmergencyTonePlayer mEmergencyTonePlayer;
-    private ConnectionRequest mRequest;
     private boolean mUseEmergencyCallHelper = false;
 
     /**
@@ -89,44 +86,6 @@ public class TelephonyConnectionService extends ConnectionService {
         @Override
         public void onOriginalConnectionConfigured(TelephonyConnection c) {
             addConnectionToConferenceController(c);
-        }
-
-        @Override
-        public void onEmergencyRedial(
-                TelephonyConnection connection, PhoneAccountHandle redialPhoneAccount,
-                        int phoneId) {
-            Log.d(this,"onEmergencyRedial");
-            String number = connection.getAddress().getSchemeSpecificPart();
-            Phone phone = PhoneFactory.getPhone(phoneId);
-
-            Log.i(this, "setPhoneAccountHandle, account = " + redialPhoneAccount);
-            Bundle connExtras = connection.getExtras();
-            if (connExtras == null) {
-                connExtras = new Bundle();
-            }
-            connExtras.putParcelable(TelephonyManager.EMR_DIAL_ACCOUNT, redialPhoneAccount);
-            connection.setExtras(connExtras);
-
-            Bundle bundle = mRequest.getExtras();
-            com.android.internal.telephony.Connection originalConnection;
-            try {
-                originalConnection = phone.dial(number, null, mRequest.getVideoState(), bundle);
-            } catch (CallStateException e) {
-                Log.e(this, e, "onEmergencyRedial, phone.dial exception: " + e);
-                connection.setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                        android.telephony.DisconnectCause.OUTGOING_FAILURE,
-                        e.getMessage()));
-                return;
-            }
-
-            if (originalConnection == null) {
-                int telephonyDisconnectCause = android.telephony.DisconnectCause.OUTGOING_FAILURE;
-                Log.d(this, "onEmergencyRedial, phone.dial returned null");
-                connection.setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                        telephonyDisconnectCause, "Connection is null"));
-            } else {
-                connection.setOriginalConnection(originalConnection);
-            }
         }
     };
 
@@ -222,7 +181,7 @@ public class TelephonyConnectionService extends ConnectionService {
             }
         }
 
-        boolean isEmergencyNumber = PhoneUtils.isLocalEmergencyNumber(number);
+        boolean isEmergencyNumber = PhoneNumberUtils.isLocalEmergencyNumber(this, number);
 
         // Get the right phone object from the account data passed in.
         final Phone phone = getPhoneForAccount(request.getAccountHandle(), isEmergencyNumber);
@@ -275,8 +234,7 @@ public class TelephonyConnectionService extends ConnectionService {
                         state = phone.getServiceState().getDataRegState();
             }
         }
-        final boolean isAirplaneModeOn = Settings.System.getInt(getContentResolver(),
-                Settings.System.AIRPLANE_MODE_ON, 0) != 0;
+        boolean useEmergencyCallHelper = false;
 
         // If we're dialing a non-emergency number and the phone is in ECM mode, reject the call if
         // carrier configuration specifies that we cannot make non-emergency calls in ECM mode.
@@ -299,10 +257,8 @@ public class TelephonyConnectionService extends ConnectionService {
         }
 
         if (isEmergencyNumber) {
-            mRequest = request;
-            if (!phone.isRadioOn() || isAirplaneModeOn) {
-                mUseEmergencyCallHelper = true;
-            }
+            if (!phone.isRadioOn()) {
+                useEmergencyCallHelper = true;
         } else {
             switch (state) {
                 case ServiceState.STATE_IN_SERVICE:
@@ -362,10 +318,10 @@ public class TelephonyConnectionService extends ConnectionService {
             if (mEmergencyCallHelper == null) {
                 mEmergencyCallHelper = new EmergencyCallHelper(this);
             }
-            mEmergencyCallHelper.startTurnOnRadioSequence(number,
+            mEmergencyCallHelper.startTurnOnRadioSequence(phone,
                     new EmergencyCallHelper.Callback() {
                         @Override
-                        public void onComplete(Phone phone, boolean isRadioReady) {
+                        public void onComplete(boolean isRadioReady) {
                             if (connection.getState() == Connection.STATE_DISCONNECTED) {
                                 // If the connection has already been disconnected, do nothing.
                             } else if (isRadioReady) {
@@ -566,27 +522,6 @@ public class TelephonyConnectionService extends ConnectionService {
             TelephonyConnection connection, Phone phone, ConnectionRequest request) {
         String number = connection.getAddress().getSchemeSpecificPart();
 
-        PhoneAccountHandle pHandle = PhoneUtils.makePstnPhoneAccountHandle(phone);
-        // For ECall handling on MSIM, till the request reaches here(i.e PhoneApp)
-        // we dont know on which phone account ECall can be placed, once after deciding
-        // the phone account for ECall we should inform Telecomm so that
-        // the proper sub information will be displayed on InCallUI.
-        if (TelephonyManager.getDefault().isMultiSimEnabled() && !Objects.equals(pHandle,
-                request.getAccountHandle())) {
-            Log.i(this, "setPhoneAccountHandle, account = " + pHandle);
-            if (mUseEmergencyCallHelper) {
-                Bundle connExtras = connection.getExtras();
-                if (connExtras == null) {
-                    connExtras = new Bundle();
-                }
-                connExtras.putParcelable(TelephonyManager.EMR_DIAL_ACCOUNT, pHandle);
-                connection.setExtras(connExtras);
-                mUseEmergencyCallHelper = false;
-            } else {
-                request.setAccountHandle(pHandle);
-            }
-        }
-
         Bundle bundle = request.getExtras();
         boolean isAddParticipant = (bundle != null) && bundle
                 .getBoolean(TelephonyProperties.ADD_PARTICIPANT_KEY, false);
@@ -684,10 +619,6 @@ public class TelephonyConnectionService extends ConnectionService {
 
     private Phone getPhoneForAccount(PhoneAccountHandle accountHandle, boolean isEmergency) {
         Phone chosenPhone = null;
-        if (isEmergency) {
-            return PhoneFactory.getPhone(PhoneUtils.getPhoneIdForECall());
-        }
-
         int subId = PhoneUtils.getSubIdForPhoneAccountHandle(accountHandle);
         if (subId != SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
             int phoneId = SubscriptionController.getInstance().getPhoneId(subId);

@@ -24,17 +24,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.telephony.PhoneNumberUtils;
 import android.telephony.ServiceState;
-import android.telephony.TelephonyManager;
 
 import com.android.internal.os.SomeArgs;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
-import com.android.internal.telephony.PhoneFactory;
-import com.android.phone.PhoneUtils;
-import com.android.internal.telephony.Call;
-
 
 /**
  * Helper class that implements special behavior related to emergency calls. Specifically, this
@@ -48,7 +42,7 @@ public class EmergencyCallHelper {
      * Receives the result of the EmergencyCallHelper's attempt to turn on the radio.
      */
     interface Callback {
-        void onComplete(Phone phone, boolean isRadioReady);
+        void onComplete(boolean isRadioReady);
     }
 
     // Number of times to retry the call, and time between retry attempts.
@@ -61,7 +55,6 @@ public class EmergencyCallHelper {
     private static final int MSG_RETRY_TIMEOUT = 3;
 
     private final Context mContext;
-    private static String mEmergencyNum;
 
     private final Handler mHandler = new Handler() {
         @Override
@@ -69,15 +62,15 @@ public class EmergencyCallHelper {
             switch (msg.what) {
                 case MSG_START_SEQUENCE:
                     SomeArgs args = (SomeArgs) msg.obj;
+                    Phone phone = (Phone) args.arg1;
                     EmergencyCallHelper.Callback callback =
-                            (EmergencyCallHelper.Callback) args.arg1;
+                            (EmergencyCallHelper.Callback) args.arg2;
                     args.recycle();
 
-                    startSequenceInternal(callback);
+                    startSequenceInternal(phone, callback);
                     break;
                 case MSG_SERVICE_STATE_CHANGED:
-                    AsyncResult ar = (AsyncResult) msg.obj;
-                    onServiceStateChanged((ServiceState)ar.result, (int)ar.userObj);
+                    onServiceStateChanged((ServiceState) ((AsyncResult) msg.obj).result);
                     break;
                 case MSG_RETRY_TIMEOUT:
                     onRetryTimeout();
@@ -91,8 +84,8 @@ public class EmergencyCallHelper {
 
 
     private Callback mCallback;  // The callback to notify upon completion.
+    private Phone mPhone;  // The phone that will attempt to place the call.
     private int mNumRetriesSoFar;
-    private static int mPhoneCount;
 
     public EmergencyCallHelper(Context context) {
         Log.d(this, "EmergencyCallHelper constructor.");
@@ -114,13 +107,12 @@ public class EmergencyCallHelper {
      * EmergencyCallHelper's handler (thus ensuring that the rest of the sequence is entirely
      * serialized, and runs only on the handler thread.)
      */
-    public void startTurnOnRadioSequence(String emergencyNumber, Callback callback) {
+    public void startTurnOnRadioSequence(Phone phone, Callback callback) {
         Log.d(this, "startTurnOnRadioSequence");
 
         SomeArgs args = SomeArgs.obtain();
-        args.arg1 = callback;
-        mEmergencyNum = emergencyNumber;
-        mPhoneCount = TelephonyManager.getDefault().getPhoneCount();
+        args.arg1 = phone;
+        args.arg2 = callback;
         mHandler.obtainMessage(MSG_START_SEQUENCE, args).sendToTarget();
     }
 
@@ -128,12 +120,15 @@ public class EmergencyCallHelper {
      * Actual implementation of startTurnOnRadioSequence(), guaranteed to run on the handler thread.
      * @see #startTurnOnRadioSequence
      */
-    private void startSequenceInternal(Callback callback) {
+    private void startSequenceInternal(Phone phone, Callback callback) {
         Log.d(this, "startSequenceInternal()");
+
         // First of all, clean up any state left over from a prior emergency call sequence. This
         // ensures that we'll behave sanely if another startTurnOnRadioSequence() comes in while
         // we're already in the middle of the sequence.
         cleanup();
+
+        mPhone = phone;
         mCallback = callback;
 
 
@@ -154,8 +149,8 @@ public class EmergencyCallHelper {
      * Handles the SERVICE_STATE_CHANGED event. Normally this event tells us that the radio has
      * finally come up. In that case, it's now safe to actually place the emergency call.
      */
-    private void onServiceStateChanged(ServiceState state, int phoneId) {
-        Log.d(this, "onServiceStateChanged(), new state = %s phoneId = %d.", state, phoneId);
+    private void onServiceStateChanged(ServiceState state) {
+        Log.d(this, "onServiceStateChanged(), new state = %s.", state);
 
         // Possible service states:
         // - STATE_IN_SERVICE        // Normal operation
@@ -163,23 +158,13 @@ public class EmergencyCallHelper {
         //                           // or no radio signal
         // - STATE_EMERGENCY_ONLY    // Phone is locked; only emergency numbers are allowed
         // - STATE_POWER_OFF         // Radio is explicitly powered off (airplane mode)
-        Phone phone =  PhoneFactory.getPhone(phoneId);
-        if (isOkToCall(state.getState(), phone)) {
+
+        if (isOkToCall(state.getState(), mPhone.getState())) {
             // Woo hoo!  It's OK to actually place the call.
+            Log.d(this, "onServiceStateChanged: ok to call!");
 
-            Log.d(this, "onServiceStateChanged: ok to call! PhoneId:" + phoneId );
-            boolean isEmergencyNum = isEmergencyNumber(phone, mEmergencyNum);
-
-            if (!isEmergencyNum)
-                Log.d(this, "" + mEmergencyNum + " not a emergency number in phoneId: " + phoneId);
-
-            if (PhoneUtils.isDeviceInSingleStandBy() || isEmergencyNum) {
-                onComplete(phone, true);
-                cleanup();
-            } else {
-                Log.d(this, "wait for other Phone to be in service");
-            }
-
+            onComplete(true);
+            cleanup();
         } else {
             // The service state changed, but we're still not ready to call yet. (This probably was
             // the transition from STATE_POWER_OFF to STATE_OUT_OF_SERVICE, which happens
@@ -192,63 +177,52 @@ public class EmergencyCallHelper {
         }
     }
 
-    private boolean isOkToCall(int serviceState, Phone phone) {
+    private boolean isOkToCall(int serviceState, PhoneConstants.State phoneState) {
         // Once we reach either STATE_IN_SERVICE or STATE_EMERGENCY_ONLY, it's finally OK to place
         // the emergency call.
-
-        Call.State callState = phone.getForegroundCall().getState();
-        return ((phone.getState() == PhoneConstants.State.OFFHOOK
-                && callState != Call.State.DIALING)
+        return ((phoneState == PhoneConstants.State.OFFHOOK)
                 || (serviceState == ServiceState.STATE_IN_SERVICE)
-                || (serviceState == ServiceState.STATE_EMERGENCY_ONLY)
-                || phone.getServiceState().isEmergencyOnly());
+                || (serviceState == ServiceState.STATE_EMERGENCY_ONLY)) ||
+
+                // Allow STATE_OUT_OF_SERVICE if we are at the max number of retries.
+                (mNumRetriesSoFar == MAX_NUM_RETRIES &&
+                 serviceState == ServiceState.STATE_OUT_OF_SERVICE);
     }
 
     /**
      * Handles the retry timer expiring.
      */
     private void onRetryTimeout() {
-        Log.d(this, "onRetryTimeout(): retries = %d.", mNumRetriesSoFar);
+        PhoneConstants.State phoneState = mPhone.getState();
+        int serviceState = mPhone.getServiceState().getState();
+        Log.d(this, "onRetryTimeout():  phone state = %s, service state = %d, retries = %d.",
+               phoneState, serviceState, mNumRetriesSoFar);
 
         // - If we're actually in a call, we've succeeded.
         // - Otherwise, if the radio is now on, that means we successfully got out of airplane mode
         //   but somehow didn't get the service state change event.  In that case, try to place the
         //   call.
         // - If the radio is still powered off, try powering it on again.
-        int radioPoweredOnCount = 0;
-        for (int phoneId =0; phoneId < mPhoneCount; phoneId++) {
-            Phone phone = PhoneFactory.getPhone(phoneId);
-            if (phone != null) {
-                Log.d(this, " phoneid " + phoneId +
-                    " state = %s, service state = %d",
-                    phone.getState() , phone.getServiceState().getState());
-                 if ((phone.getServiceState().getState() != ServiceState.STATE_OUT_OF_SERVICE)
-                    && isOkToCall(phone.getServiceState().getState(), phone)) {
-                      Log.d(this, "onRetryTimeout: Phoneid " + phoneId + " Radio is on.");
-                      // Since radio is on, call onServiceStateChanged which will take care
-                      // of placing the call
-                      onServiceStateChanged(phone.getServiceState(), phoneId);
-                      radioPoweredOnCount++;
-                 }
-            }
-        }
 
-        if (radioPoweredOnCount < mPhoneCount) {
-            // Uh oh; we've waited the full TIME_BETWEEN_RETRIES_MILLIS and
-            // the radio is still not powered-on.  Try again.
+        if (isOkToCall(serviceState, phoneState)) {
+            Log.d(this, "onRetryTimeout: Radio is on. Cleaning up.");
+
+            // Woo hoo -- we successfully got out of airplane mode.
+            onComplete(true);
+            cleanup();
+        } else {
+            // Uh oh; we've waited the full TIME_BETWEEN_RETRIES_MILLIS and the radio is still not
+            // powered-on.  Try again.
 
             mNumRetriesSoFar++;
             Log.d(this, "mNumRetriesSoFar is now " + mNumRetriesSoFar);
 
             if (mNumRetriesSoFar > MAX_NUM_RETRIES) {
                 Log.w(this, "Hit MAX_NUM_RETRIES; giving up.");
-                Log.i(this, "get Primary Stack id related phone");
-                onComplete(getPrimaryStackIdPhone(), true);
                 cleanup();
             } else {
                 Log.d(this, "Trying (again) to turn on the radio.");
-                powerOnRadio();  // Again, we'll (hopefully) get an
-                                 // onServiceStateChanged() callback
+                powerOnRadio();  // Again, we'll (hopefully) get an onServiceStateChanged() callback
                                  // when the radio successfully comes up.
                 startRetryTimer();
             }
@@ -289,12 +263,7 @@ public class EmergencyCallHelper {
             // database doesn't think we're in airplane mode.)  In this case just turn the radio
             // back on.
             Log.d(this, "==> (Apparently) not in airplane mode; manually powering radio on.");
-            for (int phoneId =0; phoneId < mPhoneCount; phoneId++) {
-                 Phone phone = PhoneFactory.getPhone(phoneId);
-                 if (phone != null && !phone.isRadioOn()) {
-                     phone.setRadioPower(true);
-                 }
-            }
+            mPhone.setRadioPower(true);
         }
     }
 
@@ -318,9 +287,15 @@ public class EmergencyCallHelper {
     private void cleanup() {
         Log.d(this, "cleanup()");
 
+        // This will send a failure call back if callback has yet to be invoked.  If the callback
+        // was already invoked, it's a no-op.
+        onComplete(false);
+
         unregisterForServiceStateChanged();
         cancelRetryTimer();
 
+        // Used for unregisterForServiceStateChanged() so we null it out here instead.
+        mPhone = null;
         mNumRetriesSoFar = 0;
     }
 
@@ -338,39 +313,22 @@ public class EmergencyCallHelper {
         // because Phone.registerForServiceStateChanged() does not prevent multiple registration of
         // the same handler.)
         unregisterForServiceStateChanged();
-        for (int phoneId =0; phoneId < mPhoneCount; phoneId++) {
-            Phone phone = PhoneFactory.getPhone(phoneId);
-            if (phone != null) {
-                phone.registerForServiceStateChanged(mHandler,
-                        MSG_SERVICE_STATE_CHANGED, phoneId);
-            }
-        }
+        mPhone.registerForServiceStateChanged(mHandler, MSG_SERVICE_STATE_CHANGED, null);
     }
 
     private void unregisterForServiceStateChanged() {
-        // This method is safe to call even if we haven't set phone yet
-        for (int phoneId =0; phoneId < mPhoneCount; phoneId++) {
-            Phone phone = PhoneFactory.getPhone(phoneId);
-            if (phone != null) {
-                phone.unregisterForServiceStateChanged(mHandler);
-            }
-            mHandler.removeMessages(MSG_SERVICE_STATE_CHANGED);
+        // This method is safe to call even if we haven't set mPhone yet.
+        if (mPhone != null) {
+            mPhone.unregisterForServiceStateChanged(mHandler);  // Safe even if unnecessary
         }
+        mHandler.removeMessages(MSG_SERVICE_STATE_CHANGED);  // Clean up any pending messages too
     }
 
-    private void onComplete(Phone phone, boolean isRadioReady) {
+    private void onComplete(boolean isRadioReady) {
         if (mCallback != null) {
             Callback tempCallback = mCallback;
             mCallback = null;
-            tempCallback.onComplete(phone, isRadioReady);
+            tempCallback.onComplete(isRadioReady);
         }
-    }
-
-    private Phone getPrimaryStackIdPhone() {
-        return PhoneFactory.getPhone(PhoneUtils.getPhoneIdForECall());
-    }
-
-    private boolean isEmergencyNumber(Phone phone, String number) {
-        return PhoneNumberUtils.isLocalEmergencyNumber(mContext, phone.getSubId(), number);
     }
 }
