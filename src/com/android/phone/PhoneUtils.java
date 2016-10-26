@@ -1873,7 +1873,7 @@ public class PhoneUtils {
         // isIdle includes checks for the DISCONNECTING/DISCONNECTED state.
         if(!fgCall.isIdle()) {
             for (Connection cn : fgCall.getConnections()) {
-                if (isLocalEmergencyNumber(PhoneGlobals.getInstance(), cn.getAddress())) {
+                if (isLocalEmergencyNumber(cn.getAddress())) {
                     return true;
                 }
             }
@@ -2528,50 +2528,44 @@ public class PhoneUtils {
         return IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
     }
 
-    public static boolean isLocalEmergencyNumber(Context context, String address) {
-        IExtTelephony extTelephony = getIExtTelephony();
-        if (extTelephony == null) {
-            return PhoneNumberUtils.isLocalEmergencyNumber(context, address);
-        }
-
+    public static boolean isLocalEmergencyNumber(String address) {
+        boolean result = false;
         try {
-            return extTelephony.isLocalEmergencyNumber(address);
-        } catch (RemoteException ex) {
+            result = getIExtTelephony().isLocalEmergencyNumber(address);
+        }catch (RemoteException ex) {
             Log.e("TelephonyConnectionService", "Exception: " + ex);
-            return PhoneNumberUtils.isLocalEmergencyNumber(context, address);
+        } catch (NullPointerException ex) {
+            Log.e("TelephonyConnectionService", "Exception: " + ex);
         }
+        return result;
     }
 
-    public static boolean isPotentialLocalEmergencyNumber(Context context, String address) {
-        IExtTelephony extTelephony = getIExtTelephony();
-        if (extTelephony == null) {
-            return PhoneNumberUtils.isPotentialLocalEmergencyNumber(context, address);
-        }
-
+    public static boolean isPotentialLocalEmergencyNumber(String address) {
+        boolean result = false;
         try {
-            return extTelephony.isPotentialLocalEmergencyNumber(address);
-        } catch (RemoteException ex) {
+            result = getIExtTelephony().isPotentialLocalEmergencyNumber(address);
+        }catch (RemoteException ex) {
             Log.e("TelephonyConnectionService", "Exception: " + ex);
-            return PhoneNumberUtils.isPotentialLocalEmergencyNumber(context, address);
+        } catch (NullPointerException ex) {
+            Log.e("TelephonyConnectionService", "Exception: " + ex);
         }
+        return result;
     }
 
     public static boolean isEmergencyNumber(String address) {
-        IExtTelephony extTelephony = getIExtTelephony();
-        if (extTelephony == null) {
-            return PhoneNumberUtils.isEmergencyNumber(address);
-        }
-
+        boolean result = false;
         try {
-            return extTelephony.isEmergencyNumber(address);
-        } catch (RemoteException ex) {
+            result = getIExtTelephony().isEmergencyNumber(address);
+        }catch (RemoteException ex) {
             Log.e("TelephonyConnectionService", "Exception: " + ex);
-            return PhoneNumberUtils.isEmergencyNumber(address);
+        } catch (NullPointerException ex) {
+            Log.e("TelephonyConnectionService", "Exception: " + ex);
         }
+        return result;
     }
 
     public static boolean isDeviceInSingleStandBy() {
-        boolean result = true;
+        boolean result = false;
         try {
             result = getIExtTelephony().isDeviceInSingleStandby();
         } catch (RemoteException ex) {
