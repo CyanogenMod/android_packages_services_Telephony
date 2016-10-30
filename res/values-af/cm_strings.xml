@@ -33,6 +33,7 @@
   <!-- My Phone Number -->
   <string name="phone_number_label">My telefoonnommer</string>
   <string name="phone_number_summary">Stel die telefoonnommer vir hierdie toestel</string>
+  <string name="set_my_number_failed">Kon nie foon nommer stel</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Onvoorwaardelike oproep aanstuuring aktief</string>
@@ -193,4 +194,5 @@
   <string name="choose_network_mode_title">Kies netwerk modus</string>
   <string name="choose_network_mode_system_default">Stelsel standaard</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
+  <string name="unlock_failed_remaining_retries">Ontsluit versoek was onsuksesvol, %1$d kans(e) oor.</string>
 </resources>

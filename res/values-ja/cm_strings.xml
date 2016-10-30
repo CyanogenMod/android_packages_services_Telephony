@@ -29,9 +29,11 @@
   <string name="blacklist_summary">着信拒否リストにある電話番号からの着信やメッセージを受け取らないようにする</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">メッセージ待機インジケータ</string>
+  <string name="mwi_notification_summary">ボイスメール通知のメッセージ待機インジケータを表示する（再起動が必要）</string>
   <!-- My Phone Number -->
   <string name="phone_number_label">自分の電話番号</string>
   <string name="phone_number_summary">この端末の電話番号を設定する</string>
+  <string name="set_my_number_failed">電話番号を設定できませんでした</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">無条件の着信転送が有効です</string>
@@ -189,6 +191,8 @@
   <string name="connected_line_identification_title">接続回線識別</string>
   <string name="connected_line_identification_summary">着信者の番号が通話履歴に表示されない場合はこのオプションを無効にしてください</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">ネットワークモードを選択</string>
+  <string name="choose_network_mode_system_default">システムのデフォルト</string>
   <!-- Error message displayed on SIM Network Depersonalization panel with # of retries remaining -->
   <string name="unlock_failed_remaining_retries">ロック解除リクエストが完了できませんでした、残り%1$d回再試行することができます。</string>
 </resources>
