@@ -16,13 +16,18 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Title displayed SIP settings coming after other call settings in the call features screen. [CHAR LIMIT=NONE] -->
+  <string name="sip_settings">SIP تەڭشەك</string>
   <!-- Title displayed SIP account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="sip_accounts">SIP ھېسابات</string>
   <!-- Title displayed SIP account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="sip_accounts_title">ھېساباتلار</string>
   <!-- Title displayed for the button of receiving incoming SIP calls flag. Enabled for receiving calls. [CHAR LIMIT=NONE] -->
+  <string name="sip_receive_calls">قوبۇللىغان چاقىرىلىشلار</string>
   <!-- Help user to understand that it will require more battery usage if the 'receiving incoming call' is enabled. [CHAR LIMIT=NONE] -->
   <!-- Title for the dialog of selecting the way we handle an outgoing call. [CHAR LIMIT=NONE] -->
   <!-- Title for the dialog of selecting the way we handle an outgoing call (Wi-Fi only). [CHAR LIMIT=NONE] -->
   <!-- Item of the SIP call option dialog: for routing all outgoing calls via SIP. [CHAR LIMIT=NONE] -->
+  <string name="sip_call_options_entry_1">سانلىق مەلۇمات تورى ئۇلانغاندا ھەممە سۆزلىشىشكە ئىشلىتىلىدۇ</string>
   <!-- Item of the SIP call option dialog: for routing a outgoing call via SIP if the destination is a SIP URI. [CHAR LIMIT=NONE] -->
   <!-- Item of the SIP call (Wi-Fi only) option dialog: for routing all outgoing calls via SIP. [CHAR LIMIT=NONE] -->
   <!-- Title for the button to add a new sip account. [CHAR LIMIT=NONE] -->
@@ -70,7 +75,6 @@
   <!-- Hint to show the advanced settings section. [CHAR LIMIT=NONE] -->
   <!-- Hint to hide the advanced settings section. [CHAR LIMIT=NONE] -->
   <!-- Text in an alert dialog telling the user that all input fields can not be left blank. [CHAR LIMIT=NONE] -->
-  <string name="all_empty_alert">Unesite detalje novog SIP računa.</string>
   <!-- Text in an alert dialog telling the user that some input field (name of which is also part of the strings being translated above) is required and can not be left blank. [CHAR LIMIT=NONE] -->
   <!-- Showing that port number is out of range in an alert dialog. [CHAR LIMIT=NONE] -->
   <!-- Message of the alert dialog to notify user that there is no Internet connectivity. [CHAR LIMIT=NONE] -->

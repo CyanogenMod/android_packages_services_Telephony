@@ -32,6 +32,7 @@
   <!-- Toast message to indicate that the system is removing the account. [CHAR LIMIT=NONE] -->
   <!-- Menu item when the menu button is pressed in the sip account editor. [CHAR LIMIT=NONE] -->
   <!-- Menu item when the menu button is pressed in the sip account editor. [CHAR LIMIT=NONE] -->
+  <string name="sip_menu_discard">Адхіліць</string>
   <!-- Title of the alert dialog. [CHAR LIMIT=NONE] -->
   <!-- Title of the button to show in a alert dialog. [CHAR LIMIT=NONE] -->
   <!-- Title of the button to show in a alert dialog. [CHAR LIMIT=NONE] -->
@@ -70,7 +71,6 @@
   <!-- Hint to show the advanced settings section. [CHAR LIMIT=NONE] -->
   <!-- Hint to hide the advanced settings section. [CHAR LIMIT=NONE] -->
   <!-- Text in an alert dialog telling the user that all input fields can not be left blank. [CHAR LIMIT=NONE] -->
-  <string name="all_empty_alert">Unesite detalje novog SIP računa.</string>
   <!-- Text in an alert dialog telling the user that some input field (name of which is also part of the strings being translated above) is required and can not be left blank. [CHAR LIMIT=NONE] -->
   <!-- Showing that port number is out of range in an alert dialog. [CHAR LIMIT=NONE] -->
   <!-- Message of the alert dialog to notify user that there is no Internet connectivity. [CHAR LIMIT=NONE] -->

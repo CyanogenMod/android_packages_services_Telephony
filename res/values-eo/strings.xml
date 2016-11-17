@@ -23,9 +23,11 @@
          and other settings UIs. -->
   <!-- Screen title for Emergency Dialer UI -->
   <!-- Activity label for the in-call UI -->
+  <string name="phoneIconLabel">Telefono</string>
   <!-- Title of FDN list screen -->
   <!-- Call status -->
   <!-- Incoming call screen, name of "unknown" caller -->
+  <string name="unknown">Nekonata</string>
   <!-- Incoming call screen, string when number hidden -->
   <!-- Incoming call screen, string when called from a pay phone -->
   <!-- In-call screen: status label for a call that's on hold -->
@@ -33,6 +35,7 @@
   <!-- Dialog label when a USSD code starts running -->
   <!-- Dialog label when an MMI code is canceled -->
   <!-- Label for "cancel" button on the MMI dialog -->
+  <string name="cancel">Nuligi</string>
   <!-- Toast string displayed to user if the input in MMI dialog is < 1 or > 160 -->
   <!-- Label for "Manage conference call" panel [CHAR LIMIT=40] -->
   <!-- Positive button label ("OK") used in several dialogs in the phone UI [CHAR LIMIT=10] -->
@@ -48,8 +51,11 @@
          the "PAUSE" character in a phone number to be dialed; this dialog gives
          informative message to the user to show the sending numbers following the "Pause". -->
   <!-- In-call screen: button label on the "wait" prompt dialog -->
+  <string name="send_button">Sendi</string>
   <!-- In-call screen: button label on the "wait" prompt dialog in CDMA Mode-->
+  <string name="pause_prompt_yes">Jes</string>
   <!-- In-call screen: button label on the "wait" prompt dialog in CDMA Mode-->
+  <string name="pause_prompt_no">Ne</string>
   <!-- In-call screen: on the "wild" character dialog, this is the label
          for a text widget that lets the user enter the digits that should
          replace the "wild" character. -->
@@ -57,6 +63,7 @@
   <!-- Title of the "Missing voicemail number" dialog -->
   <!-- Body text of the "Missing voicemail number" dialog -->
   <!-- Button label on the "Missing voicemail number" dialog -->
+  <string name="add_vm_number_str">Aldoni numeron</string>
   <!--Toast in Call settings when asked to launch voicemail for a guest user -->
   <!-- Status message displayed on SIM PIN unlock panel -->
   <!-- network depersonalization -->
@@ -81,9 +88,9 @@
   <!-- Label for list item which opens a dialog to select the default outgoing account for SIP calls. -->
   <!-- Entry in dialog to "ask first" for accounts when making a call -->
   <!-- Account label for when a SIM account has no service (i.e. airplane mode) -->
-  <string name="phone_accounts_default_account_label">Nema dostupnih mreža</string>
   <!-- Label for heading of the per-account settings section in the phone accounts settings
          screen. -->
+  <string name="phone_accounts_settings_header">Agordoj</string>
   <!-- Label for invoking phone account selection screen -->
   <!-- Label for heading in the phone account selection screen -->
   <!-- Title for the button to add a new sip account. [CHAR LIMIT=NONE] -->
@@ -141,7 +148,6 @@
   <!-- Error message displayed after failing to disable forwarding calls when the phone is unreachable -->
   <!-- Title of the progress dialog displayed while updating Call settings -->
   <!-- Toast in Call settings when asked to launch settings for a secondary user -->
-  <string name="call_settings_admin_user_only">Postavke poziva može promijeniti samo administrator.</string>
   <!-- Title of the "Call settings" settings screen, with a text label identifying which SIM the settings are for. -->
   <!-- Title of the alert dialog displayed if an error occurs while updating Call settings -->
   <!-- Toast in Call settings dialog while settings are being read -->
@@ -172,27 +178,21 @@
   <!-- Hint for the old PIN field in the change vociemail PIN dialog -->
   <!-- Hint for the new PIN field in the change vociemail PIN dialog -->
   <!-- Message on the dialog when PIN changing is in progress -->
-  <string name="vm_change_pin_progress_message">Pričekajte.</string>
   <!-- Error message for the voicemail PIN change if the PIN is too short -->
-  <string name="vm_change_pin_error_too_short">Novi PIN je prekratak.</string>
   <!-- Error message for the voicemail PIN change if the PIN is too long -->
-  <string name="vm_change_pin_error_too_long">Novi PIN je predug.</string>
   <!-- Error message for the voicemail PIN change if the PIN is too weak -->
-  <string name="vm_change_pin_error_too_weak">Novi PIN je preslab. Jaka lozinka ne smije sadržavati uzastopni niz ili ponovljene cifre.</string>
   <!-- Error message for the voicemail PIN change if the old PIN entered doesn't match  -->
-  <string name="vm_change_pin_error_mismatch">Stari PIN se ne podudara.</string>
   <!-- Error message for the voicemail PIN change if the new PIN contains invalid character -->
-  <string name="vm_change_pin_error_invalid">Novi PIN sadrži nevažeće znakove.</string>
   <!-- Error message for the voicemail PIN change if operation has failed -->
-  <string name="vm_change_pin_error_system_error">Nije moguće promijeniti PIN</string>
   <!-- Message to replace the transcription if a visual voicemail message is not supported-->
-  <string name="vvm_unsupported_message_format">Nepodržana vrsta poruke. Pozovite <xliff:g id="NUMBER">%s</xliff:g> da je preslušate.</string>
   <!-- networks setting strings -->
   <!-- Mobile network settings screen title -->
   <!-- Available networks screen title/heading -->
   <!-- Mobile network settings screen, toast when searching for available networks -->
+  <string name="load_networks_progress">Ŝerĉado\u2026</string>
   <!-- Available networks screen, text when no networks are found -->
   <!-- Available networks screen, setting option name -->
+  <string name="search_networks">Serĉi retojn</string>
   <!-- Available networks screen, toast when an error is encountered when searching for networks -->
   <!-- Available networks screen, toast when registering on a specific network -->
   <!-- Available networks screen, toast when SIM card isn't allowed on a network -->
@@ -231,39 +231,12 @@
   <!-- In-call screen: call failure reason (call denied because call barring
             is ON on MT side ) -->
   <!-- In-call screen: status label for an incoming call that is not answered and forwarded  -->
-  <string-array name="preferred_network_mode_choices">
-    <item>LTE / WCDMA</item>
-    <item>LTE</item>
-    <item>Globalno</item>
-    <item>GSM/WCDMA/LTE</item>
-    <item>CDMA + LTE/EvDo</item>
-    <item>CDMA/EvDo/GSM/WCDMA</item>
-    <item>Samo EvDo</item>
-    <item>CDMA w/o EvDo</item>
-    <item>CDMA / EVDO automatski</item>
-    <item>Automatski GSM/WCDMA</item>
-    <item>LTE / WCDMA</item>
-    <item>LTE</item>
-    <item>Global</item>
-    <item>GSM/WCDMA/LTE</item>
-    <item>CDMA + LTE/EvDo</item>
-    <item>CDMA/EvDo/GSM/WCDMA</item>
-    <item>EvDo only</item>
-    <item>CDMA w/o EvDo</item>
-    <item>CDMA/EvDo auto</item>
-    <item>GSM/WCDMA auto</item>
-    <item>WCDMA only</item>
-    <item>GSM only</item>
-    <item>GSM/WCDMA preferred</item>
-  </string-array>
   <!-- Cellular network 4G title [CHAR LIMIT=30] -->
   <!-- Carrier variant of Enhaced 4G LTE Mode title.  [CHAR LIMIT=50] -->
-  <string name="enhanced_4g_lte_mode_title_variant">Napredno pozivanje</string>
   <!-- Cellular network 4G summary [CHAR LIMIT=80] -->
   <!-- Mobile network settings screen, data enabling checkbox name -->
   <!-- Mobile network settings screen, setting summary text when check box is not selected (explains what selecting it would do) [CHAR LIMITS=40] -->
   <!-- Mobile network settings screen, title for alert dialog -->
-  <string name="dialog_alert_title">Pažnja</string>
   <!-- Mobile network settings screen, setting check box name -->
   <!-- Mobile network settings screen, setting summary text when check box is selected -->
   <!-- Mobile network settings screen, setting summary text when check box is clear -->
@@ -278,6 +251,26 @@
   <!-- Data usage settings screen option for time frame-->
   <!-- Data usage settings screen option for throttling rate-->
   <!-- Data usage settings screen option for accessing the carrier website-->
+  <string name="list_language_title">Lingvo</string>
+  <string-array name="list_language_entries">
+    <item>Angla</item>
+    <item>Franca</item>
+    <item>Hispana</item>
+    <item>Japana</item>
+    <item>Korea</item>
+    <item>Ĉina</item>
+    <item>Hebrea</item>
+  </string-array>
+  <string-array name="list_language_values">
+    <item>"1"</item>
+    <item>"2"</item>
+    <item>"3"</item>
+    <item>"4"</item>
+    <item>"5"</item>
+    <item>"6"</item>
+    <item>"7"</item>
+  </string-array>
+  <string name="list_language_dtitle">Lingvoj</string>
   <!-- CDMA System select strings -->
   <!-- Mobile network settings screen, setting option name -->
   <!-- Mobile network settings screen, setting summary text -->
@@ -307,13 +300,18 @@
   <!-- Voice privacy on CDMA is an added layer of voice encryption. Theoretically, it would be harder to break in to a phone call with this feature enabled. -->
   <!-- TTY Mode change is NOT allowed during a video call -->
   <!-- FDN list screen: menu item label -->
+  <string name="menu_add">Aldoni kontakton</string>
   <!-- FDN list screen: menu item label -->
+  <string name="menu_edit">Redakti kontakton</string>
   <!-- FDN list screen: menu item label -->
+  <string name="menu_delete">Forigi kontakton</string>
   <!-- FDN related strings -->
   <!-- Label for PIN2 entry screen -->
   <!-- "Edit FDN Contact" screen: Label for the "name" text field -->
+  <string name="name">Nomo</string>
   <!-- "Edit FDN Contact" screen: Label for the "number" text field -->
   <!-- "Edit FDN Contact" screen: Button label for "save" action -->
+  <string name="save">Konservi</string>
   <!-- Title of "Edit FDN Contact" screen for a new contact -->
   <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
   <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
@@ -325,7 +323,6 @@
   <!-- "Delete FDN Contact" screen: status message displayed in a popup (toast) -->
   <!-- FDN settings: error message displayed in a popup (toast) -->
   <!-- FDN settings: error message displayed in a popup (toast) -->
-  <string name="fdn_invalid_number">FDN nije ažuriran jer broj ne može imati više od 20 cifara.</string>
   <!-- FDN settings: error message displayed in a popup (toast), when the entered
          FDN number was inappropriate, OR, PIN2 the user entered was incorrect.
          Because of API restriction, there's no way to determine which is the exact
@@ -408,9 +405,7 @@
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog -->
-  <string name="incall_error_call_failed">Poziv nije uspio.</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
-  <string name="incall_error_cannot_add_call">Trenutno nije moguće dodati poziv.</string>
   <!-- In-call screen: status message displayed in a dialog when starting an MMI -->
   <!-- In-call screen: message displayed in an error dialog -->
   <!-- In-call screen: message displayed in an error dialog -->
@@ -420,15 +415,12 @@
   <!-- In-call screen: message displayed in an error dialog -->
   <!-- In-call screen: message displayed in an error dialog -->
   <!-- In-call screen: message displayed in an error dialog -->
-  <string name="incall_error_supp_service_hold">Nije moguće staviti pozive na čekanje.</string>
   <!-- In-call screen: call failure message displayed in an error dialog when WFC is enabled, is wifi-only, and not connected to a wireless network. [CHAR_LIMIT=NONE] -->
   <!-- In-call screen: call failure message displayed in an error dialog when the user is connected to a wireless network, but wifi calling is turned off. [CHAR_LIMIT=NONE] -->
-  <string name="incall_error_promote_wfc">Omogućite Wi-Fi pozivanje da uputite poziv.</string>
   <!-- Dialog title for the "radio enable" UI for emergency calls -->
   <!-- Status message for the "radio enable" UI for emergency calls -->
   <!-- Status message for the "radio enable" UI for emergency calls -->
   <!-- Toast message shown when user tries to turn on airplane mode while in an emergency call -->
-  <string name="radio_off_during_emergency_call">Nije moguće aktivirati način rada u avionu tokom hitnog poziva.</string>
   <!-- Dialer text on Emergency Dialer -->
   <!-- Emergency dialer: message displayed in an error dialog -->
   <!-- Emergency dialer: message displayed in an error dialog -->
@@ -448,13 +440,12 @@
   <!-- Text for the onscreen "Video call" button used to change a voice call
          to a video call. [CHAR LIMIT=10] -->
   <!-- Menu item label in SIM Contacts: Import a single contact entry from the SIM card -->
+  <string name="importSimEntry">Enporti</string>
   <!-- Menu item label in SIM Contacts: Import all contact entries from the SIM card -->
   <!-- SIM Contacts: status message displayed while importing card -->
   <!-- Import a single contact entry from contacts to the SIM card -->
   <!-- Message shown when a single contact is imported from SIM card -->
-  <string name="singleContactImportedMsg">Kontakt je uvezen</string>
   <!-- Message shown when a single contact could not be imported from SIM card -->
-  <string name="failedToImportSingleContactMsg">Uvoz kontakta nije uspio</string>
   <!-- Hearing aid settings -->
   <!-- Service option entries.  -->
   <!-- Do not translate. -->
@@ -488,6 +479,7 @@
   <!-- String to display within the OTA SPC Fail Notice dialog -->
   <!-- Button label in OTA listen screen that cancels activation and goes to the previous screen -->
   <!-- Button label shown on OTA error screen to allow the user to try again -->
+  <string name="ota_try_again">Reprovi</string>
   <!-- Button label shown on OTA screens that have a next screen -->
   <!-- Emergency Callback Mode (ECM) -->
   <!-- ECM: Status bar notification message -->
@@ -498,6 +490,7 @@
   <!-- ECM: Dialog box message while in emergency call -->
   <!-- ECM: Progress text -->
   <!-- ECM: ECM exit dialog choice -->
+  <string name="alert_dialog_yes">Jes</string>
   <!-- ECM: ECM exit dialog choice -->
   <!-- ECM: ECM exit dialog choice -->
   <!-- For incoming calls, this is a string we can get from a CDMA network instead of
@@ -513,6 +506,7 @@
   <!-- Use this as a default to describe the contact photo; currently for screen readers through accessibility. -->
   <!-- Use this to describe the separate conference call button; currently for screen readers through accessibility. -->
   <!--  Use this to describe the select contact button in EditPhoneNumberPreference; currently for screen readers through accessibility. -->
+  <string name="selectContact">elekti kontakton</string>
   <!-- Dialog title to notify user that Voice calling is not supported
          on this device. [CHAR LIMIT=40] -->
   <!-- String describing the Dial ImageButton
@@ -524,9 +518,7 @@
   <!-- Dialog title for the vibration settings for voice mail notifications [CHAR LIMIT=40]-->
   <!-- Visual voicemail on/off title [CHAR LIMIT=40] -->
   <!-- Voicemail change PIN dialog title [CHAR LIMIT=40] -->
-  <string name="voicemail_set_pin_dialog_title">Postavljanje PIN-a</string>
   <!-- Voicemail change PIN dialog title [CHAR LIMIT=40] -->
-  <string name="voicemail_change_pin_dialog_title">Promijeni PIN</string>
   <!-- Voicemail ringtone title. The user clicks on this preference to select
          which sound to play when a voicemail notification is received.
          [CHAR LIMIT=30] -->
@@ -544,13 +536,13 @@
   <!-- Label for action button in dialog which opens mobile network settings, for video calling
          setting. -->
   <!-- Label for close button in dialog, for video calling setting. -->
+  <string name="enable_video_calling_dialog_close">Fermi</string>
   <!-- Strings used in Settings->Sim cards for each installed Sim. -->
   <!-- Title for activity to control accessibility settings such as TTY mode and hearing aid
          compatability. [CHAR LIMIT=40] -->
   <!-- Configuration setting for world mode Format is <true;GID if any to be checked>-->
   <!-- Status hint label for an incoming call over a wifi network which has not been accepted yet.
          [CHAR LIMIT=25] -->
-  <string name="status_hint_label_incoming_wifi_call">Dolazni Wi-Fi poziv</string>
   <!-- Status hint label for a call being made over a wifi network. [CHAR LIMIT=25] -->
   <!-- DO NOT TRANSLATE. Internal key for a voicemail notification preference. -->
   <!-- DO NOT TRANSLATE. Internal key for a voicemail notification preference. -->
@@ -558,35 +550,24 @@
   <!-- DO NOT TRANSLATE. Internal key for a voicemail change pin preference. -->
   <!-- DO NOT TRANSLATE. Internal key for tty mode preference. -->
   <!-- DO NOT TRANSLATE. Internal key for a voicemail notification preference. -->
+  <string name="wifi_calling_settings_key">button_wifi_calling_settings_key</string>
   <!-- Hint appearing below a selected action on the emergency dialer telling user to tap again to execute the action [CHAR LIMIT=NONE] -->
-  <string name="emergency_action_launch_hint">Dodirnite ponovo da otvorite</string>
   <!-- Strings for IMAP -->
   <!-- String used in place of a message that could not be properly decoded (e.g. bad base64
        data was received.) [CHAR LIMIT=none] -->
   <!-- Call failure reason: SIM card and roaming capabilities have already been activated. [CHAR LIMIT=NONE]-->
   <!-- Call failure reason: Cannot add a call because there are already too many active calls. -->
-  <string name="callFailed_cdma_call_limit">Previše aktivnih poziva. Prekinite ili spojite postojeće pozive prije upućivanja novog poziva.</string>
   <!-- The title for the change voicemail PIN activity -->
-  <string name="change_pin_title">Promijeni PIN govorne pošte</string>
   <!-- The label for the continue button in change voicemail PIN activity -->
-  <string name="change_pin_continue_label">Nastavi</string>
   <!-- The label for the cancel button in change voicemail PIN activity -->
+  <string name="change_pin_cancel_label">Nuligi</string>
   <!-- The label for the ok button in change voicemail PIN activity -->
-  <string name="change_pin_ok_label">Uredu</string>
   <!-- The title for the enter old pin step in change voicemail PIN activity -->
-  <string name="change_pin_enter_old_pin_header">Potvrdite stari PIN</string>
   <!-- The hint for the enter old pin step in change voicemail PIN activity -->
-  <string name="change_pin_enter_old_pin_hint">Za nastavak unesite PIN govorne pošte.</string>
   <!-- The title for the enter new pin step in change voicemail PIN activity -->
-  <string name="change_pin_enter_new_pin_header">Postavite novi PIN</string>
   <!-- The hint for the enter new pin step in change voicemail PIN activity -->
-  <string name="change_pin_enter_new_pin_hint">PIN mora imati između <xliff:g id="MIN">%1$d</xliff:g> i <xliff:g id="MAX">%2$d</xliff:g> cifri.</string>
   <!-- The title for the confirm new pin step in change voicemail PIN activity -->
-  <string name="change_pin_confirm_pin_header">Potvrdite PIN</string>
   <!-- The error message for th confirm new pin step in change voicemail PIN activity, if the pin doen't match the one previously entered -->
-  <string name="change_pin_confirm_pins_dont_match">PIN-ovi se ne podudaraju</string>
   <!-- The toast to show after the voicemail PIN has been successfully changed -->
-  <string name="change_pin_succeeded">PIN govorne pošte je ažuriran</string>
   <!-- The error message to show if the server reported an error while attempting to change the voicemail PIN -->
-  <string name="change_pin_system_error">Nije moguće postaviti PIN</string>
 </resources>

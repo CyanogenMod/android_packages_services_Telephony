@@ -34,93 +34,90 @@
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ENTRY">SIM 卡网络子集解锁 PIN</string>
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ENTRY">PIN para desbloquear subconjunto de rede SIM</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_CORPORATE_ENTRY">SIM 企业解锁 PIN</string>
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_ENTRY">PIN para desbloquear o SIM corporativo</string>
   <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_ENTRY">SIM 卡服务提供商解锁 PIN</string>
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_ENTRY">PIN para desbloquear fornecedor de serviço SIM</string>
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_SIM_ENTRY">SIM 卡的解锁 PIN 码</string>
+  <string name="PERSOSUBSTATE_SIM_SIM_ENTRY">PIN para desbloquear SIM</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_CORPORATE_ENTRY">RUIM 企业解锁 PIN</string>
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_ENTRY">PIN para desbloquear o RUIM corporativo</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_ENTRY">RUIM 服务提供商解锁 PIN</string>
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_ENTRY">PIN para desbloquear fornecedor de serviço RUIM</string>
   <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_RUIM_ENTRY">RUIM 解锁 PIN 码</string>
+  <string name="PERSOSUBSTATE_RUIM_RUIM_ENTRY">PIN para desbloquear RUIM</string>
   <!-- Label text for PUK entry widget on Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_ENTRY">输入 PUK 码</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_ENTRY">Introduzir PUK</string>
   <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_IN_PROGRESS">正在请求 SIM 卡网络子集解锁\u2026</string>
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_IN_PROGRESS">A solicitar o desbolqueio de subconjunto de rede SIM\u2026</string>
   <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_IN_PROGRESS">正在请求 SIM 卡服务提供商解锁\u2026</string>
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_IN_PROGRESS">A solicitar o desbloqueio do fornecedor de serviço SIM\u2026</string>
   <!-- Status message displayed on SIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_CORPORATE_IN_PROGRESS">正在请求 SIM 卡企业解锁\u2026</string>
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_IN_PROGRESS">A solicitar o desbloqueio  do SIM corporativo\u2026</string>
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_SIM_IN_PROGRESS">正在请求 SIM 解锁\u2026</string>
+  <string name="PERSOSUBSTATE_SIM_SIM_IN_PROGRESS">A solicitar o desbloqueio do SIM\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_IN_PROGRESS">正在请求 RUIM 服务提供商解锁\u2026</string>
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_IN_PROGRESS">A solicitar o desbloqueio do fornecedor de serviço RUIM\u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_CORPORATE_IN_PROGRESS">正在请求 RUIM 企业解锁\u2026</string>
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_IN_PROGRESS">A solicitar o desbloqueio do RUIM corporativo\u2026</string>
   <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_RUIM_IN_PROGRESS">正在请求 RUIM 解锁\u2026</string>
+  <string name="PERSOSUBSTATE_RUIM_RUIM_IN_PROGRESS">A solicitar o desbloqueio RUIM\u2026</string>
   <!-- Status message displayed on PUK Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_IN_PROGRESS">正在请求 PUK 解锁\u2026</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_IN_PROGRESS">A solicitar o desbloqueio PUK\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_SIM_ERROR">SIM 卡解锁请求不成功。</string>
+  <string name="PERSOSUBSTATE_SIM_SIM_ERROR">Pedido de desbloqueio do SIM sem sucesso.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">RUIM 解锁请求不成功。</string>
+  <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Pedido de desbloqueio do RUIM sem sucesso.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_NETWORK_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_SIM_CORPORATE_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_SIM_SIM_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_HRPD_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">PUK 码解锁不成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">PUK 码解锁不成功。</string>
+  <string name="PERSOSUBSTATE_SIM_NETWORK_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_SIM_SIM_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_HRPD_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Desbloqueio do PUK sem sucesso.</string>
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_SIM_SUCCESS">SIM 卡解锁成功。</string>
+  <string name="PERSOSUBSTATE_SIM_SIM_SUCCESS">Desbloqueio do SIM com sucesso.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_RUIM_SUCCESS">RUIM 解锁成功。</string>
+  <string name="PERSOSUBSTATE_RUIM_RUIM_SUCCESS">Desbloqueio do RUIM com sucesso.</string>
   <!-- Success message displayed on PUK Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_NETWORK_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_SIM_CORPORATE_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_SIM_SIM_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_HRPD_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK_SUCCESS">PUK 码解锁成功。</string>
-  <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_SUCCESS">PUK 码解锁成功。</string>
+  <string name="PERSOSUBSTATE_SIM_NETWORK_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_SIM_SIM_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_HRPD_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
+  <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_SUCCESS">Desbloqueio do PUK com sucesso.</string>
   <!-- Mobile network settings, summary for preferred network mode 4G/3G/2G [CHAR LIMIT=100] -->
-  <string name="cf_setting_mobile_data_alert">请开启手机数据连接，并确保WLAN已关闭</string>
-  <string name="no_mobile_data">移动数据连接不可用</string>
-  <string name="no_mobile_data_roaming">数据漫游不可用</string>
 </resources>

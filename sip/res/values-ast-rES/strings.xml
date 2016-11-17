@@ -16,69 +16,128 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Title displayed SIP settings coming after other call settings in the call features screen. [CHAR LIMIT=NONE] -->
+  <string name="sip_settings">Axustes de IP</string>
   <!-- Title displayed SIP account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="sip_accounts">Cuentes SIP</string>
   <!-- Title displayed SIP account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="sip_accounts_title">Cuentes</string>
   <!-- Title displayed for the button of receiving incoming SIP calls flag. Enabled for receiving calls. [CHAR LIMIT=NONE] -->
+  <string name="sip_receive_calls">Recibir llamaes</string>
   <!-- Help user to understand that it will require more battery usage if the 'receiving incoming call' is enabled. [CHAR LIMIT=NONE] -->
+  <string name="sip_receive_calls_summary">Usa más batería</string>
   <!-- Title for the dialog of selecting the way we handle an outgoing call. [CHAR LIMIT=NONE] -->
+  <string name="sip_call_options_title">Usar llamaes SIP</string>
   <!-- Title for the dialog of selecting the way we handle an outgoing call (Wi-Fi only). [CHAR LIMIT=NONE] -->
+  <string name="sip_call_options_wifi_only_title">Usar llamaes SIP (namái Wi-Fi)</string>
   <!-- Item of the SIP call option dialog: for routing all outgoing calls via SIP. [CHAR LIMIT=NONE] -->
+  <string name="sip_call_options_entry_1">Pa toles llamaes cuando heba redes de datos disponibles</string>
   <!-- Item of the SIP call option dialog: for routing a outgoing call via SIP if the destination is a SIP URI. [CHAR LIMIT=NONE] -->
+  <string name="sip_call_options_entry_2">Namái pa llamaes SIP</string>
   <!-- Item of the SIP call (Wi-Fi only) option dialog: for routing all outgoing calls via SIP. [CHAR LIMIT=NONE] -->
+  <string name="sip_call_options_wifi_only_entry_1">En toles llamaes</string>
   <!-- Title for the button to add a new sip account. [CHAR LIMIT=NONE] -->
+  <string name="add_sip_account">Amestar cuenta</string>
   <!-- Title for the button to remove a sip account. [CHAR LIMIT=NONE] -->
+  <string name="remove_sip_account">Desaniciar cuenta</string>
   <!-- String of the category which lists all sip accounts. [CHAR LIMIT=NONE] -->
+  <string name="sip_account_list">Cuentes SIP</string>
   <!-- Toast message to indicate that the system is saving the account. [CHAR LIMIT=NONE] -->
+  <string name="saving_account">Guardando la cuenta\u2026</string>
   <!-- Toast message to indicate that the system is removing the account. [CHAR LIMIT=NONE] -->
+  <string name="removing_account">Desaniciando la cuenta\u2026</string>
   <!-- Menu item when the menu button is pressed in the sip account editor. [CHAR LIMIT=NONE] -->
+  <string name="sip_menu_save">Guardar</string>
   <!-- Menu item when the menu button is pressed in the sip account editor. [CHAR LIMIT=NONE] -->
+  <string name="sip_menu_discard">Descartar</string>
   <!-- Title of the alert dialog. [CHAR LIMIT=NONE] -->
+  <string name="alert_dialog_close">Zarrar el perfil</string>
   <!-- Title of the button to show in a alert dialog. [CHAR LIMIT=NONE] -->
+  <string name="alert_dialog_ok">Aceutar</string>
   <!-- Title of the button to show in a alert dialog. [CHAR LIMIT=NONE] -->
+  <string name="close_profile">Zarrar</string>
   <!-- Text of SIP-call registration status, checking current registration status with SIP service [CHAR LIMIT=NONE] -->
+  <string name="registration_status_checking_status">Comprobando estáu...</string>
   <!-- Text of SIP-call registration status, registering with SIP server in order to receive calls on this account [CHAR LIMIT=NONE] -->
+  <string name="registration_status_registering">Rexistrando\u2026</string>
   <!-- Text of SIP-call registration status, still trying to register with SIP server [CHAR LIMIT=NONE] -->
+  <string name="registration_status_still_trying">Siguimos intentándolo\u2026</string>
   <!-- Text of SIP-call registration status, currently not receiving calls on this account [CHAR LIMIT=NONE] -->
+  <string name="registration_status_not_receiving">Ensin recepción de llamaes.</string>
   <!-- Text of SIP-call registration status, no data connection [CHAR LIMIT=NONE] -->
+  <string name="registration_status_no_data">Detúvose\'l rexistru de cuenta porque nun hai conexón a Internet.</string>
   <!-- Text of SIP-call registration status, no Wi-Fi connection [CHAR LIMIT=NONE] -->
+  <string name="registration_status_no_wifi_data">Detúvose\'l rexistru de cuenta porque nun hai conexón Wi-Fi.</string>
   <!-- Text of SIP-call registration status, registration process is not running due to some error [CHAR LIMIT=NONE] -->
+  <string name="registration_status_not_running">Rexistru de cuenta incorreutu.</string>
   <!-- Text of SIP-call registration status, currently we can receive calls on this account [CHAR LIMIT=NONE] -->
+  <string name="registration_status_done">Recibiendo llamaes.</string>
   <!-- Text of SIP-call registration status, registration failed with a reason; will try again later [CHAR LIMIT=NONE] -->
+  <string name="registration_status_failed_try_later">Fallu al rexistrar la cuenta: (<xliff:g id="REGISTRATION_ERROR_MESSAGE">%s</xliff:g>); inténtalo de nueves más tarde</string>
   <!-- Text of SIP-call registration status, registration failed due to invalid credentials [CHAR LIMIT=NONE] -->
+  <string name="registration_status_invalid_credentials">Rexistru de cuenta incorreutu: nome d\'usuariu o contraseña incorreutos.</string>
   <!-- Text of SIP-call registration status, registration failed due to unknown host exception [CHAR LIMIT=NONE] -->
+  <string name="registration_status_server_unreachable">Fallu al rexistrar la cuenta: comprueba\'l nome del sirvidor.</string>
   <!-- Text for describing the account's owner and status. For example, 'Active, in use by Google Talk', it means that the account managed by SIP service was registered by the application 'Google Talk' and the status is active. [CHAR LIMIT=NONE] -->
+  <string name="third_party_account_summary">L\'aplicación <xliff:g id="ACCOUNT_OWNER">%s</xliff:g> ta usando esta cuenta nesti momentu.</string>
   <!-- Title of the sip editor screen. [CHAR LIMIT=NONE] -->
+  <string name="sip_edit_title">Detalles de cuenta SIP</string>
   <!-- Title of the sip editor screen. [CHAR LIMIT=NONE] -->
+  <string name="sip_edit_new_title">Detalles de cuenta SIP</string>
   <!-- Text of the domain address preference. [CHAR LIMIT=NONE] -->
+  <string name="domain_address_title">Sirvidor</string>
   <!-- Text of the username preference. [CHAR LIMIT=NONE] -->
+  <string name="username_title">Nome d\'usuariu</string>
   <!-- Text of the password preference. [CHAR LIMIT=NONE] -->
+  <string name="password_title">Contraseña</string>
   <!-- Text of the display name preference. [CHAR LIMIT=NONE] -->
+  <string name="display_name_title">Amosar nome</string>
   <!-- Text of the outbound proxy address preference. [CHAR LIMIT=NONE] -->
+  <string name="proxy_address_title">Direición proxy saliente</string>
   <!-- Text of the sip server/proxy port number. [CHAR LIMIT=NONE] -->
+  <string name="port_title">Númberu de puertu</string>
   <!-- Text of the transport type preference. [CHAR LIMIT=NONE] -->
+  <string name="transport_title">Triba de tresporte</string>
   <!-- Text of the keepalive preference. [CHAR LIMIT=NONE] -->
+  <string name="send_keepalive_title">Unviar señal conexón</string>
   <!-- Text of the advanced settings section. [CHAR LIMIT=NONE] -->
+  <string name="advanced_settings">Axustes opcionales</string>
   <!-- Text of the username used in authentication. [CHAR LIMIT=NONE] -->
+  <string name="auth_username_title">Nome d\'usuariu d\'autenticación</string>
   <!-- Help text of the auth_username field. [CHAR LIMIT=NONE] -->
+  <string name="auth_username_summary">Nome d\'usuariu usáu pa l\'autenticación</string>
   <!-- Initial status of the username preference is '<Not set>'. [CHAR LIMIT=NONE] -->
+  <string name="default_preference_summary_username">&lt;Non definíu&gt;</string>
   <!-- Initial status of the password preference is '<Not set>'. [CHAR LIMIT=NONE] -->
+  <string name="default_preference_summary_password">&lt;Non definíu&gt;</string>
   <!-- Initial status of the domain address preference is '<Not set>'. [CHAR LIMIT=NONE] -->
+  <string name="default_preference_summary_domain_address">&lt;Non definíu&gt;</string>
   <!-- Default value for the display-name preference summary. [CHAR LIMIT=NONE] -->
+  <string name="display_name_summary">&lt;Igual que\'l nome d\'usuariu&gt;</string>
   <!-- Default value for the outbound-proxy-address preference summary. [CHAR LIMIT=NONE] -->
+  <string name="optional_summary">&lt;Opcional&gt;</string>
   <!-- Default sip server/proxy port number. -->
   <!-- Default sip server/proxy transport protocol. -->
   <!-- Hint to show the advanced settings section. [CHAR LIMIT=NONE] -->
+  <string name="advanced_settings_show">▷ Tocar p\'amosar too</string>
   <!-- Hint to hide the advanced settings section. [CHAR LIMIT=NONE] -->
+  <string name="advanced_settings_hide">▽ Tocar p\'anubrir too</string>
   <!-- Text in an alert dialog telling the user that all input fields can not be left blank. [CHAR LIMIT=NONE] -->
-  <string name="all_empty_alert">Unesite detalje novog SIP računa.</string>
   <!-- Text in an alert dialog telling the user that some input field (name of which is also part of the strings being translated above) is required and can not be left blank. [CHAR LIMIT=NONE] -->
+  <string name="empty_alert">El campu <xliff:g id="INPUT_FIELD_NAME">%s</xliff:g> ye obligatoriu y nun pue dexase baleru.</string>
   <!-- Showing that port number is out of range in an alert dialog. [CHAR LIMIT=NONE] -->
+  <string name="not_a_valid_port">El númberu de puertu tien de tar ente 1000 y 65534.</string>
   <!-- Message of the alert dialog to notify user that there is no Internet connectivity. [CHAR LIMIT=NONE] -->
+  <string name="no_internet_available">Pa facer una llamada SIP, comprueba la conexón a internet.</string>
   <!-- Message of the alert dialog to notify user that there is no Wi-Fi connectivity. [CHAR LIMIT=NONE] -->
+  <string name="no_wifi_available">Pa facer llamaes per Internet, tienes de tar coneutáu a una rede Wi-Fi (usa la opción Conexones inalámbriques y redes).</string>
   <!-- Message of the alert dialog to notify user that SIP call is not supported. [CHAR LIMIT=NONE] -->
+  <string name="no_voip">Llamaes SIP non almitíes</string>
   <!-- Option for whether the SIP service should send keepalive messages. [CHAR LIMIT=40] -->
+  <string translatable="true" name="sip_system_decide">Automáticu</string>
   <!-- Option for whether the SIP service should send keepalive messages. [CHAR LIMIT=40] -->
+  <string translatable="true" name="sip_always_send_keepalive">Unviar siempre</string>
   <!-- Do not translate the following strings. Used for the SIP call options. Need to be in-sync with Settings.System.SIP_ strings. -->
   <!-- Do not translate the following strings. Used for the preference keys -->
   <!-- Label for SIP connection service. -->
+  <string name="sip_connection_service_label">Llamando SIP</string>
 </resources>
