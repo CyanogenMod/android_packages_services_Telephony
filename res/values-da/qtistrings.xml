@@ -33,6 +33,7 @@
 <resources>
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="ims_settings">IMS-indstillinger</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ENTRY">Pinkode til oplåsning af SIM-kort til undernetværk</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
@@ -42,8 +43,11 @@
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_ENTRY">Pinkode til oplåsning af SIM-kort</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_ENTRY">Pinkode til oplåsning af RUIM netværk 1</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_ENTRY">Pinkode til oplåsning af RUIM netværk 2</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_ENTRY">Pinkode til oplåsning af RUIM HRPD</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_ENTRY">Pinkode til oplåsning af virksomheds-RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
@@ -61,8 +65,11 @@
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_IN_PROGRESS">Anmoder om oplåsning af SIM-kort\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_IN_PROGRESS">Anmoder om oplåsning af RIUM netværk 1\u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_IN_PROGRESS">Anmoder om oplåsning af RIUM netværk 2\u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_IN_PROGRESS">Anmoder om oplåsning af RUIM HRPD\u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_IN_PROGRESS">Anmoder om oplåsning af operatørlåst RUIM\u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
@@ -72,15 +79,23 @@
   <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_IN_PROGRESS">Anmoder om oplåsning med PUK-kode\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ERROR">Anmodning om oplåsning af SIM-kort til undernetværk mislykkedes.</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_ERROR">Anmodning om oplåsning af operatørlåst SIM-kort mislykkedes.</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_ERROR">Anmodning om oplåsning af virksomheds-SIM-kort mislykkedes.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_ERROR">Anmodning om oplåsning af SIM-kort mislykkedes.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_ERROR">Anmodning om oplåsning af RUIM netværk 1 mislykkedes.</string>
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_ERROR">Anmodning om oplåsning af RUIM netværk 2 mislykkedes.</string>
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_ERROR">Anmodning om oplåsning af RUIM HRPD mislykkedes.</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_ERROR">Anmodning om oplåsning af operatørlåst RUIM mislykkedes.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Anmodning om oplåsning af virksomheds-RUIM mislykkedes.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Anmodning om RUIM-oplåsning mislykkedes.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -96,15 +111,23 @@
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Oplåsning med PUK-kode mislykkedes.</string>
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Oplåsning med PUK-kode mislykkedes.</string>
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_SUCCESS">Oplåsning af undernetværk til SIM-kort lykkedes.</string>
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_SUCCESS">Oplåsning af tjenesteudbyder lykkedes.</string>
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_SUCCESS">Oplåsning af Virksomheds-SIM-kort lykkedes.</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_SUCCESS">Oplåsning af SIM-kort lykkedes.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_SUCCESS">Oplåsning af RUIM netværk 1 lykkedes.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Oplåsning af RUIM netværk 2 lykkedes.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_SUCCESS">Oplåsning af RUIM HRPD lykkedes.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_SUCCESS">Oplåsning af RUIM-tjenesteudbyderen lykkedes.</string>
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_SUCCESS">Oplåsning af virksomheds-RUIM lykkedes.</string>
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_SUCCESS">Oplåsning af RUIM lykkedes.</string>
   <!-- Success message displayed on PUK Depersonalization panel -->
@@ -119,5 +142,15 @@
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_SUCCESS">Oplåsning med PUK-kode lykkedes.</string>
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK_SUCCESS">Oplåsning med PUK-kode lykkedes.</string>
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_SUCCESS">Oplåsning med PUK-kode lykkedes.</string>
+  <string name="preferred_network_mode_dialogtitle_cmcc">Netværkstilstand</string>
   <!-- Mobile network settings, summary for preferred network mode 4G/3G/2G [CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_4g_3g_2g_auto">"4G/3G/2G (auto)"</string>
+  <string name="preferred_network_mode_3g_2g_auto">"3G/2G (auto)"</string>
+  <string name="cf_setting_mobile_data_alert">Aktivér mobildata og sørg for, at Wi-Fi er slukket</string>
+  <string name="cf_setting_mobile_data_roaming_alert">Aktivér dataroaming</string>
+  <string name="no_mobile_data">Mobildata er ikke tilgængelig</string>
+  <string name="no_mobile_data_roaming">Dataroaming er ikke tilgængelig</string>
+  <string name="call_barring">Spærring af opkald</string>
+  <string name="srvcc_video_message">"Videoopkald nedgraderes til 2G/3G-taleopkald, fordi 4G-netværk ikke er tilgængelig."</string>
+  <string name="srvcc_message">"4G-videoopkald nedgraderes til 2G/3G-taleopkald, fordi 4G-netværk ikke er tilgængelig."</string>
 </resources>

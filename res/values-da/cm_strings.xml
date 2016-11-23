@@ -60,6 +60,7 @@
   <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_only_choice">Kun TD-SCDMA</string>
+  <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
   <string name="preferred_network_mode_lte_choice">LTE</string>
   <string name="preferred_network_mode_global_choice">Global</string>
   <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
