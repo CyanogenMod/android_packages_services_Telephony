@@ -43,9 +43,11 @@
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_ENTRY">PIN zum Entsperren des SIM-Lock</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_ENTRY">PIN zum Entsperren von RUIM-Netzwerk 1</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK2_ENTRY">PIN zum Entsperren von RUIM-Netzwerk 2</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_ENTRY">PIN zum Entsperren von RUIM-HRPD</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_ENTRY">PIN zum Entsperren der Firmen-RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
@@ -149,4 +151,6 @@
   <string name="no_mobile_data">Mobile Daten sind nicht verfügbar</string>
   <string name="no_mobile_data_roaming">Daten-Roaming ist nicht verfügbar</string>
   <string name="call_barring">Anrufsperre</string>
+  <string name="srvcc_video_message">"Videoanruf wurde in ein 2G/3G-Sprachanruf übergestellt, da kein 4G-Netz verfügbar ist."</string>
+  <string name="srvcc_message">"4G-Anruf wurde in ein 2G/3G-Anruf übergestellt, da kein 4G-Netz verfügbar ist."</string>
 </resources>
