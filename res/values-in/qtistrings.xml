@@ -81,6 +81,7 @@
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Tidak dapat membuka kunci PUK.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Permintaan membuka kunci RUIM tidak berhasil.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -102,6 +103,7 @@
   <string name="PERSOSUBSTATE_SIM_SIM_SUCCESS">Berhasil membuka kunci SIM.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Berhasil membuka kunci PUK.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->

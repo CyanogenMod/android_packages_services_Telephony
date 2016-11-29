@@ -95,7 +95,7 @@
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_ERROR">Entsperren des RUIM-Diensteanbieters nicht erfolgreich.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Entsperren der Firmen-RUIM nicht erfolgreich.</string>
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Entsperren der PUK nicht erfolgreich.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Entsperren der RUIM-Karte nicht erfolgreich.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -121,7 +121,7 @@
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK1_SUCCESS">Entsperren von RUIM-Netzwerk 1 erfolgreich.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Entsperren von RUIM-Netzwerk 2 erfolgreich.</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">PUK erfolgreich entsperrt.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_HRPD_SUCCESS">Entsperren von RUIM-HRPD erfolgreich.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->

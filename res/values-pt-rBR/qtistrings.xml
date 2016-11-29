@@ -81,6 +81,7 @@
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Sem sucesso na solicitação de desbloqueio do PUK.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Sem sucesso na solicitação de desbloqueio do RUIM.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -102,6 +103,7 @@
   <string name="PERSOSUBSTATE_SIM_SIM_SUCCESS">Desbloqueio do SIM efetuado.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Sucesso no desbloqueio do PUK.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->

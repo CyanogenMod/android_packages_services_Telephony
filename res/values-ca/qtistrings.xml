@@ -95,7 +95,7 @@
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_ERROR">La petició de desbloqueig del proveïdor de servei RUIM no ha tingut èxit.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">La petició de desbloqueig del RUIM corporatiu no ha tingut èxit.</string>
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">El desbloqueig amb PUK no ha tingut èxit.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">La petició de desbloqueig del RUIM no ha tingut èxit.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -121,7 +121,7 @@
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK1_SUCCESS">El desbloqueig de la xarxa RUIM 1 ha tingut èxit.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">El desbloqueig de la xarxa RUIM 2 ha tingut èxit.</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">El desbloqueig amb PUK ha tingut èxit.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_HRPD_SUCCESS">El desbloqueig del RUIM Hrpd ha tingut èxit.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->

@@ -95,7 +95,7 @@
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_ERROR">Zahtjev otključavanja RUIM servisnog provajdera neuspješan.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Zahtjev otključavanja korporativnog RUIM-a neuspješan.</string>
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Otključavanje PUK-a neuspješno.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Zahtjev otključavanja RUIM-a neuspješan.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -121,7 +121,7 @@
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK1_SUCCESS">Otključavanje RUIM mreže 1 uspješno.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Otključavanje RUIM mreže 2 uspješno.</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Otključavanje PUK-a uspješno.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_HRPD_SUCCESS">Otključavanje RUIM HRDP-a uspješno.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->

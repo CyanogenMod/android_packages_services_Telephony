@@ -70,6 +70,7 @@
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">PUK അൺലോക്ക് വിജയിച്ചില്ല.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">RUIM unlock request unsuccessful.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -91,6 +92,7 @@
   <string name="PERSOSUBSTATE_SIM_SIM_SUCCESS">സിം വിജയകരമായ അൺലോക്ക് ചെയ്തു.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">PUK വിജയകരമായ അൺലോക്ക് ചെയ്തു.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->

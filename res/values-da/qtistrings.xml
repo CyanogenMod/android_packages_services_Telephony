@@ -95,7 +95,7 @@
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_ERROR">Anmodning om oplåsning af operatørlåst RUIM mislykkedes.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Anmodning om oplåsning af virksomheds-RUIM mislykkedes.</string>
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Oplåsning med PUK-kode mislykkedes.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Anmodning om RUIM-oplåsning mislykkedes.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -121,7 +121,7 @@
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK1_SUCCESS">Oplåsning af RUIM netværk 1 lykkedes.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Oplåsning af RUIM netværk 2 lykkedes.</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Oplåsning med PUK-kode lykkedes.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_HRPD_SUCCESS">Oplåsning af RUIM HRPD lykkedes.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
