@@ -33,6 +33,7 @@
 <resources>
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="ims_settings">Nastavení IMS</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ENTRY">PIN pro odemknutí podsítě SIM</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
@@ -42,8 +43,11 @@
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_ENTRY">PIN pro odemknutí SIM</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_ENTRY">PIN pro odemknutí RUIM sítě 1</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_ENTRY">PIN pro odemknutí RUIM sítě 2</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_ENTRY">PIN pro odemknutí RUIM HRPD</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_ENTRY">PIN pro odemknutí korporátní RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
@@ -61,8 +65,11 @@
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_IN_PROGRESS">Požadavek odemknutí SIM\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_IN_PROGRESS">Požadavek odemknutí RUIM sítě 1\u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_IN_PROGRESS">Požadavek odemknutí RUIM sítě 2\u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_IN_PROGRESS">Požadavek odemknutí RUIM HRPD\u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_IN_PROGRESS">Požadavek odemknutí RUIM poskytovatele služeb\u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
@@ -72,16 +79,23 @@
   <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_IN_PROGRESS">Požadavek odemknutí PUK\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ERROR">Požadavek odemknutí podsítě SIM neúspěšný.</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_ERROR">Požadavek odemknutí SIM poskytovatele služeb neúspěšný.</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_ERROR">Požadavek odemknutí korporátní SIM neúspěšný.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_ERROR">Požadavek odemknutí SIM neúspěšný.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_ERROR">Požadavek odemknutí RUIM sítě 1 neúspěšný.</string>
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_ERROR">Požadavek odemknutí RUIM sítě 2 neúspěšný.</string>
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_ERROR">Požadavek odemknutí RUIM HRPD neúspěšný.</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_ERROR">Požadavek odemknutí RUIM poskytovatele služeb neúspěšný.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Požadavek odemknutí PUK neúspěšný.</string>
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Požadavek odemknutí korporátní RUIM neúspěšný.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Požadavek odemknutí RUIM neúspěšný.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
@@ -97,16 +111,23 @@
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Požadavek odemknutí PUK neúspěšný.</string>
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Požadavek odemknutí PUK neúspěšný.</string>
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_SUCCESS">Odemknutí podsítě SIM provedeno.</string>
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_SUCCESS">Odemknutí SIM poskytovatele služeb provedeno.</string>
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_SUCCESS">Odemknutí korporátní SIM provedeno.</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_SUCCESS">Odemknutí SIM provedeno.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_SUCCESS">Odemknutí RUIM sítě 1 provedeno.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Odemknutí PUK provedeno.</string>
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">Odemknutí RUIM sítě 2 provedeno.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_SUCCESS">Odemknutí RUIM HRPD provedeno.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_SUCCESS">Odemknutí RUIM poskytovatele služeb provedeno.</string>
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_SUCCESS">Odemknutí korporátní RUIM provedeno.</string>
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_SUCCESS">Odemknutí RUIM provedeno.</string>
   <!-- Success message displayed on PUK Depersonalization panel -->
@@ -121,5 +142,15 @@
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_SUCCESS">Odemknutí PUK provedeno.</string>
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK_SUCCESS">Odemknutí PUK provedeno.</string>
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_SUCCESS">Odemknutí PUK provedeno.</string>
+  <string name="preferred_network_mode_dialogtitle_cmcc">Režim sítě</string>
   <!-- Mobile network settings, summary for preferred network mode 4G/3G/2G [CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_4g_3g_2g_auto">"4G/3G/2G (auto)"</string>
+  <string name="preferred_network_mode_3g_2g_auto">"3G/2G (auto)"</string>
+  <string name="cf_setting_mobile_data_alert">Prosím zapněte mobilní data a ujistěte se, že je Wi-Fi vypnuto</string>
+  <string name="cf_setting_mobile_data_roaming_alert">Prosím, zapněte datový roaming</string>
+  <string name="no_mobile_data">Mobilní data nejsou k dispozici</string>
+  <string name="no_mobile_data_roaming">Datový roaming není k dispozici</string>
+  <string name="call_barring">Blokování hovorů</string>
+  <string name="srvcc_video_message">"Videohovor byl změněn na hlasový 2G/3G kvůli nedostupnosti LTE."</string>
+  <string name="srvcc_message">"Hlasový hovor 4G byl změněn na 2G/3G kvůli nedostupnosti 4G."</string>
 </resources>
