@@ -43,9 +43,9 @@
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="label_sdp">PIN za odklepanje kartice SIM</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
-  <string name="label_rn1dp">PIN za odklepanje omrežja 1 RUIM</string>
+  <string name="label_rn1dp">PIN za odklepanje omrežja RUIM 1</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
-  <string name="label_rn2dp">PIN za odklepanje omrežja 2 RUIM</string>
+  <string name="label_rn2dp">PIN za odklepanje omrežja RUIM 2</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
   <string name="label_rhrpd">PIN za odklepanje HRPD-ja RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
@@ -53,7 +53,7 @@
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
   <string name="label_rspdp">PIN za odklepanje ponudnika storitev RUIM</string>
   <!-- Label text for PIN entry widget on RUIM RUIM Depersonalization panel -->
-  <string name="label_rdp">PIN za odklepanje RUIM</string>
+  <string name="label_rdp">PIN za odklepanje RUIM-a</string>
   <!-- Label text for PUK entry widget on Depersonalization panel -->
   <string name="label_puk">Vnesite PUK</string>
   <!-- Status message displayed on SIM Network Subset Depersonalization panel -->
@@ -65,39 +65,39 @@
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="requesting_sim_unlock">Zahtevanje odklepanja SIM \u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
-  <string name="requesting_rnw1_unlock">Zahtevanje odklepanja omrežja 1 RUIM \u2026</string>
+  <string name="requesting_rnw1_unlock">Zahtevanje odklepanja omrežja RUIM 1 \u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="requesting_rnw2_unlock">Zahtevanje odklepanja omrežja 2 RUIM \u2026</string>
+  <string name="requesting_rnw2_unlock">Zahtevanje odklepanja omrežja RUIM 2 \u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="requesting_rhrpd_unlock">Zahtevanje odklepanja HRPD-ja RUIM \u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="requesting_rsp_unlock">Zahtevanje odklepanja ponudnika storitev RUIM \u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="requesting_rc_unlock">Zahtevanje odklepanja pravneosebe RUIM \u2026</string>
+  <string name="requesting_rc_unlock">Zahtevanje odklepanja pravne osebe RUIM \u2026</string>
   <!-- Status message displayed on RUIM RUIM Depersonalization panel -->
-  <string name="requesting_ruim_unlock">Zahtevanje odklepanja RUIM \u2026</string>
+  <string name="requesting_ruim_unlock">Zahtevanje odklepanja RUIM-a \u2026</string>
   <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="requesting_puk_unlock">Zahtevanje odklepanja PUK \u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
-  <string name="nw_subset_unlock_failed">Zahteva odklepanja podsklopa omrežja SIM neuspešna.</string>
+  <string name="nw_subset_unlock_failed">Zahteva za odklepanje podsklopa omrežja SIM neuspešna.</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
-  <string name="sp_unlock_failed">Zahteva odklepanja ponudnika storitev SIM neuspešna.</string>
+  <string name="sp_unlock_failed">Zahteva za odklepanje ponudnika storitev SIM neuspešna.</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
-  <string name="corporate_unlock_failed">Zahteva odklepanja pravne osebe SIM neuspešna.</string>
+  <string name="corporate_unlock_failed">Zahteva za odklepanje pravne osebe SIM neuspešna.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
-  <string name="sim_unlock_failed">Zahteva odklepanja SIM neuspešna.</string>
+  <string name="sim_unlock_failed">Zahteva za odklepanje SIM-a neuspešna.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
-  <string name="rnw1_unlock_failed">Zahteva odklepanja omrežja 1 RUIM neuspešna.</string>
+  <string name="rnw1_unlock_failed">Zahteva za odklepanje omrežja RUIM 1 neuspešna.</string>
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="rnw2_unlock_failed">Zahteva odklepanja omrežja 2 RUIM neuspešna.</string>
+  <string name="rnw2_unlock_failed">Zahteva za odklepanje omrežja RUIM 2 neuspešna.</string>
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
-  <string name="rhrpd_unlock_failed">Zahteva odklepanja HRPD-ja RUIM neuspešna.</string>
+  <string name="rhrpd_unlock_failed">Zahteva za odklepanje HRPD-ja RUIM neuspešna.</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
-  <string name="rsp_unlock_failed">Zahteva odklepanja ponudnika storitev RUIM neuspešna.</string>
+  <string name="rsp_unlock_failed">Zahteva za odklepanje ponudnika storitev RUIM neuspešna.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
-  <string name="rc_unlock_failed">Zahteva odklepanja pravne osebe RUIM neuspešna.</string>
+  <string name="rc_unlock_failed">Zahteva za odklepanje pravne osebe RUIM neuspešna.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
-  <string name="ruim_unlock_failed">Zahteva odklepanja RUIM neuspešna.</string>
+  <string name="ruim_unlock_failed">Zahteva za odklepanje RUIM-a neuspešna.</string>
   <!-- Error message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_failed">Odklepanje PUK neuspešno.</string>
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
@@ -107,11 +107,11 @@
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
   <string name="corporate_unlock_success">Odklepanje pravne osebe SIM uspešno.</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
-  <string name="sim_unlock_success">Odklepanje SIM uspešno.</string>
+  <string name="sim_unlock_success">Odklepanje SIM-a uspešno.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
-  <string name="rnw1_unlock_success">Odklepanje omrežja 1 RUIM uspešno.</string>
+  <string name="rnw1_unlock_success">Odklepanje omrežja RUIM 1 uspešno.</string>
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
-  <string name="rnw2_unlock_success">Odklepanje omrežja 2 RUIM uspešno.</string>
+  <string name="rnw2_unlock_success">Odklepanje omrežja RUIM 2 uspešno.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
   <string name="rhrpd_unlock_success">Odklepanje HRPD-ja RUIM uspešno.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
@@ -119,7 +119,7 @@
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
   <string name="rc_unlock_success">Odklepanje pravne osebe RUIM uspešno.</string>
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
-  <string name="ruim_unlock_success">Odklepanje RUIM uspešno.</string>
+  <string name="ruim_unlock_success">Odklepanje RUIM-a uspešno.</string>
   <!-- Success message displayed on PUK Depersonalization panel -->
   <string name="puk_unlock_success">Odklepanje PUK uspešno.</string>
   <!-- Preferred networks -->

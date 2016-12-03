@@ -20,7 +20,7 @@
   <string name="incall_screen_settings">Nastavitve zaslona klica</string>
   <string name="show_ssn_label">Obvestilo o dogodku</string>
   <string name="show_ssn_summary">Prikaži obvestilo za razne omrežne dogodke, ki se nanašajo na obravnavo klicev</string>
-  <string name="incall_echo_cancellation">Zmanjšanje šuma med klicem</string>
+  <string name="incall_echo_cancellation">Zmanjševanje šuma med klicem</string>
   <string name="enable_aec_label">Izničevanje odmeva</string>
   <string name="enable_aec_summary">Zmanjšaj okoliški hrup oddaljene osebe med glasovnim klicem</string>
   <!-- Blacklist preferences -->
@@ -66,7 +66,7 @@
   <!-- Status message displayed on SIM Network Depersonalization panel -->
   <string name="requesting_unlock_cm">Zahtevanje odklepanja omrežja SIM \u2026</string>
   <!-- Error message displayed on SIM Network Depersonalization panel -->
-  <string name="unlock_failed_cm">Zahteva odklepanja omrežja SIM neuspešna.</string>
+  <string name="unlock_failed_cm">Zahteva za odklepanje omrežja SIM neuspešna.</string>
   <!-- Success message displayed on SIM Network Depersonalization panel -->
   <string name="unlock_success_cm">Odklepanje omrežja SIM uspešno.</string>
   <!-- Call forwarding settings screen, setting timer info for cfut case -->
