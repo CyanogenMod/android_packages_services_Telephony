@@ -16,6 +16,7 @@
 package com.android.phone.vvm.omtp;
 
 import android.annotation.Nullable;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
@@ -315,9 +316,15 @@ public class OmtpVvmCarrierConfigHelper {
             // Error logged in getPhoneAccountHandle().
             return;
         }
-        VoicemailStatus.edit(mContext, phoneAccountHandle)
-                .setType(getVvmType())
-                .apply();
+
+        if (mVvmType == null || mVvmType.isEmpty()) {
+            // The VVM type is invalid; we should never have gotten here in the first place since
+            // this is loaded initially in the constructor, and callers should check isValid()
+            // before trying to start activation anyways.
+            VvmLog.e(TAG, "startActivation : vvmType is null or empty for account " +
+                    phoneAccountHandle);
+            return;
+        }
 
         activateSmsFilter();
 
@@ -358,9 +365,9 @@ public class OmtpVvmCarrierConfigHelper {
         }
     }
 
-    public void requestStatus() {
+    public void requestStatus(@Nullable PendingIntent sentIntent) {
         if (mProtocol != null) {
-            mProtocol.requestStatus(this);
+            mProtocol.requestStatus(this, sentIntent);
         }
     }
 

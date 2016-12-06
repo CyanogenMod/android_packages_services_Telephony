@@ -19,6 +19,7 @@ package com.android.phone.vvm.omtp;
 import android.content.Context;
 import android.provider.VoicemailContract;
 import android.provider.VoicemailContract.Status;
+
 import com.android.phone.VoicemailStatus;
 import com.android.phone.vvm.omtp.OmtpEvents.Type;
 
@@ -49,6 +50,7 @@ public class DefaultOmtpEventHandler {
     private static void handleConfigurationEvent(Context context, VoicemailStatus.Editor status,
             OmtpEvents event) {
         switch (event) {
+            case CONFIG_DEFAULT_PIN_REPLACED:
             case CONFIG_REQUEST_STATUS_SUCCESS:
             case CONFIG_PIN_SET:
                 status
@@ -61,8 +63,14 @@ public class DefaultOmtpEventHandler {
                 // for this activation.
                 status
                         .setConfigurationState(Status.CONFIGURATION_STATE_CONFIGURING)
-                        .setDataChannelState(Status.DATA_CHANNEL_STATE_OK)
-                        .setNotificationChannelState(Status.NOTIFICATION_CHANNEL_STATE_OK).apply();
+                        .setNotificationChannelState(Status.NOTIFICATION_CHANNEL_STATE_OK)
+                        .setDataChannelState(Status.DATA_CHANNEL_STATE_OK).apply();
+                break;
+            case CONFIG_ACTIVATING_SUBSEQUENT:
+                status
+                        .setConfigurationState(Status.CONFIGURATION_STATE_OK)
+                        .setNotificationChannelState(Status.NOTIFICATION_CHANNEL_STATE_OK)
+                        .setDataChannelState(Status.DATA_CHANNEL_STATE_OK).apply();
                 break;
             case CONFIG_SERVICE_NOT_AVAILABLE:
                 status
@@ -116,6 +124,7 @@ public class DefaultOmtpEventHandler {
             case DATA_SSL_INVALID_HOST_NAME:
             case DATA_CANNOT_ESTABLISH_SSL_SESSION:
             case DATA_IOE_ON_OPEN:
+            case DATA_GENERIC_IMAP_IOE:
                 status
                         .setDataChannelState(
                                 VoicemailContract.Status.DATA_CHANNEL_STATE_COMMUNICATION_ERROR)
@@ -137,6 +146,7 @@ public class DefaultOmtpEventHandler {
 
             case DATA_REJECTED_SERVER_RESPONSE:
             case DATA_INVALID_INITIAL_SERVER_RESPONSE:
+            case DATA_MAILBOX_OPEN_FAILED:
             case DATA_SSL_EXCEPTION:
             case DATA_ALL_SOCKET_CONNECTION_FAILED:
                 status

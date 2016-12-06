@@ -49,6 +49,7 @@
     <protected-broadcast android:name="android.intent.action.DATA_SMS_RECEIVED" />
     <protected-broadcast android:name="android.provider.Telephony.SMS_RECEIVED" />
     <protected-broadcast android:name="android.provider.Telephony.SMS_DELIVER" />
+    <protected-broadcast android:name="android.provider.Telephony.SMS_REJECTED" />
     <protected-broadcast android:name="android.provider.Telephony.WAP_PUSH_DELIVER" />
     <protected-broadcast android:name="android.provider.Telephony.WAP_PUSH_RECEIVED" />
     <protected-broadcast android:name="android.provider.Telephony.SMS_CB_RECEIVED" />
@@ -70,6 +71,8 @@
     <protected-broadcast android:name= "com.android.imsconnection.DISCONNECTED" />
     <protected-broadcast android:name= "com.android.intent.action.IMS_FEATURE_CHANGED" />
     <protected-broadcast android:name= "com.android.intent.action.IMS_CONFIG_CHANGED" />
+    <protected-broadcast android:name= "com.android.ims.REGISTRATION_ERROR" />
+    <protected-broadcast android:name= "com.android.phone.vvm.omtp.sms.REQUEST_SENT" />
 
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -368,22 +371,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="GsmUmtsOptions"
-                android:label="@string/gsm_umts_options"
-                android:theme="@style/DialerSettingsLight">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="CdmaOptions"
-                android:label="@string/cdma_options"
-                android:theme="@style/DialerSettingsLight">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
         <activity android:name="GsmUmtsCallOptions"
                 android:label="@string/gsm_umts_options"
                 android:theme="@style/DialerSettingsLight">
@@ -422,14 +409,6 @@
                 android:label="@string/call_forward_option"
                 android:configChanges="orientation|screenSize|keyboardHidden"
                 android:theme="@style/SettingsLight">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="CellBroadcastSms"
-            android:label="@string/cell_broadcast_sms"
-            android:theme="@android:style/Theme.Holo.DialogWhenLarge">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -478,23 +457,6 @@
         <activity android:name="com.android.phone.settings.fdn.DeleteFdnContactScreen"
                 android:theme="@style/DialerSettingsLight"
                 android:label="@string/delete_fdn_contact">
-        </activity>
-
-        <activity android:name="DataRoamingReenable"
-                android:label="@string/dialog_alert_title"
-                android:theme="@android:style/Theme.Holo.Dialog">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <!-- data roaming setting -->
-        <activity android:name="RoamingSetting"
-                android:label="@string/roaming"
-                android:theme="@android:style/Theme.Holo.DialogWhenLarge">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
         </activity>
 
         <!-- "Call settings" UI, used only on voice-capable phone devices. -->
@@ -673,7 +635,7 @@
             </intent-filter>
         </provider>
         <receiver android:name="com.android.phone.vvm.omtp.sms.OmtpMessageReceiver"
-            android:exported="true"
+            android:exported="false"
             androidprv:systemUserOnly="true">
             <intent-filter>
                 <action android:name="android.intent.action.VOICEMAIL_SMS_RECEIVED"/>

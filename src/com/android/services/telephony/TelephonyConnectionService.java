@@ -33,10 +33,12 @@ import android.telecom.TelecomManager;
 import android.telecom.VideoProfile;
 import android.telephony.CarrierConfigManager;
 import android.telephony.PhoneNumberUtils;
+import android.telephony.RadioAccessFamily;
 import android.telephony.ServiceState;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Pair;
 
 import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
@@ -53,8 +55,11 @@ import com.android.phone.MMIDialogActivity;
 import com.android.phone.PhoneUtils;
 import com.android.phone.R;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -79,6 +84,13 @@ public class TelephonyConnectionService extends ConnectionService {
     private EmergencyTonePlayer mEmergencyTonePlayer;
     private boolean mUseEmergencyCallHelper = false;
 
+    // Contains one TelephonyConnection that has placed a call and a memory of which Phones it has
+    // already tried to connect with. There should be only one TelephonyConnection trying to place a
+    // call at one time. We also only access this cache from a TelephonyConnection that wishes to
+    // redial, so we use a WeakReference that will become stale once the TelephonyConnection is
+    // destroyed.
+    private Pair<WeakReference<TelephonyConnection>, List<Phone>> mEmergencyRetryCache;
+
     /**
      * A listener to actionable events specific to the TelephonyConnection.
      */
@@ -87,6 +99,11 @@ public class TelephonyConnectionService extends ConnectionService {
         @Override
         public void onOriginalConnectionConfigured(TelephonyConnection c) {
             addConnectionToConferenceController(c);
+        }
+
+        @Override
+        public void onOriginalConnectionRetry(TelephonyConnection c) {
+            retryOutgoingOriginalConnection(c);
         }
     };
 
@@ -118,7 +135,7 @@ public class TelephonyConnectionService extends ConnectionService {
         }
         if (handle == null) handle = Uri.EMPTY;
         String scheme = handle.getScheme();
-        final String number;
+        String number;
         if (PhoneAccount.SCHEME_VOICEMAIL.equals(scheme)) {
             // TODO: We don't check for SecurityException here (requires
             // CALL_PRIVILEGED permission).
@@ -182,14 +199,36 @@ public class TelephonyConnectionService extends ConnectionService {
             }
         }
 
-        final boolean isEmergencyNumber = PhoneNumberUtils.isLocalEmergencyNumber(this, number);
+        // Convert into emergency number if necessary
+        // This is required in some regions (e.g. Taiwan).
+        if (!PhoneNumberUtils.isLocalEmergencyNumber(this, number) &&
+                PhoneNumberUtils.isConvertToEmergencyNumberEnabled()) {
+            final Phone phone = getPhoneForAccount(request.getAccountHandle(), false);
+            // We only do the conversion if the phone is not in service. The un-converted
+            // emergency numbers will go to the correct destination when the phone is in-service,
+            // so they will only need the special emergency call setup when the phone is out of
+            // service.
+            if (phone == null || phone.getServiceState().getState()
+                    != ServiceState.STATE_IN_SERVICE) {
+                String convertedNumber = PhoneNumberUtils.convertToEmergencyNumber(number);
+                if (!TextUtils.equals(convertedNumber, number)) {
+                    Log.i(this, "onCreateOutgoingConnection, converted to emergency number");
+                    number = convertedNumber;
+                    handle = Uri.fromParts(PhoneAccount.SCHEME_TEL, number, null);
+                }
+            }
+        }
+        final String numberToDial = number;
+
+        final boolean isEmergencyNumber =
+                PhoneNumberUtils.isLocalEmergencyNumber(this, numberToDial);
 
         if (isEmergencyNumber && !isRadioOn()) {
             final Uri emergencyHandle = handle;
             // By default, Connection based on the default Phone, since we need to return to Telecom
             // now.
             final int defaultPhoneType = PhoneFactory.getDefaultPhone().getPhoneType();
-            final Connection emergencyConnection = getTelephonyConnection(request, number,
+            final Connection emergencyConnection = getTelephonyConnection(request, numberToDial,
                     isEmergencyNumber, emergencyHandle, PhoneFactory.getDefaultPhone());
             if (mEmergencyCallHelper == null) {
                 mEmergencyCallHelper = new EmergencyCallHelper(this);
@@ -212,7 +251,7 @@ public class TelephonyConnectionService extends ConnectionService {
                         // Phone, then we need create a new Connection using that PhoneType and
                         // replace it in Telecom.
                         if (phone.getPhoneType() != defaultPhoneType) {
-                            Connection repConnection = getTelephonyConnection(request, number,
+                            Connection repConnection = getTelephonyConnection(request, numberToDial,
                                     isEmergencyNumber, emergencyHandle, phone);
                             // If there was a failure, the resulting connection will not be a
                             // TelephonyConnection, so don't place the call, just return!
@@ -262,8 +301,8 @@ public class TelephonyConnectionService extends ConnectionService {
 
             // Get the right phone object from the account data passed in.
             final Phone phone = getPhoneForAccount(request.getAccountHandle(), isEmergencyNumber);
-            Connection resultConnection = getTelephonyConnection(request, number, isEmergencyNumber,
-                    handle, phone);
+            Connection resultConnection = getTelephonyConnection(request, numberToDial,
+                    isEmergencyNumber, handle, phone);
             // If there was a failure, the resulting connection will not be a TelephonyConnection,
             // so don't place the call!
             if(resultConnection instanceof TelephonyConnection) {
@@ -586,14 +625,35 @@ public class TelephonyConnectionService extends ConnectionService {
         }
     }
 
+    /**
+     * Conferences two connections.
+     *
+     * Note: The {@link android.telecom.RemoteConnection#setConferenceableConnections(List)} API has
+     * a limitation in that it can only specify conferenceables which are instances of
+     * {@link android.telecom.RemoteConnection}.  In the case of an {@link ImsConference}, the
+     * regular {@link Connection#setConferenceables(List)} API properly handles being able to merge
+     * a {@link Conference} and a {@link Connection}.  As a result when, merging a
+     * {@link android.telecom.RemoteConnection} into a {@link android.telecom.RemoteConference}
+     * require merging a {@link ConferenceParticipantConnection} which is a child of the
+     * {@link Conference} with a {@link TelephonyConnection}.  The
+     * {@link ConferenceParticipantConnection} class does not have the capability to initiate a
+     * conference merge, so we need to call
+     * {@link TelephonyConnection#performConference(Connection)} on either {@code connection1} or
+     * {@code connection2}, one of which is an instance of {@link TelephonyConnection}.
+     *
+     * @param connection1 A connection to merge into a conference call.
+     * @param connection2 A connection to merge into a conference call.
+     */
     @Override
     public void onConference(Connection connection1, Connection connection2) {
-        if (connection1 instanceof TelephonyConnection &&
-                connection2 instanceof TelephonyConnection) {
-            ((TelephonyConnection) connection1).performConference(
-                (TelephonyConnection) connection2);
+        if (connection1 instanceof TelephonyConnection) {
+            ((TelephonyConnection) connection1).performConference(connection2);
+        } else if (connection2 instanceof TelephonyConnection) {
+            ((TelephonyConnection) connection2).performConference(connection1);
+        } else {
+            Log.w(this, "onConference - cannot merge connections " +
+                    "Connection1: %s, Connection2: %2", connection1, connection2);
         }
-
     }
 
     @Override
@@ -611,22 +671,86 @@ public class TelephonyConnectionService extends ConnectionService {
         return result;
     }
 
+    private Pair<WeakReference<TelephonyConnection>, List<Phone>> makeCachedConnectionPhonePair(
+            TelephonyConnection c) {
+        List<Phone> phones = new ArrayList<>(Arrays.asList(PhoneFactory.getPhones()));
+        return new Pair<>(new WeakReference<>(c), phones);
+    }
+
+    // Check the mEmergencyRetryCache to see if it contains the TelephonyConnection. If it doesn't,
+    // then it is stale. Create a new one!
+    private void updateCachedConnectionPhonePair(TelephonyConnection c) {
+        if (mEmergencyRetryCache == null) {
+            Log.i(this, "updateCachedConnectionPhonePair, cache is null. Generating new cache");
+            mEmergencyRetryCache = makeCachedConnectionPhonePair(c);
+        } else {
+            // Check to see if old cache is stale. If it is, replace it
+            WeakReference<TelephonyConnection> cachedConnection = mEmergencyRetryCache.first;
+            if (cachedConnection.get() != c) {
+                Log.i(this, "updateCachedConnectionPhonePair, cache is stale. Regenerating.");
+                mEmergencyRetryCache = makeCachedConnectionPhonePair(c);
+            }
+        }
+    }
+
+    /**
+     * Returns the first Phone that has not been used yet to place the call. Any Phones that have
+     * been used to place a call will have already been removed from mEmergencyRetryCache.second.
+     * The phone that it excluded will be removed from mEmergencyRetryCache.second in this method.
+     * @param phoneToExclude The Phone object that will be removed from our cache of available
+     * phones.
+     * @return the first Phone that is available to be used to retry the call.
+     */
+    private Phone getPhoneForRedial(Phone phoneToExclude) {
+        List<Phone> cachedPhones = mEmergencyRetryCache.second;
+        if (cachedPhones.contains(phoneToExclude)) {
+            Log.i(this, "getPhoneForRedial, removing Phone[" + phoneToExclude.getPhoneId() +
+                    "] from the available Phone cache.");
+            cachedPhones.remove(phoneToExclude);
+        }
+        return cachedPhones.isEmpty() ? null : cachedPhones.get(0);
+    }
+
+    private void retryOutgoingOriginalConnection(TelephonyConnection c) {
+        updateCachedConnectionPhonePair(c);
+        Phone newPhoneToUse = getPhoneForRedial(c.getPhone());
+        if (newPhoneToUse != null) {
+            int videoState = c.getVideoState();
+            Bundle connExtras = c.getExtras();
+            Log.i(this, "retryOutgoingOriginalConnection, redialing on Phone Id: " + newPhoneToUse);
+            c.clearOriginalConnection();
+            placeOutgoingConnection(c, newPhoneToUse, videoState, connExtras);
+        } else {
+            // We have run out of Phones to use. Disconnect the call and destroy the connection.
+            Log.i(this, "retryOutgoingOriginalConnection, no more Phones to use. Disconnecting.");
+            c.setDisconnected(new DisconnectCause(DisconnectCause.ERROR));
+            c.clearOriginalConnection();
+            c.destroy();
+        }
+    }
+
     private void placeOutgoingConnection(
             TelephonyConnection connection, Phone phone, ConnectionRequest request) {
+        placeOutgoingConnection(connection, phone, request.getVideoState(), request.getExtras());
+    }
+
+    private void placeOutgoingConnection(
+            TelephonyConnection connection, Phone phone, int videoState, Bundle extras) {
         String number = connection.getAddress().getSchemeSpecificPart();
 
-        Bundle bundle = request.getExtras();
-        boolean isAddParticipant = (bundle != null) && bundle
+        boolean isAddParticipant = (extras != null) && extras
                 .getBoolean(TelephonyProperties.ADD_PARTICIPANT_KEY, false);
         Log.d(this, "placeOutgoingConnection isAddParticipant = " + isAddParticipant);
 
-        com.android.internal.telephony.Connection originalConnection;
+        com.android.internal.telephony.Connection originalConnection = null;
         try {
-            if (isAddParticipant) {
-                phone.addParticipant(number);
-                return;
-            } else {
-                originalConnection = phone.dial(number, null, request.getVideoState(), bundle);
+            if (phone != null) {
+                if (isAddParticipant) {
+                    phone.addParticipant(number);
+                    return;
+                } else {
+                    originalConnection = phone.dial(number, null, videoState, extras);
+                }
             }
         } catch (CallStateException e) {
             Log.e(this, e, "placeOutgoingConnection, phone.dial exception: " + e);
@@ -732,12 +856,11 @@ public class TelephonyConnectionService extends ConnectionService {
      *  list (for multi-SIM devices):
      *  1) The User's SIM preference for Voice calling
      *  2) The First Phone that is currently IN_SERVICE or is available for emergency calling
-     *  3) The First Phone that has a SIM card in it (Starting from Slot 0...N)
-     *  4) The Default Phone (Currently set as Slot 0)
+     *  3) The Phone with more Capabilities.
+     *  4) The First Phone that has a SIM card in it (Starting from Slot 0...N)
+     *  5) The Default Phone (Currently set as Slot 0)
      */
     private Phone getFirstPhoneForEmergencyCall() {
-        Phone firstPhoneWithSim = null;
-
         // 1)
         int phoneId = SubscriptionManager.getDefaultVoicePhoneId();
         if (phoneId != SubscriptionManager.INVALID_PHONE_INDEX) {
@@ -747,32 +870,77 @@ public class TelephonyConnectionService extends ConnectionService {
             }
         }
 
-        for (int i = 0; i < TelephonyManager.getDefault().getPhoneCount(); i++) {
+        Phone firstPhoneWithSim = null;
+        int phoneCount = TelephonyManager.getDefault().getPhoneCount();
+        List<Pair<Integer, Integer>> phoneNetworkType = new ArrayList<>(phoneCount);
+        for (int i = 0; i < phoneCount; i++) {
             Phone phone = PhoneFactory.getPhone(i);
             if (phone == null)
                 continue;
             // 2)
             if (isAvailableForEmergencyCalls(phone)) {
                 // the slot has the radio on & state is in service.
-                Log.d(this, "getFirstPhoneForEmergencyCall, radio on & in service, Phone Id:" + i);
+                Log.i(this, "getFirstPhoneForEmergencyCall, radio on & in service, Phone Id:" + i);
                 return phone;
             }
             // 3)
+            // Store the RAF Capabilities for sorting later only if there are capabilities to sort.
+            int radioAccessFamily = phone.getRadioAccessFamily();
+            if(RadioAccessFamily.getHighestRafCapability(radioAccessFamily) != 0) {
+                phoneNetworkType.add(new Pair<>(i, radioAccessFamily));
+                Log.i(this, "getFirstPhoneForEmergencyCall, RAF:" +
+                        Integer.toHexString(radioAccessFamily) + " saved for Phone Id:" + i);
+            }
+            // 4)
             if (firstPhoneWithSim == null && TelephonyManager.getDefault().hasIccCard(i)) {
                 // The slot has a SIM card inserted, but is not in service, so keep track of this
                 // Phone. Do not return because we want to make sure that none of the other Phones
                 // are in service (because that is always faster).
-                Log.d(this, "getFirstPhoneForEmergencyCall, SIM card inserted, Phone Id:" + i);
+                Log.i(this, "getFirstPhoneForEmergencyCall, SIM card inserted, Phone Id:" + i);
                 firstPhoneWithSim = phone;
             }
         }
-        // 4)
-        if (firstPhoneWithSim == null) {
+        // 5)
+        if (firstPhoneWithSim == null && phoneNetworkType.isEmpty()) {
             // No SIMs inserted, get the default.
-            Log.d(this, "getFirstPhoneForEmergencyCall, return default phone");
+            Log.i(this, "getFirstPhoneForEmergencyCall, return default phone");
             return PhoneFactory.getDefaultPhone();
         } else {
-            return firstPhoneWithSim;
+            // 3)
+            final Phone firstOccupiedSlot = firstPhoneWithSim;
+            if (!phoneNetworkType.isEmpty()) {
+                // Only sort if there are enough elements to do so.
+                if(phoneNetworkType.size() > 1) {
+                    Collections.sort(phoneNetworkType, (o1, o2) -> {
+                        // First start by sorting by number of RadioAccessFamily Capabilities.
+                        int compare = Integer.bitCount(o1.second) - Integer.bitCount(o2.second);
+                        if (compare == 0) {
+                            // Sort by highest RAF Capability if the number is the same.
+                            compare = RadioAccessFamily.getHighestRafCapability(o1.second) -
+                                    RadioAccessFamily.getHighestRafCapability(o2.second);
+                            if (compare == 0 && firstOccupiedSlot != null) {
+                                // If the RAF capability is the same, choose based on whether or not
+                                // any of the slots are occupied with a SIM card (if both are,
+                                // always choose the first).
+                                if (o1.first == firstOccupiedSlot.getPhoneId()) {
+                                    return 1;
+                                } else if (o2.first == firstOccupiedSlot.getPhoneId()) {
+                                    return -1;
+                                }
+                                // Compare is still 0, return equal.
+                            }
+                        }
+                        return compare;
+                    });
+                }
+                int mostCapablePhoneId = phoneNetworkType.get(phoneNetworkType.size()-1).first;
+                Log.i(this, "getFirstPhoneForEmergencyCall, Using Phone Id: " + mostCapablePhoneId +
+                        "with highest capability");
+                return PhoneFactory.getPhone(mostCapablePhoneId);
+            } else {
+                // 4)
+                return firstPhoneWithSim;
+            }
         }
     }
 

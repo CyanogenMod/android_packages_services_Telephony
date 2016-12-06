@@ -24,10 +24,10 @@ import android.database.ContentObserver;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.provider.Settings.Global;
-import android.provider.VoicemailContract.Status;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
+
 import com.android.phone.Assert;
 import com.android.phone.PhoneGlobals;
 import com.android.phone.VoicemailStatus;
@@ -40,9 +40,11 @@ import com.android.phone.vvm.omtp.sync.OmtpVvmSourceManager;
 import com.android.phone.vvm.omtp.sync.OmtpVvmSyncService;
 import com.android.phone.vvm.omtp.sync.SyncTask;
 import com.android.phone.vvm.omtp.utils.PhoneAccountHandleConverter;
+
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
@@ -67,7 +69,7 @@ public class ActivationTask extends BaseTask {
 
     private final RetryPolicy mRetryPolicy;
 
-    private Bundle mData;
+    private Bundle mMessageData;
 
     public ActivationTask() {
         super(TASK_ACTIVATION);
@@ -83,7 +85,12 @@ public class ActivationTask extends BaseTask {
             context.getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 0) == 1;
     }
 
-    public static void start(Context context, int subId, @Nullable Bundle data) {
+    /**
+     * @param messageData The optional bundle from {@link android.provider.VoicemailContract#
+     * EXTRA_VOICEMAIL_SMS_FIELDS}, if the task is initiated by a status SMS. If null the task will
+     * request a status SMS itself.
+     */
+    public static void start(Context context, int subId, @Nullable Bundle messageData) {
         if (!isDeviceProvisioned(context)) {
             VvmLog.i(TAG, "Activation requested while device is not provisioned, postponing");
             // Activation might need information such as system language to be set, so wait until
@@ -93,31 +100,22 @@ public class ActivationTask extends BaseTask {
             return;
         }
 
-        // Check for signal before activating. The event often happen while boot and the
-        // network is not connected yet. Launching activation will likely to cause the SMS
-        // sending to fail and waste unnecessary time waiting for time out.
-        if (context.getSystemService(TelephonyManager.class)
-            .getServiceStateForSubscriber(subId).getState()
-            != ServiceState.STATE_IN_SERVICE) {
-            VvmLog.i(TAG, "Activation requested while not in service, rejecting");
-        }
-
         Intent intent = BaseTask.createIntent(context, ActivationTask.class, subId);
-        if (data != null) {
-            intent.putExtra(EXTRA_MESSAGE_DATA_BUNDLE, data);
+        if (messageData != null) {
+            intent.putExtra(EXTRA_MESSAGE_DATA_BUNDLE, messageData);
         }
         context.startService(intent);
     }
 
     public void onCreate(Context context, Intent intent, int flags, int startId) {
         super.onCreate(context, intent, flags, startId);
-        mData = intent.getParcelableExtra(EXTRA_MESSAGE_DATA_BUNDLE);
+        mMessageData = intent.getParcelableExtra(EXTRA_MESSAGE_DATA_BUNDLE);
     }
 
     @Override
     public Intent createRestartIntent() {
         Intent intent = super.createRestartIntent();
-        // mData is discarded, request a fresh STATUS SMS for retries.
+        // mMessageData is discarded, request a fresh STATUS SMS for retries.
         return intent;
     }
 
@@ -140,8 +138,22 @@ public class ActivationTask extends BaseTask {
             VoicemailStatus.disable(getContext(), phoneAccountHandle);
             return;
         }
+
+        // OmtpVvmCarrierConfigHelper can start the activation process; it will pass in a vvm
+        // content provider URI which we will use.  On some occasions, setting that URI will
+        // fail, so we will perform a few attempts to ensure that the vvm content provider has
+        // a good chance of being started up.
+        if (!VoicemailStatus.edit(getContext(), phoneAccountHandle)
+            .setType(helper.getVvmType())
+            .apply()) {
+            VvmLog.e(TAG, "Failed to configure content provider - " + helper.getVvmType());
+            fail();
+        }
+        VvmLog.i(TAG, "VVM content provider configured - " + helper.getVvmType());
+
         if (!OmtpVvmSourceManager.getInstance(getContext())
                 .isVvmSourceRegistered(phoneAccountHandle)) {
+            // This account has not been activated before during the lifetime of this boot.
             VisualVoicemailPreferences preferences = new VisualVoicemailPreferences(getContext(),
                     phoneAccountHandle);
             if (preferences.getString(OmtpConstants.SERVER_ADDRESS, null) == null) {
@@ -153,11 +165,19 @@ public class ActivationTask extends BaseTask {
             } else {
                 // The account has been activated on this device before. Pretend it is already
                 // activated. If there are any activation error it will overwrite this status.
-                VoicemailStatus.edit(getContext(), phoneAccountHandle)
-                        .setConfigurationState(Status.CONFIGURATION_STATE_OK)
-                        .apply();
+                helper.handleEvent(VoicemailStatus.edit(getContext(), phoneAccountHandle),
+                        OmtpEvents.CONFIG_ACTIVATING_SUBSEQUENT);
             }
 
+        }
+        if (!hasSignal(getContext(), subId)) {
+            VvmLog.i(TAG, "Service lost during activation, aborting");
+            // Restore the "NO SIGNAL" state since it will be overwritten by the CONFIG_ACTIVATING
+            // event.
+            helper.handleEvent(VoicemailStatus.edit(getContext(), phoneAccountHandle),
+                    OmtpEvents.NOTIFICATION_SERVICE_LOST);
+            // Don't retry, a new activation will be started after the signal returned.
+            return;
         }
 
         helper.activateSmsFilter();
@@ -166,13 +186,13 @@ public class ActivationTask extends BaseTask {
         VisualVoicemailProtocol protocol = helper.getProtocol();
 
         Bundle data;
-        if (mData != null) {
+        if (mMessageData != null) {
             // The content of STATUS SMS is provided to launch this task, no need to request it
             // again.
-            data = mData;
+            data = mMessageData;
         } else {
             try (StatusSmsFetcher fetcher = new StatusSmsFetcher(getContext(), subId)) {
-                protocol.startActivation(helper);
+                protocol.startActivation(helper, fetcher.getSentIntent());
                 // Both the fetcher and OmtpMessageReceiver will be triggered, but
                 // OmtpMessageReceiver will just route the SMS back to ActivationTask, which will be
                 // rejected because the task is still running.
@@ -181,6 +201,10 @@ public class ActivationTask extends BaseTask {
                 // The carrier is expected to return an STATUS SMS within STATUS_SMS_TIMEOUT_MILLIS
                 // handleEvent() will do the logging.
                 helper.handleEvent(status, OmtpEvents.CONFIG_STATUS_SMS_TIME_OUT);
+                fail();
+                return;
+            } catch (CancellationException e) {
+                VvmLog.e(TAG, "Unable to send status request SMS");
                 fail();
                 return;
             } catch (InterruptedException | ExecutionException | IOException e) {
@@ -210,6 +234,7 @@ public class ActivationTask extends BaseTask {
             } else {
                 VvmLog.i(TAG, "Subscriber not ready but provisioning is not supported");
                 helper.handleEvent(status, OmtpEvents.CONFIG_SERVICE_NOT_AVAILABLE);
+                PhoneGlobals.getInstance().setShouldCheckVisualVoicemailConfigurationForMwi(subId, false);
             }
         }
     }
@@ -231,12 +256,19 @@ public class ActivationTask extends BaseTask {
             vvmSourceManager.addSource(phone);
 
             SyncTask.start(context, phone, OmtpVvmSyncService.SYNC_FULL_SYNC);
-            // Remove the message waiting indicator, which is a stick notification fo traditional
+            // Remove the message waiting indicator, which is a sticky notification for traditional
             // voicemails.
+            PhoneGlobals.getInstance()
+                    .setShouldCheckVisualVoicemailConfigurationForMwi(subId, true);
             PhoneGlobals.getInstance().clearMwiIndicator(subId);
         } else {
             VvmLog.e(TAG, "Visual voicemail not available for subscriber.");
         }
+    }
+
+    private static boolean hasSignal(Context context, int subId) {
+        return context.getSystemService(TelephonyManager.class)
+                .getServiceStateForSubscriber(subId).getState() == ServiceState.STATE_IN_SERVICE;
     }
 
     private static void queueActivationAfterProvisioned(Context context, int subId) {

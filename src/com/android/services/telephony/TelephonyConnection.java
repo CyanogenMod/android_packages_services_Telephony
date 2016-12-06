@@ -34,6 +34,7 @@ import android.telecom.StatusHints;
 import android.telecom.TelecomManager;
 import android.telecom.VideoProfile;
 import android.telephony.CarrierConfigManager;
+import android.telephony.DisconnectCause;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
@@ -251,6 +252,7 @@ abstract class TelephonyConnection extends Connection {
      */
     public abstract static class TelephonyConnectionListener {
         public void onOriginalConnectionConfigured(TelephonyConnection c) {}
+        public void onOriginalConnectionRetry(TelephonyConnection c) {}
     }
 
     private final PostDialListener mPostDialListener = new PostDialListener() {
@@ -679,7 +681,7 @@ abstract class TelephonyConnection extends Connection {
         }
     }
 
-    public void performConference(TelephonyConnection otherConnection) {
+    public void performConference(Connection otherConnection) {
         Log.d(this, "performConference - %s", this);
         if (getPhone() != null) {
             try {
@@ -751,7 +753,7 @@ abstract class TelephonyConnection extends Connection {
         // shown.
         Phone phone = getPhone();
         if (phone != null && phone.isInEcm()) {
-            connectionProperties |= PROPERTY_SHOW_CALLBACK_NUMBER;
+            connectionProperties |= PROPERTY_EMERGENCY_CALLBACK_MODE;
         }
 
         return connectionProperties;
@@ -1010,7 +1012,8 @@ abstract class TelephonyConnection extends Connection {
     private boolean canHoldImsCalls() {
         PersistableBundle b = getCarrierConfig();
         // Return true if the CarrierConfig is unavailable
-        return b == null || b.getBoolean(CarrierConfigManager.KEY_ALLOW_HOLD_IN_IMS_CALL_BOOL);
+        return !doesDeviceRespectHoldCarrierConfig() || b == null ||
+                b.getBoolean(CarrierConfigManager.KEY_ALLOW_HOLD_IN_IMS_CALL_BOOL);
     }
 
     private PersistableBundle getCarrierConfig() {
@@ -1019,6 +1022,23 @@ abstract class TelephonyConnection extends Connection {
             return null;
         }
         return PhoneGlobals.getInstance().getCarrierConfigForSubId(phone.getSubId());
+    }
+
+    /**
+     * Determines if the device will respect the value of the
+     * {@link CarrierConfigManager#KEY_ALLOW_HOLD_IN_IMS_CALL_BOOL} configuration option.
+     *
+     * @return {@code false} if the device always supports holding IMS calls, {@code true} if it
+     *      will use {@link CarrierConfigManager#KEY_ALLOW_HOLD_IN_IMS_CALL_BOOL} to determine if
+     *      hold is supported.
+     */
+    private boolean doesDeviceRespectHoldCarrierConfig() {
+        Phone phone = getPhone();
+        if (phone == null) {
+            return true;
+        }
+        return phone.getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_device_respects_hold_carrier_config);
     }
 
     /**
@@ -1284,10 +1304,19 @@ abstract class TelephonyConnection extends Connection {
                     setRinging();
                     break;
                 case DISCONNECTED:
-                    setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
-                            mOriginalConnection.getDisconnectCause(),
-                            mOriginalConnection.getVendorDisconnectCause()));
-                    close();
+                    // We can get into a situation where the radio wants us to redial the same
+                    // emergency call on the other available slot. This will not set the state to
+                    // disconnected and will instead tell the TelephonyConnectionService to create
+                    // a new originalConnection using the new Slot.
+                    if (mOriginalConnection.getDisconnectCause() ==
+                            DisconnectCause.DIALED_ON_WRONG_SLOT) {
+                        fireOnOriginalConnectionRetryDial();
+                    } else {
+                        setDisconnected(DisconnectCauseUtil.toTelecomDisconnectCause(
+                                mOriginalConnection.getDisconnectCause(),
+                                mOriginalConnection.getVendorDisconnectCause()));
+                        close();
+                    }
                     break;
                 case DISCONNECTING:
                     break;
@@ -1705,6 +1734,12 @@ abstract class TelephonyConnection extends Connection {
     private final void fireOnOriginalConnectionConfigured() {
         for (TelephonyConnectionListener l : mTelephonyListeners) {
             l.onOriginalConnectionConfigured(this);
+        }
+    }
+
+    private final void fireOnOriginalConnectionRetryDial() {
+        for (TelephonyConnectionListener l : mTelephonyListeners) {
+            l.onOriginalConnectionRetry(this);
         }
     }
 
