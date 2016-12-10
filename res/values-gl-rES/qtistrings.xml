@@ -33,6 +33,7 @@
 <resources>
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="ims_settings">Configuración do IMS</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ENTRY">PIN de desbloqueo da subrede da tarxeta SIM</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
@@ -42,8 +43,11 @@
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_ENTRY">PIN de desbloqueo da SIM</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_ENTRY">PIN de desbloqueo da rede 1 da tarxeta RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_ENTRY">PIN de desbloqueo da rede 2 da tarxeta RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_ENTRY">PIN de desbloqueo de hrpd da tarxeta RUIM</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_ENTRY">PIN de desbloqueo da tarxeta RUIM corporativa</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
@@ -61,8 +65,11 @@
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_IN_PROGRESS">Solicitando desbloqueo da tarxeta SIM\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_IN_PROGRESS">Solicitando desbloqueo da rede 1 da tarxeta RUIM\u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_IN_PROGRESS">Solicitando desbloqueo da rede 2 da tarxeta RUIM\u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_IN_PROGRESS">Solicitando desbloqueo de HRPD da tarxeta RUIM\u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_IN_PROGRESS">Solicitando desbloqueo do fornecedor de servizos da tarxeta SIM\u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
@@ -72,14 +79,21 @@
   <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_IN_PROGRESS">Solicitando desbloqueo con PUK\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ERROR">O desbloqueo da subrede da tarxeta SIM non se puido realizar correctamente.</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_ERROR">O desbloqueo do provedor de servizos da tarxeta SIM non se puido realizar correctamente.</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_ERROR">O desbloqueo da tarxeta SIM corporativa non se puido realizar correctamente.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_ERROR">O desbloqueo da tarxeta SIM non se puido realizar correctamente.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_ERROR">O desbloqueo de rede 1 de tarxeta RUIM non se puido realizar correctamente.</string>
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_ERROR">O desbloqueo de rede 2 da tarxeta RUIM non se puido realizar correctamente.</string>
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_ERROR">O desbloqueo de HRPD da tarxeta RUIM non se puido realizar correctamente.</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_ERROR">O desbloqueo do provedor de servizos da tarxeta RUIM non se puido realizar correctamente.</string>
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Non se puido desbloquear co PUK.</string>
   <!-- Error message displayed on RUIM RUIM Depersonalization panel -->
@@ -97,16 +111,22 @@
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ERROR">Non se puido desbloquear co PUK.</string>
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Non se puido desbloquear co PUK.</string>
   <!-- Success message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_SUCCESS">O desbloqueo da subrede da SIM realizouse correctamente.</string>
   <!-- Success message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_SUCCESS">O desbloqueo do provedor de servizos da SIM realizouse correctamente.</string>
   <!-- Success message displayed on SIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_SUCCESS">O desbloqueo da SIM corporativa realizouse correctamente.</string>
   <!-- Success message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_SUCCESS">O desbloqueo da SIM realizouse correctamente.</string>
   <!-- Success message displayed on RUIM Network1 Depersonalization panel -->
   <!-- Success message displayed on RUIM Network2 Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_SUCCESS">O PUK desbloqueouse correctamente.</string>
   <!-- Success message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_SUCCESS">O desbloqueo de HRPD da tarxeta RUIM realizouse correctamente.</string>
   <!-- Success message displayed on RUIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_SUCCESS">O desbloqueo do provedor de servizos de tarxeta RUIM realizouse correctamente.</string>
   <!-- Success message displayed on RUIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_CORPORATE_SUCCESS">O desbloqueo da tarxeta RUIM corporativa realizouse correctamente.</string>
   <!-- Success message displayed on RUIM RUIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_RUIM_SUCCESS">O desbloqueo da tarxeta RUIM realizouse correctamente.</string>
   <!-- Success message displayed on PUK Depersonalization panel -->
@@ -121,5 +141,12 @@
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_SUCCESS">O PUK desbloqueouse correctamente.</string>
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK_SUCCESS">O PUK desbloqueouse correctamente.</string>
   <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_SUCCESS">O PUK desbloqueouse correctamente.</string>
+  <string name="preferred_network_mode_dialogtitle_cmcc">Modo de rede</string>
   <!-- Mobile network settings, summary for preferred network mode 4G/3G/2G [CHAR LIMIT=100] -->
+  <string name="preferred_network_mode_4g_3g_2g_auto">"4G/3G/2G (auto)"</string>
+  <string name="preferred_network_mode_3g_2g_auto">"3G/2G (auto)"</string>
+  <string name="cf_setting_mobile_data_roaming_alert">Por favor, activa a itinerancia de datos</string>
+  <string name="no_mobile_data">Datos móbiles non dispoñibles</string>
+  <string name="no_mobile_data_roaming">Itinerancia de datos non dispoñible</string>
+  <string name="call_barring">Bloqueo das chamadas</string>
 </resources>
