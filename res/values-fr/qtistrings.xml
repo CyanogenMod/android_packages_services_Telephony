@@ -33,6 +33,7 @@
 <resources>
   <!-- IMS settings related strings -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
+  <string name="ims_settings">Paramètres de Messagerie Instantanée</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ENTRY">Code PIN de déverrouillage de la SIM de sous-réseau</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
@@ -44,6 +45,7 @@
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
   <!-- Label text for PIN entry widget on RUIM Network2 Depersonalization panel -->
   <!-- Label text for PIN entry widget on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_ENTRY">Code PIN de déverrouillage de RUIM hrpd</string>
   <!-- Label text for PIN entry widget on RUIM Corporate Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_ENTRY">Code PIN de déverrouillage du RUIM d\'entreprise</string>
   <!-- Label text for PIN entry widget on RUIM Service Provider Depersonalization panel -->
@@ -61,7 +63,9 @@
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_IN_PROGRESS">Requête de déverrouillage SIM\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK1_IN_PROGRESS">Requête de déverrouillage du réseau 1 RUIM\u2026</string>
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_NETWORK2_IN_PROGRESS">Requête de déverrouillage du réseau 2 RUIM\u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_IN_PROGRESS">Requête de déverrouillage du fournisseur de service RUIM\u2026</string>

@@ -19,7 +19,7 @@
   <!-- Advanced Settings -->
   <string name="incall_screen_settings">Налады экрана выкліку</string>
   <string name="show_ssn_label">Паведамленні пра падзеі</string>
-  <string name="show_ssn_summary">Паказваць апавяшчэнні пра розныя падзеі сеткі, злучаных з выклікам</string>
+  <string name="show_ssn_summary">Паказваць паведамленьні пра розныя падзеі сеткі, звязаныя з выклікам</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Уключана ўмоўнае пераадрасаванне выкліку</string>
