@@ -49,4 +49,6 @@
   <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">ඇමතුම නිශ්චිත ඇමතුම් පැවරීම අතරින් සම්බන්ධ විය</string>
   <!-- Mobile network settings, preferred network modes -->
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

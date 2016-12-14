@@ -36,4 +36,6 @@
   <!-- Mobile network settings, preferred network modes -->
   <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

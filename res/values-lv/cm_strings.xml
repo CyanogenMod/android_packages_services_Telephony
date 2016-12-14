@@ -49,4 +49,6 @@
   <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Zvans savienots caur tiešu zvana pārsūtīšanu</string>
   <!-- Mobile network settings, preferred network modes -->
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

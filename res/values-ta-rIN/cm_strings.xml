@@ -73,4 +73,6 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM மட்டுமே</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA விரும்பப்பட்டது</string>
   <string name="msim_mobile_network_settings_title">SIM %d மொபைல் பிணைய அமைப்புகள்</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

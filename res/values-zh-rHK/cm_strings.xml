@@ -69,4 +69,6 @@
   <string name="preferred_network_mode_wcdma_only_choice">僅 WCDMA</string>
   <string name="preferred_network_mode_gsm_only_choice">僅 GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">首選 GSM/WCDMA</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

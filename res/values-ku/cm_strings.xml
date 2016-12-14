@@ -69,4 +69,6 @@
   <string name="preferred_network_mode_wcdma_only_choice">WCDMA تەنیا</string>
   <string name="preferred_network_mode_gsm_only_choice">تەنیا GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA په‌سه‌ندکراو</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

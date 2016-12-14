@@ -73,4 +73,8 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM لا</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">ئالدىن بەلگىلەنگەن GSM/WCDMA</string>
   <string name="msim_mobile_network_settings_title">SIM %d تور ئېقىم تەڭشىكى</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">تور ھالىتىنى تاللاش</string>
+  <string name="choose_network_mode_system_default">سىستېما كۆڭۈلدىكى</string>
 </resources>

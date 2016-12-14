@@ -73,4 +73,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Sadece GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA tercihli</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobil şebeke ayarları</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Şebeke modunu seç</string>
+  <string name="choose_network_mode_system_default">Sistem varsayılanı</string>
 </resources>

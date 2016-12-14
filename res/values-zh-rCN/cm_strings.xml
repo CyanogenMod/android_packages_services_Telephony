@@ -74,4 +74,8 @@
   <string name="preferred_network_mode_gsm_only_choice">仅 GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">首选 GSM/WCDMA</string>
   <string name="msim_mobile_network_settings_title">SIM 卡 %d 移动网络设置</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">选择网络模式</string>
+  <string name="choose_network_mode_system_default">系统默认</string>
 </resources>

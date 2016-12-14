@@ -73,4 +73,7 @@
   <string name="preferred_network_mode_gsm_only_choice">doar GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA preferat</string>
   <string name="msim_mobile_network_settings_title">Setări rețea mobilă SIM %d</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_system_default">Implicit sistem</string>
 </resources>

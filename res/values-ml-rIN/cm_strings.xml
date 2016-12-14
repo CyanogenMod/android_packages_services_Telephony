@@ -73,4 +73,6 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM മാത്രം</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM / WCDMA താല്‍പര്യപ്പെടുന്നു</string>
   <string name="msim_mobile_network_settings_title">സിം %d മൊബൈൽ നെറ്റ്‌വർക്ക് ക്രമീകരണങ്ങൾ</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

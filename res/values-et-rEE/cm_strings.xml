@@ -70,4 +70,6 @@
   <string name="preferred_network_mode_gsm_only_choice">Ainult GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Eelistatult GSM/WCDMA</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiilse võrgu seaded</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

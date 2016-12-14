@@ -73,4 +73,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Namái GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferencia de GSM/WCDMA</string>
   <string name="msim_mobile_network_settings_title">Axustes de rede de SIM %d</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Escoyer mou de rede</string>
+  <string name="choose_network_mode_system_default">Predeterminao del sistema</string>
 </resources>

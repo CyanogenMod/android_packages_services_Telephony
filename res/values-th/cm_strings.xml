@@ -73,4 +73,8 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM เท่านั้น</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">กำหนดใช้ GSM/WCDMA</string>
   <string name="msim_mobile_network_settings_title">การตั้งค่าเครือข่ายโทรศัพท์มือถือซิม %d</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">เลือกรูปแบบเครือข่าย</string>
+  <string name="choose_network_mode_system_default">ค่าเริ่มต้นระบบ</string>
 </resources>
