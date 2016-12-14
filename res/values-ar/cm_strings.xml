@@ -73,4 +73,8 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM فقط</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA المفضل</string>
   <string name="msim_mobile_network_settings_title">إعدادات شبكة الهاتف النقال %d شريحة SIM</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">اختيار وضع الشبكة</string>
+  <string name="choose_network_mode_system_default">الإعداد الافتراضي للنظام</string>
 </resources>

@@ -73,4 +73,8 @@
   <string name="preferred_network_mode_gsm_only_choice">GSM 전용</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA 우선</string>
   <string name="msim_mobile_network_settings_title">SIM %d 모바일 네트워크 설정</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">네트워크 모드 선택</string>
+  <string name="choose_network_mode_system_default">시스템 기본 설정</string>
 </resources>

@@ -74,4 +74,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Pouze GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferované WCDMA/GSM</string>
   <string name="msim_mobile_network_settings_title">Nastavení mobilní sítě SIM %d</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Vybrat režim sítě</string>
+  <string name="choose_network_mode_system_default">Výchozí systémové</string>
 </resources>

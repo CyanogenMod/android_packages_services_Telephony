@@ -70,4 +70,6 @@
   <string name="preferred_network_mode_gsm_only_choice">Yalnız GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA üstünlük verilən</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobil şəbəkə tənzimləmələri</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

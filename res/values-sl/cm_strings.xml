@@ -74,4 +74,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Samo GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Prednostno GSM/WCDMA</string>
   <string name="msim_mobile_network_settings_title">Nastavitve mobilnega omrežja za SIM %d</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Izberite način omrežja</string>
+  <string name="choose_network_mode_system_default">Sistemski privzeti</string>
 </resources>

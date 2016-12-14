@@ -70,4 +70,6 @@
   <string name="preferred_network_mode_gsm_only_choice">केवल जीएसएम</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">जीएसम/डब्ल्यूसीडीएमए बेहतर रहेगा</string>
   <string name="msim_mobile_network_settings_title">सिम %d मोबाइल नेटवर्क सेटिंग</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

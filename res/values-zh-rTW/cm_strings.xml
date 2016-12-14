@@ -64,4 +64,6 @@
   <string name="preferred_network_mode_gsm_only_choice">限 GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA 優先</string>
   <string name="msim_mobile_network_settings_title">Sim 卡 %d 移動網路設置</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

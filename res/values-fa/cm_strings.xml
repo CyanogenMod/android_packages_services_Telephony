@@ -70,4 +70,6 @@
   <string name="preferred_network_mode_gsm_only_choice">تنها GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ترجیح داده شده</string>
   <string name="msim_mobile_network_settings_title">تنظیمات شبکه تلفن همراه سیمکارت %d</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

@@ -73,4 +73,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Chỉ GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA ưu tiên</string>
   <string name="msim_mobile_network_settings_title">Cài đặt mạng di động %d của SIM</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Chọn chế độ mạng</string>
+  <string name="choose_network_mode_system_default">Mặc định hệ thống</string>
 </resources>

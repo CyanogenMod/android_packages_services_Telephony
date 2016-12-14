@@ -73,4 +73,6 @@
   <string name="preferred_network_mode_gsm_only_choice">কেৱল GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA পচন্দৰ</string>
   <string name="msim_mobile_network_settings_title">SIM %d ম\'বাইল নেটৱৰ্ক ছেটিংছ</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
 </resources>

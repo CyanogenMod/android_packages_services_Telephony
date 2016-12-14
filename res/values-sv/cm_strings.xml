@@ -73,4 +73,8 @@
   <string name="preferred_network_mode_gsm_only_choice">Endast GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA föredragen</string>
   <string name="msim_mobile_network_settings_title">SIM-%d mobila nätverksinställningar</string>
+  <!-- Permission to modify network mode via intent -->
+  <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Välj nätläge</string>
+  <string name="choose_network_mode_system_default">Systemstandard</string>
 </resources>
