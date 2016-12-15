@@ -75,6 +75,8 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA foretrukket</string>
   <string name="msim_mobile_network_settings_title">Opsætning af SIM %d mobile netværk</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">Skift netværkstilstand</string>
+  <string name="perm_change_mobile_network_desc">Tillader en app at ændre den nuværende netværkstilstand.</string>
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Vælg netværkstilstand</string>
   <string name="choose_network_mode_system_default">Systemstandard</string>

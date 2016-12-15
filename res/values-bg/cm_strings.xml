@@ -75,6 +75,8 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA предпочитан</string>
   <string name="msim_mobile_network_settings_title">Мрежови настройки СИМ карта %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">Промяна на мрежовия режим</string>
+  <string name="perm_change_mobile_network_desc">Позволява на приложението да модифицира текущия мрежови режим.</string>
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Изберете мрежови режим</string>
   <string name="choose_network_mode_system_default">Система по подразбиране</string>
