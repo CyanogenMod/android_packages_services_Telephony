@@ -75,6 +75,8 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Ensisij. GSM/WCDMA</string>
   <string name="msim_mobile_network_settings_title">SIM %d mobiiliverkon asetukset</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">Muuta verkkotilaa</string>
+  <string name="perm_change_mobile_network_desc">Sallii sovelluksen muuttaa nykyistä verkkotilaa.</string>
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Valitse verkkotila</string>
   <string name="choose_network_mode_system_default">Järjestelmän oletus</string>

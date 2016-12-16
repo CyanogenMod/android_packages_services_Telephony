@@ -75,6 +75,8 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferencialmente GSM/WCDMA</string>
   <string name="msim_mobile_network_settings_title">Configurações de rede móvel do SIM %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">Alterar o modo de rede</string>
+  <string name="perm_change_mobile_network_desc">Permite que um app altere o modo de rede atual.</string>
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Escolha o modo de rede</string>
   <string name="choose_network_mode_system_default">Padrão do sistema</string>
