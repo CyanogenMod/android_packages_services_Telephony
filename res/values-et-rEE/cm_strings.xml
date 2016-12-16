@@ -311,5 +311,18 @@
   <!-- Call recording format -->
   <string name="call_recording_format">Kõne salvestamise formaat</string>
   <!-- Packet Count and Packet Error Count settings -->
+  <string name="ims_get_packet_count_failed">Pakettide koguse saamine nurjus</string>
+  <string name="ims_get_packet_error_count_failed">Vigaste pakettide koguse saamine nurjus</string>
+  <string name="ims_get_packet_count_label">Pakettide koguse saamiseks vajutage siia</string>
+  <string name="ims_get_packet_error_count_label">Vigaste pakettide koguse saamiseks vajutage siia</string>
   <!-- Wi-Fi calling settings -->
+  <string name="wifi_call_setting">Wi-Fi kõnede sätted</string>
+  <string name="wifi_calling_title">WiFi kõned</string>
+  <string name="wifi_calling_preference_title">Wi-Fi kõnede eelistused</string>
+  <string name="ims_set_wifi_calling_preference_failed">WiFi kõnede eelistuse seadmine nurjus</string>
+  <string name="wifi_pref_none">Eelistus puudub</string>
+  <string name="wifi_preferred">WiFi eelistatud</string>
+  <string name="wifi_only">Ainult WiFi</string>
+  <string name="cellular_preferred">Mobiilne eelistatud</string>
+  <string name="cellular_only">Ainult mobiilne</string>
 </resources>

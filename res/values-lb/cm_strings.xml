@@ -316,4 +316,22 @@
   <string name="wifi_only">Just WLAN</string>
   <string name="cellular_preferred">Mobilfunk léiwer</string>
   <string name="cellular_only">Just Mobilfunk</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Aus</item>
+    <item>International roaming calls</item>
+    <item>International Uriff</item>
+    <item>Erausgoend Uriff</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Aus</item>
+    <item>Roaming</item>
+    <item>All</item>
+  </string-array>
+  <string name="input_password">Gëff däi Passwuert an</string>
+  <string name="invalidPsw">Gëff e gëltegt Passwuert (4-8 Zifferen) an</string>
+  <string name="labelCbChangePassword">Passwuert änneren</string>
+  <string name="psw_enter_old">Aalt Passwuert</string>
+  <string name="psw_enter_new">Neit Passwuert</string>
+  <string name="psw_reenter_new">Passwuert nees aginn</string>
+  <string name="cb_psw_dont_match">D\'Passwierder stëmmen net iwwereneen</string>
 </resources>

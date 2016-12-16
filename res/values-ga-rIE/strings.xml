@@ -21,14 +21,11 @@
          actual phone calls. -->
   <!-- Official label of the phone app, as seen in "Manage Applications"
          and other settings UIs. -->
-  <string name="phoneAppLabel" product="default">Telefono</string>
   <!-- Screen title for Emergency Dialer UI -->
   <!-- Activity label for the in-call UI -->
-  <string name="phoneIconLabel">Telefono</string>
   <!-- Title of FDN list screen -->
   <!-- Call status -->
   <!-- Incoming call screen, name of "unknown" caller -->
-  <string name="unknown">Nekonata</string>
   <!-- Incoming call screen, string when number hidden -->
   <!-- Incoming call screen, string when called from a pay phone -->
   <!-- In-call screen: status label for a call that's on hold -->
@@ -36,7 +33,6 @@
   <!-- Dialog label when a USSD code starts running -->
   <!-- Dialog label when an MMI code is canceled -->
   <!-- Label for "cancel" button on the MMI dialog -->
-  <string name="cancel">Nuligi</string>
   <!-- Toast string displayed to user if the input in MMI dialog is < 1 or > 160 -->
   <!-- Label for "Manage conference call" panel [CHAR LIMIT=40] -->
   <!-- Positive button label ("OK") used in several dialogs in the phone UI [CHAR LIMIT=10] -->
@@ -52,11 +48,8 @@
          the "PAUSE" character in a phone number to be dialed; this dialog gives
          informative message to the user to show the sending numbers following the "Pause". -->
   <!-- In-call screen: button label on the "wait" prompt dialog -->
-  <string name="send_button">Sendi</string>
   <!-- In-call screen: button label on the "wait" prompt dialog in CDMA Mode-->
-  <string name="pause_prompt_yes">Jes</string>
   <!-- In-call screen: button label on the "wait" prompt dialog in CDMA Mode-->
-  <string name="pause_prompt_no">Ne</string>
   <!-- In-call screen: on the "wild" character dialog, this is the label
          for a text widget that lets the user enter the digits that should
          replace the "wild" character. -->
@@ -64,7 +57,6 @@
   <!-- Title of the "Missing voicemail number" dialog -->
   <!-- Body text of the "Missing voicemail number" dialog -->
   <!-- Button label on the "Missing voicemail number" dialog -->
-  <string name="add_vm_number_str">Aldoni numeron</string>
   <!-- Status message displayed on SIM PIN unlock panel -->
   <!-- network depersonalization -->
   <!-- Label text for PIN entry widget on SIM Network Depersonalization panel -->
@@ -84,7 +76,6 @@
   <!-- Label for list item which opens a dialog to select the default outgoing account for SIP calls. -->
   <!-- Entry in dialog to "ask first" for accounts when making a call -->
   <!-- Label for heading of the accounts section in the phone accounts settings screen. -->
-  <string name="phone_accounts_accounts_header">Kontoj</string>
   <!-- Label for invoking phone account selection screen -->
   <!-- Label for heading in the phone account selection screen -->
   <!-- Title for the button to add a new sip account. [CHAR LIMIT=NONE] -->
@@ -173,10 +164,8 @@
   <!-- Mobile network settings screen title -->
   <!-- Available networks screen title/heading -->
   <!-- Mobile network settings screen, toast when searching for available networks -->
-  <string name="load_networks_progress">Ŝerĉado\u2026</string>
   <!-- Available networks screen, text when no networks are found -->
   <!-- Available networks screen, setting option name -->
-  <string name="search_networks">Serĉi retojn</string>
   <!-- Available networks screen, toast when an error is encountered when searching for networks -->
   <!-- Available networks screen, toast when registering on a specific network -->
   <!-- Available networks screen, toast when SIM card isn't allowed on a network -->
@@ -217,26 +206,6 @@
   <!-- Data usage settings screen option for time frame-->
   <!-- Data usage settings screen option for throttling rate-->
   <!-- Data usage settings screen option for accessing the carrier website-->
-  <string name="list_language_title">Lingvo</string>
-  <string-array name="list_language_entries">
-    <item>Angla</item>
-    <item>Franca</item>
-    <item>Hispana</item>
-    <item>Japana</item>
-    <item>Korea</item>
-    <item>Ĉina</item>
-    <item>Hebrea</item>
-  </string-array>
-  <string-array name="list_language_values">
-    <item>"1"</item>
-    <item>"2"</item>
-    <item>"3"</item>
-    <item>"4"</item>
-    <item>"5"</item>
-    <item>"6"</item>
-    <item>"7"</item>
-  </string-array>
-  <string name="list_language_dtitle">Lingvoj</string>
   <!-- CDMA System select strings -->
   <!-- Mobile network settings screen, setting option name -->
   <!-- Mobile network settings screen, setting summary text -->
@@ -262,18 +231,13 @@
   <!-- Call settings, FDN screen, setting option name -->
   <!-- Voice privacy on CDMA is an added layer of voice encryption. Theoretically, it would be harder to break in to a phone call with this feature enabled. -->
   <!-- FDN list screen: menu item label -->
-  <string name="menu_add">Aldoni kontakton</string>
   <!-- FDN list screen: menu item label -->
-  <string name="menu_edit">Redakti kontakton</string>
   <!-- FDN list screen: menu item label -->
-  <string name="menu_delete">Forigi kontakton</string>
   <!-- FDN related strings -->
   <!-- Label for PIN2 entry screen -->
   <!-- "Edit FDN Contact" screen: Label for the "name" text field -->
-  <string name="name">Nomo</string>
   <!-- "Edit FDN Contact" screen: Label for the "number" text field -->
   <!-- "Edit FDN Contact" screen: Button label for "save" action -->
-  <string name="save">Konservi</string>
   <!-- Title of "Edit FDN Contact" screen for a new contact -->
   <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
   <!-- "Edit FDN Contact" screen: status message displayed in a popup (toast) -->
@@ -381,7 +345,6 @@
   <!-- Message for "reply via sms" action, which is displayed in the missed call notification.
          The user will be able to send text messages using the phone number.
          [CHAR LIMIT=60] -->
-  <string name="notification_missedCall_message">Mesaĝo</string>
   <!-- In-call screen: call failure message displayed in an error dialog -->
   <!-- In-call screen: call failure message displayed in an error dialog.
          This string is currently unused (see comments in InCallScreen.java.) -->
@@ -418,7 +381,6 @@
   <!-- Text for the onscreen "Video call" button used to change a voice call
          to a video call. [CHAR LIMIT=10] -->
   <!-- Menu item label in SIM Contacts: Import a single contact entry from the SIM card -->
-  <string name="importSimEntry">Enporti</string>
   <!-- Menu item label in SIM Contacts: Import all contact entries from the SIM card -->
   <!-- SIM Contacts: status message displayed while importing card -->
   <!-- Import a single contact entry from contacts to the SIM card -->
@@ -455,7 +417,6 @@
   <!-- String to display within the OTA SPC Fail Notice dialog -->
   <!-- Button label in OTA listen screen that cancels activation and goes to the previous screen -->
   <!-- Button label shown on OTA error screen to allow the user to try again -->
-  <string name="ota_try_again">Reprovi</string>
   <!-- Button label shown on OTA screens that have a next screen -->
   <!-- Emergency Callback Mode (ECM) -->
   <!-- ECM: Status bar notification message -->
@@ -466,7 +427,6 @@
   <!-- ECM: Dialog box message while in emergency call -->
   <!-- ECM: Progress text -->
   <!-- ECM: ECM exit dialog choice -->
-  <string name="alert_dialog_yes">Jes</string>
   <!-- ECM: ECM exit dialog choice -->
   <!-- ECM: ECM exit dialog choice -->
   <!-- For incoming calls, this is a string we can get from a CDMA network instead of
@@ -482,7 +442,6 @@
   <!-- Use this as a default to describe the contact photo; currently for screen readers through accessibility. -->
   <!-- Use this to describe the separate conference call button; currently for screen readers through accessibility. -->
   <!--  Use this to describe the select contact button in EditPhoneNumberPreference; currently for screen readers through accessibility. -->
-  <string name="selectContact">elekti kontakton</string>
   <!-- Dialog title to notify user that Voice calling is not supported
          on this device. [CHAR LIMIT=40] -->
   <!-- String describing the Dial ImageButton
@@ -511,6 +470,5 @@
   <!-- Label for action button in dialog which opens mobile network settings, for video calling
          setting. -->
   <!-- Label for close button in dialog, for video calling setting. -->
-  <string name="enable_video_calling_dialog_close">Fermi</string>
   <!-- Strings used in Settings->Sim cards for each installed Sim. -->
 </resources>

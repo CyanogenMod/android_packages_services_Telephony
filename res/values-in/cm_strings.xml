@@ -267,7 +267,7 @@
   <string name="close">Tutup</string>
   <string name="change">Atur</string>
   <string name="new_sim_detected">Kartu SIM baru terdeteksi:</string>
-  <string name="default_sim_setting">Pengaturan baku:</string>
+  <string name="default_sim_setting">Pengaturan standar:</string>
   <string name="mobile_data">Koneksi data: <xliff:g id="status" example="enabled">%1$s</xliff:g></string>
   <string name="mobile_data_on">diaktifkan</string>
   <string name="mobile_data_off">dinonaktifkan</string>
@@ -276,15 +276,15 @@
   <string name="multi_sim_settings_title">Pengaturan Dual SIM</string>
   <string name="lte_switch_unavailable">Pemindah kartu SIM 3G/LTE tidak tersedia</string>
   <string name="lte_recognition_title">Pengenalan kartu SIM</string>
-  <string name="lte_recognize_summary">Dua kartu SIM 3G/LTE terdeteksi, Anda perlu mengatur kartu SIM 3G/LTE baku:</string>
-  <string name="lte_select_title">Kartu SIM 3G/LTE baku</string>
+  <string name="lte_recognize_summary">Dua kartu SIM 3G/LTE terdeteksi, Anda perlu mengatur standar kartu SIM 3G/LTE:</string>
+  <string name="lte_select_title">Standar kartu SIM 3G/LTE</string>
   <string name="lte_select_summary">Langganan yang dipilih akan diakui sebagai kartu SIM 3G/LTE dan yang lain sebagai kartu SIM 2G.</string>
-  <string name="lte_checkbox_text">Atur koneksi data ke kartu SIM yang dipilih sekali mengubah kartu SIM 3G/LTE baku</string>
+  <string name="lte_checkbox_text">Atur koneksi data ke kartu SIM yang dipilih sekali mengubah standar kartu SIM 3G/LTE</string>
   <string name="reg_failed">Registrasi gagal</string>
   <string name="reg_suc">Registrasi berhasil</string>
-  <string name="reg_failed_msg">Registrasi kartu SIM 3G/LTE baku gagal, %1$s akan diakui sebagai kartu SIM 2G.</string>
+  <string name="reg_failed_msg">Registrasi standar kartu SIM 3G/LTE gagal, %1$s akan diakui sebagai kartu SIM 2G.</string>
   <string name="lte_set">Atur</string>
-  <string name="lte_setting">Kartu SIM 3G/LTE baku sedang diatur</string>
+  <string name="lte_setting">Standar kartu SIM 3G/LTE sedang diatur</string>
   <string name="china_mobile">China Mobile</string>
   <string name="china_unicom">China Unicom</string>
   <string name="china_telecom">China Telecom</string>
@@ -322,7 +322,7 @@
   <string name="ims_set_wifi_calling_preference_failed">Gagal untuk mengatur preferensi panggilan Wi-Fi</string>
   <string name="wifi_pref_none">Tidak ada preferensi</string>
   <string name="wifi_preferred">Wi-Fi diutamakan</string>
-  <string name="wifi_only">Hanya Wi-Fi</string>
+  <string name="wifi_only">Wi-Fi saja</string>
   <string name="cellular_preferred">Seluler diutamakan</string>
   <string name="cellular_only">Hanya seluler</string>
   <string name="call_barring">Pencegahan panggilan</string>

@@ -325,12 +325,27 @@
   <string name="wifi_only">Só Wi-Fi</string>
   <string name="cellular_preferred">Rede móbil preferida</string>
   <string name="cellular_only">Só rede móbil</string>
+  <string name="call_barring">Bloqueo das chamadas</string>
+  <string name="call_barring_outgoing">Bloqueo das chamadas salientes</string>
   <string-array name="call_barring_outgoing_display_values">
     <item>Off</item>
     <item>International roaming calls</item>
     <item>Chamadas internacionais</item>
     <item>Chamadas realizadas</item>
   </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Apagar</item>
+    <item>Roaming</item>
+    <item>Todos</item>
+  </string-array>
+  <string name="call_barring_incoming">Bloqueo das chamadas entrantes</string>
+  <string name="input_password">Introduza o seu contrasinal</string>
+  <string name="invalidPsw">Introducir un contrasinal válido (4-8 díxitos)</string>
+  <string name="labelCbCancelAll">Desactivar bloqueo das chamadas</string>
   <string name="labelCbChangePassword">Cambiar o contrasinal</string>
+  <string name="psw_enter_old">Contrasinal anterior</string>
+  <string name="psw_enter_new">Contrasinal novo</string>
+  <string name="psw_reenter_new">Introduza de novo o seu contrasinal</string>
+  <string name="no_call_barring">Bloqueo das chamadas desactivado</string>
   <string name="cb_psw_dont_match">Os contrasinais non coinciden</string>
 </resources>

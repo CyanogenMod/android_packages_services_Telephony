@@ -17,14 +17,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="show_ssn_label">Паведамленні пра падзеі</string>
-  <string name="show_ssn_summary">Паказваць апавяшчэнні пра розныя падзеі сеткі, злучаных з выклікам</string>
+  <string name="show_ssn_summary">Паказваць паведамленьні пра розныя падзеі сеткі, звязаныя з выклікам</string>
   <!-- Blacklist preferences -->
   <string name="blacklist_title">Чорны спіс</string>
   <string name="blacklist_summary_disabled">Выключана</string>
   <string name="blacklist_summary">Вы не будзеце атрымваць уваходныя выклікі ці паведамленні ад тэлефонных нумароў з чорнага спіса</string>
   <!-- Sprint MWI Quirk: Phantom message wait indicator workaround -->
   <string name="mwi_notification_title">Індыкатар чакання паведамленняў</string>
-  <string name="mwi_notification_summary">Паказваць індыкатар чакання паведамленняў апавяшчэнняў галасавой пошты</string>
+  <string name="mwi_notification_summary">Паказваць паведамленьне галасаваое пошты</string>
   <!-- Toasts for various transient network events -->
   <!-- Toast text for Unconditional Call Forwarding enabled  -->
   <string name="call_notif_unconditionalCF">Уключана ўмоўнае пераадрасаванне выкліку</string>

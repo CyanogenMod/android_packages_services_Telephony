@@ -103,17 +103,12 @@
   <!-- TTY Mode change is NOT allowed during a VT call -->
   <!-- Call settings: title of the dialog that lets you select contacts from the SIM. -->
   <!-- Sim contacts management -->
-  <string name="editContact">Redakti</string>
-  <string name="delete">Forigi</string>
-  <string name="hintName">Nomo</string>
   <!-- UPLMN Prefer -->
-  <string name="sim_unknown">Nekonata</string>
   <!-- Manual PLMN scan data disconnect dialog text -->
   <!-- IMS settings related strings -->
   <!-- Title of the ims editor screen. [CHAR LIMIT=NONE] -->
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <!-- VT call quality settings. -->
-  <string name="ims_vt_call_quality_unknown">Nekonata</string>
   <!-- Permission for notification-bar network toggle -->
   <!-- My Phone Number -->
   <!-- Call recording format -->

@@ -167,27 +167,27 @@
   <string name="roaming_cdma">CDMA роуминг</string>
   <string name="roaming_disabled">Изключено</string>
   <!-- Mobile network settings, summary for preferred network mode Global[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_global_summary_cm">Режим на предпочитана мрежа: глобален (CDMA/EvDo/LTE/GSM/WCDMA)</string>
+  <string name="preferred_network_mode_global_summary_cm">Предпочитан режим на мрежата: Глобален (CDMA/EvDo/LTE/GSM/WCDMA)</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA only[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_only_summary">Режим на предпочитана мрежа: Само TD-SCDMA</string>
+  <string name="preferred_network_mode_td_scdma_only_summary">Предпочитан режим на мрежата: Само TD-SCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_summary">Предпочитан режим на мрежата: TD-SCDMA/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / LTE[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_lte_summary">Предпочитан режим на мрежата: TD-SCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_gsm_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM</string>
+  <string name="preferred_network_mode_td_scdma_gsm_summary">Предпочитан режим на мрежата: TD-SCDMA/GSM</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / LTE[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_lte_summary">Предпочитан режим на мрежата: TD-SCDMA/GSM/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_summary">Предпочитан режим на мрежата: TD-SCDMA/GSM/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / WCDMA/ LTE[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_wcdma_lte_summary">Предпочитан режим на мрежата: TD-SCDMA/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA / GSM / WCDMA/ LTE[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Режим на предпочитана мрежа: TD-SCDMA/GSM/WCDMA/LTE</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_summary">Предпочитан режим на мрежата: TD-SCDMA/GSM/WCDMA/LTE</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_lte_cdma_evdo_gsm_wcdma_summary">Предпочитан режим на мрежата: TD-SCDMA/LTE/CDMA/EvDo/GSM/WCDMA</string>
   <!-- Mobile network settings, summary for preferred network mode TD-SCDMA/CDMA/EvDo/GSM/WCDMA[CHAR LIMIT=100] -->
-  <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Режим на предпочитана мрежа: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
+  <string name="preferred_network_mode_td_scdma_cdma_evdo_gsm_wcdma_summary">Предпочитан режим на мрежата: TD-SCDMA/CDMA/EvDo/GSM/WCDMA</string>
   <!-- In-call screen: call failure reason (call denied because call barring
             is ON on MT side ) -->
   <string name="callFailed_incoming_cb_enabled">Участник забрани всички входящи повиквания.</string>
@@ -339,13 +339,13 @@
     <item>Всички</item>
   </string-array>
   <string name="call_barring_incoming">Забранени входящи разговори</string>
-  <string name="input_password">Въведете паролата си</string>
+  <string name="input_password">Въведете вашата парола</string>
   <string name="invalidPsw">Въведете валидна парола (4-8 цифри)</string>
   <string name="labelCbCancelAll">Забраняване на повиквания</string>
   <string name="labelCbChangePassword">Смяна на паролата</string>
   <string name="psw_enter_old">Стара парола</string>
   <string name="psw_enter_new">Нова парола</string>
-  <string name="psw_reenter_new">Въведете отново паролата си</string>
+  <string name="psw_reenter_new">Въведете отново вашата парола</string>
   <string name="no_call_barring">Спиране на забраната за обаждания</string>
   <string name="cb_psw_dont_match">Паролите не съвпадат</string>
 </resources>

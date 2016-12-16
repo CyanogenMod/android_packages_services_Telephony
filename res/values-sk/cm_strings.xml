@@ -325,4 +325,27 @@
   <string name="wifi_only">Iba Wi-Fi</string>
   <string name="cellular_preferred">Uprednostniť mobilné</string>
   <string name="cellular_only">Iba mobilné</string>
+  <string name="call_barring">Blokovanie hovorov</string>
+  <string name="call_barring_outgoing">Blokovanie odchádzajúcich hovorov</string>
+  <string-array name="call_barring_outgoing_display_values">
+    <item>Vypnuté</item>
+    <item>Medzinárodné roamingové hovory</item>
+    <item>Medzinárodné hovory</item>
+    <item>Odchádzajúce hovory</item>
+  </string-array>
+  <string-array name="call_barring_incoming_display_values">
+    <item>Vypnuté</item>
+    <item>Roaming</item>
+    <item>Všetky</item>
+  </string-array>
+  <string name="call_barring_incoming">Blokovanie prichádzajúcich hovorov</string>
+  <string name="input_password">Zadajte vaše heslo</string>
+  <string name="invalidPsw">Zadajte platné heslo (4-8 číslic)</string>
+  <string name="labelCbCancelAll">Zakázať blokovanie hovorov</string>
+  <string name="labelCbChangePassword">Zmeniť heslo</string>
+  <string name="psw_enter_old">Staré heslo</string>
+  <string name="psw_enter_new">Nové heslo</string>
+  <string name="psw_reenter_new">Znovu zadajte vaše heslo</string>
+  <string name="no_call_barring">Blokovanie hovorov zakázané</string>
+  <string name="cb_psw_dont_match">Heslá sa nezhodujú</string>
 </resources>
