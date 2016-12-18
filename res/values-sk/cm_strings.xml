@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
+  <string name="incall_screen_settings">Nastavenia obrazovky pri hovore</string>
   <string name="show_ssn_label">Oznámenia o udalostiach</string>
   <string name="show_ssn_summary">Zobraziť oznámenia na rôzne udalosti siete, ktoré súvisia s hovormi</string>
   <!-- Toasts for various transient network events -->
@@ -49,6 +50,8 @@
   <!-- Toast text for incoming call connected through ECT -->
   <string name="call_notif_callconnectedect">Hovor je spojený na priamo (ECT)</string>
   <!-- Mobile network settings, preferred network modes -->
+  <string name="preferred_network_mode_td_scdma_lte_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/LTE/GSM/WCDMA/CDMA/EvDo</string>
+  <string name="preferred_network_mode_td_scdma_gsm_wcdma_cdma_evdo_choice">TD-SCDMA/GSM/WCDMA/CDMA/EvDo</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_lte_choice">TD-SCDMA/GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_lte_choice">TD-SCDMA/WCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_gsm_wcdma_choice">TD-SCDMA/GSM/WCDMA</string>
@@ -57,6 +60,7 @@
   <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
   <string name="preferred_network_mode_td_scdma_only_choice">Iba TD-SCDMA</string>
+  <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
   <string name="preferred_network_mode_lte_choice">LTE</string>
   <string name="preferred_network_mode_global_choice">Globálny</string>
   <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
@@ -71,5 +75,9 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">Preferované GSM/WCDMA</string>
   <string name="msim_mobile_network_settings_title">Nastavenia mobilnej siete SIM %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">Zmeniť režim siete</string>
+  <string name="perm_change_mobile_network_desc">Povolí aplikácii zmeniť aktuálny režim siete.</string>
   <!-- Network mode picker dialog title -->
+  <string name="choose_network_mode_title">Zvoliť režim siete</string>
+  <string name="choose_network_mode_system_default">Predvolené systémom</string>
 </resources>
