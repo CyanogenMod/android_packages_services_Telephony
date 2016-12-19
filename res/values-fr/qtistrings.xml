@@ -67,6 +67,7 @@
   <!-- Status message displayed on RUIM Network2 Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK2_IN_PROGRESS">Requête de déverrouillage du réseau 2 RUIM\u2026</string>
   <!-- Status message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_IN_PROGRESS">Requête de déverrouillage de hrpd RUIM\u2026</string>
   <!-- Status message displayed on RUIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_IN_PROGRESS">Requête de déverrouillage du fournisseur de service RUIM\u2026</string>
   <!-- Status message displayed on RUIM Corporate Depersonalization panel -->
@@ -76,13 +77,17 @@
   <!-- Status message displayed on PUK Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_IN_PROGRESS">Requête de déverrouillage PUK\u2026</string>
   <!-- Error message displayed on SIM Network Subset Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ERROR">La demande de déverrouillage de la SIM de sous-réseau a échoué.</string>
   <!-- Error message displayed on SIM Service Provider Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_ERROR">La demande de déverrouillage du prestataire de services de la SIM a échoué.</string>
   <!-- Error message displayed on SIM Corporate Depersonalization panel -->
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_ERROR">La demande de déverrouillage de la carte SIM d\'entreprise a échoué.</string>
   <!-- Error message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_ERROR">La demande de déverrouillage de la carte SIM a échoué.</string>
   <!-- Error message displayed on RUIM Network1 Depersonalization panel -->
   <!-- Error message displayed on RUIM Network2 Depersonalization panel -->
   <!-- Error message displayed on RUIM Hrpd Depersonalization panel -->
+  <string name="PERSOSUBSTATE_RUIM_HRPD_ERROR">La requête de déverrouillage Hrpd RUIM a échoué.</string>
   <!-- Error message displayed on RUIM Service Provider Depersonalization panel -->
   <!-- Error message displayed on RUIM Corporate Depersonalization panel -->
   <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ERROR">Échec du déverrouillage du code PUK.</string>
