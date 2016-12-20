@@ -75,6 +75,8 @@
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA diutamakan</string>
   <string name="msim_mobile_network_settings_title">Pengaturan jaringan seluler SIM %d</string>
   <!-- Permission to modify network mode via intent -->
+  <string name="perm_change_mobile_network">Mengubah mode jaringan</string>
+  <string name="perm_change_mobile_network_desc">Memungkinkan aplikasi untuk mengubah mode jaringan saat ini.</string>
   <!-- Network mode picker dialog title -->
   <string name="choose_network_mode_title">Pilih modus jaringan</string>
   <string name="choose_network_mode_system_default">Aturan standar sistem</string>
