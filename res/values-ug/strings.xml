@@ -32,6 +32,7 @@
   <!-- Incoming call screen, string when called from a pay phone -->
   <!-- In-call screen: status label for a call that's on hold -->
   <!-- Possible error messages with outgoing calls -->
+  <skip></skip>
   <string name="mmiStarted">MMI كودى قوزغىتىلدى</string>
   <!-- Dialog label when a USSD code starts running -->
   <string name="ussdRunning">USSD كودى ئىجرا قىلىنىۋاتىدۇ\u2026</string>
@@ -217,6 +218,7 @@
   </string-array>
   <!-- Phone settings: Internal keys used for Caller ID preference values.  DO NOT TRANSLATE. -->
   <!-- voicemail setting strings -->
+  <skip></skip>
   <!-- Call settings screen, Set voicemail number dialog text -->
   <string name="vm_changed">ئۈنخەت نومۇرى ئۆزگەردى.</string>
   <!-- Call settings screen, Set voicemail number dialog text -->
@@ -231,6 +233,7 @@
   <string name="sum_voicemail_choose_provider">ئۈنخەت مۇلازىمىتىنى تاللاڭ</string>
   <!-- Call settings screen, "Voicemail" screen, default option - Your Carrier -->
   <!-- networks setting strings -->
+  <skip></skip>
   <!-- Mobile network settings screen title -->
   <!-- Available networks screen title/heading -->
   <string name="label_available">ئىشلىتىلىشچان تورلار</string>

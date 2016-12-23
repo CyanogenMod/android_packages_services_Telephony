@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
-  <string name="incall_screen_settings">來電畫面設定</string>
+  <string name="incall_screen_settings">來電螢幕設定</string>
   <string name="show_ssn_label">事件通知</string>
   <string name="show_ssn_summary">處理通話時顯示各種相關網路訊息</string>
   <string name="incall_echo_cancellation">通話降噪</string>
@@ -111,19 +111,19 @@
   <string name="preferred_network_mode_td_scdma_gsm_choice">TD-SCDMA/GSM</string>
   <string name="preferred_network_mode_td_scdma_lte_choice">TD-SCDMA/LTE</string>
   <string name="preferred_network_mode_td_scdma_wcdma_choice">TD-SCDMA/WCDMA</string>
-  <string name="preferred_network_mode_td_scdma_only_choice">僅 TD-SCDMA</string>
+  <string name="preferred_network_mode_td_scdma_only_choice">僅限 TD-SCDMA</string>
   <string name="preferred_network_mode_lte_wcdma_choice">LTE/WCDMA</string>
   <string name="preferred_network_mode_lte_choice">LTE</string>
   <string name="preferred_network_mode_global_choice">全球</string>
   <string name="preferred_network_mode_gsm_wcdma_lte_choice">GSM/WCDMA/LTE</string>
   <string name="preferred_network_mode_cdma_lte_evdo_choice">CDMA + LTE/EvDo</string>
   <string name="preferred_network_mode_cdma_evdo_gsm_wcdma_choice">CDMA/EvDo/GSM/WCDMA</string>
-  <string name="preferred_network_mode_evdo_only_choice">僅 EvDo</string>
+  <string name="preferred_network_mode_evdo_only_choice">僅限 EvDo</string>
   <string name="preferred_network_mode_cdma_wo_evdo_choice">有 CDMA (無 EvDo)</string>
   <string name="preferred_network_mode_cdma_evdo_auto_choice">自動 CDMA/EvDo</string>
   <string name="preferred_network_mode_gsm_wcdma_auto_choice">自動 GSM/WCDMA</string>
-  <string name="preferred_network_mode_wcdma_only_choice">限 WCDMA</string>
-  <string name="preferred_network_mode_gsm_only_choice">限 GSM</string>
+  <string name="preferred_network_mode_wcdma_only_choice">僅限 WCDMA</string>
+  <string name="preferred_network_mode_gsm_only_choice">僅限 GSM</string>
   <string name="preferred_network_mode_gsm_wcdma_preferred_choice">GSM/WCDMA 優先</string>
   <string name="call_barring">限制通話</string>
   <string name="call_barring_outgoing">限制撥出通話</string>
@@ -174,7 +174,7 @@
   <string name="hintName">名稱</string>
   <string name="hintPhonenumber">電話號碼</string>
   <string name="contactAddSuccess">成功新增聯絡人到 SIM 卡</string>
-  <string name="contactAddFailed">將聯絡人添加到 SIM 卡失敗</string>
+  <string name="contactAddFailed">將聯絡人新增至 SIM 卡失敗</string>
   <string name="contactUpdateSuccess">已成功更新 SIM卡中的聯絡人</string>
   <string name="contactUpdateFailed">未能更新 SIM 卡中的聯絡人</string>
   <string name="contactdeleteSuccess">聯絡人已從 SIM 卡成功地刪除</string>

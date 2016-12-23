@@ -36,6 +36,7 @@
   <!-- In-call screen: status label for a call that's on hold -->
   <string name="onHold">Gehalenen Uruff</string>
   <!-- Possible error messages with outgoing calls -->
+  <skip></skip>
   <string name="mmiStarted">MMI-Code gestart</string>
   <!-- Dialog label when a USSD code starts running -->
   <string name="ussdRunning">USSD-Code gëtt ausgefouert\u2026</string>
@@ -267,6 +268,7 @@
   </string-array>
   <!-- Phone settings: Internal keys used for Caller ID preference values.  DO NOT TRANSLATE. -->
   <!-- voicemail setting strings -->
+  <skip></skip>
   <!-- Call settings screen, Set voicemail number dialog text -->
   <string name="vm_changed">Mailbox-Nummer geännert.</string>
   <!-- Call settings screen, Set voicemail number dialog text -->
@@ -282,6 +284,7 @@
   <!-- Call settings screen, "Voicemail" screen, default option - Your Carrier -->
   <string name="voicemail_default">Däi Provider</string>
   <!-- networks setting strings -->
+  <skip></skip>
   <!-- Mobile network settings screen title -->
   <!-- Available networks screen title/heading -->
   <string name="label_available">Disponibel Netzwierker</string>
