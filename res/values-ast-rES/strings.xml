@@ -39,6 +39,7 @@
   <!-- In-call screen: status label for a call that's on hold -->
   <string name="onHold">N\'espera</string>
   <!-- Possible error messages with outgoing calls -->
+  <skip></skip>
   <string name="mmiStarted">Anicióse\'l códigu MMI</string>
   <!-- Dialog label when a USSD code starts running -->
   <string name="ussdRunning">Códigu USSD n\'execución\u2026</string>
@@ -281,6 +282,7 @@
   </string-array>
   <!-- Phone settings: Internal keys used for Caller ID preference values.  DO NOT TRANSLATE. -->
   <!-- voicemail setting strings -->
+  <skip></skip>
   <!-- Call settings screen, Set voicemail number dialog text -->
   <string name="vm_changed">Camudóse\'l númberu del buzón de voz.</string>
   <!-- Call settings screen, Set voicemail number dialog text -->
@@ -308,6 +310,7 @@
   <!-- Error message for the voicemail PIN change if operation has failed -->
   <!-- Message to replace the transcription if a visual voicemail message is not supported-->
   <!-- networks setting strings -->
+  <skip></skip>
   <!-- Mobile network settings screen title -->
   <string name="mobile_networks">Configuración de rede móvil</string>
   <!-- Available networks screen title/heading -->
