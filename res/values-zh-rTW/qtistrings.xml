@@ -35,11 +35,11 @@
   <!-- Title displayed IMS account settings in the sip settings category. [CHAR LIMIT=NONE] -->
   <string name="ims_settings">IMS 設定</string>
   <!-- Label text for PIN entry widget on SIM Network Subset Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ENTRY">SIM 卡網路子集解鎖 PIN</string>
+  <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_ENTRY">SIM 卡網路子集解鎖 PIN 碼</string>
   <!-- Label text for PIN entry widget on SIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_CORPORATE_ENTRY">SIM 卡公司解鎖 PIN</string>
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_ENTRY">SIM 卡業者解鎖 PIN 碼</string>
   <!-- Label text for PIN entry widget on SIM Service Provider Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_ENTRY">SIM 卡服務供應商解鎖 PIN</string>
+  <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_ENTRY">SIM 卡服務供應商解鎖 PIN 碼</string>
   <!-- Label text for PIN entry widget on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_ENTRY">SIM 卡解鎖 PIN碼</string>
   <!-- Label text for PIN entry widget on RUIM Network1 Depersonalization panel -->
@@ -61,7 +61,7 @@
   <!-- Status message displayed on SIM Service Provider Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_IN_PROGRESS">正在請求 SIM 卡服務供應商解鎖\u2026</string>
   <!-- Status message displayed on SIM Corporate Depersonalization panel -->
-  <string name="PERSOSUBSTATE_SIM_CORPORATE_IN_PROGRESS">正在請求 SIM 卡公司解鎖\u2026</string>
+  <string name="PERSOSUBSTATE_SIM_CORPORATE_IN_PROGRESS">正在請求 SIM 卡業者解鎖\u2026</string>
   <!-- Status message displayed on SIM SIM Depersonalization panel -->
   <string name="PERSOSUBSTATE_SIM_SIM_IN_PROGRESS">正在請求 RUIM 解鎖\u2026</string>
   <!-- Status message displayed on RUIM Network1 Depersonalization panel -->

@@ -32,6 +32,7 @@
   <!-- Incoming call screen, string when called from a pay phone -->
   <!-- In-call screen: status label for a call that's on hold -->
   <!-- Possible error messages with outgoing calls -->
+  <skip></skip>
   <!-- Dialog label when a USSD code starts running -->
   <!-- Dialog label when an MMI code is canceled -->
   <!-- Label for "cancel" button on the MMI dialog -->
@@ -168,6 +169,7 @@
   <!-- Phone settings: Caller ID preference values -->
   <!-- Phone settings: Internal keys used for Caller ID preference values.  DO NOT TRANSLATE. -->
   <!-- voicemail setting strings -->
+  <skip></skip>
   <!-- Call settings screen, Set voicemail number dialog text -->
   <!-- Call settings screen, Set voicemail number dialog text -->
   <!-- Call settings screen, displayed when vm provider supplied forwarding number change fails-->
@@ -186,6 +188,7 @@
   <!-- Error message for the voicemail PIN change if operation has failed -->
   <!-- Message to replace the transcription if a visual voicemail message is not supported-->
   <!-- networks setting strings -->
+  <skip></skip>
   <!-- Mobile network settings screen title -->
   <!-- Available networks screen title/heading -->
   <!-- Mobile network settings screen, toast when searching for available networks -->
